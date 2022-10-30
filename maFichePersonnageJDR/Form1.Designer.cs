@@ -30,11 +30,13 @@ namespace maFichePersonnageJDR
         private void InitializeComponent()
         {
             this.btnFormCompAttri = new System.Windows.Forms.Button();
+            this.btnInfosGenerales = new System.Windows.Forms.Button();
+            this.btnTalentEtEquipement = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnFormCompAttri
             // 
-            this.btnFormCompAttri.Location = new System.Drawing.Point(295, 53);
+            this.btnFormCompAttri.Location = new System.Drawing.Point(39, 12);
             this.btnFormCompAttri.Name = "btnFormCompAttri";
             this.btnFormCompAttri.Size = new System.Drawing.Size(142, 23);
             this.btnFormCompAttri.TabIndex = 0;
@@ -42,11 +44,33 @@ namespace maFichePersonnageJDR
             this.btnFormCompAttri.UseVisualStyleBackColor = true;
             this.btnFormCompAttri.Click += new System.EventHandler(this.btnFormCompAttri_Click);
             // 
+            // btnInfosGenerales
+            // 
+            this.btnInfosGenerales.Location = new System.Drawing.Point(39, 64);
+            this.btnInfosGenerales.Name = "btnInfosGenerales";
+            this.btnInfosGenerales.Size = new System.Drawing.Size(142, 23);
+            this.btnInfosGenerales.TabIndex = 1;
+            this.btnInfosGenerales.Text = "Informations générales";
+            this.btnInfosGenerales.UseVisualStyleBackColor = true;
+            this.btnInfosGenerales.Click += new System.EventHandler(this.btnInfosGenerales_Click);
+            // 
+            // btnTalentEtEquipement
+            // 
+            this.btnTalentEtEquipement.Location = new System.Drawing.Point(39, 116);
+            this.btnTalentEtEquipement.Name = "btnTalentEtEquipement";
+            this.btnTalentEtEquipement.Size = new System.Drawing.Size(142, 23);
+            this.btnTalentEtEquipement.TabIndex = 2;
+            this.btnTalentEtEquipement.Text = "Talent et Équipement";
+            this.btnTalentEtEquipement.UseVisualStyleBackColor = true;
+            this.btnTalentEtEquipement.Click += new System.EventHandler(this.btnTalentEtEquipement_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(237, 165);
+            this.Controls.Add(this.btnTalentEtEquipement);
+            this.Controls.Add(this.btnInfosGenerales);
             this.Controls.Add(this.btnFormCompAttri);
             this.Name = "FrmPrincipal";
             this.Text = "Formulaire Principal";
@@ -58,6 +82,8 @@ namespace maFichePersonnageJDR
         #endregion
 
         private System.Windows.Forms.Button btnFormCompAttri;
+        private System.Windows.Forms.Button btnInfosGenerales;
+        private System.Windows.Forms.Button btnTalentEtEquipement;
     }
 }
 

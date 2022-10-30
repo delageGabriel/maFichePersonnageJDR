@@ -95,6 +95,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.txtBoxEnrgie = new System.Windows.Forms.TextBox();
             this.lblAttributs = new System.Windows.Forms.Label();
             this.chckLstAttributs = new System.Windows.Forms.CheckedListBox();
+            this.rchTB = new System.Windows.Forms.RichTextBox();
             this.grpbCompetences.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudVolonte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudVigueur)).BeginInit();
@@ -139,7 +140,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.txtPhysique.Name = "txtPhysique";
             this.txtPhysique.Size = new System.Drawing.Size(47, 20);
             this.txtPhysique.TabIndex = 1;
-            this.txtPhysique.TextChanged += new System.EventHandler(this.txtPhysique_TextChanged);
             // 
             // btnSauvegarder
             // 
@@ -157,7 +157,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.txtMental.Name = "txtMental";
             this.txtMental.Size = new System.Drawing.Size(47, 20);
             this.txtMental.TabIndex = 4;
-            this.txtMental.TextChanged += new System.EventHandler(this.txtMental_TextChanged);
             // 
             // lblMental
             // 
@@ -174,7 +173,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.txtSocial.Name = "txtSocial";
             this.txtSocial.Size = new System.Drawing.Size(47, 20);
             this.txtSocial.TabIndex = 6;
-            this.txtSocial.TextChanged += new System.EventHandler(this.txtSocial_TextChanged);
             // 
             // lblSocial
             // 
@@ -707,7 +705,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // chckLstAttributs
             // 
-            this.chckLstAttributs.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.chckLstAttributs.BackColor = System.Drawing.SystemColors.Window;
             this.chckLstAttributs.FormattingEnabled = true;
             this.chckLstAttributs.HorizontalScrollbar = true;
             this.chckLstAttributs.Location = new System.Drawing.Point(12, 137);
@@ -715,12 +713,22 @@ namespace maFichePersonnageJDR.Formulaires
             this.chckLstAttributs.ScrollAlwaysVisible = true;
             this.chckLstAttributs.Size = new System.Drawing.Size(237, 199);
             this.chckLstAttributs.TabIndex = 14;
+            this.chckLstAttributs.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.SetAttribut);
+            // 
+            // rchTB
+            // 
+            this.rchTB.Location = new System.Drawing.Point(13, 355);
+            this.rchTB.Name = "rchTB";
+            this.rchTB.Size = new System.Drawing.Size(236, 72);
+            this.rchTB.TabIndex = 15;
+            this.rchTB.Text = "";
             // 
             // FormulaireCompAttri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 450);
+            this.Controls.Add(this.rchTB);
             this.Controls.Add(this.chckLstAttributs);
             this.Controls.Add(this.lblAttributs);
             this.Controls.Add(this.txtBoxEnrgie);
@@ -839,5 +847,6 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.TextBox txtBoxEnrgie;
         private System.Windows.Forms.Label lblAttributs;
         private System.Windows.Forms.CheckedListBox chckLstAttributs;
+        private System.Windows.Forms.RichTextBox rchTB;
     }
 }

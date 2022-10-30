@@ -18,6 +18,9 @@ namespace maFichePersonnageJDR.Formulaires
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Obtiens les paramètres utilisateurs
+        /// </summary>
         public void GetSettings()
         {
             txtBoxPV.Text = Properties.Settings.Default.PV;
@@ -53,6 +56,9 @@ namespace maFichePersonnageJDR.Formulaires
             nudVolonte.Value = Properties.Settings.Default.Volonte;
         }
 
+        /// <summary>
+        /// Établi une liste de checkbox
+        /// </summary>
         public void GetAttributs()
         {
                 chckLstAttributs.Items.AddRange(new[] {"Alifère: capacité de voler à x mètres d'altitude", 
@@ -78,14 +84,40 @@ namespace maFichePersonnageJDR.Formulaires
                     "Soif de bataille: plafond supplémentaire de 5% dans une des compétences de combat",
                     "Souffle: la créature est capable de cracher du feu ou n'importe quel autre élément (dégâts non magiques)",
                     "Vague de panique: fais trop peur, les adversaires doivent réussir un jet de Volonté tous les x tour(s) pour agir, mais peuvent toujours esquiver en cas d'échec",
-                    "Voie libre: capacité de déplacement doublée lorsque le terrain est dégagé."});
+                    "Voie libre: capacité de déplacement doublée lorsque le terrain est dégagé."
+                });
         }
+
+        /// <summary>
+        /// Rempli la richtextbox en fonction des attributs cochés
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SetAttribut(object sender, ItemCheckEventArgs e)
+        {
+            if (rchTB.Text != "")
+            {
+                rchTB.Text += ", ";
+            }
+            rchTB.Text += chckLstAttributs.SelectedItem;
+        }
+
+        /// <summary>
+        /// Génère le contenu du formulaire en appelant les deux méthodes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormulaireCompAttri_Load(object sender, EventArgs e)
         {
             GetSettings();
             GetAttributs();
         }
 
+        /// <summary>
+        /// Sauvegarde les paramètres de l'utilisateur lorsque celui-ci clique sur le bouton Sauvegarder
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSauvegarder_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.PV = txtBoxPV.Text;
@@ -121,19 +153,5 @@ namespace maFichePersonnageJDR.Formulaires
             Properties.Settings.Default.Volonte = Convert.ToInt32(nudVolonte.Value);
             Properties.Settings.Default.Save();
         }
-
-        private void txtPhysique_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void txtMental_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void txtSocial_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

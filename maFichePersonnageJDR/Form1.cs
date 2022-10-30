@@ -28,5 +28,17 @@ namespace maFichePersonnageJDR
         {
             
         }
+
+        private void btnInfosGenerales_Click(object sender, EventArgs e)
+        {
+            FormulaireInfosGenerales frmIG = new FormulaireInfosGenerales();
+            frmIG.Show();
+        }
+
+        private void btnTalentEtEquipement_Click(object sender, EventArgs e)
+        {
+            FormulaireTalentsEtObjets frmTO = new FormulaireTalentsEtObjets();
+            frmTO.Show();
+        }
     }
 }

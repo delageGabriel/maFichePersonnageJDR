@@ -73,6 +73,18 @@
     <Compile Include="Formulaires\FormulaireCompAttri.Designer.cs">
       <DependentUpon>FormulaireCompAttri.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formulaires\FormulaireTalentsEtObjets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulaires\FormulaireTalentsEtObjets.Designer.cs">
+      <DependentUpon>FormulaireTalentsEtObjets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulaires\FormulaireInfosGenerales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulaires\FormulaireInfosGenerales.Designer.cs">
+      <DependentUpon>FormulaireInfosGenerales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -80,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formulaires\FormulaireCompAttri.resx">
       <DependentUpon>FormulaireCompAttri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulaires\FormulaireInfosGenerales.resx">
+      <DependentUpon>FormulaireInfosGenerales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
