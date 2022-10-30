@@ -37,6 +37,50 @@ namespace maFichePersonnageJDR.Formulaires
             this.txtSocial = new System.Windows.Forms.TextBox();
             this.lblSocial = new System.Windows.Forms.Label();
             this.grpbCompetences = new System.Windows.Forms.GroupBox();
+            this.nudVolonte = new System.Windows.Forms.NumericUpDown();
+            this.lblVolonte = new System.Windows.Forms.Label();
+            this.nudVigueur = new System.Windows.Forms.NumericUpDown();
+            this.lblVigueur = new System.Windows.Forms.Label();
+            this.nudReflexes = new System.Windows.Forms.NumericUpDown();
+            this.lblReflexes = new System.Windows.Forms.Label();
+            this.nudPsyche = new System.Windows.Forms.NumericUpDown();
+            this.lblPsyche = new System.Windows.Forms.Label();
+            this.nudPersuasion = new System.Windows.Forms.NumericUpDown();
+            this.lblPersuasion = new System.Windows.Forms.Label();
+            this.nudPerspicacite = new System.Windows.Forms.NumericUpDown();
+            this.lblPerspicacite = new System.Windows.Forms.Label();
+            this.nudPerception = new System.Windows.Forms.NumericUpDown();
+            this.lblPerception = new System.Windows.Forms.Label();
+            this.nudNatation = new System.Windows.Forms.NumericUpDown();
+            this.lblNatation = new System.Windows.Forms.Label();
+            this.nudMedecine = new System.Windows.Forms.NumericUpDown();
+            this.lblMedecine = new System.Windows.Forms.Label();
+            this.nudMecanique = new System.Windows.Forms.NumericUpDown();
+            this.lblMecanique = new System.Windows.Forms.Label();
+            this.nudLangages = new System.Windows.Forms.NumericUpDown();
+            this.lblLangages = new System.Windows.Forms.Label();
+            this.nudIntimidation = new System.Windows.Forms.NumericUpDown();
+            this.lblIntimidation = new System.Windows.Forms.Label();
+            this.nudForce = new System.Windows.Forms.NumericUpDown();
+            this.lblForce = new System.Windows.Forms.Label();
+            this.nudExplosifs = new System.Windows.Forms.NumericUpDown();
+            this.lblExplosifs = new System.Windows.Forms.Label();
+            this.nudEscalade = new System.Windows.Forms.NumericUpDown();
+            this.lblEscalade = new System.Windows.Forms.Label();
+            this.nudDiplomatie = new System.Windows.Forms.NumericUpDown();
+            this.lblDiplomatie = new System.Windows.Forms.Label();
+            this.nudCrochetage = new System.Windows.Forms.NumericUpDown();
+            this.lblCrochetage = new System.Windows.Forms.Label();
+            this.nudConnReligieuses = new System.Windows.Forms.NumericUpDown();
+            this.lblConnReligieuses = new System.Windows.Forms.Label();
+            this.nudMagiques = new System.Windows.Forms.NumericUpDown();
+            this.lblConnMagiques = new System.Windows.Forms.Label();
+            this.nudConnHistoriques = new System.Windows.Forms.NumericUpDown();
+            this.lblConnHistoriques = new System.Windows.Forms.Label();
+            this.nudConnGeographiques = new System.Windows.Forms.NumericUpDown();
+            this.lblConnGeographique = new System.Windows.Forms.Label();
+            this.nudBotanique = new System.Windows.Forms.NumericUpDown();
+            this.lblBotanique = new System.Windows.Forms.Label();
             this.nudArtisanat = new System.Windows.Forms.NumericUpDown();
             this.lblArtisanat = new System.Windows.Forms.Label();
             this.nudAnmale = new System.Windows.Forms.NumericUpDown();
@@ -45,87 +89,45 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblAgilite = new System.Windows.Forms.Label();
             this.nudAdresse = new System.Windows.Forms.NumericUpDown();
             this.lblAdresse = new System.Windows.Forms.Label();
-            this.nudBotanique = new System.Windows.Forms.NumericUpDown();
-            this.lblBotanique = new System.Windows.Forms.Label();
-            this.nudConnGeographiques = new System.Windows.Forms.NumericUpDown();
-            this.lblConnGeographique = new System.Windows.Forms.Label();
-            this.nudConnHistoriques = new System.Windows.Forms.NumericUpDown();
-            this.lblConnHistoriques = new System.Windows.Forms.Label();
-            this.nudMagiques = new System.Windows.Forms.NumericUpDown();
-            this.lblConnMagiques = new System.Windows.Forms.Label();
-            this.nudConnReligieuses = new System.Windows.Forms.NumericUpDown();
-            this.lblConnReligieuses = new System.Windows.Forms.Label();
-            this.nudCrochetage = new System.Windows.Forms.NumericUpDown();
-            this.lblCrochetage = new System.Windows.Forms.Label();
-            this.nudDiplomatie = new System.Windows.Forms.NumericUpDown();
-            this.lblDiplomatie = new System.Windows.Forms.Label();
-            this.nudEscalade = new System.Windows.Forms.NumericUpDown();
-            this.lblEscalade = new System.Windows.Forms.Label();
-            this.nudExplosifs = new System.Windows.Forms.NumericUpDown();
-            this.lblExplosifs = new System.Windows.Forms.Label();
-            this.nudForce = new System.Windows.Forms.NumericUpDown();
-            this.lblForce = new System.Windows.Forms.Label();
-            this.nudIntimidation = new System.Windows.Forms.NumericUpDown();
-            this.lblIntimidation = new System.Windows.Forms.Label();
-            this.nudLangages = new System.Windows.Forms.NumericUpDown();
-            this.lblLangages = new System.Windows.Forms.Label();
-            this.nudMecanique = new System.Windows.Forms.NumericUpDown();
-            this.lblMecanique = new System.Windows.Forms.Label();
-            this.nudMedecine = new System.Windows.Forms.NumericUpDown();
-            this.lblMedecine = new System.Windows.Forms.Label();
-            this.nudNatation = new System.Windows.Forms.NumericUpDown();
-            this.lblNatation = new System.Windows.Forms.Label();
-            this.nudPerception = new System.Windows.Forms.NumericUpDown();
-            this.lblPerception = new System.Windows.Forms.Label();
-            this.nudPerspicacite = new System.Windows.Forms.NumericUpDown();
-            this.lblPerspicacite = new System.Windows.Forms.Label();
-            this.nudPersuasion = new System.Windows.Forms.NumericUpDown();
-            this.lblPersuasion = new System.Windows.Forms.Label();
-            this.nudPsyche = new System.Windows.Forms.NumericUpDown();
-            this.lblPsyche = new System.Windows.Forms.Label();
-            this.nudReflexes = new System.Windows.Forms.NumericUpDown();
-            this.lblReflexes = new System.Windows.Forms.Label();
-            this.nudVigueur = new System.Windows.Forms.NumericUpDown();
-            this.lblVigueur = new System.Windows.Forms.Label();
-            this.nudVolonte = new System.Windows.Forms.NumericUpDown();
-            this.lblVolonte = new System.Windows.Forms.Label();
             this.lblPV = new System.Windows.Forms.Label();
             this.lblEnergie = new System.Windows.Forms.Label();
             this.txtBoxPV = new System.Windows.Forms.TextBox();
             this.txtBoxEnrgie = new System.Windows.Forms.TextBox();
+            this.lblAttributs = new System.Windows.Forms.Label();
+            this.chckLstAttributs = new System.Windows.Forms.CheckedListBox();
             this.grpbCompetences.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudVolonte)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudVigueur)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudReflexes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPsyche)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPersuasion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPerspicacite)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPerception)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNatation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMedecine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMecanique)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudLangages)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudIntimidation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudForce)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudExplosifs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEscalade)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDiplomatie)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCrochetage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudConnReligieuses)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMagiques)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudConnHistoriques)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudConnGeographiques)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudBotanique)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudArtisanat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAnmale)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAgilite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdresse)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudBotanique)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudConnGeographiques)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudConnHistoriques)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMagiques)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudConnReligieuses)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCrochetage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDiplomatie)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudEscalade)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudExplosifs)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudForce)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudIntimidation)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudLangages)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMecanique)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMedecine)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudNatation)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPerception)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPerspicacite)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPersuasion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPsyche)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudReflexes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudVigueur)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudVolonte)).BeginInit();
             this.SuspendLayout();
             // 
             // lblPhysique
             // 
             this.lblPhysique.AutoSize = true;
-            this.lblPhysique.Location = new System.Drawing.Point(19, 70);
+            this.lblPhysique.Location = new System.Drawing.Point(52, 66);
             this.lblPhysique.Name = "lblPhysique";
             this.lblPhysique.Size = new System.Drawing.Size(50, 13);
             this.lblPhysique.TabIndex = 0;
@@ -133,7 +135,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // txtPhysique
             // 
-            this.txtPhysique.Location = new System.Drawing.Point(22, 93);
+            this.txtPhysique.Location = new System.Drawing.Point(55, 89);
             this.txtPhysique.Name = "txtPhysique";
             this.txtPhysique.Size = new System.Drawing.Size(47, 20);
             this.txtPhysique.TabIndex = 1;
@@ -141,7 +143,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // btnSauvegarder
             // 
-            this.btnSauvegarder.Location = new System.Drawing.Point(22, 228);
+            this.btnSauvegarder.Location = new System.Drawing.Point(275, 404);
             this.btnSauvegarder.Name = "btnSauvegarder";
             this.btnSauvegarder.Size = new System.Drawing.Size(75, 23);
             this.btnSauvegarder.TabIndex = 2;
@@ -151,7 +153,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // txtMental
             // 
-            this.txtMental.Location = new System.Drawing.Point(73, 93);
+            this.txtMental.Location = new System.Drawing.Point(106, 89);
             this.txtMental.Name = "txtMental";
             this.txtMental.Size = new System.Drawing.Size(47, 20);
             this.txtMental.TabIndex = 4;
@@ -160,7 +162,7 @@ namespace maFichePersonnageJDR.Formulaires
             // lblMental
             // 
             this.lblMental.AutoSize = true;
-            this.lblMental.Location = new System.Drawing.Point(77, 70);
+            this.lblMental.Location = new System.Drawing.Point(110, 66);
             this.lblMental.Name = "lblMental";
             this.lblMental.Size = new System.Drawing.Size(39, 13);
             this.lblMental.TabIndex = 3;
@@ -168,7 +170,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // txtSocial
             // 
-            this.txtSocial.Location = new System.Drawing.Point(126, 93);
+            this.txtSocial.Location = new System.Drawing.Point(159, 89);
             this.txtSocial.Name = "txtSocial";
             this.txtSocial.Size = new System.Drawing.Size(47, 20);
             this.txtSocial.TabIndex = 6;
@@ -177,7 +179,7 @@ namespace maFichePersonnageJDR.Formulaires
             // lblSocial
             // 
             this.lblSocial.AutoSize = true;
-            this.lblSocial.Location = new System.Drawing.Point(129, 70);
+            this.lblSocial.Location = new System.Drawing.Point(162, 66);
             this.lblSocial.Name = "lblSocial";
             this.lblSocial.Size = new System.Drawing.Size(36, 13);
             this.lblSocial.TabIndex = 5;
@@ -238,12 +240,364 @@ namespace maFichePersonnageJDR.Formulaires
             this.grpbCompetences.Controls.Add(this.lblAgilite);
             this.grpbCompetences.Controls.Add(this.nudAdresse);
             this.grpbCompetences.Controls.Add(this.lblAdresse);
-            this.grpbCompetences.Location = new System.Drawing.Point(225, 12);
+            this.grpbCompetences.Location = new System.Drawing.Point(266, 12);
             this.grpbCompetences.Name = "grpbCompetences";
             this.grpbCompetences.Size = new System.Drawing.Size(391, 372);
             this.grpbCompetences.TabIndex = 7;
             this.grpbCompetences.TabStop = false;
             this.grpbCompetences.Text = "Compétences";
+            // 
+            // nudVolonte
+            // 
+            this.nudVolonte.Location = new System.Drawing.Point(301, 285);
+            this.nudVolonte.Name = "nudVolonte";
+            this.nudVolonte.Size = new System.Drawing.Size(41, 20);
+            this.nudVolonte.TabIndex = 51;
+            // 
+            // lblVolonte
+            // 
+            this.lblVolonte.AutoSize = true;
+            this.lblVolonte.Location = new System.Drawing.Point(224, 287);
+            this.lblVolonte.Name = "lblVolonte";
+            this.lblVolonte.Size = new System.Drawing.Size(43, 13);
+            this.lblVolonte.TabIndex = 50;
+            this.lblVolonte.Text = "Volonté";
+            // 
+            // nudVigueur
+            // 
+            this.nudVigueur.Location = new System.Drawing.Point(301, 262);
+            this.nudVigueur.Name = "nudVigueur";
+            this.nudVigueur.Size = new System.Drawing.Size(41, 20);
+            this.nudVigueur.TabIndex = 49;
+            // 
+            // lblVigueur
+            // 
+            this.lblVigueur.AutoSize = true;
+            this.lblVigueur.Location = new System.Drawing.Point(224, 264);
+            this.lblVigueur.Name = "lblVigueur";
+            this.lblVigueur.Size = new System.Drawing.Size(43, 13);
+            this.lblVigueur.TabIndex = 48;
+            this.lblVigueur.Text = "Vigueur";
+            // 
+            // nudReflexes
+            // 
+            this.nudReflexes.Location = new System.Drawing.Point(301, 239);
+            this.nudReflexes.Name = "nudReflexes";
+            this.nudReflexes.Size = new System.Drawing.Size(41, 20);
+            this.nudReflexes.TabIndex = 47;
+            // 
+            // lblReflexes
+            // 
+            this.lblReflexes.AutoSize = true;
+            this.lblReflexes.Location = new System.Drawing.Point(224, 241);
+            this.lblReflexes.Name = "lblReflexes";
+            this.lblReflexes.Size = new System.Drawing.Size(48, 13);
+            this.lblReflexes.TabIndex = 46;
+            this.lblReflexes.Text = "Réflexes";
+            // 
+            // nudPsyche
+            // 
+            this.nudPsyche.Location = new System.Drawing.Point(301, 216);
+            this.nudPsyche.Name = "nudPsyche";
+            this.nudPsyche.Size = new System.Drawing.Size(41, 20);
+            this.nudPsyche.TabIndex = 45;
+            // 
+            // lblPsyche
+            // 
+            this.lblPsyche.AutoSize = true;
+            this.lblPsyche.Location = new System.Drawing.Point(224, 218);
+            this.lblPsyche.Name = "lblPsyche";
+            this.lblPsyche.Size = new System.Drawing.Size(42, 13);
+            this.lblPsyche.TabIndex = 44;
+            this.lblPsyche.Text = "Psyché";
+            // 
+            // nudPersuasion
+            // 
+            this.nudPersuasion.Location = new System.Drawing.Point(301, 194);
+            this.nudPersuasion.Name = "nudPersuasion";
+            this.nudPersuasion.Size = new System.Drawing.Size(41, 20);
+            this.nudPersuasion.TabIndex = 43;
+            // 
+            // lblPersuasion
+            // 
+            this.lblPersuasion.AutoSize = true;
+            this.lblPersuasion.Location = new System.Drawing.Point(224, 196);
+            this.lblPersuasion.Name = "lblPersuasion";
+            this.lblPersuasion.Size = new System.Drawing.Size(59, 13);
+            this.lblPersuasion.TabIndex = 42;
+            this.lblPersuasion.Text = "Persuasion";
+            // 
+            // nudPerspicacite
+            // 
+            this.nudPerspicacite.Location = new System.Drawing.Point(301, 171);
+            this.nudPerspicacite.Name = "nudPerspicacite";
+            this.nudPerspicacite.Size = new System.Drawing.Size(41, 20);
+            this.nudPerspicacite.TabIndex = 41;
+            // 
+            // lblPerspicacite
+            // 
+            this.lblPerspicacite.AutoSize = true;
+            this.lblPerspicacite.Location = new System.Drawing.Point(224, 173);
+            this.lblPerspicacite.Name = "lblPerspicacite";
+            this.lblPerspicacite.Size = new System.Drawing.Size(65, 13);
+            this.lblPerspicacite.TabIndex = 40;
+            this.lblPerspicacite.Text = "Perspicacité";
+            // 
+            // nudPerception
+            // 
+            this.nudPerception.Location = new System.Drawing.Point(301, 147);
+            this.nudPerception.Name = "nudPerception";
+            this.nudPerception.Size = new System.Drawing.Size(41, 20);
+            this.nudPerception.TabIndex = 39;
+            // 
+            // lblPerception
+            // 
+            this.lblPerception.AutoSize = true;
+            this.lblPerception.Location = new System.Drawing.Point(224, 149);
+            this.lblPerception.Name = "lblPerception";
+            this.lblPerception.Size = new System.Drawing.Size(58, 13);
+            this.lblPerception.TabIndex = 38;
+            this.lblPerception.Text = "Perception";
+            // 
+            // nudNatation
+            // 
+            this.nudNatation.Location = new System.Drawing.Point(301, 124);
+            this.nudNatation.Name = "nudNatation";
+            this.nudNatation.Size = new System.Drawing.Size(41, 20);
+            this.nudNatation.TabIndex = 37;
+            // 
+            // lblNatation
+            // 
+            this.lblNatation.AutoSize = true;
+            this.lblNatation.Location = new System.Drawing.Point(224, 128);
+            this.lblNatation.Name = "lblNatation";
+            this.lblNatation.Size = new System.Drawing.Size(47, 13);
+            this.lblNatation.TabIndex = 36;
+            this.lblNatation.Text = "Natation";
+            // 
+            // nudMedecine
+            // 
+            this.nudMedecine.Location = new System.Drawing.Point(301, 101);
+            this.nudMedecine.Name = "nudMedecine";
+            this.nudMedecine.Size = new System.Drawing.Size(41, 20);
+            this.nudMedecine.TabIndex = 35;
+            // 
+            // lblMedecine
+            // 
+            this.lblMedecine.AutoSize = true;
+            this.lblMedecine.Location = new System.Drawing.Point(224, 104);
+            this.lblMedecine.Name = "lblMedecine";
+            this.lblMedecine.Size = new System.Drawing.Size(54, 13);
+            this.lblMedecine.TabIndex = 34;
+            this.lblMedecine.Text = "Médecine";
+            // 
+            // nudMecanique
+            // 
+            this.nudMecanique.Location = new System.Drawing.Point(301, 79);
+            this.nudMecanique.Name = "nudMecanique";
+            this.nudMecanique.Size = new System.Drawing.Size(41, 20);
+            this.nudMecanique.TabIndex = 33;
+            // 
+            // lblMecanique
+            // 
+            this.lblMecanique.AutoSize = true;
+            this.lblMecanique.Location = new System.Drawing.Point(224, 81);
+            this.lblMecanique.Name = "lblMecanique";
+            this.lblMecanique.Size = new System.Drawing.Size(60, 13);
+            this.lblMecanique.TabIndex = 32;
+            this.lblMecanique.Text = "Mécanique";
+            // 
+            // nudLangages
+            // 
+            this.nudLangages.Location = new System.Drawing.Point(301, 58);
+            this.nudLangages.Name = "nudLangages";
+            this.nudLangages.Size = new System.Drawing.Size(41, 20);
+            this.nudLangages.TabIndex = 31;
+            // 
+            // lblLangages
+            // 
+            this.lblLangages.AutoSize = true;
+            this.lblLangages.Location = new System.Drawing.Point(224, 60);
+            this.lblLangages.Name = "lblLangages";
+            this.lblLangages.Size = new System.Drawing.Size(54, 13);
+            this.lblLangages.TabIndex = 30;
+            this.lblLangages.Text = "Langages";
+            // 
+            // nudIntimidation
+            // 
+            this.nudIntimidation.Location = new System.Drawing.Point(301, 35);
+            this.nudIntimidation.Name = "nudIntimidation";
+            this.nudIntimidation.Size = new System.Drawing.Size(41, 20);
+            this.nudIntimidation.TabIndex = 29;
+            // 
+            // lblIntimidation
+            // 
+            this.lblIntimidation.AutoSize = true;
+            this.lblIntimidation.Location = new System.Drawing.Point(224, 37);
+            this.lblIntimidation.Name = "lblIntimidation";
+            this.lblIntimidation.Size = new System.Drawing.Size(60, 13);
+            this.lblIntimidation.TabIndex = 28;
+            this.lblIntimidation.Text = "Intimidation";
+            // 
+            // nudForce
+            // 
+            this.nudForce.Location = new System.Drawing.Point(164, 331);
+            this.nudForce.Name = "nudForce";
+            this.nudForce.Size = new System.Drawing.Size(41, 20);
+            this.nudForce.TabIndex = 27;
+            // 
+            // lblForce
+            // 
+            this.lblForce.AutoSize = true;
+            this.lblForce.Location = new System.Drawing.Point(6, 333);
+            this.lblForce.Name = "lblForce";
+            this.lblForce.Size = new System.Drawing.Size(34, 13);
+            this.lblForce.TabIndex = 26;
+            this.lblForce.Text = "Force";
+            // 
+            // nudExplosifs
+            // 
+            this.nudExplosifs.Location = new System.Drawing.Point(164, 308);
+            this.nudExplosifs.Name = "nudExplosifs";
+            this.nudExplosifs.Size = new System.Drawing.Size(41, 20);
+            this.nudExplosifs.TabIndex = 25;
+            // 
+            // lblExplosifs
+            // 
+            this.lblExplosifs.AutoSize = true;
+            this.lblExplosifs.Location = new System.Drawing.Point(6, 310);
+            this.lblExplosifs.Name = "lblExplosifs";
+            this.lblExplosifs.Size = new System.Drawing.Size(48, 13);
+            this.lblExplosifs.TabIndex = 24;
+            this.lblExplosifs.Text = "Explosifs";
+            // 
+            // nudEscalade
+            // 
+            this.nudEscalade.Location = new System.Drawing.Point(164, 285);
+            this.nudEscalade.Name = "nudEscalade";
+            this.nudEscalade.Size = new System.Drawing.Size(41, 20);
+            this.nudEscalade.TabIndex = 23;
+            // 
+            // lblEscalade
+            // 
+            this.lblEscalade.AutoSize = true;
+            this.lblEscalade.Location = new System.Drawing.Point(6, 287);
+            this.lblEscalade.Name = "lblEscalade";
+            this.lblEscalade.Size = new System.Drawing.Size(51, 13);
+            this.lblEscalade.TabIndex = 22;
+            this.lblEscalade.Text = "Escalade";
+            // 
+            // nudDiplomatie
+            // 
+            this.nudDiplomatie.Location = new System.Drawing.Point(164, 262);
+            this.nudDiplomatie.Name = "nudDiplomatie";
+            this.nudDiplomatie.Size = new System.Drawing.Size(41, 20);
+            this.nudDiplomatie.TabIndex = 21;
+            // 
+            // lblDiplomatie
+            // 
+            this.lblDiplomatie.AutoSize = true;
+            this.lblDiplomatie.Location = new System.Drawing.Point(6, 264);
+            this.lblDiplomatie.Name = "lblDiplomatie";
+            this.lblDiplomatie.Size = new System.Drawing.Size(56, 13);
+            this.lblDiplomatie.TabIndex = 20;
+            this.lblDiplomatie.Text = "Diplomatie";
+            // 
+            // nudCrochetage
+            // 
+            this.nudCrochetage.Location = new System.Drawing.Point(164, 239);
+            this.nudCrochetage.Name = "nudCrochetage";
+            this.nudCrochetage.Size = new System.Drawing.Size(41, 20);
+            this.nudCrochetage.TabIndex = 19;
+            // 
+            // lblCrochetage
+            // 
+            this.lblCrochetage.AutoSize = true;
+            this.lblCrochetage.Location = new System.Drawing.Point(6, 241);
+            this.lblCrochetage.Name = "lblCrochetage";
+            this.lblCrochetage.Size = new System.Drawing.Size(62, 13);
+            this.lblCrochetage.TabIndex = 18;
+            this.lblCrochetage.Text = "Crochetage";
+            // 
+            // nudConnReligieuses
+            // 
+            this.nudConnReligieuses.Location = new System.Drawing.Point(164, 216);
+            this.nudConnReligieuses.Name = "nudConnReligieuses";
+            this.nudConnReligieuses.Size = new System.Drawing.Size(41, 20);
+            this.nudConnReligieuses.TabIndex = 17;
+            // 
+            // lblConnReligieuses
+            // 
+            this.lblConnReligieuses.AutoSize = true;
+            this.lblConnReligieuses.Location = new System.Drawing.Point(6, 218);
+            this.lblConnReligieuses.Name = "lblConnReligieuses";
+            this.lblConnReligieuses.Size = new System.Drawing.Size(131, 13);
+            this.lblConnReligieuses.TabIndex = 16;
+            this.lblConnReligieuses.Text = "Connaissances religieuses";
+            // 
+            // nudMagiques
+            // 
+            this.nudMagiques.Location = new System.Drawing.Point(164, 194);
+            this.nudMagiques.Name = "nudMagiques";
+            this.nudMagiques.Size = new System.Drawing.Size(41, 20);
+            this.nudMagiques.TabIndex = 15;
+            // 
+            // lblConnMagiques
+            // 
+            this.lblConnMagiques.AutoSize = true;
+            this.lblConnMagiques.Location = new System.Drawing.Point(6, 196);
+            this.lblConnMagiques.Name = "lblConnMagiques";
+            this.lblConnMagiques.Size = new System.Drawing.Size(127, 13);
+            this.lblConnMagiques.TabIndex = 14;
+            this.lblConnMagiques.Text = "Connaissances magiques";
+            // 
+            // nudConnHistoriques
+            // 
+            this.nudConnHistoriques.Location = new System.Drawing.Point(164, 171);
+            this.nudConnHistoriques.Name = "nudConnHistoriques";
+            this.nudConnHistoriques.Size = new System.Drawing.Size(41, 20);
+            this.nudConnHistoriques.TabIndex = 13;
+            // 
+            // lblConnHistoriques
+            // 
+            this.lblConnHistoriques.AutoSize = true;
+            this.lblConnHistoriques.Location = new System.Drawing.Point(6, 173);
+            this.lblConnHistoriques.Name = "lblConnHistoriques";
+            this.lblConnHistoriques.Size = new System.Drawing.Size(132, 13);
+            this.lblConnHistoriques.TabIndex = 12;
+            this.lblConnHistoriques.Text = "Connaissances historiques";
+            // 
+            // nudConnGeographiques
+            // 
+            this.nudConnGeographiques.Location = new System.Drawing.Point(164, 147);
+            this.nudConnGeographiques.Name = "nudConnGeographiques";
+            this.nudConnGeographiques.Size = new System.Drawing.Size(41, 20);
+            this.nudConnGeographiques.TabIndex = 11;
+            // 
+            // lblConnGeographique
+            // 
+            this.lblConnGeographique.AutoSize = true;
+            this.lblConnGeographique.Location = new System.Drawing.Point(6, 149);
+            this.lblConnGeographique.Name = "lblConnGeographique";
+            this.lblConnGeographique.Size = new System.Drawing.Size(152, 13);
+            this.lblConnGeographique.TabIndex = 10;
+            this.lblConnGeographique.Text = "Connaissances géographiques";
+            // 
+            // nudBotanique
+            // 
+            this.nudBotanique.Location = new System.Drawing.Point(164, 125);
+            this.nudBotanique.Name = "nudBotanique";
+            this.nudBotanique.Size = new System.Drawing.Size(41, 20);
+            this.nudBotanique.TabIndex = 9;
+            // 
+            // lblBotanique
+            // 
+            this.lblBotanique.AutoSize = true;
+            this.lblBotanique.Location = new System.Drawing.Point(6, 128);
+            this.lblBotanique.Name = "lblBotanique";
+            this.lblBotanique.Size = new System.Drawing.Size(55, 13);
+            this.lblBotanique.TabIndex = 8;
+            this.lblBotanique.Text = "Botanique";
             // 
             // nudArtisanat
             // 
@@ -309,362 +663,10 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblAdresse.TabIndex = 0;
             this.lblAdresse.Text = "Adresse";
             // 
-            // nudBotanique
-            // 
-            this.nudBotanique.Location = new System.Drawing.Point(164, 125);
-            this.nudBotanique.Name = "nudBotanique";
-            this.nudBotanique.Size = new System.Drawing.Size(41, 20);
-            this.nudBotanique.TabIndex = 9;
-            // 
-            // lblBotanique
-            // 
-            this.lblBotanique.AutoSize = true;
-            this.lblBotanique.Location = new System.Drawing.Point(6, 128);
-            this.lblBotanique.Name = "lblBotanique";
-            this.lblBotanique.Size = new System.Drawing.Size(55, 13);
-            this.lblBotanique.TabIndex = 8;
-            this.lblBotanique.Text = "Botanique";
-            // 
-            // nudConnGeographiques
-            // 
-            this.nudConnGeographiques.Location = new System.Drawing.Point(164, 147);
-            this.nudConnGeographiques.Name = "nudConnGeographiques";
-            this.nudConnGeographiques.Size = new System.Drawing.Size(41, 20);
-            this.nudConnGeographiques.TabIndex = 11;
-            // 
-            // lblConnGeographique
-            // 
-            this.lblConnGeographique.AutoSize = true;
-            this.lblConnGeographique.Location = new System.Drawing.Point(6, 149);
-            this.lblConnGeographique.Name = "lblConnGeographique";
-            this.lblConnGeographique.Size = new System.Drawing.Size(152, 13);
-            this.lblConnGeographique.TabIndex = 10;
-            this.lblConnGeographique.Text = "Connaissances géographiques";
-            // 
-            // nudConnHistoriques
-            // 
-            this.nudConnHistoriques.Location = new System.Drawing.Point(164, 171);
-            this.nudConnHistoriques.Name = "nudConnHistoriques";
-            this.nudConnHistoriques.Size = new System.Drawing.Size(41, 20);
-            this.nudConnHistoriques.TabIndex = 13;
-            // 
-            // lblConnHistoriques
-            // 
-            this.lblConnHistoriques.AutoSize = true;
-            this.lblConnHistoriques.Location = new System.Drawing.Point(6, 173);
-            this.lblConnHistoriques.Name = "lblConnHistoriques";
-            this.lblConnHistoriques.Size = new System.Drawing.Size(132, 13);
-            this.lblConnHistoriques.TabIndex = 12;
-            this.lblConnHistoriques.Text = "Connaissances historiques";
-            // 
-            // nudMagiques
-            // 
-            this.nudMagiques.Location = new System.Drawing.Point(164, 194);
-            this.nudMagiques.Name = "nudMagiques";
-            this.nudMagiques.Size = new System.Drawing.Size(41, 20);
-            this.nudMagiques.TabIndex = 15;
-            // 
-            // lblConnMagiques
-            // 
-            this.lblConnMagiques.AutoSize = true;
-            this.lblConnMagiques.Location = new System.Drawing.Point(6, 196);
-            this.lblConnMagiques.Name = "lblConnMagiques";
-            this.lblConnMagiques.Size = new System.Drawing.Size(127, 13);
-            this.lblConnMagiques.TabIndex = 14;
-            this.lblConnMagiques.Text = "Connaissances magiques";
-            // 
-            // nudConnReligieuses
-            // 
-            this.nudConnReligieuses.Location = new System.Drawing.Point(164, 216);
-            this.nudConnReligieuses.Name = "nudConnReligieuses";
-            this.nudConnReligieuses.Size = new System.Drawing.Size(41, 20);
-            this.nudConnReligieuses.TabIndex = 17;
-            // 
-            // lblConnReligieuses
-            // 
-            this.lblConnReligieuses.AutoSize = true;
-            this.lblConnReligieuses.Location = new System.Drawing.Point(6, 218);
-            this.lblConnReligieuses.Name = "lblConnReligieuses";
-            this.lblConnReligieuses.Size = new System.Drawing.Size(131, 13);
-            this.lblConnReligieuses.TabIndex = 16;
-            this.lblConnReligieuses.Text = "Connaissances religieuses";
-            // 
-            // nudCrochetage
-            // 
-            this.nudCrochetage.Location = new System.Drawing.Point(164, 239);
-            this.nudCrochetage.Name = "nudCrochetage";
-            this.nudCrochetage.Size = new System.Drawing.Size(41, 20);
-            this.nudCrochetage.TabIndex = 19;
-            // 
-            // lblCrochetage
-            // 
-            this.lblCrochetage.AutoSize = true;
-            this.lblCrochetage.Location = new System.Drawing.Point(6, 241);
-            this.lblCrochetage.Name = "lblCrochetage";
-            this.lblCrochetage.Size = new System.Drawing.Size(62, 13);
-            this.lblCrochetage.TabIndex = 18;
-            this.lblCrochetage.Text = "Crochetage";
-            // 
-            // nudDiplomatie
-            // 
-            this.nudDiplomatie.Location = new System.Drawing.Point(164, 262);
-            this.nudDiplomatie.Name = "nudDiplomatie";
-            this.nudDiplomatie.Size = new System.Drawing.Size(41, 20);
-            this.nudDiplomatie.TabIndex = 21;
-            // 
-            // lblDiplomatie
-            // 
-            this.lblDiplomatie.AutoSize = true;
-            this.lblDiplomatie.Location = new System.Drawing.Point(6, 264);
-            this.lblDiplomatie.Name = "lblDiplomatie";
-            this.lblDiplomatie.Size = new System.Drawing.Size(56, 13);
-            this.lblDiplomatie.TabIndex = 20;
-            this.lblDiplomatie.Text = "Diplomatie";
-            // 
-            // nudEscalade
-            // 
-            this.nudEscalade.Location = new System.Drawing.Point(164, 285);
-            this.nudEscalade.Name = "nudEscalade";
-            this.nudEscalade.Size = new System.Drawing.Size(41, 20);
-            this.nudEscalade.TabIndex = 23;
-            // 
-            // lblEscalade
-            // 
-            this.lblEscalade.AutoSize = true;
-            this.lblEscalade.Location = new System.Drawing.Point(6, 287);
-            this.lblEscalade.Name = "lblEscalade";
-            this.lblEscalade.Size = new System.Drawing.Size(51, 13);
-            this.lblEscalade.TabIndex = 22;
-            this.lblEscalade.Text = "Escalade";
-            // 
-            // nudExplosifs
-            // 
-            this.nudExplosifs.Location = new System.Drawing.Point(164, 308);
-            this.nudExplosifs.Name = "nudExplosifs";
-            this.nudExplosifs.Size = new System.Drawing.Size(41, 20);
-            this.nudExplosifs.TabIndex = 25;
-            // 
-            // lblExplosifs
-            // 
-            this.lblExplosifs.AutoSize = true;
-            this.lblExplosifs.Location = new System.Drawing.Point(6, 310);
-            this.lblExplosifs.Name = "lblExplosifs";
-            this.lblExplosifs.Size = new System.Drawing.Size(48, 13);
-            this.lblExplosifs.TabIndex = 24;
-            this.lblExplosifs.Text = "Explosifs";
-            // 
-            // nudForce
-            // 
-            this.nudForce.Location = new System.Drawing.Point(164, 331);
-            this.nudForce.Name = "nudForce";
-            this.nudForce.Size = new System.Drawing.Size(41, 20);
-            this.nudForce.TabIndex = 27;
-            // 
-            // lblForce
-            // 
-            this.lblForce.AutoSize = true;
-            this.lblForce.Location = new System.Drawing.Point(6, 333);
-            this.lblForce.Name = "lblForce";
-            this.lblForce.Size = new System.Drawing.Size(34, 13);
-            this.lblForce.TabIndex = 26;
-            this.lblForce.Text = "Force";
-            // 
-            // nudIntimidation
-            // 
-            this.nudIntimidation.Location = new System.Drawing.Point(301, 35);
-            this.nudIntimidation.Name = "nudIntimidation";
-            this.nudIntimidation.Size = new System.Drawing.Size(41, 20);
-            this.nudIntimidation.TabIndex = 29;
-            // 
-            // lblIntimidation
-            // 
-            this.lblIntimidation.AutoSize = true;
-            this.lblIntimidation.Location = new System.Drawing.Point(224, 37);
-            this.lblIntimidation.Name = "lblIntimidation";
-            this.lblIntimidation.Size = new System.Drawing.Size(60, 13);
-            this.lblIntimidation.TabIndex = 28;
-            this.lblIntimidation.Text = "Intimidation";
-            // 
-            // nudLangages
-            // 
-            this.nudLangages.Location = new System.Drawing.Point(301, 58);
-            this.nudLangages.Name = "nudLangages";
-            this.nudLangages.Size = new System.Drawing.Size(41, 20);
-            this.nudLangages.TabIndex = 31;
-            // 
-            // lblLangages
-            // 
-            this.lblLangages.AutoSize = true;
-            this.lblLangages.Location = new System.Drawing.Point(224, 60);
-            this.lblLangages.Name = "lblLangages";
-            this.lblLangages.Size = new System.Drawing.Size(54, 13);
-            this.lblLangages.TabIndex = 30;
-            this.lblLangages.Text = "Langages";
-            // 
-            // nudMecanique
-            // 
-            this.nudMecanique.Location = new System.Drawing.Point(301, 79);
-            this.nudMecanique.Name = "nudMecanique";
-            this.nudMecanique.Size = new System.Drawing.Size(41, 20);
-            this.nudMecanique.TabIndex = 33;
-            // 
-            // lblMecanique
-            // 
-            this.lblMecanique.AutoSize = true;
-            this.lblMecanique.Location = new System.Drawing.Point(224, 81);
-            this.lblMecanique.Name = "lblMecanique";
-            this.lblMecanique.Size = new System.Drawing.Size(60, 13);
-            this.lblMecanique.TabIndex = 32;
-            this.lblMecanique.Text = "Mécanique";
-            // 
-            // nudMedecine
-            // 
-            this.nudMedecine.Location = new System.Drawing.Point(301, 101);
-            this.nudMedecine.Name = "nudMedecine";
-            this.nudMedecine.Size = new System.Drawing.Size(41, 20);
-            this.nudMedecine.TabIndex = 35;
-            // 
-            // lblMedecine
-            // 
-            this.lblMedecine.AutoSize = true;
-            this.lblMedecine.Location = new System.Drawing.Point(224, 104);
-            this.lblMedecine.Name = "lblMedecine";
-            this.lblMedecine.Size = new System.Drawing.Size(54, 13);
-            this.lblMedecine.TabIndex = 34;
-            this.lblMedecine.Text = "Médecine";
-            // 
-            // nudNatation
-            // 
-            this.nudNatation.Location = new System.Drawing.Point(301, 124);
-            this.nudNatation.Name = "nudNatation";
-            this.nudNatation.Size = new System.Drawing.Size(41, 20);
-            this.nudNatation.TabIndex = 37;
-            // 
-            // lblNatation
-            // 
-            this.lblNatation.AutoSize = true;
-            this.lblNatation.Location = new System.Drawing.Point(224, 128);
-            this.lblNatation.Name = "lblNatation";
-            this.lblNatation.Size = new System.Drawing.Size(47, 13);
-            this.lblNatation.TabIndex = 36;
-            this.lblNatation.Text = "Natation";
-            // 
-            // nudPerception
-            // 
-            this.nudPerception.Location = new System.Drawing.Point(301, 147);
-            this.nudPerception.Name = "nudPerception";
-            this.nudPerception.Size = new System.Drawing.Size(41, 20);
-            this.nudPerception.TabIndex = 39;
-            // 
-            // lblPerception
-            // 
-            this.lblPerception.AutoSize = true;
-            this.lblPerception.Location = new System.Drawing.Point(224, 149);
-            this.lblPerception.Name = "lblPerception";
-            this.lblPerception.Size = new System.Drawing.Size(58, 13);
-            this.lblPerception.TabIndex = 38;
-            this.lblPerception.Text = "Perception";
-            // 
-            // nudPerspicacite
-            // 
-            this.nudPerspicacite.Location = new System.Drawing.Point(301, 171);
-            this.nudPerspicacite.Name = "nudPerspicacite";
-            this.nudPerspicacite.Size = new System.Drawing.Size(41, 20);
-            this.nudPerspicacite.TabIndex = 41;
-            // 
-            // lblPerspicacite
-            // 
-            this.lblPerspicacite.AutoSize = true;
-            this.lblPerspicacite.Location = new System.Drawing.Point(224, 173);
-            this.lblPerspicacite.Name = "lblPerspicacite";
-            this.lblPerspicacite.Size = new System.Drawing.Size(65, 13);
-            this.lblPerspicacite.TabIndex = 40;
-            this.lblPerspicacite.Text = "Perspicacité";
-            // 
-            // nudPersuasion
-            // 
-            this.nudPersuasion.Location = new System.Drawing.Point(301, 194);
-            this.nudPersuasion.Name = "nudPersuasion";
-            this.nudPersuasion.Size = new System.Drawing.Size(41, 20);
-            this.nudPersuasion.TabIndex = 43;
-            // 
-            // lblPersuasion
-            // 
-            this.lblPersuasion.AutoSize = true;
-            this.lblPersuasion.Location = new System.Drawing.Point(224, 196);
-            this.lblPersuasion.Name = "lblPersuasion";
-            this.lblPersuasion.Size = new System.Drawing.Size(59, 13);
-            this.lblPersuasion.TabIndex = 42;
-            this.lblPersuasion.Text = "Persuasion";
-            // 
-            // nudPsyche
-            // 
-            this.nudPsyche.Location = new System.Drawing.Point(301, 216);
-            this.nudPsyche.Name = "nudPsyche";
-            this.nudPsyche.Size = new System.Drawing.Size(41, 20);
-            this.nudPsyche.TabIndex = 45;
-            // 
-            // lblPsyche
-            // 
-            this.lblPsyche.AutoSize = true;
-            this.lblPsyche.Location = new System.Drawing.Point(224, 218);
-            this.lblPsyche.Name = "lblPsyche";
-            this.lblPsyche.Size = new System.Drawing.Size(42, 13);
-            this.lblPsyche.TabIndex = 44;
-            this.lblPsyche.Text = "Psyché";
-            // 
-            // nudReflexes
-            // 
-            this.nudReflexes.Location = new System.Drawing.Point(301, 239);
-            this.nudReflexes.Name = "nudReflexes";
-            this.nudReflexes.Size = new System.Drawing.Size(41, 20);
-            this.nudReflexes.TabIndex = 47;
-            // 
-            // lblReflexes
-            // 
-            this.lblReflexes.AutoSize = true;
-            this.lblReflexes.Location = new System.Drawing.Point(224, 241);
-            this.lblReflexes.Name = "lblReflexes";
-            this.lblReflexes.Size = new System.Drawing.Size(48, 13);
-            this.lblReflexes.TabIndex = 46;
-            this.lblReflexes.Text = "Réflexes";
-            // 
-            // nudVigueur
-            // 
-            this.nudVigueur.Location = new System.Drawing.Point(301, 262);
-            this.nudVigueur.Name = "nudVigueur";
-            this.nudVigueur.Size = new System.Drawing.Size(41, 20);
-            this.nudVigueur.TabIndex = 49;
-            // 
-            // lblVigueur
-            // 
-            this.lblVigueur.AutoSize = true;
-            this.lblVigueur.Location = new System.Drawing.Point(224, 264);
-            this.lblVigueur.Name = "lblVigueur";
-            this.lblVigueur.Size = new System.Drawing.Size(43, 13);
-            this.lblVigueur.TabIndex = 48;
-            this.lblVigueur.Text = "Vigueur";
-            // 
-            // nudVolonte
-            // 
-            this.nudVolonte.Location = new System.Drawing.Point(301, 285);
-            this.nudVolonte.Name = "nudVolonte";
-            this.nudVolonte.Size = new System.Drawing.Size(41, 20);
-            this.nudVolonte.TabIndex = 51;
-            // 
-            // lblVolonte
-            // 
-            this.lblVolonte.AutoSize = true;
-            this.lblVolonte.Location = new System.Drawing.Point(224, 287);
-            this.lblVolonte.Name = "lblVolonte";
-            this.lblVolonte.Size = new System.Drawing.Size(43, 13);
-            this.lblVolonte.TabIndex = 50;
-            this.lblVolonte.Text = "Volonté";
-            // 
             // lblPV
             // 
             this.lblPV.AutoSize = true;
-            this.lblPV.Location = new System.Drawing.Point(12, 12);
+            this.lblPV.Location = new System.Drawing.Point(45, 8);
             this.lblPV.Name = "lblPV";
             this.lblPV.Size = new System.Drawing.Size(68, 13);
             this.lblPV.TabIndex = 8;
@@ -673,7 +675,7 @@ namespace maFichePersonnageJDR.Formulaires
             // lblEnergie
             // 
             this.lblEnergie.AutoSize = true;
-            this.lblEnergie.Location = new System.Drawing.Point(130, 12);
+            this.lblEnergie.Location = new System.Drawing.Point(163, 8);
             this.lblEnergie.Name = "lblEnergie";
             this.lblEnergie.Size = new System.Drawing.Size(43, 13);
             this.lblEnergie.TabIndex = 9;
@@ -681,23 +683,46 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // txtBoxPV
             // 
-            this.txtBoxPV.Location = new System.Drawing.Point(19, 32);
+            this.txtBoxPV.Location = new System.Drawing.Point(52, 28);
             this.txtBoxPV.Name = "txtBoxPV";
             this.txtBoxPV.Size = new System.Drawing.Size(50, 20);
             this.txtBoxPV.TabIndex = 10;
             // 
             // txtBoxEnrgie
             // 
-            this.txtBoxEnrgie.Location = new System.Drawing.Point(123, 32);
+            this.txtBoxEnrgie.Location = new System.Drawing.Point(156, 28);
             this.txtBoxEnrgie.Name = "txtBoxEnrgie";
             this.txtBoxEnrgie.Size = new System.Drawing.Size(50, 20);
             this.txtBoxEnrgie.TabIndex = 11;
+            // 
+            // lblAttributs
+            // 
+            this.lblAttributs.AutoSize = true;
+            this.lblAttributs.Location = new System.Drawing.Point(110, 122);
+            this.lblAttributs.Name = "lblAttributs";
+            this.lblAttributs.Size = new System.Drawing.Size(45, 13);
+            this.lblAttributs.TabIndex = 13;
+            this.lblAttributs.Text = "Attributs";
+            this.lblAttributs.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // chckLstAttributs
+            // 
+            this.chckLstAttributs.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.chckLstAttributs.FormattingEnabled = true;
+            this.chckLstAttributs.HorizontalScrollbar = true;
+            this.chckLstAttributs.Location = new System.Drawing.Point(12, 137);
+            this.chckLstAttributs.Name = "chckLstAttributs";
+            this.chckLstAttributs.ScrollAlwaysVisible = true;
+            this.chckLstAttributs.Size = new System.Drawing.Size(237, 199);
+            this.chckLstAttributs.TabIndex = 14;
             // 
             // FormulaireCompAttri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 450);
+            this.Controls.Add(this.chckLstAttributs);
+            this.Controls.Add(this.lblAttributs);
             this.Controls.Add(this.txtBoxEnrgie);
             this.Controls.Add(this.txtBoxPV);
             this.Controls.Add(this.lblEnergie);
@@ -715,32 +740,32 @@ namespace maFichePersonnageJDR.Formulaires
             this.Load += new System.EventHandler(this.FormulaireCompAttri_Load);
             this.grpbCompetences.ResumeLayout(false);
             this.grpbCompetences.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudVolonte)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudVigueur)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudReflexes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPsyche)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPersuasion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPerspicacite)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPerception)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNatation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMedecine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMecanique)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudLangages)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudIntimidation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudForce)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudExplosifs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEscalade)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDiplomatie)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCrochetage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudConnReligieuses)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMagiques)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudConnHistoriques)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudConnGeographiques)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudBotanique)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudArtisanat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAnmale)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAgilite)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdresse)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudBotanique)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudConnGeographiques)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudConnHistoriques)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMagiques)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudConnReligieuses)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCrochetage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDiplomatie)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudEscalade)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudExplosifs)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudForce)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudIntimidation)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudLangages)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMecanique)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMedecine)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudNatation)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPerception)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPerspicacite)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPersuasion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPsyche)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudReflexes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudVigueur)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudVolonte)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -812,5 +837,7 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblEnergie;
         private System.Windows.Forms.TextBox txtBoxPV;
         private System.Windows.Forms.TextBox txtBoxEnrgie;
+        private System.Windows.Forms.Label lblAttributs;
+        private System.Windows.Forms.CheckedListBox chckLstAttributs;
     }
 }

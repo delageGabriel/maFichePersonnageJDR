@@ -52,9 +52,38 @@ namespace maFichePersonnageJDR.Formulaires
             nudVigueur.Value = Properties.Settings.Default.Vigueur;
             nudVolonte.Value = Properties.Settings.Default.Volonte;
         }
+
+        public void GetAttributs()
+        {
+                chckLstAttributs.Items.AddRange(new[] {"Alifère: capacité de voler à x mètres d'altitude", 
+                    "Amphibien: capacité de nager à x mètres de profondeur, peut respirer sous l'eau et sur la terre",  
+                    "Armure naturelle: peau épaisse, jusqu'à x% de dégâts physiques absorbés par l'ennemi",
+                    "Avantage du terrain: sur x terrain(s), la créature n'a pas de malus", 
+                    "Célérité: attaque toujours en premier lors de tour d'initiative",
+                    "Corps artificiels: créature artificielle, nul besoin pour elle de respirer", 
+                    "Dégagement: impossible d'être encerclé", "Double frappe: capacité d'attaquer deux fois par tour de jeu", 
+                    "Fin limier: plafond supplémentaire de 5% dans une des compétences techniques", 
+                    "Frigifugé: capacité de survivre à basse température jusqu'à x degrés Celsius",
+                    "Gros dormeur: temps de récupération divisé par deux lors de repos",
+                    "Hyperesthésie: chance de ne pas être empoisonné égale à x%",
+                    "Ignifugé: capacité de survivre à haute température jusqu'à x degrés Celsius",
+                    "Insubmersible: impossible d'être submergé",
+                    "Lourdaud: trop lourd pour attaquer en premier, attaque en dernier",
+                    "Mithridatisation: chance de ne pas être empoisonné égale à x%",
+                    "Mort-vivant: ne peut pas être soigné par des moyens conventionnels (sauf repos), est obligé de dévorer un corps ou boire des fluides corporels",
+                    "Porteur de charges lourdes: capacité de porter 25% la charge maximum que l'on peut porter",
+                    "Prodige: plafond supplémentaire de 5% dans une des compétences naturelles",
+                    "Régénération spirituelle: à chaque début de tour, 10% de l'énergie est régénérée par le lanceur",
+                    "Régénération vitale: à chaque début de tour, 10% de PV régénérés pour le lanceur",
+                    "Soif de bataille: plafond supplémentaire de 5% dans une des compétences de combat",
+                    "Souffle: la créature est capable de cracher du feu ou n'importe quel autre élément (dégâts non magiques)",
+                    "Vague de panique: fais trop peur, les adversaires doivent réussir un jet de Volonté tous les x tour(s) pour agir, mais peuvent toujours esquiver en cas d'échec",
+                    "Voie libre: capacité de déplacement doublée lorsque le terrain est dégagé."});
+        }
         private void FormulaireCompAttri_Load(object sender, EventArgs e)
         {
             GetSettings();
+            GetAttributs();
         }
 
         private void btnSauvegarder_Click(object sender, EventArgs e)
@@ -103,6 +132,8 @@ namespace maFichePersonnageJDR.Formulaires
 
         private void txtSocial_TextChanged(object sender, EventArgs e)
         {
+
         }
+
     }
 }
