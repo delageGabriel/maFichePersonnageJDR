@@ -12,7 +12,6 @@ namespace maFichePersonnageJDR.Formulaires
 {
     public partial class FormulaireCompAttri : Form
     {
-
         public FormulaireCompAttri()
         {
             InitializeComponent();
@@ -99,6 +98,7 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 rchTB.Text += ", ";
             }
+
             rchTB.Text += chckLstAttributs.SelectedItem;
         }
 

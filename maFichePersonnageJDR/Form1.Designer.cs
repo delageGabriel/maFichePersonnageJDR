@@ -68,7 +68,7 @@ namespace maFichePersonnageJDR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(237, 165);
+            this.ClientSize = new System.Drawing.Size(224, 151);
             this.Controls.Add(this.btnTalentEtEquipement);
             this.Controls.Add(this.btnInfosGenerales);
             this.Controls.Add(this.btnFormCompAttri);

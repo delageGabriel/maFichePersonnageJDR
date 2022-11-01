@@ -50,6 +50,9 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblHistoire = new System.Windows.Forms.Label();
             this.lblLangages = new System.Windows.Forms.Label();
             this.lblChargeMaxi = new System.Windows.Forms.Label();
+            this.lblVitesse = new System.Windows.Forms.Label();
+            this.txtBoxCharge = new System.Windows.Forms.TextBox();
+            this.txtVitesse = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -229,17 +232,45 @@ namespace maFichePersonnageJDR.Formulaires
             // lblChargeMaxi
             // 
             this.lblChargeMaxi.AutoSize = true;
-            this.lblChargeMaxi.Location = new System.Drawing.Point(499, 312);
+            this.lblChargeMaxi.Location = new System.Drawing.Point(499, 293);
             this.lblChargeMaxi.Name = "lblChargeMaxi";
-            this.lblChargeMaxi.Size = new System.Drawing.Size(94, 13);
+            this.lblChargeMaxi.Size = new System.Drawing.Size(91, 13);
             this.lblChargeMaxi.TabIndex = 20;
-            this.lblChargeMaxi.Text = "Charge Maximum :";
+            this.lblChargeMaxi.Text = "Charge Maximum:";
+            // 
+            // lblVitesse
+            // 
+            this.lblVitesse.AutoSize = true;
+            this.lblVitesse.Location = new System.Drawing.Point(499, 320);
+            this.lblVitesse.Name = "lblVitesse";
+            this.lblVitesse.Size = new System.Drawing.Size(123, 13);
+            this.lblVitesse.TabIndex = 21;
+            this.lblVitesse.Text = "Vitesse de déplacement:";
+            // 
+            // txtBoxCharge
+            // 
+            this.txtBoxCharge.Enabled = false;
+            this.txtBoxCharge.Location = new System.Drawing.Point(596, 290);
+            this.txtBoxCharge.Name = "txtBoxCharge";
+            this.txtBoxCharge.Size = new System.Drawing.Size(35, 20);
+            this.txtBoxCharge.TabIndex = 22;
+            // 
+            // txtVitesse
+            // 
+            this.txtVitesse.Enabled = false;
+            this.txtVitesse.Location = new System.Drawing.Point(628, 317);
+            this.txtVitesse.Name = "txtVitesse";
+            this.txtVitesse.Size = new System.Drawing.Size(35, 20);
+            this.txtVitesse.TabIndex = 23;
             // 
             // FormulaireInfosGenerales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 395);
+            this.Controls.Add(this.txtVitesse);
+            this.Controls.Add(this.txtBoxCharge);
+            this.Controls.Add(this.lblVitesse);
             this.Controls.Add(this.lblChargeMaxi);
             this.Controls.Add(this.lblLangages);
             this.Controls.Add(this.lblHistoire);
@@ -292,5 +323,8 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblHistoire;
         private System.Windows.Forms.Label lblLangages;
         private System.Windows.Forms.Label lblChargeMaxi;
+        private System.Windows.Forms.Label lblVitesse;
+        private System.Windows.Forms.TextBox txtBoxCharge;
+        private System.Windows.Forms.TextBox txtVitesse;
     }
 }
