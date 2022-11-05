@@ -394,5 +394,17 @@ namespace maFichePersonnageJDR.Properties {
                 this["Energie"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Attributs {
+            get {
+                return ((string)(this["Attributs"]));
+            }
+            set {
+                this["Attributs"] = value;
+            }
+        }
     }
 }

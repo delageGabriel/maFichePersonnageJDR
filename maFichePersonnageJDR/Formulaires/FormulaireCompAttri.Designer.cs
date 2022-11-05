@@ -95,7 +95,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.txtBoxEnrgie = new System.Windows.Forms.TextBox();
             this.lblAttributs = new System.Windows.Forms.Label();
             this.chckLstAttributs = new System.Windows.Forms.CheckedListBox();
-            this.rchTB = new System.Windows.Forms.RichTextBox();
+            this.rchTbAttributs = new System.Windows.Forms.RichTextBox();
             this.grpbCompetences.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudVolonte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudVigueur)).BeginInit();
@@ -715,20 +715,20 @@ namespace maFichePersonnageJDR.Formulaires
             this.chckLstAttributs.TabIndex = 14;
             this.chckLstAttributs.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.SetAttribut);
             // 
-            // rchTB
+            // rchTbAttributs
             // 
-            this.rchTB.Location = new System.Drawing.Point(13, 355);
-            this.rchTB.Name = "rchTB";
-            this.rchTB.Size = new System.Drawing.Size(236, 72);
-            this.rchTB.TabIndex = 15;
-            this.rchTB.Text = "";
+            this.rchTbAttributs.Location = new System.Drawing.Point(13, 355);
+            this.rchTbAttributs.Name = "rchTbAttributs";
+            this.rchTbAttributs.Size = new System.Drawing.Size(236, 72);
+            this.rchTbAttributs.TabIndex = 15;
+            this.rchTbAttributs.Text = "";
             // 
             // FormulaireCompAttri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(686, 450);
-            this.Controls.Add(this.rchTB);
+            this.Controls.Add(this.rchTbAttributs);
             this.Controls.Add(this.chckLstAttributs);
             this.Controls.Add(this.lblAttributs);
             this.Controls.Add(this.txtBoxEnrgie);
@@ -847,6 +847,6 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.TextBox txtBoxEnrgie;
         private System.Windows.Forms.Label lblAttributs;
         private System.Windows.Forms.CheckedListBox chckLstAttributs;
-        private System.Windows.Forms.RichTextBox rchTB;
+        private System.Windows.Forms.RichTextBox rchTbAttributs;
     }
 }

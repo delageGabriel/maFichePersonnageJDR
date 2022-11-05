@@ -7,13 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using maFichePersonnageJDR.Formulaires;
 
 namespace maFichePersonnageJDR.Formulaires
 {
     public partial class FormulaireTalentsEtObjets : Form
     {
-        public int leftControl = 1;
-
+        public int htrControlInventaire = 1;
+        public int htrControlTalent = 1;
+        public int maxWidth = 1;
         public FormulaireTalentsEtObjets()
         {
             InitializeComponent();
@@ -22,9 +24,26 @@ namespace maFichePersonnageJDR.Formulaires
         private void FormulaireTalentsEtObjets_Load(object sender, EventArgs e)
         {
             cbbInventaires.Items.AddRange(new[] {"Armes",
-                "Armures", 
-                "Munitions", 
-                "Objets"});
+                "Armures",
+                "Munitions",
+                "Objets"}
+            );
+            if (Properties.Settings.Default.Attributs.Contains("Magie Aquatique — magie de l'eau"))
+            {
+                cbbSortileges.Items.AddRange(new[] { "Manipulation des éléments aquatiques"});
+            }
+            if (Properties.Settings.Default.Attributs.Contains("Magie Ignis — magie du feu"))
+            {
+                cbbSortileges.Items.AddRange(new[] { "Manipulation des flammes"});
+            }
+            if (Properties.Settings.Default.Attributs.Contains("Magie Céleste: magie du ciel"))
+            {
+                cbbSortileges.Items.AddRange(new[] { "Manipulation des éléments célestes" });
+            }
+            if (Properties.Settings.Default.Attributs.Contains("Magie Terrestre: magie de la terre"))
+            {
+                cbbSortileges.Items.AddRange(new[] { "Manipulation des éléments terrestres" });
+            }
         }
 
         private void btnAjoutSortilegeAptitude_Click(object sender, EventArgs e)
@@ -40,19 +59,20 @@ namespace maFichePersonnageJDR.Formulaires
                 TextBox txtDynamicQte = new TextBox();
                 ComboBox cbbTypeArmes = new ComboBox();
 
-                cbbTypeArmes.Items.AddRange(new[] { "Tranchante", 
-                    "Contondante", 
-                    "Perforant" });
+                cbbTypeArmes.Items.AddRange(new[] { "Tranchante",
+                    "Contondante",
+                    "Perforant" }
+                );
 
                 gpbInventaires.Controls.Add(txtDynamicNom);
                 gpbInventaires.Controls.Add(txtDynamicPoids);
                 gpbInventaires.Controls.Add(txtDynamicQte);
                 gpbInventaires.Controls.Add(cbbTypeArmes);
 
-                txtDynamicNom.Top = leftControl * 25;
-                txtDynamicPoids.Top = leftControl * 25;
-                txtDynamicQte.Top = leftControl * 25;
-                cbbTypeArmes.Top = leftControl * 25;
+                txtDynamicNom.Top = htrControlInventaire * 25;
+                txtDynamicPoids.Top = htrControlInventaire * 25;
+                txtDynamicQte.Top = htrControlInventaire * 25;
+                cbbTypeArmes.Top = htrControlInventaire * 25;
 
                 txtDynamicNom.Left = 10;
                 txtDynamicPoids.Left = 90;
@@ -66,8 +86,8 @@ namespace maFichePersonnageJDR.Formulaires
                 txtDynamicPoids.Text = "Poids";
                 txtDynamicQte.Text = "Qte";
 
-                leftControl = leftControl + 1;
-                btnAjoutSortilegeAptitude.Top = btnAjoutSortilegeAptitude.Top + 25;
+                htrControlInventaire = htrControlInventaire + 1;
+                btnAjoutObjets.Top = btnAjoutObjets.Top + 25;
                 cbbInventaires.Top = cbbInventaires.Top + 25;
 
             }
@@ -78,19 +98,20 @@ namespace maFichePersonnageJDR.Formulaires
                 TextBox txtDynamicQte = new TextBox();
                 ComboBox cbbTypeArmure = new ComboBox();
 
-                cbbTypeArmure.Items.AddRange(new[] { "Lourde", 
-                    "Légère", 
-                    "Intermédiaire" });
+                cbbTypeArmure.Items.AddRange(new[] { "Lourde",
+                    "Légère",
+                    "Intermédiaire" }
+                );
 
                 gpbInventaires.Controls.Add(txtDynamicNom);
                 gpbInventaires.Controls.Add(txtDynamicPoids);
                 gpbInventaires.Controls.Add(txtDynamicQte);
                 gpbInventaires.Controls.Add(cbbTypeArmure);
 
-                txtDynamicNom.Top = leftControl * 25;
-                txtDynamicPoids.Top = leftControl * 25;
-                txtDynamicQte.Top = leftControl * 25;
-                cbbTypeArmure.Top = leftControl * 25;
+                txtDynamicNom.Top = htrControlInventaire * 25;
+                txtDynamicPoids.Top = htrControlInventaire * 25;
+                txtDynamicQte.Top = htrControlInventaire * 25;
+                cbbTypeArmure.Top = htrControlInventaire * 25;
 
                 txtDynamicNom.Left = 10;
                 txtDynamicPoids.Left = 90;
@@ -104,8 +125,8 @@ namespace maFichePersonnageJDR.Formulaires
                 txtDynamicPoids.Text = "Poids";
                 txtDynamicQte.Text = "Qte";
 
-                leftControl = leftControl + 1;
-                btnAjoutSortilegeAptitude.Top = btnAjoutSortilegeAptitude.Top + 25;
+                htrControlInventaire = htrControlInventaire + 1;
+                btnAjoutObjets.Top = btnAjoutObjets.Top + 25;
                 cbbInventaires.Top = cbbInventaires.Top + 25;
             }
             else if (cbbInventaires.Text == "Munitions")
@@ -115,9 +136,9 @@ namespace maFichePersonnageJDR.Formulaires
                 TextBox txtDynamicQte = new TextBox();
                 ComboBox cbbTypeMunitions = new ComboBox();
 
-                cbbTypeMunitions.Items.AddRange(new[] { "Tranchante", 
-                    "Contondante", 
-                    "Perforant", 
+                cbbTypeMunitions.Items.AddRange(new[] { "Tranchante",
+                    "Contondante",
+                    "Perforant",
                     "Spécial" });
 
                 gpbInventaires.Controls.Add(txtDynamicNom);
@@ -125,10 +146,10 @@ namespace maFichePersonnageJDR.Formulaires
                 gpbInventaires.Controls.Add(txtDynamicQte);
                 gpbInventaires.Controls.Add(cbbTypeMunitions);
 
-                txtDynamicNom.Top = leftControl * 25;
-                txtDynamicPoids.Top = leftControl * 25;
-                txtDynamicQte.Top = leftControl * 25;
-                cbbTypeMunitions.Top = leftControl * 25;
+                txtDynamicNom.Top = htrControlInventaire * 25;
+                txtDynamicPoids.Top = htrControlInventaire * 25;
+                txtDynamicQte.Top = htrControlInventaire * 25;
+                cbbTypeMunitions.Top = htrControlInventaire * 25;
 
                 txtDynamicNom.Left = 10;
                 txtDynamicPoids.Left = 90;
@@ -142,8 +163,8 @@ namespace maFichePersonnageJDR.Formulaires
                 txtDynamicPoids.Text = "Poids";
                 txtDynamicQte.Text = "Qte";
 
-                leftControl = leftControl + 1;
-                btnAjoutSortilegeAptitude.Top = btnAjoutSortilegeAptitude.Top + 25;
+                htrControlInventaire = htrControlInventaire + 1;
+                btnAjoutObjets.Top = btnAjoutObjets.Top + 25;
                 cbbInventaires.Top = cbbInventaires.Top + 25;
             }
             else if (cbbInventaires.Text == "Objets")
@@ -166,17 +187,18 @@ namespace maFichePersonnageJDR.Formulaires
                     "Spirituel",
                     "Ténèbres",
                     "Terre",
-                    "Vent"});
+                    "Vent"}
+                );
 
                 gpbInventaires.Controls.Add(txtDynamicNom);
                 gpbInventaires.Controls.Add(txtDynamicPoids);
                 gpbInventaires.Controls.Add(txtDynamicQte);
                 gpbInventaires.Controls.Add(cbbEffet);
 
-                txtDynamicNom.Top = leftControl * 25;
-                txtDynamicPoids.Top = leftControl * 25;
-                txtDynamicQte.Top = leftControl * 25;
-                cbbEffet.Top = leftControl * 25;
+                txtDynamicNom.Top = htrControlInventaire * 25;
+                txtDynamicPoids.Top = htrControlInventaire * 25;
+                txtDynamicQte.Top = htrControlInventaire * 25;
+                cbbEffet.Top = htrControlInventaire * 25;
 
                 txtDynamicNom.Left = 10;
                 txtDynamicPoids.Left = 90;
@@ -190,12 +212,28 @@ namespace maFichePersonnageJDR.Formulaires
                 txtDynamicPoids.Text = "Poids";
                 txtDynamicQte.Text = "Qte";
 
-                leftControl = leftControl + 1;
-                btnAjoutSortilegeAptitude.Top = btnAjoutSortilegeAptitude.Top + 25;
+                htrControlInventaire = htrControlInventaire + 1;
+                btnAjoutObjets.Top = btnAjoutObjets.Top + 25;
                 cbbInventaires.Top = cbbInventaires.Top + 25;
             }
         }
 
+        private void btnAjouterSortileges_Click(object sender, EventArgs e)
+        {
+            Label lblSortilege = new Label();
 
+            gpbSortilegesAptitudes.Controls.Add(lblSortilege);
+
+            lblSortilege.AutoSize = true;
+            lblSortilege.Text = (string)cbbSortileges.SelectedItem;
+            lblSortilege.Top = htrControlTalent * 25;
+            lblSortilege.Left = 10;
+
+            htrControlTalent = htrControlTalent + 1;
+            btnAjouterTalents.Top = btnAjouterTalents.Top + 25;
+            btnAjouterAptitudes.Top = btnAjouterAptitudes.Top + 25;
+            cbbSortileges.Top = cbbSortileges.Top + 25;
+            cbbAptitudes.Top = cbbAptitudes.Top + 25;
+        }
     }
 }

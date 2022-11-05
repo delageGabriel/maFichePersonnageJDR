@@ -95,5 +95,8 @@
     <Setting Name="Energie" Type="System.String" Scope="User">
       <Value Profile="(Default)">Empty</Value>
     </Setting>
+    <Setting Name="Attributs" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

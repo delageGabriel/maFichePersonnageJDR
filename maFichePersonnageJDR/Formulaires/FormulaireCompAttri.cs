@@ -12,6 +12,7 @@ namespace maFichePersonnageJDR.Formulaires
 {
     public partial class FormulaireCompAttri : Form
     {
+        public ToolTip tool = new ToolTip();
         public FormulaireCompAttri()
         {
             InitializeComponent();
@@ -22,6 +23,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// </summary>
         public void GetSettings()
         {
+            rchTbAttributs.Text = Properties.Settings.Default.Attributs;
             txtBoxPV.Text = Properties.Settings.Default.PV;
             txtBoxEnrgie.Text = Properties.Settings.Default.Energie;
             txtPhysique.Text = Properties.Settings.Default.Physique;
@@ -74,6 +76,10 @@ namespace maFichePersonnageJDR.Formulaires
                     "Ignifugé: capacité de survivre à haute température jusqu'à x degrés Celsius",
                     "Insubmersible: impossible d'être submergé",
                     "Lourdaud: trop lourd pour attaquer en premier, attaque en dernier",
+                    "Magie Aquatique — magie de l'eau",
+                    "Magie Céleste: magie du ciel",
+                    "Magie Ignis — magie du feu",
+                    "Magie Terrestre: magie de la terre",
                     "Mithridatisation: chance de ne pas être empoisonné égale à x%",
                     "Mort-vivant: ne peut pas être soigné par des moyens conventionnels (sauf repos), est obligé de dévorer un corps ou boire des fluides corporels",
                     "Porteur de charges lourdes: capacité de porter 25% la charge maximum que l'on peut porter",
@@ -94,12 +100,12 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void SetAttribut(object sender, ItemCheckEventArgs e)
         {
-            if (rchTB.Text != "")
+            if (rchTbAttributs.Text != "")
             {
-                rchTB.Text += ", ";
+                rchTbAttributs.Text += ", ";
             }
 
-            rchTB.Text += chckLstAttributs.SelectedItem;
+            rchTbAttributs.Text += chckLstAttributs.SelectedItem;
         }
 
         /// <summary>
@@ -120,6 +126,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void btnSauvegarder_Click(object sender, EventArgs e)
         {
+            Properties.Settings.Default.Attributs = rchTbAttributs.Text;
             Properties.Settings.Default.PV = txtBoxPV.Text;
             Properties.Settings.Default.Energie = txtBoxEnrgie.Text;
             Properties.Settings.Default.Physique = txtPhysique.Text;
