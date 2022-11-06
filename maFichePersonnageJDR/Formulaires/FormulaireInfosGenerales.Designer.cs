@@ -38,21 +38,18 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblRace = new System.Windows.Forms.Label();
             this.rdbHomme = new System.Windows.Forms.RadioButton();
             this.rdbFemme = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBoxNiveau = new System.Windows.Forms.TextBox();
             this.lblNiveau = new System.Windows.Forms.Label();
-            this.txtBoxTaille = new System.Windows.Forms.TextBox();
-            this.lblTaille = new System.Windows.Forms.Label();
-            this.txtBoxPoids = new System.Windows.Forms.TextBox();
-            this.lblPoids = new System.Windows.Forms.Label();
             this.rdbAutre = new System.Windows.Forms.RadioButton();
             this.rtbHistoire = new System.Windows.Forms.RichTextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtbLangues = new System.Windows.Forms.RichTextBox();
             this.lblHistoire = new System.Windows.Forms.Label();
             this.lblLangages = new System.Windows.Forms.Label();
             this.lblChargeMaxi = new System.Windows.Forms.Label();
             this.lblVitesse = new System.Windows.Forms.Label();
             this.txtBoxCharge = new System.Windows.Forms.TextBox();
             this.txtVitesse = new System.Windows.Forms.TextBox();
+            this.btnSaveInfos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -135,53 +132,21 @@ namespace maFichePersonnageJDR.Formulaires
             this.rdbFemme.Text = "Femme";
             this.rdbFemme.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtBoxNiveau
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 74);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 10;
+            this.txtBoxNiveau.Location = new System.Drawing.Point(137, 74);
+            this.txtBoxNiveau.Name = "txtBoxNiveau";
+            this.txtBoxNiveau.Size = new System.Drawing.Size(100, 20);
+            this.txtBoxNiveau.TabIndex = 10;
             // 
             // lblNiveau
             // 
             this.lblNiveau.AutoSize = true;
-            this.lblNiveau.Location = new System.Drawing.Point(37, 58);
+            this.lblNiveau.Location = new System.Drawing.Point(162, 58);
             this.lblNiveau.Name = "lblNiveau";
             this.lblNiveau.Size = new System.Drawing.Size(41, 13);
             this.lblNiveau.TabIndex = 9;
             this.lblNiveau.Text = "Niveau";
-            // 
-            // txtBoxTaille
-            // 
-            this.txtBoxTaille.Location = new System.Drawing.Point(137, 74);
-            this.txtBoxTaille.Name = "txtBoxTaille";
-            this.txtBoxTaille.Size = new System.Drawing.Size(100, 20);
-            this.txtBoxTaille.TabIndex = 12;
-            // 
-            // lblTaille
-            // 
-            this.lblTaille.AutoSize = true;
-            this.lblTaille.Location = new System.Drawing.Point(170, 58);
-            this.lblTaille.Name = "lblTaille";
-            this.lblTaille.Size = new System.Drawing.Size(32, 13);
-            this.lblTaille.TabIndex = 11;
-            this.lblTaille.Text = "Taille";
-            // 
-            // txtBoxPoids
-            // 
-            this.txtBoxPoids.Location = new System.Drawing.Point(262, 74);
-            this.txtBoxPoids.Name = "txtBoxPoids";
-            this.txtBoxPoids.Size = new System.Drawing.Size(100, 20);
-            this.txtBoxPoids.TabIndex = 14;
-            // 
-            // lblPoids
-            // 
-            this.lblPoids.AutoSize = true;
-            this.lblPoids.Location = new System.Drawing.Point(294, 58);
-            this.lblPoids.Name = "lblPoids";
-            this.lblPoids.Size = new System.Drawing.Size(33, 13);
-            this.lblPoids.TabIndex = 13;
-            this.lblPoids.Text = "Poids";
             // 
             // rdbAutre
             // 
@@ -203,13 +168,13 @@ namespace maFichePersonnageJDR.Formulaires
             this.rtbHistoire.TabIndex = 16;
             this.rtbHistoire.Text = "Veuillez renseigner l\'histoire du personnage";
             // 
-            // richTextBox1
+            // rtbLangues
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(10, 309);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(445, 68);
-            this.richTextBox1.TabIndex = 17;
-            this.richTextBox1.Text = "";
+            this.rtbLangues.Location = new System.Drawing.Point(10, 309);
+            this.rtbLangues.Name = "rtbLangues";
+            this.rtbLangues.Size = new System.Drawing.Size(445, 68);
+            this.rtbLangues.TabIndex = 17;
+            this.rtbLangues.Text = "";
             // 
             // lblHistoire
             // 
@@ -263,25 +228,32 @@ namespace maFichePersonnageJDR.Formulaires
             this.txtVitesse.Size = new System.Drawing.Size(35, 20);
             this.txtVitesse.TabIndex = 23;
             // 
+            // btnSaveInfos
+            // 
+            this.btnSaveInfos.Location = new System.Drawing.Point(583, 353);
+            this.btnSaveInfos.Name = "btnSaveInfos";
+            this.btnSaveInfos.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveInfos.TabIndex = 24;
+            this.btnSaveInfos.Text = "Sauvegarde";
+            this.btnSaveInfos.UseVisualStyleBackColor = true;
+            this.btnSaveInfos.Click += new System.EventHandler(this.btnSaveInfos_Click);
+            // 
             // FormulaireInfosGenerales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 395);
+            this.Controls.Add(this.btnSaveInfos);
             this.Controls.Add(this.txtVitesse);
             this.Controls.Add(this.txtBoxCharge);
             this.Controls.Add(this.lblVitesse);
             this.Controls.Add(this.lblChargeMaxi);
             this.Controls.Add(this.lblLangages);
             this.Controls.Add(this.lblHistoire);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.rtbLangues);
             this.Controls.Add(this.rtbHistoire);
             this.Controls.Add(this.rdbAutre);
-            this.Controls.Add(this.txtBoxPoids);
-            this.Controls.Add(this.lblPoids);
-            this.Controls.Add(this.txtBoxTaille);
-            this.Controls.Add(this.lblTaille);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtBoxNiveau);
             this.Controls.Add(this.lblNiveau);
             this.Controls.Add(this.rdbFemme);
             this.Controls.Add(this.rdbHomme);
@@ -294,6 +266,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.Controls.Add(this.lblPrenom);
             this.Name = "FormulaireInfosGenerales";
             this.Text = "FormulaireInfosGenerales";
+            this.Load += new System.EventHandler(this.FormulaireInfosGenerales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -311,20 +284,17 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblRace;
         private System.Windows.Forms.RadioButton rdbHomme;
         private System.Windows.Forms.RadioButton rdbFemme;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBoxNiveau;
         private System.Windows.Forms.Label lblNiveau;
-        private System.Windows.Forms.TextBox txtBoxTaille;
-        private System.Windows.Forms.Label lblTaille;
-        private System.Windows.Forms.TextBox txtBoxPoids;
-        private System.Windows.Forms.Label lblPoids;
         private System.Windows.Forms.RadioButton rdbAutre;
         private System.Windows.Forms.RichTextBox rtbHistoire;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtbLangues;
         private System.Windows.Forms.Label lblHistoire;
         private System.Windows.Forms.Label lblLangages;
         private System.Windows.Forms.Label lblChargeMaxi;
         private System.Windows.Forms.Label lblVitesse;
         private System.Windows.Forms.TextBox txtBoxCharge;
         private System.Windows.Forms.TextBox txtVitesse;
+        private System.Windows.Forms.Button btnSaveInfos;
     }
 }

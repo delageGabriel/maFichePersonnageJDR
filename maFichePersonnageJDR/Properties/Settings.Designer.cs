@@ -406,5 +406,113 @@ namespace maFichePersonnageJDR.Properties {
                 this["Attributs"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        public string Prenom {
+            get {
+                return ((string)(this["Prenom"]));
+            }
+            set {
+                this["Prenom"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        public string Nom {
+            get {
+                return ((string)(this["Nom"]));
+            }
+            set {
+                this["Nom"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        public string Race {
+            get {
+                return ((string)(this["Race"]));
+            }
+            set {
+                this["Race"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        public string Niveau {
+            get {
+                return ((string)(this["Niveau"]));
+            }
+            set {
+                this["Niveau"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        public string Sexe {
+            get {
+                return ((string)(this["Sexe"]));
+            }
+            set {
+                this["Sexe"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        public string Histoire {
+            get {
+                return ((string)(this["Histoire"]));
+            }
+            set {
+                this["Histoire"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        public string Langues {
+            get {
+                return ((string)(this["Langues"]));
+            }
+            set {
+                this["Langues"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        public string ChargeMax {
+            get {
+                return ((string)(this["ChargeMax"]));
+            }
+            set {
+                this["ChargeMax"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        public string VitesseDepla {
+            get {
+                return ((string)(this["VitesseDepla"]));
+            }
+            set {
+                this["VitesseDepla"] = value;
+            }
+        }
     }
 }

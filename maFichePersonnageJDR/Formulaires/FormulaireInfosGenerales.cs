@@ -16,5 +16,59 @@ namespace maFichePersonnageJDR.Formulaires
         {
             InitializeComponent();
         }
+
+        private void FormulaireInfosGenerales_Load(object sender, EventArgs e)
+        {
+            GetSettings();
+        }
+
+        public void GetSettings()
+        {
+            txtBoxPrenom.Text = Properties.Settings.Default.Prenom;
+            txtBoxNom.Text = Properties.Settings.Default.Nom;
+            TxtBoxRace.Text = Properties.Settings.Default.Race;
+            txtBoxNiveau.Text = Properties.Settings.Default.Niveau;
+            if (rdbHomme.Checked)
+            {
+                rdbHomme.Text = Properties.Settings.Default.Sexe;
+            }
+            else if (rdbFemme.Checked)
+            {
+                rdbFemme.Text = Properties.Settings.Default.Sexe;
+            }
+            else
+            {
+                rdbAutre.Text = Properties.Settings.Default.Sexe;
+            }
+            rtbHistoire.Text = Properties.Settings.Default.Histoire;
+            rtbLangues.Text = Properties.Settings.Default.Langues;
+            txtBoxCharge.Text = Properties.Settings.Default.ChargeMax;
+            txtVitesse.Text = Properties.Settings.Default.VitesseDepla;
+        }
+
+        private void btnSaveInfos_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Prenom = txtBoxPrenom.Text;
+            Properties.Settings.Default.Nom = txtBoxNom.Text;
+            Properties.Settings.Default.Race = TxtBoxRace.Text;
+            Properties.Settings.Default.Niveau = txtBoxNiveau.Text;
+            if (Properties.Settings.Default.Sexe == "Homme")
+            {
+                rdbHomme.Checked = true;
+            }
+            else if (Properties.Settings.Default.Sexe == "Femme")
+            {
+                rdbFemme.Checked = true;
+            }
+            else
+            {
+                rdbAutre.Checked = true;
+            }
+            Properties.Settings.Default.Histoire = rtbHistoire.Text;
+            Properties.Settings.Default.Langues = rtbLangues.Text;
+            Properties.Settings.Default.ChargeMax = txtBoxCharge.Text;
+            Properties.Settings.Default.VitesseDepla = txtVitesse.Text;
+            Properties.Settings.Default.Save();
+        }
     }
 }
