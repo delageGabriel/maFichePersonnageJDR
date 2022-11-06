@@ -60,16 +60,16 @@ namespace maFichePersonnageJDR.Formulaires
         /// <summary>
         /// Établi une liste de checkbox
         /// </summary>
-        public void GetAttributs()
+        public void SetAttributs()
         {
-                chckLstAttributs.Items.AddRange(new[] {"Alifère: capacité de voler à x mètres d'altitude", 
-                    "Amphibien: capacité de nager à x mètres de profondeur, peut respirer sous l'eau et sur la terre",  
+            chckLstAttributs.Items.AddRange(new[] {"Alifère: capacité de voler à x mètres d'altitude",
+                    "Amphibien: capacité de nager à x mètres de profondeur, peut respirer sous l'eau et sur la terre",
                     "Armure naturelle: peau épaisse, jusqu'à x% de dégâts physiques absorbés par l'ennemi",
-                    "Avantage du terrain: sur x terrain(s), la créature n'a pas de malus", 
+                    "Avantage du terrain: sur x terrain(s), la créature n'a pas de malus",
                     "Célérité: attaque toujours en premier lors de tour d'initiative",
-                    "Corps artificiels: créature artificielle, nul besoin pour elle de respirer", 
-                    "Dégagement: impossible d'être encerclé", "Double frappe: capacité d'attaquer deux fois par tour de jeu", 
-                    "Fin limier: plafond supplémentaire de 5% dans une des compétences techniques", 
+                    "Corps artificiels: créature artificielle, nul besoin pour elle de respirer",
+                    "Dégagement: impossible d'être encerclé", "Double frappe: capacité d'attaquer deux fois par tour de jeu",
+                    "Fin limier: plafond supplémentaire de 5% dans une des compétences techniques",
                     "Frigifugé: capacité de survivre à basse température jusqu'à x degrés Celsius",
                     "Gros dormeur: temps de récupération divisé par deux lors de repos",
                     "Hyperesthésie: chance de ne pas être empoisonné égale à x%",
@@ -77,8 +77,12 @@ namespace maFichePersonnageJDR.Formulaires
                     "Insubmersible: impossible d'être submergé",
                     "Lourdaud: trop lourd pour attaquer en premier, attaque en dernier",
                     "Magie Aquatique — magie de l'eau",
-                    "Magie Céleste: magie du ciel",
+                    "Magie Céleste — magie du ciel",
+                    "Magie Démoniaque — magie liée aux ténèbres",
+                    "Magie Divine — magie liée aux divinités",
                     "Magie Ignis — magie du feu",
+                    "Magie Naturelle — magie de la nature",
+                    "Magie Neutre — magie neutre",
                     "Magie Terrestre: magie de la terre",
                     "Mithridatisation: chance de ne pas être empoisonné égale à x%",
                     "Mort-vivant: ne peut pas être soigné par des moyens conventionnels (sauf repos), est obligé de dévorer un corps ou boire des fluides corporels",
@@ -90,7 +94,7 @@ namespace maFichePersonnageJDR.Formulaires
                     "Souffle: la créature est capable de cracher du feu ou n'importe quel autre élément (dégâts non magiques)",
                     "Vague de panique: fais trop peur, les adversaires doivent réussir un jet de Volonté tous les x tour(s) pour agir, mais peuvent toujours esquiver en cas d'échec",
                     "Voie libre: capacité de déplacement doublée lorsque le terrain est dégagé."
-                });
+                }); ;
         }
 
         /// <summary>
@@ -100,12 +104,32 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void SetAttribut(object sender, ItemCheckEventArgs e)
         {
-            if (rchTbAttributs.Text != "")
+            string strTemp;
+            if (chckLstAttributs.SelectedItem != null)
             {
-                rchTbAttributs.Text += ", ";
+                strTemp = (string)chckLstAttributs.SelectedItem;
+                if (rchTbAttributs.Text.Contains(strTemp))
+                {
+                    if (rchTbAttributs.Text.Contains(", " + strTemp))
+                    {
+                        strTemp = ", " + (string)chckLstAttributs.SelectedItem;
+                        rchTbAttributs.Text = rchTbAttributs.Text.Remove(rchTbAttributs.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTbAttributs.Text = rchTbAttributs.Text.Remove(rchTbAttributs.Text.IndexOf(strTemp), strTemp.Length); 
+                    }
+                }
+                else
+                {
+                    if (!String.IsNullOrEmpty(rchTbAttributs.Text))
+                    {
+                        rchTbAttributs.Text += ", ";
+                    }
+                    rchTbAttributs.Text += chckLstAttributs.SelectedItem;
+                }
+                
             }
-
-            rchTbAttributs.Text += chckLstAttributs.SelectedItem;
         }
 
         /// <summary>
@@ -116,7 +140,8 @@ namespace maFichePersonnageJDR.Formulaires
         private void FormulaireCompAttri_Load(object sender, EventArgs e)
         {
             GetSettings();
-            GetAttributs();
+            SetAttributs();
+            GetAttributCheckbox();
         }
 
         /// <summary>
@@ -159,6 +184,26 @@ namespace maFichePersonnageJDR.Formulaires
             Properties.Settings.Default.Vigueur = Convert.ToInt32(nudVigueur.Value);
             Properties.Settings.Default.Volonte = Convert.ToInt32(nudVolonte.Value);
             Properties.Settings.Default.Save();
+        }
+
+        /// <summary>
+        /// Méthode qui passe l'état d'une checkbox checked à true si le contenu
+        /// de cette dernière apparaît dans la richtextbox
+        /// </summary>
+        public void GetAttributCheckbox()
+        {
+            List<int> tableau = new List<int>();
+            foreach (string checkItems in chckLstAttributs.Items)
+            {
+                if (rchTbAttributs.Text.Contains(checkItems))
+                {
+                    tableau.Add(chckLstAttributs.Items.IndexOf(checkItems));
+                }
+            }
+            foreach (int index in tableau)
+            {
+                chckLstAttributs.SetItemChecked(index, true);
+            }
         }
     }
 }

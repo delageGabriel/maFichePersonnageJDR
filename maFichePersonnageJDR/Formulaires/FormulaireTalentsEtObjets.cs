@@ -44,6 +44,39 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 cbbSortileges.Items.AddRange(new[] { "Manipulation des éléments terrestres" });
             }
+            if (Properties.Settings.Default.Attributs.Contains("Magie Naturelle — magie de la nature"))
+            {
+                cbbSortileges.Items.AddRange(new[] { "Communication avec les forces naturelles (plantes, animaux, ...)",
+                "Invocation d'une chimère (créature connue par le lanceur)",
+                "Manipulation du terrain: peut modifier son environnement",
+                "Métamorphose en la faune ou la flore"});
+            }
+            if (Properties.Settings.Default.Attributs.Contains("Magie Divine — magie liée aux divinités"))
+            {
+                cbbSortileges.Items.AddRange(new[] { "Bouclier protecteur: protection dans un rayon défini",
+                "Soins magiques: peut soigner les blessures mais pas repousser les membres",
+                "Guérison d'une maladie",
+                "Bénédiction: soigne des malédictions",
+                "Divination: voit un futur proche"});
+            }
+            if (Properties.Settings.Default.Attributs.Contains("Magie Démoniaque — magie liée aux ténèbres"))
+            {
+                cbbSortileges.Items.AddRange(new[] {"Absorption vitale",
+                "Contrôle de volonté: forcer une personne",
+                "Nécromancie: ramener des cadavres à la vie, manipulation des os",
+                "Malédiction: jette une malédiction à quelqu'un",
+                "Possession"
+                });
+            }
+            if (Properties.Settings.Default.Attributs.Contains("Magie Neutre — magie neutre"))
+            {
+                cbbSortileges.Items.AddRange(new[] {"Modifications corporelles (supersaut, super force, ...) ",
+                "Invisibilé",
+                "Vision d'aura",
+                "Images miroir: (clones, images rémanentes, ...)",
+                "Message: connexion mentale, images mentales"
+                });
+            }
         }
 
         private void btnAjoutSortilegeAptitude_Click(object sender, EventArgs e)
@@ -231,9 +264,6 @@ namespace maFichePersonnageJDR.Formulaires
 
             htrControlTalent = htrControlTalent + 1;
             btnAjouterTalents.Top = btnAjouterTalents.Top + 25;
-            btnAjouterAptitudes.Top = btnAjouterAptitudes.Top + 25;
-            cbbSortileges.Top = cbbSortileges.Top + 25;
-            cbbAptitudes.Top = cbbAptitudes.Top + 25;
         }
     }
 }

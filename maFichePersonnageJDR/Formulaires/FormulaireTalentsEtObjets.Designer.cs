@@ -33,8 +33,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnAjoutObjets = new System.Windows.Forms.Button();
             this.gpbInventaires = new System.Windows.Forms.GroupBox();
             this.gpbSortilegesAptitudes = new System.Windows.Forms.GroupBox();
-            this.cbbAptitudes = new System.Windows.Forms.ComboBox();
-            this.btnAjouterAptitudes = new System.Windows.Forms.Button();
             this.cbbSortileges = new System.Windows.Forms.ComboBox();
             this.btnAjouterTalents = new System.Windows.Forms.Button();
             this.gpbInventaires.SuspendLayout();
@@ -78,40 +76,20 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.gpbSortilegesAptitudes.AutoSize = true;
             this.gpbSortilegesAptitudes.BackColor = System.Drawing.SystemColors.Window;
-            this.gpbSortilegesAptitudes.Controls.Add(this.cbbAptitudes);
-            this.gpbSortilegesAptitudes.Controls.Add(this.btnAjouterAptitudes);
             this.gpbSortilegesAptitudes.Controls.Add(this.cbbSortileges);
             this.gpbSortilegesAptitudes.Controls.Add(this.btnAjouterTalents);
             this.gpbSortilegesAptitudes.Location = new System.Drawing.Point(366, 9);
             this.gpbSortilegesAptitudes.Name = "gpbSortilegesAptitudes";
-            this.gpbSortilegesAptitudes.Size = new System.Drawing.Size(200, 108);
+            this.gpbSortilegesAptitudes.Size = new System.Drawing.Size(200, 110);
             this.gpbSortilegesAptitudes.TabIndex = 4;
             this.gpbSortilegesAptitudes.TabStop = false;
             this.gpbSortilegesAptitudes.Text = "Talents";
-            // 
-            // cbbAptitudes
-            // 
-            this.cbbAptitudes.FormattingEnabled = true;
-            this.cbbAptitudes.Location = new System.Drawing.Point(112, 39);
-            this.cbbAptitudes.Name = "cbbAptitudes";
-            this.cbbAptitudes.Size = new System.Drawing.Size(82, 21);
-            this.cbbAptitudes.TabIndex = 3;
-            this.cbbAptitudes.Text = "Aptitudes";
-            // 
-            // btnAjouterAptitudes
-            // 
-            this.btnAjouterAptitudes.Location = new System.Drawing.Point(119, 66);
-            this.btnAjouterAptitudes.Name = "btnAjouterAptitudes";
-            this.btnAjouterAptitudes.Size = new System.Drawing.Size(75, 23);
-            this.btnAjouterAptitudes.TabIndex = 2;
-            this.btnAjouterAptitudes.Text = "Ajouter";
-            this.btnAjouterAptitudes.UseVisualStyleBackColor = true;
             // 
             // cbbSortileges
             // 
             this.cbbSortileges.DropDownWidth = 200;
             this.cbbSortileges.FormattingEnabled = true;
-            this.cbbSortileges.Location = new System.Drawing.Point(6, 39);
+            this.cbbSortileges.Location = new System.Drawing.Point(64, 41);
             this.cbbSortileges.Name = "cbbSortileges";
             this.cbbSortileges.Size = new System.Drawing.Size(82, 21);
             this.cbbSortileges.TabIndex = 1;
@@ -119,7 +97,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // btnAjouterTalents
             // 
-            this.btnAjouterTalents.Location = new System.Drawing.Point(6, 66);
+            this.btnAjouterTalents.Location = new System.Drawing.Point(64, 68);
             this.btnAjouterTalents.Name = "btnAjouterTalents";
             this.btnAjouterTalents.Size = new System.Drawing.Size(75, 23);
             this.btnAjouterTalents.TabIndex = 0;
@@ -152,7 +130,5 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.GroupBox gpbSortilegesAptitudes;
         private System.Windows.Forms.ComboBox cbbSortileges;
         private System.Windows.Forms.Button btnAjouterTalents;
-        private System.Windows.Forms.ComboBox cbbAptitudes;
-        private System.Windows.Forms.Button btnAjouterAptitudes;
     }
 }
