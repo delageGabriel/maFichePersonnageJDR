@@ -457,7 +457,7 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Sexe {
             get {
                 return ((string)(this["Sexe"]));
@@ -512,6 +512,53 @@ namespace maFichePersonnageJDR.Properties {
             }
             set {
                 this["VitesseDepla"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Or {
+            get {
+                return ((string)(this["Or"]));
+            }
+            set {
+                this["Or"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Argent {
+            get {
+                return ((string)(this["Argent"]));
+            }
+            set {
+                this["Argent"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Cuivre {
+            get {
+                return ((string)(this["Cuivre"]));
+            }
+            set {
+                this["Cuivre"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection Inventaires {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["Inventaires"]));
+            }
+            set {
+                this["Inventaires"] = value;
             }
         }
     }

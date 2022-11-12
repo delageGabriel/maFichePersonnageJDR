@@ -50,6 +50,10 @@ namespace maFichePersonnageJDR.Formulaires
             this.txtBoxCharge = new System.Windows.Forms.TextBox();
             this.txtVitesse = new System.Windows.Forms.TextBox();
             this.btnSaveInfos = new System.Windows.Forms.Button();
+            this.lblMonnaie = new System.Windows.Forms.Label();
+            this.txtPO = new System.Windows.Forms.TextBox();
+            this.txtPA = new System.Windows.Forms.TextBox();
+            this.txtPC = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -230,7 +234,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // btnSaveInfos
             // 
-            this.btnSaveInfos.Location = new System.Drawing.Point(583, 353);
+            this.btnSaveInfos.Location = new System.Drawing.Point(683, 353);
             this.btnSaveInfos.Name = "btnSaveInfos";
             this.btnSaveInfos.Size = new System.Drawing.Size(75, 23);
             this.btnSaveInfos.TabIndex = 24;
@@ -238,11 +242,48 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnSaveInfos.UseVisualStyleBackColor = true;
             this.btnSaveInfos.Click += new System.EventHandler(this.btnSaveInfos_Click);
             // 
+            // lblMonnaie
+            // 
+            this.lblMonnaie.AutoSize = true;
+            this.lblMonnaie.Location = new System.Drawing.Point(461, 363);
+            this.lblMonnaie.Name = "lblMonnaie";
+            this.lblMonnaie.Size = new System.Drawing.Size(51, 13);
+            this.lblMonnaie.TabIndex = 25;
+            this.lblMonnaie.Text = "Monnaie:";
+            // 
+            // txtPO
+            // 
+            this.txtPO.Location = new System.Drawing.Point(518, 360);
+            this.txtPO.Name = "txtPO";
+            this.txtPO.Size = new System.Drawing.Size(30, 20);
+            this.txtPO.TabIndex = 26;
+            this.txtPO.Text = "Or";
+            // 
+            // txtPA
+            // 
+            this.txtPA.Location = new System.Drawing.Point(560, 360);
+            this.txtPA.Name = "txtPA";
+            this.txtPA.Size = new System.Drawing.Size(43, 20);
+            this.txtPA.TabIndex = 27;
+            this.txtPA.Text = "Argent";
+            // 
+            // txtPC
+            // 
+            this.txtPC.Location = new System.Drawing.Point(609, 360);
+            this.txtPC.Name = "txtPC";
+            this.txtPC.Size = new System.Drawing.Size(40, 20);
+            this.txtPC.TabIndex = 28;
+            this.txtPC.Text = "Cuivre";
+            // 
             // FormulaireInfosGenerales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 395);
+            this.Controls.Add(this.txtPC);
+            this.Controls.Add(this.txtPA);
+            this.Controls.Add(this.txtPO);
+            this.Controls.Add(this.lblMonnaie);
             this.Controls.Add(this.btnSaveInfos);
             this.Controls.Add(this.txtVitesse);
             this.Controls.Add(this.txtBoxCharge);
@@ -296,5 +337,9 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.TextBox txtBoxCharge;
         private System.Windows.Forms.TextBox txtVitesse;
         private System.Windows.Forms.Button btnSaveInfos;
+        private System.Windows.Forms.Label lblMonnaie;
+        private System.Windows.Forms.TextBox txtPO;
+        private System.Windows.Forms.TextBox txtPA;
+        private System.Windows.Forms.TextBox txtPC;
     }
 }

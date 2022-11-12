@@ -111,7 +111,7 @@
       <Value Profile="(Default)">Empty</Value>
     </Setting>
     <Setting Name="Sexe" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Empty</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Histoire" Type="System.String" Scope="User">
       <Value Profile="(Default)">Empty</Value>
@@ -124,6 +124,18 @@
     </Setting>
     <Setting Name="VitesseDepla" Type="System.String" Scope="User">
       <Value Profile="(Default)">Empty</Value>
+    </Setting>
+    <Setting Name="Or" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Argent" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Cuivre" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Inventaires" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>
