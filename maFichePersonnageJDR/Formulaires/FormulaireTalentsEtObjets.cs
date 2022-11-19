@@ -19,8 +19,6 @@ namespace maFichePersonnageJDR.Formulaires
     {
         private int htrControlInventaire = 1;
         private int htrControlTalent = 1;
-        private int maxWidth = 1;
-        private int indiceArmes = 0;
 
         private List<Armes> lArmes = new List<Armes>();
         public int HtrControlInventaire { get => htrControlInventaire; set => htrControlInventaire = value; }
@@ -34,12 +32,6 @@ namespace maFichePersonnageJDR.Formulaires
 
         private void FormulaireTalentsEtObjets_Load(object sender, EventArgs e)
         {
-            GetSettings();
-            cbbInventaires.Items.AddRange(new[] {"Armes",
-                "Armures",
-                "Munitions",
-                "Objets"}
-            );
             if (Properties.Settings.Default.Attributs.Contains("Magie Aquatique — magie de l'eau"))
             {
                 cbbSortileges.Items.AddRange(new[] { "Manipulation des éléments aquatiques" });
@@ -91,180 +83,7 @@ namespace maFichePersonnageJDR.Formulaires
         }
 
         private void btnAjoutSortilegeAptitude_Click(object sender, EventArgs e)
-        {
-            if (cbbInventaires.Text == "Aucune options")
-            {
-                MessageBox.Show("Veuillez saisir une option !", "Attention !");
-            }
-            else if (cbbInventaires.Text == "Armes")
-            {
-                TextBox txtDynamicNom = new TextBox();
-                TextBox txtDynamicPoids = new TextBox();
-                TextBox txtDynamicQte = new TextBox();
-                ComboBox cbbTypeArmes = new ComboBox();
-
-                cbbTypeArmes.Items.AddRange(new[] { "Tranchante",
-                    "Contondante",
-                    "Perforant" }
-                );
-
-                if (gpbInventaires.Controls == null)
-                {
-                    gpbInventaires.Controls.Add(txtDynamicNom);
-                    gpbInventaires.Controls.Add(txtDynamicPoids);
-                    gpbInventaires.Controls.Add(txtDynamicQte);
-                    gpbInventaires.Controls.Add(cbbTypeArmes);
-
-                    txtDynamicNom.Top = HtrControlInventaire * 25;
-                    txtDynamicPoids.Top = HtrControlInventaire * 25;
-                    txtDynamicQte.Top = HtrControlInventaire * 25;
-                    cbbTypeArmes.Top = HtrControlInventaire * 25;
-
-                    txtDynamicNom.Left = 10;
-                    txtDynamicPoids.Left = 90;
-                    txtDynamicQte.Left = 150;
-                    cbbTypeArmes.Left = 190;
-
-                    txtDynamicNom.Width = 70;
-                    txtDynamicPoids.Width = 50;
-                    txtDynamicQte.Width = 30;
-                    txtDynamicNom.Text = "Nom";
-                    txtDynamicPoids.Text = "Poids";
-                    txtDynamicQte.Text = "Qte";
-
-                    HtrControlInventaire = HtrControlInventaire + 1;
-                    btnAjoutObjets.Top = btnAjoutObjets.Top + 25;
-                    cbbInventaires.Top = cbbInventaires.Top + 25;
-                }
-
-
-            }
-            else if (cbbInventaires.Text == "Armures")
-            {
-                TextBox txtDynamicNom = new TextBox();
-                TextBox txtDynamicPoids = new TextBox();
-                TextBox txtDynamicQte = new TextBox();
-                ComboBox cbbTypeArmure = new ComboBox();
-
-                cbbTypeArmure.Items.AddRange(new[] { "Lourde",
-                    "Légère",
-                    "Intermédiaire" }
-                );
-
-                gpbInventaires.Controls.Add(txtDynamicNom);
-                gpbInventaires.Controls.Add(txtDynamicPoids);
-                gpbInventaires.Controls.Add(txtDynamicQte);
-                gpbInventaires.Controls.Add(cbbTypeArmure);
-
-                txtDynamicNom.Top = HtrControlInventaire * 25;
-                txtDynamicPoids.Top = HtrControlInventaire * 25;
-                txtDynamicQte.Top = HtrControlInventaire * 25;
-                cbbTypeArmure.Top = HtrControlInventaire * 25;
-
-                txtDynamicNom.Left = 10;
-                txtDynamicPoids.Left = 90;
-                txtDynamicQte.Left = 150;
-                cbbTypeArmure.Left = 190;
-
-                txtDynamicNom.Width = 70;
-                txtDynamicPoids.Width = 50;
-                txtDynamicQte.Width = 30;
-                txtDynamicNom.Text = "Nom";
-                txtDynamicPoids.Text = "Poids";
-                txtDynamicQte.Text = "Qte";
-
-                HtrControlInventaire = HtrControlInventaire + 1;
-                btnAjoutObjets.Top = btnAjoutObjets.Top + 25;
-                cbbInventaires.Top = cbbInventaires.Top + 25;
-            }
-            else if (cbbInventaires.Text == "Munitions")
-            {
-                TextBox txtDynamicNom = new TextBox();
-                TextBox txtDynamicPoids = new TextBox();
-                TextBox txtDynamicQte = new TextBox();
-                ComboBox cbbTypeMunitions = new ComboBox();
-
-                cbbTypeMunitions.Items.AddRange(new[] { "Tranchante",
-                    "Contondante",
-                    "Perforant",
-                    "Spécial" });
-
-                gpbInventaires.Controls.Add(txtDynamicNom);
-                gpbInventaires.Controls.Add(txtDynamicPoids);
-                gpbInventaires.Controls.Add(txtDynamicQte);
-                gpbInventaires.Controls.Add(cbbTypeMunitions);
-
-                txtDynamicNom.Top = HtrControlInventaire * 25;
-                txtDynamicPoids.Top = HtrControlInventaire * 25;
-                txtDynamicQte.Top = HtrControlInventaire * 25;
-                cbbTypeMunitions.Top = HtrControlInventaire * 25;
-
-                txtDynamicNom.Left = 10;
-                txtDynamicPoids.Left = 90;
-                txtDynamicQte.Left = 150;
-                cbbTypeMunitions.Left = 190;
-
-                txtDynamicNom.Width = 70;
-                txtDynamicPoids.Width = 50;
-                txtDynamicQte.Width = 30;
-                txtDynamicNom.Text = "Nom";
-                txtDynamicPoids.Text = "Poids";
-                txtDynamicQte.Text = "Qte";
-
-                HtrControlInventaire = HtrControlInventaire + 1;
-                btnAjoutObjets.Top = btnAjoutObjets.Top + 25;
-                cbbInventaires.Top = cbbInventaires.Top + 25;
-            }
-            else if (cbbInventaires.Text == "Objets")
-            {
-                TextBox txtDynamicNom = new TextBox();
-                TextBox txtDynamicPoids = new TextBox();
-                TextBox txtDynamicQte = new TextBox();
-                ComboBox cbbEffet = new ComboBox();
-
-                cbbEffet.Items.AddRange(new[] { "Aucun",
-                    "Antidote",
-                    "Corporel",
-                    "Eau",
-                    "Feu",
-                    "Lumière",
-                    "Neutre",
-                    "Paralysie",
-                    "Poison",
-                    "Restauration",
-                    "Spirituel",
-                    "Ténèbres",
-                    "Terre",
-                    "Vent"}
-                );
-
-                gpbInventaires.Controls.Add(txtDynamicNom);
-                gpbInventaires.Controls.Add(txtDynamicPoids);
-                gpbInventaires.Controls.Add(txtDynamicQte);
-                gpbInventaires.Controls.Add(cbbEffet);
-
-                txtDynamicNom.Top = HtrControlInventaire * 25;
-                txtDynamicPoids.Top = HtrControlInventaire * 25;
-                txtDynamicQte.Top = HtrControlInventaire * 25;
-                cbbEffet.Top = HtrControlInventaire * 25;
-
-                txtDynamicNom.Left = 10;
-                txtDynamicPoids.Left = 90;
-                txtDynamicQte.Left = 150;
-                cbbEffet.Left = 190;
-
-                txtDynamicNom.Width = 70;
-                txtDynamicPoids.Width = 50;
-                txtDynamicQte.Width = 30;
-                txtDynamicNom.Text = "Nom";
-                txtDynamicPoids.Text = "Poids";
-                txtDynamicQte.Text = "Qte";
-
-                HtrControlInventaire = HtrControlInventaire + 1;
-                btnAjoutObjets.Top = btnAjoutObjets.Top + 25;
-                cbbInventaires.Top = cbbInventaires.Top + 25;
-            }
-        }
+        {}
 
         private void btnAjouterSortileges_Click(object sender, EventArgs e)
         {
@@ -283,17 +102,150 @@ namespace maFichePersonnageJDR.Formulaires
 
         private void btnSauvegarder_Click(object sender, EventArgs e)
         {
-            foreach (Control unControl in gpbInventaires.Controls)
-            {
-
-            }
-            Properties.Settings.Default.Inventaires = gpbInventaires.Controls.ToString();
-            Properties.Settings.Default.Save();
         }
 
         public void GetSettings()
         {
-            gpbInventaires = Properties.Settings.Default.Inventaires;
+        }
+
+        private void nudNbGlaive_ValueChanged(object sender, EventArgs e)
+        {
+            double dblPoids = 0.8;
+            if (nudGlaive.Value > 1)
+            {
+                dblPoids = dblPoids * Convert.ToDouble(nudGlaive.Value);
+            }
+            lblPdsGlaive.Text = dblPoids.ToString() + "kg";
+        }
+
+        private void nudEpeeCourte_ValueChanged(object sender, EventArgs e)
+        {
+            double dblPoids = 0.9;
+            if (nudEC.Value > 1)
+            {
+                dblPoids = dblPoids * Convert.ToDouble(nudEC.Value);
+            }
+            lblPdsEC.Text = dblPoids.ToString() + "kg";
+        }
+
+        private void nudFauchon_ValueChanged(object sender, EventArgs e)
+        {
+            double dblPoids = 0.9;
+            if (nudFauchon.Value > 1)
+            { 
+                dblPoids = dblPoids * Convert.ToDouble(nudFauchon.Value);
+            }
+            lblPdsFauchon.Text = dblPoids.ToString() + "kg";
+        }
+
+        private void nudBroadsword_ValueChanged(object sender, EventArgs e)
+        {
+            double dblPoids = 1.1;
+            if (nudBroadsword.Value > 1)
+            {
+                dblPoids = dblPoids * Convert.ToDouble(nudBroadsword.Value);
+            }
+            lblPdsBroadsword.Text = dblPoids.ToString() + "kg";
+        }
+
+        private void nudCutlass_ValueChanged(object sender, EventArgs e)
+        {
+            double dblPoids = 1.0;
+            if (nudSA.Value > 1)
+            {
+                dblPoids = dblPoids * Convert.ToDouble(nudSA.Value);
+            }
+            lblPdsSA.Text = dblPoids.ToString() + "kg";
+        }
+
+        private void nudRapiere_ValueChanged(object sender, EventArgs e)
+        {
+            double dblPoids = 1.1;
+            if (nudRapiere.Value > 1)
+            {
+                dblPoids = dblPoids * Convert.ToDouble(nudRapiere.Value);
+            }
+            lblPdsRapiere.Text = dblPoids.ToString() + "kg";
+        }
+
+        private void nudSabre_ValueChanged(object sender, EventArgs e)
+        {
+            double dblPoids = 1.0;
+            if (nudSabre.Value > 1)
+            {
+                dblPoids = dblPoids * Convert.ToDouble(nudSabre.Value);
+            }
+            lblPdsSabre.Text = dblPoids.ToString() + "kg";
+        }
+
+        private void nudEpeeLongue_ValueChanged(object sender, EventArgs e)
+        {
+            double dblPoids = 1.8;
+            if (nudEL.Value > 1)
+            {
+                dblPoids = dblPoids * Convert.ToDouble(nudEL.Value);
+            }
+            lblPdsEL.Text = dblPoids.ToString() + "kg";
+        }
+
+        private void nudClaymore_ValueChanged(object sender, EventArgs e)
+        {
+            double dblPoids = 2.0;
+            if (nudClaymore.Value > 1)
+            {
+                dblPoids = dblPoids * Convert.ToDouble(nudClaymore.Value);
+            }
+            lblPdsClaymore.Text = dblPoids.ToString() + "kg";
+        }
+
+        private void nudFlamberge_ValueChanged(object sender, EventArgs e)
+        {
+            double dblPoids = 4.0;
+            if (nudFlamberge.Value > 1)
+            {
+                dblPoids = dblPoids * Convert.ToDouble(nudFlamberge.Value);
+            }
+            lblPdsFlamberge.Text = dblPoids.ToString() + "kg";
+        }
+
+        private void nudEspadon_ValueChanged(object sender, EventArgs e)
+        {
+            double dblPoids = 5.5;
+            if (nudEspadon.Value > 1)
+            {
+                dblPoids = dblPoids * Convert.ToDouble(nudEspadon.Value);
+            }
+            lblPdsEspadon.Text = dblPoids.ToString() + "kg";
+        }
+
+        private void nudJian_ValueChanged(object sender, EventArgs e)
+        {
+            double dblPoids = 0.6;
+            if (nudJian.Value > 1)
+            {
+                dblPoids = dblPoids * Convert.ToDouble(nudJian.Value);
+            }
+            lblPoidsJian.Text = dblPoids.ToString() + "kg";
+        }
+
+        private void nudDadao_ValueChanged(object sender, EventArgs e)
+        {
+            double dblPoids = 1.8;
+            if (nudDadao.Value > 1)
+            {
+                dblPoids = dblPoids * Convert.ToDouble(nudDadao.Value);
+            }
+            lblPoidsDadao.Text = dblPoids.ToString() + "kg";
+        }
+
+        private void nudCaEp_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nudKodachi_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
