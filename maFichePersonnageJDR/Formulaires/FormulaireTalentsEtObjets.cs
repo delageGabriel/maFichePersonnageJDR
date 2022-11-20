@@ -111,11 +111,11 @@ namespace maFichePersonnageJDR.Formulaires
         private void nudNbGlaive_ValueChanged(object sender, EventArgs e)
         {
             double dblPoids = 0.8;
-            if (nudGlaive.Value > 1)
+            if (nudECuM.Value > 1)
             {
-                dblPoids = dblPoids * Convert.ToDouble(nudGlaive.Value);
+                dblPoids = dblPoids * Convert.ToDouble(nudECuM.Value);
             }
-            lblPdsGlaive.Text = dblPoids.ToString() + "kg";
+            lblPdsECuM.Text = dblPoids.ToString() + "kg";
         }
 
         private void nudEpeeCourte_ValueChanged(object sender, EventArgs e)
@@ -125,7 +125,7 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 dblPoids = dblPoids * Convert.ToDouble(nudEC.Value);
             }
-            lblPdsEC.Text = dblPoids.ToString() + "kg";
+            lblPdsEcC.Text = dblPoids.ToString() + "kg";
         }
 
         private void nudFauchon_ValueChanged(object sender, EventArgs e)
@@ -244,6 +244,21 @@ namespace maFichePersonnageJDR.Formulaires
         }
 
         private void nudKodachi_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nudArbir_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nudLB_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTpeCasques_Click(object sender, EventArgs e)
         {
 
         }
