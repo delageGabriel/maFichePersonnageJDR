@@ -119,6 +119,10 @@ namespace maFichePersonnageJDR.Formulaires
                     else
                     {
                         rchTbAttributs.Text = rchTbAttributs.Text.Remove(rchTbAttributs.Text.IndexOf(strTemp), strTemp.Length); 
+                        //if(rchTbAttributs.Text.StartsWith(","))
+                        //{
+                        //    rchTbAttributs.Text.Remove(rchTbAttributs.Text.IndexOf(',', 1));
+                        //}
                     }
                 }
                 else
