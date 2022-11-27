@@ -32,6 +32,7 @@ namespace maFichePersonnageJDR.Formulaires
 
         private void FormulaireTalentsEtObjets_Load(object sender, EventArgs e)
         {
+            GetArmes();
             if (Properties.Settings.Default.Attributs.Contains("Magie Aquatique — magie de l'eau"))
             {
                 cbbSortileges.Items.AddRange(new[] { "Manipulation des éléments aquatiques" });
@@ -83,7 +84,7 @@ namespace maFichePersonnageJDR.Formulaires
         }
 
         private void btnAjoutSortilegeAptitude_Click(object sender, EventArgs e)
-        {}
+        { }
 
         private void btnAjouterSortileges_Click(object sender, EventArgs e)
         {
@@ -110,12 +111,6 @@ namespace maFichePersonnageJDR.Formulaires
 
         private void nudNbGlaive_ValueChanged(object sender, EventArgs e)
         {
-            double dblPoids = 0.8;
-            if (nudECuM.Value > 1)
-            {
-                dblPoids = dblPoids * Convert.ToDouble(nudECuM.Value);
-            }
-            lblPdsECuM.Text = dblPoids.ToString() + "kg";
         }
 
         private void nudEpeeCourte_ValueChanged(object sender, EventArgs e)
@@ -149,6 +144,28 @@ namespace maFichePersonnageJDR.Formulaires
         private void lblTpeCasques_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void GetArmes()
+        {
+
+        }
+
+        private void chkScrmx_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblScrmx.Text + " " + lblPdsScrmx.Text + " " + lblPrteScrmx.Text + " " + nudScrmx.Value.ToString() + " " + lblTpeScrmx.Text + " " + lblDgtsScrmx.Text;
+            if (chkScrmx.Checked)
+            {
+                rchTxtIvtaires.Text = strTemp;
+            }
+            else if (!chkScrmx.Checked)
+            {
+                if(rchTxtIvtaires.Text.Contains(strTemp) && rchTxtIvtaires.Text.IndexOf(strTemp) == 0)
+                {
+                    strTemp = "";
+                    rchTxtIvtaires.Text = strTemp; 
+                }
+            }
         }
     }
 }
