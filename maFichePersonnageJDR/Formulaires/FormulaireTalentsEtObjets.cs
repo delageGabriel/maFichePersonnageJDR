@@ -1234,7 +1234,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void chkBrgne_Click(object sender, EventArgs e)
         {
-            string strTemp = lblBrgne.Text + " " + lblPdsBrgne.Text + " " + nudBrgne.Value.ToString() + " " + lblBrgne.Text;
+            string strTemp = lblBrgne.Text + " " + lblPdsBrgne.Text + " " + nudBrgne.Value.ToString() + " " + lblEftsBrgne.Text;
             if (chkBrgne.Checked)
             {
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
@@ -1270,7 +1270,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void chkCtphrcte_Click(object sender, EventArgs e)
         {
-            string strTemp = lblCtphrcte.Text + " " + lblPdsCtphrcte.Text + " " + nudCtphrcte.Value.ToString() + " " + lblCtphrcte.Text;
+            string strTemp = lblCtphrcte.Text + " " + lblPdsCtphrcte.Text + " " + nudCtphrcte.Value.ToString() + " " + lblEftsCtphrcte.Text;
             if (chkCtphrcte.Checked)
             {
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
@@ -1306,7 +1306,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void chkCrsFr_Click(object sender, EventArgs e)
         {
-            string strTemp = lblCrsFr.Text + " " + lblPdsCrsFr.Text + " " + nudCrsFr.Value.ToString() + " " + lblCrsFr.Text;
+            string strTemp = lblCrsFr.Text + " " + lblPdsCrsFr.Text + " " + nudCrsFr.Value.ToString() + " " + lblEftsCrsFr.Text;
             if (chkCrsFr.Checked)
             {
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
@@ -1342,7 +1342,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void chkCpeCuir_Click(object sender, EventArgs e)
         {
-            string strTemp = lblCpeCuir.Text + " " + lblPdsCpeCuir.Text + " " + nudCpeCuir.Value.ToString() + " " + lblCpeCuir.Text;
+            string strTemp = lblCpeCuir.Text + " " + lblPdsCpeCuir.Text + " " + nudCpeCuir.Value.ToString() + " " + lblEftsCpeCuir.Text;
             if (chkCpeCuir.Checked)
             {
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
@@ -1378,7 +1378,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void chkCrsBze_Click(object sender, EventArgs e)
         {
-            string strTemp = lblCrsBze.Text + " " + lblPdsCrsBze.Text + " " + nudCrsBze.Value.ToString() + " " + lblCrsBze.Text;
+            string strTemp = lblCrsBze.Text + " " + lblPdsCrsBze.Text + " " + nudCrsBze.Value.ToString() + " " + lblEftsCrsBze.Text;
             if (chkCrsBze.Checked)
             {
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
@@ -1414,7 +1414,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void chkGntMles_Click(object sender, EventArgs e)
         {
-            string strTemp = lblGntMles.Text + " " + lblPdsGntMles.Text + " " + nudGntMles.Value.ToString() + " " + lblGntMles.Text;
+            string strTemp = lblGntMles.Text + " " + lblPdsGntMles.Text + " " + nudGntMles.Value.ToString() + " " + lblEftsGntMles.Text;
             if (chkGntMles.Checked)
             {
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
@@ -1450,7 +1450,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void chkGntlet_Click(object sender, EventArgs e)
         {
-            string strTemp = lblGntlet.Text + " " + lblPdsGntlet.Text + " " + nudGntlet.Value.ToString() + " " + lblGntlet.Text;
+            string strTemp = lblGntlet.Text + " " + lblPdsGntlet.Text + " " + nudGntlet.Value.ToString() + " " + lblEftsGntlet.Text;
             if (chkGntlet.Checked)
             {
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
@@ -1486,7 +1486,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void chkMitne_Click(object sender, EventArgs e)
         {
-            string strTemp = lblMitne.Text + " " + lblPdsMitne.Text + " " + nudMitne.Value.ToString() + " " + lblMitne.Text;
+            string strTemp = lblMitne.Text + " " + lblPdsMitne.Text + " " + nudMitne.Value.ToString() + " " + lblEftsMitne.Text;
             if (chkMitne.Checked)
             {
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
@@ -1522,7 +1522,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void chkMton_Click(object sender, EventArgs e)
         {
-            string strTemp = lblMton.Text + " " + lblPdsMton.Text + " " + nudMton.Value.ToString() + " " + lblMton.Text;
+            string strTemp = lblMton.Text + " " + lblPdsMton.Text + " " + nudMton.Value.ToString() + " " + lblEftsMton.Text;
             if (chkMton.Checked)
             {
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
@@ -1558,7 +1558,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void chkCuissrd_Click(object sender, EventArgs e)
         {
-            string strTemp = lblCuissrd.Text + " " + lblCuissrd.Text + " " + nudCuissrd.Value.ToString() + " " + lblCuissrd.Text;
+            string strTemp = lblCuissrd.Text + " " + lblPdsCuissrd.Text + " " + nudCuissrd.Value.ToString() + " " + lblEftsCuissrd.Text;
             if (chkCuissrd.Checked)
             {
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
@@ -1594,7 +1594,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void chkPntlonTle_Click(object sender, EventArgs e)
         {
-            string strTemp = lblPntlonTle.Text + " " + lblPntlonTle.Text + " " + nudPntlonTle.Value.ToString() + " " + lblPntlonTle.Text;
+            string strTemp = lblPntlonTle.Text + " " + lblPdsPntlonTle.Text + " " + nudPntlonTle.Value.ToString() + " " + lblEftsPntlonTle.Text;
             if (chkPntlonTle.Checked)
             {
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
@@ -1630,7 +1630,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void chkCmide_Click(object sender, EventArgs e)
         {
-            string strTemp = lblCmide.Text + " " + lblCmide.Text + " " + nudCmide.Value.ToString() + " " + lblCmide.Text;
+            string strTemp = lblCmide.Text + " " + lblPdsCmide.Text + " " + nudCmide.Value.ToString() + " " + lblEftsCmide.Text;
             if (chkCmide.Checked)
             {
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
@@ -1666,7 +1666,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void chkSndles_Click(object sender, EventArgs e)
         {
-            string strTemp = lblSndles.Text + " " + lblSndles.Text + " " + nudSndles.Value.ToString() + " " + lblSndles.Text;
+            string strTemp = lblSndles.Text + " " + lblPdsSndles.Text + " " + nudSndles.Value.ToString() + " " + lblEftsSndles.Text;
             if (chkSndles.Checked)
             {
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
@@ -1702,7 +1702,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void chkChssuresCuir_Click(object sender, EventArgs e)
         {
-            string strTemp = lblChssuresCuir.Text + " " + lblChssuresCuir.Text + " " + nudChssuresCuir.Value.ToString() + " " + lblChssuresCuir.Text;
+            string strTemp = lblChssuresCuir.Text + " " + lblPdsChssuresCuir.Text + " " + nudChssuresCuir.Value.ToString() + " " + lblEftsChssuresCuir.Text;
             if (chkChssuresCuir.Checked)
             {
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
@@ -1738,7 +1738,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void chkEcu_Click(object sender, EventArgs e)
         {
-            string strTemp = lblEcu.Text + " " + lblEcu.Text + " " + nudEcu.Value.ToString() + " " + lblEcu.Text;
+            string strTemp = lblEcu.Text + " " + lblPdsEcu.Text + " " + nudEcu.Value.ToString() + " " + lblEftsEcu.Text;
             if (chkEcu.Checked)
             {
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
@@ -1774,7 +1774,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void chkPvois_Click(object sender, EventArgs e)
         {
-            string strTemp = lblPvois.Text + " " + lblPvois.Text + " " + nudPvois.Value.ToString() + " " + lblPvois.Text;
+            string strTemp = lblPvois.Text + " " + lblPdsPvois.Text + " " + nudPvois.Value.ToString() + " " + lblEftsPvois.Text;
             if (chkPvois.Checked)
             {
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
@@ -1810,7 +1810,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void chkBclrAmde_Click(object sender, EventArgs e)
         {
-            string strTemp = lblBclrAmde.Text + " " + lblBclrAmde.Text + " " + nudBclrAmde.Value.ToString() + " " + lblBclrAmde.Text;
+            string strTemp = lblBclrAmde.Text + " " + lblPdsBclrAmde.Text + " " + nudBclrAmde.Value.ToString() + " " + lblEftsBclrAmde.Text;
             if (chkBclrAmde.Checked)
             {
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
@@ -1846,7 +1846,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void chkBclrBze_Click(object sender, EventArgs e)
         {
-            string strTemp = lblBclrBze.Text + " " + lblBclrBze.Text + " " + nudBclrBze.Value.ToString() + " " + lblBclrBze.Text;
+            string strTemp = lblBclrBze.Text + " " + lblPdsBclrBze.Text + " " + nudBclrBze.Value.ToString() + " " + lblEftsBclrBze.Text;
             if (chkBclrBze.Checked)
             {
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
@@ -1882,12 +1882,192 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void chkPlta_Click(object sender, EventArgs e)
         {
-            string strTemp = lblPlta.Text + " " + lblPlta.Text + " " + nudPlta.Value.ToString() + " " + lblPlta.Text;
+            string strTemp = lblPlta.Text + " " + lblPdsPlta.Text + " " + nudPlta.Value.ToString() + " " + lblEftsPlta.Text;
             if (chkPlta.Checked)
             {
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkPlta.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne torche
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkTrche_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblTrche.Text + " " + lblPdsTrche.Text + " " + lblLgrTrche.Text + " " + nudTrche.Value.ToString() + " " + lblEftsTrche.Text;
+            if (chkTrche.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkTrche.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne corde
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkCrde_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblCrde.Text + " " + lblPdsCrde.Text + " " + lblLgrCrde.Text + " " + nudCrde.Value.ToString() + " " + lblEftsCrde.Text;
+            if (chkCrde.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkCrde.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne outre
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkOte_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblOte.Text + " " + lblPdsOte.Text + " " + lblLgrOte.Text + " " + nudOte.Value.ToString() + " " + lblEftsOte.Text;
+            if (chkOte.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkOte.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne sac
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkSc_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblSc.Text + " " + lblPdsSc.Text + " " + lblLgrSc.Text + " " + nudSc.Value.ToString() + " " + lblEftsSc.Text;
+            if (chkSc.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkSc.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne tente
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkTnte_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblTnte.Text + " " + lblPdsTnte.Text + " " + lblLgrTnte.Text + " " + nudTnte.Value.ToString() + " " + lblEftsTnte.Text;
+            if (chkTnte.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkTnte.Checked)
             {
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
