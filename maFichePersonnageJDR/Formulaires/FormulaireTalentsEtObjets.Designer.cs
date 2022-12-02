@@ -35,9 +35,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblPdsEpee = new System.Windows.Forms.Label();
             this.lblPrtEpee = new System.Windows.Forms.Label();
             this.lblNomEpee = new System.Windows.Forms.Label();
-            this.gpbSortilegesAptitudes = new System.Windows.Forms.GroupBox();
-            this.cbbSortileges = new System.Windows.Forms.ComboBox();
-            this.btnAjouterTalents = new System.Windows.Forms.Button();
             this.btnSauvegarder = new System.Windows.Forms.Button();
             this.tcInventaires = new System.Windows.Forms.TabControl();
             this.tcArmes = new System.Windows.Forms.TabPage();
@@ -462,7 +459,66 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkOte = new System.Windows.Forms.CheckBox();
             this.chkSc = new System.Windows.Forms.CheckBox();
             this.chkTnte = new System.Windows.Forms.CheckBox();
-            this.gpbSortilegesAptitudes.SuspendLayout();
+            this.tcSortilege = new System.Windows.Forms.TabControl();
+            this.tpAqua = new System.Windows.Forms.TabPage();
+            this.tpIgnis = new System.Windows.Forms.TabPage();
+            this.tpCeleste = new System.Windows.Forms.TabPage();
+            this.tpTerrestre = new System.Windows.Forms.TabPage();
+            this.tpNature = new System.Windows.Forms.TabPage();
+            this.tpDivine = new System.Windows.Forms.TabPage();
+            this.tpDemoniaque = new System.Windows.Forms.TabPage();
+            this.tpNeutre = new System.Windows.Forms.TabPage();
+            this.chkMgieAqua = new System.Windows.Forms.CheckBox();
+            this.lblMgieAqua = new System.Windows.Forms.Label();
+            this.lblNomMAqua = new System.Windows.Forms.Label();
+            this.chkMgieIgnis = new System.Windows.Forms.CheckBox();
+            this.lblMgieIgnis = new System.Windows.Forms.Label();
+            this.lblNomMIgnis = new System.Windows.Forms.Label();
+            this.chkMgieCeleste = new System.Windows.Forms.CheckBox();
+            this.lblMgieCeleste = new System.Windows.Forms.Label();
+            this.lblNomMCeleste = new System.Windows.Forms.Label();
+            this.chkMgieTerrestre = new System.Windows.Forms.CheckBox();
+            this.lblMgieTerrestre = new System.Windows.Forms.Label();
+            this.lblNomMTerrestre = new System.Windows.Forms.Label();
+            this.chkMgieNatureComm = new System.Windows.Forms.CheckBox();
+            this.lblMgieNatureComm = new System.Windows.Forms.Label();
+            this.lblNomMNature = new System.Windows.Forms.Label();
+            this.chkMgieNatureInvoc = new System.Windows.Forms.CheckBox();
+            this.lblMgieNatureInvoc = new System.Windows.Forms.Label();
+            this.chkMgieNatureChgmTemp = new System.Windows.Forms.CheckBox();
+            this.lblMgieNatureChgmTemp = new System.Windows.Forms.Label();
+            this.chkMgieNatureVsionNoir = new System.Windows.Forms.CheckBox();
+            this.lblMgieNatureVsionNoir = new System.Windows.Forms.Label();
+            this.chkMgieDivineBclrPrtc = new System.Windows.Forms.CheckBox();
+            this.lblMgieDivineBclrPrtc = new System.Windows.Forms.Label();
+            this.lblNomMDivine = new System.Windows.Forms.Label();
+            this.chkMgieDivineRestauration = new System.Windows.Forms.CheckBox();
+            this.lblMgieDivineRestauration = new System.Windows.Forms.Label();
+            this.chkMgieDivineGueri = new System.Windows.Forms.CheckBox();
+            this.lblMgieDivineGueri = new System.Windows.Forms.Label();
+            this.chkMgieDivineBene = new System.Windows.Forms.CheckBox();
+            this.lblMgieDivineBene = new System.Windows.Forms.Label();
+            this.chkMgieDivineDvnation = new System.Windows.Forms.CheckBox();
+            this.lblMgieDivineDvnation = new System.Windows.Forms.Label();
+            this.chkMgieDemoniaqueAbspton = new System.Windows.Forms.CheckBox();
+            this.lblMgieDemoniaqueAbspton = new System.Windows.Forms.Label();
+            this.lblNomMDemoniaque = new System.Windows.Forms.Label();
+            this.chkMgieDemoniaqueNecro = new System.Windows.Forms.CheckBox();
+            this.lblMgieDemoniaqueNecro = new System.Windows.Forms.Label();
+            this.chkMgieDemoniaqueMldction = new System.Windows.Forms.CheckBox();
+            this.lblMgieDemoniaqueMldction = new System.Windows.Forms.Label();
+            this.chkMgieDemoniaqueCntrole = new System.Windows.Forms.CheckBox();
+            this.lblMgieDemoniaqueCntrole = new System.Windows.Forms.Label();
+            this.chkMgieNeutreAltration = new System.Windows.Forms.CheckBox();
+            this.lblMgieNeutreAltration = new System.Windows.Forms.Label();
+            this.lblNomMNeutre = new System.Windows.Forms.Label();
+            this.chkMgieNeutreInvsbilté = new System.Windows.Forms.CheckBox();
+            this.lblMgieNeutreInvsbilté = new System.Windows.Forms.Label();
+            this.chkMgieNeutreSsie = new System.Windows.Forms.CheckBox();
+            this.lblMgieNeutreSsie = new System.Windows.Forms.Label();
+            this.chkMgieNeutreMsg = new System.Windows.Forms.CheckBox();
+            this.lblMgieNeutreMsg = new System.Windows.Forms.Label();
+            this.rchTbSorts = new System.Windows.Forms.RichTextBox();
             this.tcInventaires.SuspendLayout();
             this.tcArmes.SuspendLayout();
             this.tcType.SuspendLayout();
@@ -538,6 +594,15 @@ namespace maFichePersonnageJDR.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.nudOte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCrde)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTrche)).BeginInit();
+            this.tcSortilege.SuspendLayout();
+            this.tpAqua.SuspendLayout();
+            this.tpIgnis.SuspendLayout();
+            this.tpCeleste.SuspendLayout();
+            this.tpTerrestre.SuspendLayout();
+            this.tpNature.SuspendLayout();
+            this.tpDivine.SuspendLayout();
+            this.tpDemoniaque.SuspendLayout();
+            this.tpNeutre.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblDgtsEpee
@@ -594,42 +659,9 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblNomEpee.TabIndex = 0;
             this.lblNomEpee.Text = "Nom";
             // 
-            // gpbSortilegesAptitudes
-            // 
-            this.gpbSortilegesAptitudes.AutoSize = true;
-            this.gpbSortilegesAptitudes.BackColor = System.Drawing.SystemColors.Window;
-            this.gpbSortilegesAptitudes.Controls.Add(this.cbbSortileges);
-            this.gpbSortilegesAptitudes.Controls.Add(this.btnAjouterTalents);
-            this.gpbSortilegesAptitudes.Location = new System.Drawing.Point(804, 53);
-            this.gpbSortilegesAptitudes.Name = "gpbSortilegesAptitudes";
-            this.gpbSortilegesAptitudes.Size = new System.Drawing.Size(314, 317);
-            this.gpbSortilegesAptitudes.TabIndex = 4;
-            this.gpbSortilegesAptitudes.TabStop = false;
-            this.gpbSortilegesAptitudes.Text = "Talents";
-            // 
-            // cbbSortileges
-            // 
-            this.cbbSortileges.DropDownWidth = 200;
-            this.cbbSortileges.FormattingEnabled = true;
-            this.cbbSortileges.Location = new System.Drawing.Point(115, 248);
-            this.cbbSortileges.Name = "cbbSortileges";
-            this.cbbSortileges.Size = new System.Drawing.Size(82, 21);
-            this.cbbSortileges.TabIndex = 1;
-            this.cbbSortileges.Text = "Sortilèges";
-            // 
-            // btnAjouterTalents
-            // 
-            this.btnAjouterTalents.Location = new System.Drawing.Point(115, 275);
-            this.btnAjouterTalents.Name = "btnAjouterTalents";
-            this.btnAjouterTalents.Size = new System.Drawing.Size(75, 23);
-            this.btnAjouterTalents.TabIndex = 0;
-            this.btnAjouterTalents.Text = "Ajouter";
-            this.btnAjouterTalents.UseVisualStyleBackColor = true;
-            this.btnAjouterTalents.Click += new System.EventHandler(this.btnAjouterSortileges_Click);
-            // 
             // btnSauvegarder
             // 
-            this.btnSauvegarder.Location = new System.Drawing.Point(661, 564);
+            this.btnSauvegarder.Location = new System.Drawing.Point(633, 591);
             this.btnSauvegarder.Name = "btnSauvegarder";
             this.btnSauvegarder.Size = new System.Drawing.Size(75, 23);
             this.btnSauvegarder.TabIndex = 5;
@@ -4504,7 +4536,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.rchTxtIvtaires.Location = new System.Drawing.Point(26, 388);
             this.rchTxtIvtaires.Name = "rchTxtIvtaires";
-            this.rchTxtIvtaires.Size = new System.Drawing.Size(619, 199);
+            this.rchTxtIvtaires.Size = new System.Drawing.Size(619, 173);
             this.rchTxtIvtaires.TabIndex = 7;
             this.rchTxtIvtaires.Text = "";
             // 
@@ -4912,20 +4944,639 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkTnte.UseVisualStyleBackColor = true;
             this.chkTnte.Click += new System.EventHandler(this.chkTnte_Click);
             // 
+            // tcSortilege
+            // 
+            this.tcSortilege.Controls.Add(this.tpAqua);
+            this.tcSortilege.Controls.Add(this.tpIgnis);
+            this.tcSortilege.Controls.Add(this.tpCeleste);
+            this.tcSortilege.Controls.Add(this.tpTerrestre);
+            this.tcSortilege.Controls.Add(this.tpNature);
+            this.tcSortilege.Controls.Add(this.tpDivine);
+            this.tcSortilege.Controls.Add(this.tpDemoniaque);
+            this.tcSortilege.Controls.Add(this.tpNeutre);
+            this.tcSortilege.Location = new System.Drawing.Point(692, 31);
+            this.tcSortilege.Name = "tcSortilege";
+            this.tcSortilege.SelectedIndex = 0;
+            this.tcSortilege.Size = new System.Drawing.Size(416, 333);
+            this.tcSortilege.TabIndex = 8;
+            // 
+            // tpAqua
+            // 
+            this.tpAqua.Controls.Add(this.chkMgieAqua);
+            this.tpAqua.Controls.Add(this.lblMgieAqua);
+            this.tpAqua.Controls.Add(this.lblNomMAqua);
+            this.tpAqua.Location = new System.Drawing.Point(4, 22);
+            this.tpAqua.Name = "tpAqua";
+            this.tpAqua.Padding = new System.Windows.Forms.Padding(3);
+            this.tpAqua.Size = new System.Drawing.Size(408, 307);
+            this.tpAqua.TabIndex = 0;
+            this.tpAqua.Text = "M. Aquatique";
+            this.tpAqua.UseVisualStyleBackColor = true;
+            // 
+            // tpIgnis
+            // 
+            this.tpIgnis.Controls.Add(this.chkMgieIgnis);
+            this.tpIgnis.Controls.Add(this.lblMgieIgnis);
+            this.tpIgnis.Controls.Add(this.lblNomMIgnis);
+            this.tpIgnis.Location = new System.Drawing.Point(4, 22);
+            this.tpIgnis.Name = "tpIgnis";
+            this.tpIgnis.Padding = new System.Windows.Forms.Padding(3);
+            this.tpIgnis.Size = new System.Drawing.Size(408, 307);
+            this.tpIgnis.TabIndex = 1;
+            this.tpIgnis.Text = "M.Ignis";
+            this.tpIgnis.UseVisualStyleBackColor = true;
+            // 
+            // tpCeleste
+            // 
+            this.tpCeleste.Controls.Add(this.chkMgieCeleste);
+            this.tpCeleste.Controls.Add(this.lblMgieCeleste);
+            this.tpCeleste.Controls.Add(this.lblNomMCeleste);
+            this.tpCeleste.Location = new System.Drawing.Point(4, 22);
+            this.tpCeleste.Name = "tpCeleste";
+            this.tpCeleste.Size = new System.Drawing.Size(408, 307);
+            this.tpCeleste.TabIndex = 2;
+            this.tpCeleste.Text = "M.Céleste";
+            this.tpCeleste.UseVisualStyleBackColor = true;
+            // 
+            // tpTerrestre
+            // 
+            this.tpTerrestre.Controls.Add(this.chkMgieTerrestre);
+            this.tpTerrestre.Controls.Add(this.lblMgieTerrestre);
+            this.tpTerrestre.Controls.Add(this.lblNomMTerrestre);
+            this.tpTerrestre.Location = new System.Drawing.Point(4, 22);
+            this.tpTerrestre.Name = "tpTerrestre";
+            this.tpTerrestre.Size = new System.Drawing.Size(408, 307);
+            this.tpTerrestre.TabIndex = 3;
+            this.tpTerrestre.Text = "M.Terrestre";
+            this.tpTerrestre.UseVisualStyleBackColor = true;
+            // 
+            // tpNature
+            // 
+            this.tpNature.Controls.Add(this.chkMgieNatureVsionNoir);
+            this.tpNature.Controls.Add(this.lblMgieNatureVsionNoir);
+            this.tpNature.Controls.Add(this.chkMgieNatureChgmTemp);
+            this.tpNature.Controls.Add(this.lblMgieNatureChgmTemp);
+            this.tpNature.Controls.Add(this.chkMgieNatureInvoc);
+            this.tpNature.Controls.Add(this.lblMgieNatureInvoc);
+            this.tpNature.Controls.Add(this.chkMgieNatureComm);
+            this.tpNature.Controls.Add(this.lblMgieNatureComm);
+            this.tpNature.Controls.Add(this.lblNomMNature);
+            this.tpNature.Location = new System.Drawing.Point(4, 22);
+            this.tpNature.Name = "tpNature";
+            this.tpNature.Size = new System.Drawing.Size(408, 307);
+            this.tpNature.TabIndex = 4;
+            this.tpNature.Text = "M.Nature";
+            this.tpNature.UseVisualStyleBackColor = true;
+            // 
+            // tpDivine
+            // 
+            this.tpDivine.Controls.Add(this.chkMgieDivineDvnation);
+            this.tpDivine.Controls.Add(this.lblMgieDivineDvnation);
+            this.tpDivine.Controls.Add(this.chkMgieDivineBene);
+            this.tpDivine.Controls.Add(this.lblMgieDivineBene);
+            this.tpDivine.Controls.Add(this.chkMgieDivineGueri);
+            this.tpDivine.Controls.Add(this.lblMgieDivineGueri);
+            this.tpDivine.Controls.Add(this.chkMgieDivineRestauration);
+            this.tpDivine.Controls.Add(this.lblMgieDivineRestauration);
+            this.tpDivine.Controls.Add(this.chkMgieDivineBclrPrtc);
+            this.tpDivine.Controls.Add(this.lblMgieDivineBclrPrtc);
+            this.tpDivine.Controls.Add(this.lblNomMDivine);
+            this.tpDivine.Location = new System.Drawing.Point(4, 22);
+            this.tpDivine.Name = "tpDivine";
+            this.tpDivine.Size = new System.Drawing.Size(408, 307);
+            this.tpDivine.TabIndex = 5;
+            this.tpDivine.Text = "M.Divine";
+            this.tpDivine.UseVisualStyleBackColor = true;
+            // 
+            // tpDemoniaque
+            // 
+            this.tpDemoniaque.Controls.Add(this.chkMgieDemoniaqueCntrole);
+            this.tpDemoniaque.Controls.Add(this.lblMgieDemoniaqueCntrole);
+            this.tpDemoniaque.Controls.Add(this.chkMgieDemoniaqueMldction);
+            this.tpDemoniaque.Controls.Add(this.lblMgieDemoniaqueMldction);
+            this.tpDemoniaque.Controls.Add(this.chkMgieDemoniaqueNecro);
+            this.tpDemoniaque.Controls.Add(this.lblMgieDemoniaqueNecro);
+            this.tpDemoniaque.Controls.Add(this.chkMgieDemoniaqueAbspton);
+            this.tpDemoniaque.Controls.Add(this.lblMgieDemoniaqueAbspton);
+            this.tpDemoniaque.Controls.Add(this.lblNomMDemoniaque);
+            this.tpDemoniaque.Location = new System.Drawing.Point(4, 22);
+            this.tpDemoniaque.Name = "tpDemoniaque";
+            this.tpDemoniaque.Size = new System.Drawing.Size(408, 307);
+            this.tpDemoniaque.TabIndex = 6;
+            this.tpDemoniaque.Text = "M.Démoniaque";
+            this.tpDemoniaque.UseVisualStyleBackColor = true;
+            // 
+            // tpNeutre
+            // 
+            this.tpNeutre.Controls.Add(this.chkMgieNeutreMsg);
+            this.tpNeutre.Controls.Add(this.lblMgieNeutreMsg);
+            this.tpNeutre.Controls.Add(this.chkMgieNeutreSsie);
+            this.tpNeutre.Controls.Add(this.lblMgieNeutreSsie);
+            this.tpNeutre.Controls.Add(this.chkMgieNeutreInvsbilté);
+            this.tpNeutre.Controls.Add(this.lblMgieNeutreInvsbilté);
+            this.tpNeutre.Controls.Add(this.chkMgieNeutreAltration);
+            this.tpNeutre.Controls.Add(this.lblMgieNeutreAltration);
+            this.tpNeutre.Controls.Add(this.lblNomMNeutre);
+            this.tpNeutre.Location = new System.Drawing.Point(4, 22);
+            this.tpNeutre.Name = "tpNeutre";
+            this.tpNeutre.Size = new System.Drawing.Size(408, 307);
+            this.tpNeutre.TabIndex = 7;
+            this.tpNeutre.Text = "M.Neutre";
+            this.tpNeutre.UseVisualStyleBackColor = true;
+            // 
+            // chkMgieAqua
+            // 
+            this.chkMgieAqua.AutoSize = true;
+            this.chkMgieAqua.Location = new System.Drawing.Point(11, 22);
+            this.chkMgieAqua.Name = "chkMgieAqua";
+            this.chkMgieAqua.Size = new System.Drawing.Size(15, 14);
+            this.chkMgieAqua.TabIndex = 154;
+            this.chkMgieAqua.UseVisualStyleBackColor = true;
+            this.chkMgieAqua.Click += new System.EventHandler(this.chkMgieAqua_Click);
+            // 
+            // lblMgieAqua
+            // 
+            this.lblMgieAqua.AutoSize = true;
+            this.lblMgieAqua.Location = new System.Drawing.Point(32, 22);
+            this.lblMgieAqua.Name = "lblMgieAqua";
+            this.lblMgieAqua.Size = new System.Drawing.Size(107, 13);
+            this.lblMgieAqua.TabIndex = 128;
+            this.lblMgieAqua.Text = "Manipulation de l\'eau";
+            // 
+            // lblNomMAqua
+            // 
+            this.lblNomMAqua.AutoSize = true;
+            this.lblNomMAqua.Location = new System.Drawing.Point(32, 3);
+            this.lblNomMAqua.Name = "lblNomMAqua";
+            this.lblNomMAqua.Size = new System.Drawing.Size(29, 13);
+            this.lblNomMAqua.TabIndex = 124;
+            this.lblNomMAqua.Text = "Nom";
+            // 
+            // chkMgieIgnis
+            // 
+            this.chkMgieIgnis.AutoSize = true;
+            this.chkMgieIgnis.Location = new System.Drawing.Point(25, 22);
+            this.chkMgieIgnis.Name = "chkMgieIgnis";
+            this.chkMgieIgnis.Size = new System.Drawing.Size(15, 14);
+            this.chkMgieIgnis.TabIndex = 157;
+            this.chkMgieIgnis.UseVisualStyleBackColor = true;
+            this.chkMgieIgnis.Click += new System.EventHandler(this.chkMgieIgnis_Click);
+            // 
+            // lblMgieIgnis
+            // 
+            this.lblMgieIgnis.AutoSize = true;
+            this.lblMgieIgnis.Location = new System.Drawing.Point(46, 22);
+            this.lblMgieIgnis.Name = "lblMgieIgnis";
+            this.lblMgieIgnis.Size = new System.Drawing.Size(128, 13);
+            this.lblMgieIgnis.TabIndex = 156;
+            this.lblMgieIgnis.Text = "Manipulation des flammes";
+            // 
+            // lblNomMIgnis
+            // 
+            this.lblNomMIgnis.AutoSize = true;
+            this.lblNomMIgnis.Location = new System.Drawing.Point(46, 3);
+            this.lblNomMIgnis.Name = "lblNomMIgnis";
+            this.lblNomMIgnis.Size = new System.Drawing.Size(29, 13);
+            this.lblNomMIgnis.TabIndex = 155;
+            this.lblNomMIgnis.Text = "Nom";
+            // 
+            // chkMgieCeleste
+            // 
+            this.chkMgieCeleste.AutoSize = true;
+            this.chkMgieCeleste.Location = new System.Drawing.Point(14, 22);
+            this.chkMgieCeleste.Name = "chkMgieCeleste";
+            this.chkMgieCeleste.Size = new System.Drawing.Size(15, 14);
+            this.chkMgieCeleste.TabIndex = 160;
+            this.chkMgieCeleste.UseVisualStyleBackColor = true;
+            this.chkMgieCeleste.Click += new System.EventHandler(this.chkMgieCeleste_Click);
+            // 
+            // lblMgieCeleste
+            // 
+            this.lblMgieCeleste.AutoSize = true;
+            this.lblMgieCeleste.Location = new System.Drawing.Point(35, 22);
+            this.lblMgieCeleste.Name = "lblMgieCeleste";
+            this.lblMgieCeleste.Size = new System.Drawing.Size(180, 13);
+            this.lblMgieCeleste.TabIndex = 159;
+            this.lblMgieCeleste.Text = "Manipulation des éléments des cieux";
+            // 
+            // lblNomMCeleste
+            // 
+            this.lblNomMCeleste.AutoSize = true;
+            this.lblNomMCeleste.Location = new System.Drawing.Point(35, 3);
+            this.lblNomMCeleste.Name = "lblNomMCeleste";
+            this.lblNomMCeleste.Size = new System.Drawing.Size(29, 13);
+            this.lblNomMCeleste.TabIndex = 158;
+            this.lblNomMCeleste.Text = "Nom";
+            // 
+            // chkMgieTerrestre
+            // 
+            this.chkMgieTerrestre.AutoSize = true;
+            this.chkMgieTerrestre.Location = new System.Drawing.Point(15, 22);
+            this.chkMgieTerrestre.Name = "chkMgieTerrestre";
+            this.chkMgieTerrestre.Size = new System.Drawing.Size(15, 14);
+            this.chkMgieTerrestre.TabIndex = 163;
+            this.chkMgieTerrestre.UseVisualStyleBackColor = true;
+            this.chkMgieTerrestre.Click += new System.EventHandler(this.chkMgieTerrestre_Click);
+            // 
+            // lblMgieTerrestre
+            // 
+            this.lblMgieTerrestre.AutoSize = true;
+            this.lblMgieTerrestre.Location = new System.Drawing.Point(36, 22);
+            this.lblMgieTerrestre.Name = "lblMgieTerrestre";
+            this.lblMgieTerrestre.Size = new System.Drawing.Size(117, 13);
+            this.lblMgieTerrestre.TabIndex = 162;
+            this.lblMgieTerrestre.Text = "Manipulation de la terre";
+            // 
+            // lblNomMTerrestre
+            // 
+            this.lblNomMTerrestre.AutoSize = true;
+            this.lblNomMTerrestre.Location = new System.Drawing.Point(36, 3);
+            this.lblNomMTerrestre.Name = "lblNomMTerrestre";
+            this.lblNomMTerrestre.Size = new System.Drawing.Size(29, 13);
+            this.lblNomMTerrestre.TabIndex = 161;
+            this.lblNomMTerrestre.Text = "Nom";
+            // 
+            // chkMgieNatureComm
+            // 
+            this.chkMgieNatureComm.AutoSize = true;
+            this.chkMgieNatureComm.Location = new System.Drawing.Point(15, 22);
+            this.chkMgieNatureComm.Name = "chkMgieNatureComm";
+            this.chkMgieNatureComm.Size = new System.Drawing.Size(15, 14);
+            this.chkMgieNatureComm.TabIndex = 166;
+            this.chkMgieNatureComm.UseVisualStyleBackColor = true;
+            this.chkMgieNatureComm.Click += new System.EventHandler(this.chkMgieNatureComm_Click);
+            // 
+            // lblMgieNatureComm
+            // 
+            this.lblMgieNatureComm.AutoSize = true;
+            this.lblMgieNatureComm.Location = new System.Drawing.Point(36, 22);
+            this.lblMgieNatureComm.Name = "lblMgieNatureComm";
+            this.lblMgieNatureComm.Size = new System.Drawing.Size(286, 13);
+            this.lblMgieNatureComm.TabIndex = 165;
+            this.lblMgieNatureComm.Text = "Communication avec l\'environnement (plantes, animaux, ...)";
+            // 
+            // lblNomMNature
+            // 
+            this.lblNomMNature.AutoSize = true;
+            this.lblNomMNature.Location = new System.Drawing.Point(36, 3);
+            this.lblNomMNature.Name = "lblNomMNature";
+            this.lblNomMNature.Size = new System.Drawing.Size(29, 13);
+            this.lblNomMNature.TabIndex = 164;
+            this.lblNomMNature.Text = "Nom";
+            // 
+            // chkMgieNatureInvoc
+            // 
+            this.chkMgieNatureInvoc.AutoSize = true;
+            this.chkMgieNatureInvoc.Location = new System.Drawing.Point(15, 49);
+            this.chkMgieNatureInvoc.Name = "chkMgieNatureInvoc";
+            this.chkMgieNatureInvoc.Size = new System.Drawing.Size(15, 14);
+            this.chkMgieNatureInvoc.TabIndex = 168;
+            this.chkMgieNatureInvoc.UseVisualStyleBackColor = true;
+            this.chkMgieNatureInvoc.Click += new System.EventHandler(this.chkMgieNatureInvoc_Click);
+            // 
+            // lblMgieNatureInvoc
+            // 
+            this.lblMgieNatureInvoc.AutoSize = true;
+            this.lblMgieNatureInvoc.Location = new System.Drawing.Point(36, 49);
+            this.lblMgieNatureInvoc.Name = "lblMgieNatureInvoc";
+            this.lblMgieNatureInvoc.Size = new System.Drawing.Size(269, 13);
+            this.lblMgieNatureInvoc.TabIndex = 167;
+            this.lblMgieNatureInvoc.Text = "Invocation d\'un familier (créature connue par le lanceur)";
+            // 
+            // chkMgieNatureChgmTemp
+            // 
+            this.chkMgieNatureChgmTemp.AutoSize = true;
+            this.chkMgieNatureChgmTemp.Location = new System.Drawing.Point(15, 76);
+            this.chkMgieNatureChgmTemp.Name = "chkMgieNatureChgmTemp";
+            this.chkMgieNatureChgmTemp.Size = new System.Drawing.Size(15, 14);
+            this.chkMgieNatureChgmTemp.TabIndex = 170;
+            this.chkMgieNatureChgmTemp.UseVisualStyleBackColor = true;
+            this.chkMgieNatureChgmTemp.Click += new System.EventHandler(this.chkMgieNatureChgmTemp_Click);
+            // 
+            // lblMgieNatureChgmTemp
+            // 
+            this.lblMgieNatureChgmTemp.AutoSize = true;
+            this.lblMgieNatureChgmTemp.Location = new System.Drawing.Point(36, 76);
+            this.lblMgieNatureChgmTemp.Name = "lblMgieNatureChgmTemp";
+            this.lblMgieNatureChgmTemp.Size = new System.Drawing.Size(152, 13);
+            this.lblMgieNatureChgmTemp.TabIndex = 169;
+            this.lblMgieNatureChgmTemp.Text = "Changement de la température";
+            // 
+            // chkMgieNatureVsionNoir
+            // 
+            this.chkMgieNatureVsionNoir.AutoSize = true;
+            this.chkMgieNatureVsionNoir.Location = new System.Drawing.Point(15, 106);
+            this.chkMgieNatureVsionNoir.Name = "chkMgieNatureVsionNoir";
+            this.chkMgieNatureVsionNoir.Size = new System.Drawing.Size(15, 14);
+            this.chkMgieNatureVsionNoir.TabIndex = 172;
+            this.chkMgieNatureVsionNoir.UseVisualStyleBackColor = true;
+            this.chkMgieNatureVsionNoir.Click += new System.EventHandler(this.chkMgieNatureVsionNoir_Click);
+            // 
+            // lblMgieNatureVsionNoir
+            // 
+            this.lblMgieNatureVsionNoir.AutoSize = true;
+            this.lblMgieNatureVsionNoir.Location = new System.Drawing.Point(36, 106);
+            this.lblMgieNatureVsionNoir.Name = "lblMgieNatureVsionNoir";
+            this.lblMgieNatureVsionNoir.Size = new System.Drawing.Size(92, 13);
+            this.lblMgieNatureVsionNoir.TabIndex = 171;
+            this.lblMgieNatureVsionNoir.Text = "Vision dans le noir";
+            // 
+            // chkMgieDivineBclrPrtc
+            // 
+            this.chkMgieDivineBclrPrtc.AutoSize = true;
+            this.chkMgieDivineBclrPrtc.Location = new System.Drawing.Point(9, 22);
+            this.chkMgieDivineBclrPrtc.Name = "chkMgieDivineBclrPrtc";
+            this.chkMgieDivineBclrPrtc.Size = new System.Drawing.Size(15, 14);
+            this.chkMgieDivineBclrPrtc.TabIndex = 169;
+            this.chkMgieDivineBclrPrtc.UseVisualStyleBackColor = true;
+            this.chkMgieDivineBclrPrtc.Click += new System.EventHandler(this.chkMgieDivineBclrPrtc_Click);
+            // 
+            // lblMgieDivineBclrPrtc
+            // 
+            this.lblMgieDivineBclrPrtc.AutoSize = true;
+            this.lblMgieDivineBclrPrtc.Location = new System.Drawing.Point(30, 22);
+            this.lblMgieDivineBclrPrtc.Name = "lblMgieDivineBclrPrtc";
+            this.lblMgieDivineBclrPrtc.Size = new System.Drawing.Size(297, 13);
+            this.lblMgieDivineBclrPrtc.TabIndex = 168;
+            this.lblMgieDivineBclrPrtc.Text = "Bouclier de protection: champ protecteur dans un rayon défini";
+            // 
+            // lblNomMDivine
+            // 
+            this.lblNomMDivine.AutoSize = true;
+            this.lblNomMDivine.Location = new System.Drawing.Point(30, 3);
+            this.lblNomMDivine.Name = "lblNomMDivine";
+            this.lblNomMDivine.Size = new System.Drawing.Size(29, 13);
+            this.lblNomMDivine.TabIndex = 167;
+            this.lblNomMDivine.Text = "Nom";
+            // 
+            // chkMgieDivineRestauration
+            // 
+            this.chkMgieDivineRestauration.AutoSize = true;
+            this.chkMgieDivineRestauration.Location = new System.Drawing.Point(9, 49);
+            this.chkMgieDivineRestauration.Name = "chkMgieDivineRestauration";
+            this.chkMgieDivineRestauration.Size = new System.Drawing.Size(15, 14);
+            this.chkMgieDivineRestauration.TabIndex = 171;
+            this.chkMgieDivineRestauration.UseVisualStyleBackColor = true;
+            this.chkMgieDivineRestauration.Click += new System.EventHandler(this.chkMgieDivineRestauration_Click);
+            // 
+            // lblMgieDivineRestauration
+            // 
+            this.lblMgieDivineRestauration.AutoSize = true;
+            this.lblMgieDivineRestauration.Location = new System.Drawing.Point(30, 49);
+            this.lblMgieDivineRestauration.Name = "lblMgieDivineRestauration";
+            this.lblMgieDivineRestauration.Size = new System.Drawing.Size(359, 13);
+            this.lblMgieDivineRestauration.TabIndex = 170;
+            this.lblMgieDivineRestauration.Text = "Restauration : soigne les blessures, mais ne fait pas repousser les membres";
+            // 
+            // chkMgieDivineGueri
+            // 
+            this.chkMgieDivineGueri.AutoSize = true;
+            this.chkMgieDivineGueri.Location = new System.Drawing.Point(9, 78);
+            this.chkMgieDivineGueri.Name = "chkMgieDivineGueri";
+            this.chkMgieDivineGueri.Size = new System.Drawing.Size(15, 14);
+            this.chkMgieDivineGueri.TabIndex = 173;
+            this.chkMgieDivineGueri.UseVisualStyleBackColor = true;
+            this.chkMgieDivineGueri.Click += new System.EventHandler(this.chkMgieDivineGueri_Click);
+            // 
+            // lblMgieDivineGueri
+            // 
+            this.lblMgieDivineGueri.AutoSize = true;
+            this.lblMgieDivineGueri.Location = new System.Drawing.Point(30, 78);
+            this.lblMgieDivineGueri.Name = "lblMgieDivineGueri";
+            this.lblMgieDivineGueri.Size = new System.Drawing.Size(233, 13);
+            this.lblMgieDivineGueri.TabIndex = 172;
+            this.lblMgieDivineGueri.Text = "Guérison: soigne maladie, poison, paralysie, etc.";
+            // 
+            // chkMgieDivineBene
+            // 
+            this.chkMgieDivineBene.AutoSize = true;
+            this.chkMgieDivineBene.Location = new System.Drawing.Point(9, 108);
+            this.chkMgieDivineBene.Name = "chkMgieDivineBene";
+            this.chkMgieDivineBene.Size = new System.Drawing.Size(15, 14);
+            this.chkMgieDivineBene.TabIndex = 175;
+            this.chkMgieDivineBene.UseVisualStyleBackColor = true;
+            this.chkMgieDivineBene.Click += new System.EventHandler(this.chkMgieDivineBene_Click);
+            // 
+            // lblMgieDivineBene
+            // 
+            this.lblMgieDivineBene.AutoSize = true;
+            this.lblMgieDivineBene.Location = new System.Drawing.Point(30, 108);
+            this.lblMgieDivineBene.Name = "lblMgieDivineBene";
+            this.lblMgieDivineBene.Size = new System.Drawing.Size(152, 13);
+            this.lblMgieDivineBene.TabIndex = 174;
+            this.lblMgieDivineBene.Text = "Bénédiction: béni une créature";
+            // 
+            // chkMgieDivineDvnation
+            // 
+            this.chkMgieDivineDvnation.AutoSize = true;
+            this.chkMgieDivineDvnation.Location = new System.Drawing.Point(9, 139);
+            this.chkMgieDivineDvnation.Name = "chkMgieDivineDvnation";
+            this.chkMgieDivineDvnation.Size = new System.Drawing.Size(15, 14);
+            this.chkMgieDivineDvnation.TabIndex = 177;
+            this.chkMgieDivineDvnation.UseVisualStyleBackColor = true;
+            this.chkMgieDivineDvnation.Click += new System.EventHandler(this.chkMgieDivineDvnation_Click);
+            // 
+            // lblMgieDivineDvnation
+            // 
+            this.lblMgieDivineDvnation.AutoSize = true;
+            this.lblMgieDivineDvnation.Location = new System.Drawing.Point(30, 139);
+            this.lblMgieDivineDvnation.Name = "lblMgieDivineDvnation";
+            this.lblMgieDivineDvnation.Size = new System.Drawing.Size(250, 13);
+            this.lblMgieDivineDvnation.TabIndex = 176;
+            this.lblMgieDivineDvnation.Text = "Divination: Vision du passé, vision d\'un futur proche";
+            // 
+            // chkMgieDemoniaqueAbspton
+            // 
+            this.chkMgieDemoniaqueAbspton.AutoSize = true;
+            this.chkMgieDemoniaqueAbspton.Location = new System.Drawing.Point(15, 22);
+            this.chkMgieDemoniaqueAbspton.Name = "chkMgieDemoniaqueAbspton";
+            this.chkMgieDemoniaqueAbspton.Size = new System.Drawing.Size(15, 14);
+            this.chkMgieDemoniaqueAbspton.TabIndex = 172;
+            this.chkMgieDemoniaqueAbspton.UseVisualStyleBackColor = true;
+            this.chkMgieDemoniaqueAbspton.Click += new System.EventHandler(this.chkMgieDemoniaqueAbspton_Click);
+            // 
+            // lblMgieDemoniaqueAbspton
+            // 
+            this.lblMgieDemoniaqueAbspton.AutoSize = true;
+            this.lblMgieDemoniaqueAbspton.Location = new System.Drawing.Point(36, 22);
+            this.lblMgieDemoniaqueAbspton.Name = "lblMgieDemoniaqueAbspton";
+            this.lblMgieDemoniaqueAbspton.Size = new System.Drawing.Size(164, 13);
+            this.lblMgieDemoniaqueAbspton.TabIndex = 171;
+            this.lblMgieDemoniaqueAbspton.Text = "Absorption: points de vie, énergie";
+            // 
+            // lblNomMDemoniaque
+            // 
+            this.lblNomMDemoniaque.AutoSize = true;
+            this.lblNomMDemoniaque.Location = new System.Drawing.Point(36, 3);
+            this.lblNomMDemoniaque.Name = "lblNomMDemoniaque";
+            this.lblNomMDemoniaque.Size = new System.Drawing.Size(29, 13);
+            this.lblNomMDemoniaque.TabIndex = 170;
+            this.lblNomMDemoniaque.Text = "Nom";
+            // 
+            // chkMgieDemoniaqueNecro
+            // 
+            this.chkMgieDemoniaqueNecro.AutoSize = true;
+            this.chkMgieDemoniaqueNecro.Location = new System.Drawing.Point(15, 49);
+            this.chkMgieDemoniaqueNecro.Name = "chkMgieDemoniaqueNecro";
+            this.chkMgieDemoniaqueNecro.Size = new System.Drawing.Size(15, 14);
+            this.chkMgieDemoniaqueNecro.TabIndex = 174;
+            this.chkMgieDemoniaqueNecro.UseVisualStyleBackColor = true;
+            this.chkMgieDemoniaqueNecro.Click += new System.EventHandler(this.chkMgieDemoniaqueNecro_Click);
+            // 
+            // lblMgieDemoniaqueNecro
+            // 
+            this.lblMgieDemoniaqueNecro.AutoSize = true;
+            this.lblMgieDemoniaqueNecro.Location = new System.Drawing.Point(36, 49);
+            this.lblMgieDemoniaqueNecro.Name = "lblMgieDemoniaqueNecro";
+            this.lblMgieDemoniaqueNecro.Size = new System.Drawing.Size(352, 13);
+            this.lblMgieDemoniaqueNecro.TabIndex = 173;
+            this.lblMgieDemoniaqueNecro.Text = "Nécromancie: ramener des cadavres sous son joug, parler avec les morts";
+            // 
+            // chkMgieDemoniaqueMldction
+            // 
+            this.chkMgieDemoniaqueMldction.AutoSize = true;
+            this.chkMgieDemoniaqueMldction.Location = new System.Drawing.Point(15, 78);
+            this.chkMgieDemoniaqueMldction.Name = "chkMgieDemoniaqueMldction";
+            this.chkMgieDemoniaqueMldction.Size = new System.Drawing.Size(15, 14);
+            this.chkMgieDemoniaqueMldction.TabIndex = 176;
+            this.chkMgieDemoniaqueMldction.UseVisualStyleBackColor = true;
+            this.chkMgieDemoniaqueMldction.Click += new System.EventHandler(this.chkMgieDemoniaqueMldction_Click);
+            // 
+            // lblMgieDemoniaqueMldction
+            // 
+            this.lblMgieDemoniaqueMldction.AutoSize = true;
+            this.lblMgieDemoniaqueMldction.Location = new System.Drawing.Point(36, 78);
+            this.lblMgieDemoniaqueMldction.Name = "lblMgieDemoniaqueMldction";
+            this.lblMgieDemoniaqueMldction.Size = new System.Drawing.Size(271, 13);
+            this.lblMgieDemoniaqueMldction.TabIndex = 175;
+            this.lblMgieDemoniaqueMldction.Text = "Malédiction: maudire une personne, jeter le mauvais sort";
+            // 
+            // chkMgieDemoniaqueCntrole
+            // 
+            this.chkMgieDemoniaqueCntrole.AutoSize = true;
+            this.chkMgieDemoniaqueCntrole.Location = new System.Drawing.Point(15, 107);
+            this.chkMgieDemoniaqueCntrole.Name = "chkMgieDemoniaqueCntrole";
+            this.chkMgieDemoniaqueCntrole.Size = new System.Drawing.Size(15, 14);
+            this.chkMgieDemoniaqueCntrole.TabIndex = 178;
+            this.chkMgieDemoniaqueCntrole.UseVisualStyleBackColor = true;
+            this.chkMgieDemoniaqueCntrole.Click += new System.EventHandler(this.chkMgieDemoniaqueCntrole_Click);
+            // 
+            // lblMgieDemoniaqueCntrole
+            // 
+            this.lblMgieDemoniaqueCntrole.AutoSize = true;
+            this.lblMgieDemoniaqueCntrole.Location = new System.Drawing.Point(36, 107);
+            this.lblMgieDemoniaqueCntrole.Name = "lblMgieDemoniaqueCntrole";
+            this.lblMgieDemoniaqueCntrole.Size = new System.Drawing.Size(300, 13);
+            this.lblMgieDemoniaqueCntrole.TabIndex = 177;
+            this.lblMgieDemoniaqueCntrole.Text = "Contrôle: possession, forcer une créature à agir contre son gré";
+            // 
+            // chkMgieNeutreAltration
+            // 
+            this.chkMgieNeutreAltration.AutoSize = true;
+            this.chkMgieNeutreAltration.Location = new System.Drawing.Point(15, 22);
+            this.chkMgieNeutreAltration.Name = "chkMgieNeutreAltration";
+            this.chkMgieNeutreAltration.Size = new System.Drawing.Size(15, 14);
+            this.chkMgieNeutreAltration.TabIndex = 175;
+            this.chkMgieNeutreAltration.UseVisualStyleBackColor = true;
+            this.chkMgieNeutreAltration.Click += new System.EventHandler(this.chkMgieNeutreAltration_Click);
+            // 
+            // lblMgieNeutreAltration
+            // 
+            this.lblMgieNeutreAltration.AutoSize = true;
+            this.lblMgieNeutreAltration.Location = new System.Drawing.Point(36, 22);
+            this.lblMgieNeutreAltration.Name = "lblMgieNeutreAltration";
+            this.lblMgieNeutreAltration.Size = new System.Drawing.Size(316, 13);
+            this.lblMgieNeutreAltration.TabIndex = 174;
+            this.lblMgieNeutreAltration.Text = "Altération corporelle (supersaut, super force, un bras en plus, etc.)";
+            // 
+            // lblNomMNeutre
+            // 
+            this.lblNomMNeutre.AutoSize = true;
+            this.lblNomMNeutre.Location = new System.Drawing.Point(36, 3);
+            this.lblNomMNeutre.Name = "lblNomMNeutre";
+            this.lblNomMNeutre.Size = new System.Drawing.Size(29, 13);
+            this.lblNomMNeutre.TabIndex = 173;
+            this.lblNomMNeutre.Text = "Nom";
+            // 
+            // chkMgieNeutreInvsbilté
+            // 
+            this.chkMgieNeutreInvsbilté.AutoSize = true;
+            this.chkMgieNeutreInvsbilté.Location = new System.Drawing.Point(15, 49);
+            this.chkMgieNeutreInvsbilté.Name = "chkMgieNeutreInvsbilté";
+            this.chkMgieNeutreInvsbilté.Size = new System.Drawing.Size(15, 14);
+            this.chkMgieNeutreInvsbilté.TabIndex = 177;
+            this.chkMgieNeutreInvsbilté.UseVisualStyleBackColor = true;
+            this.chkMgieNeutreInvsbilté.Click += new System.EventHandler(this.chkMgieNeutreInvsbilté_Click);
+            // 
+            // lblMgieNeutreInvsbilté
+            // 
+            this.lblMgieNeutreInvsbilté.AutoSize = true;
+            this.lblMgieNeutreInvsbilté.Location = new System.Drawing.Point(36, 49);
+            this.lblMgieNeutreInvsbilté.Name = "lblMgieNeutreInvsbilté";
+            this.lblMgieNeutreInvsbilté.Size = new System.Drawing.Size(328, 13);
+            this.lblMgieNeutreInvsbilté.TabIndex = 176;
+            this.lblMgieNeutreInvsbilté.Text = "Invisibilé: peut devenir un invisible, détection des créatures cachées";
+            // 
+            // chkMgieNeutreSsie
+            // 
+            this.chkMgieNeutreSsie.AutoSize = true;
+            this.chkMgieNeutreSsie.Location = new System.Drawing.Point(15, 76);
+            this.chkMgieNeutreSsie.Name = "chkMgieNeutreSsie";
+            this.chkMgieNeutreSsie.Size = new System.Drawing.Size(15, 14);
+            this.chkMgieNeutreSsie.TabIndex = 179;
+            this.chkMgieNeutreSsie.UseVisualStyleBackColor = true;
+            this.chkMgieNeutreSsie.Click += new System.EventHandler(this.chkMgieNeutreSsie_Click);
+            // 
+            // lblMgieNeutreSsie
+            // 
+            this.lblMgieNeutreSsie.AutoSize = true;
+            this.lblMgieNeutreSsie.Location = new System.Drawing.Point(36, 76);
+            this.lblMgieNeutreSsie.Name = "lblMgieNeutreSsie";
+            this.lblMgieNeutreSsie.Size = new System.Drawing.Size(194, 13);
+            this.lblMgieNeutreSsie.TabIndex = 178;
+            this.lblMgieNeutreSsie.Text = "Sosie (clones, images rémanentes, etc.)";
+            // 
+            // chkMgieNeutreMsg
+            // 
+            this.chkMgieNeutreMsg.AutoSize = true;
+            this.chkMgieNeutreMsg.Location = new System.Drawing.Point(15, 108);
+            this.chkMgieNeutreMsg.Name = "chkMgieNeutreMsg";
+            this.chkMgieNeutreMsg.Size = new System.Drawing.Size(15, 14);
+            this.chkMgieNeutreMsg.TabIndex = 181;
+            this.chkMgieNeutreMsg.UseVisualStyleBackColor = true;
+            this.chkMgieNeutreMsg.Click += new System.EventHandler(this.chkMgieNeutreMsg_Click);
+            // 
+            // lblMgieNeutreMsg
+            // 
+            this.lblMgieNeutreMsg.AutoSize = true;
+            this.lblMgieNeutreMsg.Location = new System.Drawing.Point(36, 108);
+            this.lblMgieNeutreMsg.Name = "lblMgieNeutreMsg";
+            this.lblMgieNeutreMsg.Size = new System.Drawing.Size(253, 13);
+            this.lblMgieNeutreMsg.TabIndex = 180;
+            this.lblMgieNeutreMsg.Text = "Message: connexion mentale, images mentales, etc.";
+            // 
+            // rchTbSorts
+            // 
+            this.rchTbSorts.Location = new System.Drawing.Point(692, 388);
+            this.rchTbSorts.Name = "rchTbSorts";
+            this.rchTbSorts.Size = new System.Drawing.Size(412, 173);
+            this.rchTbSorts.TabIndex = 9;
+            this.rchTbSorts.Text = "";
+            // 
             // FormulaireTalentsEtObjets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1139, 626);
+            this.Controls.Add(this.rchTbSorts);
+            this.Controls.Add(this.tcSortilege);
             this.Controls.Add(this.rchTxtIvtaires);
             this.Controls.Add(this.tcInventaires);
             this.Controls.Add(this.btnSauvegarder);
-            this.Controls.Add(this.gpbSortilegesAptitudes);
             this.Name = "FormulaireTalentsEtObjets";
             this.Text = "FormulaireDonsEtObjets";
             this.Load += new System.EventHandler(this.FormulaireTalentsEtObjets_Load);
-            this.gpbSortilegesAptitudes.ResumeLayout(false);
             this.tcInventaires.ResumeLayout(false);
             this.tcArmes.ResumeLayout(false);
             this.tcType.ResumeLayout(false);
@@ -5016,15 +5667,28 @@ namespace maFichePersonnageJDR.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.nudOte)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCrde)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTrche)).EndInit();
+            this.tcSortilege.ResumeLayout(false);
+            this.tpAqua.ResumeLayout(false);
+            this.tpAqua.PerformLayout();
+            this.tpIgnis.ResumeLayout(false);
+            this.tpIgnis.PerformLayout();
+            this.tpCeleste.ResumeLayout(false);
+            this.tpCeleste.PerformLayout();
+            this.tpTerrestre.ResumeLayout(false);
+            this.tpTerrestre.PerformLayout();
+            this.tpNature.ResumeLayout(false);
+            this.tpNature.PerformLayout();
+            this.tpDivine.ResumeLayout(false);
+            this.tpDivine.PerformLayout();
+            this.tpDemoniaque.ResumeLayout(false);
+            this.tpDemoniaque.PerformLayout();
+            this.tpNeutre.ResumeLayout(false);
+            this.tpNeutre.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox gpbSortilegesAptitudes;
-        private System.Windows.Forms.ComboBox cbbSortileges;
-        private System.Windows.Forms.Button btnAjouterTalents;
         private System.Windows.Forms.Button btnSauvegarder;
         private System.Windows.Forms.Label lblPrtEpee;
         private System.Windows.Forms.Label lblNomEpee;
@@ -5455,5 +6119,65 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.CheckBox chkOte;
         private System.Windows.Forms.CheckBox chkSc;
         private System.Windows.Forms.CheckBox chkTnte;
+        private System.Windows.Forms.TabControl tcSortilege;
+        private System.Windows.Forms.TabPage tpAqua;
+        private System.Windows.Forms.TabPage tpIgnis;
+        private System.Windows.Forms.TabPage tpCeleste;
+        private System.Windows.Forms.TabPage tpTerrestre;
+        private System.Windows.Forms.TabPage tpNature;
+        private System.Windows.Forms.TabPage tpDivine;
+        private System.Windows.Forms.TabPage tpDemoniaque;
+        private System.Windows.Forms.TabPage tpNeutre;
+        private System.Windows.Forms.CheckBox chkMgieAqua;
+        private System.Windows.Forms.Label lblMgieAqua;
+        private System.Windows.Forms.Label lblNomMAqua;
+        private System.Windows.Forms.CheckBox chkMgieIgnis;
+        private System.Windows.Forms.Label lblMgieIgnis;
+        private System.Windows.Forms.Label lblNomMIgnis;
+        private System.Windows.Forms.CheckBox chkMgieCeleste;
+        private System.Windows.Forms.Label lblMgieCeleste;
+        private System.Windows.Forms.Label lblNomMCeleste;
+        private System.Windows.Forms.CheckBox chkMgieTerrestre;
+        private System.Windows.Forms.Label lblMgieTerrestre;
+        private System.Windows.Forms.Label lblNomMTerrestre;
+        private System.Windows.Forms.CheckBox chkMgieNatureComm;
+        private System.Windows.Forms.Label lblMgieNatureComm;
+        private System.Windows.Forms.Label lblNomMNature;
+        private System.Windows.Forms.CheckBox chkMgieNatureInvoc;
+        private System.Windows.Forms.Label lblMgieNatureInvoc;
+        private System.Windows.Forms.CheckBox chkMgieNatureChgmTemp;
+        private System.Windows.Forms.Label lblMgieNatureChgmTemp;
+        private System.Windows.Forms.CheckBox chkMgieNatureVsionNoir;
+        private System.Windows.Forms.Label lblMgieNatureVsionNoir;
+        private System.Windows.Forms.CheckBox chkMgieDivineBclrPrtc;
+        private System.Windows.Forms.Label lblMgieDivineBclrPrtc;
+        private System.Windows.Forms.Label lblNomMDivine;
+        private System.Windows.Forms.CheckBox chkMgieDivineRestauration;
+        private System.Windows.Forms.Label lblMgieDivineRestauration;
+        private System.Windows.Forms.CheckBox chkMgieDivineGueri;
+        private System.Windows.Forms.Label lblMgieDivineGueri;
+        private System.Windows.Forms.CheckBox chkMgieDivineBene;
+        private System.Windows.Forms.Label lblMgieDivineBene;
+        private System.Windows.Forms.CheckBox chkMgieDivineDvnation;
+        private System.Windows.Forms.Label lblMgieDivineDvnation;
+        private System.Windows.Forms.CheckBox chkMgieDemoniaqueAbspton;
+        private System.Windows.Forms.Label lblMgieDemoniaqueAbspton;
+        private System.Windows.Forms.Label lblNomMDemoniaque;
+        private System.Windows.Forms.CheckBox chkMgieDemoniaqueNecro;
+        private System.Windows.Forms.Label lblMgieDemoniaqueNecro;
+        private System.Windows.Forms.CheckBox chkMgieDemoniaqueMldction;
+        private System.Windows.Forms.Label lblMgieDemoniaqueMldction;
+        private System.Windows.Forms.CheckBox chkMgieDemoniaqueCntrole;
+        private System.Windows.Forms.Label lblMgieDemoniaqueCntrole;
+        private System.Windows.Forms.CheckBox chkMgieNeutreAltration;
+        private System.Windows.Forms.Label lblMgieNeutreAltration;
+        private System.Windows.Forms.Label lblNomMNeutre;
+        private System.Windows.Forms.CheckBox chkMgieNeutreInvsbilté;
+        private System.Windows.Forms.Label lblMgieNeutreInvsbilté;
+        private System.Windows.Forms.CheckBox chkMgieNeutreSsie;
+        private System.Windows.Forms.Label lblMgieNeutreSsie;
+        private System.Windows.Forms.CheckBox chkMgieNeutreMsg;
+        private System.Windows.Forms.Label lblMgieNeutreMsg;
+        private System.Windows.Forms.RichTextBox rchTbSorts;
     }
 }

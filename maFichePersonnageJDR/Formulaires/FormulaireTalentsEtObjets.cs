@@ -30,72 +30,7 @@ namespace maFichePersonnageJDR.Formulaires
 
         private void FormulaireTalentsEtObjets_Load(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.Attributs.Contains("Magie Aquatique — magie de l'eau"))
-            {
-                cbbSortileges.Items.AddRange(new[] { "Manipulation des éléments aquatiques" });
-            }
-            if (Properties.Settings.Default.Attributs.Contains("Magie Ignis — magie du feu"))
-            {
-                cbbSortileges.Items.AddRange(new[] { "Manipulation des flammes" });
-            }
-            if (Properties.Settings.Default.Attributs.Contains("Magie Céleste: magie du ciel"))
-            {
-                cbbSortileges.Items.AddRange(new[] { "Manipulation des éléments célestes" });
-            }
-            if (Properties.Settings.Default.Attributs.Contains("Magie Terrestre: magie de la terre"))
-            {
-                cbbSortileges.Items.AddRange(new[] { "Manipulation des éléments terrestres" });
-            }
-            if (Properties.Settings.Default.Attributs.Contains("Magie Naturelle — magie de la nature"))
-            {
-                cbbSortileges.Items.AddRange(new[] { "Communication avec les forces naturelles (plantes, animaux, ...)",
-                "Invocation d'une chimère (créature connue par le lanceur)",
-                "Manipulation du terrain: peut modifier son environnement",
-                "Métamorphose: êtres réels et connus par le lanceur"});
-            }
-            if (Properties.Settings.Default.Attributs.Contains("Magie Divine — magie liée aux divinités"))
-            {
-                cbbSortileges.Items.AddRange(new[] { "Bouclier protecteur: champ protecteur dans un rayon défini",
-                "Soins magiques: peut soigner les blessures mais pas repousser les membres",
-                "Guérison: maladie, problème état",
-                "Bénédiction: soigne des malédictions",
-                "Divination: voit un futur proche"});
-            }
-            if (Properties.Settings.Default.Attributs.Contains("Magie Démoniaque — magie liée aux ténèbres"))
-            {
-                cbbSortileges.Items.AddRange(new[] {"Absorption: PV, Énergie",
-                "Nécromancie: ramener des cadavres à la vie, manipulation des os",
-                "Malédiction: jette une malédiction à quelqu'un",
-                "Contrôle: possession d'une personne, contrôle de volonté"
-                });
-            }
-            if (Properties.Settings.Default.Attributs.Contains("Magie Neutre — magie neutre"))
-            {
-                cbbSortileges.Items.AddRange(new[] {"Modifications corporelles (supersaut, super force, ...) ",
-                "Invisibilé",
-                "Vision d'aura",
-                "Images miroir: (clones, images rémanentes, ...)",
-                "Message: connexion mentale, images mentales, ..."
-                });
-            }
-        }
-
-        private void btnAjoutSortilegeAptitude_Click(object sender, EventArgs e)
-        { }
-
-        private void btnAjouterSortileges_Click(object sender, EventArgs e)
-        {
-            Label lblSortilege = new Label();
-
-            gpbSortilegesAptitudes.Controls.Add(lblSortilege);
-
-            lblSortilege.AutoSize = true;
-            lblSortilege.Text = (string)cbbSortileges.SelectedItem;
-            lblSortilege.Top = HtrControlTalent * 25;
-            lblSortilege.Left = 10;
-
-            HtrControlTalent = HtrControlTalent + 1;
-            btnAjouterTalents.Top = btnAjouterTalents.Top + 25;
+           
         }
 
         private void btnSauvegarder_Click(object sender, EventArgs e)
@@ -2084,6 +2019,762 @@ namespace maFichePersonnageJDR.Formulaires
                     else
                     {
                         rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne manipulation aquatique
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMgieAqua_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMgieAqua.Text;
+            if (chkMgieAqua.Checked)
+            {
+                rchTbSorts.Text += String.IsNullOrEmpty(rchTbSorts.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMgieAqua.Checked)
+            {
+                if (rchTbSorts.Text.Contains(strTemp))
+                {
+                    if (rchTbSorts.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTbSorts.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne manipulation du feu
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMgieIgnis_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMgieIgnis.Text;
+            if (chkMgieIgnis.Checked)
+            {
+                rchTbSorts.Text += String.IsNullOrEmpty(rchTbSorts.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMgieIgnis.Checked)
+            {
+                if (rchTbSorts.Text.Contains(strTemp))
+                {
+                    if (rchTbSorts.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTbSorts.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne manipulation des objets céleste
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMgieCeleste_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMgieCeleste.Text;
+            if (chkMgieCeleste.Checked)
+            {
+                rchTbSorts.Text += String.IsNullOrEmpty(rchTbSorts.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMgieCeleste.Checked)
+            {
+                if (rchTbSorts.Text.Contains(strTemp))
+                {
+                    if (rchTbSorts.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTbSorts.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne manipulation terrestre
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMgieTerrestre_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMgieTerrestre.Text;
+            if (chkMgieTerrestre.Checked)
+            {
+                rchTbSorts.Text += String.IsNullOrEmpty(rchTbSorts.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMgieTerrestre.Checked)
+            {
+                if (rchTbSorts.Text.Contains(strTemp))
+                {
+                    if (rchTbSorts.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTbSorts.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne communication avec l'environnement
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMgieNatureComm_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMgieNatureComm.Text;
+            if (chkMgieNatureComm.Checked)
+            {
+                rchTbSorts.Text += String.IsNullOrEmpty(rchTbSorts.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMgieNatureComm.Checked)
+            {
+                if (rchTbSorts.Text.Contains(strTemp))
+                {
+                    if (rchTbSorts.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTbSorts.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne invocation familier
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMgieNatureInvoc_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMgieNatureInvoc.Text;
+            if (chkMgieNatureInvoc.Checked)
+            {
+                rchTbSorts.Text += String.IsNullOrEmpty(rchTbSorts.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMgieNatureInvoc.Checked)
+            {
+                if (rchTbSorts.Text.Contains(strTemp))
+                {
+                    if (rchTbSorts.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTbSorts.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne changement température
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMgieNatureChgmTemp_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMgieNatureChgmTemp.Text;
+            if (chkMgieNatureChgmTemp.Checked)
+            {
+                rchTbSorts.Text += String.IsNullOrEmpty(rchTbSorts.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMgieNatureChgmTemp.Checked)
+            {
+                if (rchTbSorts.Text.Contains(strTemp))
+                {
+                    if (rchTbSorts.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTbSorts.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne vision dans le noir
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMgieNatureVsionNoir_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMgieNatureVsionNoir.Text;
+            if (chkMgieNatureVsionNoir.Checked)
+            {
+                rchTbSorts.Text += String.IsNullOrEmpty(rchTbSorts.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMgieNatureVsionNoir.Checked)
+            {
+                if (rchTbSorts.Text.Contains(strTemp))
+                {
+                    if (rchTbSorts.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTbSorts.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne bouclier protecteur
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMgieDivineBclrPrtc_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMgieDivineBclrPrtc.Text;
+            if (chkMgieDivineBclrPrtc.Checked)
+            {
+                rchTbSorts.Text += String.IsNullOrEmpty(rchTbSorts.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMgieDivineBclrPrtc.Checked)
+            {
+                if (rchTbSorts.Text.Contains(strTemp))
+                {
+                    if (rchTbSorts.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTbSorts.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne restauration
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMgieDivineRestauration_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMgieDivineRestauration.Text;
+            if (chkMgieDivineRestauration.Checked)
+            {
+                rchTbSorts.Text += String.IsNullOrEmpty(rchTbSorts.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMgieDivineRestauration.Checked)
+            {
+                if (rchTbSorts.Text.Contains(strTemp))
+                {
+                    if (rchTbSorts.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTbSorts.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne guérison
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMgieDivineGueri_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMgieDivineGueri.Text;
+            if (chkMgieDivineGueri.Checked)
+            {
+                rchTbSorts.Text += String.IsNullOrEmpty(rchTbSorts.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMgieDivineGueri.Checked)
+            {
+                if (rchTbSorts.Text.Contains(strTemp))
+                {
+                    if (rchTbSorts.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTbSorts.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne bénédiction
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMgieDivineBene_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMgieDivineBene.Text;
+            if (chkMgieDivineBene.Checked)
+            {
+                rchTbSorts.Text += String.IsNullOrEmpty(rchTbSorts.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMgieDivineBene.Checked)
+            {
+                if (rchTbSorts.Text.Contains(strTemp))
+                {
+                    if (rchTbSorts.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTbSorts.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne divination
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMgieDivineDvnation_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMgieDivineDvnation.Text;
+            if (chkMgieDivineDvnation.Checked)
+            {
+                rchTbSorts.Text += String.IsNullOrEmpty(rchTbSorts.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMgieDivineDvnation.Checked)
+            {
+                if (rchTbSorts.Text.Contains(strTemp))
+                {
+                    if (rchTbSorts.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTbSorts.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne absorption
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMgieDemoniaqueAbspton_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMgieDemoniaqueAbspton.Text;
+            if (chkMgieDemoniaqueAbspton.Checked)
+            {
+                rchTbSorts.Text += String.IsNullOrEmpty(rchTbSorts.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMgieDemoniaqueAbspton.Checked)
+            {
+                if (rchTbSorts.Text.Contains(strTemp))
+                {
+                    if (rchTbSorts.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTbSorts.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne nécromancie
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMgieDemoniaqueNecro_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMgieDemoniaqueNecro.Text;
+            if (chkMgieDemoniaqueNecro.Checked)
+            {
+                rchTbSorts.Text += String.IsNullOrEmpty(rchTbSorts.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMgieDemoniaqueNecro.Checked)
+            {
+                if (rchTbSorts.Text.Contains(strTemp))
+                {
+                    if (rchTbSorts.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTbSorts.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne malédiction
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMgieDemoniaqueMldction_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMgieDemoniaqueMldction.Text;
+            if (chkMgieDemoniaqueMldction.Checked)
+            {
+                rchTbSorts.Text += String.IsNullOrEmpty(rchTbSorts.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMgieDemoniaqueMldction.Checked)
+            {
+                if (rchTbSorts.Text.Contains(strTemp))
+                {
+                    if (rchTbSorts.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTbSorts.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne contrôle
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMgieDemoniaqueCntrole_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMgieDemoniaqueCntrole.Text;
+            if (chkMgieDemoniaqueCntrole.Checked)
+            {
+                rchTbSorts.Text += String.IsNullOrEmpty(rchTbSorts.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMgieDemoniaqueCntrole.Checked)
+            {
+                if (rchTbSorts.Text.Contains(strTemp))
+                {
+                    if (rchTbSorts.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTbSorts.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne altération corporelle
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMgieNeutreAltration_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMgieNeutreAltration.Text;
+            if (chkMgieNeutreAltration.Checked)
+            {
+                rchTbSorts.Text += String.IsNullOrEmpty(rchTbSorts.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMgieNeutreAltration.Checked)
+            {
+                if (rchTbSorts.Text.Contains(strTemp))
+                {
+                    if (rchTbSorts.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTbSorts.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne invisibilité
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMgieNeutreInvsbilté_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMgieNeutreInvsbilté.Text;
+            if (chkMgieNeutreInvsbilté.Checked)
+            {
+                rchTbSorts.Text += String.IsNullOrEmpty(rchTbSorts.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMgieNeutreInvsbilté.Checked)
+            {
+                if (rchTbSorts.Text.Contains(strTemp))
+                {
+                    if (rchTbSorts.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTbSorts.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne invisibilité
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMgieNeutreSsie_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMgieNeutreSsie.Text;
+            if (chkMgieNeutreSsie.Checked)
+            {
+                rchTbSorts.Text += String.IsNullOrEmpty(rchTbSorts.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMgieNeutreSsie.Checked)
+            {
+                if (rchTbSorts.Text.Contains(strTemp))
+                {
+                    if (rchTbSorts.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTbSorts.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne message
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMgieNeutreMsg_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMgieNeutreMsg.Text;
+            if (chkMgieNeutreMsg.Checked)
+            {
+                rchTbSorts.Text += String.IsNullOrEmpty(rchTbSorts.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMgieNeutreMsg.Checked)
+            {
+                if (rchTbSorts.Text.Contains(strTemp))
+                {
+                    if (rchTbSorts.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTbSorts.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
                     }
                 }
             }
