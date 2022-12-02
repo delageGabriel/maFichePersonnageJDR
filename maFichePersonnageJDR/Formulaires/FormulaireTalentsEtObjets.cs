@@ -899,9 +899,1014 @@ namespace maFichePersonnageJDR.Formulaires
             }
         }
 
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne bâton de chêne
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void chkBtonChne_Click(object sender, EventArgs e)
         {
-            
+            string strTemp = lblBtonChne.Text + " " + lblPdsBtonChne.Text + " " + lblPrteBtonChne.Text + " " + nudBtonChne.Value.ToString() + " " + lblTpeBtonChne.Text + " "
+                + lblDgtsBtonChne.Text + lblEftsBtonChne.Text;
+            if (chkBtonChne.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkBtonChne.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne sceptre
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkSctre_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblSctre.Text + " " + lblPdsSctre.Text + " " + lblPrteSctre.Text + " " + nudSctre.Value.ToString() + " " + lblTpeSctre.Text + " "
+                + lblDgtsSctre.Text + lblEftsSctre.Text;
+            if (chkSctre.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkSctre.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne Spangenhelm
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkSpghlm_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblSpghlm.Text + " " + lblPdsSpghlm.Text + " " + nudSpghlm.Value.ToString() + " " + lblEftsSpghlm.Text;
+            if (chkSpghlm.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkSpghlm.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne coiffe de mailles
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkCfeMle_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblCfeMle.Text + " " + lblPdsCfeMle.Text + " " + nudCfeMle.Value.ToString() + " " + lblEftsCfeMle.Text;
+            if (chkCfeMle.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkCfeMle.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne morion
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMrn_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMrn.Text + " " + lblPdsMrn.Text + " " + nudMrn.Value.ToString() + " " + lblEftsMrn.Text;
+            if (chkMrn.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMrn.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne cerveliere
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkCrvlre_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblCrvlre.Text + " " + lblPdsCrvlre.Text + " " + nudCrvlre.Value.ToString() + " " + lblEftsCrvlre.Text;
+            if (chkCrvlre.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkCrvlre.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne chapel de fer
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkChplFr_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblChplFr.Text + " " + lblPdsChplFr.Text + " " + nudChplFr.Value.ToString() + " " + lblEftsChplFr.Text;
+            if (chkChplFr.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkChplFr.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne casque de barbare
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkCsqueBrbre_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblCsqueBrbre.Text + " " + lblPdsCsqueBrbre.Text + " " + nudCsqueBrbre.Value.ToString() + " " + lblEftsCsqueBrbre.Text;
+            if (chkCsqueBrbre.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkCsqueBrbre.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne vêtements
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkVtments_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblVtments.Text + " " + lblPdsVtments.Text + " " + nudVtments.Value.ToString() + " " + lblEftsVtments.Text;
+            if (chkVtments.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkVtments.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne broigne
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkBrgne_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblBrgne.Text + " " + lblPdsBrgne.Text + " " + nudBrgne.Value.ToString() + " " + lblBrgne.Text;
+            if (chkBrgne.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkBrgne.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne broigne
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkCtphrcte_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblCtphrcte.Text + " " + lblPdsCtphrcte.Text + " " + nudCtphrcte.Value.ToString() + " " + lblCtphrcte.Text;
+            if (chkCtphrcte.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkCtphrcte.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne cuirasse de fer
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkCrsFr_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblCrsFr.Text + " " + lblPdsCrsFr.Text + " " + nudCrsFr.Value.ToString() + " " + lblCrsFr.Text;
+            if (chkCrsFr.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkCrsFr.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne cape de cuir
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkCpeCuir_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblCpeCuir.Text + " " + lblPdsCpeCuir.Text + " " + nudCpeCuir.Value.ToString() + " " + lblCpeCuir.Text;
+            if (chkCpeCuir.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkCpeCuir.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne cuirasse de bronze
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkCrsBze_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblCrsBze.Text + " " + lblPdsCrsBze.Text + " " + nudCrsBze.Value.ToString() + " " + lblCrsBze.Text;
+            if (chkCrsBze.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkCrsBze.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne gants de mailles
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkGntMles_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblGntMles.Text + " " + lblPdsGntMles.Text + " " + nudGntMles.Value.ToString() + " " + lblGntMles.Text;
+            if (chkGntMles.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkGntMles.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne gantelet
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkGntlet_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblGntlet.Text + " " + lblPdsGntlet.Text + " " + nudGntlet.Value.ToString() + " " + lblGntlet.Text;
+            if (chkGntlet.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkGntlet.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne mitaines
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMitne_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMitne.Text + " " + lblPdsMitne.Text + " " + nudMitne.Value.ToString() + " " + lblMitne.Text;
+            if (chkMitne.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMitne.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne mitons
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMton_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMton.Text + " " + lblPdsMton.Text + " " + nudMton.Value.ToString() + " " + lblMton.Text;
+            if (chkMton.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMton.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne cuissardes
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkCuissrd_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblCuissrd.Text + " " + lblCuissrd.Text + " " + nudCuissrd.Value.ToString() + " " + lblCuissrd.Text;
+            if (chkCuissrd.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkCuissrd.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne cuissardes
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkPntlonTle_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblPntlonTle.Text + " " + lblPntlonTle.Text + " " + nudPntlonTle.Value.ToString() + " " + lblPntlonTle.Text;
+            if (chkPntlonTle.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkPntlonTle.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne cnemides
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkCmide_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblCmide.Text + " " + lblCmide.Text + " " + nudCmide.Value.ToString() + " " + lblCmide.Text;
+            if (chkCmide.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkCmide.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne sandales
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkSndles_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblSndles.Text + " " + lblSndles.Text + " " + nudSndles.Value.ToString() + " " + lblSndles.Text;
+            if (chkSndles.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkSndles.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne chaussure de cuir
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkChssuresCuir_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblChssuresCuir.Text + " " + lblChssuresCuir.Text + " " + nudChssuresCuir.Value.ToString() + " " + lblChssuresCuir.Text;
+            if (chkChssuresCuir.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkChssuresCuir.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne ecu
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkEcu_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblEcu.Text + " " + lblEcu.Text + " " + nudEcu.Value.ToString() + " " + lblEcu.Text;
+            if (chkEcu.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkEcu.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne pavois
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkPvois_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblPvois.Text + " " + lblPvois.Text + " " + nudPvois.Value.ToString() + " " + lblPvois.Text;
+            if (chkPvois.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkPvois.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne bouclier amande
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkBclrAmde_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblBclrAmde.Text + " " + lblBclrAmde.Text + " " + nudBclrAmde.Value.ToString() + " " + lblBclrAmde.Text;
+            if (chkBclrAmde.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkBclrAmde.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne bouclier bronze
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkBclrBze_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblBclrBze.Text + " " + lblBclrBze.Text + " " + nudBclrBze.Value.ToString() + " " + lblBclrBze.Text;
+            if (chkBclrBze.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkBclrBze.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne pelta
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkPlta_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblPlta.Text + " " + lblPlta.Text + " " + nudPlta.Value.ToString() + " " + lblPlta.Text;
+            if (chkPlta.Checked)
+            {
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkPlta.Checked)
+            {
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
         }
     }
 }
