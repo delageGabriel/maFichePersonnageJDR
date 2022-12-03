@@ -54,6 +54,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.txtPO = new System.Windows.Forms.TextBox();
             this.txtPA = new System.Windows.Forms.TextBox();
             this.txtPC = new System.Windows.Forms.TextBox();
+            this.btnAjouterImage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -275,11 +276,22 @@ namespace maFichePersonnageJDR.Formulaires
             this.txtPC.TabIndex = 28;
             this.txtPC.Text = "Cuivre";
             // 
+            // btnAjouterImage
+            // 
+            this.btnAjouterImage.Location = new System.Drawing.Point(649, 275);
+            this.btnAjouterImage.Name = "btnAjouterImage";
+            this.btnAjouterImage.Size = new System.Drawing.Size(109, 23);
+            this.btnAjouterImage.TabIndex = 29;
+            this.btnAjouterImage.Text = "Ajouter image";
+            this.btnAjouterImage.UseVisualStyleBackColor = true;
+            this.btnAjouterImage.Click += new System.EventHandler(this.btnAjouterImage_Click);
+            // 
             // FormulaireInfosGenerales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 395);
+            this.Controls.Add(this.btnAjouterImage);
             this.Controls.Add(this.txtPC);
             this.Controls.Add(this.txtPA);
             this.Controls.Add(this.txtPO);
@@ -341,5 +353,6 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.TextBox txtPO;
         private System.Windows.Forms.TextBox txtPA;
         private System.Windows.Forms.TextBox txtPC;
+        private System.Windows.Forms.Button btnAjouterImage;
     }
 }

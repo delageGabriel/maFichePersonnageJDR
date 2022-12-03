@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using maFichePersonnageJDR.Formulaires;
-using maFichePersonnageJDR.Classes;
 using System.Configuration;
 
 namespace maFichePersonnageJDR.Formulaires
@@ -29,6 +28,7 @@ namespace maFichePersonnageJDR.Formulaires
         {
             Properties.Settings.Default.Inventaires = rchTxtIvtaires.Text;
             Properties.Settings.Default.Sortilèges = rchTbSorts.Text;
+            Properties.Settings.Default.Save();
         }
 
         public void GetSettings()

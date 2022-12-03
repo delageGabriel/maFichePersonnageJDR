@@ -590,12 +590,12 @@ namespace maFichePersonnageJDR.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Image {
+        public string CheminImage {
             get {
-                return ((string)(this["Image"]));
+                return ((string)(this["CheminImage"]));
             }
             set {
-                this["Image"] = value;
+                this["CheminImage"] = value;
             }
         }
         

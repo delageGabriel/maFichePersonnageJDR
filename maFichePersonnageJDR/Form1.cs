@@ -12,7 +12,7 @@ using System.IO;
 using Spire.Doc;
 using Spire.Doc.Fields;
 using Spire.Doc.Documents;
-
+using maFichePersonnageJDR.Classe;
 namespace maFichePersonnageJDR
 {
     public partial class FrmPrincipal : Form
@@ -21,7 +21,7 @@ namespace maFichePersonnageJDR
         public string cheminTemplate = Path.GetFullPath(@"C:\Users\Utilisateur\source\repos\maFichePersonnageJDR\maFichePersonnageJDR\Templates\template_fiche_personnage.docx");
         public string cheminPdf = Path.GetFullPath(@"C:\Users\Utilisateur\source\repos\maFichePersonnageJDR\maFichePersonnageJDR\Templates\template_fiche.pdf");
         public string cheminDocx = Path.GetFullPath(@"C:\Users\Utilisateur\source\repos\maFichePersonnageJDR\maFichePersonnageJDR\Templates\template_fiche.docx");
-
+        public ClasseImage imgAvatar = new ClasseImage();
         public Document DocumentPdf { get => documentPdf; set => documentPdf = value; }
 
         public FrmPrincipal()
@@ -56,44 +56,72 @@ namespace maFichePersonnageJDR
         {
             documentPdf.LoadFromFile(cheminTemplate);
 
+            Image imageAvtar = imgAvatar.GetUneImage(Properties.Settings.Default.CheminImage);
             Section section = documentPdf.Sections[0];
-            Paragraph paragraphe
-                = section.Paragraphs.Count > 0 ? section.Paragraphs[0] : section.AddParagraph();
-            TextRange rangeNomPrenom = paragraphe.AppendText(Properties.Settings.Default.Nom + " " + Properties.Settings.Default.Prenom);
+
+            Paragraph paragrapheNomPrenom = section.Paragraphs.Count > 0 ? section.Paragraphs[0] : section.AddParagraph();
+            TextRange rangeNomPrenom = paragrapheNomPrenom.AppendText(Properties.Settings.Default.Prenom + " " + Properties.Settings.Default.Nom);
             rangeNomPrenom.CharacterFormat.FontSize = 20;
-            paragraphe = section.AddParagraph();
+            paragrapheNomPrenom.AppendBreak(BreakType.LineBreak);
 
-            TextRange rangeSexe = paragraphe.AppendText("Sexe : " + Properties.Settings.Default.Sexe);
+            DocPicture imageAEnvoye = paragrapheNomPrenom.AppendPicture(imageAvtar);
+            imageAEnvoye.TextWrappingStyle = TextWrappingStyle.Square;
+            imageAEnvoye.HorizontalPosition = 300.0F;
+            imageAEnvoye.VerticalPosition = 0.0F;
+
+            Paragraph paragrapheSexe
+                = section.Paragraphs.Count > 0 ? section.Paragraphs[0] : section.AddParagraph();
+            TextRange rangeSexe = paragrapheSexe.AppendText("Sexe : " + Properties.Settings.Default.Sexe);
             rangeSexe.CharacterFormat.FontSize = 16;
-            paragraphe = section.AddParagraph();
+            paragrapheSexe.AppendBreak(BreakType.LineBreak);
 
-            TextRange rangeRace = paragraphe.AppendText("Race : " + Properties.Settings.Default.Race);
+            Paragraph paragrapheRace
+                = section.Paragraphs.Count > 0 ? section.Paragraphs[0] : section.AddParagraph();
+            TextRange rangeRace = paragrapheRace.AppendText("Race : " + Properties.Settings.Default.Race);
             rangeRace.CharacterFormat.FontSize = 16;
-            paragraphe = section.AddParagraph();
+            paragrapheRace.AppendBreak(BreakType.LineBreak);
 
-            TextRange rangeNiveau = paragraphe.AppendText("Niveau : " + Properties.Settings.Default.Niveau);
+            Paragraph paragrapheNiveau
+                = section.Paragraphs.Count > 0 ? section.Paragraphs[0] : section.AddParagraph();
+            TextRange rangeNiveau = paragrapheNiveau.AppendText("Niveau : " + Properties.Settings.Default.Niveau);
             rangeNiveau.CharacterFormat.FontSize = 16;
-            paragraphe = section.AddParagraph();
+            paragrapheNiveau.AppendBreak(BreakType.LineBreak);
 
-            TextRange rangeHistoire = paragraphe.AppendText("Histoire : \n" + Properties.Settings.Default.Histoire);
+            Paragraph paragrapheHistoire
+                = section.Paragraphs.Count > 0 ? section.Paragraphs[0] : section.AddParagraph();
+            TextRange rangeHistoireTitre = paragrapheHistoire.AppendText("Histoire : ");
+            TextRange rangeHistoire = paragrapheHistoire.AppendText(Properties.Settings.Default.Histoire);
+            paragrapheHistoire.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Justify;
+            rangeHistoireTitre.CharacterFormat.FontSize = 14;
+            rangeHistoireTitre.CharacterFormat.UnderlineStyle = UnderlineStyle.Single;
             rangeHistoire.CharacterFormat.FontSize = 12;
-            paragraphe = section.AddParagraph();
+            paragrapheHistoire.AppendBreak(BreakType.LineBreak);
 
-            TextRange rangeLangues = paragraphe.AppendText("Langue(s) parlée(s) : \n" + Properties.Settings.Default.Langues);
+            Paragraph paragrapheLangues
+                = section.Paragraphs.Count > 0 ? section.Paragraphs[0] : section.AddParagraph();
+            TextRange rangeLanguesTitre = paragrapheLangues.AppendText("Langue(s) parlée(s) : \n");
+            TextRange rangeLangues = paragrapheLangues.AppendText(Properties.Settings.Default.Langues);
+            rangeLanguesTitre.CharacterFormat.FontSize = 14;
+            rangeLanguesTitre.CharacterFormat.UnderlineStyle = UnderlineStyle.Single;
             rangeLangues.CharacterFormat.FontSize = 12;
-            paragraphe = section.AddParagraph();
-
-            TextRange rangeChargeVitesse = paragraphe.AppendText(Properties.Settings.Default.ChargeMax + " " + Properties.Settings.Default.VitesseDepla);
+            paragrapheLangues.AppendBreak(BreakType.LineBreak);
+            
+            Paragraph paragrapheChargeVitesse
+                = section.Paragraphs.Count > 0 ? section.Paragraphs[0] : section.AddParagraph();
+            TextRange rangeChargeVitesse = paragrapheChargeVitesse.AppendText("Charge maximum : " +
+                Properties.Settings.Default.ChargeMax + ", Vitesse de déplacement : " + Properties.Settings.Default.VitesseDepla);
             rangeChargeVitesse.CharacterFormat.FontSize = 12;
-            paragraphe = section.AddParagraph();
+            paragrapheChargeVitesse.AppendBreak(BreakType.LineBreak);
 
-            TextRange rangeMonnaie = paragraphe.AppendText("Argent possédé : " +
+            Paragraph paragrapheMonnaie
+                = section.Paragraphs.Count > 0 ? section.Paragraphs[0] : section.AddParagraph();
+            TextRange rangeMonnaie = paragrapheMonnaie.AppendText("Argent possédé : " +
                                                             Properties.Settings.Default.Or + "PO, "
                                                             + Properties.Settings.Default.Argent + "PA, "
                                                             + Properties.Settings.Default.Cuivre + "PC");
             rangeMonnaie.CharacterFormat.FontSize = 12;
-            paragraphe = section.AddParagraph();
-
+            paragrapheMonnaie.AppendBreak(BreakType.LineBreak);
+            
             #region tableau_pv_energie
             string[] enTete = { "PV", "Énergie" };
             string[] donnees = { Properties.Settings.Default.PV, Properties.Settings.Default.Energie };
@@ -121,6 +149,8 @@ namespace maFichePersonnageJDR
                 txtRange.CharacterFormat.Bold = true;
             }
             #endregion
+
+            Paragraph paragrapheVide = section.AddParagraph();
 
             #region tableau_caracteristiques
             string[] enTeteCaracteristiques = { "Physique", "Mental", "Social" };
@@ -152,45 +182,57 @@ namespace maFichePersonnageJDR
 
             #region caracteristiques
             Paragraph paragraphCaracteristique = section.AddParagraph();
-            TextRange rangeAdresse = paragraphCaracteristique.AppendText("\tAdresse : " + Properties.Settings.Default.Adresse);
+            TextRange rangeAdresse = paragraphCaracteristique.AppendText("Adresse : " + Properties.Settings.Default.Adresse);
             TextRange rangeExplosifs = paragraphCaracteristique.AppendText("\t\t\t\tExplosifs : " + Properties.Settings.Default.Explosifs + "\n");
-            TextRange rangeAgilite = paragraphCaracteristique.AppendText("\tAgilité : " + Properties.Settings.Default.Agilité);
+            TextRange rangeAgilite = paragraphCaracteristique.AppendText("Agilité : " + Properties.Settings.Default.Agilité);
             TextRange rangeForce = paragraphCaracteristique.AppendText("\t\t\t\tForce : " + Properties.Settings.Default.Force + "\n");
-            TextRange rangeAnimale = paragraphCaracteristique.AppendText("\tAnimale : " + Properties.Settings.Default.Animale);
+            TextRange rangeAnimale = paragraphCaracteristique.AppendText("Animale : " + Properties.Settings.Default.Animale);
             TextRange rangeIntimidation = paragraphCaracteristique.AppendText("\t\t\t\tIntimidation : " + Properties.Settings.Default.Intimidation + "\n");
-            TextRange rangeArtisanat = paragraphCaracteristique.AppendText("\tArtisanat : " + Properties.Settings.Default.Artisanat);
+            TextRange rangeArtisanat = paragraphCaracteristique.AppendText("Artisanat : " + Properties.Settings.Default.Artisanat);
             TextRange rangeLangages = paragraphCaracteristique.AppendText("\t\t\t\tLangages : " + Properties.Settings.Default.Langages + "\n");
-            TextRange rangeBotanique = paragraphCaracteristique.AppendText("\tBotanique : " + Properties.Settings.Default.Botanique);
+            TextRange rangeBotanique = paragraphCaracteristique.AppendText("Botanique : " + Properties.Settings.Default.Botanique);
             TextRange rangeMécanique = paragraphCaracteristique.AppendText("\t\t\t\tMécanique : " + Properties.Settings.Default.Mecanique + "\n");
-            TextRange rangeCnGeo = paragraphCaracteristique.AppendText("\tConnaissances géographiques : " + Properties.Settings.Default.ConnGeographiques);
+            TextRange rangeCnGeo = paragraphCaracteristique.AppendText("Connaissances géographiques : " + Properties.Settings.Default.ConnGeographiques);
             TextRange rangeMedecine = paragraphCaracteristique.AppendText("\tMédecine : " + Properties.Settings.Default.Medecine + "\n");
-            TextRange rangeCnHist = paragraphCaracteristique.AppendText("\tConnaissances historiques : " + Properties.Settings.Default.ConnHistoriques);
+            TextRange rangeCnHist = paragraphCaracteristique.AppendText("Connaissances historiques : " + Properties.Settings.Default.ConnHistoriques);
             TextRange rangeNatation = paragraphCaracteristique.AppendText("\t\tNatation : " + Properties.Settings.Default.Natation + "\n");
-            TextRange rangeCnMag = paragraphCaracteristique.AppendText("\tConnaissances magiques : " + Properties.Settings.Default.ConnMagiques);
+            TextRange rangeCnMag = paragraphCaracteristique.AppendText("Connaissances magiques : " + Properties.Settings.Default.ConnMagiques);
             TextRange rangePerception = paragraphCaracteristique.AppendText("\t\tPerception : " + Properties.Settings.Default.Perception + "\n");
-            TextRange rangeCnReg = paragraphCaracteristique.AppendText("\tConnaissances religieuse : " + Properties.Settings.Default.ConnReligieuses);
+            TextRange rangeCnReg = paragraphCaracteristique.AppendText("Connaissances religieuses : " + Properties.Settings.Default.ConnReligieuses);
             TextRange rangePerspicacite = paragraphCaracteristique.AppendText("\t\tPerspicacité : " + Properties.Settings.Default.Perspicacité + "\n");
-            TextRange rangeCrochetage = paragraphCaracteristique.AppendText("\tCrochetage : " + Properties.Settings.Default.Crochetage);
+            TextRange rangeCrochetage = paragraphCaracteristique.AppendText("Crochetage : " + Properties.Settings.Default.Crochetage);
             TextRange rangePersuasion = paragraphCaracteristique.AppendText("\t\t\t\tPersuasion : " + Properties.Settings.Default.Persuasion + "\n");
-            TextRange rangeDiplomatie = paragraphCaracteristique.AppendText("\tDiplomatie : " + Properties.Settings.Default.Diplomatie);
+            TextRange rangeDiplomatie = paragraphCaracteristique.AppendText("Diplomatie : " + Properties.Settings.Default.Diplomatie);
             TextRange rangePsyche = paragraphCaracteristique.AppendText("\t\t\t\tPsyché : " + Properties.Settings.Default.Psyche + "\n");
-            TextRange rangeDiscretion = paragraphCaracteristique.AppendText("\tDiscrétion : " + Properties.Settings.Default.Discretion);
+            TextRange rangeDiscretion = paragraphCaracteristique.AppendText("Discrétion : " + Properties.Settings.Default.Discretion);
             TextRange rangeReflexes = paragraphCaracteristique.AppendText("\t\t\t\tRéflexes : " + Properties.Settings.Default.Reflexes + "\n");
-            TextRange rangeEndurance = paragraphCaracteristique.AppendText("\tEndurance : " + Properties.Settings.Default.Endurance);
+            TextRange rangeEndurance = paragraphCaracteristique.AppendText("Endurance : " + Properties.Settings.Default.Endurance);
             TextRange rangeVigueur = paragraphCaracteristique.AppendText("\t\t\t\tVigueur : " + Properties.Settings.Default.Vigueur + "\n");
-            TextRange rangeEscalade = paragraphCaracteristique.AppendText("\tEscalade : " + Properties.Settings.Default.Escalade);
+            TextRange rangeEscalade = paragraphCaracteristique.AppendText("Escalade : " + Properties.Settings.Default.Escalade);
             TextRange rangeVolonte = paragraphCaracteristique.AppendText("\t\t\t\tVolonté : " + Properties.Settings.Default.Volonte + "\n");
             #endregion
 
             Paragraph paragraphAttribut = section.AddParagraph();
-            TextRange rangeAttributs = paragraphAttribut.AppendText("Attributs : \n" +
-                                                                    Properties.Settings.Default.Attributs);
+            TextRange rangeAttributTitre = paragraphAttribut.AppendText("Attributs : \n");
+            TextRange rangeAttributs = paragraphAttribut.AppendText(Properties.Settings.Default.Attributs);
+            rangeAttributTitre.CharacterFormat.FontSize = 14;
+            rangeAttributTitre.CharacterFormat.UnderlineStyle = UnderlineStyle.Single;
+            paragraphAttribut.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Justify;
+            paragraphAttribut.AppendBreak(BreakType.LineBreak);
+
             Paragraph paragraphObjets = section.AddParagraph();
-            TextRange rangeObjets = paragraphObjets.AppendText("Inventaires : \n" +
-                                                                Properties.Settings.Default.Inventaires);
-            Paragraph paragraphSortileges = section.AddParagraph();
-            TextRange rangeSortileges = paragraphObjets.AppendText("Sortilèges : \n" +
-                                                                Properties.Settings.Default.Sortilèges);
+            TextRange rangeObjetsTitre = paragraphObjets.AppendText("Inventaires : \n");
+            TextRange rangeObjets = paragraphObjets.AppendText(Properties.Settings.Default.Inventaires);
+            rangeObjetsTitre.CharacterFormat.FontSize = 14;
+            rangeObjetsTitre.CharacterFormat.UnderlineStyle = UnderlineStyle.Single;
+            paragraphObjets.AppendBreak(BreakType.LineBreak);
+
+            Paragraph paragraphSortileges = section.Paragraphs.Count > 0 ? section.Paragraphs[0] : section.AddParagraph();
+            TextRange rangeSortilegesTitres = paragraphObjets.AppendText("Sortilèges : \n");
+            TextRange rangeSortileges = paragraphObjets.AppendText(Properties.Settings.Default.Sortilèges);
+            rangeSortilegesTitres.CharacterFormat.FontSize = 14;
+            rangeSortilegesTitres.CharacterFormat.UnderlineStyle = UnderlineStyle.Single;
+
             // Enregistrer le fichier doc.  
             documentPdf.SaveToFile(cheminDocx, FileFormat.Docx);
             // Convertir en PDF  

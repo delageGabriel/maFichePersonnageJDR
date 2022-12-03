@@ -82,8 +82,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Armes.cs" />
-    <Compile Include="Classes\FormConverter.cs" />
+    <Compile Include="Classe\ClasseImage.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +148,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Images\" />
     <Folder Include="Templates\" />
   </ItemGroup>
   <ItemGroup>

@@ -21,11 +21,23 @@ namespace maFichePersonnageJDR.Formulaires
         private void FormulaireInfosGenerales_Load(object sender, EventArgs e)
         {
             GetSettings();
-            if (Properties.Settings.Default.Sexe == "Homme")
+            txtVitesse.Text = "9 m";
+            if (Convert.ToInt32(Properties.Settings.Default.Force) > 0)
+            {
+                int calculCharge = Convert.ToInt32((25 + (Convert.ToInt32(Properties.Settings.Default.Force) * 25)) / 2.205);
+                txtBoxCharge.Text = calculCharge.ToString() + "kg";
+            }
+            else
+            {
+                int calculCharge = 30;
+                txtBoxCharge.Text = calculCharge.ToString() + "kg";
+            }
+
+            if (Properties.Settings.Default.Sexe == "Masculin")
             {
                 rdbHomme.Checked = true;
             }
-            else if (Properties.Settings.Default.Sexe == "Femme")
+            else if (Properties.Settings.Default.Sexe == "Féminin")
             {
                 rdbFemme.Checked = true;
             }
@@ -48,9 +60,15 @@ namespace maFichePersonnageJDR.Formulaires
             rtbLangues.Text = Properties.Settings.Default.Langues;
             txtBoxCharge.Text = Properties.Settings.Default.ChargeMax;
             txtVitesse.Text = Properties.Settings.Default.VitesseDepla;
+            if (!String.IsNullOrEmpty(Properties.Settings.Default.CheminImage))
+            {
+                ptbAvatar.Image = GetUneImage(Properties.Settings.Default.CheminImage);
+            }
             txtPO.Text = Properties.Settings.Default.Or;
             txtPA.Text = Properties.Settings.Default.Argent;
             txtPC.Text = Properties.Settings.Default.Cuivre;
+            Properties.Settings.Default.ChargeMax = txtBoxCharge.Text;
+            Properties.Settings.Default.VitesseDepla = txtVitesse.Text;
         }
 
         /// <summary>
@@ -67,11 +85,11 @@ namespace maFichePersonnageJDR.Formulaires
             Properties.Settings.Default.Niveau = txtBoxNiveau.Text;
             if (rdbHomme.Checked == true)
             {
-                Properties.Settings.Default.Sexe = "Homme";
+                Properties.Settings.Default.Sexe = "Masculin";
             }
             else if (rdbFemme.Checked == true)
             {
-                Properties.Settings.Default.Sexe = "Femme";
+                Properties.Settings.Default.Sexe = "Féminin";
             }
             else
             {
@@ -84,7 +102,49 @@ namespace maFichePersonnageJDR.Formulaires
             Properties.Settings.Default.Or = txtPO.Text;
             Properties.Settings.Default.Argent = txtPA.Text;
             Properties.Settings.Default.Cuivre = txtPC.Text;
+            txtBoxCharge.Text = Properties.Settings.Default.ChargeMax;
+            txtVitesse.Text = Properties.Settings.Default.VitesseDepla;
             Properties.Settings.Default.Save();
+        }
+
+        private void btnAjouterImage_Click(object sender, EventArgs e)
+        {
+            string pathImg = GetPathImage();
+            ptbAvatar.Image = GetUneImage(pathImg);
+        }
+
+        public static Bitmap GetUneImage(string cheminDeLImage)
+        {
+            Bitmap uneImage = new Bitmap(cheminDeLImage);
+            Bitmap imageRedimensionner = new Bitmap(uneImage, new Size(256, 256));
+            uneImage = imageRedimensionner;
+
+            return uneImage;
+        }
+
+        public string GetPathImage()
+        {
+            string cheminImage = string.Empty;
+
+            OpenFileDialog opf = new OpenFileDialog();
+            opf.Title = "Choisissez votre image";
+            opf.Filter = "Tous les formats(*.jpg, *.png, *.bmp)|*.jpg; *.png; *.bmp|JPEG|*.jpg|PNG|*.png|BMP|*.bmp";
+
+            if (opf.ShowDialog() == DialogResult.OK)
+            {
+                if (!String.IsNullOrEmpty(opf.FileName))
+                {
+                    cheminImage = opf.FileName;
+                    Properties.Settings.Default.CheminImage = cheminImage;
+                    Properties.Settings.Default.Save();
+                }
+                else
+                {
+                    MessageBox.Show("Chemin d'accès non valide !");
+                }
+            }
+
+            return cheminImage;
         }
     }
 }
