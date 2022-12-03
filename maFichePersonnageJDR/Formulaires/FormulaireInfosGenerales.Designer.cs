@@ -146,7 +146,7 @@ namespace maFichePersonnageJDR.Formulaires
             // lblNiveau
             // 
             this.lblNiveau.AutoSize = true;
-            this.lblNiveau.Location = new System.Drawing.Point(162, 58);
+            this.lblNiveau.Location = new System.Drawing.Point(161, 55);
             this.lblNiveau.Name = "lblNiveau";
             this.lblNiveau.Size = new System.Drawing.Size(41, 13);
             this.lblNiveau.TabIndex = 9;

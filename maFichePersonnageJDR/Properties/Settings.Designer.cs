@@ -553,9 +553,10 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Collections.Specialized.StringCollection Inventaires {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Inventaires {
             get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["Inventaires"]));
+                return ((string)(this["Inventaires"]));
             }
             set {
                 this["Inventaires"] = value;
@@ -571,6 +572,30 @@ namespace maFichePersonnageJDR.Properties {
             }
             set {
                 this["Discretion"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Sortilèges {
+            get {
+                return ((string)(this["Sortilèges"]));
+            }
+            set {
+                this["Sortilèges"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Image {
+            get {
+                return ((string)(this["Image"]));
+            }
+            set {
+                this["Image"] = value;
             }
         }
     }

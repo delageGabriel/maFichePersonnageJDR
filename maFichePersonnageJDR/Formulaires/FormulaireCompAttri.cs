@@ -75,6 +75,9 @@ namespace maFichePersonnageJDR.Formulaires
                     "Gros dormeur: temps de récupération divisé par deux lors de repos",
                     "Hyperesthésie: chance de ne pas être empoisonné égale à x%",
                     "Ignifugé: capacité de survivre à haute température jusqu'à x degrés Celsius",
+                    "Insensibilité contondante: Insensible aux dégâts contondants",
+                    "Insensibilité perforante: Insensible aux dégâts perforants",
+                    "Insensibilité tranchante: Insensible aux dégâts tranchants",
                     "Insubmersible: impossible d'être submergé",
                     "Lourdaud: trop lourd pour attaquer en premier, attaque en dernier",
                     "Magie Aquatique — magie de l'eau",
@@ -111,18 +114,19 @@ namespace maFichePersonnageJDR.Formulaires
                 strTemp = (string)chckLstAttributs.SelectedItem;
                 if (rchTbAttributs.Text.Contains(strTemp))
                 {
-                    if (rchTbAttributs.Text.Contains(", " + strTemp))
+                    if(rchTbAttributs.Text.IndexOf(strTemp) == 0 && rchTbAttributs.Text.Contains(strTemp + ", "))
+                    {
+                        strTemp = (string)chckLstAttributs.SelectedItem + ", ";
+                        rchTbAttributs.Text = rchTbAttributs.Text.Remove(rchTbAttributs.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTbAttributs.Text.Contains(", " + strTemp))
                     {
                         strTemp = ", " + (string)chckLstAttributs.SelectedItem;
                         rchTbAttributs.Text = rchTbAttributs.Text.Remove(rchTbAttributs.Text.IndexOf(strTemp), strTemp.Length);
                     }
                     else
                     {
-                        rchTbAttributs.Text = rchTbAttributs.Text.Remove(rchTbAttributs.Text.IndexOf(strTemp), strTemp.Length); 
-                        //if(rchTbAttributs.Text.StartsWith(","))
-                        //{
-                        //    rchTbAttributs.Text.Remove(rchTbAttributs.Text.IndexOf(',', 1));
-                        //}
+                        rchTbAttributs.Text = rchTbAttributs.Text.Remove(rchTbAttributs.Text.IndexOf(strTemp), strTemp.Length);
                     }
                 }
                 else

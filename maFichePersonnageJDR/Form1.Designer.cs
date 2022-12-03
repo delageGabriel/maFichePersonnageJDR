@@ -32,6 +32,7 @@ namespace maFichePersonnageJDR
             this.btnFormCompAttri = new System.Windows.Forms.Button();
             this.btnInfosGenerales = new System.Windows.Forms.Button();
             this.btnTalentEtEquipement = new System.Windows.Forms.Button();
+            this.btnSoumettreFiche = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnFormCompAttri
@@ -64,11 +65,22 @@ namespace maFichePersonnageJDR
             this.btnTalentEtEquipement.UseVisualStyleBackColor = true;
             this.btnTalentEtEquipement.Click += new System.EventHandler(this.btnTalentEtEquipement_Click);
             // 
+            // btnSoumettreFiche
+            // 
+            this.btnSoumettreFiche.Location = new System.Drawing.Point(197, 115);
+            this.btnSoumettreFiche.Name = "btnSoumettreFiche";
+            this.btnSoumettreFiche.Size = new System.Drawing.Size(103, 23);
+            this.btnSoumettreFiche.TabIndex = 3;
+            this.btnSoumettreFiche.Text = "Soumettre la fiche";
+            this.btnSoumettreFiche.UseVisualStyleBackColor = true;
+            this.btnSoumettreFiche.Click += new System.EventHandler(this.btnSoumettreFiche_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(492, 150);
+            this.Controls.Add(this.btnSoumettreFiche);
             this.Controls.Add(this.btnTalentEtEquipement);
             this.Controls.Add(this.btnInfosGenerales);
             this.Controls.Add(this.btnFormCompAttri);
@@ -84,6 +96,7 @@ namespace maFichePersonnageJDR
         private System.Windows.Forms.Button btnFormCompAttri;
         private System.Windows.Forms.Button btnInfosGenerales;
         private System.Windows.Forms.Button btnTalentEtEquipement;
+        private System.Windows.Forms.Button btnSoumettreFiche;
     }
 }
 

@@ -15,14 +15,6 @@ namespace maFichePersonnageJDR.Formulaires
 {
     public partial class FormulaireTalentsEtObjets : Form
     {
-        private int htrControlInventaire = 1;
-        private int htrControlTalent = 1;
-
-        private List<Armes> lArmes = new List<Armes>();
-        public int HtrControlInventaire { get => htrControlInventaire; set => htrControlInventaire = value; }
-        public int HtrControlTalent { get => htrControlTalent; set => htrControlTalent = value; }
-        internal List<Armes> LArmes { get => lArmes; set => lArmes = value; }
-
         public FormulaireTalentsEtObjets()
         {
             InitializeComponent();
@@ -30,17 +22,22 @@ namespace maFichePersonnageJDR.Formulaires
 
         private void FormulaireTalentsEtObjets_Load(object sender, EventArgs e)
         {
-           
+            GetSettings();
         }
 
         private void btnSauvegarder_Click(object sender, EventArgs e)
         {
+            Properties.Settings.Default.Inventaires = rchTxtIvtaires.Text;
+            Properties.Settings.Default.Sortilèges = rchTbSorts.Text;
         }
 
         public void GetSettings()
         {
+            rchTxtIvtaires.Text = Properties.Settings.Default.Inventaires;
+            rchTbSorts.Text = Properties.Settings.Default.Sortilèges;
         }
 
+        #region clique_chk_inventaire
         /// <summary>
         /// Méthode pour ajouter ou retirer la ligne Scrasamax
         /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
@@ -53,10 +50,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblScrmx.Text + " " + lblPdsScrmx.Text + " " + lblPrteScrmx.Text + " " + nudScrmx.Value.ToString() + " " + lblTpeScrmx.Text + " " + lblDgtsScrmx.Text;
             if (chkScrmx.Checked)
             {
+                nudScrmx.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkScrmx.Checked)
             {
+                nudScrmx.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -89,10 +88,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblEpCrte.Text + " " + lblPdsEpCrte.Text + " " + lblPrteEpCrte.Text + " " + nudEpCrte.Value.ToString() + " " + lblTpeEpCrte.Text + " " + lblDgtsEpCrte.Text;
             if (chkEpCrte.Checked)
             {
+                nudEpCrte.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkEpCrte.Checked)
             {
+                nudEpCrte.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -125,10 +126,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblEpLge.Text + " " + lblPdsEpLge.Text + " " + lblPrteEpLge.Text + " " + nudEpLge.Value.ToString() + " " + lblTpeEpLge.Text + " " + lblDgtsEpLge.Text;
             if (chkEpLge.Checked)
             {
+                nudEpLge.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkEpLge.Checked)
             {
+                nudEpLge.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -161,10 +164,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblGlve.Text + " " + lblPdsGlve.Text + " " + lblPrteGlve.Text + " " + nudGlve.Value.ToString() + " " + lblTpeGlve.Text + " " + lblDgtsGlve.Text;
             if (chkGlve.Checked)
             {
+                nudGlve.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkGlve.Checked)
             {
+                nudGlve.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -197,10 +202,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblLte.Text + " " + lblPdsLte.Text + " " + lblPrteLte.Text + " " + nudLte.Value.ToString() + " " + lblTpeLte.Text + " " + lblDgtsLte.Text;
             if (chkLte.Checked)
             {
+                nudLte.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkLte.Checked)
             {
+                nudLte.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -233,10 +240,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblSbreCrbe.Text + " " + lblPdsSbreCrbe.Text + " " + lblPrteSbreCrbe.Text + " " + nudSbreCrbe.Value.ToString() + " " + lblTpeSbreCrbe.Text + " " + lblDgtsSbreCrbe.Text;
             if (chkSbreCrbe.Checked)
             {
+                nudSbreCrbe.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkSbreCrbe.Checked)
             {
+                nudSbreCrbe.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -269,10 +278,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblGgdne.Text + " " + lblPdsGgdne.Text + " " + lblPrteGgdne.Text + " " + nudGgdne.Value.ToString() + " " + lblTpeGgdne.Text + " " + lblDgtsGgdne.Text;
             if (chkGgdne.Checked)
             {
+                nudGgdne.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkGgdne.Checked)
             {
+                nudGgdne.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -305,10 +316,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblCntus.Text + " " + lblPdsCntus.Text + " " + lblPrteCntus.Text + " " + nudCntus.Value.ToString() + " " + lblTpeCntus.Text + " " + lblDgtsCntus.Text;
             if (chkCntus.Checked)
             {
+                nudCntus.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkCntus.Checked)
             {
+                nudCntus.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -341,10 +354,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblJvline.Text + " " + lblPdsJvline.Text + " " + lblPrteJvline.Text + " " + nudJvline.Value.ToString() + " " + lblTpeJvline.Text + " " + lblDgtsJvline.Text;
             if (chkJvline.Checked)
             {
+                nudJvline.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkJvline.Checked)
             {
+                nudJvline.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -377,10 +392,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblJvlot.Text + " " + lblPdsJvlot.Text + " " + lblPrteJvlot.Text + " " + nudJvlot.Value.ToString() + " " + lblTpeJvlot.Text + " " + lblDgtsJvlot.Text;
             if (chkJvlot.Checked)
             {
+                nudJvlot.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkJvlot.Checked)
             {
+                nudJvlot.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -413,10 +430,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblLnce.Text + " " + lblPdsLnce.Text + " " + lblPrteLnce.Text + " " + nudLnce.Value.ToString() + " " + lblTpeLnce.Text + " " + lblDgtsLnce.Text;
             if (chkLnce.Checked)
             {
+                nudLnce.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkLnce.Checked)
             {
+                nudLnce.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -449,10 +468,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblFrche.Text + " " + lblPdsFrche.Text + " " + lblPrteFrche.Text + " " + nudFrche.Value.ToString() + " " + lblTpeFrche.Text + " " + lblDgtsFrche.Text;
             if (chkFrche.Checked)
             {
+                nudFrche.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkFrche.Checked)
             {
+                nudFrche.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -485,10 +506,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblSrse.Text + " " + lblPdsSrse.Text + " " + lblPrteSrse.Text + " " + nudSrse.Value.ToString() + " " + lblTpeSrse.Text + " " + lblDgtsSrse.Text;
             if (chkSrse.Checked)
             {
+                nudSrse.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkSrse.Checked)
             {
+                nudSrse.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -519,12 +542,14 @@ namespace maFichePersonnageJDR.Formulaires
         private void chkCtau_Click(object sender, EventArgs e)
         {
             string strTemp = lblCtau.Text + " " + lblPdsCtau.Text + " " + lblPrteCtau.Text + " " + nudCtau.Value.ToString() + " " + lblTpeCtau.Text + " " + lblDgtsCtau.Text;
-            if (chkSrse.Checked)
+            if (chkCtau.Checked)
             {
+                nudCtau.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
-            else if (!chkSrse.Checked)
+            else if (!chkCtau.Checked)
             {
+                nudCtau.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -557,10 +582,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblDge.Text + " " + lblPdsDge.Text + " " + lblPrteDge.Text + " " + nudDge.Value.ToString() + " " + lblTpeDge.Text + " " + lblDgtsDge.Text;
             if (chkDge.Checked)
             {
+                nudDge.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkDge.Checked)
             {
+                nudDge.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -593,10 +620,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblFclGure.Text + " " + lblPdsFclGure.Text + " " + lblPrteFclGure.Text + " " + nudFclGure.Value.ToString() + " " + lblTpeFclGure.Text + " " + lblDgtsFclGure.Text;
             if (chkFclGure.Checked)
             {
+                nudFclGure.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkFclGure.Checked)
             {
+                nudFclGure.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -626,14 +655,15 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void chkFrncsque_Click(object sender, EventArgs e)
         {
-
             string strTemp = lblFrncsque.Text + " " + lblPdsFrncsque.Text + " " + lblPrteFrncsque.Text + " " + nudFrncsque.Value.ToString() + " " + lblTpeFrncsque.Text + " " + lblDgtsFrncsque.Text;
             if (chkFrncsque.Checked)
             {
+                nudFrncsque.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkFrncsque.Checked)
             {
+                nudFrncsque.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -666,10 +696,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblArc.Text + " " + lblPdsArc.Text + " " + lblPrteArc.Text + " " + nudArc.Value.ToString() + " " + lblTpeArc.Text + " " + lblDgtsArc.Text;
             if (chkArc.Checked)
             {
+                nudArc.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkArc.Checked)
             {
+                nudArc.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -702,10 +734,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblAblte.Text + " " + lblPdsAblte.Text + " " + lblPrteAblte.Text + " " + nudAblte.Value.ToString() + " " + lblTpeAblte.Text + " " + lblDgtsAblte.Text;
             if (chkAblte.Checked)
             {
+                nudAblte.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkAblte.Checked)
             {
+                nudAblte.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -738,10 +772,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblFnde.Text + " " + lblPdsFnde.Text + " " + lblPrteFnde.Text + " " + nudFnde.Value.ToString() + " " + lblTpeFnde.Text + " " + lblDgtsFnde.Text;
             if (chkFnde.Checked)
             {
+                nudFnde.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkFnde.Checked)
             {
+                nudFnde.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -774,10 +810,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblFouet.Text + " " + lblPdsFouet.Text + " " + lblPrteFouet.Text + " " + nudFouet.Value.ToString() + " " + lblTpeFouet.Text + " " + lblDgtsFouet.Text;
             if (chkFouet.Checked)
             {
+                nudFouet.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkFouet.Checked)
             {
+                nudFouet.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -810,10 +848,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblFaC.Text + " " + lblPdsFaC.Text + " " + lblPrteFaC.Text + " " + nudFaC.Value.ToString() + " " + lblTpeFaC.Text + " " + lblDgtsFaC.Text;
             if (chkFaC.Checked)
             {
+                nudFaC.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkFaC.Checked)
             {
+                nudFaC.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -847,10 +887,12 @@ namespace maFichePersonnageJDR.Formulaires
                 + lblDgtsBtonChne.Text + lblEftsBtonChne.Text;
             if (chkBtonChne.Checked)
             {
+                nudBtonChne.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkBtonChne.Checked)
             {
+                nudBtonChne.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -884,10 +926,12 @@ namespace maFichePersonnageJDR.Formulaires
                 + lblDgtsSctre.Text + lblEftsSctre.Text;
             if (chkSctre.Checked)
             {
+                nudSctre.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkSctre.Checked)
             {
+                nudSctre.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -920,10 +964,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblSpghlm.Text + " " + lblPdsSpghlm.Text + " " + nudSpghlm.Value.ToString() + " " + lblEftsSpghlm.Text;
             if (chkSpghlm.Checked)
             {
+                nudSpghlm.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkSpghlm.Checked)
             {
+                nudSpghlm.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -956,10 +1002,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblCfeMle.Text + " " + lblPdsCfeMle.Text + " " + nudCfeMle.Value.ToString() + " " + lblEftsCfeMle.Text;
             if (chkCfeMle.Checked)
             {
+                nudCfeMle.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkCfeMle.Checked)
             {
+                nudCfeMle.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -992,10 +1040,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblMrn.Text + " " + lblPdsMrn.Text + " " + nudMrn.Value.ToString() + " " + lblEftsMrn.Text;
             if (chkMrn.Checked)
             {
+                nudMrn.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkMrn.Checked)
             {
+                nudMrn.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1028,10 +1078,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblCrvlre.Text + " " + lblPdsCrvlre.Text + " " + nudCrvlre.Value.ToString() + " " + lblEftsCrvlre.Text;
             if (chkCrvlre.Checked)
             {
+                nudCrvlre.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkCrvlre.Checked)
             {
+                nudCrvlre.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1064,10 +1116,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblChplFr.Text + " " + lblPdsChplFr.Text + " " + nudChplFr.Value.ToString() + " " + lblEftsChplFr.Text;
             if (chkChplFr.Checked)
             {
+                nudChplFr.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkChplFr.Checked)
             {
+                nudChplFr.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1100,10 +1154,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblCsqueBrbre.Text + " " + lblPdsCsqueBrbre.Text + " " + nudCsqueBrbre.Value.ToString() + " " + lblEftsCsqueBrbre.Text;
             if (chkCsqueBrbre.Checked)
             {
+                nudCsqueBrbre.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkCsqueBrbre.Checked)
             {
+                nudCsqueBrbre.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1136,10 +1192,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblVtments.Text + " " + lblPdsVtments.Text + " " + nudVtments.Value.ToString() + " " + lblEftsVtments.Text;
             if (chkVtments.Checked)
             {
+                nudVtments.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkVtments.Checked)
             {
+                nudVtments.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1172,10 +1230,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblBrgne.Text + " " + lblPdsBrgne.Text + " " + nudBrgne.Value.ToString() + " " + lblEftsBrgne.Text;
             if (chkBrgne.Checked)
             {
+                nudBrgne.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkBrgne.Checked)
             {
+                nudBrgne.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1208,10 +1268,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblCtphrcte.Text + " " + lblPdsCtphrcte.Text + " " + nudCtphrcte.Value.ToString() + " " + lblEftsCtphrcte.Text;
             if (chkCtphrcte.Checked)
             {
+                nudCtphrcte.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkCtphrcte.Checked)
             {
+                nudCtphrcte.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1244,10 +1306,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblCrsFr.Text + " " + lblPdsCrsFr.Text + " " + nudCrsFr.Value.ToString() + " " + lblEftsCrsFr.Text;
             if (chkCrsFr.Checked)
             {
+                nudCrsFr.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkCrsFr.Checked)
             {
+                nudCrsFr.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1280,10 +1344,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblCpeCuir.Text + " " + lblPdsCpeCuir.Text + " " + nudCpeCuir.Value.ToString() + " " + lblEftsCpeCuir.Text;
             if (chkCpeCuir.Checked)
             {
+                nudCpeCuir.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkCpeCuir.Checked)
             {
+                nudCpeCuir.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1316,10 +1382,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblCrsBze.Text + " " + lblPdsCrsBze.Text + " " + nudCrsBze.Value.ToString() + " " + lblEftsCrsBze.Text;
             if (chkCrsBze.Checked)
             {
+                nudCrsBze.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkCrsBze.Checked)
             {
+                nudCrsBze.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1352,10 +1420,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblGntMles.Text + " " + lblPdsGntMles.Text + " " + nudGntMles.Value.ToString() + " " + lblEftsGntMles.Text;
             if (chkGntMles.Checked)
             {
+                nudGntMles.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkGntMles.Checked)
             {
+                nudGntMles.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1388,10 +1458,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblGntlet.Text + " " + lblPdsGntlet.Text + " " + nudGntlet.Value.ToString() + " " + lblEftsGntlet.Text;
             if (chkGntlet.Checked)
             {
+                nudGntlet.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkGntlet.Checked)
             {
+                nudGntlet.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1424,10 +1496,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblMitne.Text + " " + lblPdsMitne.Text + " " + nudMitne.Value.ToString() + " " + lblEftsMitne.Text;
             if (chkMitne.Checked)
             {
+                nudMitne.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkMitne.Checked)
             {
+                nudMitne.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1460,10 +1534,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblMton.Text + " " + lblPdsMton.Text + " " + nudMton.Value.ToString() + " " + lblEftsMton.Text;
             if (chkMton.Checked)
             {
+                nudMton.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkMton.Checked)
             {
+                nudMton.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1496,10 +1572,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblCuissrd.Text + " " + lblPdsCuissrd.Text + " " + nudCuissrd.Value.ToString() + " " + lblEftsCuissrd.Text;
             if (chkCuissrd.Checked)
             {
+                nudCuissrd.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkCuissrd.Checked)
             {
+                nudCuissrd.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1532,10 +1610,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblPntlonTle.Text + " " + lblPdsPntlonTle.Text + " " + nudPntlonTle.Value.ToString() + " " + lblEftsPntlonTle.Text;
             if (chkPntlonTle.Checked)
             {
+                nudPntlonTle.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkPntlonTle.Checked)
             {
+                nudPntlonTle.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1568,10 +1648,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblCmide.Text + " " + lblPdsCmide.Text + " " + nudCmide.Value.ToString() + " " + lblEftsCmide.Text;
             if (chkCmide.Checked)
             {
+                nudCmide.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkCmide.Checked)
             {
+                nudCmide.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1604,10 +1686,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblSndles.Text + " " + lblPdsSndles.Text + " " + nudSndles.Value.ToString() + " " + lblEftsSndles.Text;
             if (chkSndles.Checked)
             {
+                nudSndles.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkSndles.Checked)
             {
+                nudSndles.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1640,10 +1724,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblChssuresCuir.Text + " " + lblPdsChssuresCuir.Text + " " + nudChssuresCuir.Value.ToString() + " " + lblEftsChssuresCuir.Text;
             if (chkChssuresCuir.Checked)
             {
+                nudChssuresCuir.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkChssuresCuir.Checked)
             {
+                nudChssuresCuir.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1676,10 +1762,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblEcu.Text + " " + lblPdsEcu.Text + " " + nudEcu.Value.ToString() + " " + lblEftsEcu.Text;
             if (chkEcu.Checked)
             {
+                nudEcu.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkEcu.Checked)
             {
+                nudEcu.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1712,10 +1800,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblPvois.Text + " " + lblPdsPvois.Text + " " + nudPvois.Value.ToString() + " " + lblEftsPvois.Text;
             if (chkPvois.Checked)
             {
+                nudPvois.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkPvois.Checked)
             {
+                nudPvois.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1748,10 +1838,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblBclrAmde.Text + " " + lblPdsBclrAmde.Text + " " + nudBclrAmde.Value.ToString() + " " + lblEftsBclrAmde.Text;
             if (chkBclrAmde.Checked)
             {
+                nudBclrAmde.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkBclrAmde.Checked)
             {
+                nudBclrAmde.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1784,10 +1876,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblBclrBze.Text + " " + lblPdsBclrBze.Text + " " + nudBclrBze.Value.ToString() + " " + lblEftsBclrBze.Text;
             if (chkBclrBze.Checked)
             {
+                nudBclrBze.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkBclrBze.Checked)
             {
+                nudBclrBze.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1820,10 +1914,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblPlta.Text + " " + lblPdsPlta.Text + " " + nudPlta.Value.ToString() + " " + lblEftsPlta.Text;
             if (chkPlta.Checked)
             {
+                nudPlta.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkPlta.Checked)
             {
+                nudPlta.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1856,10 +1952,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblTrche.Text + " " + lblPdsTrche.Text + " " + lblLgrTrche.Text + " " + nudTrche.Value.ToString() + " " + lblEftsTrche.Text;
             if (chkTrche.Checked)
             {
+                nudTrche.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkTrche.Checked)
             {
+                nudTrche.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1892,10 +1990,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblCrde.Text + " " + lblPdsCrde.Text + " " + lblLgrCrde.Text + " " + nudCrde.Value.ToString() + " " + lblEftsCrde.Text;
             if (chkCrde.Checked)
             {
+                nudCrde.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkCrde.Checked)
             {
+                nudCrde.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1928,10 +2028,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblOte.Text + " " + lblPdsOte.Text + " " + lblLgrOte.Text + " " + nudOte.Value.ToString() + " " + lblEftsOte.Text;
             if (chkOte.Checked)
             {
+                nudOte.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkOte.Checked)
             {
+                nudOte.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -1964,10 +2066,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblSc.Text + " " + lblPdsSc.Text + " " + lblLgrSc.Text + " " + nudSc.Value.ToString() + " " + lblEftsSc.Text;
             if (chkSc.Checked)
             {
+                nudSc.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkSc.Checked)
             {
+                nudSc.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -2000,10 +2104,12 @@ namespace maFichePersonnageJDR.Formulaires
             string strTemp = lblTnte.Text + " " + lblPdsTnte.Text + " " + lblLgrTnte.Text + " " + nudTnte.Value.ToString() + " " + lblEftsTnte.Text;
             if (chkTnte.Checked)
             {
+                nudTnte.Enabled = false;
                 rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
             }
             else if (!chkTnte.Checked)
             {
+                nudTnte.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
@@ -2779,5 +2885,6 @@ namespace maFichePersonnageJDR.Formulaires
                 }
             }
         }
+        #endregion
     }
 }
