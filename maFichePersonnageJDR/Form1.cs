@@ -225,6 +225,7 @@ namespace maFichePersonnageJDR
             TextRange rangeObjets = paragraphObjets.AppendText(Properties.Settings.Default.Inventaires);
             rangeObjetsTitre.CharacterFormat.FontSize = 14;
             rangeObjetsTitre.CharacterFormat.UnderlineStyle = UnderlineStyle.Single;
+            paragraphObjets.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Justify;
             paragraphObjets.AppendBreak(BreakType.LineBreak);
 
             Paragraph paragraphSortileges = section.Paragraphs.Count > 0 ? section.Paragraphs[0] : section.AddParagraph();
@@ -232,6 +233,7 @@ namespace maFichePersonnageJDR
             TextRange rangeSortileges = paragraphObjets.AppendText(Properties.Settings.Default.Sortilèges);
             rangeSortilegesTitres.CharacterFormat.FontSize = 14;
             rangeSortilegesTitres.CharacterFormat.UnderlineStyle = UnderlineStyle.Single;
+            paragraphSortileges.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Justify;
 
             // Enregistrer le fichier doc.  
             documentPdf.SaveToFile(cheminDocx, FileFormat.Docx);

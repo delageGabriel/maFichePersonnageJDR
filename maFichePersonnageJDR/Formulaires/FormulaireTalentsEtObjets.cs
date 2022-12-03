@@ -22,6 +22,11 @@ namespace maFichePersonnageJDR.Formulaires
         private void FormulaireTalentsEtObjets_Load(object sender, EventArgs e)
         {
             GetSettings();
+            if(!Properties.Settings.Default.Attributs.Contains("Magie Aquatique — magie de l'eau"))
+            {
+                chkMgieAqua.Visible = false;
+                lblMgieAqua.Visible = false;
+            }
         }
 
         private void btnSauvegarder_Click(object sender, EventArgs e)

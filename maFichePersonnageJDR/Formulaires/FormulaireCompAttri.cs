@@ -12,7 +12,10 @@ namespace maFichePersonnageJDR.Formulaires
 {
     public partial class FormulaireCompAttri : Form
     {
-        public ToolTip tool = new ToolTip();
+        private int x = Convert.ToInt16(Properties.Settings.Default.Niveau);
+
+        public int X { get => x; set => x = value; }
+
         public FormulaireCompAttri()
         {
             InitializeComponent();
@@ -64,10 +67,10 @@ namespace maFichePersonnageJDR.Formulaires
         /// </summary>
         public void SetAttributs()
         {
-            chckLstAttributs.Items.AddRange(new[] {"Alifère: capacité de voler à x mètres d'altitude",
-                    "Amphibien: capacité de nager à x mètres de profondeur, peut respirer sous l'eau et sur la terre",
-                    "Armure naturelle: peau épaisse, jusqu'à x% de dégâts physiques absorbés par l'ennemi",
-                    "Avantage du terrain: sur x terrain(s), la créature n'a pas de malus",
+            chckLstAttributs.Items.AddRange(new[] {$"Alifère: capacité de voler à {X} mètres d'altitude",
+                    $"Amphibien: capacité de nager à {X} mètres de profondeur, peut respirer sous l'eau et sur la terre",
+                    "Armure naturelle: peau épaisse, jusqu'à x% de dégâts physiques absorbés",
+                    $"Avantage du terrain: sur {X} terrain(s) en particulier, la créature n'a pas de malus",
                     "Célérité: attaque toujours en premier lors de tour d'initiative",
                     "Corps artificiels: créature artificielle, nul besoin pour elle de respirer",
                     "Dégagement: impossible d'être encerclé", "Double frappe: capacité d'attaquer deux fois par tour de jeu",
@@ -91,7 +94,7 @@ namespace maFichePersonnageJDR.Formulaires
                     "Magie Terrestre: magie de la terre",
                     "Mithridatisation: chance de ne pas être empoisonné égale à x%",
                     "Mort-vivant: ne peut pas être soigné par des moyens conventionnels (sauf repos), est obligé de dévorer un corps ou boire des fluides corporels",
-                    "Porteur de charges lourdes: capacité de porter 25% la charge maximum que l'on peut porter",
+                    "Porteur de charges lourdes: capacité de porter 20% la charge maximum que l'on peut porter",
                     "Prodige: plafond supplémentaire de 5% dans une des compétences naturelles",
                     "Régénération spirituelle: à chaque début de tour, 10% de l'énergie est régénérée par le lanceur",
                     "Régénération vitale: à chaque début de tour, 10% de PV régénérés pour le lanceur",

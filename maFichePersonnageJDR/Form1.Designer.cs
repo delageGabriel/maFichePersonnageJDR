@@ -37,7 +37,7 @@ namespace maFichePersonnageJDR
             // 
             // btnFormCompAttri
             // 
-            this.btnFormCompAttri.Location = new System.Drawing.Point(183, 41);
+            this.btnFormCompAttri.Location = new System.Drawing.Point(33, 41);
             this.btnFormCompAttri.Name = "btnFormCompAttri";
             this.btnFormCompAttri.Size = new System.Drawing.Size(142, 23);
             this.btnFormCompAttri.TabIndex = 0;
@@ -47,7 +47,7 @@ namespace maFichePersonnageJDR
             // 
             // btnInfosGenerales
             // 
-            this.btnInfosGenerales.Location = new System.Drawing.Point(183, 12);
+            this.btnInfosGenerales.Location = new System.Drawing.Point(33, 12);
             this.btnInfosGenerales.Name = "btnInfosGenerales";
             this.btnInfosGenerales.Size = new System.Drawing.Size(142, 23);
             this.btnInfosGenerales.TabIndex = 1;
@@ -57,7 +57,7 @@ namespace maFichePersonnageJDR
             // 
             // btnTalentEtEquipement
             // 
-            this.btnTalentEtEquipement.Location = new System.Drawing.Point(183, 70);
+            this.btnTalentEtEquipement.Location = new System.Drawing.Point(33, 70);
             this.btnTalentEtEquipement.Name = "btnTalentEtEquipement";
             this.btnTalentEtEquipement.Size = new System.Drawing.Size(142, 23);
             this.btnTalentEtEquipement.TabIndex = 2;
@@ -67,7 +67,7 @@ namespace maFichePersonnageJDR
             // 
             // btnSoumettreFiche
             // 
-            this.btnSoumettreFiche.Location = new System.Drawing.Point(197, 115);
+            this.btnSoumettreFiche.Location = new System.Drawing.Point(47, 115);
             this.btnSoumettreFiche.Name = "btnSoumettreFiche";
             this.btnSoumettreFiche.Size = new System.Drawing.Size(103, 23);
             this.btnSoumettreFiche.TabIndex = 3;
@@ -79,7 +79,7 @@ namespace maFichePersonnageJDR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 150);
+            this.ClientSize = new System.Drawing.Size(205, 150);
             this.Controls.Add(this.btnSoumettreFiche);
             this.Controls.Add(this.btnTalentEtEquipement);
             this.Controls.Add(this.btnInfosGenerales);
