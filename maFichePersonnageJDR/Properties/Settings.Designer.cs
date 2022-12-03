@@ -598,5 +598,17 @@ namespace maFichePersonnageJDR.Properties {
                 this["Image"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Endurance {
+            get {
+                return ((int)(this["Endurance"]));
+            }
+            set {
+                this["Endurance"] = value;
+            }
+        }
     }
 }

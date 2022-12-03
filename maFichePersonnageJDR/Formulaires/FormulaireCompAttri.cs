@@ -41,6 +41,7 @@ namespace maFichePersonnageJDR.Formulaires
             nudCrochetage.Value = Properties.Settings.Default.Crochetage;
             nudDiplomatie.Value = Properties.Settings.Default.Diplomatie;
             nudDiscretion.Value = Properties.Settings.Default.Discretion;
+            nudEndurance.Value = Properties.Settings.Default.Endurance;
             nudEscalade.Value = Properties.Settings.Default.Escalade;
             nudExplosifs.Value = Properties.Settings.Default.Explosifs;
             nudForce.Value = Properties.Settings.Default.Force;
@@ -178,6 +179,7 @@ namespace maFichePersonnageJDR.Formulaires
             Properties.Settings.Default.Crochetage = Convert.ToInt32(nudCrochetage.Value);
             Properties.Settings.Default.Diplomatie = Convert.ToInt32(nudDiplomatie.Value);
             Properties.Settings.Default.Discretion = Convert.ToInt32(nudDiscretion.Value);
+            Properties.Settings.Default.Endurance = Convert.ToInt32(nudEndurance.Value);
             Properties.Settings.Default.Escalade = Convert.ToInt32(nudEscalade.Value);
             Properties.Settings.Default.Explosifs = Convert.ToInt32(nudExplosifs.Value);
             Properties.Settings.Default.Force = Convert.ToInt32(nudForce.Value);

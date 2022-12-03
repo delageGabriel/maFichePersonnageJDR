@@ -119,10 +119,10 @@ namespace maFichePersonnageJDR.Formulaires
             this.rdbHomme.AutoSize = true;
             this.rdbHomme.Location = new System.Drawing.Point(396, 29);
             this.rdbHomme.Name = "rdbHomme";
-            this.rdbHomme.Size = new System.Drawing.Size(61, 17);
+            this.rdbHomme.Size = new System.Drawing.Size(67, 17);
             this.rdbHomme.TabIndex = 7;
             this.rdbHomme.TabStop = true;
-            this.rdbHomme.Text = "Homme";
+            this.rdbHomme.Text = "Masculin";
             this.rdbHomme.UseVisualStyleBackColor = true;
             // 
             // rdbFemme
@@ -130,10 +130,10 @@ namespace maFichePersonnageJDR.Formulaires
             this.rdbFemme.AutoSize = true;
             this.rdbFemme.Location = new System.Drawing.Point(396, 53);
             this.rdbFemme.Name = "rdbFemme";
-            this.rdbFemme.Size = new System.Drawing.Size(59, 17);
+            this.rdbFemme.Size = new System.Drawing.Size(61, 17);
             this.rdbFemme.TabIndex = 8;
             this.rdbFemme.TabStop = true;
-            this.rdbFemme.Text = "Femme";
+            this.rdbFemme.Text = "Féminin";
             this.rdbFemme.UseVisualStyleBackColor = true;
             // 
             // txtBoxNiveau

@@ -112,7 +112,7 @@ namespace maFichePersonnageJDR
                 TextRange txtRange = p.AppendText(enTete[i]);
                 txtRange.CharacterFormat.Bold = true;
             }
-            for(int j = 0; j < donnees.Length; j++)
+            for (int j = 0; j < donnees.Length; j++)
             {
                 rowDeux.Cells[j].CellFormat.VerticalAlignment = VerticalAlignment.Middle;
                 Paragraph pDeux = rowDeux.Cells[j].AddParagraph();
@@ -150,6 +150,47 @@ namespace maFichePersonnageJDR
             }
             #endregion
 
+            #region caracteristiques
+            Paragraph paragraphCaracteristique = section.AddParagraph();
+            TextRange rangeAdresse = paragraphCaracteristique.AppendText("\tAdresse : " + Properties.Settings.Default.Adresse);
+            TextRange rangeExplosifs = paragraphCaracteristique.AppendText("\t\t\t\tExplosifs : " + Properties.Settings.Default.Explosifs + "\n");
+            TextRange rangeAgilite = paragraphCaracteristique.AppendText("\tAgilité : " + Properties.Settings.Default.Agilité);
+            TextRange rangeForce = paragraphCaracteristique.AppendText("\t\t\t\tForce : " + Properties.Settings.Default.Force + "\n");
+            TextRange rangeAnimale = paragraphCaracteristique.AppendText("\tAnimale : " + Properties.Settings.Default.Animale);
+            TextRange rangeIntimidation = paragraphCaracteristique.AppendText("\t\t\t\tIntimidation : " + Properties.Settings.Default.Intimidation + "\n");
+            TextRange rangeArtisanat = paragraphCaracteristique.AppendText("\tArtisanat : " + Properties.Settings.Default.Artisanat);
+            TextRange rangeLangages = paragraphCaracteristique.AppendText("\t\t\t\tLangages : " + Properties.Settings.Default.Langages + "\n");
+            TextRange rangeBotanique = paragraphCaracteristique.AppendText("\tBotanique : " + Properties.Settings.Default.Botanique);
+            TextRange rangeMécanique = paragraphCaracteristique.AppendText("\t\t\t\tMécanique : " + Properties.Settings.Default.Mecanique + "\n");
+            TextRange rangeCnGeo = paragraphCaracteristique.AppendText("\tConnaissances géographiques : " + Properties.Settings.Default.ConnGeographiques);
+            TextRange rangeMedecine = paragraphCaracteristique.AppendText("\tMédecine : " + Properties.Settings.Default.Medecine + "\n");
+            TextRange rangeCnHist = paragraphCaracteristique.AppendText("\tConnaissances historiques : " + Properties.Settings.Default.ConnHistoriques);
+            TextRange rangeNatation = paragraphCaracteristique.AppendText("\t\tNatation : " + Properties.Settings.Default.Natation + "\n");
+            TextRange rangeCnMag = paragraphCaracteristique.AppendText("\tConnaissances magiques : " + Properties.Settings.Default.ConnMagiques);
+            TextRange rangePerception = paragraphCaracteristique.AppendText("\t\tPerception : " + Properties.Settings.Default.Perception + "\n");
+            TextRange rangeCnReg = paragraphCaracteristique.AppendText("\tConnaissances religieuse : " + Properties.Settings.Default.ConnReligieuses);
+            TextRange rangePerspicacite = paragraphCaracteristique.AppendText("\t\tPerspicacité : " + Properties.Settings.Default.Perspicacité + "\n");
+            TextRange rangeCrochetage = paragraphCaracteristique.AppendText("\tCrochetage : " + Properties.Settings.Default.Crochetage);
+            TextRange rangePersuasion = paragraphCaracteristique.AppendText("\t\t\t\tPersuasion : " + Properties.Settings.Default.Persuasion + "\n");
+            TextRange rangeDiplomatie = paragraphCaracteristique.AppendText("\tDiplomatie : " + Properties.Settings.Default.Diplomatie);
+            TextRange rangePsyche = paragraphCaracteristique.AppendText("\t\t\t\tPsyché : " + Properties.Settings.Default.Psyche + "\n");
+            TextRange rangeDiscretion = paragraphCaracteristique.AppendText("\tDiscrétion : " + Properties.Settings.Default.Discretion);
+            TextRange rangeReflexes = paragraphCaracteristique.AppendText("\t\t\t\tRéflexes : " + Properties.Settings.Default.Reflexes + "\n");
+            TextRange rangeEndurance = paragraphCaracteristique.AppendText("\tEndurance : " + Properties.Settings.Default.Endurance);
+            TextRange rangeVigueur = paragraphCaracteristique.AppendText("\t\t\t\tVigueur : " + Properties.Settings.Default.Vigueur + "\n");
+            TextRange rangeEscalade = paragraphCaracteristique.AppendText("\tEscalade : " + Properties.Settings.Default.Escalade);
+            TextRange rangeVolonte = paragraphCaracteristique.AppendText("\t\t\t\tVolonté : " + Properties.Settings.Default.Volonte + "\n");
+            #endregion
+
+            Paragraph paragraphAttribut = section.AddParagraph();
+            TextRange rangeAttributs = paragraphAttribut.AppendText("Attributs : \n" +
+                                                                    Properties.Settings.Default.Attributs);
+            Paragraph paragraphObjets = section.AddParagraph();
+            TextRange rangeObjets = paragraphObjets.AppendText("Inventaires : \n" +
+                                                                Properties.Settings.Default.Inventaires);
+            Paragraph paragraphSortileges = section.AddParagraph();
+            TextRange rangeSortileges = paragraphObjets.AppendText("Sortilèges : \n" +
+                                                                Properties.Settings.Default.Sortilèges);
             // Enregistrer le fichier doc.  
             documentPdf.SaveToFile(cheminDocx, FileFormat.Docx);
             // Convertir en PDF  
