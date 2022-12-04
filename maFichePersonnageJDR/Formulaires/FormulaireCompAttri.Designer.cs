@@ -37,8 +37,10 @@ namespace maFichePersonnageJDR.Formulaires
             this.txtSocial = new System.Windows.Forms.TextBox();
             this.lblSocial = new System.Windows.Forms.Label();
             this.grpbCompetences = new System.Windows.Forms.GroupBox();
+            this.nudEndurance = new System.Windows.Forms.NumericUpDown();
             this.nudDiscretion = new System.Windows.Forms.NumericUpDown();
             this.lblDiscretion = new System.Windows.Forms.Label();
+            this.lblEndurance = new System.Windows.Forms.Label();
             this.nudVolonte = new System.Windows.Forms.NumericUpDown();
             this.lblVolonte = new System.Windows.Forms.Label();
             this.nudVigueur = new System.Windows.Forms.NumericUpDown();
@@ -98,9 +100,9 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblAttributs = new System.Windows.Forms.Label();
             this.chckLstAttributs = new System.Windows.Forms.CheckedListBox();
             this.rchTbAttributs = new System.Windows.Forms.RichTextBox();
-            this.nudEndurance = new System.Windows.Forms.NumericUpDown();
-            this.lblEndurance = new System.Windows.Forms.Label();
+            this.btnViderRchTbAttributs = new System.Windows.Forms.Button();
             this.grpbCompetences.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEndurance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDiscretion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudVolonte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudVigueur)).BeginInit();
@@ -128,7 +130,6 @@ namespace maFichePersonnageJDR.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.nudAnmale)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAgilite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdresse)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudEndurance)).BeginInit();
             this.SuspendLayout();
             // 
             // lblPhysique
@@ -255,6 +256,13 @@ namespace maFichePersonnageJDR.Formulaires
             this.grpbCompetences.TabStop = false;
             this.grpbCompetences.Text = "Compétences";
             // 
+            // nudEndurance
+            // 
+            this.nudEndurance.Location = new System.Drawing.Point(164, 308);
+            this.nudEndurance.Name = "nudEndurance";
+            this.nudEndurance.Size = new System.Drawing.Size(41, 20);
+            this.nudEndurance.TabIndex = 55;
+            // 
             // nudDiscretion
             // 
             this.nudDiscretion.Location = new System.Drawing.Point(164, 284);
@@ -270,6 +278,15 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblDiscretion.Size = new System.Drawing.Size(54, 13);
             this.lblDiscretion.TabIndex = 52;
             this.lblDiscretion.Text = "Discrétion";
+            // 
+            // lblEndurance
+            // 
+            this.lblEndurance.AutoSize = true;
+            this.lblEndurance.Location = new System.Drawing.Point(6, 310);
+            this.lblEndurance.Name = "lblEndurance";
+            this.lblEndurance.Size = new System.Drawing.Size(59, 13);
+            this.lblEndurance.TabIndex = 54;
+            this.lblEndurance.Text = "Endurance";
             // 
             // nudVolonte
             // 
@@ -749,27 +766,22 @@ namespace maFichePersonnageJDR.Formulaires
             this.rchTbAttributs.TabIndex = 15;
             this.rchTbAttributs.Text = "";
             // 
-            // nudEndurance
+            // btnViderRchTbAttributs
             // 
-            this.nudEndurance.Location = new System.Drawing.Point(164, 308);
-            this.nudEndurance.Name = "nudEndurance";
-            this.nudEndurance.Size = new System.Drawing.Size(41, 20);
-            this.nudEndurance.TabIndex = 55;
-            // 
-            // lblEndurance
-            // 
-            this.lblEndurance.AutoSize = true;
-            this.lblEndurance.Location = new System.Drawing.Point(6, 310);
-            this.lblEndurance.Name = "lblEndurance";
-            this.lblEndurance.Size = new System.Drawing.Size(59, 13);
-            this.lblEndurance.TabIndex = 54;
-            this.lblEndurance.Text = "Endurance";
+            this.btnViderRchTbAttributs.Location = new System.Drawing.Point(55, 433);
+            this.btnViderRchTbAttributs.Name = "btnViderRchTbAttributs";
+            this.btnViderRchTbAttributs.Size = new System.Drawing.Size(132, 23);
+            this.btnViderRchTbAttributs.TabIndex = 16;
+            this.btnViderRchTbAttributs.Text = "Vider Attributs";
+            this.btnViderRchTbAttributs.UseVisualStyleBackColor = true;
+            this.btnViderRchTbAttributs.Click += new System.EventHandler(this.btnViderRchTbAttributs_Click);
             // 
             // FormulaireCompAttri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 450);
+            this.ClientSize = new System.Drawing.Size(686, 507);
+            this.Controls.Add(this.btnViderRchTbAttributs);
             this.Controls.Add(this.rchTbAttributs);
             this.Controls.Add(this.chckLstAttributs);
             this.Controls.Add(this.lblAttributs);
@@ -790,6 +802,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.Load += new System.EventHandler(this.FormulaireCompAttri_Load);
             this.grpbCompetences.ResumeLayout(false);
             this.grpbCompetences.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEndurance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDiscretion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudVolonte)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudVigueur)).EndInit();
@@ -817,7 +830,6 @@ namespace maFichePersonnageJDR.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.nudAnmale)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAgilite)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdresse)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudEndurance)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -896,5 +908,6 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblDiscretion;
         private System.Windows.Forms.NumericUpDown nudEndurance;
         private System.Windows.Forms.Label lblEndurance;
+        private System.Windows.Forms.Button btnViderRchTbAttributs;
     }
 }

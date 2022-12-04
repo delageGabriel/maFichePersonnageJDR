@@ -22,11 +22,8 @@ namespace maFichePersonnageJDR.Formulaires
         private void FormulaireTalentsEtObjets_Load(object sender, EventArgs e)
         {
             GetSettings();
-            if(!Properties.Settings.Default.Attributs.Contains("Magie Aquatique — magie de l'eau"))
-            {
-                chkMgieAqua.Visible = false;
-                lblMgieAqua.Visible = false;
-            }
+            GetSortileges();
+            GetInventaires();
         }
 
         private void btnSauvegarder_Click(object sender, EventArgs e)
@@ -42,6 +39,100 @@ namespace maFichePersonnageJDR.Formulaires
             rchTbSorts.Text = Properties.Settings.Default.Sortilèges;
         }
 
+        /// <summary>
+        /// Méthode qui permet de vérifier dans les attributs si
+        /// la créature peut apprendre certains sorts, sinon, ils sont désactivés
+        /// </summary>
+        public void GetSortileges()
+        {
+            if (!Properties.Settings.Default.Attributs.Contains("Magie Aquatique — magie de l'eau"))
+            {
+                chkMgieAqua.Visible = false;
+                lblMgieAqua.Visible = false;
+            }
+            if (!Properties.Settings.Default.Attributs.Contains("Magie Céleste — magie du ciel"))
+            {
+                chkMgieCeleste.Visible = false;
+                lblMgieCeleste.Visible = false;
+            }
+            if (!Properties.Settings.Default.Attributs.Contains("Magie Démoniaque — magie liée aux ténèbres"))
+            {
+                chkMgieDemoniaqueAbspton.Visible = false;
+                lblMgieDemoniaqueAbspton.Visible = false;
+                chkMgieDemoniaqueCntrole.Visible = false;
+                lblMgieDemoniaqueCntrole.Visible = false;
+                chkMgieDemoniaqueMldction.Visible = false;
+                lblMgieDemoniaqueMldction.Visible = false;
+                chkMgieDemoniaqueNecro.Visible = false;
+                lblMgieDemoniaqueNecro.Visible = false;
+            }
+            if (!Properties.Settings.Default.Attributs.Contains("Magie Divine — magie liée aux divinités"))
+            {
+                chkMgieDivineBclrPrtc.Visible = false;
+                lblMgieDivineBclrPrtc.Visible = false;
+                chkMgieDivineBene.Visible = false;
+                lblMgieDivineBene.Visible = false;
+                chkMgieDivineDvnation.Visible = false;
+                lblMgieDivineDvnation.Visible = false;
+                chkMgieDivineGueri.Visible = false;
+                lblMgieDivineGueri.Visible = false;
+                chkMgieDivineRestauration.Visible = false;
+                lblMgieDivineRestauration.Visible = false;
+            }
+            if (!Properties.Settings.Default.Attributs.Contains("Magie Ignis — magie du feu"))
+            {
+                chkMgieIgnis.Visible = false;
+                lblMgieIgnis.Visible = false;
+            }
+            if (!Properties.Settings.Default.Attributs.Contains("Magie Naturelle — magie de la nature"))
+            {
+                chkMgieNatureChgmTemp.Visible = false;
+                lblMgieNatureChgmTemp.Visible = false;
+                chkMgieNatureComm.Visible = false;
+                lblMgieNatureComm.Visible = false;
+                chkMgieNatureInvoc.Visible = false;
+                lblMgieNatureInvoc.Visible = false;
+                chkMgieNatureVsionNoir.Visible = false;
+                lblMgieNatureVsionNoir.Visible = false;
+            }
+            if (!Properties.Settings.Default.Attributs.Contains("Magie Neutre — magie neutre"))
+            {
+                chkMgieNeutreAltration.Visible = false;
+                lblMgieNeutreAltration.Visible = false;
+                chkMgieNeutreInvsbilté.Visible = false;
+                lblMgieNeutreInvsbilté.Visible = false;
+                chkMgieNeutreMsg.Visible = false;
+                lblMgieNeutreMsg.Visible = false;
+                chkMgieNeutreSsie.Visible = false;
+                lblMgieNeutreSsie.Visible = false;
+                chkMgieNeutreTelkinesie.Visible = false;
+                lblMgieNeutreTelkinesie.Visible = false;
+            }
+            if (!Properties.Settings.Default.Attributs.Contains("Magie Terrestre: magie de la terre"))
+            {
+                chkMgieTerrestre.Visible = false;
+                lblMgieTerrestre.Visible = false;
+            }
+        }
+
+        public void GetInventaires()
+        {
+            if (Properties.Settings.Default.Inventaires.Contains("Scramasax"))
+            {
+                chkScrmx.Checked = true;
+                nudScrmx.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Épée courte"))
+            {
+                chkEpCrte.Checked = true;
+                nudEpCrte.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Épée Longue"))
+            {
+                chkEpLge.Checked = true;
+                nudEpLge.Enabled = false;
+            }
+        }
         #region clique_chk_inventaire
         /// <summary>
         /// Méthode pour ajouter ou retirer la ligne Scrasamax
@@ -61,25 +152,23 @@ namespace maFichePersonnageJDR.Formulaires
             else if (!chkScrmx.Checked)
             {
                 nudScrmx.Enabled = true;
-                if (rchTxtIvtaires.Text.Contains(strTemp))
+                if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
                 {
-                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
-                    {
-                        strTemp = strTemp + "\n";
-                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
-                    }
-                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
-                    {
-                        strTemp = "\n" + strTemp;
-                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
-                    }
-                    else
-                    {
-                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
-                    }
+                    strTemp = strTemp + "\n";
+                    rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                }
+                else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                {
+                    strTemp = "\n" + strTemp;
+                    rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                }
+                else
+                {
+                    rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
                 }
             }
         }
+
 
         /// <summary>
         /// Méthode pour ajouter ou retirer la ligne épée courte
@@ -1830,7 +1919,7 @@ namespace maFichePersonnageJDR.Formulaires
                 }
             }
         }
-        
+
         /// <summary>
         /// Méthode pour ajouter ou retirer la ligne bouclier amande
         /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
@@ -2891,5 +2980,15 @@ namespace maFichePersonnageJDR.Formulaires
             }
         }
         #endregion
+
+        private void btnViderRchTbInventaires_Click(object sender, EventArgs e)
+        {
+            rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(0, rchTxtIvtaires.TextLength);
+        }
+
+        private void btnViderRchTbSortileges_Click(object sender, EventArgs e)
+        {
+            rchTbSorts.Text = rchTbSorts.Text.Remove(0, rchTbSorts.TextLength);
+        }
     }
 }

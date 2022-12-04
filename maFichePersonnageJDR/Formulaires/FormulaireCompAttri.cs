@@ -220,5 +220,19 @@ namespace maFichePersonnageJDR.Formulaires
                 chckLstAttributs.SetItemChecked(index, true);
             }
         }
+
+        private void btnViderRchTbAttributs_Click(object sender, EventArgs e)
+        {
+            List<int> tableauIndex = new List<int>();
+            foreach(string chkItems in chckLstAttributs.Items)
+            {
+                tableauIndex.Add(chckLstAttributs.Items.IndexOf(chkItems));
+            }
+            foreach(int index in tableauIndex)
+            {
+                chckLstAttributs.SetItemChecked(index, false);
+            }
+            rchTbAttributs.Text = rchTbAttributs.Text.Remove(0, rchTbAttributs.TextLength);
+        }
     }
 }
