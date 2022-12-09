@@ -24,6 +24,7 @@ namespace maFichePersonnageJDR.Formulaires
             GetSettings();
             GetSortileges();
             GetInventaires();
+            GetSortilegeProperties();
         }
 
         private void btnSauvegarder_Click(object sender, EventArgs e)
@@ -127,10 +128,375 @@ namespace maFichePersonnageJDR.Formulaires
                 chkEpCrte.Checked = true;
                 nudEpCrte.Enabled = false;
             }
-            if (Properties.Settings.Default.Inventaires.Contains("Épée Longue"))
+            if (Properties.Settings.Default.Inventaires.Contains("Épée longue"))
             {
                 chkEpLge.Checked = true;
                 nudEpLge.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Glaive"))
+            {
+                chkGlve.Checked = true;
+                nudGlve.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Latte"))
+            {
+                chkLte.Checked = true;
+                nudLte.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Sabre courbé"))
+            {
+                chkSbreCrbe.Checked = true;
+                nudSbreCrbe.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Gourgandine"))
+            {
+                chkGgdne.Checked = true;
+                nudGgdne.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Contus"))
+            {
+                chkCntus.Checked = true;
+                nudCntus.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Javeline"))
+            {
+                chkJvline.Checked = true;
+                nudJvline.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Javelot"))
+            {
+                chkJvlot.Checked = true;
+                nudJvlot.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Lance"))
+            {
+                chkLnce.Checked = true;
+                nudLnce.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Fourche"))
+            {
+                chkFrche.Checked = true;
+                nudFrche.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Sarisse"))
+            {
+                chkSrse.Checked = true;
+                nudSrse.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Sarisse"))
+            {
+                chkSrse.Checked = true;
+                nudSrse.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Couteau"))
+            {
+                chkCtau.Checked = true;
+                nudCtau.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Dague"))
+            {
+                chkDge.Checked = true;
+                nudDge.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Faucille de guerre"))
+            {
+                chkFclGure.Checked = true;
+                nudFclGure.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Francisque"))
+            {
+                chkFrncsque.Checked = true;
+                nudFrncsque.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Arc"))
+            {
+                chkArc.Checked = true;
+                nudArc.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Arbalète"))
+            {
+                chkAblte.Checked = true;
+                nudAblte.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Fronde"))
+            {
+                chkFnde.Checked = true;
+                nudFnde.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Fouet"))
+            {
+                chkFouet.Checked = true;
+                nudFouet.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Faucille à chaîne"))
+            {
+                chkFaC.Checked = true;
+                nudFaC.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Bâton de chêne"))
+            {
+                chkBtonChne.Checked = true;
+                nudBtonChne.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Sceptre"))
+            {
+                chkSctre.Checked = true;
+                nudSctre.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Spangenhelm"))
+            {
+                chkSpghlm.Checked = true;
+                nudSpghlm.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Coiffe de mailles"))
+            {
+                chkCfeMle.Checked = true;
+                nudCfeMle.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Morion"))
+            {
+                chkMrn.Checked = true;
+                nudMrn.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Cervelière"))
+            {
+                chkCrvlre.Checked = true;
+                nudCrvlre.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Chapel de fer"))
+            {
+                chkChplFr.Checked = true;
+                nudChplFr.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Casque barbare"))
+            {
+                chkCsqueBrbre.Checked = true;
+                nudCsqueBrbre.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Vêtements"))
+            {
+                chkVtments.Checked = true;
+                nudVtments.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Broigne"))
+            {
+                chkBrgne.Checked = true;
+                nudBrgne.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Cataphracte"))
+            {
+                chkCtphrcte.Checked = true;
+                nudCtphrcte.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Cuirasse de fer"))
+            {
+                chkCrsFr.Checked = true;
+                nudCrsBze.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Cape de cuir"))
+            {
+                chkCpeCuir.Checked = true;
+                nudCpeCuir.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Cuirasse de bronze"))
+            {
+                chkCrsBze.Checked = true;
+                nudCrsBze.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Gants de mailles"))
+            {
+                chkGntMles.Checked = true;
+                nudGntMles.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Gantelet"))
+            {
+                chkGntlet.Checked = true;
+                nudGntlet.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Mitaines"))
+            {
+                chkMitne.Checked = true;
+                nudMitne.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Mitons"))
+            {
+                chkMton.Checked = true;
+                nudMton.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Cuissardes"))
+            {
+                chkCuissrd.Checked = true;
+                nudCuissrd.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Pantalon de toile"))
+            {
+                chkPntlonTle.Checked = true;
+                nudPntlonTle.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Cnémide"))
+            {
+                chkCmide.Checked = true;
+                nudCmide.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Sandales"))
+            {
+                chkSndles.Checked = true;
+                nudSndles.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Chaussures de cuir"))
+            {
+                chkChssuresCuir.Checked = true;
+                nudChssuresCuir.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Écu"))
+            {
+                chkEcu.Checked = true;
+                nudEcu.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Pavois"))
+            {
+                chkPvois.Checked = true;
+                nudPvois.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Bouclier en amande"))
+            {
+                chkPvois.Checked = true;
+                nudPvois.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Bouclier de bronze"))
+            {
+                chkBclrBze.Checked = true;
+                nudBclrBze.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Pelta"))
+            {
+                chkPlta.Checked = true;
+                nudPlta.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Torche"))
+            {
+                chkTrche.Checked = true;
+                nudTrche.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Corde"))
+            {
+                chkCrde.Checked = true;
+                nudCrde.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Outre"))
+            {
+                chkOte.Checked = true;
+                nudOte.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Sac"))
+            {
+                chkSc.Checked = true;
+                nudSc.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Tente"))
+            {
+                chkTnte.Checked = true;
+                nudTnte.Enabled = false;
+            }
+        }
+
+        public void GetSortilegeProperties()
+        {
+            if(Properties.Settings.Default.Sortilèges.Contains("eau"))
+            {
+                chkMgieAqua.Checked = true;
+            }
+            if (Properties.Settings.Default.Sortilèges.Contains("flammes"))
+            {
+                chkMgieIgnis.Checked = true;
+            }
+            if (Properties.Settings.Default.Sortilèges.Contains("cieux"))
+            {
+                chkMgieCeleste.Checked = true;
+            }
+            if (Properties.Settings.Default.Sortilèges.Contains("terre"))
+            {
+                chkMgieTerrestre.Checked = true;
+            }
+            if (Properties.Settings.Default.Sortilèges.Contains("Communication avec l'environnement"))
+            {
+                chkMgieNatureComm.Checked = true;
+            }
+            if (Properties.Settings.Default.Sortilèges.Contains("Invocation d'un familier"))
+            {
+                chkMgieNatureInvoc.Checked = true;
+            }
+            if (Properties.Settings.Default.Sortilèges.Contains("Changement de la température"))
+            {
+                chkMgieNatureChgmTemp.Checked = true;
+            }
+            if (Properties.Settings.Default.Sortilèges.Contains("Vision dans le noir"))
+            {
+                chkMgieNatureVsionNoir.Checked = true;
+            }
+            if (Properties.Settings.Default.Sortilèges.Contains("Métamorphose"))
+            {
+                chkMgieNatureMetamphse.Checked = true;
+            }
+            if (Properties.Settings.Default.Sortilèges.Contains("Bouclier de protection"))
+            {
+                chkMgieDivineBclrPrtc.Checked = true;
+            }
+            if (Properties.Settings.Default.Sortilèges.Contains("Restauration"))
+            {
+                chkMgieDivineRestauration.Checked = true;
+            }
+            if (Properties.Settings.Default.Sortilèges.Contains("Guérison"))
+            {
+                chkMgieDivineGueri.Checked = true;
+            }
+            if (Properties.Settings.Default.Sortilèges.Contains("Bénédiction"))
+            {
+                chkMgieDivineBene.Checked = true;
+            }
+            if (Properties.Settings.Default.Sortilèges.Contains("Divination"))
+            {
+                chkMgieDivineDvnation.Checked = true;
+            }
+            if (Properties.Settings.Default.Sortilèges.Contains("Absorption"))
+            {
+                chkMgieDemoniaqueAbspton.Checked = true;
+            }
+            if (Properties.Settings.Default.Sortilèges.Contains("Nécromancie"))
+            {
+                chkMgieDemoniaqueNecro.Checked = true;
+            }
+            if (Properties.Settings.Default.Sortilèges.Contains("Malédiction"))
+            {
+                chkMgieDemoniaqueMldction.Checked = true;
+            }
+            if (Properties.Settings.Default.Sortilèges.Contains("Contrôle"))
+            {
+                chkMgieDemoniaqueCntrole.Checked = true;
+            }
+            if (Properties.Settings.Default.Sortilèges.Contains("Illusion"))
+            {
+                chkMgieDemoniaqueIllusions.Checked = true;
+            }
+            if (Properties.Settings.Default.Sortilèges.Contains("Altération corporelle"))
+            {
+                chkMgieNeutreAltration.Checked = true;
+            }
+            if (Properties.Settings.Default.Sortilèges.Contains("Invisibité"))
+            {
+                chkMgieNeutreInvsbilté.Checked = true;
+            }
+            if (Properties.Settings.Default.Sortilèges.Contains("Sosie"))
+            {
+                chkMgieNeutreSsie.Checked = true;
+            }
+            if (Properties.Settings.Default.Sortilèges.Contains("Message"))
+            {
+                chkMgieNeutreMsg.Checked = true;
+            }
+            if (Properties.Settings.Default.Sortilèges.Contains("Télékinésie"))
+            {
+                chkMgieNeutreTelkinesie.Checked = true;
             }
         }
         #region clique_chk_inventaire
@@ -151,6 +517,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkScrmx.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudScrmx.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
                 {
@@ -187,6 +560,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkEpCrte.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudEpCrte.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -225,6 +605,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkEpLge.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudEpLge.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -263,6 +650,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkGlve.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudGlve.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -301,6 +695,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkLte.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudLte.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -339,6 +740,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkSbreCrbe.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudSbreCrbe.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -377,6 +785,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkGgdne.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudGgdne.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -415,6 +830,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkCntus.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudCntus.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -453,6 +875,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkJvline.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudJvline.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -491,6 +920,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkJvlot.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudJvlot.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -529,6 +965,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkLnce.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudLnce.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -567,6 +1010,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkFrche.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudFrche.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -605,6 +1055,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkSrse.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudSrse.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -643,6 +1100,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkCtau.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudCtau.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -681,6 +1145,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkDge.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudDge.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -719,6 +1190,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkFclGure.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudFclGure.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -757,6 +1235,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkFrncsque.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudFrncsque.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -795,6 +1280,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkArc.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudArc.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -833,6 +1325,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkAblte.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudAblte.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -871,6 +1370,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkFnde.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudFnde.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -909,6 +1415,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkFouet.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudFouet.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -947,6 +1460,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkFaC.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudFaC.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -986,6 +1506,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkBtonChne.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudBtonChne.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1025,6 +1552,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkSctre.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudSctre.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1063,6 +1597,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkSpghlm.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudSpghlm.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1101,6 +1642,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkCfeMle.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudCfeMle.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1139,6 +1687,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkMrn.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudMrn.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1177,6 +1732,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkCrvlre.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudCrvlre.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1215,6 +1777,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkChplFr.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudChplFr.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1253,6 +1822,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkCsqueBrbre.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudCsqueBrbre.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1291,6 +1867,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkVtments.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudVtments.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1329,6 +1912,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkBrgne.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudBrgne.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1367,6 +1957,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkCtphrcte.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudCtphrcte.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1405,6 +2002,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkCrsFr.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudCrsFr.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1443,6 +2047,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkCpeCuir.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudCpeCuir.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1481,6 +2092,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkCrsBze.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudCrsBze.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1519,6 +2137,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkGntMles.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudGntMles.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1557,6 +2182,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkGntlet.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudGntlet.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1595,6 +2227,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkMitne.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudMitne.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1633,6 +2272,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkMton.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudMton.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1671,6 +2317,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkCuissrd.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudCuissrd.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1709,6 +2362,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkPntlonTle.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudPntlonTle.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1747,6 +2407,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkCmide.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudCmide.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1785,6 +2452,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkSndles.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudSndles.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1823,6 +2497,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkChssuresCuir.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudChssuresCuir.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1861,6 +2542,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkEcu.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudEcu.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1899,6 +2587,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkPvois.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudPvois.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1937,6 +2632,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkBclrAmde.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudBclrAmde.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -1975,6 +2677,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkBclrBze.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudBclrBze.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -2013,6 +2722,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkPlta.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudPlta.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -2051,6 +2767,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkTrche.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudTrche.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -2089,6 +2812,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkCrde.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudCrde.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -2127,6 +2857,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkOte.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudOte.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -2165,6 +2902,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkSc.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudSc.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -2203,6 +2947,13 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (!chkTnte.Checked)
             {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
                 nudTnte.Enabled = true;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
@@ -2259,7 +3010,8 @@ namespace maFichePersonnageJDR.Formulaires
                 }
             }
         }
-
+        #endregion
+        #region clique_chk_sortileges
         /// <summary>
         /// Méthode pour ajouter ou retirer la ligne manipulation du feu
         /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
@@ -2979,16 +3731,165 @@ namespace maFichePersonnageJDR.Formulaires
                 }
             }
         }
-        #endregion
 
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne métamorphose
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMgieNatureMetamphse_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMgieNatureMetamphse.Text;
+            if (chkMgieNatureMetamphse.Checked)
+            {
+                rchTbSorts.Text += String.IsNullOrEmpty(rchTbSorts.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMgieNatureMetamphse.Checked)
+            {
+                if (rchTbSorts.Text.Contains(strTemp))
+                {
+                    if (rchTbSorts.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTbSorts.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne télékinésie
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMgieNeutreTelkinesie_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMgieNeutreTelkinesie.Text;
+            if (chkMgieNeutreTelkinesie.Checked)
+            {
+                rchTbSorts.Text += String.IsNullOrEmpty(rchTbSorts.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMgieNeutreTelkinesie.Checked)
+            {
+                if (rchTbSorts.Text.Contains(strTemp))
+                {
+                    if (rchTbSorts.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTbSorts.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Méthode pour ajouter ou retirer la ligne télékinésie
+        /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
+        /// à la ligne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkMgieDemoniaqueIllusions_Click(object sender, EventArgs e)
+        {
+            string strTemp = lblMgieDemoniaqueIllusion.Text;
+            if (chkMgieDemoniaqueIllusions.Checked)
+            {
+                rchTbSorts.Text += String.IsNullOrEmpty(rchTbSorts.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkMgieDemoniaqueIllusions.Checked)
+            {
+                if (rchTbSorts.Text.Contains(strTemp))
+                {
+                    if (rchTbSorts.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTbSorts.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTbSorts.Text = rchTbSorts.Text.Remove(rchTbSorts.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
+        #endregion
+        #region boutons_vider
         private void btnViderRchTbInventaires_Click(object sender, EventArgs e)
         {
             rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(0, rchTxtIvtaires.TextLength);
+            foreach(TabPage tabPage in tcArmes.Controls)
+            {
+                VideRichTextBoxBoutonVider(tabPage);
+            }
+            foreach (TabPage tabPage in tcArmure.Controls)
+            {
+                VideRichTextBoxBoutonVider(tabPage);
+            }
+            VideRichTextBoxBoutonVider(tpObjets);
         }
 
+        
         private void btnViderRchTbSortileges_Click(object sender, EventArgs e)
         {
             rchTbSorts.Text = rchTbSorts.Text.Remove(0, rchTbSorts.TextLength);
+            foreach(TabPage tabPage in tcSortilege.Controls)
+            {
+                VideRichTextBoxBoutonVider(tabPage);
+            }
         }
+
+        public void VideRichTextBoxBoutonVider(TabPage uneTabPage)
+        {
+            foreach (object tpControls in uneTabPage.Controls)
+            {
+                if (tpControls is CheckBox)
+                {
+                    CheckBox checkBox = new CheckBox();
+                    checkBox = (CheckBox)tpControls;
+                    checkBox.Checked = false;
+                }
+
+                if(tpControls is NumericUpDown)
+                {
+                    NumericUpDown numericUpDown = new NumericUpDown();
+                    numericUpDown = (NumericUpDown)tpControls;
+                    numericUpDown.Enabled = true;
+                }
+            }
+        }
+
+
+
+
+        #endregion
+
+        
     }
 }

@@ -146,5 +146,15 @@ namespace maFichePersonnageJDR.Formulaires
 
             return cheminImage;
         }
+
+        private void btnViderHistoire_Click(object sender, EventArgs e)
+        {
+            rtbHistoire.Text = rtbHistoire.Text.Remove(0, rtbHistoire.TextLength);
+        }
+
+        private void btnViderLangues_Click(object sender, EventArgs e)
+        {
+            rtbLangues.Text = rtbLangues.Text.Remove(0, rtbLangues.TextLength);
+        }
     }
 }

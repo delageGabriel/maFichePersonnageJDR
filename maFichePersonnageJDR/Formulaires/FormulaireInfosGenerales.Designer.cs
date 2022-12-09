@@ -55,6 +55,8 @@ namespace maFichePersonnageJDR.Formulaires
             this.txtPA = new System.Windows.Forms.TextBox();
             this.txtPC = new System.Windows.Forms.TextBox();
             this.btnAjouterImage = new System.Windows.Forms.Button();
+            this.btnViderHistoire = new System.Windows.Forms.Button();
+            this.btnViderLangues = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -175,9 +177,9 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // rtbLangues
             // 
-            this.rtbLangues.Location = new System.Drawing.Point(10, 309);
+            this.rtbLangues.Location = new System.Drawing.Point(11, 350);
             this.rtbLangues.Name = "rtbLangues";
-            this.rtbLangues.Size = new System.Drawing.Size(445, 68);
+            this.rtbLangues.Size = new System.Drawing.Size(445, 26);
             this.rtbLangues.TabIndex = 17;
             this.rtbLangues.Text = "";
             // 
@@ -193,7 +195,7 @@ namespace maFichePersonnageJDR.Formulaires
             // lblLangages
             // 
             this.lblLangages.AutoSize = true;
-            this.lblLangages.Location = new System.Drawing.Point(193, 293);
+            this.lblLangages.Location = new System.Drawing.Point(194, 334);
             this.lblLangages.Name = "lblLangages";
             this.lblLangages.Size = new System.Drawing.Size(48, 13);
             this.lblLangages.TabIndex = 19;
@@ -202,7 +204,7 @@ namespace maFichePersonnageJDR.Formulaires
             // lblChargeMaxi
             // 
             this.lblChargeMaxi.AutoSize = true;
-            this.lblChargeMaxi.Location = new System.Drawing.Point(499, 293);
+            this.lblChargeMaxi.Location = new System.Drawing.Point(624, 382);
             this.lblChargeMaxi.Name = "lblChargeMaxi";
             this.lblChargeMaxi.Size = new System.Drawing.Size(91, 13);
             this.lblChargeMaxi.TabIndex = 20;
@@ -211,7 +213,7 @@ namespace maFichePersonnageJDR.Formulaires
             // lblVitesse
             // 
             this.lblVitesse.AutoSize = true;
-            this.lblVitesse.Location = new System.Drawing.Point(499, 320);
+            this.lblVitesse.Location = new System.Drawing.Point(624, 434);
             this.lblVitesse.Name = "lblVitesse";
             this.lblVitesse.Size = new System.Drawing.Size(123, 13);
             this.lblVitesse.TabIndex = 21;
@@ -220,24 +222,24 @@ namespace maFichePersonnageJDR.Formulaires
             // txtBoxCharge
             // 
             this.txtBoxCharge.Enabled = false;
-            this.txtBoxCharge.Location = new System.Drawing.Point(596, 290);
+            this.txtBoxCharge.Location = new System.Drawing.Point(629, 398);
             this.txtBoxCharge.Name = "txtBoxCharge";
-            this.txtBoxCharge.Size = new System.Drawing.Size(35, 20);
+            this.txtBoxCharge.Size = new System.Drawing.Size(121, 20);
             this.txtBoxCharge.TabIndex = 22;
             // 
             // txtVitesse
             // 
             this.txtVitesse.Enabled = false;
-            this.txtVitesse.Location = new System.Drawing.Point(628, 317);
+            this.txtVitesse.Location = new System.Drawing.Point(629, 454);
             this.txtVitesse.Name = "txtVitesse";
-            this.txtVitesse.Size = new System.Drawing.Size(35, 20);
+            this.txtVitesse.Size = new System.Drawing.Size(118, 20);
             this.txtVitesse.TabIndex = 23;
             // 
             // btnSaveInfos
             // 
-            this.btnSaveInfos.Location = new System.Drawing.Point(683, 353);
+            this.btnSaveInfos.Location = new System.Drawing.Point(318, 414);
             this.btnSaveInfos.Name = "btnSaveInfos";
-            this.btnSaveInfos.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveInfos.Size = new System.Drawing.Size(167, 62);
             this.btnSaveInfos.TabIndex = 24;
             this.btnSaveInfos.Text = "Sauvegarde";
             this.btnSaveInfos.UseVisualStyleBackColor = true;
@@ -246,7 +248,7 @@ namespace maFichePersonnageJDR.Formulaires
             // lblMonnaie
             // 
             this.lblMonnaie.AutoSize = true;
-            this.lblMonnaie.Location = new System.Drawing.Point(461, 363);
+            this.lblMonnaie.Location = new System.Drawing.Point(499, 334);
             this.lblMonnaie.Name = "lblMonnaie";
             this.lblMonnaie.Size = new System.Drawing.Size(51, 13);
             this.lblMonnaie.TabIndex = 25;
@@ -254,7 +256,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // txtPO
             // 
-            this.txtPO.Location = new System.Drawing.Point(518, 360);
+            this.txtPO.Location = new System.Drawing.Point(556, 331);
             this.txtPO.Name = "txtPO";
             this.txtPO.Size = new System.Drawing.Size(30, 20);
             this.txtPO.TabIndex = 26;
@@ -262,7 +264,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // txtPA
             // 
-            this.txtPA.Location = new System.Drawing.Point(560, 360);
+            this.txtPA.Location = new System.Drawing.Point(598, 331);
             this.txtPA.Name = "txtPA";
             this.txtPA.Size = new System.Drawing.Size(43, 20);
             this.txtPA.TabIndex = 27;
@@ -270,7 +272,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // txtPC
             // 
-            this.txtPC.Location = new System.Drawing.Point(609, 360);
+            this.txtPC.Location = new System.Drawing.Point(647, 331);
             this.txtPC.Name = "txtPC";
             this.txtPC.Size = new System.Drawing.Size(40, 20);
             this.txtPC.TabIndex = 28;
@@ -286,11 +288,33 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnAjouterImage.UseVisualStyleBackColor = true;
             this.btnAjouterImage.Click += new System.EventHandler(this.btnAjouterImage_Click);
             // 
+            // btnViderHistoire
+            // 
+            this.btnViderHistoire.Location = new System.Drawing.Point(176, 285);
+            this.btnViderHistoire.Name = "btnViderHistoire";
+            this.btnViderHistoire.Size = new System.Drawing.Size(109, 23);
+            this.btnViderHistoire.TabIndex = 30;
+            this.btnViderHistoire.Text = "Vider";
+            this.btnViderHistoire.UseVisualStyleBackColor = true;
+            this.btnViderHistoire.Click += new System.EventHandler(this.btnViderHistoire_Click);
+            // 
+            // btnViderLangues
+            // 
+            this.btnViderLangues.Location = new System.Drawing.Point(176, 382);
+            this.btnViderLangues.Name = "btnViderLangues";
+            this.btnViderLangues.Size = new System.Drawing.Size(109, 23);
+            this.btnViderLangues.TabIndex = 31;
+            this.btnViderLangues.Text = "Vider";
+            this.btnViderLangues.UseVisualStyleBackColor = true;
+            this.btnViderLangues.Click += new System.EventHandler(this.btnViderLangues_Click);
+            // 
             // FormulaireInfosGenerales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 395);
+            this.ClientSize = new System.Drawing.Size(800, 488);
+            this.Controls.Add(this.btnViderLangues);
+            this.Controls.Add(this.btnViderHistoire);
             this.Controls.Add(this.btnAjouterImage);
             this.Controls.Add(this.txtPC);
             this.Controls.Add(this.txtPA);
@@ -354,5 +378,7 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.TextBox txtPA;
         private System.Windows.Forms.TextBox txtPC;
         private System.Windows.Forms.Button btnAjouterImage;
+        private System.Windows.Forms.Button btnViderHistoire;
+        private System.Windows.Forms.Button btnViderLangues;
     }
 }

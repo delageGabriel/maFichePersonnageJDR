@@ -38,7 +38,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnSauvegarder = new System.Windows.Forms.Button();
             this.tcInventaires = new System.Windows.Forms.TabControl();
             this.tpArmes = new System.Windows.Forms.TabPage();
-            this.tcType = new System.Windows.Forms.TabControl();
+            this.tcArmes = new System.Windows.Forms.TabControl();
             this.tpEpee = new System.Windows.Forms.TabPage();
             this.chkSbreCrbe = new System.Windows.Forms.CheckBox();
             this.chkLte = new System.Windows.Forms.CheckBox();
@@ -477,6 +477,8 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblMgieTerrestre = new System.Windows.Forms.Label();
             this.lblNomMTerrestre = new System.Windows.Forms.Label();
             this.tpNature = new System.Windows.Forms.TabPage();
+            this.chkMgieNatureMetamphse = new System.Windows.Forms.CheckBox();
+            this.lblMgieNatureMetamphse = new System.Windows.Forms.Label();
             this.chkMgieNatureVsionNoir = new System.Windows.Forms.CheckBox();
             this.lblMgieNatureVsionNoir = new System.Windows.Forms.Label();
             this.chkMgieNatureChgmTemp = new System.Windows.Forms.CheckBox();
@@ -499,6 +501,8 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblMgieDivineBclrPrtc = new System.Windows.Forms.Label();
             this.lblNomMDivine = new System.Windows.Forms.Label();
             this.tpDemoniaque = new System.Windows.Forms.TabPage();
+            this.chkMgieDemoniaqueIllusions = new System.Windows.Forms.CheckBox();
+            this.lblMgieDemoniaqueIllusion = new System.Windows.Forms.Label();
             this.chkMgieDemoniaqueCntrole = new System.Windows.Forms.CheckBox();
             this.lblMgieDemoniaqueCntrole = new System.Windows.Forms.Label();
             this.chkMgieDemoniaqueMldction = new System.Windows.Forms.CheckBox();
@@ -525,7 +529,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnViderRchTbSortileges = new System.Windows.Forms.Button();
             this.tcInventaires.SuspendLayout();
             this.tpArmes.SuspendLayout();
-            this.tcType.SuspendLayout();
+            this.tcArmes.SuspendLayout();
             this.tpEpee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSbreCrbe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudLte)).BeginInit();
@@ -686,7 +690,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tpArmes
             // 
-            this.tpArmes.Controls.Add(this.tcType);
+            this.tpArmes.Controls.Add(this.tcArmes);
             this.tpArmes.Location = new System.Drawing.Point(4, 22);
             this.tpArmes.Name = "tpArmes";
             this.tpArmes.Padding = new System.Windows.Forms.Padding(3);
@@ -695,21 +699,21 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpArmes.Text = "Armes";
             this.tpArmes.UseVisualStyleBackColor = true;
             // 
-            // tcType
+            // tcArmes
             // 
-            this.tcType.Controls.Add(this.tpEpee);
-            this.tcType.Controls.Add(this.tpLances);
-            this.tcType.Controls.Add(this.tpPoignards);
-            this.tcType.Controls.Add(this.tpHaches);
-            this.tcType.Controls.Add(this.tpMasse);
-            this.tcType.Controls.Add(this.tpArc);
-            this.tcType.Controls.Add(this.tpChaînes);
-            this.tcType.Controls.Add(this.tpBatons);
-            this.tcType.Location = new System.Drawing.Point(7, 7);
-            this.tcType.Name = "tcType";
-            this.tcType.SelectedIndex = 0;
-            this.tcType.Size = new System.Drawing.Size(609, 304);
-            this.tcType.TabIndex = 0;
+            this.tcArmes.Controls.Add(this.tpEpee);
+            this.tcArmes.Controls.Add(this.tpLances);
+            this.tcArmes.Controls.Add(this.tpPoignards);
+            this.tcArmes.Controls.Add(this.tpHaches);
+            this.tcArmes.Controls.Add(this.tpMasse);
+            this.tcArmes.Controls.Add(this.tpArc);
+            this.tcArmes.Controls.Add(this.tpChaînes);
+            this.tcArmes.Controls.Add(this.tpBatons);
+            this.tcArmes.Location = new System.Drawing.Point(7, 7);
+            this.tcArmes.Name = "tcArmes";
+            this.tcArmes.SelectedIndex = 0;
+            this.tcArmes.Size = new System.Drawing.Size(609, 304);
+            this.tcArmes.TabIndex = 0;
             // 
             // tpEpee
             // 
@@ -5163,6 +5167,8 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tpNature
             // 
+            this.tpNature.Controls.Add(this.chkMgieNatureMetamphse);
+            this.tpNature.Controls.Add(this.lblMgieNatureMetamphse);
             this.tpNature.Controls.Add(this.chkMgieNatureVsionNoir);
             this.tpNature.Controls.Add(this.lblMgieNatureVsionNoir);
             this.tpNature.Controls.Add(this.chkMgieNatureChgmTemp);
@@ -5178,6 +5184,25 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpNature.TabIndex = 4;
             this.tpNature.Text = "M.Nature";
             this.tpNature.UseVisualStyleBackColor = true;
+            // 
+            // chkMgieNatureMetamphse
+            // 
+            this.chkMgieNatureMetamphse.AutoSize = true;
+            this.chkMgieNatureMetamphse.Location = new System.Drawing.Point(15, 134);
+            this.chkMgieNatureMetamphse.Name = "chkMgieNatureMetamphse";
+            this.chkMgieNatureMetamphse.Size = new System.Drawing.Size(15, 14);
+            this.chkMgieNatureMetamphse.TabIndex = 174;
+            this.chkMgieNatureMetamphse.UseVisualStyleBackColor = true;
+            this.chkMgieNatureMetamphse.Click += new System.EventHandler(this.chkMgieNatureMetamphse_Click);
+            // 
+            // lblMgieNatureMetamphse
+            // 
+            this.lblMgieNatureMetamphse.AutoSize = true;
+            this.lblMgieNatureMetamphse.Location = new System.Drawing.Point(36, 134);
+            this.lblMgieNatureMetamphse.Name = "lblMgieNatureMetamphse";
+            this.lblMgieNatureMetamphse.Size = new System.Drawing.Size(182, 13);
+            this.lblMgieNatureMetamphse.TabIndex = 173;
+            this.lblMgieNatureMetamphse.Text = "Métamorphose : Animaux qui existent";
             // 
             // chkMgieNatureVsionNoir
             // 
@@ -5251,9 +5276,9 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblMgieNatureComm.AutoSize = true;
             this.lblMgieNatureComm.Location = new System.Drawing.Point(36, 22);
             this.lblMgieNatureComm.Name = "lblMgieNatureComm";
-            this.lblMgieNatureComm.Size = new System.Drawing.Size(286, 13);
+            this.lblMgieNatureComm.Size = new System.Drawing.Size(295, 13);
             this.lblMgieNatureComm.TabIndex = 165;
-            this.lblMgieNatureComm.Text = "Communication avec l\'environnement (plantes, animaux, ...)";
+            this.lblMgieNatureComm.Text = "Communication avec l\'environnement (plantes, animaux, etc.)";
             // 
             // lblNomMNature
             // 
@@ -5390,6 +5415,8 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tpDemoniaque
             // 
+            this.tpDemoniaque.Controls.Add(this.chkMgieDemoniaqueIllusions);
+            this.tpDemoniaque.Controls.Add(this.lblMgieDemoniaqueIllusion);
             this.tpDemoniaque.Controls.Add(this.chkMgieDemoniaqueCntrole);
             this.tpDemoniaque.Controls.Add(this.lblMgieDemoniaqueCntrole);
             this.tpDemoniaque.Controls.Add(this.chkMgieDemoniaqueMldction);
@@ -5405,6 +5432,25 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpDemoniaque.TabIndex = 6;
             this.tpDemoniaque.Text = "M.Démoniaque";
             this.tpDemoniaque.UseVisualStyleBackColor = true;
+            // 
+            // chkMgieDemoniaqueIllusions
+            // 
+            this.chkMgieDemoniaqueIllusions.AutoSize = true;
+            this.chkMgieDemoniaqueIllusions.Location = new System.Drawing.Point(15, 134);
+            this.chkMgieDemoniaqueIllusions.Name = "chkMgieDemoniaqueIllusions";
+            this.chkMgieDemoniaqueIllusions.Size = new System.Drawing.Size(15, 14);
+            this.chkMgieDemoniaqueIllusions.TabIndex = 180;
+            this.chkMgieDemoniaqueIllusions.UseVisualStyleBackColor = true;
+            this.chkMgieDemoniaqueIllusions.Click += new System.EventHandler(this.chkMgieDemoniaqueIllusions_Click);
+            // 
+            // lblMgieDemoniaqueIllusion
+            // 
+            this.lblMgieDemoniaqueIllusion.AutoSize = true;
+            this.lblMgieDemoniaqueIllusion.Location = new System.Drawing.Point(36, 134);
+            this.lblMgieDemoniaqueIllusion.Name = "lblMgieDemoniaqueIllusion";
+            this.lblMgieDemoniaqueIllusion.Size = new System.Drawing.Size(273, 13);
+            this.lblMgieDemoniaqueIllusion.TabIndex = 179;
+            this.lblMgieDemoniaqueIllusion.Text = "Illusion : la cible a des hallucinations du choix du lanceur";
             // 
             // chkMgieDemoniaqueCntrole
             // 
@@ -5478,9 +5524,9 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblMgieDemoniaqueAbspton.AutoSize = true;
             this.lblMgieDemoniaqueAbspton.Location = new System.Drawing.Point(36, 22);
             this.lblMgieDemoniaqueAbspton.Name = "lblMgieDemoniaqueAbspton";
-            this.lblMgieDemoniaqueAbspton.Size = new System.Drawing.Size(164, 13);
+            this.lblMgieDemoniaqueAbspton.Size = new System.Drawing.Size(307, 13);
             this.lblMgieDemoniaqueAbspton.TabIndex = 171;
-            this.lblMgieDemoniaqueAbspton.Text = "Absorption: points de vie, énergie";
+            this.lblMgieDemoniaqueAbspton.Text = "Absorption: points de vie, énergie (uniquement les êtres vivants)";
             // 
             // lblNomMDemoniaque
             // 
@@ -5519,6 +5565,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkMgieNeutreTelkinesie.Size = new System.Drawing.Size(15, 14);
             this.chkMgieNeutreTelkinesie.TabIndex = 183;
             this.chkMgieNeutreTelkinesie.UseVisualStyleBackColor = true;
+            this.chkMgieNeutreTelkinesie.Click += new System.EventHandler(this.chkMgieNeutreTelkinesie_Click);
             // 
             // lblMgieNeutreTelkinesie
             // 
@@ -5660,7 +5707,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.Load += new System.EventHandler(this.FormulaireTalentsEtObjets_Load);
             this.tcInventaires.ResumeLayout(false);
             this.tpArmes.ResumeLayout(false);
-            this.tcType.ResumeLayout(false);
+            this.tcArmes.ResumeLayout(false);
             this.tpEpee.ResumeLayout(false);
             this.tpEpee.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSbreCrbe)).EndInit();
@@ -5779,7 +5826,7 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblTpeEpee;
         private System.Windows.Forms.TabControl tcInventaires;
         private System.Windows.Forms.TabPage tpArmes;
-        private System.Windows.Forms.TabControl tcType;
+        private System.Windows.Forms.TabControl tcArmes;
         private System.Windows.Forms.TabPage tpEpee;
         private System.Windows.Forms.TabPage tpLances;
         private System.Windows.Forms.Label lblNomLances;
@@ -6264,5 +6311,9 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblMgieNeutreTelkinesie;
         private System.Windows.Forms.Button btnViderRchTbInventaires;
         private System.Windows.Forms.Button btnViderRchTbSortileges;
+        private System.Windows.Forms.CheckBox chkMgieNatureMetamphse;
+        private System.Windows.Forms.Label lblMgieNatureMetamphse;
+        private System.Windows.Forms.CheckBox chkMgieDemoniaqueIllusions;
+        private System.Windows.Forms.Label lblMgieDemoniaqueIllusion;
     }
 }
