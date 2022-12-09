@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using maFichePersonnageJDR.Formulaires;
 using System.Configuration;
+using maFichePersonnageJDR.Classe;
 
 namespace maFichePersonnageJDR.Formulaires
 {
@@ -402,7 +403,7 @@ namespace maFichePersonnageJDR.Formulaires
 
         public void GetSortilegeProperties()
         {
-            if(Properties.Settings.Default.Sortilèges.Contains("eau"))
+            if (Properties.Settings.Default.Sortilèges.Contains("eau"))
             {
                 chkMgieAqua.Checked = true;
             }
@@ -3844,7 +3845,7 @@ namespace maFichePersonnageJDR.Formulaires
         private void btnViderRchTbInventaires_Click(object sender, EventArgs e)
         {
             rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(0, rchTxtIvtaires.TextLength);
-            foreach(TabPage tabPage in tcArmes.Controls)
+            foreach (TabPage tabPage in tcArmes.Controls)
             {
                 VideRichTextBoxBoutonVider(tabPage);
             }
@@ -3855,11 +3856,11 @@ namespace maFichePersonnageJDR.Formulaires
             VideRichTextBoxBoutonVider(tpObjets);
         }
 
-        
+
         private void btnViderRchTbSortileges_Click(object sender, EventArgs e)
         {
             rchTbSorts.Text = rchTbSorts.Text.Remove(0, rchTbSorts.TextLength);
-            foreach(TabPage tabPage in tcSortilege.Controls)
+            foreach (TabPage tabPage in tcSortilege.Controls)
             {
                 VideRichTextBoxBoutonVider(tabPage);
             }
@@ -3876,7 +3877,7 @@ namespace maFichePersonnageJDR.Formulaires
                     checkBox.Checked = false;
                 }
 
-                if(tpControls is NumericUpDown)
+                if (tpControls is NumericUpDown)
                 {
                     NumericUpDown numericUpDown = new NumericUpDown();
                     numericUpDown = (NumericUpDown)tpControls;
@@ -3888,8 +3889,115 @@ namespace maFichePersonnageJDR.Formulaires
 
 
 
+
         #endregion
 
-        
+        private void nudScrmx_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudScrmx.Value == 0)
+            {
+                chkScrmx.Visible = false;
+                double poids = GlobalesVariable.PdsScrasamax;
+                double poidsModifie = poids * Convert.ToDouble(nudScrmx.Value);
+                lblPdsScrmx.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudScrmx.Value > 0)
+            {
+                chkScrmx.Visible = true;
+                double poids = GlobalesVariable.PdsScrasamax;
+                double poidsModifie = poids * Convert.ToDouble(nudScrmx.Value);
+                lblPdsScrmx.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudEpCrte_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudEpCrte.Value == 0)
+            {
+                chkEpCrte.Visible = false;
+                double poids = GlobalesVariable.PdsEpeeCourte;
+                double poidsModifie = poids * Convert.ToDouble(nudEpCrte.Value);
+                lblPdsEpCrte.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudEpCrte.Value > 0)
+            {
+                chkEpCrte.Visible = true;
+                double poids = GlobalesVariable.PdsEpeeCourte;
+                double poidsModifie = poids * Convert.ToDouble(nudEpCrte.Value);
+                lblPdsEpCrte.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudEpLge_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudEpLge.Value == 0)
+            {
+                chkEpLge.Visible = false;
+                double poids = GlobalesVariable.PdsEpeeLongue;
+                double poidsModifie = poids * Convert.ToDouble(nudEpLge.Value);
+                lblPdsEpLge.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudEpLge.Value > 0)
+            {
+                chkEpLge.Visible = true;
+                double poids = GlobalesVariable.PdsEpeeLongue;
+                double poidsModifie = poids * Convert.ToDouble(nudEpLge.Value);
+                lblPdsEpLge.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudGlve_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudGlve.Value == 0)
+            {
+                chkGlve.Visible = false;
+                double poids = GlobalesVariable.PdsGlaive;
+                double poidsModifie = poids * Convert.ToDouble(nudGlve.Value);
+                lblPdsGlve.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudGlve.Value > 0)
+            {
+                chkGlve.Visible = true;
+                double poids = GlobalesVariable.PdsGlaive;
+                double poidsModifie = poids * Convert.ToDouble(nudGlve.Value);
+                lblPdsGlve.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudLte_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudLte.Value == 0)
+            {
+                chkLte.Visible = false;
+                double poids = GlobalesVariable.PdsLatte;
+                double poidsModifie = poids * Convert.ToDouble(nudLte.Value);
+                lblPdsLte.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudLte.Value > 0)
+            {
+                chkLte.Visible = true;
+                double poids = GlobalesVariable.PdsLatte;
+                double poidsModifie = poids * Convert.ToDouble(nudLte.Value);
+                lblPdsLte.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudSabreCrbe_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudSabreCrbe.Value == 0)
+            {
+                chkSbreCrbe.Visible = false;
+                double poids = GlobalesVariable.PdsSabreCourbe;
+                double poidsModifie = poids * Convert.ToDouble(nudSabreCrbe.Value);
+                lblPdsSbreCrbe.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudSabreCrbe.Value > 0)
+            {
+                chkSbreCrbe.Visible = true;
+                double poids = GlobalesVariable.PdsSabreCourbe;
+                double poidsModifie = poids * Convert.ToDouble(nudSabreCrbe.Value);
+                lblPdsSbreCrbe.Text = poidsModifie.ToString() + " kg";
+            }
+        }
     }
 }

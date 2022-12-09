@@ -63,11 +63,13 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Spire.Doc">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\e-iceblue\spire.doc-fe\Bin\NET4.6\Spire.Doc.dll</HintPath>
+    <Reference Include="Spire.Doc, Version=10.6.2.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>SpireDLL\Spire.Doc.dll</HintPath>
     </Reference>
-    <Reference Include="Spire.Pdf">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\e-iceblue\spire.doc-fe\Bin\NET4.6\Spire.Pdf.dll</HintPath>
+    <Reference Include="Spire.Pdf, Version=8.6.14.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>SpireDLL\Spire.Pdf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -82,6 +84,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classe\GlobalesVariable.cs" />
     <Compile Include="Classe\ClasseImage.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
