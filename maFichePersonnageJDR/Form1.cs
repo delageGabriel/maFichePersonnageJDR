@@ -192,6 +192,7 @@ namespace maFichePersonnageJDR
             TextRange rangeLangages = paragraphCaracteristique.AppendText("\t\t\t\tLangages : " + Properties.Settings.Default.Langages + "\n");
             TextRange rangeBotanique = paragraphCaracteristique.AppendText("Botanique : " + Properties.Settings.Default.Botanique);
             TextRange rangeMécanique = paragraphCaracteristique.AppendText("\t\t\t\tMécanique : " + Properties.Settings.Default.Mecanique + "\n");
+            TextRange rangeCharme = paragraphCaracteristique.AppendText("\t\t\t\tCharme : " + Properties.Settings.Default.Charme + "\n");
             TextRange rangeCnGeo = paragraphCaracteristique.AppendText("Connaissances géographiques : " + Properties.Settings.Default.ConnGeographiques);
             TextRange rangeMedecine = paragraphCaracteristique.AppendText("\tMédecine : " + Properties.Settings.Default.Medecine + "\n");
             TextRange rangeCnHist = paragraphCaracteristique.AppendText("Connaissances historiques : " + Properties.Settings.Default.ConnHistoriques);

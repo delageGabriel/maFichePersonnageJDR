@@ -610,5 +610,53 @@ namespace maFichePersonnageJDR.Properties {
                 this["Endurance"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Marchandage {
+            get {
+                return ((int)(this["Marchandage"]));
+            }
+            set {
+                this["Marchandage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Charme {
+            get {
+                return ((int)(this["Charme"]));
+            }
+            set {
+                this["Charme"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Prestance {
+            get {
+                return ((int)(this["Prestance"]));
+            }
+            set {
+                this["Prestance"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Escamotage {
+            get {
+                return ((int)(this["Escamotage"]));
+            }
+            set {
+                this["Escamotage"] = value;
+            }
+        }
     }
 }
