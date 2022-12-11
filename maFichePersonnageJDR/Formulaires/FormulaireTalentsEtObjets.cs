@@ -510,7 +510,7 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
                 {
-                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    if (rchTxtIvtaires.Lines[i].Contains("Scramasax"))
                     {
                         strTemp = rchTxtIvtaires.Lines[i];
                     }
