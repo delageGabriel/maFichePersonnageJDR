@@ -326,12 +326,12 @@ namespace maFichePersonnageJDR.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int Psyche {
+        public int Spiritualite {
             get {
-                return ((int)(this["Psyche"]));
+                return ((int)(this["Spiritualite"]));
             }
             set {
-                this["Psyche"] = value;
+                this["Spiritualite"] = value;
             }
         }
         

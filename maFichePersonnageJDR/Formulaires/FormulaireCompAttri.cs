@@ -59,7 +59,7 @@ namespace maFichePersonnageJDR.Formulaires
             nudPerception.Value = Properties.Settings.Default.Perception;
             nudPerspicacite.Value = Properties.Settings.Default.Perspicacité;
             nudPrestance.Value = Properties.Settings.Default.Prestance;
-            nudPsyche.Value = Properties.Settings.Default.Psyche;
+            nudSpiritualite.Value = Properties.Settings.Default.Spiritualite;
             nudReflexes.Value = Properties.Settings.Default.Reflexes;
             nudVigueur.Value = Properties.Settings.Default.Vigueur;
             nudVolonte.Value = Properties.Settings.Default.Volonte;
@@ -200,7 +200,7 @@ namespace maFichePersonnageJDR.Formulaires
             Properties.Settings.Default.Perception = Convert.ToInt32(nudPerception.Value);
             Properties.Settings.Default.Perspicacité = Convert.ToInt32(nudPerspicacite.Value);
             Properties.Settings.Default.Prestance = Convert.ToInt32(nudPrestance.Value);
-            Properties.Settings.Default.Psyche = Convert.ToInt32(nudPsyche.Value);
+            Properties.Settings.Default.Spiritualite = Convert.ToInt32(nudSpiritualite.Value);
             Properties.Settings.Default.Reflexes = Convert.ToInt32(nudReflexes.Value);
             Properties.Settings.Default.Vigueur = Convert.ToInt32(nudVigueur.Value);
             Properties.Settings.Default.Volonte = Convert.ToInt32(nudVolonte.Value);

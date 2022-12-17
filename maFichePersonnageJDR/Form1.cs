@@ -204,7 +204,7 @@ namespace maFichePersonnageJDR
             TextRange rangeCrochetage = paragraphCaracteristique.AppendText("Crochetage : " + Properties.Settings.Default.Crochetage);
             TextRange rangePersuasion = paragraphCaracteristique.AppendText("\t\t\t\tPersuasion : " + Properties.Settings.Default.Persuasion + "\n");
             TextRange rangeDiplomatie = paragraphCaracteristique.AppendText("Diplomatie : " + Properties.Settings.Default.Diplomatie);
-            TextRange rangePsyche = paragraphCaracteristique.AppendText("\t\t\t\tPsyché : " + Properties.Settings.Default.Psyche + "\n");
+            TextRange rangePsyche = paragraphCaracteristique.AppendText("\t\t\t\tPsyché : " + Properties.Settings.Default.Spiritualite + "\n");
             TextRange rangeDiscretion = paragraphCaracteristique.AppendText("Discrétion : " + Properties.Settings.Default.Discretion);
             TextRange rangeReflexes = paragraphCaracteristique.AppendText("\t\t\t\tRéflexes : " + Properties.Settings.Default.Reflexes + "\n");
             TextRange rangeEndurance = paragraphCaracteristique.AppendText("Endurance : " + Properties.Settings.Default.Endurance);

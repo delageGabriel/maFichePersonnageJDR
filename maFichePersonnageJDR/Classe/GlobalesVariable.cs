@@ -36,6 +36,8 @@ namespace maFichePersonnageJDR.Classe
 
         private const double pdsFaucilleGuerre = 0.30;
 
+        private const double pdsDagueAssassin = 0.20;
+
         private const double pdsFrancisque = 1.3;
 
         private const double pdsArc = 1.0;
@@ -113,6 +115,27 @@ namespace maFichePersonnageJDR.Classe
         private const double pdsSac = 0.10;
 
         private const double pdsTente = 15.0;
+
+        private const string nom = "Nom : ";
+
+        private const string poids = ", Poids : ";
+
+        private const string portee = ", Portée : ";
+
+        private const string quantite = ", Quantitée : ";
+
+        private const string type = ", Type : ";
+
+        private const string degats = ", Dégât(s) : ";
+
+        private const string valeur = ", Valeur : ";
+
+        private const string propriete = ", Propriété : ";
+
+        private const string effets = ", Effets : ";
+
+        private const string taille = ", Taille : ";
+
         public static double PdsScrasamax => pdsScrasamax;
 
         public static double PdsEpeeCourte => pdsEpeeCourte;
@@ -218,5 +241,27 @@ namespace maFichePersonnageJDR.Classe
         public static double PdsSac => pdsSac;
 
         public static double PdsTente => pdsTente;
+
+        public static double PdsDagueAssassin => pdsDagueAssassin;
+
+        public static string Poids => poids;
+
+        public static string Portee => portee;
+
+        public static string Quantite => quantite;
+
+        public static string Type => type;
+
+        public static string Degats => degats;
+
+        public static string Valeur => valeur;
+
+        public static string Propriete => propriete;
+
+        public static string Effets => effets;
+
+        public static string Taille => taille;
+
+        public static string Nom => nom;
     }
 }

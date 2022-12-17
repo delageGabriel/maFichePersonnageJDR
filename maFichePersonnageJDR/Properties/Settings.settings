@@ -77,7 +77,7 @@
     <Setting Name="Persuasion" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="Psyche" Type="System.Int32" Scope="User">
+    <Setting Name="Spiritualite" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Reflexes" Type="System.Int32" Scope="User">

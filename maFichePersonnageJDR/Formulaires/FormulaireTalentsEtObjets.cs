@@ -20,6 +20,60 @@ namespace maFichePersonnageJDR.Formulaires
             InitializeComponent();
         }
 
+        private string[] tableauInventaire = {"Scramasax"
+                , "Épée courte"
+                , "Épée longue"
+                , "Glaive"
+                , "Latte"
+                , "Sabre courbé"
+                , "Contus"
+                , "Javelot"
+                , "Fourche"
+                , "Sarisse"
+                , "Trident"
+                , "Couteau"
+                , "Dague"
+                , "Faucille de guerre"
+                , "Dague d'assassin"
+                , "Francisque"
+                , "Arc"
+                , "Arbalète"
+                , "Fronde"
+                , "Fouet"
+                , "Faucille à chaîne"
+                , "Bâton de chêne"
+                , "Sceptre"
+                , "Spangenlhem"
+                , "Coiffe de mailles"
+                , "Morion"
+                , "Cervelière"
+                , "Chapel de fer"
+                , "Casque barbare"
+                , "Vêtements"
+                , "Broigne"
+                , "Cataphracte"
+                , "Cuirasse de fer"
+                , "Robe de cuir"
+                , "Cuirasse de bronze"
+                , "Gants de mailles"
+                , "Gantelets"
+                , "Mitaines"
+                , "Mitons"
+                , "Cuissardes de fer"
+                , "Pantalon de toile"
+                , "Cnémide"
+                , "Sandales"
+                , "Chaussures de cuir"
+                , "Écu"
+                , "Pavois"
+                , "Bouclier en amande"
+                , "Bouclier de bronze"
+                , "Pelta"
+                , "Torche"
+                , "Corde"
+                , "Outre"
+                , "Sac"
+                , "Tente"};
         private void FormulaireTalentsEtObjets_Load(object sender, EventArgs e)
         {
             GetSettings();
@@ -500,37 +554,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void chkScrmx_Click(object sender, EventArgs e)
         {
-            string strTemp = lblScrmx.Text + " " + lblPdsScrmx.Text + " " + lblPrteScrmx.Text + " " + nudScrmx.Value.ToString() + " " + lblTpeScrmx.Text + " " + lblDgtsScrmx.Text;
-            if (chkScrmx.Checked)
-            {
-                nudScrmx.Enabled = false;
-                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
-            }
-            else if (!chkScrmx.Checked)
-            {
-                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
-                {
-                    if (rchTxtIvtaires.Lines[i].Contains("Scramasax"))
-                    {
-                        strTemp = rchTxtIvtaires.Lines[i];
-                    }
-                }
-                nudScrmx.Enabled = true;
-                if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
-                {
-                    strTemp = strTemp + "\n";
-                    rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
-                }
-                else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
-                {
-                    strTemp = "\n" + strTemp;
-                    rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
-                }
-                else
-                {
-                    rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
-                }
-            }
+
         }
 
 
@@ -2905,8 +2929,8 @@ namespace maFichePersonnageJDR.Formulaires
                 }
             }
         }
-        
-        
+
+
         /// <summary>
         /// Méthode pour ajouter ou retirer la ligne manipulation du feu
         /// à la richtextbox lorsque l'utilisateur clique sur la checkbox associée
@@ -3781,9 +3805,631 @@ namespace maFichePersonnageJDR.Formulaires
         }
 
 
+        public string GetNomObjet(string tagObjet)
+        {
+            string strReturn = string.Empty;
+            foreach (TabPage tabPagesArmes in tcArmes.Controls)
+            {
+                foreach (object tpControlsArmes in tabPagesArmes.Controls)
+                {
+                    if (tpControlsArmes is Label)
+                    {
+                        Label label = new Label();
+                        label = (Label)tpControlsArmes;
 
+                        if (label.Name.StartsWith("lblNom") && label.Name.EndsWith(tagObjet))
+                        {
+                            strReturn = label.Text;
+                        }
+                    }
+                }
+            }
+            if (String.IsNullOrEmpty(strReturn))
+            {
+                foreach (TabPage tabPagesArmures in tcArmure.Controls)
+                {
+                    foreach (object tpControlsArmures in tabPagesArmures.Controls)
+                    {
+                        if (tpControlsArmures is Label)
+                        {
+                            Label label = new Label();
+                            label = (Label)tpControlsArmures;
 
+                            if (label.Name.StartsWith("lblNom") && label.Name.EndsWith(tagObjet))
+                            {
+                                strReturn = label.Text;
+                            }
+                        }
+                    }
+                }
+            }
+            if (String.IsNullOrEmpty(strReturn))
+            {
+                foreach (object tpControlsObjets in tcInventaires.Controls)
+                {
+                    if (tpControlsObjets is Label)
+                    {
+                        Label label = new Label();
+                        label = (Label)tpControlsObjets;
 
+                        if (label.Name.StartsWith("lblNom") && label.Name.EndsWith(tagObjet))
+                        {
+                            strReturn = label.Text;
+                        }
+                    }
+                }
+            }
+            return strReturn;
+        }
+
+        public string GetPoidsObjet(string tagObjet)
+        {
+            string strReturn = string.Empty;
+            foreach (TabPage tabPagesArmes in tcArmes.Controls)
+            {
+                foreach (object tpControlsArmes in tabPagesArmes.Controls)
+                {
+                    if (tpControlsArmes is Label)
+                    {
+                        Label label = new Label();
+                        label = (Label)tpControlsArmes;
+
+                        if (label.Name.StartsWith("lblPds") && label.Name.EndsWith(tagObjet))
+                        {
+                            strReturn = label.Text;
+                        }
+                    }
+                }
+            }
+            if (String.IsNullOrEmpty(strReturn))
+            {
+                foreach (TabPage tabPagesArmures in tcArmure.Controls)
+                {
+                    foreach (object tpControlsArmures in tabPagesArmures.Controls)
+                    {
+                        if (tpControlsArmures is Label)
+                        {
+                            Label label = new Label();
+                            label = (Label)tpControlsArmures;
+
+                            if (label.Name.StartsWith("lblPds") && label.Name.EndsWith(tagObjet))
+                            {
+                                strReturn = label.Text;
+                            }
+                        }
+                    }
+                }
+            }
+            if (String.IsNullOrEmpty(strReturn))
+            {
+                foreach (object tpControlsObjets in tcInventaires.Controls)
+                {
+                    if (tpControlsObjets is Label)
+                    {
+                        Label label = new Label();
+                        label = (Label)tpControlsObjets;
+
+                        if (label.Name.StartsWith("lblPds") && label.Name.EndsWith(tagObjet))
+                        {
+                            strReturn = label.Text;
+                        }
+                    }
+                }
+            }
+            return strReturn;
+        }
+
+        public string GetPorteeObjet(string tagObjet)
+        {
+            string strReturn = string.Empty;
+            foreach (TabPage tabPagesArmes in tcArmes.Controls)
+            {
+                foreach (object tpControlsArmes in tabPagesArmes.Controls)
+                {
+                    if (tpControlsArmes is Label)
+                    {
+                        Label label = new Label();
+                        label = (Label)tpControlsArmes;
+
+                        if (label.Name.StartsWith("lblPrte") && label.Name.EndsWith(tagObjet))
+                        {
+                            strReturn = label.Text;
+                        }
+                    }
+                }
+            }
+            if (String.IsNullOrEmpty(strReturn))
+            {
+                foreach (TabPage tabPagesArmures in tcArmure.Controls)
+                {
+                    foreach (object tpControlsArmures in tabPagesArmures.Controls)
+                    {
+                        if (tpControlsArmures is Label)
+                        {
+                            Label label = new Label();
+                            label = (Label)tpControlsArmures;
+
+                            if (label.Name.StartsWith("lblPrte") && label.Name.EndsWith(tagObjet))
+                            {
+                                strReturn = label.Text;
+                            }
+                        }
+                    }
+                }
+            }
+            if (String.IsNullOrEmpty(strReturn))
+            {
+                foreach (object tpControlsObjets in tcInventaires.Controls)
+                {
+                    if (tpControlsObjets is Label)
+                    {
+                        Label label = new Label();
+                        label = (Label)tpControlsObjets;
+
+                        if (label.Name.StartsWith("lblPrte") && label.Name.EndsWith(tagObjet))
+                        {
+                            strReturn = label.Text;
+                        }
+                    }
+                }
+            }
+            return strReturn;
+        }
+
+        public string GetQuantiteObjet(string tagObjet)
+        {
+            string strReturn = string.Empty;
+            foreach (TabPage tabPagesArmes in tcArmes.Controls)
+            {
+                foreach (object tpControlsArmes in tabPagesArmes.Controls)
+                {
+                    if (tpControlsArmes is NumericUpDown)
+                    {
+                        NumericUpDown numeric = new NumericUpDown();
+                        numeric = (NumericUpDown)tpControlsArmes;
+
+                        if (numeric.Name.StartsWith("nud") && numeric.Name.EndsWith(tagObjet))
+                        {
+                            strReturn = numeric.Value.ToString();
+                        }
+                    }
+                }
+            }
+            if (String.IsNullOrEmpty(strReturn))
+            {
+                foreach (TabPage tabPagesArmures in tcArmure.Controls)
+                {
+                    foreach (object tpControlsArmures in tabPagesArmures.Controls)
+                    {
+                        if (tpControlsArmures is NumericUpDown)
+                        {
+                            NumericUpDown numeric = new NumericUpDown();
+                            numeric = (NumericUpDown)tpControlsArmures;
+
+                            if (numeric.Name.StartsWith("nud") && numeric.Name.EndsWith(tagObjet))
+                            {
+                                strReturn = numeric.Value.ToString();
+                            }
+                        }
+                    }
+                }
+            }
+            if (String.IsNullOrEmpty(strReturn))
+            {
+                foreach (object tpControlsObjets in tcInventaires.Controls)
+                {
+                    if (tpControlsObjets is NumericUpDown)
+                    {
+                        NumericUpDown numeric = new NumericUpDown();
+                        numeric = (NumericUpDown)tpControlsObjets;
+
+                        if (numeric.Name.StartsWith("nud") && numeric.Name.EndsWith(tagObjet))
+                        {
+                            strReturn = numeric.Value.ToString(); ;
+                        }
+                    }
+                }
+            }
+            return strReturn;
+        }
+
+        public NumericUpDown GetNudObjet(string tagObjet)
+        {
+            NumericUpDown numericUpDown = new NumericUpDown();
+            foreach (TabPage tabPagesArmes in tcArmes.Controls)
+            {
+                foreach (object tpControlsArmes in tabPagesArmes.Controls)
+                {
+                    if (tpControlsArmes is NumericUpDown)
+                    {
+                        NumericUpDown numeric = new NumericUpDown();
+                        numeric = (NumericUpDown)tpControlsArmes;
+
+                        if (numeric.Name.StartsWith("nud") && numeric.Name.EndsWith(tagObjet))
+                        {
+                            numericUpDown = numeric;
+                        }
+                    }
+                }
+            }
+            if (numericUpDown == null)
+            {
+                foreach (TabPage tabPagesArmures in tcArmure.Controls)
+                {
+                    foreach (object tpControlsArmures in tabPagesArmures.Controls)
+                    {
+                        if (tpControlsArmures is NumericUpDown)
+                        {
+                            NumericUpDown numeric = new NumericUpDown();
+                            numeric = (NumericUpDown)tpControlsArmures;
+
+                            if (numeric.Name.StartsWith("nud") && numeric.Name.EndsWith(tagObjet))
+                            {
+                                numericUpDown = numeric;
+                            }
+                        }
+                    }
+                }
+            }
+            if (numericUpDown == null)
+            {
+                foreach (object tpControlsObjets in tcInventaires.Controls)
+                {
+                    if (tpControlsObjets is NumericUpDown)
+                    {
+                        NumericUpDown numeric = new NumericUpDown();
+                        numeric = (NumericUpDown)tpControlsObjets;
+
+                        if (numeric.Name.StartsWith("nud") && numeric.Name.EndsWith(tagObjet))
+                        {
+                            numericUpDown = numeric;
+                        }
+                    }
+                }
+            }
+            return numericUpDown;
+        }
+        public string GetTypeObjet(string tagObjet)
+        {
+            string strReturn = string.Empty;
+            foreach (TabPage tabPagesArmes in tcArmes.Controls)
+            {
+                foreach (object tpControlsArmes in tabPagesArmes.Controls)
+                {
+                    if (tpControlsArmes is Label)
+                    {
+                        Label label = new Label();
+                        label = (Label)tpControlsArmes;
+
+                        if (label.Name.StartsWith("lblTpe") && label.Name.EndsWith(tagObjet))
+                        {
+                            strReturn = label.Text;
+                        }
+                    }
+                }
+            }
+            if (String.IsNullOrEmpty(strReturn))
+            {
+                foreach (TabPage tabPagesArmures in tcArmure.Controls)
+                {
+                    foreach (object tpControlsArmures in tabPagesArmures.Controls)
+                    {
+                        if (tpControlsArmures is Label)
+                        {
+                            Label label = new Label();
+                            label = (Label)tpControlsArmures;
+
+                            if (label.Name.StartsWith("lblTpe") && label.Name.EndsWith(tagObjet))
+                            {
+                                strReturn = label.Text;
+                            }
+                        }
+                    }
+                }
+            }
+            if (String.IsNullOrEmpty(strReturn))
+            {
+                foreach (object tpControlsObjets in tcInventaires.Controls)
+                {
+                    if (tpControlsObjets is Label)
+                    {
+                        Label label = new Label();
+                        label = (Label)tpControlsObjets;
+
+                        if (label.Name.StartsWith("lblTpe") && label.Name.EndsWith(tagObjet))
+                        {
+                            strReturn = label.Text;
+                        }
+                    }
+                }
+            }
+            return strReturn;
+        }
+
+        public string GetDegatsObjet(string tagObjet)
+        {
+            string strReturn = string.Empty;
+            foreach (TabPage tabPagesArmes in tcArmes.Controls)
+            {
+                foreach (object tpControlsArmes in tabPagesArmes.Controls)
+                {
+                    if (tpControlsArmes is Label)
+                    {
+                        Label label = new Label();
+                        label = (Label)tpControlsArmes;
+
+                        if (label.Name.StartsWith("lblDgts") && label.Name.EndsWith(tagObjet))
+                        {
+                            strReturn = label.Text;
+                        }
+                    }
+                }
+            }
+            if (String.IsNullOrEmpty(strReturn))
+            {
+                foreach (TabPage tabPagesArmures in tcArmure.Controls)
+                {
+                    foreach (object tpControlsArmures in tabPagesArmures.Controls)
+                    {
+                        if (tpControlsArmures is Label)
+                        {
+                            Label label = new Label();
+                            label = (Label)tpControlsArmures;
+
+                            if (label.Name.StartsWith("lblDgts") && label.Name.EndsWith(tagObjet))
+                            {
+                                strReturn = label.Text;
+                            }
+                        }
+                    }
+                }
+            }
+            if (String.IsNullOrEmpty(strReturn))
+            {
+                foreach (object tpControlsObjets in tcInventaires.Controls)
+                {
+                    if (tpControlsObjets is Label)
+                    {
+                        Label label = new Label();
+                        label = (Label)tpControlsObjets;
+
+                        if (label.Name.StartsWith("lblDgts") && label.Name.EndsWith(tagObjet))
+                        {
+                            strReturn = label.Text;
+                        }
+                    }
+                }
+            }
+            return strReturn;
+        }
+
+        public string GetValeursObjet(string tagObjet)
+        {
+            string strReturn = string.Empty;
+            foreach (TabPage tabPagesArmes in tcArmes.Controls)
+            {
+                foreach (object tpControlsArmes in tabPagesArmes.Controls)
+                {
+                    if (tpControlsArmes is Label)
+                    {
+                        Label label = new Label();
+                        label = (Label)tpControlsArmes;
+
+                        if (label.Name.StartsWith("lblVleur") && label.Name.EndsWith(tagObjet))
+                        {
+                            strReturn = label.Text;
+                        }
+                    }
+                }
+            }
+            if (String.IsNullOrEmpty(strReturn))
+            {
+                foreach (TabPage tabPagesArmures in tcArmure.Controls)
+                {
+                    foreach (object tpControlsArmures in tabPagesArmures.Controls)
+                    {
+                        if (tpControlsArmures is Label)
+                        {
+                            Label label = new Label();
+                            label = (Label)tpControlsArmures;
+
+                            if (label.Name.StartsWith("lblVleur") && label.Name.EndsWith(tagObjet))
+                            {
+                                strReturn = label.Text;
+                            }
+                        }
+                    }
+                }
+            }
+            if (String.IsNullOrEmpty(strReturn))
+            {
+                foreach (object tpControlsObjets in tcInventaires.Controls)
+                {
+                    if (tpControlsObjets is Label)
+                    {
+                        Label label = new Label();
+                        label = (Label)tpControlsObjets;
+
+                        if (label.Name.StartsWith("lblVleur") && label.Name.EndsWith(tagObjet))
+                        {
+                            strReturn = label.Text;
+                        }
+                    }
+                }
+            }
+            return strReturn;
+        }
+
+        public string GetProprieteObjet(string tagObjet)
+        {
+            string strReturn = string.Empty;
+            foreach (TabPage tabPagesArmes in tcArmes.Controls)
+            {
+                foreach (object tpControlsArmes in tabPagesArmes.Controls)
+                {
+                    if (tpControlsArmes is Label)
+                    {
+                        Label label = new Label();
+                        label = (Label)tpControlsArmes;
+
+                        if (label.Name.StartsWith("lblPrpiete") && label.Name.EndsWith(tagObjet))
+                        {
+                            strReturn = label.Text;
+                        }
+                    }
+                }
+            }
+            if (String.IsNullOrEmpty(strReturn))
+            {
+                foreach (TabPage tabPagesArmures in tcArmure.Controls)
+                {
+                    foreach (object tpControlsArmures in tabPagesArmures.Controls)
+                    {
+                        if (tpControlsArmures is Label)
+                        {
+                            Label label = new Label();
+                            label = (Label)tpControlsArmures;
+
+                            if (label.Name.StartsWith("lblPrpiete") && label.Name.EndsWith(tagObjet))
+                            {
+                                strReturn = label.Text;
+                            }
+                        }
+                    }
+                }
+            }
+            if (String.IsNullOrEmpty(strReturn))
+            {
+                foreach (object tpControlsObjets in tcInventaires.Controls)
+                {
+                    if (tpControlsObjets is Label)
+                    {
+                        Label label = new Label();
+                        label = (Label)tpControlsObjets;
+
+                        if (label.Name.StartsWith("lblPrpiete") && label.Name.EndsWith(tagObjet))
+                        {
+                            strReturn = label.Text;
+                        }
+                    }
+                }
+            }
+            return strReturn;
+        }
+
+        public string GetEffetsObjet(string tagObjet)
+        {
+            string strReturn = string.Empty;
+            foreach (TabPage tabPagesArmes in tcArmes.Controls)
+            {
+                foreach (object tpControlsArmes in tabPagesArmes.Controls)
+                {
+                    if (tpControlsArmes is Label)
+                    {
+                        Label label = new Label();
+                        label = (Label)tpControlsArmes;
+
+                        if (label.Name.StartsWith("lblEfts") && label.Name.EndsWith(tagObjet))
+                        {
+                            strReturn = label.Text;
+                        }
+                    }
+                }
+            }
+            if (String.IsNullOrEmpty(strReturn))
+            {
+                foreach (TabPage tabPagesArmures in tcArmure.Controls)
+                {
+                    foreach (object tpControlsArmures in tabPagesArmures.Controls)
+                    {
+                        if (tpControlsArmures is Label)
+                        {
+                            Label label = new Label();
+                            label = (Label)tpControlsArmures;
+
+                            if (label.Name.StartsWith("lblEfts") && label.Name.EndsWith(tagObjet))
+                            {
+                                strReturn = label.Text;
+                            }
+                        }
+                    }
+                }
+            }
+            if (String.IsNullOrEmpty(strReturn))
+            {
+                foreach (object tpControlsObjets in tcInventaires.Controls)
+                {
+                    if (tpControlsObjets is Label)
+                    {
+                        Label label = new Label();
+                        label = (Label)tpControlsObjets;
+
+                        if (label.Name.StartsWith("lblEfts") && label.Name.EndsWith(tagObjet))
+                        {
+                            strReturn = label.Text;
+                        }
+                    }
+                }
+            }
+            return strReturn;
+        }
+
+        public string GetTailleObjet(string tagObjet)
+        {
+            string strReturn = string.Empty;
+            foreach (TabPage tabPagesArmes in tcArmes.Controls)
+            {
+                foreach (object tpControlsArmes in tabPagesArmes.Controls)
+                {
+                    if (tpControlsArmes is Label)
+                    {
+                        Label label = new Label();
+                        label = (Label)tpControlsArmes;
+
+                        if (label.Name.StartsWith("lblTlle") && label.Name.EndsWith(tagObjet))
+                        {
+                            strReturn = label.Text;
+                        }
+                    }
+                }
+            }
+            if (String.IsNullOrEmpty(strReturn))
+            {
+                foreach (TabPage tabPagesArmures in tcArmure.Controls)
+                {
+                    foreach (object tpControlsArmures in tabPagesArmures.Controls)
+                    {
+                        if (tpControlsArmures is Label)
+                        {
+                            Label label = new Label();
+                            label = (Label)tpControlsArmures;
+
+                            if (label.Name.StartsWith("lblTlle") && label.Name.EndsWith(tagObjet))
+                            {
+                                strReturn = label.Text;
+                            }
+                        }
+                    }
+                }
+            }
+            if (String.IsNullOrEmpty(strReturn))
+            {
+                foreach (object tpControlsObjets in tcInventaires.Controls)
+                {
+                    if (tpControlsObjets is Label)
+                    {
+                        Label label = new Label();
+                        label = (Label)tpControlsObjets;
+
+                        if (label.Name.StartsWith("lblTlle") && label.Name.EndsWith(tagObjet))
+                        {
+                            strReturn = label.Text;
+                        }
+                    }
+                }
+            }
+            return strReturn;
+        }
         #endregion
         #region numeric_inventaires
         private void nudScrmx_ValueChanged(object sender, EventArgs e)
@@ -4713,5 +5359,103 @@ namespace maFichePersonnageJDR.Formulaires
             }
         }
         #endregion
+
+        private void nudDgeAssin_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudDgeAssin.Value == 0)
+            {
+                chkDgeAssin.Visible = false;
+                double poids = GlobalesVariable.PdsDagueAssassin;
+                double poidsModifie = poids * Convert.ToDouble(nudDgeAssin.Value);
+                lblPdsDgeAssin.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudDgeAssin.Value > 0)
+            {
+                chkDgeAssin.Visible = true;
+                double poids = GlobalesVariable.PdsDagueAssassin;
+                double poidsModifie = poids * Convert.ToDouble(nudDgeAssin.Value);
+                lblPdsDgeAssin.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void chkTest_click(object sender, EventArgs e)
+        {
+            string strTemp = string.Empty;
+            CheckBox chkName = (CheckBox)sender;
+            string tagEvenement = chkName.Name.Substring(3);
+            NumericUpDown nudEvenement = GetNudObjet(tagEvenement);
+            string nomEvenement = GetNomObjet(tagEvenement);
+            string pdsEvenement = GetPoidsObjet(tagEvenement);
+            string porteeEvenement = GetPorteeObjet(tagEvenement);
+            string qteEvenement = GetQuantiteObjet(tagEvenement);
+            string typeEvenement = GetTypeObjet(tagEvenement);
+            string degatsEvenement = GetDegatsObjet(tagEvenement);
+            string valeurEvenement = GetValeursObjet(tagEvenement);
+            string proprieteEvenement = GetProprieteObjet(tagEvenement);
+            string effetsEvenement = GetEffetsObjet(tagEvenement);
+            string tailleEvenement = GetTailleObjet(tagEvenement);
+            if (!String.IsNullOrEmpty(tailleEvenement))
+            {
+                strTemp = GlobalesVariable.Nom + nomEvenement + GlobalesVariable.Poids + pdsEvenement
+                    + GlobalesVariable.Taille + tailleEvenement + GlobalesVariable.Quantite + qteEvenement
+                    + GlobalesVariable.Effets + effetsEvenement + GlobalesVariable.Valeur + valeurEvenement;
+            }
+            else if (!String.IsNullOrEmpty(degatsEvenement) && !String.IsNullOrEmpty(porteeEvenement)
+                && !String.IsNullOrEmpty(effetsEvenement) && !String.IsNullOrEmpty(proprieteEvenement))
+            {
+                strTemp = GlobalesVariable.Nom + nomEvenement + GlobalesVariable.Poids + pdsEvenement
+                                + GlobalesVariable.Portee + porteeEvenement + GlobalesVariable.Quantite + qteEvenement
+                                + GlobalesVariable.Type + typeEvenement + GlobalesVariable.Degats + degatsEvenement
+                                + GlobalesVariable.Effets + effetsEvenement + GlobalesVariable.Valeur + valeurEvenement
+                                + GlobalesVariable.Propriete + proprieteEvenement;
+            }
+            else if (!String.IsNullOrEmpty(effetsEvenement) && String.IsNullOrEmpty(degatsEvenement)
+                && String.IsNullOrEmpty(porteeEvenement))
+            {
+                strTemp = GlobalesVariable.Nom + nomEvenement + GlobalesVariable.Poids + pdsEvenement
+                    + GlobalesVariable.Quantite + qteEvenement + GlobalesVariable.Effets + effetsEvenement
+                    + GlobalesVariable.Valeur + valeurEvenement + GlobalesVariable.Propriete + proprieteEvenement;
+            }
+            else if (!String.IsNullOrEmpty(degatsEvenement) && !String.IsNullOrEmpty(porteeEvenement))
+            {
+                strTemp = GlobalesVariable.Nom + nomEvenement + GlobalesVariable.Poids + pdsEvenement
+                                + GlobalesVariable.Portee + porteeEvenement + GlobalesVariable.Quantite + qteEvenement
+                                + GlobalesVariable.Type + typeEvenement + GlobalesVariable.Degats + degatsEvenement
+                                + GlobalesVariable.Valeur + valeurEvenement + GlobalesVariable.Propriete + proprieteEvenement;
+            }
+            if (chkName.Checked)
+            {
+                nudEvenement.Enabled = false;
+                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+            }
+            else if (!chkName.Checked)
+            {
+                for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
+                {
+                    if (strTemp == rchTxtIvtaires.Lines[i])
+                    {
+                        strTemp = rchTxtIvtaires.Lines[i];
+                    }
+                }
+                nudEvenement.Enabled = true;
+                if (rchTxtIvtaires.Text.Contains(strTemp))
+                {
+                    if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                    {
+                        strTemp = strTemp + "\n";
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                    {
+                        strTemp = "\n" + strTemp;
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                    else
+                    {
+                        rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                    }
+                }
+            }
+        }
     }
 }
