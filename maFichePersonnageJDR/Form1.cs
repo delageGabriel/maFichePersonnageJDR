@@ -186,11 +186,11 @@ namespace maFichePersonnageJDR
             TextRange rangeExplosifs = paragraphCaracteristique.AppendText("\t\t\t\tExplosifs : " + Properties.Settings.Default.Explosifs + "\n");
             TextRange rangeAgilite = paragraphCaracteristique.AppendText("Agilité : " + Properties.Settings.Default.Agilité);
             TextRange rangeForce = paragraphCaracteristique.AppendText("\t\t\t\tForce : " + Properties.Settings.Default.Force + "\n");
-            TextRange rangeAnimale = paragraphCaracteristique.AppendText("Animale : " + Properties.Settings.Default.Animale);
+            TextRange rangeAnimale = paragraphCaracteristique.AppendText("Animale : " + Properties.Settings.Default.Dressage);
             TextRange rangeIntimidation = paragraphCaracteristique.AppendText("\t\t\t\tIntimidation : " + Properties.Settings.Default.Intimidation + "\n");
             TextRange rangeArtisanat = paragraphCaracteristique.AppendText("Artisanat : " + Properties.Settings.Default.Artisanat);
             TextRange rangeLangages = paragraphCaracteristique.AppendText("\t\t\t\tLangages : " + Properties.Settings.Default.Langages + "\n");
-            TextRange rangeBotanique = paragraphCaracteristique.AppendText("Botanique : " + Properties.Settings.Default.Botanique);
+            TextRange rangeBotanique = paragraphCaracteristique.AppendText("Botanique : " + Properties.Settings.Default.ConnNature);
             TextRange rangeMécanique = paragraphCaracteristique.AppendText("\t\t\t\tMécanique : " + Properties.Settings.Default.Mecanique + "\n");
             TextRange rangeCharme = paragraphCaracteristique.AppendText("\t\t\t\tCharme : " + Properties.Settings.Default.Charme + "\n");
             TextRange rangeCnGeo = paragraphCaracteristique.AppendText("Connaissances géographiques : " + Properties.Settings.Default.ConnGeographiques);

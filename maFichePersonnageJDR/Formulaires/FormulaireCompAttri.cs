@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using maFichePersonnageJDR.Classe;
 
 namespace maFichePersonnageJDR.Formulaires
 {
@@ -34,9 +35,9 @@ namespace maFichePersonnageJDR.Formulaires
             txtSocial.Text = Properties.Settings.Default.Social;
             nudAdresse.Value = Properties.Settings.Default.Adresse;
             nudAgilite.Value = Properties.Settings.Default.Agilité;
-            nudAnmale.Value = Properties.Settings.Default.Animale;
+            nudDressage.Value = Properties.Settings.Default.Dressage;
             nudArtisanat.Value = Properties.Settings.Default.Artisanat;
-            nudBotanique.Value = Properties.Settings.Default.Botanique;
+            nudConnNatures.Value = Properties.Settings.Default.ConnNature;
             nudCharme.Value = Properties.Settings.Default.Charme;
             nudConnGeographiques.Value = Properties.Settings.Default.ConnGeographiques;
             nudConnHistoriques.Value = Properties.Settings.Default.ConnHistoriques;
@@ -121,7 +122,7 @@ namespace maFichePersonnageJDR.Formulaires
                 strTemp = (string)chckLstAttributs.SelectedItem;
                 if (rchTbAttributs.Text.Contains(strTemp))
                 {
-                    if(rchTbAttributs.Text.IndexOf(strTemp) == 0 && rchTbAttributs.Text.Contains(strTemp + ", "))
+                    if (rchTbAttributs.Text.IndexOf(strTemp) == 0 && rchTbAttributs.Text.Contains(strTemp + ", "))
                     {
                         strTemp = (string)chckLstAttributs.SelectedItem + ", ";
                         rchTbAttributs.Text = rchTbAttributs.Text.Remove(rchTbAttributs.Text.IndexOf(strTemp), strTemp.Length);
@@ -144,7 +145,7 @@ namespace maFichePersonnageJDR.Formulaires
                     }
                     rchTbAttributs.Text += chckLstAttributs.SelectedItem;
                 }
-                
+
             }
         }
 
@@ -175,9 +176,9 @@ namespace maFichePersonnageJDR.Formulaires
             Properties.Settings.Default.Social = txtSocial.Text;
             Properties.Settings.Default.Adresse = Convert.ToInt32(nudAdresse.Value);
             Properties.Settings.Default.Agilité = Convert.ToInt32(nudAgilite.Value);
-            Properties.Settings.Default.Animale = Convert.ToInt32(nudAnmale.Value);
+            Properties.Settings.Default.Dressage = Convert.ToInt32(nudDressage.Value);
             Properties.Settings.Default.Artisanat = Convert.ToInt32(nudArtisanat.Value);
-            Properties.Settings.Default.Botanique = Convert.ToInt32(nudBotanique.Value);
+            Properties.Settings.Default.ConnNature = Convert.ToInt32(nudConnNatures.Value);
             Properties.Settings.Default.Charme = Convert.ToInt32(nudCharme.Value);
             Properties.Settings.Default.ConnGeographiques = Convert.ToInt32(nudConnGeographiques.Value);
             Properties.Settings.Default.ConnHistoriques = Convert.ToInt32(nudConnHistoriques.Value);
@@ -230,15 +231,135 @@ namespace maFichePersonnageJDR.Formulaires
         private void btnViderRchTbAttributs_Click(object sender, EventArgs e)
         {
             List<int> tableauIndex = new List<int>();
-            foreach(string chkItems in chckLstAttributs.Items)
+            foreach (string chkItems in chckLstAttributs.Items)
             {
                 tableauIndex.Add(chckLstAttributs.Items.IndexOf(chkItems));
             }
-            foreach(int index in tableauIndex)
+            foreach (int index in tableauIndex)
             {
                 chckLstAttributs.SetItemChecked(index, false);
             }
             rchTbAttributs.Text = rchTbAttributs.Text.Remove(0, rchTbAttributs.TextLength);
+        }
+
+        private void nudEndurance_ValueChanged(object sender, EventArgs e)
+        {
+            nudEndurance.Value = (Int32.Parse(txtPhysique.Text) + Int32.Parse(txtMental.Text)) / 10;
+        }
+
+        private void numericUpDownValeurChange_ValueChanged(object sender, EventArgs e)
+        {
+            int valeurNumPhysique = 0;
+            int valeurNumMental = 0;
+            int valeurNumSocial = 0;
+            int valeurMaxPhysique = GlobalesVariable.PtsPhysiqueMax;
+            int valeurMaxMental = GlobalesVariable.PtsMentalMax;
+            int valeurMaxSocial = GlobalesVariable.PtsSocialMax;
+            NumericUpDown numSender = (NumericUpDown)sender;
+            string tagNumSender = numSender.Tag.ToString();
+
+            foreach (object objetNumeric in grpbCompetences.Controls)
+            {
+                if (objetNumeric is NumericUpDown)
+                {
+                    NumericUpDown numericUpDown = (NumericUpDown)objetNumeric;
+                    string tagNum = numericUpDown.Tag.ToString();
+                    if (tagNum == "Physique" && numericUpDown.Value > 0)
+                    {
+                        valeurNumPhysique += Convert.ToInt32(numericUpDown.Value);
+                    }
+                    if (tagNum == "Mental" && numericUpDown.Value > 0)
+                    {
+                        valeurNumMental += Convert.ToInt32(numericUpDown.Value);
+                    }
+                    if (tagNum == "Social" && numericUpDown.Value > 0)
+                    {
+                        valeurNumSocial += Convert.ToInt32(numericUpDown.Value);
+                    }
+                }
+            }
+
+            valeurMaxPhysique -= valeurNumPhysique;
+            valeurMaxMental -= valeurNumMental;
+            valeurMaxSocial -= valeurNumSocial;
+            // bloque les checkbox à 0 s'il n'y a plus de points à répartir, cas physique
+            foreach (object nudCompetences in grpbCompetences.Controls)
+            {
+                if (nudCompetences is NumericUpDown)
+                {
+                    if (valeurMaxPhysique <= 0)
+                    {
+                        NumericUpDown numericUpDown = (NumericUpDown)nudCompetences;
+                        string tagNum = numericUpDown.Tag.ToString();
+                        if (tagNum == "Physique" && numericUpDown.Value == 0)
+                        {
+                            numericUpDown.Enabled = false;
+                        }
+                    }
+                    else
+                    {
+                        NumericUpDown numericUpDown = (NumericUpDown)nudCompetences;
+                        string tagNum = numericUpDown.Tag.ToString();
+                        if (tagNum == "Physique" && numericUpDown.Value == 0)
+                        {
+                            numericUpDown.Enabled = true;
+                        }
+                    }
+                }
+            }
+            // bloque les checkbox à 0 s'il n'y a plus de points à répartir, cas mental
+            foreach (object nudCompetences in grpbCompetences.Controls)
+            {
+                if (nudCompetences is NumericUpDown)
+                {
+                    if (valeurMaxMental <= 0)
+                    {
+                        NumericUpDown numericUpDown = (NumericUpDown)nudCompetences;
+                        string tagNum = numericUpDown.Tag.ToString();
+                        if (tagNum == "Mental" && numericUpDown.Value == 0)
+                        {
+                            numericUpDown.Enabled = false;
+                        }
+                    }
+                    else
+                    {
+                        NumericUpDown numericUpDown = (NumericUpDown)nudCompetences;
+                        string tagNum = numericUpDown.Tag.ToString();
+                        if (tagNum == "Mental" && numericUpDown.Value == 0)
+                        {
+                            numericUpDown.Enabled = true;
+                        }
+                    }
+                }
+            }
+            // bloque les checkbox à 0 s'il n'y a plus de points à répartir, cas social
+            foreach (object nudCompetences in grpbCompetences.Controls)
+            {
+                if (nudCompetences is NumericUpDown)
+                {
+                    if (valeurMaxSocial <= 0)
+                    {
+                        NumericUpDown numericUpDown = (NumericUpDown)nudCompetences;
+                        string tagNum = numericUpDown.Tag.ToString();
+                        if (tagNum == "Social" && numericUpDown.Value == 0)
+                        {
+                            numericUpDown.Enabled = false;
+                        }
+                    }
+                    else
+                    {
+                        NumericUpDown numericUpDown = (NumericUpDown)nudCompetences;
+                        string tagNum = numericUpDown.Tag.ToString();
+                        if (tagNum == "Social" && numericUpDown.Value == 0)
+                        {
+                            numericUpDown.Enabled = true;
+                        }
+                    }
+                }
+            }
+            txtPntsPhysique.Text = valeurMaxPhysique.ToString();
+            txtPntsMental.Text = valeurMaxMental.ToString();
+            txtPntsSocial.Text = valeurMaxSocial.ToString();
         }
     }
 }

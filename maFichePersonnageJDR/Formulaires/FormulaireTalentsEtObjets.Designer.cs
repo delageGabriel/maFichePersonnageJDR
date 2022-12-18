@@ -40,6 +40,13 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpArmes = new System.Windows.Forms.TabPage();
             this.tcArmes = new System.Windows.Forms.TabControl();
             this.tpEpee = new System.Windows.Forms.TabPage();
+            this.lblPrpieteSbreCrbe = new System.Windows.Forms.Label();
+            this.lblPprieteLte = new System.Windows.Forms.Label();
+            this.lblPprieteGlve = new System.Windows.Forms.Label();
+            this.lblPrpieteEpLge = new System.Windows.Forms.Label();
+            this.lblPrpieteEpCrte = new System.Windows.Forms.Label();
+            this.lblDescEpees = new System.Windows.Forms.Label();
+            this.lblPrpieteScrmx = new System.Windows.Forms.Label();
             this.lblVleurSbreCrbe = new System.Windows.Forms.Label();
             this.lblVleurLte = new System.Windows.Forms.Label();
             this.lblVleurGlve = new System.Windows.Forms.Label();
@@ -56,29 +63,29 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkEpLge = new System.Windows.Forms.CheckBox();
             this.chkEpCrte = new System.Windows.Forms.CheckBox();
             this.chkScrmx = new System.Windows.Forms.CheckBox();
-            this.lblSbreCrbe = new System.Windows.Forms.Label();
+            this.lblNomSbreCrbe = new System.Windows.Forms.Label();
             this.lblPdsSbreCrbe = new System.Windows.Forms.Label();
             this.lblPrteSbreCrbe = new System.Windows.Forms.Label();
             this.lblTpeSbreCrbe = new System.Windows.Forms.Label();
             this.lblDgtsSbreCrbe = new System.Windows.Forms.Label();
-            this.lblLte = new System.Windows.Forms.Label();
+            this.lblNomLte = new System.Windows.Forms.Label();
             this.lblPdsLte = new System.Windows.Forms.Label();
             this.lblPrteLte = new System.Windows.Forms.Label();
             this.lblTpeLte = new System.Windows.Forms.Label();
             this.lblDgtsLte = new System.Windows.Forms.Label();
-            this.lblGlve = new System.Windows.Forms.Label();
+            this.lblNomGlve = new System.Windows.Forms.Label();
             this.lblPdsGlve = new System.Windows.Forms.Label();
             this.lblPrteGlve = new System.Windows.Forms.Label();
             this.nudGlve = new System.Windows.Forms.NumericUpDown();
             this.lblTpeGlve = new System.Windows.Forms.Label();
             this.lblDgtsGlve = new System.Windows.Forms.Label();
-            this.lblEpLge = new System.Windows.Forms.Label();
+            this.lblNomEpLge = new System.Windows.Forms.Label();
             this.lblPdsEpLge = new System.Windows.Forms.Label();
             this.lblPrteEpLge = new System.Windows.Forms.Label();
             this.nudEpLge = new System.Windows.Forms.NumericUpDown();
             this.lblTpeEpLge = new System.Windows.Forms.Label();
             this.lblDgtsEpLge = new System.Windows.Forms.Label();
-            this.lblEpCrte = new System.Windows.Forms.Label();
+            this.lblNomEpCrte = new System.Windows.Forms.Label();
             this.lblPdsEpCrte = new System.Windows.Forms.Label();
             this.lblPrteEpCrte = new System.Windows.Forms.Label();
             this.nudEpCrte = new System.Windows.Forms.NumericUpDown();
@@ -91,6 +98,13 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblTpeScrmx = new System.Windows.Forms.Label();
             this.lblDgtsScrmx = new System.Windows.Forms.Label();
             this.tpLances = new System.Windows.Forms.TabPage();
+            this.lblPprieteTrdnt = new System.Windows.Forms.Label();
+            this.lblPprieteSrse = new System.Windows.Forms.Label();
+            this.lblPprieteFrche = new System.Windows.Forms.Label();
+            this.lblPprieteJvlot = new System.Windows.Forms.Label();
+            this.lblPprieteCntus = new System.Windows.Forms.Label();
+            this.lblPprieteLances = new System.Windows.Forms.Label();
+            this.lblDescLances = new System.Windows.Forms.Label();
             this.lblVleurTrdnt = new System.Windows.Forms.Label();
             this.lblVleurSrse = new System.Windows.Forms.Label();
             this.lblVleurFrche = new System.Windows.Forms.Label();
@@ -98,7 +112,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblVleurCntus = new System.Windows.Forms.Label();
             this.lblVleurLance = new System.Windows.Forms.Label();
             this.chkTrdnt = new System.Windows.Forms.CheckBox();
-            this.lblTrdnt = new System.Windows.Forms.Label();
+            this.lblNomTrdnt = new System.Windows.Forms.Label();
             this.lblPdsTrdnt = new System.Windows.Forms.Label();
             this.lblPrteTrdnt = new System.Windows.Forms.Label();
             this.nudTrdnt = new System.Windows.Forms.NumericUpDown();
@@ -108,25 +122,25 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkFrche = new System.Windows.Forms.CheckBox();
             this.chkJvlot = new System.Windows.Forms.CheckBox();
             this.chkCntus = new System.Windows.Forms.CheckBox();
-            this.lblSrse = new System.Windows.Forms.Label();
+            this.lblNomSrse = new System.Windows.Forms.Label();
             this.lblPdsSrse = new System.Windows.Forms.Label();
             this.lblPrteSrse = new System.Windows.Forms.Label();
             this.nudSrse = new System.Windows.Forms.NumericUpDown();
             this.lblTpeSrse = new System.Windows.Forms.Label();
             this.lblDgtsSrse = new System.Windows.Forms.Label();
-            this.lblFrche = new System.Windows.Forms.Label();
+            this.lblNomFrche = new System.Windows.Forms.Label();
             this.lblPdsFrche = new System.Windows.Forms.Label();
             this.lblPrteFrche = new System.Windows.Forms.Label();
             this.nudFrche = new System.Windows.Forms.NumericUpDown();
             this.lblTpeFrche = new System.Windows.Forms.Label();
             this.lblDgtsFrche = new System.Windows.Forms.Label();
-            this.lblJvlot = new System.Windows.Forms.Label();
+            this.lblNomJvlot = new System.Windows.Forms.Label();
             this.lblPdsJvlot = new System.Windows.Forms.Label();
             this.lblPrteJvlot = new System.Windows.Forms.Label();
             this.nudJvlot = new System.Windows.Forms.NumericUpDown();
             this.lblTpeJvlot = new System.Windows.Forms.Label();
             this.lblDgtsJvlot = new System.Windows.Forms.Label();
-            this.lblCntus = new System.Windows.Forms.Label();
+            this.lblNomCntus = new System.Windows.Forms.Label();
             this.lblPdsCntus = new System.Windows.Forms.Label();
             this.lblPrteCntus = new System.Windows.Forms.Label();
             this.nudCntus = new System.Windows.Forms.NumericUpDown();
@@ -139,6 +153,20 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblTpeLances = new System.Windows.Forms.Label();
             this.lblDgtsLances = new System.Windows.Forms.Label();
             this.tpPoignards = new System.Windows.Forms.TabPage();
+            this.lblDescPoignards = new System.Windows.Forms.Label();
+            this.lblPrpieteDgeAssin = new System.Windows.Forms.Label();
+            this.lblPrpieteFclGure = new System.Windows.Forms.Label();
+            this.lblPrpieteDge = new System.Windows.Forms.Label();
+            this.lblPrpieteCtau = new System.Windows.Forms.Label();
+            this.lblPprietePoignards = new System.Windows.Forms.Label();
+            this.lblVleurDgeAssin = new System.Windows.Forms.Label();
+            this.chkDgeAssin = new System.Windows.Forms.CheckBox();
+            this.lblNomDgeAssin = new System.Windows.Forms.Label();
+            this.lblPdsDgeAssin = new System.Windows.Forms.Label();
+            this.lblPrteDgeAssin = new System.Windows.Forms.Label();
+            this.nudDgeAssin = new System.Windows.Forms.NumericUpDown();
+            this.lblTpeDgeAssin = new System.Windows.Forms.Label();
+            this.lblDgtsDgeAssin = new System.Windows.Forms.Label();
             this.lblVleurFclGure = new System.Windows.Forms.Label();
             this.lblVleurDge = new System.Windows.Forms.Label();
             this.lblVleurCtau = new System.Windows.Forms.Label();
@@ -146,19 +174,19 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkFclGure = new System.Windows.Forms.CheckBox();
             this.chkDge = new System.Windows.Forms.CheckBox();
             this.chkCtau = new System.Windows.Forms.CheckBox();
-            this.lblFclGure = new System.Windows.Forms.Label();
+            this.lblNomFclGure = new System.Windows.Forms.Label();
             this.lblPdsFclGure = new System.Windows.Forms.Label();
             this.lblPrteFclGure = new System.Windows.Forms.Label();
             this.nudFclGure = new System.Windows.Forms.NumericUpDown();
             this.lblTpeFclGure = new System.Windows.Forms.Label();
             this.lblDgtsFclGure = new System.Windows.Forms.Label();
-            this.lblDge = new System.Windows.Forms.Label();
+            this.lblNomDge = new System.Windows.Forms.Label();
             this.lblPdsDge = new System.Windows.Forms.Label();
             this.lblPrteDge = new System.Windows.Forms.Label();
             this.nudDge = new System.Windows.Forms.NumericUpDown();
             this.lblTpeDge = new System.Windows.Forms.Label();
             this.lblDgtsDge = new System.Windows.Forms.Label();
-            this.lblCtau = new System.Windows.Forms.Label();
+            this.lblNomCtau = new System.Windows.Forms.Label();
             this.lblPdsCtau = new System.Windows.Forms.Label();
             this.lblPrteCtau = new System.Windows.Forms.Label();
             this.nudCtau = new System.Windows.Forms.NumericUpDown();
@@ -171,10 +199,13 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblType = new System.Windows.Forms.Label();
             this.lblDgtsDague = new System.Windows.Forms.Label();
             this.tpHaches = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblPrpieteFrncsque = new System.Windows.Forms.Label();
+            this.lblPrpieteHaches = new System.Windows.Forms.Label();
             this.lblVleurFrncsque = new System.Windows.Forms.Label();
             this.lblVleurHache = new System.Windows.Forms.Label();
             this.chkFrncsque = new System.Windows.Forms.CheckBox();
-            this.lblFrncsque = new System.Windows.Forms.Label();
+            this.lblNomFrncsque = new System.Windows.Forms.Label();
             this.lblPdsFrncsque = new System.Windows.Forms.Label();
             this.lblPrteFrncsque = new System.Windows.Forms.Label();
             this.nudFrncsque = new System.Windows.Forms.NumericUpDown();
@@ -194,6 +225,11 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblTpeMasses = new System.Windows.Forms.Label();
             this.lblDgtsMasses = new System.Windows.Forms.Label();
             this.tpArc = new System.Windows.Forms.TabPage();
+            this.lblPrpieteFnde = new System.Windows.Forms.Label();
+            this.lblPrpieteAblte = new System.Windows.Forms.Label();
+            this.lblDescArcs = new System.Windows.Forms.Label();
+            this.lblPrpieteArc = new System.Windows.Forms.Label();
+            this.lblPrpieteArcs = new System.Windows.Forms.Label();
             this.lblVleurFnde = new System.Windows.Forms.Label();
             this.lblVleurAblte = new System.Windows.Forms.Label();
             this.lblVleurArc = new System.Windows.Forms.Label();
@@ -202,18 +238,18 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkFnde = new System.Windows.Forms.CheckBox();
             this.chkAblte = new System.Windows.Forms.CheckBox();
             this.chkArc = new System.Windows.Forms.CheckBox();
-            this.lblFnde = new System.Windows.Forms.Label();
+            this.lblNomFnde = new System.Windows.Forms.Label();
             this.lblPrteFnde = new System.Windows.Forms.Label();
             this.nudFnde = new System.Windows.Forms.NumericUpDown();
             this.lblTpeFnde = new System.Windows.Forms.Label();
             this.lblDgtsFnde = new System.Windows.Forms.Label();
-            this.lblAblte = new System.Windows.Forms.Label();
+            this.lblNomAblte = new System.Windows.Forms.Label();
             this.lblPdsAblte = new System.Windows.Forms.Label();
             this.lblPrteAblte = new System.Windows.Forms.Label();
             this.nudAblte = new System.Windows.Forms.NumericUpDown();
             this.lblTpeAblte = new System.Windows.Forms.Label();
             this.lblDgtsAblte = new System.Windows.Forms.Label();
-            this.lblArc = new System.Windows.Forms.Label();
+            this.lblNomArc = new System.Windows.Forms.Label();
             this.lblPdsArc = new System.Windows.Forms.Label();
             this.lblPrteArc = new System.Windows.Forms.Label();
             this.nudArc = new System.Windows.Forms.NumericUpDown();
@@ -226,19 +262,22 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblTpeArcs = new System.Windows.Forms.Label();
             this.lblDgtsArcs = new System.Windows.Forms.Label();
             this.tpChaînes = new System.Windows.Forms.TabPage();
+            this.lblPrpieteFaC = new System.Windows.Forms.Label();
+            this.lblPrpieteFouet = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.lblVleurFaC = new System.Windows.Forms.Label();
             this.lblVleurFouet = new System.Windows.Forms.Label();
             this.lblVleurChaines = new System.Windows.Forms.Label();
             this.lblPdsFouet = new System.Windows.Forms.Label();
             this.chkFaC = new System.Windows.Forms.CheckBox();
             this.chkFouet = new System.Windows.Forms.CheckBox();
-            this.lblFaC = new System.Windows.Forms.Label();
+            this.lblNomFaC = new System.Windows.Forms.Label();
             this.lblPdsFaC = new System.Windows.Forms.Label();
             this.lblPrteFaC = new System.Windows.Forms.Label();
             this.nudFaC = new System.Windows.Forms.NumericUpDown();
             this.lblTpeFaC = new System.Windows.Forms.Label();
             this.lblDgtsFaC = new System.Windows.Forms.Label();
-            this.lblFouet = new System.Windows.Forms.Label();
+            this.lblNomFouet = new System.Windows.Forms.Label();
             this.lblPrteFouet = new System.Windows.Forms.Label();
             this.nudFouet = new System.Windows.Forms.NumericUpDown();
             this.lblTpeFouet = new System.Windows.Forms.Label();
@@ -250,6 +289,9 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblTpeChaines = new System.Windows.Forms.Label();
             this.lblDgtsChaines = new System.Windows.Forms.Label();
             this.tpBatons = new System.Windows.Forms.TabPage();
+            this.lblPrpieteSctre = new System.Windows.Forms.Label();
+            this.lblPrpieteBtonChne = new System.Windows.Forms.Label();
+            this.lblPrpieteBatons = new System.Windows.Forms.Label();
             this.lblVleurSctre = new System.Windows.Forms.Label();
             this.lblVleurBtonChne = new System.Windows.Forms.Label();
             this.lblVleurBatons = new System.Windows.Forms.Label();
@@ -259,14 +301,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblPrteBton = new System.Windows.Forms.Label();
             this.chkBtonChne = new System.Windows.Forms.CheckBox();
             this.lblEftsSctre = new System.Windows.Forms.Label();
-            this.lblSctre = new System.Windows.Forms.Label();
+            this.lblNomSctre = new System.Windows.Forms.Label();
             this.lblPdsSctre = new System.Windows.Forms.Label();
             this.nudSctre = new System.Windows.Forms.NumericUpDown();
             this.lblTpeSctre = new System.Windows.Forms.Label();
             this.lblDgtsSctre = new System.Windows.Forms.Label();
             this.lblEftsBtonChne = new System.Windows.Forms.Label();
             this.lblEftsBton = new System.Windows.Forms.Label();
-            this.lblBtonChne = new System.Windows.Forms.Label();
+            this.lblNomBtonChne = new System.Windows.Forms.Label();
             this.lblPdsBtonChne = new System.Windows.Forms.Label();
             this.nudBtonChne = new System.Windows.Forms.NumericUpDown();
             this.lblTpeBtonChne = new System.Windows.Forms.Label();
@@ -279,6 +321,13 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpArmures = new System.Windows.Forms.TabPage();
             this.tcArmure = new System.Windows.Forms.TabControl();
             this.tbCasque = new System.Windows.Forms.TabPage();
+            this.lblPrpieteCsqueBrbre = new System.Windows.Forms.Label();
+            this.lblPrpieteChplFr = new System.Windows.Forms.Label();
+            this.lblPrpieteCrvlre = new System.Windows.Forms.Label();
+            this.lblPrpieteMrn = new System.Windows.Forms.Label();
+            this.lblPrpieteCfeMle = new System.Windows.Forms.Label();
+            this.lblPrpieteSpghlm = new System.Windows.Forms.Label();
+            this.lblPrpieteCasques = new System.Windows.Forms.Label();
             this.lblDescDeuxCasques = new System.Windows.Forms.Label();
             this.lblDescCasques = new System.Windows.Forms.Label();
             this.lblVleurCsqueBrbre = new System.Windows.Forms.Label();
@@ -294,27 +343,27 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkMrn = new System.Windows.Forms.CheckBox();
             this.chkCfeMle = new System.Windows.Forms.CheckBox();
             this.chkSpghlm = new System.Windows.Forms.CheckBox();
-            this.lblCsqueBrbre = new System.Windows.Forms.Label();
+            this.lblNomCsqueBrbre = new System.Windows.Forms.Label();
             this.lblPdsCsqueBrbre = new System.Windows.Forms.Label();
             this.nudCsqueBrbre = new System.Windows.Forms.NumericUpDown();
             this.lblEftsCsqueBrbre = new System.Windows.Forms.Label();
-            this.lblChplFr = new System.Windows.Forms.Label();
+            this.lblNomChplFr = new System.Windows.Forms.Label();
             this.lblPdsChplFr = new System.Windows.Forms.Label();
             this.nudChplFr = new System.Windows.Forms.NumericUpDown();
             this.lblEftsChplFr = new System.Windows.Forms.Label();
-            this.lblCrvlre = new System.Windows.Forms.Label();
+            this.lblNomCrvlre = new System.Windows.Forms.Label();
             this.lblPdsCrvlre = new System.Windows.Forms.Label();
             this.nudCrvlre = new System.Windows.Forms.NumericUpDown();
             this.lblEftsCrvlre = new System.Windows.Forms.Label();
-            this.lblMrn = new System.Windows.Forms.Label();
+            this.lblNomMrn = new System.Windows.Forms.Label();
             this.lblPdsMrn = new System.Windows.Forms.Label();
             this.nudMrn = new System.Windows.Forms.NumericUpDown();
             this.lblEftsMrn = new System.Windows.Forms.Label();
-            this.lblCfeMle = new System.Windows.Forms.Label();
+            this.lblNomCfeMle = new System.Windows.Forms.Label();
             this.lblPdsCfeMle = new System.Windows.Forms.Label();
             this.nudCfeMle = new System.Windows.Forms.NumericUpDown();
             this.lblEftsCfeMle = new System.Windows.Forms.Label();
-            this.lblSpghlm = new System.Windows.Forms.Label();
+            this.lblNomSpghlm = new System.Windows.Forms.Label();
             this.lblPdsSpghlm = new System.Windows.Forms.Label();
             this.nudSpghlm = new System.Windows.Forms.NumericUpDown();
             this.lblEftsSpghlm = new System.Windows.Forms.Label();
@@ -323,6 +372,13 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblNbCasques = new System.Windows.Forms.Label();
             this.lblEftCasques = new System.Windows.Forms.Label();
             this.tpBuste = new System.Windows.Forms.TabPage();
+            this.lblPrpieteCrsBze = new System.Windows.Forms.Label();
+            this.lblPrpieteRbeCuir = new System.Windows.Forms.Label();
+            this.lblPrpieteCrsFr = new System.Windows.Forms.Label();
+            this.lblPrpieteCtphrcte = new System.Windows.Forms.Label();
+            this.lblPrpieteBrgne = new System.Windows.Forms.Label();
+            this.lblPrpieteVtments = new System.Windows.Forms.Label();
+            this.lblPrpieteBuste = new System.Windows.Forms.Label();
             this.lblVleurCrsBze = new System.Windows.Forms.Label();
             this.lblVleurRbeCuir = new System.Windows.Forms.Label();
             this.lblDescDeuxBuste = new System.Windows.Forms.Label();
@@ -338,27 +394,27 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkCtphrcte = new System.Windows.Forms.CheckBox();
             this.chkBrgne = new System.Windows.Forms.CheckBox();
             this.chkVtments = new System.Windows.Forms.CheckBox();
-            this.lblCrsBze = new System.Windows.Forms.Label();
+            this.lblNomCrsBze = new System.Windows.Forms.Label();
             this.lblPdsCrsBze = new System.Windows.Forms.Label();
             this.nudCrsBze = new System.Windows.Forms.NumericUpDown();
             this.lblEftsCrsBze = new System.Windows.Forms.Label();
-            this.lblRbeCuir = new System.Windows.Forms.Label();
+            this.lblNomRbeCuir = new System.Windows.Forms.Label();
             this.lblPdsRbeCuir = new System.Windows.Forms.Label();
             this.nudRbeCuir = new System.Windows.Forms.NumericUpDown();
             this.lblEftsRbeCuir = new System.Windows.Forms.Label();
-            this.lblCrsFr = new System.Windows.Forms.Label();
+            this.lblNomCrsFr = new System.Windows.Forms.Label();
             this.lblPdsCrsFr = new System.Windows.Forms.Label();
             this.nudCrsFr = new System.Windows.Forms.NumericUpDown();
             this.lblEftsCrsFr = new System.Windows.Forms.Label();
-            this.lblCtphrcte = new System.Windows.Forms.Label();
+            this.lblNomCtphrcte = new System.Windows.Forms.Label();
             this.lblPdsCtphrcte = new System.Windows.Forms.Label();
             this.nudCtphrcte = new System.Windows.Forms.NumericUpDown();
             this.lblEftsCtphrcte = new System.Windows.Forms.Label();
-            this.lblBrgne = new System.Windows.Forms.Label();
+            this.lblNomBrgne = new System.Windows.Forms.Label();
             this.lblPdsBrgne = new System.Windows.Forms.Label();
             this.nudBrgne = new System.Windows.Forms.NumericUpDown();
             this.lblEftsBrgne = new System.Windows.Forms.Label();
-            this.lblVtments = new System.Windows.Forms.Label();
+            this.lblNomVtments = new System.Windows.Forms.Label();
             this.lblPdsVtments = new System.Windows.Forms.Label();
             this.nudVtments = new System.Windows.Forms.NumericUpDown();
             this.lblEftsVtments = new System.Windows.Forms.Label();
@@ -367,6 +423,11 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblNbBuste = new System.Windows.Forms.Label();
             this.lblEftBuste = new System.Windows.Forms.Label();
             this.tpGants = new System.Windows.Forms.TabPage();
+            this.lblPrpieteMton = new System.Windows.Forms.Label();
+            this.lblPrpieteMitne = new System.Windows.Forms.Label();
+            this.lblPrpieteGntlet = new System.Windows.Forms.Label();
+            this.lblPrpieteGntMles = new System.Windows.Forms.Label();
+            this.lblPrpieteGants = new System.Windows.Forms.Label();
             this.lblVleurMton = new System.Windows.Forms.Label();
             this.lblVleurMitne = new System.Windows.Forms.Label();
             this.lblVleurGntlet = new System.Windows.Forms.Label();
@@ -378,19 +439,19 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkMitne = new System.Windows.Forms.CheckBox();
             this.chkGntlet = new System.Windows.Forms.CheckBox();
             this.chkGntMles = new System.Windows.Forms.CheckBox();
-            this.lblMton = new System.Windows.Forms.Label();
+            this.lblNomMton = new System.Windows.Forms.Label();
             this.lblPdsMton = new System.Windows.Forms.Label();
             this.nudMton = new System.Windows.Forms.NumericUpDown();
             this.lblEftsMton = new System.Windows.Forms.Label();
-            this.lblMitne = new System.Windows.Forms.Label();
+            this.lblNomMitne = new System.Windows.Forms.Label();
             this.lblPdsMitne = new System.Windows.Forms.Label();
             this.nudMitne = new System.Windows.Forms.NumericUpDown();
             this.lblEftsMitne = new System.Windows.Forms.Label();
-            this.lblGntlet = new System.Windows.Forms.Label();
+            this.lblNomGntlet = new System.Windows.Forms.Label();
             this.lblPdsGntlet = new System.Windows.Forms.Label();
             this.nudGntlet = new System.Windows.Forms.NumericUpDown();
             this.lblEftsGntlet = new System.Windows.Forms.Label();
-            this.lblGntMles = new System.Windows.Forms.Label();
+            this.lblNomGntMles = new System.Windows.Forms.Label();
             this.lblPdsGntMles = new System.Windows.Forms.Label();
             this.nudGntMles = new System.Windows.Forms.NumericUpDown();
             this.lblEftsGntMles = new System.Windows.Forms.Label();
@@ -399,6 +460,10 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblNbGants = new System.Windows.Forms.Label();
             this.lblEftGants = new System.Windows.Forms.Label();
             this.tpGenouillere = new System.Windows.Forms.TabPage();
+            this.lblPrpieteCmide = new System.Windows.Forms.Label();
+            this.lblPrpietePntlonTle = new System.Windows.Forms.Label();
+            this.lblPrpieteCuissrd = new System.Windows.Forms.Label();
+            this.lblPrpieteGenouilleres = new System.Windows.Forms.Label();
             this.lblVleurCmide = new System.Windows.Forms.Label();
             this.lblVleurPntlonTle = new System.Windows.Forms.Label();
             this.lblVleurCuissrd = new System.Windows.Forms.Label();
@@ -408,15 +473,15 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkCmide = new System.Windows.Forms.CheckBox();
             this.chkPntlonTle = new System.Windows.Forms.CheckBox();
             this.chkCuissrd = new System.Windows.Forms.CheckBox();
-            this.lblCmide = new System.Windows.Forms.Label();
+            this.lblNomCmide = new System.Windows.Forms.Label();
             this.lblPdsCmide = new System.Windows.Forms.Label();
             this.nudCmide = new System.Windows.Forms.NumericUpDown();
             this.lblEftsCmide = new System.Windows.Forms.Label();
-            this.lblPntlonTle = new System.Windows.Forms.Label();
+            this.lblNomPntlonTle = new System.Windows.Forms.Label();
             this.lblPdsPntlonTle = new System.Windows.Forms.Label();
             this.nudPntlonTle = new System.Windows.Forms.NumericUpDown();
             this.lblEftsPntlonTle = new System.Windows.Forms.Label();
-            this.lblCuissrd = new System.Windows.Forms.Label();
+            this.lblNomCuissrd = new System.Windows.Forms.Label();
             this.lblPdsCuissrd = new System.Windows.Forms.Label();
             this.nudCuissrd = new System.Windows.Forms.NumericUpDown();
             this.lblEftsCuissrd = new System.Windows.Forms.Label();
@@ -425,6 +490,9 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblNbGenouilleres = new System.Windows.Forms.Label();
             this.lblEftGenouilleres = new System.Windows.Forms.Label();
             this.tpChaussures = new System.Windows.Forms.TabPage();
+            this.lblPrpieteChssuresCuir = new System.Windows.Forms.Label();
+            this.lblPrpieteSndles = new System.Windows.Forms.Label();
+            this.lblPrpieteChaussures = new System.Windows.Forms.Label();
             this.lblDescDeuxChaussures = new System.Windows.Forms.Label();
             this.lblDescChaussures = new System.Windows.Forms.Label();
             this.lblVleurChssuresCuir = new System.Windows.Forms.Label();
@@ -432,11 +500,11 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblVleurChaussures = new System.Windows.Forms.Label();
             this.chkChssuresCuir = new System.Windows.Forms.CheckBox();
             this.chkSndles = new System.Windows.Forms.CheckBox();
-            this.lblChssuresCuir = new System.Windows.Forms.Label();
+            this.lblNomChssuresCuir = new System.Windows.Forms.Label();
             this.lblPdsChssuresCuir = new System.Windows.Forms.Label();
             this.nudChssuresCuir = new System.Windows.Forms.NumericUpDown();
             this.lblEftsChssuresCuir = new System.Windows.Forms.Label();
-            this.lblSndles = new System.Windows.Forms.Label();
+            this.lblNomSndles = new System.Windows.Forms.Label();
             this.lblPdsSndles = new System.Windows.Forms.Label();
             this.nudSndles = new System.Windows.Forms.NumericUpDown();
             this.lblEftsSndles = new System.Windows.Forms.Label();
@@ -445,6 +513,12 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblNbChssures = new System.Windows.Forms.Label();
             this.lblEftsChssures = new System.Windows.Forms.Label();
             this.tpBouclier = new System.Windows.Forms.TabPage();
+            this.lblPrpietePlta = new System.Windows.Forms.Label();
+            this.lblPrpieteBclrBze = new System.Windows.Forms.Label();
+            this.lblPrpieteBclrAmde = new System.Windows.Forms.Label();
+            this.lblPrpietePvois = new System.Windows.Forms.Label();
+            this.lblPrpieteEcu = new System.Windows.Forms.Label();
+            this.lblPrpieteBoucliers = new System.Windows.Forms.Label();
             this.lblVleurPlta = new System.Windows.Forms.Label();
             this.lblVleurBclrBze = new System.Windows.Forms.Label();
             this.lblVleurBclrAmde = new System.Windows.Forms.Label();
@@ -458,23 +532,23 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkBclrAmde = new System.Windows.Forms.CheckBox();
             this.chkPvois = new System.Windows.Forms.CheckBox();
             this.chkEcu = new System.Windows.Forms.CheckBox();
-            this.lblPlta = new System.Windows.Forms.Label();
+            this.lblNomPlta = new System.Windows.Forms.Label();
             this.lblPdsPlta = new System.Windows.Forms.Label();
             this.nudPlta = new System.Windows.Forms.NumericUpDown();
             this.lblEftsPlta = new System.Windows.Forms.Label();
-            this.lblBclrBze = new System.Windows.Forms.Label();
+            this.lblNomBclrBze = new System.Windows.Forms.Label();
             this.lblPdsBclrBze = new System.Windows.Forms.Label();
             this.nudBclrBze = new System.Windows.Forms.NumericUpDown();
             this.lblEftsBclrBze = new System.Windows.Forms.Label();
-            this.lblBclrAmde = new System.Windows.Forms.Label();
+            this.lblNomBclrAmde = new System.Windows.Forms.Label();
             this.lblPdsBclrAmde = new System.Windows.Forms.Label();
             this.nudBclrAmde = new System.Windows.Forms.NumericUpDown();
             this.lblEftsBclrAmde = new System.Windows.Forms.Label();
-            this.lblPvois = new System.Windows.Forms.Label();
+            this.lblNomPvois = new System.Windows.Forms.Label();
             this.lblPdsPvois = new System.Windows.Forms.Label();
             this.nudPvois = new System.Windows.Forms.NumericUpDown();
             this.lblEftsPvois = new System.Windows.Forms.Label();
-            this.lblEcu = new System.Windows.Forms.Label();
+            this.lblNomEcu = new System.Windows.Forms.Label();
             this.lblPdsEcu = new System.Windows.Forms.Label();
             this.nudEcu = new System.Windows.Forms.NumericUpDown();
             this.lblEftsEcu = new System.Windows.Forms.Label();
@@ -495,28 +569,28 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkCrde = new System.Windows.Forms.CheckBox();
             this.chkTrche = new System.Windows.Forms.CheckBox();
             this.lblTlleTnte = new System.Windows.Forms.Label();
-            this.lblTnte = new System.Windows.Forms.Label();
+            this.lblNomTnte = new System.Windows.Forms.Label();
             this.lblPdsTnte = new System.Windows.Forms.Label();
             this.nudTnte = new System.Windows.Forms.NumericUpDown();
             this.lblEftsTnte = new System.Windows.Forms.Label();
             this.lblTlleSc = new System.Windows.Forms.Label();
-            this.lblSc = new System.Windows.Forms.Label();
+            this.lblNomSc = new System.Windows.Forms.Label();
             this.lblPdsSc = new System.Windows.Forms.Label();
             this.nudSc = new System.Windows.Forms.NumericUpDown();
             this.lblEftsSc = new System.Windows.Forms.Label();
             this.lblTlleOte = new System.Windows.Forms.Label();
-            this.lblOte = new System.Windows.Forms.Label();
+            this.lblNomOte = new System.Windows.Forms.Label();
             this.lblPdsOte = new System.Windows.Forms.Label();
             this.nudOte = new System.Windows.Forms.NumericUpDown();
             this.lblEftsOte = new System.Windows.Forms.Label();
             this.lblTlleCrde = new System.Windows.Forms.Label();
             this.lblTlleTrche = new System.Windows.Forms.Label();
             this.lblTlleObjets = new System.Windows.Forms.Label();
-            this.lblCrde = new System.Windows.Forms.Label();
+            this.lblNomCrde = new System.Windows.Forms.Label();
             this.lblPdsCrde = new System.Windows.Forms.Label();
             this.nudCrde = new System.Windows.Forms.NumericUpDown();
             this.lblEftsCrde = new System.Windows.Forms.Label();
-            this.lblTrche = new System.Windows.Forms.Label();
+            this.lblNomTrche = new System.Windows.Forms.Label();
             this.lblPdsTrche = new System.Windows.Forms.Label();
             this.nudTrche = new System.Windows.Forms.NumericUpDown();
             this.lblEftsTrche = new System.Windows.Forms.Label();
@@ -593,80 +667,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.rchTbSorts = new System.Windows.Forms.RichTextBox();
             this.btnViderRchTbInventaires = new System.Windows.Forms.Button();
             this.btnViderRchTbSortileges = new System.Windows.Forms.Button();
-            this.lblPrpieteScrmx = new System.Windows.Forms.Label();
-            this.lblDescEpees = new System.Windows.Forms.Label();
-            this.lblPrpieteEpCrte = new System.Windows.Forms.Label();
-            this.lblPrpieteEpLge = new System.Windows.Forms.Label();
-            this.lblPprieteGlve = new System.Windows.Forms.Label();
-            this.lblPprieteLte = new System.Windows.Forms.Label();
-            this.lblPrpieteSbreCrbe = new System.Windows.Forms.Label();
-            this.lblDescLances = new System.Windows.Forms.Label();
-            this.lblPprieteCntus = new System.Windows.Forms.Label();
-            this.lblPprieteLances = new System.Windows.Forms.Label();
-            this.lblPprieteJvlot = new System.Windows.Forms.Label();
-            this.lblPprieteFrche = new System.Windows.Forms.Label();
-            this.lblPprieteSrse = new System.Windows.Forms.Label();
-            this.lblPprieteTrdnt = new System.Windows.Forms.Label();
-            this.lblVleurDgeAssin = new System.Windows.Forms.Label();
-            this.chkDgeAssin = new System.Windows.Forms.CheckBox();
-            this.lblDgeAssin = new System.Windows.Forms.Label();
-            this.lblPdsDgeAssin = new System.Windows.Forms.Label();
-            this.lblPrteDgeAssin = new System.Windows.Forms.Label();
-            this.nudDgeAssin = new System.Windows.Forms.NumericUpDown();
-            this.lblTpeDgeAssin = new System.Windows.Forms.Label();
-            this.lblDgtsDgeAssin = new System.Windows.Forms.Label();
-            this.lblPprietePoignards = new System.Windows.Forms.Label();
-            this.lblPrpieteCtau = new System.Windows.Forms.Label();
-            this.lblPrpieteDge = new System.Windows.Forms.Label();
-            this.lblPrpieteFclGure = new System.Windows.Forms.Label();
-            this.lblPrpieteDgeAssin = new System.Windows.Forms.Label();
-            this.lblDescPoignards = new System.Windows.Forms.Label();
-            this.lblPrpieteHaches = new System.Windows.Forms.Label();
-            this.lblPrpieteFrncsque = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblPrpieteArcs = new System.Windows.Forms.Label();
-            this.lblPrpieteArc = new System.Windows.Forms.Label();
-            this.lblDescArcs = new System.Windows.Forms.Label();
-            this.lblPrpieteAblte = new System.Windows.Forms.Label();
-            this.lblPrpieteFnde = new System.Windows.Forms.Label();
-            this.lblPrpieteFouet = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.lblPrpieteFaC = new System.Windows.Forms.Label();
-            this.lblPrpieteBatons = new System.Windows.Forms.Label();
-            this.lblPrpieteBtonChne = new System.Windows.Forms.Label();
-            this.lblPrpieteSctre = new System.Windows.Forms.Label();
-            this.lblPrpieteCasques = new System.Windows.Forms.Label();
-            this.lblPrpieteSpghlm = new System.Windows.Forms.Label();
-            this.lblPrpieteCfeMle = new System.Windows.Forms.Label();
-            this.lblPrpieteMrn = new System.Windows.Forms.Label();
-            this.lblPrpieteCrvlre = new System.Windows.Forms.Label();
-            this.lblPrpieteChplFr = new System.Windows.Forms.Label();
-            this.lblPrpieteCsqueBrbre = new System.Windows.Forms.Label();
-            this.lblPrpieteBuste = new System.Windows.Forms.Label();
-            this.lblPrpieteVtments = new System.Windows.Forms.Label();
-            this.lblPrpieteBrgne = new System.Windows.Forms.Label();
-            this.lblPrpieteCtphrcte = new System.Windows.Forms.Label();
-            this.lblPrpieteCrsFr = new System.Windows.Forms.Label();
-            this.lblPrpieteRbeCuir = new System.Windows.Forms.Label();
-            this.lblPrpieteCrsBze = new System.Windows.Forms.Label();
-            this.lblPrpieteGants = new System.Windows.Forms.Label();
-            this.lblPrpieteGntMles = new System.Windows.Forms.Label();
-            this.lblPrpieteGntlet = new System.Windows.Forms.Label();
-            this.lblPrpieteMitne = new System.Windows.Forms.Label();
-            this.lblPrpieteMton = new System.Windows.Forms.Label();
-            this.lblPrpieteGenouilleres = new System.Windows.Forms.Label();
-            this.lblPrpieteCuissrd = new System.Windows.Forms.Label();
-            this.lblPrpietePntlonTle = new System.Windows.Forms.Label();
-            this.lblPrpieteCmide = new System.Windows.Forms.Label();
-            this.lblPrpieteChaussures = new System.Windows.Forms.Label();
-            this.lblPrpieteSndles = new System.Windows.Forms.Label();
-            this.lblPrpieteChssuresCuir = new System.Windows.Forms.Label();
-            this.lblPrpieteBoucliers = new System.Windows.Forms.Label();
-            this.lblPrpieteEcu = new System.Windows.Forms.Label();
-            this.lblPrpietePvois = new System.Windows.Forms.Label();
-            this.lblPrpieteBclrAmde = new System.Windows.Forms.Label();
-            this.lblPrpieteBclrBze = new System.Windows.Forms.Label();
-            this.lblPrpietePlta = new System.Windows.Forms.Label();
             this.tcInventaires.SuspendLayout();
             this.tpArmes.SuspendLayout();
             this.tcArmes.SuspendLayout();
@@ -684,6 +684,7 @@ namespace maFichePersonnageJDR.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.nudJvlot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCntus)).BeginInit();
             this.tpPoignards.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDgeAssin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudFclGure)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCtau)).BeginInit();
@@ -749,7 +750,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpDivine.SuspendLayout();
             this.tpDemoniaque.SuspendLayout();
             this.tpNeutre.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDgeAssin)).BeginInit();
             this.SuspendLayout();
             // 
             // lblDgtsEpee
@@ -881,29 +881,29 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpEpee.Controls.Add(this.chkEpLge);
             this.tpEpee.Controls.Add(this.chkEpCrte);
             this.tpEpee.Controls.Add(this.chkScrmx);
-            this.tpEpee.Controls.Add(this.lblSbreCrbe);
+            this.tpEpee.Controls.Add(this.lblNomSbreCrbe);
             this.tpEpee.Controls.Add(this.lblPdsSbreCrbe);
             this.tpEpee.Controls.Add(this.lblPrteSbreCrbe);
             this.tpEpee.Controls.Add(this.lblTpeSbreCrbe);
             this.tpEpee.Controls.Add(this.lblDgtsSbreCrbe);
-            this.tpEpee.Controls.Add(this.lblLte);
+            this.tpEpee.Controls.Add(this.lblNomLte);
             this.tpEpee.Controls.Add(this.lblPdsLte);
             this.tpEpee.Controls.Add(this.lblPrteLte);
             this.tpEpee.Controls.Add(this.lblTpeLte);
             this.tpEpee.Controls.Add(this.lblDgtsLte);
-            this.tpEpee.Controls.Add(this.lblGlve);
+            this.tpEpee.Controls.Add(this.lblNomGlve);
             this.tpEpee.Controls.Add(this.lblPdsGlve);
             this.tpEpee.Controls.Add(this.lblPrteGlve);
             this.tpEpee.Controls.Add(this.nudGlve);
             this.tpEpee.Controls.Add(this.lblTpeGlve);
             this.tpEpee.Controls.Add(this.lblDgtsGlve);
-            this.tpEpee.Controls.Add(this.lblEpLge);
+            this.tpEpee.Controls.Add(this.lblNomEpLge);
             this.tpEpee.Controls.Add(this.lblPdsEpLge);
             this.tpEpee.Controls.Add(this.lblPrteEpLge);
             this.tpEpee.Controls.Add(this.nudEpLge);
             this.tpEpee.Controls.Add(this.lblTpeEpLge);
             this.tpEpee.Controls.Add(this.lblDgtsEpLge);
-            this.tpEpee.Controls.Add(this.lblEpCrte);
+            this.tpEpee.Controls.Add(this.lblNomEpCrte);
             this.tpEpee.Controls.Add(this.lblPdsEpCrte);
             this.tpEpee.Controls.Add(this.lblPrteEpCrte);
             this.tpEpee.Controls.Add(this.nudEpCrte);
@@ -928,6 +928,71 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpEpee.TabIndex = 0;
             this.tpEpee.Text = "Épées";
             this.tpEpee.UseVisualStyleBackColor = true;
+            // 
+            // lblPrpieteSbreCrbe
+            // 
+            this.lblPrpieteSbreCrbe.AutoSize = true;
+            this.lblPrpieteSbreCrbe.Location = new System.Drawing.Point(552, 174);
+            this.lblPrpieteSbreCrbe.Name = "lblPrpieteSbreCrbe";
+            this.lblPrpieteSbreCrbe.Size = new System.Drawing.Size(55, 13);
+            this.lblPrpieteSbreCrbe.TabIndex = 106;
+            this.lblPrpieteSbreCrbe.Text = "UsT, AuM";
+            // 
+            // lblPprieteLte
+            // 
+            this.lblPprieteLte.AutoSize = true;
+            this.lblPprieteLte.Location = new System.Drawing.Point(552, 146);
+            this.lblPprieteLte.Name = "lblPprieteLte";
+            this.lblPprieteLte.Size = new System.Drawing.Size(55, 13);
+            this.lblPprieteLte.TabIndex = 105;
+            this.lblPprieteLte.Text = "UsT, AuM";
+            // 
+            // lblPprieteGlve
+            // 
+            this.lblPprieteGlve.AutoSize = true;
+            this.lblPprieteGlve.Location = new System.Drawing.Point(552, 117);
+            this.lblPprieteGlve.Name = "lblPprieteGlve";
+            this.lblPprieteGlve.Size = new System.Drawing.Size(50, 13);
+            this.lblPprieteGlve.TabIndex = 104;
+            this.lblPprieteGlve.Text = "DT, AuM";
+            // 
+            // lblPrpieteEpLge
+            // 
+            this.lblPrpieteEpLge.AutoSize = true;
+            this.lblPrpieteEpLge.Location = new System.Drawing.Point(552, 86);
+            this.lblPrpieteEpLge.Name = "lblPrpieteEpLge";
+            this.lblPrpieteEpLge.Size = new System.Drawing.Size(50, 13);
+            this.lblPrpieteEpLge.TabIndex = 103;
+            this.lblPrpieteEpLge.Text = "DT, AdM";
+            // 
+            // lblPrpieteEpCrte
+            // 
+            this.lblPrpieteEpCrte.AutoSize = true;
+            this.lblPrpieteEpCrte.Location = new System.Drawing.Point(552, 56);
+            this.lblPrpieteEpCrte.Name = "lblPrpieteEpCrte";
+            this.lblPrpieteEpCrte.Size = new System.Drawing.Size(50, 13);
+            this.lblPrpieteEpCrte.TabIndex = 102;
+            this.lblPrpieteEpCrte.Text = "DT, AuM";
+            // 
+            // lblDescEpees
+            // 
+            this.lblDescEpees.AutoSize = true;
+            this.lblDescEpees.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescEpees.Location = new System.Drawing.Point(5, 218);
+            this.lblDescEpees.Name = "lblDescEpees";
+            this.lblDescEpees.Size = new System.Drawing.Size(518, 13);
+            this.lblDescEpees.TabIndex = 101;
+            this.lblDescEpees.Text = "AuM : Arme à une main; AdM : Arme à deux mains; UsT : Un seul côté tranchant, DT " +
+    ": Deux côtés tranchant";
+            // 
+            // lblPrpieteScrmx
+            // 
+            this.lblPrpieteScrmx.AutoSize = true;
+            this.lblPrpieteScrmx.Location = new System.Drawing.Point(552, 27);
+            this.lblPrpieteScrmx.Name = "lblPrpieteScrmx";
+            this.lblPrpieteScrmx.Size = new System.Drawing.Size(55, 13);
+            this.lblPrpieteScrmx.TabIndex = 100;
+            this.lblPrpieteScrmx.Text = "UsT, AuM";
             // 
             // lblVleurSbreCrbe
             // 
@@ -1035,7 +1100,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkSbreCrbe.Size = new System.Drawing.Size(15, 14);
             this.chkSbreCrbe.TabIndex = 89;
             this.chkSbreCrbe.UseVisualStyleBackColor = true;
-            this.chkSbreCrbe.Click += new System.EventHandler(this.chkSbreCrbe_Click);
+            this.chkSbreCrbe.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkLte
             // 
@@ -1045,7 +1110,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkLte.Size = new System.Drawing.Size(15, 14);
             this.chkLte.TabIndex = 88;
             this.chkLte.UseVisualStyleBackColor = true;
-            this.chkLte.Click += new System.EventHandler(this.chkLte_Click);
+            this.chkLte.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkGlve
             // 
@@ -1055,7 +1120,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkGlve.Size = new System.Drawing.Size(15, 14);
             this.chkGlve.TabIndex = 87;
             this.chkGlve.UseVisualStyleBackColor = true;
-            this.chkGlve.Click += new System.EventHandler(this.chkGlve_Click);
+            this.chkGlve.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkEpLge
             // 
@@ -1065,7 +1130,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkEpLge.Size = new System.Drawing.Size(15, 14);
             this.chkEpLge.TabIndex = 86;
             this.chkEpLge.UseVisualStyleBackColor = true;
-            this.chkEpLge.Click += new System.EventHandler(this.chkEpLge_Click);
+            this.chkEpLge.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkEpCrte
             // 
@@ -1075,7 +1140,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkEpCrte.Size = new System.Drawing.Size(15, 14);
             this.chkEpCrte.TabIndex = 85;
             this.chkEpCrte.UseVisualStyleBackColor = true;
-            this.chkEpCrte.Click += new System.EventHandler(this.chkEpCrte_Click);
+            this.chkEpCrte.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkScrmx
             // 
@@ -1085,16 +1150,16 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkScrmx.Size = new System.Drawing.Size(15, 14);
             this.chkScrmx.TabIndex = 84;
             this.chkScrmx.UseVisualStyleBackColor = true;
-            this.chkScrmx.Click += new System.EventHandler(this.chkTest_click);
+            this.chkScrmx.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
-            // lblSbreCrbe
+            // lblNomSbreCrbe
             // 
-            this.lblSbreCrbe.AutoSize = true;
-            this.lblSbreCrbe.Location = new System.Drawing.Point(34, 174);
-            this.lblSbreCrbe.Name = "lblSbreCrbe";
-            this.lblSbreCrbe.Size = new System.Drawing.Size(71, 13);
-            this.lblSbreCrbe.TabIndex = 78;
-            this.lblSbreCrbe.Text = "Sabre courbé";
+            this.lblNomSbreCrbe.AutoSize = true;
+            this.lblNomSbreCrbe.Location = new System.Drawing.Point(34, 174);
+            this.lblNomSbreCrbe.Name = "lblNomSbreCrbe";
+            this.lblNomSbreCrbe.Size = new System.Drawing.Size(71, 13);
+            this.lblNomSbreCrbe.TabIndex = 78;
+            this.lblNomSbreCrbe.Text = "Sabre courbé";
             // 
             // lblPdsSbreCrbe
             // 
@@ -1132,14 +1197,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblDgtsSbreCrbe.TabIndex = 83;
             this.lblDgtsSbreCrbe.Text = "1d8+1";
             // 
-            // lblLte
+            // lblNomLte
             // 
-            this.lblLte.AutoSize = true;
-            this.lblLte.Location = new System.Drawing.Point(34, 146);
-            this.lblLte.Name = "lblLte";
-            this.lblLte.Size = new System.Drawing.Size(31, 13);
-            this.lblLte.TabIndex = 72;
-            this.lblLte.Text = "Latte";
+            this.lblNomLte.AutoSize = true;
+            this.lblNomLte.Location = new System.Drawing.Point(34, 146);
+            this.lblNomLte.Name = "lblNomLte";
+            this.lblNomLte.Size = new System.Drawing.Size(31, 13);
+            this.lblNomLte.TabIndex = 72;
+            this.lblNomLte.Text = "Latte";
             // 
             // lblPdsLte
             // 
@@ -1177,14 +1242,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblDgtsLte.TabIndex = 77;
             this.lblDgtsLte.Text = "1d8+2";
             // 
-            // lblGlve
+            // lblNomGlve
             // 
-            this.lblGlve.AutoSize = true;
-            this.lblGlve.Location = new System.Drawing.Point(34, 117);
-            this.lblGlve.Name = "lblGlve";
-            this.lblGlve.Size = new System.Drawing.Size(37, 13);
-            this.lblGlve.TabIndex = 66;
-            this.lblGlve.Text = "Glaive";
+            this.lblNomGlve.AutoSize = true;
+            this.lblNomGlve.Location = new System.Drawing.Point(34, 117);
+            this.lblNomGlve.Name = "lblNomGlve";
+            this.lblNomGlve.Size = new System.Drawing.Size(37, 13);
+            this.lblNomGlve.TabIndex = 66;
+            this.lblNomGlve.Text = "Glaive";
             // 
             // lblPdsGlve
             // 
@@ -1235,14 +1300,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblDgtsGlve.TabIndex = 71;
             this.lblDgtsGlve.Text = "1d6+3";
             // 
-            // lblEpLge
+            // lblNomEpLge
             // 
-            this.lblEpLge.AutoSize = true;
-            this.lblEpLge.Location = new System.Drawing.Point(34, 86);
-            this.lblEpLge.Name = "lblEpLge";
-            this.lblEpLge.Size = new System.Drawing.Size(67, 13);
-            this.lblEpLge.TabIndex = 60;
-            this.lblEpLge.Text = "Épée longue";
+            this.lblNomEpLge.AutoSize = true;
+            this.lblNomEpLge.Location = new System.Drawing.Point(34, 86);
+            this.lblNomEpLge.Name = "lblNomEpLge";
+            this.lblNomEpLge.Size = new System.Drawing.Size(67, 13);
+            this.lblNomEpLge.TabIndex = 60;
+            this.lblNomEpLge.Text = "Épée longue";
             // 
             // lblPdsEpLge
             // 
@@ -1293,14 +1358,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblDgtsEpLge.TabIndex = 65;
             this.lblDgtsEpLge.Text = "2d8+2";
             // 
-            // lblEpCrte
+            // lblNomEpCrte
             // 
-            this.lblEpCrte.AutoSize = true;
-            this.lblEpCrte.Location = new System.Drawing.Point(34, 56);
-            this.lblEpCrte.Name = "lblEpCrte";
-            this.lblEpCrte.Size = new System.Drawing.Size(65, 13);
-            this.lblEpCrte.TabIndex = 54;
-            this.lblEpCrte.Text = "Épée courte";
+            this.lblNomEpCrte.AutoSize = true;
+            this.lblNomEpCrte.Location = new System.Drawing.Point(34, 56);
+            this.lblNomEpCrte.Name = "lblNomEpCrte";
+            this.lblNomEpCrte.Size = new System.Drawing.Size(65, 13);
+            this.lblNomEpCrte.TabIndex = 54;
+            this.lblNomEpCrte.Text = "Épée courte";
             // 
             // lblPdsEpCrte
             // 
@@ -1426,7 +1491,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpLances.Controls.Add(this.lblVleurCntus);
             this.tpLances.Controls.Add(this.lblVleurLance);
             this.tpLances.Controls.Add(this.chkTrdnt);
-            this.tpLances.Controls.Add(this.lblTrdnt);
+            this.tpLances.Controls.Add(this.lblNomTrdnt);
             this.tpLances.Controls.Add(this.lblPdsTrdnt);
             this.tpLances.Controls.Add(this.lblPrteTrdnt);
             this.tpLances.Controls.Add(this.nudTrdnt);
@@ -1436,25 +1501,25 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpLances.Controls.Add(this.chkFrche);
             this.tpLances.Controls.Add(this.chkJvlot);
             this.tpLances.Controls.Add(this.chkCntus);
-            this.tpLances.Controls.Add(this.lblSrse);
+            this.tpLances.Controls.Add(this.lblNomSrse);
             this.tpLances.Controls.Add(this.lblPdsSrse);
             this.tpLances.Controls.Add(this.lblPrteSrse);
             this.tpLances.Controls.Add(this.nudSrse);
             this.tpLances.Controls.Add(this.lblTpeSrse);
             this.tpLances.Controls.Add(this.lblDgtsSrse);
-            this.tpLances.Controls.Add(this.lblFrche);
+            this.tpLances.Controls.Add(this.lblNomFrche);
             this.tpLances.Controls.Add(this.lblPdsFrche);
             this.tpLances.Controls.Add(this.lblPrteFrche);
             this.tpLances.Controls.Add(this.nudFrche);
             this.tpLances.Controls.Add(this.lblTpeFrche);
             this.tpLances.Controls.Add(this.lblDgtsFrche);
-            this.tpLances.Controls.Add(this.lblJvlot);
+            this.tpLances.Controls.Add(this.lblNomJvlot);
             this.tpLances.Controls.Add(this.lblPdsJvlot);
             this.tpLances.Controls.Add(this.lblPrteJvlot);
             this.tpLances.Controls.Add(this.nudJvlot);
             this.tpLances.Controls.Add(this.lblTpeJvlot);
             this.tpLances.Controls.Add(this.lblDgtsJvlot);
-            this.tpLances.Controls.Add(this.lblCntus);
+            this.tpLances.Controls.Add(this.lblNomCntus);
             this.tpLances.Controls.Add(this.lblPdsCntus);
             this.tpLances.Controls.Add(this.lblPrteCntus);
             this.tpLances.Controls.Add(this.nudCntus);
@@ -1473,6 +1538,69 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpLances.TabIndex = 1;
             this.tpLances.Text = "Lances";
             this.tpLances.UseVisualStyleBackColor = true;
+            // 
+            // lblPprieteTrdnt
+            // 
+            this.lblPprieteTrdnt.AutoSize = true;
+            this.lblPprieteTrdnt.Location = new System.Drawing.Point(552, 147);
+            this.lblPprieteTrdnt.Name = "lblPprieteTrdnt";
+            this.lblPprieteTrdnt.Size = new System.Drawing.Size(44, 13);
+            this.lblPprieteTrdnt.TabIndex = 122;
+            this.lblPprieteTrdnt.Text = "Aucune";
+            // 
+            // lblPprieteSrse
+            // 
+            this.lblPprieteSrse.AutoSize = true;
+            this.lblPprieteSrse.Location = new System.Drawing.Point(552, 118);
+            this.lblPprieteSrse.Name = "lblPprieteSrse";
+            this.lblPprieteSrse.Size = new System.Drawing.Size(44, 13);
+            this.lblPprieteSrse.TabIndex = 121;
+            this.lblPprieteSrse.Text = "Aucune";
+            // 
+            // lblPprieteFrche
+            // 
+            this.lblPprieteFrche.AutoSize = true;
+            this.lblPprieteFrche.Location = new System.Drawing.Point(552, 90);
+            this.lblPprieteFrche.Name = "lblPprieteFrche";
+            this.lblPprieteFrche.Size = new System.Drawing.Size(44, 13);
+            this.lblPprieteFrche.TabIndex = 120;
+            this.lblPprieteFrche.Text = "Aucune";
+            // 
+            // lblPprieteJvlot
+            // 
+            this.lblPprieteJvlot.AutoSize = true;
+            this.lblPprieteJvlot.Location = new System.Drawing.Point(552, 60);
+            this.lblPprieteJvlot.Name = "lblPprieteJvlot";
+            this.lblPprieteJvlot.Size = new System.Drawing.Size(25, 13);
+            this.lblPprieteJvlot.TabIndex = 119;
+            this.lblPprieteJvlot.Text = "AdJ";
+            // 
+            // lblPprieteCntus
+            // 
+            this.lblPprieteCntus.AutoSize = true;
+            this.lblPprieteCntus.Location = new System.Drawing.Point(552, 29);
+            this.lblPprieteCntus.Name = "lblPprieteCntus";
+            this.lblPprieteCntus.Size = new System.Drawing.Size(123, 13);
+            this.lblPprieteCntus.TabIndex = 118;
+            this.lblPprieteCntus.Text = "AdCvrie, -3 déplacement";
+            // 
+            // lblPprieteLances
+            // 
+            this.lblPprieteLances.AutoSize = true;
+            this.lblPprieteLances.Location = new System.Drawing.Point(552, 3);
+            this.lblPprieteLances.Name = "lblPprieteLances";
+            this.lblPprieteLances.Size = new System.Drawing.Size(49, 13);
+            this.lblPprieteLances.TabIndex = 117;
+            this.lblPprieteLances.Text = "Propriété";
+            // 
+            // lblDescLances
+            // 
+            this.lblDescLances.AutoSize = true;
+            this.lblDescLances.Location = new System.Drawing.Point(5, 191);
+            this.lblDescLances.Name = "lblDescLances";
+            this.lblDescLances.Size = new System.Drawing.Size(224, 13);
+            this.lblDescLances.TabIndex = 116;
+            this.lblDescLances.Text = "AdCvrie : Arme de cavalerie; AdJ : Arme de jet";
             // 
             // lblVleurTrdnt
             // 
@@ -1536,16 +1664,16 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkTrdnt.Size = new System.Drawing.Size(15, 14);
             this.chkTrdnt.TabIndex = 109;
             this.chkTrdnt.UseVisualStyleBackColor = true;
-            this.chkTrdnt.Click += new System.EventHandler(this.chkTrdnt_Click);
+            this.chkTrdnt.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
-            // lblTrdnt
+            // lblNomTrdnt
             // 
-            this.lblTrdnt.AutoSize = true;
-            this.lblTrdnt.Location = new System.Drawing.Point(29, 149);
-            this.lblTrdnt.Name = "lblTrdnt";
-            this.lblTrdnt.Size = new System.Drawing.Size(40, 13);
-            this.lblTrdnt.TabIndex = 103;
-            this.lblTrdnt.Text = "Trident";
+            this.lblNomTrdnt.AutoSize = true;
+            this.lblNomTrdnt.Location = new System.Drawing.Point(29, 149);
+            this.lblNomTrdnt.Name = "lblNomTrdnt";
+            this.lblNomTrdnt.Size = new System.Drawing.Size(40, 13);
+            this.lblNomTrdnt.TabIndex = 103;
+            this.lblNomTrdnt.Text = "Trident";
             // 
             // lblPdsTrdnt
             // 
@@ -1604,7 +1732,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkSrse.Size = new System.Drawing.Size(15, 14);
             this.chkSrse.TabIndex = 102;
             this.chkSrse.UseVisualStyleBackColor = true;
-            this.chkSrse.Click += new System.EventHandler(this.chkSrse_Click);
+            this.chkSrse.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkFrche
             // 
@@ -1614,7 +1742,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkFrche.Size = new System.Drawing.Size(15, 14);
             this.chkFrche.TabIndex = 101;
             this.chkFrche.UseVisualStyleBackColor = true;
-            this.chkFrche.Click += new System.EventHandler(this.chkFrche_Click);
+            this.chkFrche.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkJvlot
             // 
@@ -1624,7 +1752,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkJvlot.Size = new System.Drawing.Size(15, 14);
             this.chkJvlot.TabIndex = 99;
             this.chkJvlot.UseVisualStyleBackColor = true;
-            this.chkJvlot.Click += new System.EventHandler(this.chkJvlot_Click);
+            this.chkJvlot.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkCntus
             // 
@@ -1634,16 +1762,16 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkCntus.Size = new System.Drawing.Size(15, 14);
             this.chkCntus.TabIndex = 97;
             this.chkCntus.UseVisualStyleBackColor = true;
-            this.chkCntus.Click += new System.EventHandler(this.chkCntus_Click);
+            this.chkCntus.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
-            // lblSrse
+            // lblNomSrse
             // 
-            this.lblSrse.AutoSize = true;
-            this.lblSrse.Location = new System.Drawing.Point(29, 118);
-            this.lblSrse.Name = "lblSrse";
-            this.lblSrse.Size = new System.Drawing.Size(41, 13);
-            this.lblSrse.TabIndex = 90;
-            this.lblSrse.Text = "Sarisse";
+            this.lblNomSrse.AutoSize = true;
+            this.lblNomSrse.Location = new System.Drawing.Point(29, 118);
+            this.lblNomSrse.Name = "lblNomSrse";
+            this.lblNomSrse.Size = new System.Drawing.Size(41, 13);
+            this.lblNomSrse.TabIndex = 90;
+            this.lblNomSrse.Text = "Sarisse";
             // 
             // lblPdsSrse
             // 
@@ -1694,14 +1822,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblDgtsSrse.TabIndex = 95;
             this.lblDgtsSrse.Text = "1d8+2";
             // 
-            // lblFrche
+            // lblNomFrche
             // 
-            this.lblFrche.AutoSize = true;
-            this.lblFrche.Location = new System.Drawing.Point(29, 91);
-            this.lblFrche.Name = "lblFrche";
-            this.lblFrche.Size = new System.Drawing.Size(46, 13);
-            this.lblFrche.TabIndex = 84;
-            this.lblFrche.Text = "Fourche";
+            this.lblNomFrche.AutoSize = true;
+            this.lblNomFrche.Location = new System.Drawing.Point(29, 91);
+            this.lblNomFrche.Name = "lblNomFrche";
+            this.lblNomFrche.Size = new System.Drawing.Size(46, 13);
+            this.lblNomFrche.TabIndex = 84;
+            this.lblNomFrche.Text = "Fourche";
             // 
             // lblPdsFrche
             // 
@@ -1752,14 +1880,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblDgtsFrche.TabIndex = 89;
             this.lblDgtsFrche.Text = "1d4";
             // 
-            // lblJvlot
+            // lblNomJvlot
             // 
-            this.lblJvlot.AutoSize = true;
-            this.lblJvlot.Location = new System.Drawing.Point(29, 60);
-            this.lblJvlot.Name = "lblJvlot";
-            this.lblJvlot.Size = new System.Drawing.Size(41, 13);
-            this.lblJvlot.TabIndex = 72;
-            this.lblJvlot.Text = "Javelot";
+            this.lblNomJvlot.AutoSize = true;
+            this.lblNomJvlot.Location = new System.Drawing.Point(29, 60);
+            this.lblNomJvlot.Name = "lblNomJvlot";
+            this.lblNomJvlot.Size = new System.Drawing.Size(41, 13);
+            this.lblNomJvlot.TabIndex = 72;
+            this.lblNomJvlot.Text = "Javelot";
             // 
             // lblPdsJvlot
             // 
@@ -1810,14 +1938,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblDgtsJvlot.TabIndex = 77;
             this.lblDgtsJvlot.Text = "1d6+2";
             // 
-            // lblCntus
+            // lblNomCntus
             // 
-            this.lblCntus.AutoSize = true;
-            this.lblCntus.Location = new System.Drawing.Point(29, 30);
-            this.lblCntus.Name = "lblCntus";
-            this.lblCntus.Size = new System.Drawing.Size(40, 13);
-            this.lblCntus.TabIndex = 60;
-            this.lblCntus.Text = "Contus";
+            this.lblNomCntus.AutoSize = true;
+            this.lblNomCntus.Location = new System.Drawing.Point(29, 30);
+            this.lblNomCntus.Name = "lblNomCntus";
+            this.lblNomCntus.Size = new System.Drawing.Size(40, 13);
+            this.lblNomCntus.TabIndex = 60;
+            this.lblNomCntus.Text = "Contus";
             // 
             // lblPdsCntus
             // 
@@ -1933,7 +2061,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpPoignards.Controls.Add(this.lblPprietePoignards);
             this.tpPoignards.Controls.Add(this.lblVleurDgeAssin);
             this.tpPoignards.Controls.Add(this.chkDgeAssin);
-            this.tpPoignards.Controls.Add(this.lblDgeAssin);
+            this.tpPoignards.Controls.Add(this.lblNomDgeAssin);
             this.tpPoignards.Controls.Add(this.lblPdsDgeAssin);
             this.tpPoignards.Controls.Add(this.lblPrteDgeAssin);
             this.tpPoignards.Controls.Add(this.nudDgeAssin);
@@ -1946,19 +2074,19 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpPoignards.Controls.Add(this.chkFclGure);
             this.tpPoignards.Controls.Add(this.chkDge);
             this.tpPoignards.Controls.Add(this.chkCtau);
-            this.tpPoignards.Controls.Add(this.lblFclGure);
+            this.tpPoignards.Controls.Add(this.lblNomFclGure);
             this.tpPoignards.Controls.Add(this.lblPdsFclGure);
             this.tpPoignards.Controls.Add(this.lblPrteFclGure);
             this.tpPoignards.Controls.Add(this.nudFclGure);
             this.tpPoignards.Controls.Add(this.lblTpeFclGure);
             this.tpPoignards.Controls.Add(this.lblDgtsFclGure);
-            this.tpPoignards.Controls.Add(this.lblDge);
+            this.tpPoignards.Controls.Add(this.lblNomDge);
             this.tpPoignards.Controls.Add(this.lblPdsDge);
             this.tpPoignards.Controls.Add(this.lblPrteDge);
             this.tpPoignards.Controls.Add(this.nudDge);
             this.tpPoignards.Controls.Add(this.lblTpeDge);
             this.tpPoignards.Controls.Add(this.lblDgtsDge);
-            this.tpPoignards.Controls.Add(this.lblCtau);
+            this.tpPoignards.Controls.Add(this.lblNomCtau);
             this.tpPoignards.Controls.Add(this.lblPdsCtau);
             this.tpPoignards.Controls.Add(this.lblPrteCtau);
             this.tpPoignards.Controls.Add(this.nudCtau);
@@ -1976,6 +2104,137 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpPoignards.TabIndex = 2;
             this.tpPoignards.Text = "Poignards";
             this.tpPoignards.UseVisualStyleBackColor = true;
+            // 
+            // lblDescPoignards
+            // 
+            this.lblDescPoignards.AutoSize = true;
+            this.lblDescPoignards.Location = new System.Drawing.Point(2, 171);
+            this.lblDescPoignards.Name = "lblDescPoignards";
+            this.lblDescPoignards.Size = new System.Drawing.Size(184, 13);
+            this.lblDescPoignards.TabIndex = 133;
+            this.lblDescPoignards.Text = "Dissim + : se dissimule plus facilement";
+            // 
+            // lblPrpieteDgeAssin
+            // 
+            this.lblPrpieteDgeAssin.AutoSize = true;
+            this.lblPrpieteDgeAssin.Location = new System.Drawing.Point(548, 97);
+            this.lblPrpieteDgeAssin.Name = "lblPrpieteDgeAssin";
+            this.lblPrpieteDgeAssin.Size = new System.Drawing.Size(46, 13);
+            this.lblPrpieteDgeAssin.TabIndex = 132;
+            this.lblPrpieteDgeAssin.Text = "Dissim +";
+            // 
+            // lblPrpieteFclGure
+            // 
+            this.lblPrpieteFclGure.AutoSize = true;
+            this.lblPrpieteFclGure.Location = new System.Drawing.Point(548, 73);
+            this.lblPrpieteFclGure.Name = "lblPrpieteFclGure";
+            this.lblPrpieteFclGure.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteFclGure.TabIndex = 131;
+            this.lblPrpieteFclGure.Text = "Aucune";
+            // 
+            // lblPrpieteDge
+            // 
+            this.lblPrpieteDge.AutoSize = true;
+            this.lblPrpieteDge.Location = new System.Drawing.Point(548, 49);
+            this.lblPrpieteDge.Name = "lblPrpieteDge";
+            this.lblPrpieteDge.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteDge.TabIndex = 130;
+            this.lblPrpieteDge.Text = "Aucune";
+            // 
+            // lblPrpieteCtau
+            // 
+            this.lblPrpieteCtau.AutoSize = true;
+            this.lblPrpieteCtau.Location = new System.Drawing.Point(548, 25);
+            this.lblPrpieteCtau.Name = "lblPrpieteCtau";
+            this.lblPrpieteCtau.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteCtau.TabIndex = 129;
+            this.lblPrpieteCtau.Text = "Aucune";
+            // 
+            // lblPprietePoignards
+            // 
+            this.lblPprietePoignards.AutoSize = true;
+            this.lblPprietePoignards.Location = new System.Drawing.Point(548, 3);
+            this.lblPprietePoignards.Name = "lblPprietePoignards";
+            this.lblPprietePoignards.Size = new System.Drawing.Size(49, 13);
+            this.lblPprietePoignards.TabIndex = 128;
+            this.lblPprietePoignards.Text = "Propriété";
+            // 
+            // lblVleurDgeAssin
+            // 
+            this.lblVleurDgeAssin.AutoSize = true;
+            this.lblVleurDgeAssin.Location = new System.Drawing.Point(443, 97);
+            this.lblVleurDgeAssin.Name = "lblVleurDgeAssin";
+            this.lblVleurDgeAssin.Size = new System.Drawing.Size(82, 13);
+            this.lblVleurDgeAssin.TabIndex = 127;
+            this.lblVleurDgeAssin.Text = "1 po, 3 pa, 5 pc";
+            // 
+            // chkDgeAssin
+            // 
+            this.chkDgeAssin.AutoSize = true;
+            this.chkDgeAssin.Location = new System.Drawing.Point(5, 97);
+            this.chkDgeAssin.Name = "chkDgeAssin";
+            this.chkDgeAssin.Size = new System.Drawing.Size(15, 14);
+            this.chkDgeAssin.TabIndex = 126;
+            this.chkDgeAssin.UseVisualStyleBackColor = true;
+            this.chkDgeAssin.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
+            // 
+            // lblNomDgeAssin
+            // 
+            this.lblNomDgeAssin.AutoSize = true;
+            this.lblNomDgeAssin.Location = new System.Drawing.Point(26, 97);
+            this.lblNomDgeAssin.Name = "lblNomDgeAssin";
+            this.lblNomDgeAssin.Size = new System.Drawing.Size(90, 13);
+            this.lblNomDgeAssin.TabIndex = 120;
+            this.lblNomDgeAssin.Text = "Dague d\'assassin";
+            // 
+            // lblPdsDgeAssin
+            // 
+            this.lblPdsDgeAssin.AutoSize = true;
+            this.lblPdsDgeAssin.Location = new System.Drawing.Point(120, 97);
+            this.lblPdsDgeAssin.Name = "lblPdsDgeAssin";
+            this.lblPdsDgeAssin.Size = new System.Drawing.Size(40, 13);
+            this.lblPdsDgeAssin.TabIndex = 121;
+            this.lblPdsDgeAssin.Text = "0.20kg";
+            // 
+            // lblPrteDgeAssin
+            // 
+            this.lblPrteDgeAssin.AutoSize = true;
+            this.lblPrteDgeAssin.Location = new System.Drawing.Point(181, 97);
+            this.lblPrteDgeAssin.Name = "lblPrteDgeAssin";
+            this.lblPrteDgeAssin.Size = new System.Drawing.Size(36, 13);
+            this.lblPrteDgeAssin.TabIndex = 122;
+            this.lblPrteDgeAssin.Text = "35 cm";
+            // 
+            // nudDgeAssin
+            // 
+            this.nudDgeAssin.Location = new System.Drawing.Point(246, 95);
+            this.nudDgeAssin.Name = "nudDgeAssin";
+            this.nudDgeAssin.Size = new System.Drawing.Size(41, 20);
+            this.nudDgeAssin.TabIndex = 123;
+            this.nudDgeAssin.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudDgeAssin.ValueChanged += new System.EventHandler(this.nudDgeAssin_ValueChanged);
+            // 
+            // lblTpeDgeAssin
+            // 
+            this.lblTpeDgeAssin.AutoSize = true;
+            this.lblTpeDgeAssin.Location = new System.Drawing.Point(314, 97);
+            this.lblTpeDgeAssin.Name = "lblTpeDgeAssin";
+            this.lblTpeDgeAssin.Size = new System.Drawing.Size(50, 13);
+            this.lblTpeDgeAssin.TabIndex = 124;
+            this.lblTpeDgeAssin.Text = "Perforant";
+            // 
+            // lblDgtsDgeAssin
+            // 
+            this.lblDgtsDgeAssin.AutoSize = true;
+            this.lblDgtsDgeAssin.Location = new System.Drawing.Point(385, 97);
+            this.lblDgtsDgeAssin.Name = "lblDgtsDgeAssin";
+            this.lblDgtsDgeAssin.Size = new System.Drawing.Size(37, 13);
+            this.lblDgtsDgeAssin.TabIndex = 125;
+            this.lblDgtsDgeAssin.Text = "1d6+1";
             // 
             // lblVleurFclGure
             // 
@@ -2021,7 +2280,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkFclGure.Size = new System.Drawing.Size(15, 14);
             this.chkFclGure.TabIndex = 99;
             this.chkFclGure.UseVisualStyleBackColor = true;
-            this.chkFclGure.Click += new System.EventHandler(this.chkFclGure_Click);
+            this.chkFclGure.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkDge
             // 
@@ -2031,7 +2290,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkDge.Size = new System.Drawing.Size(15, 14);
             this.chkDge.TabIndex = 98;
             this.chkDge.UseVisualStyleBackColor = true;
-            this.chkDge.Click += new System.EventHandler(this.chkDge_Click);
+            this.chkDge.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkCtau
             // 
@@ -2041,16 +2300,16 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkCtau.Size = new System.Drawing.Size(15, 14);
             this.chkCtau.TabIndex = 97;
             this.chkCtau.UseVisualStyleBackColor = true;
-            this.chkCtau.Click += new System.EventHandler(this.chkCtau_Click);
+            this.chkCtau.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
-            // lblFclGure
+            // lblNomFclGure
             // 
-            this.lblFclGure.AutoSize = true;
-            this.lblFclGure.Location = new System.Drawing.Point(26, 74);
-            this.lblFclGure.Name = "lblFclGure";
-            this.lblFclGure.Size = new System.Drawing.Size(91, 13);
-            this.lblFclGure.TabIndex = 30;
-            this.lblFclGure.Text = "Faucille de guerre";
+            this.lblNomFclGure.AutoSize = true;
+            this.lblNomFclGure.Location = new System.Drawing.Point(26, 74);
+            this.lblNomFclGure.Name = "lblNomFclGure";
+            this.lblNomFclGure.Size = new System.Drawing.Size(91, 13);
+            this.lblNomFclGure.TabIndex = 30;
+            this.lblNomFclGure.Text = "Faucille de guerre";
             // 
             // lblPdsFclGure
             // 
@@ -2101,14 +2360,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblDgtsFclGure.TabIndex = 35;
             this.lblDgtsFclGure.Text = "2d4+1";
             // 
-            // lblDge
+            // lblNomDge
             // 
-            this.lblDge.AutoSize = true;
-            this.lblDge.Location = new System.Drawing.Point(26, 49);
-            this.lblDge.Name = "lblDge";
-            this.lblDge.Size = new System.Drawing.Size(39, 13);
-            this.lblDge.TabIndex = 24;
-            this.lblDge.Text = "Dague";
+            this.lblNomDge.AutoSize = true;
+            this.lblNomDge.Location = new System.Drawing.Point(26, 49);
+            this.lblNomDge.Name = "lblNomDge";
+            this.lblNomDge.Size = new System.Drawing.Size(39, 13);
+            this.lblNomDge.TabIndex = 24;
+            this.lblNomDge.Text = "Dague";
             // 
             // lblPdsDge
             // 
@@ -2159,14 +2418,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblDgtsDge.TabIndex = 29;
             this.lblDgtsDge.Text = "1d4+2";
             // 
-            // lblCtau
+            // lblNomCtau
             // 
-            this.lblCtau.AutoSize = true;
-            this.lblCtau.Location = new System.Drawing.Point(26, 25);
-            this.lblCtau.Name = "lblCtau";
-            this.lblCtau.Size = new System.Drawing.Size(47, 13);
-            this.lblCtau.TabIndex = 18;
-            this.lblCtau.Text = "Couteau";
+            this.lblNomCtau.AutoSize = true;
+            this.lblNomCtau.Location = new System.Drawing.Point(26, 25);
+            this.lblNomCtau.Name = "lblNomCtau";
+            this.lblNomCtau.Size = new System.Drawing.Size(47, 13);
+            this.lblNomCtau.TabIndex = 18;
+            this.lblNomCtau.Text = "Couteau";
             // 
             // lblPdsCtau
             // 
@@ -2280,7 +2539,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpHaches.Controls.Add(this.lblVleurFrncsque);
             this.tpHaches.Controls.Add(this.lblVleurHache);
             this.tpHaches.Controls.Add(this.chkFrncsque);
-            this.tpHaches.Controls.Add(this.lblFrncsque);
+            this.tpHaches.Controls.Add(this.lblNomFrncsque);
             this.tpHaches.Controls.Add(this.lblPdsFrncsque);
             this.tpHaches.Controls.Add(this.lblPrteFrncsque);
             this.tpHaches.Controls.Add(this.nudFrncsque);
@@ -2298,6 +2557,33 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpHaches.TabIndex = 3;
             this.tpHaches.Text = "Haches";
             this.tpHaches.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(5, 85);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(87, 13);
+            this.label3.TabIndex = 131;
+            this.label3.Text = "AdJ : Arme de jet";
+            // 
+            // lblPrpieteFrncsque
+            // 
+            this.lblPrpieteFrncsque.AutoSize = true;
+            this.lblPrpieteFrncsque.Location = new System.Drawing.Point(512, 31);
+            this.lblPrpieteFrncsque.Name = "lblPrpieteFrncsque";
+            this.lblPrpieteFrncsque.Size = new System.Drawing.Size(25, 13);
+            this.lblPrpieteFrncsque.TabIndex = 130;
+            this.lblPrpieteFrncsque.Text = "AdJ";
+            // 
+            // lblPrpieteHaches
+            // 
+            this.lblPrpieteHaches.AutoSize = true;
+            this.lblPrpieteHaches.Location = new System.Drawing.Point(512, 3);
+            this.lblPrpieteHaches.Name = "lblPrpieteHaches";
+            this.lblPrpieteHaches.Size = new System.Drawing.Size(49, 13);
+            this.lblPrpieteHaches.TabIndex = 129;
+            this.lblPrpieteHaches.Text = "Propriété";
             // 
             // lblVleurFrncsque
             // 
@@ -2325,16 +2611,16 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkFrncsque.Size = new System.Drawing.Size(15, 14);
             this.chkFrncsque.TabIndex = 98;
             this.chkFrncsque.UseVisualStyleBackColor = true;
-            this.chkFrncsque.Click += new System.EventHandler(this.chkFrncsque_Click);
+            this.chkFrncsque.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
-            // lblFrncsque
+            // lblNomFrncsque
             // 
-            this.lblFrncsque.AutoSize = true;
-            this.lblFrncsque.Location = new System.Drawing.Point(28, 30);
-            this.lblFrncsque.Name = "lblFrncsque";
-            this.lblFrncsque.Size = new System.Drawing.Size(59, 13);
-            this.lblFrncsque.TabIndex = 78;
-            this.lblFrncsque.Text = "Francisque";
+            this.lblNomFrncsque.AutoSize = true;
+            this.lblNomFrncsque.Location = new System.Drawing.Point(28, 30);
+            this.lblNomFrncsque.Name = "lblNomFrncsque";
+            this.lblNomFrncsque.Size = new System.Drawing.Size(59, 13);
+            this.lblNomFrncsque.TabIndex = 78;
+            this.lblNomFrncsque.Text = "Francisque";
             // 
             // lblPdsFrncsque
             // 
@@ -2525,18 +2811,18 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpArc.Controls.Add(this.chkFnde);
             this.tpArc.Controls.Add(this.chkAblte);
             this.tpArc.Controls.Add(this.chkArc);
-            this.tpArc.Controls.Add(this.lblFnde);
+            this.tpArc.Controls.Add(this.lblNomFnde);
             this.tpArc.Controls.Add(this.lblPrteFnde);
             this.tpArc.Controls.Add(this.nudFnde);
             this.tpArc.Controls.Add(this.lblTpeFnde);
             this.tpArc.Controls.Add(this.lblDgtsFnde);
-            this.tpArc.Controls.Add(this.lblAblte);
+            this.tpArc.Controls.Add(this.lblNomAblte);
             this.tpArc.Controls.Add(this.lblPdsAblte);
             this.tpArc.Controls.Add(this.lblPrteAblte);
             this.tpArc.Controls.Add(this.nudAblte);
             this.tpArc.Controls.Add(this.lblTpeAblte);
             this.tpArc.Controls.Add(this.lblDgtsAblte);
-            this.tpArc.Controls.Add(this.lblArc);
+            this.tpArc.Controls.Add(this.lblNomArc);
             this.tpArc.Controls.Add(this.lblPdsArc);
             this.tpArc.Controls.Add(this.lblPrteArc);
             this.tpArc.Controls.Add(this.nudArc);
@@ -2554,6 +2840,52 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpArc.TabIndex = 5;
             this.tpArc.Text = "Arcs";
             this.tpArc.UseVisualStyleBackColor = true;
+            // 
+            // lblPrpieteFnde
+            // 
+            this.lblPrpieteFnde.AutoSize = true;
+            this.lblPrpieteFnde.Location = new System.Drawing.Point(571, 80);
+            this.lblPrpieteFnde.Name = "lblPrpieteFnde";
+            this.lblPrpieteFnde.Size = new System.Drawing.Size(27, 13);
+            this.lblPrpieteFnde.TabIndex = 134;
+            this.lblPrpieteFnde.Text = "AdT";
+            // 
+            // lblPrpieteAblte
+            // 
+            this.lblPrpieteAblte.AutoSize = true;
+            this.lblPrpieteAblte.Location = new System.Drawing.Point(571, 52);
+            this.lblPrpieteAblte.Name = "lblPrpieteAblte";
+            this.lblPrpieteAblte.Size = new System.Drawing.Size(27, 13);
+            this.lblPrpieteAblte.TabIndex = 133;
+            this.lblPrpieteAblte.Text = "AdT";
+            // 
+            // lblDescArcs
+            // 
+            this.lblDescArcs.AutoSize = true;
+            this.lblDescArcs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescArcs.Location = new System.Drawing.Point(8, 131);
+            this.lblDescArcs.Name = "lblDescArcs";
+            this.lblDescArcs.Size = new System.Drawing.Size(95, 13);
+            this.lblDescArcs.TabIndex = 132;
+            this.lblDescArcs.Text = "AdT : Arme de trait";
+            // 
+            // lblPrpieteArc
+            // 
+            this.lblPrpieteArc.AutoSize = true;
+            this.lblPrpieteArc.Location = new System.Drawing.Point(571, 25);
+            this.lblPrpieteArc.Name = "lblPrpieteArc";
+            this.lblPrpieteArc.Size = new System.Drawing.Size(27, 13);
+            this.lblPrpieteArc.TabIndex = 131;
+            this.lblPrpieteArc.Text = "AdT";
+            // 
+            // lblPrpieteArcs
+            // 
+            this.lblPrpieteArcs.AutoSize = true;
+            this.lblPrpieteArcs.Location = new System.Drawing.Point(571, 3);
+            this.lblPrpieteArcs.Name = "lblPrpieteArcs";
+            this.lblPrpieteArcs.Size = new System.Drawing.Size(49, 13);
+            this.lblPrpieteArcs.TabIndex = 130;
+            this.lblPrpieteArcs.Text = "Propriété";
             // 
             // lblVleurFnde
             // 
@@ -2608,7 +2940,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkFnde.Size = new System.Drawing.Size(15, 14);
             this.chkFnde.TabIndex = 68;
             this.chkFnde.UseVisualStyleBackColor = true;
-            this.chkFnde.Click += new System.EventHandler(this.chkFnde_Click);
+            this.chkFnde.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkAblte
             // 
@@ -2618,7 +2950,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkAblte.Size = new System.Drawing.Size(15, 14);
             this.chkAblte.TabIndex = 67;
             this.chkAblte.UseVisualStyleBackColor = true;
-            this.chkAblte.Click += new System.EventHandler(this.chkAblte_Click);
+            this.chkAblte.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkArc
             // 
@@ -2628,16 +2960,16 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkArc.Size = new System.Drawing.Size(15, 14);
             this.chkArc.TabIndex = 66;
             this.chkArc.UseVisualStyleBackColor = true;
-            this.chkArc.Click += new System.EventHandler(this.chkArc_Click);
+            this.chkArc.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
-            // lblFnde
+            // lblNomFnde
             // 
-            this.lblFnde.AutoSize = true;
-            this.lblFnde.Location = new System.Drawing.Point(32, 80);
-            this.lblFnde.Name = "lblFnde";
-            this.lblFnde.Size = new System.Drawing.Size(40, 13);
-            this.lblFnde.TabIndex = 60;
-            this.lblFnde.Text = "Fronde";
+            this.lblNomFnde.AutoSize = true;
+            this.lblNomFnde.Location = new System.Drawing.Point(32, 80);
+            this.lblNomFnde.Name = "lblNomFnde";
+            this.lblNomFnde.Size = new System.Drawing.Size(40, 13);
+            this.lblNomFnde.TabIndex = 60;
+            this.lblNomFnde.Text = "Fronde";
             // 
             // lblPrteFnde
             // 
@@ -2679,14 +3011,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblDgtsFnde.TabIndex = 65;
             this.lblDgtsFnde.Text = "4+munition";
             // 
-            // lblAblte
+            // lblNomAblte
             // 
-            this.lblAblte.AutoSize = true;
-            this.lblAblte.Location = new System.Drawing.Point(32, 52);
-            this.lblAblte.Name = "lblAblte";
-            this.lblAblte.Size = new System.Drawing.Size(46, 13);
-            this.lblAblte.TabIndex = 54;
-            this.lblAblte.Text = "Arbalète";
+            this.lblNomAblte.AutoSize = true;
+            this.lblNomAblte.Location = new System.Drawing.Point(32, 52);
+            this.lblNomAblte.Name = "lblNomAblte";
+            this.lblNomAblte.Size = new System.Drawing.Size(46, 13);
+            this.lblNomAblte.TabIndex = 54;
+            this.lblNomAblte.Text = "Arbalète";
             // 
             // lblPdsAblte
             // 
@@ -2737,14 +3069,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblDgtsAblte.TabIndex = 59;
             this.lblDgtsAblte.Text = "10+munition";
             // 
-            // lblArc
+            // lblNomArc
             // 
-            this.lblArc.AutoSize = true;
-            this.lblArc.Location = new System.Drawing.Point(32, 25);
-            this.lblArc.Name = "lblArc";
-            this.lblArc.Size = new System.Drawing.Size(23, 13);
-            this.lblArc.TabIndex = 36;
-            this.lblArc.Text = "Arc";
+            this.lblNomArc.AutoSize = true;
+            this.lblNomArc.Location = new System.Drawing.Point(32, 25);
+            this.lblNomArc.Name = "lblNomArc";
+            this.lblNomArc.Size = new System.Drawing.Size(23, 13);
+            this.lblNomArc.TabIndex = 36;
+            this.lblNomArc.Text = "Arc";
             // 
             // lblPdsArc
             // 
@@ -2861,13 +3193,13 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpChaînes.Controls.Add(this.lblPdsFouet);
             this.tpChaînes.Controls.Add(this.chkFaC);
             this.tpChaînes.Controls.Add(this.chkFouet);
-            this.tpChaînes.Controls.Add(this.lblFaC);
+            this.tpChaînes.Controls.Add(this.lblNomFaC);
             this.tpChaînes.Controls.Add(this.lblPdsFaC);
             this.tpChaînes.Controls.Add(this.lblPrteFaC);
             this.tpChaînes.Controls.Add(this.nudFaC);
             this.tpChaînes.Controls.Add(this.lblTpeFaC);
             this.tpChaînes.Controls.Add(this.lblDgtsFaC);
-            this.tpChaînes.Controls.Add(this.lblFouet);
+            this.tpChaînes.Controls.Add(this.lblNomFouet);
             this.tpChaînes.Controls.Add(this.lblPrteFouet);
             this.tpChaînes.Controls.Add(this.nudFouet);
             this.tpChaînes.Controls.Add(this.lblTpeFouet);
@@ -2884,6 +3216,33 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpChaînes.TabIndex = 6;
             this.tpChaînes.Text = "Chaînes";
             this.tpChaînes.UseVisualStyleBackColor = true;
+            // 
+            // lblPrpieteFaC
+            // 
+            this.lblPrpieteFaC.AutoSize = true;
+            this.lblPrpieteFaC.Location = new System.Drawing.Point(537, 48);
+            this.lblPrpieteFaC.Name = "lblPrpieteFaC";
+            this.lblPrpieteFaC.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteFaC.TabIndex = 137;
+            this.lblPrpieteFaC.Text = "Aucune";
+            // 
+            // lblPrpieteFouet
+            // 
+            this.lblPrpieteFouet.AutoSize = true;
+            this.lblPrpieteFouet.Location = new System.Drawing.Point(537, 19);
+            this.lblPrpieteFouet.Name = "lblPrpieteFouet";
+            this.lblPrpieteFouet.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteFouet.TabIndex = 136;
+            this.lblPrpieteFouet.Text = "Aucune";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(537, 3);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(49, 13);
+            this.label12.TabIndex = 135;
+            this.label12.Text = "Propriété";
             // 
             // lblVleurFaC
             // 
@@ -2929,7 +3288,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkFaC.Size = new System.Drawing.Size(15, 14);
             this.chkFaC.TabIndex = 86;
             this.chkFaC.UseVisualStyleBackColor = true;
-            this.chkFaC.Click += new System.EventHandler(this.chkFaC_Click);
+            this.chkFaC.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkFouet
             // 
@@ -2939,16 +3298,16 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkFouet.Size = new System.Drawing.Size(15, 14);
             this.chkFouet.TabIndex = 85;
             this.chkFouet.UseVisualStyleBackColor = true;
-            this.chkFouet.Click += new System.EventHandler(this.chkFouet_Click);
+            this.chkFouet.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
-            // lblFaC
+            // lblNomFaC
             // 
-            this.lblFaC.AutoSize = true;
-            this.lblFaC.Location = new System.Drawing.Point(40, 48);
-            this.lblFaC.Name = "lblFaC";
-            this.lblFaC.Size = new System.Drawing.Size(89, 13);
-            this.lblFaC.TabIndex = 54;
-            this.lblFaC.Text = "Faucille à chaîne";
+            this.lblNomFaC.AutoSize = true;
+            this.lblNomFaC.Location = new System.Drawing.Point(40, 48);
+            this.lblNomFaC.Name = "lblNomFaC";
+            this.lblNomFaC.Size = new System.Drawing.Size(89, 13);
+            this.lblNomFaC.TabIndex = 54;
+            this.lblNomFaC.Text = "Faucille à chaîne";
             // 
             // lblPdsFaC
             // 
@@ -2999,14 +3358,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblDgtsFaC.TabIndex = 59;
             this.lblDgtsFaC.Text = "1d10";
             // 
-            // lblFouet
+            // lblNomFouet
             // 
-            this.lblFouet.AutoSize = true;
-            this.lblFouet.Location = new System.Drawing.Point(40, 20);
-            this.lblFouet.Name = "lblFouet";
-            this.lblFouet.Size = new System.Drawing.Size(34, 13);
-            this.lblFouet.TabIndex = 48;
-            this.lblFouet.Text = "Fouet";
+            this.lblNomFouet.AutoSize = true;
+            this.lblNomFouet.Location = new System.Drawing.Point(40, 20);
+            this.lblNomFouet.Name = "lblNomFouet";
+            this.lblNomFouet.Size = new System.Drawing.Size(34, 13);
+            this.lblNomFouet.TabIndex = 48;
+            this.lblNomFouet.Text = "Fouet";
             // 
             // lblPrteFouet
             // 
@@ -3117,14 +3476,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpBatons.Controls.Add(this.lblPrteBton);
             this.tpBatons.Controls.Add(this.chkBtonChne);
             this.tpBatons.Controls.Add(this.lblEftsSctre);
-            this.tpBatons.Controls.Add(this.lblSctre);
+            this.tpBatons.Controls.Add(this.lblNomSctre);
             this.tpBatons.Controls.Add(this.lblPdsSctre);
             this.tpBatons.Controls.Add(this.nudSctre);
             this.tpBatons.Controls.Add(this.lblTpeSctre);
             this.tpBatons.Controls.Add(this.lblDgtsSctre);
             this.tpBatons.Controls.Add(this.lblEftsBtonChne);
             this.tpBatons.Controls.Add(this.lblEftsBton);
-            this.tpBatons.Controls.Add(this.lblBtonChne);
+            this.tpBatons.Controls.Add(this.lblNomBtonChne);
             this.tpBatons.Controls.Add(this.lblPdsBtonChne);
             this.tpBatons.Controls.Add(this.nudBtonChne);
             this.tpBatons.Controls.Add(this.lblTpeBtonChne);
@@ -3140,6 +3499,33 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpBatons.TabIndex = 7;
             this.tpBatons.Text = "Bâtons";
             this.tpBatons.UseVisualStyleBackColor = true;
+            // 
+            // lblPrpieteSctre
+            // 
+            this.lblPrpieteSctre.AutoSize = true;
+            this.lblPrpieteSctre.Location = new System.Drawing.Point(590, 59);
+            this.lblPrpieteSctre.Name = "lblPrpieteSctre";
+            this.lblPrpieteSctre.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteSctre.TabIndex = 140;
+            this.lblPrpieteSctre.Text = "Aucune";
+            // 
+            // lblPrpieteBtonChne
+            // 
+            this.lblPrpieteBtonChne.AutoSize = true;
+            this.lblPrpieteBtonChne.Location = new System.Drawing.Point(590, 30);
+            this.lblPrpieteBtonChne.Name = "lblPrpieteBtonChne";
+            this.lblPrpieteBtonChne.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteBtonChne.TabIndex = 139;
+            this.lblPrpieteBtonChne.Text = "Aucune";
+            // 
+            // lblPrpieteBatons
+            // 
+            this.lblPrpieteBatons.AutoSize = true;
+            this.lblPrpieteBatons.Location = new System.Drawing.Point(590, 3);
+            this.lblPrpieteBatons.Name = "lblPrpieteBatons";
+            this.lblPrpieteBatons.Size = new System.Drawing.Size(49, 13);
+            this.lblPrpieteBatons.TabIndex = 138;
+            this.lblPrpieteBatons.Text = "Propriété";
             // 
             // lblVleurSctre
             // 
@@ -3176,7 +3562,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkSctre.Size = new System.Drawing.Size(15, 14);
             this.chkSctre.TabIndex = 89;
             this.chkSctre.UseVisualStyleBackColor = true;
-            this.chkSctre.Click += new System.EventHandler(this.chkSctre_Click);
+            this.chkSctre.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // lblPrteSctre
             // 
@@ -3213,7 +3599,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkBtonChne.Size = new System.Drawing.Size(15, 14);
             this.chkBtonChne.TabIndex = 85;
             this.chkBtonChne.UseVisualStyleBackColor = true;
-            this.chkBtonChne.Click += new System.EventHandler(this.chkBtonChne_Click);
+            this.chkBtonChne.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // lblEftsSctre
             // 
@@ -3224,14 +3610,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblEftsSctre.TabIndex = 67;
             this.lblEftsSctre.Text = "-1 E";
             // 
-            // lblSctre
+            // lblNomSctre
             // 
-            this.lblSctre.AutoSize = true;
-            this.lblSctre.Location = new System.Drawing.Point(28, 59);
-            this.lblSctre.Name = "lblSctre";
-            this.lblSctre.Size = new System.Drawing.Size(44, 13);
-            this.lblSctre.TabIndex = 62;
-            this.lblSctre.Text = "Sceptre";
+            this.lblNomSctre.AutoSize = true;
+            this.lblNomSctre.Location = new System.Drawing.Point(28, 59);
+            this.lblNomSctre.Name = "lblNomSctre";
+            this.lblNomSctre.Size = new System.Drawing.Size(44, 13);
+            this.lblNomSctre.TabIndex = 62;
+            this.lblNomSctre.Text = "Sceptre";
             // 
             // lblPdsSctre
             // 
@@ -3291,14 +3677,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblEftsBton.TabIndex = 60;
             this.lblEftsBton.Text = "Effets";
             // 
-            // lblBtonChne
+            // lblNomBtonChne
             // 
-            this.lblBtonChne.AutoSize = true;
-            this.lblBtonChne.Location = new System.Drawing.Point(28, 30);
-            this.lblBtonChne.Name = "lblBtonChne";
-            this.lblBtonChne.Size = new System.Drawing.Size(83, 13);
-            this.lblBtonChne.TabIndex = 54;
-            this.lblBtonChne.Text = "Bâton de chêne";
+            this.lblNomBtonChne.AutoSize = true;
+            this.lblNomBtonChne.Location = new System.Drawing.Point(28, 30);
+            this.lblNomBtonChne.Name = "lblNomBtonChne";
+            this.lblNomBtonChne.Size = new System.Drawing.Size(83, 13);
+            this.lblNomBtonChne.TabIndex = 54;
+            this.lblNomBtonChne.Text = "Bâton de chêne";
             // 
             // lblPdsBtonChne
             // 
@@ -3434,27 +3820,27 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbCasque.Controls.Add(this.chkMrn);
             this.tbCasque.Controls.Add(this.chkCfeMle);
             this.tbCasque.Controls.Add(this.chkSpghlm);
-            this.tbCasque.Controls.Add(this.lblCsqueBrbre);
+            this.tbCasque.Controls.Add(this.lblNomCsqueBrbre);
             this.tbCasque.Controls.Add(this.lblPdsCsqueBrbre);
             this.tbCasque.Controls.Add(this.nudCsqueBrbre);
             this.tbCasque.Controls.Add(this.lblEftsCsqueBrbre);
-            this.tbCasque.Controls.Add(this.lblChplFr);
+            this.tbCasque.Controls.Add(this.lblNomChplFr);
             this.tbCasque.Controls.Add(this.lblPdsChplFr);
             this.tbCasque.Controls.Add(this.nudChplFr);
             this.tbCasque.Controls.Add(this.lblEftsChplFr);
-            this.tbCasque.Controls.Add(this.lblCrvlre);
+            this.tbCasque.Controls.Add(this.lblNomCrvlre);
             this.tbCasque.Controls.Add(this.lblPdsCrvlre);
             this.tbCasque.Controls.Add(this.nudCrvlre);
             this.tbCasque.Controls.Add(this.lblEftsCrvlre);
-            this.tbCasque.Controls.Add(this.lblMrn);
+            this.tbCasque.Controls.Add(this.lblNomMrn);
             this.tbCasque.Controls.Add(this.lblPdsMrn);
             this.tbCasque.Controls.Add(this.nudMrn);
             this.tbCasque.Controls.Add(this.lblEftsMrn);
-            this.tbCasque.Controls.Add(this.lblCfeMle);
+            this.tbCasque.Controls.Add(this.lblNomCfeMle);
             this.tbCasque.Controls.Add(this.lblPdsCfeMle);
             this.tbCasque.Controls.Add(this.nudCfeMle);
             this.tbCasque.Controls.Add(this.lblEftsCfeMle);
-            this.tbCasque.Controls.Add(this.lblSpghlm);
+            this.tbCasque.Controls.Add(this.lblNomSpghlm);
             this.tbCasque.Controls.Add(this.lblPdsSpghlm);
             this.tbCasque.Controls.Add(this.nudSpghlm);
             this.tbCasque.Controls.Add(this.lblEftsSpghlm);
@@ -3469,6 +3855,69 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbCasque.TabIndex = 0;
             this.tbCasque.Text = "Casques";
             this.tbCasque.UseVisualStyleBackColor = true;
+            // 
+            // lblPrpieteCsqueBrbre
+            // 
+            this.lblPrpieteCsqueBrbre.AutoSize = true;
+            this.lblPrpieteCsqueBrbre.Location = new System.Drawing.Point(516, 174);
+            this.lblPrpieteCsqueBrbre.Name = "lblPrpieteCsqueBrbre";
+            this.lblPrpieteCsqueBrbre.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteCsqueBrbre.TabIndex = 146;
+            this.lblPrpieteCsqueBrbre.Text = "Aucune";
+            // 
+            // lblPrpieteChplFr
+            // 
+            this.lblPrpieteChplFr.AutoSize = true;
+            this.lblPrpieteChplFr.Location = new System.Drawing.Point(516, 142);
+            this.lblPrpieteChplFr.Name = "lblPrpieteChplFr";
+            this.lblPrpieteChplFr.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteChplFr.TabIndex = 145;
+            this.lblPrpieteChplFr.Text = "Aucune";
+            // 
+            // lblPrpieteCrvlre
+            // 
+            this.lblPrpieteCrvlre.AutoSize = true;
+            this.lblPrpieteCrvlre.Location = new System.Drawing.Point(516, 112);
+            this.lblPrpieteCrvlre.Name = "lblPrpieteCrvlre";
+            this.lblPrpieteCrvlre.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteCrvlre.TabIndex = 144;
+            this.lblPrpieteCrvlre.Text = "Aucune";
+            // 
+            // lblPrpieteMrn
+            // 
+            this.lblPrpieteMrn.AutoSize = true;
+            this.lblPrpieteMrn.Location = new System.Drawing.Point(516, 83);
+            this.lblPrpieteMrn.Name = "lblPrpieteMrn";
+            this.lblPrpieteMrn.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteMrn.TabIndex = 143;
+            this.lblPrpieteMrn.Text = "Aucune";
+            // 
+            // lblPrpieteCfeMle
+            // 
+            this.lblPrpieteCfeMle.AutoSize = true;
+            this.lblPrpieteCfeMle.Location = new System.Drawing.Point(516, 55);
+            this.lblPrpieteCfeMle.Name = "lblPrpieteCfeMle";
+            this.lblPrpieteCfeMle.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteCfeMle.TabIndex = 142;
+            this.lblPrpieteCfeMle.Text = "Aucune";
+            // 
+            // lblPrpieteSpghlm
+            // 
+            this.lblPrpieteSpghlm.AutoSize = true;
+            this.lblPrpieteSpghlm.Location = new System.Drawing.Point(516, 26);
+            this.lblPrpieteSpghlm.Name = "lblPrpieteSpghlm";
+            this.lblPrpieteSpghlm.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteSpghlm.TabIndex = 141;
+            this.lblPrpieteSpghlm.Text = "Aucune";
+            // 
+            // lblPrpieteCasques
+            // 
+            this.lblPrpieteCasques.AutoSize = true;
+            this.lblPrpieteCasques.Location = new System.Drawing.Point(516, 3);
+            this.lblPrpieteCasques.Name = "lblPrpieteCasques";
+            this.lblPrpieteCasques.Size = new System.Drawing.Size(49, 13);
+            this.lblPrpieteCasques.TabIndex = 140;
+            this.lblPrpieteCasques.Text = "Propriété";
             // 
             // lblDescDeuxCasques
             // 
@@ -3560,7 +4009,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkCsqueBrbre.Size = new System.Drawing.Size(15, 14);
             this.chkCsqueBrbre.TabIndex = 91;
             this.chkCsqueBrbre.UseVisualStyleBackColor = true;
-            this.chkCsqueBrbre.Click += new System.EventHandler(this.chkCsqueBrbre_Click);
+            this.chkCsqueBrbre.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkChplFr
             // 
@@ -3570,7 +4019,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkChplFr.Size = new System.Drawing.Size(15, 14);
             this.chkChplFr.TabIndex = 90;
             this.chkChplFr.UseVisualStyleBackColor = true;
-            this.chkChplFr.Click += new System.EventHandler(this.chkChplFr_Click);
+            this.chkChplFr.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkCrvlre
             // 
@@ -3580,7 +4029,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkCrvlre.Size = new System.Drawing.Size(15, 14);
             this.chkCrvlre.TabIndex = 89;
             this.chkCrvlre.UseVisualStyleBackColor = true;
-            this.chkCrvlre.Click += new System.EventHandler(this.chkCrvlre_Click);
+            this.chkCrvlre.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkMrn
             // 
@@ -3590,7 +4039,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkMrn.Size = new System.Drawing.Size(15, 14);
             this.chkMrn.TabIndex = 88;
             this.chkMrn.UseVisualStyleBackColor = true;
-            this.chkMrn.Click += new System.EventHandler(this.chkMrn_Click);
+            this.chkMrn.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkCfeMle
             // 
@@ -3600,7 +4049,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkCfeMle.Size = new System.Drawing.Size(15, 14);
             this.chkCfeMle.TabIndex = 87;
             this.chkCfeMle.UseVisualStyleBackColor = true;
-            this.chkCfeMle.Click += new System.EventHandler(this.chkCfeMle_Click);
+            this.chkCfeMle.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkSpghlm
             // 
@@ -3610,16 +4059,16 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkSpghlm.Size = new System.Drawing.Size(15, 14);
             this.chkSpghlm.TabIndex = 86;
             this.chkSpghlm.UseVisualStyleBackColor = true;
-            this.chkSpghlm.Click += new System.EventHandler(this.chkSpghlm_Click);
+            this.chkSpghlm.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
-            // lblCsqueBrbre
+            // lblNomCsqueBrbre
             // 
-            this.lblCsqueBrbre.AutoSize = true;
-            this.lblCsqueBrbre.Location = new System.Drawing.Point(41, 173);
-            this.lblCsqueBrbre.Name = "lblCsqueBrbre";
-            this.lblCsqueBrbre.Size = new System.Drawing.Size(82, 13);
-            this.lblCsqueBrbre.TabIndex = 81;
-            this.lblCsqueBrbre.Text = "Casque barbare";
+            this.lblNomCsqueBrbre.AutoSize = true;
+            this.lblNomCsqueBrbre.Location = new System.Drawing.Point(41, 173);
+            this.lblNomCsqueBrbre.Name = "lblNomCsqueBrbre";
+            this.lblNomCsqueBrbre.Size = new System.Drawing.Size(82, 13);
+            this.lblNomCsqueBrbre.TabIndex = 81;
+            this.lblNomCsqueBrbre.Text = "Casque barbare";
             // 
             // lblPdsCsqueBrbre
             // 
@@ -3652,14 +4101,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblEftsCsqueBrbre.TabIndex = 84;
             this.lblEftsCsqueBrbre.Text = "P-T — +2";
             // 
-            // lblChplFr
+            // lblNomChplFr
             // 
-            this.lblChplFr.AutoSize = true;
-            this.lblChplFr.Location = new System.Drawing.Point(41, 142);
-            this.lblChplFr.Name = "lblChplFr";
-            this.lblChplFr.Size = new System.Drawing.Size(70, 13);
-            this.lblChplFr.TabIndex = 77;
-            this.lblChplFr.Text = "Chapel de fer";
+            this.lblNomChplFr.AutoSize = true;
+            this.lblNomChplFr.Location = new System.Drawing.Point(41, 142);
+            this.lblNomChplFr.Name = "lblNomChplFr";
+            this.lblNomChplFr.Size = new System.Drawing.Size(70, 13);
+            this.lblNomChplFr.TabIndex = 77;
+            this.lblNomChplFr.Text = "Chapel de fer";
             // 
             // lblPdsChplFr
             // 
@@ -3692,14 +4141,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblEftsChplFr.TabIndex = 80;
             this.lblEftsChplFr.Text = "P-AC — +2";
             // 
-            // lblCrvlre
+            // lblNomCrvlre
             // 
-            this.lblCrvlre.AutoSize = true;
-            this.lblCrvlre.Location = new System.Drawing.Point(41, 112);
-            this.lblCrvlre.Name = "lblCrvlre";
-            this.lblCrvlre.Size = new System.Drawing.Size(54, 13);
-            this.lblCrvlre.TabIndex = 73;
-            this.lblCrvlre.Text = "Cervelière";
+            this.lblNomCrvlre.AutoSize = true;
+            this.lblNomCrvlre.Location = new System.Drawing.Point(41, 112);
+            this.lblNomCrvlre.Name = "lblNomCrvlre";
+            this.lblNomCrvlre.Size = new System.Drawing.Size(54, 13);
+            this.lblNomCrvlre.TabIndex = 73;
+            this.lblNomCrvlre.Text = "Cervelière";
             // 
             // lblPdsCrvlre
             // 
@@ -3732,14 +4181,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblEftsCrvlre.TabIndex = 76;
             this.lblEftsCrvlre.Text = "P-AP — +2";
             // 
-            // lblMrn
+            // lblNomMrn
             // 
-            this.lblMrn.AutoSize = true;
-            this.lblMrn.Location = new System.Drawing.Point(41, 83);
-            this.lblMrn.Name = "lblMrn";
-            this.lblMrn.Size = new System.Drawing.Size(39, 13);
-            this.lblMrn.TabIndex = 69;
-            this.lblMrn.Text = "Morion";
+            this.lblNomMrn.AutoSize = true;
+            this.lblNomMrn.Location = new System.Drawing.Point(41, 83);
+            this.lblNomMrn.Name = "lblNomMrn";
+            this.lblNomMrn.Size = new System.Drawing.Size(39, 13);
+            this.lblNomMrn.TabIndex = 69;
+            this.lblNomMrn.Text = "Morion";
             // 
             // lblPdsMrn
             // 
@@ -3772,14 +4221,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblEftsMrn.TabIndex = 72;
             this.lblEftsMrn.Text = "P-AC, P-AP — +1";
             // 
-            // lblCfeMle
+            // lblNomCfeMle
             // 
-            this.lblCfeMle.AutoSize = true;
-            this.lblCfeMle.Location = new System.Drawing.Point(41, 55);
-            this.lblCfeMle.Name = "lblCfeMle";
-            this.lblCfeMle.Size = new System.Drawing.Size(83, 13);
-            this.lblCfeMle.TabIndex = 65;
-            this.lblCfeMle.Text = "Coiffe de mailles";
+            this.lblNomCfeMle.AutoSize = true;
+            this.lblNomCfeMle.Location = new System.Drawing.Point(41, 55);
+            this.lblNomCfeMle.Name = "lblNomCfeMle";
+            this.lblNomCfeMle.Size = new System.Drawing.Size(83, 13);
+            this.lblNomCfeMle.TabIndex = 65;
+            this.lblNomCfeMle.Text = "Coiffe de mailles";
             // 
             // lblPdsCfeMle
             // 
@@ -3812,14 +4261,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblEftsCfeMle.TabIndex = 68;
             this.lblEftsCfeMle.Text = "P-AT — +3";
             // 
-            // lblSpghlm
+            // lblNomSpghlm
             // 
-            this.lblSpghlm.AutoSize = true;
-            this.lblSpghlm.Location = new System.Drawing.Point(41, 26);
-            this.lblSpghlm.Name = "lblSpghlm";
-            this.lblSpghlm.Size = new System.Drawing.Size(72, 13);
-            this.lblSpghlm.TabIndex = 61;
-            this.lblSpghlm.Text = "Spangenhelm";
+            this.lblNomSpghlm.AutoSize = true;
+            this.lblNomSpghlm.Location = new System.Drawing.Point(41, 26);
+            this.lblNomSpghlm.Name = "lblNomSpghlm";
+            this.lblNomSpghlm.Size = new System.Drawing.Size(72, 13);
+            this.lblNomSpghlm.TabIndex = 61;
+            this.lblNomSpghlm.Text = "Spangenhelm";
             // 
             // lblPdsSpghlm
             // 
@@ -3913,27 +4362,27 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpBuste.Controls.Add(this.chkCtphrcte);
             this.tpBuste.Controls.Add(this.chkBrgne);
             this.tpBuste.Controls.Add(this.chkVtments);
-            this.tpBuste.Controls.Add(this.lblCrsBze);
+            this.tpBuste.Controls.Add(this.lblNomCrsBze);
             this.tpBuste.Controls.Add(this.lblPdsCrsBze);
             this.tpBuste.Controls.Add(this.nudCrsBze);
             this.tpBuste.Controls.Add(this.lblEftsCrsBze);
-            this.tpBuste.Controls.Add(this.lblRbeCuir);
+            this.tpBuste.Controls.Add(this.lblNomRbeCuir);
             this.tpBuste.Controls.Add(this.lblPdsRbeCuir);
             this.tpBuste.Controls.Add(this.nudRbeCuir);
             this.tpBuste.Controls.Add(this.lblEftsRbeCuir);
-            this.tpBuste.Controls.Add(this.lblCrsFr);
+            this.tpBuste.Controls.Add(this.lblNomCrsFr);
             this.tpBuste.Controls.Add(this.lblPdsCrsFr);
             this.tpBuste.Controls.Add(this.nudCrsFr);
             this.tpBuste.Controls.Add(this.lblEftsCrsFr);
-            this.tpBuste.Controls.Add(this.lblCtphrcte);
+            this.tpBuste.Controls.Add(this.lblNomCtphrcte);
             this.tpBuste.Controls.Add(this.lblPdsCtphrcte);
             this.tpBuste.Controls.Add(this.nudCtphrcte);
             this.tpBuste.Controls.Add(this.lblEftsCtphrcte);
-            this.tpBuste.Controls.Add(this.lblBrgne);
+            this.tpBuste.Controls.Add(this.lblNomBrgne);
             this.tpBuste.Controls.Add(this.lblPdsBrgne);
             this.tpBuste.Controls.Add(this.nudBrgne);
             this.tpBuste.Controls.Add(this.lblEftsBrgne);
-            this.tpBuste.Controls.Add(this.lblVtments);
+            this.tpBuste.Controls.Add(this.lblNomVtments);
             this.tpBuste.Controls.Add(this.lblPdsVtments);
             this.tpBuste.Controls.Add(this.nudVtments);
             this.tpBuste.Controls.Add(this.lblEftsVtments);
@@ -3948,6 +4397,69 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpBuste.TabIndex = 1;
             this.tpBuste.Text = "Buste";
             this.tpBuste.UseVisualStyleBackColor = true;
+            // 
+            // lblPrpieteCrsBze
+            // 
+            this.lblPrpieteCrsBze.AutoSize = true;
+            this.lblPrpieteCrsBze.Location = new System.Drawing.Point(536, 179);
+            this.lblPrpieteCrsBze.Name = "lblPrpieteCrsBze";
+            this.lblPrpieteCrsBze.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteCrsBze.TabIndex = 153;
+            this.lblPrpieteCrsBze.Text = "Aucune";
+            // 
+            // lblPrpieteRbeCuir
+            // 
+            this.lblPrpieteRbeCuir.AutoSize = true;
+            this.lblPrpieteRbeCuir.Location = new System.Drawing.Point(536, 148);
+            this.lblPrpieteRbeCuir.Name = "lblPrpieteRbeCuir";
+            this.lblPrpieteRbeCuir.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteRbeCuir.TabIndex = 152;
+            this.lblPrpieteRbeCuir.Text = "Aucune";
+            // 
+            // lblPrpieteCrsFr
+            // 
+            this.lblPrpieteCrsFr.AutoSize = true;
+            this.lblPrpieteCrsFr.Location = new System.Drawing.Point(536, 118);
+            this.lblPrpieteCrsFr.Name = "lblPrpieteCrsFr";
+            this.lblPrpieteCrsFr.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteCrsFr.TabIndex = 151;
+            this.lblPrpieteCrsFr.Text = "Aucune";
+            // 
+            // lblPrpieteCtphrcte
+            // 
+            this.lblPrpieteCtphrcte.AutoSize = true;
+            this.lblPrpieteCtphrcte.Location = new System.Drawing.Point(536, 86);
+            this.lblPrpieteCtphrcte.Name = "lblPrpieteCtphrcte";
+            this.lblPrpieteCtphrcte.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteCtphrcte.TabIndex = 150;
+            this.lblPrpieteCtphrcte.Text = "ArmCav";
+            // 
+            // lblPrpieteBrgne
+            // 
+            this.lblPrpieteBrgne.AutoSize = true;
+            this.lblPrpieteBrgne.Location = new System.Drawing.Point(536, 54);
+            this.lblPrpieteBrgne.Name = "lblPrpieteBrgne";
+            this.lblPrpieteBrgne.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteBrgne.TabIndex = 149;
+            this.lblPrpieteBrgne.Text = "Aucune";
+            // 
+            // lblPrpieteVtments
+            // 
+            this.lblPrpieteVtments.AutoSize = true;
+            this.lblPrpieteVtments.Location = new System.Drawing.Point(536, 25);
+            this.lblPrpieteVtments.Name = "lblPrpieteVtments";
+            this.lblPrpieteVtments.Size = new System.Drawing.Size(99, 13);
+            this.lblPrpieteVtments.TabIndex = 148;
+            this.lblPrpieteVtments.Text = "On est bien dedans";
+            // 
+            // lblPrpieteBuste
+            // 
+            this.lblPrpieteBuste.AutoSize = true;
+            this.lblPrpieteBuste.Location = new System.Drawing.Point(536, 3);
+            this.lblPrpieteBuste.Name = "lblPrpieteBuste";
+            this.lblPrpieteBuste.Size = new System.Drawing.Size(49, 13);
+            this.lblPrpieteBuste.TabIndex = 147;
+            this.lblPrpieteBuste.Text = "Propriété";
             // 
             // lblVleurCrsBze
             // 
@@ -4039,7 +4551,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkCrsBze.Size = new System.Drawing.Size(15, 14);
             this.chkCrsBze.TabIndex = 102;
             this.chkCrsBze.UseVisualStyleBackColor = true;
-            this.chkCrsBze.Click += new System.EventHandler(this.chkCrsBze_Click);
+            this.chkCrsBze.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkRbeCuir
             // 
@@ -4049,7 +4561,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkRbeCuir.Size = new System.Drawing.Size(15, 14);
             this.chkRbeCuir.TabIndex = 101;
             this.chkRbeCuir.UseVisualStyleBackColor = true;
-            this.chkRbeCuir.Click += new System.EventHandler(this.chkRbeCuir_Click);
+            this.chkRbeCuir.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkCrsFr
             // 
@@ -4059,7 +4571,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkCrsFr.Size = new System.Drawing.Size(15, 14);
             this.chkCrsFr.TabIndex = 100;
             this.chkCrsFr.UseVisualStyleBackColor = true;
-            this.chkCrsFr.Click += new System.EventHandler(this.chkCrsFr_Click);
+            this.chkCrsFr.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkCtphrcte
             // 
@@ -4069,7 +4581,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkCtphrcte.Size = new System.Drawing.Size(15, 14);
             this.chkCtphrcte.TabIndex = 99;
             this.chkCtphrcte.UseVisualStyleBackColor = true;
-            this.chkCtphrcte.Click += new System.EventHandler(this.chkCtphrcte_Click);
+            this.chkCtphrcte.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkBrgne
             // 
@@ -4079,7 +4591,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkBrgne.Size = new System.Drawing.Size(15, 14);
             this.chkBrgne.TabIndex = 98;
             this.chkBrgne.UseVisualStyleBackColor = true;
-            this.chkBrgne.Click += new System.EventHandler(this.chkBrgne_Click);
+            this.chkBrgne.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkVtments
             // 
@@ -4089,16 +4601,16 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkVtments.Size = new System.Drawing.Size(15, 14);
             this.chkVtments.TabIndex = 97;
             this.chkVtments.UseVisualStyleBackColor = true;
-            this.chkVtments.Click += new System.EventHandler(this.chkVtments_Click);
+            this.chkVtments.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
-            // lblCrsBze
+            // lblNomCrsBze
             // 
-            this.lblCrsBze.AutoSize = true;
-            this.lblCrsBze.Location = new System.Drawing.Point(52, 179);
-            this.lblCrsBze.Name = "lblCrsBze";
-            this.lblCrsBze.Size = new System.Drawing.Size(97, 13);
-            this.lblCrsBze.TabIndex = 93;
-            this.lblCrsBze.Text = "Cuirasse de bronze";
+            this.lblNomCrsBze.AutoSize = true;
+            this.lblNomCrsBze.Location = new System.Drawing.Point(52, 179);
+            this.lblNomCrsBze.Name = "lblNomCrsBze";
+            this.lblNomCrsBze.Size = new System.Drawing.Size(97, 13);
+            this.lblNomCrsBze.TabIndex = 93;
+            this.lblNomCrsBze.Text = "Cuirasse de bronze";
             // 
             // lblPdsCrsBze
             // 
@@ -4131,14 +4643,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblEftsCrsBze.TabIndex = 96;
             this.lblEftsCrsBze.Text = "P-T — +1";
             // 
-            // lblRbeCuir
+            // lblNomRbeCuir
             // 
-            this.lblRbeCuir.AutoSize = true;
-            this.lblRbeCuir.Location = new System.Drawing.Point(52, 148);
-            this.lblRbeCuir.Name = "lblRbeCuir";
-            this.lblRbeCuir.Size = new System.Drawing.Size(68, 13);
-            this.lblRbeCuir.TabIndex = 89;
-            this.lblRbeCuir.Text = "Robe de cuir";
+            this.lblNomRbeCuir.AutoSize = true;
+            this.lblNomRbeCuir.Location = new System.Drawing.Point(52, 148);
+            this.lblNomRbeCuir.Name = "lblNomRbeCuir";
+            this.lblNomRbeCuir.Size = new System.Drawing.Size(68, 13);
+            this.lblNomRbeCuir.TabIndex = 89;
+            this.lblNomRbeCuir.Text = "Robe de cuir";
             // 
             // lblPdsRbeCuir
             // 
@@ -4171,14 +4683,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblEftsRbeCuir.TabIndex = 92;
             this.lblEftsRbeCuir.Text = "P-AC — +1";
             // 
-            // lblCrsFr
+            // lblNomCrsFr
             // 
-            this.lblCrsFr.AutoSize = true;
-            this.lblCrsFr.Location = new System.Drawing.Point(52, 118);
-            this.lblCrsFr.Name = "lblCrsFr";
-            this.lblCrsFr.Size = new System.Drawing.Size(77, 13);
-            this.lblCrsFr.TabIndex = 85;
-            this.lblCrsFr.Text = "Cuirasse de fer";
+            this.lblNomCrsFr.AutoSize = true;
+            this.lblNomCrsFr.Location = new System.Drawing.Point(52, 118);
+            this.lblNomCrsFr.Name = "lblNomCrsFr";
+            this.lblNomCrsFr.Size = new System.Drawing.Size(77, 13);
+            this.lblNomCrsFr.TabIndex = 85;
+            this.lblNomCrsFr.Text = "Cuirasse de fer";
             // 
             // lblPdsCrsFr
             // 
@@ -4211,14 +4723,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblEftsCrsFr.TabIndex = 88;
             this.lblEftsCrsFr.Text = "P-T — +3";
             // 
-            // lblCtphrcte
+            // lblNomCtphrcte
             // 
-            this.lblCtphrcte.AutoSize = true;
-            this.lblCtphrcte.Location = new System.Drawing.Point(52, 86);
-            this.lblCtphrcte.Name = "lblCtphrcte";
-            this.lblCtphrcte.Size = new System.Drawing.Size(65, 13);
-            this.lblCtphrcte.TabIndex = 81;
-            this.lblCtphrcte.Text = "Cataphracte";
+            this.lblNomCtphrcte.AutoSize = true;
+            this.lblNomCtphrcte.Location = new System.Drawing.Point(52, 86);
+            this.lblNomCtphrcte.Name = "lblNomCtphrcte";
+            this.lblNomCtphrcte.Size = new System.Drawing.Size(65, 13);
+            this.lblNomCtphrcte.TabIndex = 81;
+            this.lblNomCtphrcte.Text = "Cataphracte";
             // 
             // lblPdsCtphrcte
             // 
@@ -4251,14 +4763,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblEftsCtphrcte.TabIndex = 84;
             this.lblEftsCtphrcte.Text = "P-T — +7";
             // 
-            // lblBrgne
+            // lblNomBrgne
             // 
-            this.lblBrgne.AutoSize = true;
-            this.lblBrgne.Location = new System.Drawing.Point(52, 55);
-            this.lblBrgne.Name = "lblBrgne";
-            this.lblBrgne.Size = new System.Drawing.Size(43, 13);
-            this.lblBrgne.TabIndex = 69;
-            this.lblBrgne.Text = "Broigne";
+            this.lblNomBrgne.AutoSize = true;
+            this.lblNomBrgne.Location = new System.Drawing.Point(52, 55);
+            this.lblNomBrgne.Name = "lblNomBrgne";
+            this.lblNomBrgne.Size = new System.Drawing.Size(43, 13);
+            this.lblNomBrgne.TabIndex = 69;
+            this.lblNomBrgne.Text = "Broigne";
             // 
             // lblPdsBrgne
             // 
@@ -4291,14 +4803,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblEftsBrgne.TabIndex = 72;
             this.lblEftsBrgne.Text = "P-AT — +6";
             // 
-            // lblVtments
+            // lblNomVtments
             // 
-            this.lblVtments.AutoSize = true;
-            this.lblVtments.Location = new System.Drawing.Point(52, 25);
-            this.lblVtments.Name = "lblVtments";
-            this.lblVtments.Size = new System.Drawing.Size(57, 13);
-            this.lblVtments.TabIndex = 57;
-            this.lblVtments.Text = "Vêtements";
+            this.lblNomVtments.AutoSize = true;
+            this.lblNomVtments.Location = new System.Drawing.Point(52, 25);
+            this.lblNomVtments.Name = "lblNomVtments";
+            this.lblNomVtments.Size = new System.Drawing.Size(57, 13);
+            this.lblNomVtments.TabIndex = 57;
+            this.lblNomVtments.Text = "Vêtements";
             // 
             // lblPdsVtments
             // 
@@ -4386,19 +4898,19 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpGants.Controls.Add(this.chkMitne);
             this.tpGants.Controls.Add(this.chkGntlet);
             this.tpGants.Controls.Add(this.chkGntMles);
-            this.tpGants.Controls.Add(this.lblMton);
+            this.tpGants.Controls.Add(this.lblNomMton);
             this.tpGants.Controls.Add(this.lblPdsMton);
             this.tpGants.Controls.Add(this.nudMton);
             this.tpGants.Controls.Add(this.lblEftsMton);
-            this.tpGants.Controls.Add(this.lblMitne);
+            this.tpGants.Controls.Add(this.lblNomMitne);
             this.tpGants.Controls.Add(this.lblPdsMitne);
             this.tpGants.Controls.Add(this.nudMitne);
             this.tpGants.Controls.Add(this.lblEftsMitne);
-            this.tpGants.Controls.Add(this.lblGntlet);
+            this.tpGants.Controls.Add(this.lblNomGntlet);
             this.tpGants.Controls.Add(this.lblPdsGntlet);
             this.tpGants.Controls.Add(this.nudGntlet);
             this.tpGants.Controls.Add(this.lblEftsGntlet);
-            this.tpGants.Controls.Add(this.lblGntMles);
+            this.tpGants.Controls.Add(this.lblNomGntMles);
             this.tpGants.Controls.Add(this.lblPdsGntMles);
             this.tpGants.Controls.Add(this.nudGntMles);
             this.tpGants.Controls.Add(this.lblEftsGntMles);
@@ -4412,6 +4924,51 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpGants.TabIndex = 2;
             this.tpGants.Text = "Gants";
             this.tpGants.UseVisualStyleBackColor = true;
+            // 
+            // lblPrpieteMton
+            // 
+            this.lblPrpieteMton.AutoSize = true;
+            this.lblPrpieteMton.Location = new System.Drawing.Point(536, 105);
+            this.lblPrpieteMton.Name = "lblPrpieteMton";
+            this.lblPrpieteMton.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteMton.TabIndex = 156;
+            this.lblPrpieteMton.Text = "Aucune";
+            // 
+            // lblPrpieteMitne
+            // 
+            this.lblPrpieteMitne.AutoSize = true;
+            this.lblPrpieteMitne.Location = new System.Drawing.Point(536, 78);
+            this.lblPrpieteMitne.Name = "lblPrpieteMitne";
+            this.lblPrpieteMitne.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteMitne.TabIndex = 155;
+            this.lblPrpieteMitne.Text = "Aucune";
+            // 
+            // lblPrpieteGntlet
+            // 
+            this.lblPrpieteGntlet.AutoSize = true;
+            this.lblPrpieteGntlet.Location = new System.Drawing.Point(536, 52);
+            this.lblPrpieteGntlet.Name = "lblPrpieteGntlet";
+            this.lblPrpieteGntlet.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteGntlet.TabIndex = 154;
+            this.lblPrpieteGntlet.Text = "Aucune";
+            // 
+            // lblPrpieteGntMles
+            // 
+            this.lblPrpieteGntMles.AutoSize = true;
+            this.lblPrpieteGntMles.Location = new System.Drawing.Point(536, 22);
+            this.lblPrpieteGntMles.Name = "lblPrpieteGntMles";
+            this.lblPrpieteGntMles.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteGntMles.TabIndex = 153;
+            this.lblPrpieteGntMles.Text = "Aucune";
+            // 
+            // lblPrpieteGants
+            // 
+            this.lblPrpieteGants.AutoSize = true;
+            this.lblPrpieteGants.Location = new System.Drawing.Point(536, 3);
+            this.lblPrpieteGants.Name = "lblPrpieteGants";
+            this.lblPrpieteGants.Size = new System.Drawing.Size(49, 13);
+            this.lblPrpieteGants.TabIndex = 152;
+            this.lblPrpieteGants.Text = "Propriété";
             // 
             // lblVleurMton
             // 
@@ -4485,7 +5042,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkMton.Size = new System.Drawing.Size(15, 14);
             this.chkMton.TabIndex = 101;
             this.chkMton.UseVisualStyleBackColor = true;
-            this.chkMton.Click += new System.EventHandler(this.chkMton_Click);
+            this.chkMton.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkMitne
             // 
@@ -4495,7 +5052,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkMitne.Size = new System.Drawing.Size(15, 14);
             this.chkMitne.TabIndex = 100;
             this.chkMitne.UseVisualStyleBackColor = true;
-            this.chkMitne.Click += new System.EventHandler(this.chkMitne_Click);
+            this.chkMitne.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkGntlet
             // 
@@ -4505,7 +5062,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkGntlet.Size = new System.Drawing.Size(15, 14);
             this.chkGntlet.TabIndex = 99;
             this.chkGntlet.UseVisualStyleBackColor = true;
-            this.chkGntlet.Click += new System.EventHandler(this.chkGntlet_Click);
+            this.chkGntlet.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkGntMles
             // 
@@ -4515,16 +5072,16 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkGntMles.Size = new System.Drawing.Size(15, 14);
             this.chkGntMles.TabIndex = 98;
             this.chkGntMles.UseVisualStyleBackColor = true;
-            this.chkGntMles.Click += new System.EventHandler(this.chkGntMles_Click);
+            this.chkGntMles.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
-            // lblMton
+            // lblNomMton
             // 
-            this.lblMton.AutoSize = true;
-            this.lblMton.Location = new System.Drawing.Point(30, 105);
-            this.lblMton.Name = "lblMton";
-            this.lblMton.Size = new System.Drawing.Size(38, 13);
-            this.lblMton.TabIndex = 89;
-            this.lblMton.Text = "Mitons";
+            this.lblNomMton.AutoSize = true;
+            this.lblNomMton.Location = new System.Drawing.Point(30, 105);
+            this.lblNomMton.Name = "lblNomMton";
+            this.lblNomMton.Size = new System.Drawing.Size(38, 13);
+            this.lblNomMton.TabIndex = 89;
+            this.lblNomMton.Text = "Mitons";
             // 
             // lblPdsMton
             // 
@@ -4557,14 +5114,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblEftsMton.TabIndex = 92;
             this.lblEftsMton.Text = "P-T — +1";
             // 
-            // lblMitne
+            // lblNomMitne
             // 
-            this.lblMitne.AutoSize = true;
-            this.lblMitne.Location = new System.Drawing.Point(30, 78);
-            this.lblMitne.Name = "lblMitne";
-            this.lblMitne.Size = new System.Drawing.Size(46, 13);
-            this.lblMitne.TabIndex = 85;
-            this.lblMitne.Text = "Mitaines";
+            this.lblNomMitne.AutoSize = true;
+            this.lblNomMitne.Location = new System.Drawing.Point(30, 78);
+            this.lblNomMitne.Name = "lblNomMitne";
+            this.lblNomMitne.Size = new System.Drawing.Size(46, 13);
+            this.lblNomMitne.TabIndex = 85;
+            this.lblNomMitne.Text = "Mitaines";
             // 
             // lblPdsMitne
             // 
@@ -4597,14 +5154,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblEftsMitne.TabIndex = 88;
             this.lblEftsMitne.Text = "P-R, +1% Adresse";
             // 
-            // lblGntlet
+            // lblNomGntlet
             // 
-            this.lblGntlet.AutoSize = true;
-            this.lblGntlet.Location = new System.Drawing.Point(30, 51);
-            this.lblGntlet.Name = "lblGntlet";
-            this.lblGntlet.Size = new System.Drawing.Size(52, 13);
-            this.lblGntlet.TabIndex = 77;
-            this.lblGntlet.Text = "Gantelets";
+            this.lblNomGntlet.AutoSize = true;
+            this.lblNomGntlet.Location = new System.Drawing.Point(30, 51);
+            this.lblNomGntlet.Name = "lblNomGntlet";
+            this.lblNomGntlet.Size = new System.Drawing.Size(52, 13);
+            this.lblNomGntlet.TabIndex = 77;
+            this.lblNomGntlet.Text = "Gantelets";
             // 
             // lblPdsGntlet
             // 
@@ -4637,14 +5194,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblEftsGntlet.TabIndex = 80;
             this.lblEftsGntlet.Text = "P-AC, P-AP — +1";
             // 
-            // lblGntMles
+            // lblNomGntMles
             // 
-            this.lblGntMles.AutoSize = true;
-            this.lblGntMles.Location = new System.Drawing.Point(30, 22);
-            this.lblGntMles.Name = "lblGntMles";
-            this.lblGntMles.Size = new System.Drawing.Size(84, 13);
-            this.lblGntMles.TabIndex = 73;
-            this.lblGntMles.Text = "Gants de mailles";
+            this.lblNomGntMles.AutoSize = true;
+            this.lblNomGntMles.Location = new System.Drawing.Point(30, 22);
+            this.lblNomGntMles.Name = "lblNomGntMles";
+            this.lblNomGntMles.Size = new System.Drawing.Size(84, 13);
+            this.lblNomGntMles.TabIndex = 73;
+            this.lblNomGntMles.Text = "Gants de mailles";
             // 
             // lblPdsGntMles
             // 
@@ -4729,15 +5286,15 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpGenouillere.Controls.Add(this.chkCmide);
             this.tpGenouillere.Controls.Add(this.chkPntlonTle);
             this.tpGenouillere.Controls.Add(this.chkCuissrd);
-            this.tpGenouillere.Controls.Add(this.lblCmide);
+            this.tpGenouillere.Controls.Add(this.lblNomCmide);
             this.tpGenouillere.Controls.Add(this.lblPdsCmide);
             this.tpGenouillere.Controls.Add(this.nudCmide);
             this.tpGenouillere.Controls.Add(this.lblEftsCmide);
-            this.tpGenouillere.Controls.Add(this.lblPntlonTle);
+            this.tpGenouillere.Controls.Add(this.lblNomPntlonTle);
             this.tpGenouillere.Controls.Add(this.lblPdsPntlonTle);
             this.tpGenouillere.Controls.Add(this.nudPntlonTle);
             this.tpGenouillere.Controls.Add(this.lblEftsPntlonTle);
-            this.tpGenouillere.Controls.Add(this.lblCuissrd);
+            this.tpGenouillere.Controls.Add(this.lblNomCuissrd);
             this.tpGenouillere.Controls.Add(this.lblPdsCuissrd);
             this.tpGenouillere.Controls.Add(this.nudCuissrd);
             this.tpGenouillere.Controls.Add(this.lblEftsCuissrd);
@@ -4751,6 +5308,42 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpGenouillere.TabIndex = 3;
             this.tpGenouillere.Text = "Genouillères";
             this.tpGenouillere.UseVisualStyleBackColor = true;
+            // 
+            // lblPrpieteCmide
+            // 
+            this.lblPrpieteCmide.AutoSize = true;
+            this.lblPrpieteCmide.Location = new System.Drawing.Point(506, 79);
+            this.lblPrpieteCmide.Name = "lblPrpieteCmide";
+            this.lblPrpieteCmide.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteCmide.TabIndex = 159;
+            this.lblPrpieteCmide.Text = "Aucune";
+            // 
+            // lblPrpietePntlonTle
+            // 
+            this.lblPrpietePntlonTle.AutoSize = true;
+            this.lblPrpietePntlonTle.Location = new System.Drawing.Point(506, 49);
+            this.lblPrpietePntlonTle.Name = "lblPrpietePntlonTle";
+            this.lblPrpietePntlonTle.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpietePntlonTle.TabIndex = 158;
+            this.lblPrpietePntlonTle.Text = "Aucune";
+            // 
+            // lblPrpieteCuissrd
+            // 
+            this.lblPrpieteCuissrd.AutoSize = true;
+            this.lblPrpieteCuissrd.Location = new System.Drawing.Point(506, 22);
+            this.lblPrpieteCuissrd.Name = "lblPrpieteCuissrd";
+            this.lblPrpieteCuissrd.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteCuissrd.TabIndex = 157;
+            this.lblPrpieteCuissrd.Text = "Aucune";
+            // 
+            // lblPrpieteGenouilleres
+            // 
+            this.lblPrpieteGenouilleres.AutoSize = true;
+            this.lblPrpieteGenouilleres.Location = new System.Drawing.Point(506, 3);
+            this.lblPrpieteGenouilleres.Name = "lblPrpieteGenouilleres";
+            this.lblPrpieteGenouilleres.Size = new System.Drawing.Size(49, 13);
+            this.lblPrpieteGenouilleres.TabIndex = 156;
+            this.lblPrpieteGenouilleres.Text = "Propriété";
             // 
             // lblVleurCmide
             // 
@@ -4815,7 +5408,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkCmide.Size = new System.Drawing.Size(15, 14);
             this.chkCmide.TabIndex = 101;
             this.chkCmide.UseVisualStyleBackColor = true;
-            this.chkCmide.Click += new System.EventHandler(this.chkCmide_Click);
+            this.chkCmide.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkPntlonTle
             // 
@@ -4825,7 +5418,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkPntlonTle.Size = new System.Drawing.Size(15, 14);
             this.chkPntlonTle.TabIndex = 100;
             this.chkPntlonTle.UseVisualStyleBackColor = true;
-            this.chkPntlonTle.Click += new System.EventHandler(this.chkPntlonTle_Click);
+            this.chkPntlonTle.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkCuissrd
             // 
@@ -4835,16 +5428,16 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkCuissrd.Size = new System.Drawing.Size(15, 14);
             this.chkCuissrd.TabIndex = 99;
             this.chkCuissrd.UseVisualStyleBackColor = true;
-            this.chkCuissrd.Click += new System.EventHandler(this.chkCuissrd_Click);
+            this.chkCuissrd.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
-            // lblCmide
+            // lblNomCmide
             // 
-            this.lblCmide.AutoSize = true;
-            this.lblCmide.Location = new System.Drawing.Point(47, 78);
-            this.lblCmide.Name = "lblCmide";
-            this.lblCmide.Size = new System.Drawing.Size(48, 13);
-            this.lblCmide.TabIndex = 89;
-            this.lblCmide.Text = "Cnémide";
+            this.lblNomCmide.AutoSize = true;
+            this.lblNomCmide.Location = new System.Drawing.Point(47, 78);
+            this.lblNomCmide.Name = "lblNomCmide";
+            this.lblNomCmide.Size = new System.Drawing.Size(48, 13);
+            this.lblNomCmide.TabIndex = 89;
+            this.lblNomCmide.Text = "Cnémide";
             // 
             // lblPdsCmide
             // 
@@ -4877,14 +5470,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblEftsCmide.TabIndex = 92;
             this.lblEftsCmide.Text = "P-T — +1";
             // 
-            // lblPntlonTle
+            // lblNomPntlonTle
             // 
-            this.lblPntlonTle.AutoSize = true;
-            this.lblPntlonTle.Location = new System.Drawing.Point(47, 49);
-            this.lblPntlonTle.Name = "lblPntlonTle";
-            this.lblPntlonTle.Size = new System.Drawing.Size(86, 13);
-            this.lblPntlonTle.TabIndex = 85;
-            this.lblPntlonTle.Text = "Pantalon de toile";
+            this.lblNomPntlonTle.AutoSize = true;
+            this.lblNomPntlonTle.Location = new System.Drawing.Point(47, 49);
+            this.lblNomPntlonTle.Name = "lblNomPntlonTle";
+            this.lblNomPntlonTle.Size = new System.Drawing.Size(86, 13);
+            this.lblNomPntlonTle.TabIndex = 85;
+            this.lblNomPntlonTle.Text = "Pantalon de toile";
             // 
             // lblPdsPntlonTle
             // 
@@ -4917,14 +5510,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblEftsPntlonTle.TabIndex = 88;
             this.lblEftsPntlonTle.Text = "P-R";
             // 
-            // lblCuissrd
+            // lblNomCuissrd
             // 
-            this.lblCuissrd.AutoSize = true;
-            this.lblCuissrd.Location = new System.Drawing.Point(47, 22);
-            this.lblCuissrd.Name = "lblCuissrd";
-            this.lblCuissrd.Size = new System.Drawing.Size(88, 13);
-            this.lblCuissrd.TabIndex = 81;
-            this.lblCuissrd.Text = "Cuissardes de fer";
+            this.lblNomCuissrd.AutoSize = true;
+            this.lblNomCuissrd.Location = new System.Drawing.Point(47, 22);
+            this.lblNomCuissrd.Name = "lblNomCuissrd";
+            this.lblNomCuissrd.Size = new System.Drawing.Size(88, 13);
+            this.lblNomCuissrd.TabIndex = 81;
+            this.lblNomCuissrd.Text = "Cuissardes de fer";
             // 
             // lblPdsCuissrd
             // 
@@ -5006,11 +5599,11 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpChaussures.Controls.Add(this.lblVleurChaussures);
             this.tpChaussures.Controls.Add(this.chkChssuresCuir);
             this.tpChaussures.Controls.Add(this.chkSndles);
-            this.tpChaussures.Controls.Add(this.lblChssuresCuir);
+            this.tpChaussures.Controls.Add(this.lblNomChssuresCuir);
             this.tpChaussures.Controls.Add(this.lblPdsChssuresCuir);
             this.tpChaussures.Controls.Add(this.nudChssuresCuir);
             this.tpChaussures.Controls.Add(this.lblEftsChssuresCuir);
-            this.tpChaussures.Controls.Add(this.lblSndles);
+            this.tpChaussures.Controls.Add(this.lblNomSndles);
             this.tpChaussures.Controls.Add(this.lblPdsSndles);
             this.tpChaussures.Controls.Add(this.nudSndles);
             this.tpChaussures.Controls.Add(this.lblEftsSndles);
@@ -5024,6 +5617,33 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpChaussures.TabIndex = 4;
             this.tpChaussures.Text = "Chaussures";
             this.tpChaussures.UseVisualStyleBackColor = true;
+            // 
+            // lblPrpieteChssuresCuir
+            // 
+            this.lblPrpieteChssuresCuir.AutoSize = true;
+            this.lblPrpieteChssuresCuir.Location = new System.Drawing.Point(464, 51);
+            this.lblPrpieteChssuresCuir.Name = "lblPrpieteChssuresCuir";
+            this.lblPrpieteChssuresCuir.Size = new System.Drawing.Size(111, 13);
+            this.lblPrpieteChssuresCuir.TabIndex = 163;
+            this.lblPrpieteChssuresCuir.Text = "On est à l\'aise dedans";
+            // 
+            // lblPrpieteSndles
+            // 
+            this.lblPrpieteSndles.AutoSize = true;
+            this.lblPrpieteSndles.Location = new System.Drawing.Point(464, 22);
+            this.lblPrpieteSndles.Name = "lblPrpieteSndles";
+            this.lblPrpieteSndles.Size = new System.Drawing.Size(216, 13);
+            this.lblPrpieteSndles.TabIndex = 162;
+            this.lblPrpieteSndles.Text = "Peuvent se casser si elles prennent un coup";
+            // 
+            // lblPrpieteChaussures
+            // 
+            this.lblPrpieteChaussures.AutoSize = true;
+            this.lblPrpieteChaussures.Location = new System.Drawing.Point(464, 3);
+            this.lblPrpieteChaussures.Name = "lblPrpieteChaussures";
+            this.lblPrpieteChaussures.Size = new System.Drawing.Size(49, 13);
+            this.lblPrpieteChaussures.TabIndex = 161;
+            this.lblPrpieteChaussures.Text = "Propriété";
             // 
             // lblDescDeuxChaussures
             // 
@@ -5079,7 +5699,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkChssuresCuir.Size = new System.Drawing.Size(15, 14);
             this.chkChssuresCuir.TabIndex = 101;
             this.chkChssuresCuir.UseVisualStyleBackColor = true;
-            this.chkChssuresCuir.Click += new System.EventHandler(this.chkChssuresCuir_Click);
+            this.chkChssuresCuir.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkSndles
             // 
@@ -5089,16 +5709,16 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkSndles.Size = new System.Drawing.Size(15, 14);
             this.chkSndles.TabIndex = 100;
             this.chkSndles.UseVisualStyleBackColor = true;
-            this.chkSndles.Click += new System.EventHandler(this.chkSndles_Click);
+            this.chkSndles.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
-            // lblChssuresCuir
+            // lblNomChssuresCuir
             // 
-            this.lblChssuresCuir.AutoSize = true;
-            this.lblChssuresCuir.Location = new System.Drawing.Point(58, 51);
-            this.lblChssuresCuir.Name = "lblChssuresCuir";
-            this.lblChssuresCuir.Size = new System.Drawing.Size(97, 13);
-            this.lblChssuresCuir.TabIndex = 93;
-            this.lblChssuresCuir.Text = "Chaussures de cuir";
+            this.lblNomChssuresCuir.AutoSize = true;
+            this.lblNomChssuresCuir.Location = new System.Drawing.Point(58, 51);
+            this.lblNomChssuresCuir.Name = "lblNomChssuresCuir";
+            this.lblNomChssuresCuir.Size = new System.Drawing.Size(97, 13);
+            this.lblNomChssuresCuir.TabIndex = 93;
+            this.lblNomChssuresCuir.Text = "Chaussures de cuir";
             // 
             // lblPdsChssuresCuir
             // 
@@ -5131,14 +5751,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblEftsChssuresCuir.TabIndex = 96;
             this.lblEftsChssuresCuir.Text = "P-R";
             // 
-            // lblSndles
+            // lblNomSndles
             // 
-            this.lblSndles.AutoSize = true;
-            this.lblSndles.Location = new System.Drawing.Point(58, 22);
-            this.lblSndles.Name = "lblSndles";
-            this.lblSndles.Size = new System.Drawing.Size(51, 13);
-            this.lblSndles.TabIndex = 89;
-            this.lblSndles.Text = "Sandales";
+            this.lblNomSndles.AutoSize = true;
+            this.lblNomSndles.Location = new System.Drawing.Point(58, 22);
+            this.lblNomSndles.Name = "lblNomSndles";
+            this.lblNomSndles.Size = new System.Drawing.Size(51, 13);
+            this.lblNomSndles.TabIndex = 89;
+            this.lblNomSndles.Text = "Sandales";
             // 
             // lblPdsSndles
             // 
@@ -5229,23 +5849,23 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpBouclier.Controls.Add(this.chkBclrAmde);
             this.tpBouclier.Controls.Add(this.chkPvois);
             this.tpBouclier.Controls.Add(this.chkEcu);
-            this.tpBouclier.Controls.Add(this.lblPlta);
+            this.tpBouclier.Controls.Add(this.lblNomPlta);
             this.tpBouclier.Controls.Add(this.lblPdsPlta);
             this.tpBouclier.Controls.Add(this.nudPlta);
             this.tpBouclier.Controls.Add(this.lblEftsPlta);
-            this.tpBouclier.Controls.Add(this.lblBclrBze);
+            this.tpBouclier.Controls.Add(this.lblNomBclrBze);
             this.tpBouclier.Controls.Add(this.lblPdsBclrBze);
             this.tpBouclier.Controls.Add(this.nudBclrBze);
             this.tpBouclier.Controls.Add(this.lblEftsBclrBze);
-            this.tpBouclier.Controls.Add(this.lblBclrAmde);
+            this.tpBouclier.Controls.Add(this.lblNomBclrAmde);
             this.tpBouclier.Controls.Add(this.lblPdsBclrAmde);
             this.tpBouclier.Controls.Add(this.nudBclrAmde);
             this.tpBouclier.Controls.Add(this.lblEftsBclrAmde);
-            this.tpBouclier.Controls.Add(this.lblPvois);
+            this.tpBouclier.Controls.Add(this.lblNomPvois);
             this.tpBouclier.Controls.Add(this.lblPdsPvois);
             this.tpBouclier.Controls.Add(this.nudPvois);
             this.tpBouclier.Controls.Add(this.lblEftsPvois);
-            this.tpBouclier.Controls.Add(this.lblEcu);
+            this.tpBouclier.Controls.Add(this.lblNomEcu);
             this.tpBouclier.Controls.Add(this.lblPdsEcu);
             this.tpBouclier.Controls.Add(this.nudEcu);
             this.tpBouclier.Controls.Add(this.lblEftsEcu);
@@ -5259,6 +5879,60 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpBouclier.TabIndex = 5;
             this.tpBouclier.Text = "Bouclier";
             this.tpBouclier.UseVisualStyleBackColor = true;
+            // 
+            // lblPrpietePlta
+            // 
+            this.lblPrpietePlta.AutoSize = true;
+            this.lblPrpietePlta.Location = new System.Drawing.Point(542, 128);
+            this.lblPrpietePlta.Name = "lblPrpietePlta";
+            this.lblPrpietePlta.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpietePlta.TabIndex = 174;
+            this.lblPrpietePlta.Text = "Aucune";
+            // 
+            // lblPrpieteBclrBze
+            // 
+            this.lblPrpieteBclrBze.AutoSize = true;
+            this.lblPrpieteBclrBze.Location = new System.Drawing.Point(542, 103);
+            this.lblPrpieteBclrBze.Name = "lblPrpieteBclrBze";
+            this.lblPrpieteBclrBze.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteBclrBze.TabIndex = 173;
+            this.lblPrpieteBclrBze.Text = "Aucune";
+            // 
+            // lblPrpieteBclrAmde
+            // 
+            this.lblPrpieteBclrAmde.AutoSize = true;
+            this.lblPrpieteBclrAmde.Location = new System.Drawing.Point(542, 76);
+            this.lblPrpieteBclrAmde.Name = "lblPrpieteBclrAmde";
+            this.lblPrpieteBclrAmde.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteBclrAmde.TabIndex = 172;
+            this.lblPrpieteBclrAmde.Text = "Aucune";
+            // 
+            // lblPrpietePvois
+            // 
+            this.lblPrpietePvois.AutoSize = true;
+            this.lblPrpietePvois.Location = new System.Drawing.Point(542, 51);
+            this.lblPrpietePvois.Name = "lblPrpietePvois";
+            this.lblPrpietePvois.Size = new System.Drawing.Size(146, 13);
+            this.lblPrpietePvois.TabIndex = 171;
+            this.lblPrpietePvois.Text = "Impossible de bouger si utilisé";
+            // 
+            // lblPrpieteEcu
+            // 
+            this.lblPrpieteEcu.AutoSize = true;
+            this.lblPrpieteEcu.Location = new System.Drawing.Point(542, 27);
+            this.lblPrpieteEcu.Name = "lblPrpieteEcu";
+            this.lblPrpieteEcu.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteEcu.TabIndex = 170;
+            this.lblPrpieteEcu.Text = "Aucune";
+            // 
+            // lblPrpieteBoucliers
+            // 
+            this.lblPrpieteBoucliers.AutoSize = true;
+            this.lblPrpieteBoucliers.Location = new System.Drawing.Point(542, 3);
+            this.lblPrpieteBoucliers.Name = "lblPrpieteBoucliers";
+            this.lblPrpieteBoucliers.Size = new System.Drawing.Size(49, 13);
+            this.lblPrpieteBoucliers.TabIndex = 169;
+            this.lblPrpieteBoucliers.Text = "Propriété";
             // 
             // lblVleurPlta
             // 
@@ -5341,7 +6015,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkPlta.Size = new System.Drawing.Size(15, 14);
             this.chkPlta.TabIndex = 109;
             this.chkPlta.UseVisualStyleBackColor = true;
-            this.chkPlta.Click += new System.EventHandler(this.chkPlta_Click);
+            this.chkPlta.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkBclrBze
             // 
@@ -5351,7 +6025,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkBclrBze.Size = new System.Drawing.Size(15, 14);
             this.chkBclrBze.TabIndex = 108;
             this.chkBclrBze.UseVisualStyleBackColor = true;
-            this.chkBclrBze.Click += new System.EventHandler(this.chkBclrBze_Click);
+            this.chkBclrBze.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkBclrAmde
             // 
@@ -5361,7 +6035,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkBclrAmde.Size = new System.Drawing.Size(15, 14);
             this.chkBclrAmde.TabIndex = 107;
             this.chkBclrAmde.UseVisualStyleBackColor = true;
-            this.chkBclrAmde.Click += new System.EventHandler(this.chkBclrAmde_Click);
+            this.chkBclrAmde.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkPvois
             // 
@@ -5371,7 +6045,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkPvois.Size = new System.Drawing.Size(15, 14);
             this.chkPvois.TabIndex = 106;
             this.chkPvois.UseVisualStyleBackColor = true;
-            this.chkPvois.Click += new System.EventHandler(this.chkPvois_Click);
+            this.chkPvois.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkEcu
             // 
@@ -5381,16 +6055,16 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkEcu.Size = new System.Drawing.Size(15, 14);
             this.chkEcu.TabIndex = 105;
             this.chkEcu.UseVisualStyleBackColor = true;
-            this.chkEcu.Click += new System.EventHandler(this.chkEcu_Click);
+            this.chkEcu.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
-            // lblPlta
+            // lblNomPlta
             // 
-            this.lblPlta.AutoSize = true;
-            this.lblPlta.Location = new System.Drawing.Point(39, 129);
-            this.lblPlta.Name = "lblPlta";
-            this.lblPlta.Size = new System.Drawing.Size(31, 13);
-            this.lblPlta.TabIndex = 101;
-            this.lblPlta.Text = "Pelta";
+            this.lblNomPlta.AutoSize = true;
+            this.lblNomPlta.Location = new System.Drawing.Point(39, 129);
+            this.lblNomPlta.Name = "lblNomPlta";
+            this.lblNomPlta.Size = new System.Drawing.Size(31, 13);
+            this.lblNomPlta.TabIndex = 101;
+            this.lblNomPlta.Text = "Pelta";
             // 
             // lblPdsPlta
             // 
@@ -5423,14 +6097,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblEftsPlta.TabIndex = 104;
             this.lblEftsPlta.Text = "Suprt — 1 dégât";
             // 
-            // lblBclrBze
+            // lblNomBclrBze
             // 
-            this.lblBclrBze.AutoSize = true;
-            this.lblBclrBze.Location = new System.Drawing.Point(39, 102);
-            this.lblBclrBze.Name = "lblBclrBze";
-            this.lblBclrBze.Size = new System.Drawing.Size(95, 13);
-            this.lblBclrBze.TabIndex = 97;
-            this.lblBclrBze.Text = "Bouclier de bronze";
+            this.lblNomBclrBze.AutoSize = true;
+            this.lblNomBclrBze.Location = new System.Drawing.Point(39, 102);
+            this.lblNomBclrBze.Name = "lblNomBclrBze";
+            this.lblNomBclrBze.Size = new System.Drawing.Size(95, 13);
+            this.lblNomBclrBze.TabIndex = 97;
+            this.lblNomBclrBze.Text = "Bouclier de bronze";
             // 
             // lblPdsBclrBze
             // 
@@ -5463,14 +6137,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblEftsBclrBze.TabIndex = 100;
             this.lblEftsBclrBze.Text = "Suprt — 4 dégâts";
             // 
-            // lblBclrAmde
+            // lblNomBclrAmde
             // 
-            this.lblBclrAmde.AutoSize = true;
-            this.lblBclrAmde.Location = new System.Drawing.Point(39, 77);
-            this.lblBclrAmde.Name = "lblBclrAmde";
-            this.lblBclrAmde.Size = new System.Drawing.Size(101, 13);
-            this.lblBclrAmde.TabIndex = 93;
-            this.lblBclrAmde.Text = "Bouclier en amande";
+            this.lblNomBclrAmde.AutoSize = true;
+            this.lblNomBclrAmde.Location = new System.Drawing.Point(39, 77);
+            this.lblNomBclrAmde.Name = "lblNomBclrAmde";
+            this.lblNomBclrAmde.Size = new System.Drawing.Size(101, 13);
+            this.lblNomBclrAmde.TabIndex = 93;
+            this.lblNomBclrAmde.Text = "Bouclier en amande";
             // 
             // lblPdsBclrAmde
             // 
@@ -5503,14 +6177,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblEftsBclrAmde.TabIndex = 96;
             this.lblEftsBclrAmde.Text = "Suprt — 5 dégâts";
             // 
-            // lblPvois
+            // lblNomPvois
             // 
-            this.lblPvois.AutoSize = true;
-            this.lblPvois.Location = new System.Drawing.Point(39, 51);
-            this.lblPvois.Name = "lblPvois";
-            this.lblPvois.Size = new System.Drawing.Size(39, 13);
-            this.lblPvois.TabIndex = 89;
-            this.lblPvois.Text = "Pavois";
+            this.lblNomPvois.AutoSize = true;
+            this.lblNomPvois.Location = new System.Drawing.Point(39, 51);
+            this.lblNomPvois.Name = "lblNomPvois";
+            this.lblNomPvois.Size = new System.Drawing.Size(39, 13);
+            this.lblNomPvois.TabIndex = 89;
+            this.lblNomPvois.Text = "Pavois";
             // 
             // lblPdsPvois
             // 
@@ -5543,14 +6217,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblEftsPvois.TabIndex = 92;
             this.lblEftsPvois.Text = "Suprt — 15 dégâts";
             // 
-            // lblEcu
+            // lblNomEcu
             // 
-            this.lblEcu.AutoSize = true;
-            this.lblEcu.Location = new System.Drawing.Point(39, 27);
-            this.lblEcu.Name = "lblEcu";
-            this.lblEcu.Size = new System.Drawing.Size(26, 13);
-            this.lblEcu.TabIndex = 85;
-            this.lblEcu.Text = "Écu";
+            this.lblNomEcu.AutoSize = true;
+            this.lblNomEcu.Location = new System.Drawing.Point(39, 27);
+            this.lblNomEcu.Name = "lblNomEcu";
+            this.lblNomEcu.Size = new System.Drawing.Size(26, 13);
+            this.lblNomEcu.TabIndex = 85;
+            this.lblNomEcu.Text = "Écu";
             // 
             // lblPdsEcu
             // 
@@ -5634,28 +6308,28 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpObjets.Controls.Add(this.chkCrde);
             this.tpObjets.Controls.Add(this.chkTrche);
             this.tpObjets.Controls.Add(this.lblTlleTnte);
-            this.tpObjets.Controls.Add(this.lblTnte);
+            this.tpObjets.Controls.Add(this.lblNomTnte);
             this.tpObjets.Controls.Add(this.lblPdsTnte);
             this.tpObjets.Controls.Add(this.nudTnte);
             this.tpObjets.Controls.Add(this.lblEftsTnte);
             this.tpObjets.Controls.Add(this.lblTlleSc);
-            this.tpObjets.Controls.Add(this.lblSc);
+            this.tpObjets.Controls.Add(this.lblNomSc);
             this.tpObjets.Controls.Add(this.lblPdsSc);
             this.tpObjets.Controls.Add(this.nudSc);
             this.tpObjets.Controls.Add(this.lblEftsSc);
             this.tpObjets.Controls.Add(this.lblTlleOte);
-            this.tpObjets.Controls.Add(this.lblOte);
+            this.tpObjets.Controls.Add(this.lblNomOte);
             this.tpObjets.Controls.Add(this.lblPdsOte);
             this.tpObjets.Controls.Add(this.nudOte);
             this.tpObjets.Controls.Add(this.lblEftsOte);
             this.tpObjets.Controls.Add(this.lblTlleCrde);
             this.tpObjets.Controls.Add(this.lblTlleTrche);
             this.tpObjets.Controls.Add(this.lblTlleObjets);
-            this.tpObjets.Controls.Add(this.lblCrde);
+            this.tpObjets.Controls.Add(this.lblNomCrde);
             this.tpObjets.Controls.Add(this.lblPdsCrde);
             this.tpObjets.Controls.Add(this.nudCrde);
             this.tpObjets.Controls.Add(this.lblEftsCrde);
-            this.tpObjets.Controls.Add(this.lblTrche);
+            this.tpObjets.Controls.Add(this.lblNomTrche);
             this.tpObjets.Controls.Add(this.lblPdsTrche);
             this.tpObjets.Controls.Add(this.nudTrche);
             this.tpObjets.Controls.Add(this.lblEftsTrche);
@@ -5732,7 +6406,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkTnte.Size = new System.Drawing.Size(15, 14);
             this.chkTnte.TabIndex = 123;
             this.chkTnte.UseVisualStyleBackColor = true;
-            this.chkTnte.Click += new System.EventHandler(this.chkTnte_Click);
+            this.chkTnte.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkSc
             // 
@@ -5742,7 +6416,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkSc.Size = new System.Drawing.Size(15, 14);
             this.chkSc.TabIndex = 122;
             this.chkSc.UseVisualStyleBackColor = true;
-            this.chkSc.Click += new System.EventHandler(this.chkSc_Click);
+            this.chkSc.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkOte
             // 
@@ -5752,7 +6426,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkOte.Size = new System.Drawing.Size(15, 14);
             this.chkOte.TabIndex = 121;
             this.chkOte.UseVisualStyleBackColor = true;
-            this.chkOte.Click += new System.EventHandler(this.chkOte_Click);
+            this.chkOte.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkCrde
             // 
@@ -5762,7 +6436,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkCrde.Size = new System.Drawing.Size(15, 14);
             this.chkCrde.TabIndex = 120;
             this.chkCrde.UseVisualStyleBackColor = true;
-            this.chkCrde.Click += new System.EventHandler(this.chkCrde_Click);
+            this.chkCrde.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // chkTrche
             // 
@@ -5772,7 +6446,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkTrche.Size = new System.Drawing.Size(15, 14);
             this.chkTrche.TabIndex = 119;
             this.chkTrche.UseVisualStyleBackColor = true;
-            this.chkTrche.Click += new System.EventHandler(this.chkTrche_Click);
+            this.chkTrche.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
             // 
             // lblTlleTnte
             // 
@@ -5783,14 +6457,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblTlleTnte.TabIndex = 118;
             this.lblTlleTnte.Text = "5 m";
             // 
-            // lblTnte
+            // lblNomTnte
             // 
-            this.lblTnte.AutoSize = true;
-            this.lblTnte.Location = new System.Drawing.Point(27, 139);
-            this.lblTnte.Name = "lblTnte";
-            this.lblTnte.Size = new System.Drawing.Size(35, 13);
-            this.lblTnte.TabIndex = 114;
-            this.lblTnte.Text = "Tente";
+            this.lblNomTnte.AutoSize = true;
+            this.lblNomTnte.Location = new System.Drawing.Point(27, 139);
+            this.lblNomTnte.Name = "lblNomTnte";
+            this.lblNomTnte.Size = new System.Drawing.Size(35, 13);
+            this.lblNomTnte.TabIndex = 114;
+            this.lblNomTnte.Text = "Tente";
             // 
             // lblPdsTnte
             // 
@@ -5832,14 +6506,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblTlleSc.TabIndex = 113;
             this.lblTlleSc.Text = "50 cm";
             // 
-            // lblSc
+            // lblNomSc
             // 
-            this.lblSc.AutoSize = true;
-            this.lblSc.Location = new System.Drawing.Point(27, 108);
-            this.lblSc.Name = "lblSc";
-            this.lblSc.Size = new System.Drawing.Size(26, 13);
-            this.lblSc.TabIndex = 109;
-            this.lblSc.Text = "Sac";
+            this.lblNomSc.AutoSize = true;
+            this.lblNomSc.Location = new System.Drawing.Point(27, 108);
+            this.lblNomSc.Name = "lblNomSc";
+            this.lblNomSc.Size = new System.Drawing.Size(26, 13);
+            this.lblNomSc.TabIndex = 109;
+            this.lblNomSc.Text = "Sac";
             // 
             // lblPdsSc
             // 
@@ -5881,14 +6555,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblTlleOte.TabIndex = 108;
             this.lblTlleOte.Text = "20 cm";
             // 
-            // lblOte
+            // lblNomOte
             // 
-            this.lblOte.AutoSize = true;
-            this.lblOte.Location = new System.Drawing.Point(27, 78);
-            this.lblOte.Name = "lblOte";
-            this.lblOte.Size = new System.Drawing.Size(33, 13);
-            this.lblOte.TabIndex = 104;
-            this.lblOte.Text = "Outre";
+            this.lblNomOte.AutoSize = true;
+            this.lblNomOte.Location = new System.Drawing.Point(27, 78);
+            this.lblNomOte.Name = "lblNomOte";
+            this.lblNomOte.Size = new System.Drawing.Size(33, 13);
+            this.lblNomOte.TabIndex = 104;
+            this.lblNomOte.Text = "Outre";
             // 
             // lblPdsOte
             // 
@@ -5948,14 +6622,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblTlleObjets.TabIndex = 101;
             this.lblTlleObjets.Text = "Taille";
             // 
-            // lblCrde
+            // lblNomCrde
             // 
-            this.lblCrde.AutoSize = true;
-            this.lblCrde.Location = new System.Drawing.Point(27, 49);
-            this.lblCrde.Name = "lblCrde";
-            this.lblCrde.Size = new System.Drawing.Size(35, 13);
-            this.lblCrde.TabIndex = 97;
-            this.lblCrde.Text = "Corde";
+            this.lblNomCrde.AutoSize = true;
+            this.lblNomCrde.Location = new System.Drawing.Point(27, 49);
+            this.lblNomCrde.Name = "lblNomCrde";
+            this.lblNomCrde.Size = new System.Drawing.Size(35, 13);
+            this.lblNomCrde.TabIndex = 97;
+            this.lblNomCrde.Text = "Corde";
             // 
             // lblPdsCrde
             // 
@@ -5988,14 +6662,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblEftsCrde.TabIndex = 100;
             this.lblEftsCrde.Text = "Permet de descendre ou monter";
             // 
-            // lblTrche
+            // lblNomTrche
             // 
-            this.lblTrche.AutoSize = true;
-            this.lblTrche.Location = new System.Drawing.Point(27, 22);
-            this.lblTrche.Name = "lblTrche";
-            this.lblTrche.Size = new System.Drawing.Size(41, 13);
-            this.lblTrche.TabIndex = 93;
-            this.lblTrche.Text = "Torche";
+            this.lblNomTrche.AutoSize = true;
+            this.lblNomTrche.Location = new System.Drawing.Point(27, 22);
+            this.lblNomTrche.Name = "lblNomTrche";
+            this.lblNomTrche.Size = new System.Drawing.Size(41, 13);
+            this.lblNomTrche.TabIndex = 93;
+            this.lblNomTrche.Text = "Torche";
             // 
             // lblPdsTrche
             // 
@@ -6096,7 +6770,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpAqua.Location = new System.Drawing.Point(4, 22);
             this.tpAqua.Name = "tpAqua";
             this.tpAqua.Padding = new System.Windows.Forms.Padding(3);
-            this.tpAqua.Size = new System.Drawing.Size(408, 173);
+            this.tpAqua.Size = new System.Drawing.Size(604, 163);
             this.tpAqua.TabIndex = 0;
             this.tpAqua.Text = "M. Aquatique";
             this.tpAqua.UseVisualStyleBackColor = true;
@@ -6137,7 +6811,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpIgnis.Location = new System.Drawing.Point(4, 22);
             this.tpIgnis.Name = "tpIgnis";
             this.tpIgnis.Padding = new System.Windows.Forms.Padding(3);
-            this.tpIgnis.Size = new System.Drawing.Size(408, 173);
+            this.tpIgnis.Size = new System.Drawing.Size(604, 163);
             this.tpIgnis.TabIndex = 1;
             this.tpIgnis.Text = "M.Ignis";
             this.tpIgnis.UseVisualStyleBackColor = true;
@@ -6177,7 +6851,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpCeleste.Controls.Add(this.lblNomMCeleste);
             this.tpCeleste.Location = new System.Drawing.Point(4, 22);
             this.tpCeleste.Name = "tpCeleste";
-            this.tpCeleste.Size = new System.Drawing.Size(408, 173);
+            this.tpCeleste.Size = new System.Drawing.Size(604, 163);
             this.tpCeleste.TabIndex = 2;
             this.tpCeleste.Text = "M.Céleste";
             this.tpCeleste.UseVisualStyleBackColor = true;
@@ -6217,7 +6891,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpTerrestre.Controls.Add(this.lblNomMTerrestre);
             this.tpTerrestre.Location = new System.Drawing.Point(4, 22);
             this.tpTerrestre.Name = "tpTerrestre";
-            this.tpTerrestre.Size = new System.Drawing.Size(408, 173);
+            this.tpTerrestre.Size = new System.Drawing.Size(604, 163);
             this.tpTerrestre.TabIndex = 3;
             this.tpTerrestre.Text = "M.Terrestre";
             this.tpTerrestre.UseVisualStyleBackColor = true;
@@ -6265,7 +6939,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpNature.Controls.Add(this.lblNomMNature);
             this.tpNature.Location = new System.Drawing.Point(4, 22);
             this.tpNature.Name = "tpNature";
-            this.tpNature.Size = new System.Drawing.Size(408, 173);
+            this.tpNature.Size = new System.Drawing.Size(604, 163);
             this.tpNature.TabIndex = 4;
             this.tpNature.Text = "M.Nature";
             this.tpNature.UseVisualStyleBackColor = true;
@@ -6389,7 +7063,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpDivine.Controls.Add(this.lblNomMDivine);
             this.tpDivine.Location = new System.Drawing.Point(4, 22);
             this.tpDivine.Name = "tpDivine";
-            this.tpDivine.Size = new System.Drawing.Size(408, 173);
+            this.tpDivine.Size = new System.Drawing.Size(604, 163);
             this.tpDivine.TabIndex = 5;
             this.tpDivine.Text = "M.Divine";
             this.tpDivine.UseVisualStyleBackColor = true;
@@ -6513,7 +7187,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpDemoniaque.Controls.Add(this.lblNomMDemoniaque);
             this.tpDemoniaque.Location = new System.Drawing.Point(4, 22);
             this.tpDemoniaque.Name = "tpDemoniaque";
-            this.tpDemoniaque.Size = new System.Drawing.Size(408, 173);
+            this.tpDemoniaque.Size = new System.Drawing.Size(604, 163);
             this.tpDemoniaque.TabIndex = 6;
             this.tpDemoniaque.Text = "M.Démoniaque";
             this.tpDemoniaque.UseVisualStyleBackColor = true;
@@ -6756,7 +7430,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // btnViderRchTbInventaires
             // 
-            this.btnViderRchTbInventaires.Location = new System.Drawing.Point(250, 359);
+            this.btnViderRchTbInventaires.Location = new System.Drawing.Point(241, 359);
             this.btnViderRchTbInventaires.Name = "btnViderRchTbInventaires";
             this.btnViderRchTbInventaires.Size = new System.Drawing.Size(220, 23);
             this.btnViderRchTbInventaires.TabIndex = 10;
@@ -6773,679 +7447,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnViderRchTbSortileges.Text = "Vider sortilèges";
             this.btnViderRchTbSortileges.UseVisualStyleBackColor = true;
             this.btnViderRchTbSortileges.Click += new System.EventHandler(this.btnViderRchTbSortileges_Click);
-            // 
-            // lblPrpieteScrmx
-            // 
-            this.lblPrpieteScrmx.AutoSize = true;
-            this.lblPrpieteScrmx.Location = new System.Drawing.Point(552, 27);
-            this.lblPrpieteScrmx.Name = "lblPrpieteScrmx";
-            this.lblPrpieteScrmx.Size = new System.Drawing.Size(55, 13);
-            this.lblPrpieteScrmx.TabIndex = 100;
-            this.lblPrpieteScrmx.Text = "UsT, AuM";
-            // 
-            // lblDescEpees
-            // 
-            this.lblDescEpees.AutoSize = true;
-            this.lblDescEpees.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescEpees.Location = new System.Drawing.Point(5, 218);
-            this.lblDescEpees.Name = "lblDescEpees";
-            this.lblDescEpees.Size = new System.Drawing.Size(518, 13);
-            this.lblDescEpees.TabIndex = 101;
-            this.lblDescEpees.Text = "AuM : Arme à une main; AdM : Arme à deux mains; UsT : Un seul côté tranchant, DT " +
-    ": Deux côtés tranchant";
-            // 
-            // lblPrpieteEpCrte
-            // 
-            this.lblPrpieteEpCrte.AutoSize = true;
-            this.lblPrpieteEpCrte.Location = new System.Drawing.Point(552, 56);
-            this.lblPrpieteEpCrte.Name = "lblPrpieteEpCrte";
-            this.lblPrpieteEpCrte.Size = new System.Drawing.Size(50, 13);
-            this.lblPrpieteEpCrte.TabIndex = 102;
-            this.lblPrpieteEpCrte.Text = "DT, AuM";
-            // 
-            // lblPrpieteEpLge
-            // 
-            this.lblPrpieteEpLge.AutoSize = true;
-            this.lblPrpieteEpLge.Location = new System.Drawing.Point(552, 86);
-            this.lblPrpieteEpLge.Name = "lblPrpieteEpLge";
-            this.lblPrpieteEpLge.Size = new System.Drawing.Size(50, 13);
-            this.lblPrpieteEpLge.TabIndex = 103;
-            this.lblPrpieteEpLge.Text = "DT, AdM";
-            // 
-            // lblPprieteGlve
-            // 
-            this.lblPprieteGlve.AutoSize = true;
-            this.lblPprieteGlve.Location = new System.Drawing.Point(552, 117);
-            this.lblPprieteGlve.Name = "lblPprieteGlve";
-            this.lblPprieteGlve.Size = new System.Drawing.Size(50, 13);
-            this.lblPprieteGlve.TabIndex = 104;
-            this.lblPprieteGlve.Text = "DT, AuM";
-            // 
-            // lblPprieteLte
-            // 
-            this.lblPprieteLte.AutoSize = true;
-            this.lblPprieteLte.Location = new System.Drawing.Point(552, 146);
-            this.lblPprieteLte.Name = "lblPprieteLte";
-            this.lblPprieteLte.Size = new System.Drawing.Size(55, 13);
-            this.lblPprieteLte.TabIndex = 105;
-            this.lblPprieteLte.Text = "UsT, AuM";
-            // 
-            // lblPrpieteSbreCrbe
-            // 
-            this.lblPrpieteSbreCrbe.AutoSize = true;
-            this.lblPrpieteSbreCrbe.Location = new System.Drawing.Point(552, 174);
-            this.lblPrpieteSbreCrbe.Name = "lblPrpieteSbreCrbe";
-            this.lblPrpieteSbreCrbe.Size = new System.Drawing.Size(55, 13);
-            this.lblPrpieteSbreCrbe.TabIndex = 106;
-            this.lblPrpieteSbreCrbe.Text = "UsT, AuM";
-            // 
-            // lblDescLances
-            // 
-            this.lblDescLances.AutoSize = true;
-            this.lblDescLances.Location = new System.Drawing.Point(5, 191);
-            this.lblDescLances.Name = "lblDescLances";
-            this.lblDescLances.Size = new System.Drawing.Size(224, 13);
-            this.lblDescLances.TabIndex = 116;
-            this.lblDescLances.Text = "AdCvrie : Arme de cavalerie; AdJ : Arme de jet";
-            // 
-            // lblPprieteCntus
-            // 
-            this.lblPprieteCntus.AutoSize = true;
-            this.lblPprieteCntus.Location = new System.Drawing.Point(552, 29);
-            this.lblPprieteCntus.Name = "lblPprieteCntus";
-            this.lblPprieteCntus.Size = new System.Drawing.Size(123, 13);
-            this.lblPprieteCntus.TabIndex = 118;
-            this.lblPprieteCntus.Text = "AdCvrie, -3 déplacement";
-            // 
-            // lblPprieteLances
-            // 
-            this.lblPprieteLances.AutoSize = true;
-            this.lblPprieteLances.Location = new System.Drawing.Point(552, 3);
-            this.lblPprieteLances.Name = "lblPprieteLances";
-            this.lblPprieteLances.Size = new System.Drawing.Size(49, 13);
-            this.lblPprieteLances.TabIndex = 117;
-            this.lblPprieteLances.Text = "Propriété";
-            // 
-            // lblPprieteJvlot
-            // 
-            this.lblPprieteJvlot.AutoSize = true;
-            this.lblPprieteJvlot.Location = new System.Drawing.Point(552, 60);
-            this.lblPprieteJvlot.Name = "lblPprieteJvlot";
-            this.lblPprieteJvlot.Size = new System.Drawing.Size(25, 13);
-            this.lblPprieteJvlot.TabIndex = 119;
-            this.lblPprieteJvlot.Text = "AdJ";
-            // 
-            // lblPprieteFrche
-            // 
-            this.lblPprieteFrche.AutoSize = true;
-            this.lblPprieteFrche.Location = new System.Drawing.Point(552, 90);
-            this.lblPprieteFrche.Name = "lblPprieteFrche";
-            this.lblPprieteFrche.Size = new System.Drawing.Size(44, 13);
-            this.lblPprieteFrche.TabIndex = 120;
-            this.lblPprieteFrche.Text = "Aucune";
-            // 
-            // lblPprieteSrse
-            // 
-            this.lblPprieteSrse.AutoSize = true;
-            this.lblPprieteSrse.Location = new System.Drawing.Point(552, 118);
-            this.lblPprieteSrse.Name = "lblPprieteSrse";
-            this.lblPprieteSrse.Size = new System.Drawing.Size(44, 13);
-            this.lblPprieteSrse.TabIndex = 121;
-            this.lblPprieteSrse.Text = "Aucune";
-            // 
-            // lblPprieteTrdnt
-            // 
-            this.lblPprieteTrdnt.AutoSize = true;
-            this.lblPprieteTrdnt.Location = new System.Drawing.Point(552, 147);
-            this.lblPprieteTrdnt.Name = "lblPprieteTrdnt";
-            this.lblPprieteTrdnt.Size = new System.Drawing.Size(44, 13);
-            this.lblPprieteTrdnt.TabIndex = 122;
-            this.lblPprieteTrdnt.Text = "Aucune";
-            // 
-            // lblVleurDgeAssin
-            // 
-            this.lblVleurDgeAssin.AutoSize = true;
-            this.lblVleurDgeAssin.Location = new System.Drawing.Point(443, 97);
-            this.lblVleurDgeAssin.Name = "lblVleurDgeAssin";
-            this.lblVleurDgeAssin.Size = new System.Drawing.Size(82, 13);
-            this.lblVleurDgeAssin.TabIndex = 127;
-            this.lblVleurDgeAssin.Text = "1 po, 3 pa, 5 pc";
-            // 
-            // chkDgeAssin
-            // 
-            this.chkDgeAssin.AutoSize = true;
-            this.chkDgeAssin.Location = new System.Drawing.Point(5, 97);
-            this.chkDgeAssin.Name = "chkDgeAssin";
-            this.chkDgeAssin.Size = new System.Drawing.Size(15, 14);
-            this.chkDgeAssin.TabIndex = 126;
-            this.chkDgeAssin.UseVisualStyleBackColor = true;
-            // 
-            // lblDgeAssin
-            // 
-            this.lblDgeAssin.AutoSize = true;
-            this.lblDgeAssin.Location = new System.Drawing.Point(26, 97);
-            this.lblDgeAssin.Name = "lblDgeAssin";
-            this.lblDgeAssin.Size = new System.Drawing.Size(90, 13);
-            this.lblDgeAssin.TabIndex = 120;
-            this.lblDgeAssin.Text = "Dague d\'assassin";
-            // 
-            // lblPdsDgeAssin
-            // 
-            this.lblPdsDgeAssin.AutoSize = true;
-            this.lblPdsDgeAssin.Location = new System.Drawing.Point(120, 97);
-            this.lblPdsDgeAssin.Name = "lblPdsDgeAssin";
-            this.lblPdsDgeAssin.Size = new System.Drawing.Size(40, 13);
-            this.lblPdsDgeAssin.TabIndex = 121;
-            this.lblPdsDgeAssin.Text = "0.20kg";
-            // 
-            // lblPrteDgeAssin
-            // 
-            this.lblPrteDgeAssin.AutoSize = true;
-            this.lblPrteDgeAssin.Location = new System.Drawing.Point(181, 97);
-            this.lblPrteDgeAssin.Name = "lblPrteDgeAssin";
-            this.lblPrteDgeAssin.Size = new System.Drawing.Size(36, 13);
-            this.lblPrteDgeAssin.TabIndex = 122;
-            this.lblPrteDgeAssin.Text = "35 cm";
-            // 
-            // nudDgeAssin
-            // 
-            this.nudDgeAssin.Location = new System.Drawing.Point(246, 95);
-            this.nudDgeAssin.Name = "nudDgeAssin";
-            this.nudDgeAssin.Size = new System.Drawing.Size(41, 20);
-            this.nudDgeAssin.TabIndex = 123;
-            this.nudDgeAssin.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudDgeAssin.ValueChanged += new System.EventHandler(this.nudDgeAssin_ValueChanged);
-            // 
-            // lblTpeDgeAssin
-            // 
-            this.lblTpeDgeAssin.AutoSize = true;
-            this.lblTpeDgeAssin.Location = new System.Drawing.Point(314, 97);
-            this.lblTpeDgeAssin.Name = "lblTpeDgeAssin";
-            this.lblTpeDgeAssin.Size = new System.Drawing.Size(50, 13);
-            this.lblTpeDgeAssin.TabIndex = 124;
-            this.lblTpeDgeAssin.Text = "Perforant";
-            // 
-            // lblDgtsDgeAssin
-            // 
-            this.lblDgtsDgeAssin.AutoSize = true;
-            this.lblDgtsDgeAssin.Location = new System.Drawing.Point(385, 97);
-            this.lblDgtsDgeAssin.Name = "lblDgtsDgeAssin";
-            this.lblDgtsDgeAssin.Size = new System.Drawing.Size(37, 13);
-            this.lblDgtsDgeAssin.TabIndex = 125;
-            this.lblDgtsDgeAssin.Text = "1d6+1";
-            // 
-            // lblPprietePoignards
-            // 
-            this.lblPprietePoignards.AutoSize = true;
-            this.lblPprietePoignards.Location = new System.Drawing.Point(548, 3);
-            this.lblPprietePoignards.Name = "lblPprietePoignards";
-            this.lblPprietePoignards.Size = new System.Drawing.Size(49, 13);
-            this.lblPprietePoignards.TabIndex = 128;
-            this.lblPprietePoignards.Text = "Propriété";
-            // 
-            // lblPrpieteCtau
-            // 
-            this.lblPrpieteCtau.AutoSize = true;
-            this.lblPrpieteCtau.Location = new System.Drawing.Point(548, 25);
-            this.lblPrpieteCtau.Name = "lblPrpieteCtau";
-            this.lblPrpieteCtau.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteCtau.TabIndex = 129;
-            this.lblPrpieteCtau.Text = "Aucune";
-            // 
-            // lblPrpieteDge
-            // 
-            this.lblPrpieteDge.AutoSize = true;
-            this.lblPrpieteDge.Location = new System.Drawing.Point(548, 49);
-            this.lblPrpieteDge.Name = "lblPrpieteDge";
-            this.lblPrpieteDge.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteDge.TabIndex = 130;
-            this.lblPrpieteDge.Text = "Aucune";
-            // 
-            // lblPrpieteFclGure
-            // 
-            this.lblPrpieteFclGure.AutoSize = true;
-            this.lblPrpieteFclGure.Location = new System.Drawing.Point(548, 73);
-            this.lblPrpieteFclGure.Name = "lblPrpieteFclGure";
-            this.lblPrpieteFclGure.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteFclGure.TabIndex = 131;
-            this.lblPrpieteFclGure.Text = "Aucune";
-            // 
-            // lblPrpieteDgeAssin
-            // 
-            this.lblPrpieteDgeAssin.AutoSize = true;
-            this.lblPrpieteDgeAssin.Location = new System.Drawing.Point(548, 97);
-            this.lblPrpieteDgeAssin.Name = "lblPrpieteDgeAssin";
-            this.lblPrpieteDgeAssin.Size = new System.Drawing.Size(46, 13);
-            this.lblPrpieteDgeAssin.TabIndex = 132;
-            this.lblPrpieteDgeAssin.Text = "Dissim +";
-            // 
-            // lblDescPoignards
-            // 
-            this.lblDescPoignards.AutoSize = true;
-            this.lblDescPoignards.Location = new System.Drawing.Point(2, 171);
-            this.lblDescPoignards.Name = "lblDescPoignards";
-            this.lblDescPoignards.Size = new System.Drawing.Size(184, 13);
-            this.lblDescPoignards.TabIndex = 133;
-            this.lblDescPoignards.Text = "Dissim + : se dissimule plus facilement";
-            // 
-            // lblPrpieteHaches
-            // 
-            this.lblPrpieteHaches.AutoSize = true;
-            this.lblPrpieteHaches.Location = new System.Drawing.Point(512, 3);
-            this.lblPrpieteHaches.Name = "lblPrpieteHaches";
-            this.lblPrpieteHaches.Size = new System.Drawing.Size(49, 13);
-            this.lblPrpieteHaches.TabIndex = 129;
-            this.lblPrpieteHaches.Text = "Propriété";
-            // 
-            // lblPrpieteFrncsque
-            // 
-            this.lblPrpieteFrncsque.AutoSize = true;
-            this.lblPrpieteFrncsque.Location = new System.Drawing.Point(512, 31);
-            this.lblPrpieteFrncsque.Name = "lblPrpieteFrncsque";
-            this.lblPrpieteFrncsque.Size = new System.Drawing.Size(25, 13);
-            this.lblPrpieteFrncsque.TabIndex = 130;
-            this.lblPrpieteFrncsque.Text = "AdJ";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 85);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 13);
-            this.label3.TabIndex = 131;
-            this.label3.Text = "AdJ : Arme de jet";
-            // 
-            // lblPrpieteArcs
-            // 
-            this.lblPrpieteArcs.AutoSize = true;
-            this.lblPrpieteArcs.Location = new System.Drawing.Point(571, 3);
-            this.lblPrpieteArcs.Name = "lblPrpieteArcs";
-            this.lblPrpieteArcs.Size = new System.Drawing.Size(49, 13);
-            this.lblPrpieteArcs.TabIndex = 130;
-            this.lblPrpieteArcs.Text = "Propriété";
-            // 
-            // lblPrpieteArc
-            // 
-            this.lblPrpieteArc.AutoSize = true;
-            this.lblPrpieteArc.Location = new System.Drawing.Point(571, 25);
-            this.lblPrpieteArc.Name = "lblPrpieteArc";
-            this.lblPrpieteArc.Size = new System.Drawing.Size(27, 13);
-            this.lblPrpieteArc.TabIndex = 131;
-            this.lblPrpieteArc.Text = "AdT";
-            // 
-            // lblDescArcs
-            // 
-            this.lblDescArcs.AutoSize = true;
-            this.lblDescArcs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescArcs.Location = new System.Drawing.Point(8, 131);
-            this.lblDescArcs.Name = "lblDescArcs";
-            this.lblDescArcs.Size = new System.Drawing.Size(95, 13);
-            this.lblDescArcs.TabIndex = 132;
-            this.lblDescArcs.Text = "AdT : Arme de trait";
-            // 
-            // lblPrpieteAblte
-            // 
-            this.lblPrpieteAblte.AutoSize = true;
-            this.lblPrpieteAblte.Location = new System.Drawing.Point(571, 52);
-            this.lblPrpieteAblte.Name = "lblPrpieteAblte";
-            this.lblPrpieteAblte.Size = new System.Drawing.Size(27, 13);
-            this.lblPrpieteAblte.TabIndex = 133;
-            this.lblPrpieteAblte.Text = "AdT";
-            // 
-            // lblPrpieteFnde
-            // 
-            this.lblPrpieteFnde.AutoSize = true;
-            this.lblPrpieteFnde.Location = new System.Drawing.Point(571, 80);
-            this.lblPrpieteFnde.Name = "lblPrpieteFnde";
-            this.lblPrpieteFnde.Size = new System.Drawing.Size(27, 13);
-            this.lblPrpieteFnde.TabIndex = 134;
-            this.lblPrpieteFnde.Text = "AdT";
-            // 
-            // lblPrpieteFouet
-            // 
-            this.lblPrpieteFouet.AutoSize = true;
-            this.lblPrpieteFouet.Location = new System.Drawing.Point(537, 19);
-            this.lblPrpieteFouet.Name = "lblPrpieteFouet";
-            this.lblPrpieteFouet.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteFouet.TabIndex = 136;
-            this.lblPrpieteFouet.Text = "Aucune";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(537, 3);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(49, 13);
-            this.label12.TabIndex = 135;
-            this.label12.Text = "Propriété";
-            // 
-            // lblPrpieteFaC
-            // 
-            this.lblPrpieteFaC.AutoSize = true;
-            this.lblPrpieteFaC.Location = new System.Drawing.Point(537, 48);
-            this.lblPrpieteFaC.Name = "lblPrpieteFaC";
-            this.lblPrpieteFaC.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteFaC.TabIndex = 137;
-            this.lblPrpieteFaC.Text = "Aucune";
-            // 
-            // lblPrpieteBatons
-            // 
-            this.lblPrpieteBatons.AutoSize = true;
-            this.lblPrpieteBatons.Location = new System.Drawing.Point(590, 3);
-            this.lblPrpieteBatons.Name = "lblPrpieteBatons";
-            this.lblPrpieteBatons.Size = new System.Drawing.Size(49, 13);
-            this.lblPrpieteBatons.TabIndex = 138;
-            this.lblPrpieteBatons.Text = "Propriété";
-            // 
-            // lblPrpieteBtonChne
-            // 
-            this.lblPrpieteBtonChne.AutoSize = true;
-            this.lblPrpieteBtonChne.Location = new System.Drawing.Point(590, 30);
-            this.lblPrpieteBtonChne.Name = "lblPrpieteBtonChne";
-            this.lblPrpieteBtonChne.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteBtonChne.TabIndex = 139;
-            this.lblPrpieteBtonChne.Text = "Aucune";
-            // 
-            // lblPrpieteSctre
-            // 
-            this.lblPrpieteSctre.AutoSize = true;
-            this.lblPrpieteSctre.Location = new System.Drawing.Point(590, 59);
-            this.lblPrpieteSctre.Name = "lblPrpieteSctre";
-            this.lblPrpieteSctre.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteSctre.TabIndex = 140;
-            this.lblPrpieteSctre.Text = "Aucune";
-            // 
-            // lblPrpieteCasques
-            // 
-            this.lblPrpieteCasques.AutoSize = true;
-            this.lblPrpieteCasques.Location = new System.Drawing.Point(516, 3);
-            this.lblPrpieteCasques.Name = "lblPrpieteCasques";
-            this.lblPrpieteCasques.Size = new System.Drawing.Size(49, 13);
-            this.lblPrpieteCasques.TabIndex = 140;
-            this.lblPrpieteCasques.Text = "Propriété";
-            // 
-            // lblPrpieteSpghlm
-            // 
-            this.lblPrpieteSpghlm.AutoSize = true;
-            this.lblPrpieteSpghlm.Location = new System.Drawing.Point(516, 26);
-            this.lblPrpieteSpghlm.Name = "lblPrpieteSpghlm";
-            this.lblPrpieteSpghlm.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteSpghlm.TabIndex = 141;
-            this.lblPrpieteSpghlm.Text = "Aucune";
-            // 
-            // lblPrpieteCfeMle
-            // 
-            this.lblPrpieteCfeMle.AutoSize = true;
-            this.lblPrpieteCfeMle.Location = new System.Drawing.Point(516, 55);
-            this.lblPrpieteCfeMle.Name = "lblPrpieteCfeMle";
-            this.lblPrpieteCfeMle.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteCfeMle.TabIndex = 142;
-            this.lblPrpieteCfeMle.Text = "Aucune";
-            // 
-            // lblPrpieteMrn
-            // 
-            this.lblPrpieteMrn.AutoSize = true;
-            this.lblPrpieteMrn.Location = new System.Drawing.Point(516, 83);
-            this.lblPrpieteMrn.Name = "lblPrpieteMrn";
-            this.lblPrpieteMrn.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteMrn.TabIndex = 143;
-            this.lblPrpieteMrn.Text = "Aucune";
-            // 
-            // lblPrpieteCrvlre
-            // 
-            this.lblPrpieteCrvlre.AutoSize = true;
-            this.lblPrpieteCrvlre.Location = new System.Drawing.Point(516, 112);
-            this.lblPrpieteCrvlre.Name = "lblPrpieteCrvlre";
-            this.lblPrpieteCrvlre.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteCrvlre.TabIndex = 144;
-            this.lblPrpieteCrvlre.Text = "Aucune";
-            // 
-            // lblPrpieteChplFr
-            // 
-            this.lblPrpieteChplFr.AutoSize = true;
-            this.lblPrpieteChplFr.Location = new System.Drawing.Point(516, 142);
-            this.lblPrpieteChplFr.Name = "lblPrpieteChplFr";
-            this.lblPrpieteChplFr.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteChplFr.TabIndex = 145;
-            this.lblPrpieteChplFr.Text = "Aucune";
-            // 
-            // lblPrpieteCsqueBrbre
-            // 
-            this.lblPrpieteCsqueBrbre.AutoSize = true;
-            this.lblPrpieteCsqueBrbre.Location = new System.Drawing.Point(516, 174);
-            this.lblPrpieteCsqueBrbre.Name = "lblPrpieteCsqueBrbre";
-            this.lblPrpieteCsqueBrbre.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteCsqueBrbre.TabIndex = 146;
-            this.lblPrpieteCsqueBrbre.Text = "Aucune";
-            // 
-            // lblPrpieteBuste
-            // 
-            this.lblPrpieteBuste.AutoSize = true;
-            this.lblPrpieteBuste.Location = new System.Drawing.Point(536, 3);
-            this.lblPrpieteBuste.Name = "lblPrpieteBuste";
-            this.lblPrpieteBuste.Size = new System.Drawing.Size(49, 13);
-            this.lblPrpieteBuste.TabIndex = 147;
-            this.lblPrpieteBuste.Text = "Propriété";
-            // 
-            // lblPrpieteVtments
-            // 
-            this.lblPrpieteVtments.AutoSize = true;
-            this.lblPrpieteVtments.Location = new System.Drawing.Point(536, 25);
-            this.lblPrpieteVtments.Name = "lblPrpieteVtments";
-            this.lblPrpieteVtments.Size = new System.Drawing.Size(99, 13);
-            this.lblPrpieteVtments.TabIndex = 148;
-            this.lblPrpieteVtments.Text = "On est bien dedans";
-            // 
-            // lblPrpieteBrgne
-            // 
-            this.lblPrpieteBrgne.AutoSize = true;
-            this.lblPrpieteBrgne.Location = new System.Drawing.Point(536, 54);
-            this.lblPrpieteBrgne.Name = "lblPrpieteBrgne";
-            this.lblPrpieteBrgne.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteBrgne.TabIndex = 149;
-            this.lblPrpieteBrgne.Text = "Aucune";
-            // 
-            // lblPrpieteCtphrcte
-            // 
-            this.lblPrpieteCtphrcte.AutoSize = true;
-            this.lblPrpieteCtphrcte.Location = new System.Drawing.Point(536, 86);
-            this.lblPrpieteCtphrcte.Name = "lblPrpieteCtphrcte";
-            this.lblPrpieteCtphrcte.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteCtphrcte.TabIndex = 150;
-            this.lblPrpieteCtphrcte.Text = "ArmCav";
-            // 
-            // lblPrpieteCrsFr
-            // 
-            this.lblPrpieteCrsFr.AutoSize = true;
-            this.lblPrpieteCrsFr.Location = new System.Drawing.Point(536, 118);
-            this.lblPrpieteCrsFr.Name = "lblPrpieteCrsFr";
-            this.lblPrpieteCrsFr.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteCrsFr.TabIndex = 151;
-            this.lblPrpieteCrsFr.Text = "Aucune";
-            // 
-            // lblPrpieteRbeCuir
-            // 
-            this.lblPrpieteRbeCuir.AutoSize = true;
-            this.lblPrpieteRbeCuir.Location = new System.Drawing.Point(536, 148);
-            this.lblPrpieteRbeCuir.Name = "lblPrpieteRbeCuir";
-            this.lblPrpieteRbeCuir.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteRbeCuir.TabIndex = 152;
-            this.lblPrpieteRbeCuir.Text = "Aucune";
-            // 
-            // lblPrpieteCrsBze
-            // 
-            this.lblPrpieteCrsBze.AutoSize = true;
-            this.lblPrpieteCrsBze.Location = new System.Drawing.Point(536, 179);
-            this.lblPrpieteCrsBze.Name = "lblPrpieteCrsBze";
-            this.lblPrpieteCrsBze.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteCrsBze.TabIndex = 153;
-            this.lblPrpieteCrsBze.Text = "Aucune";
-            // 
-            // lblPrpieteGants
-            // 
-            this.lblPrpieteGants.AutoSize = true;
-            this.lblPrpieteGants.Location = new System.Drawing.Point(536, 3);
-            this.lblPrpieteGants.Name = "lblPrpieteGants";
-            this.lblPrpieteGants.Size = new System.Drawing.Size(49, 13);
-            this.lblPrpieteGants.TabIndex = 152;
-            this.lblPrpieteGants.Text = "Propriété";
-            // 
-            // lblPrpieteGntMles
-            // 
-            this.lblPrpieteGntMles.AutoSize = true;
-            this.lblPrpieteGntMles.Location = new System.Drawing.Point(536, 22);
-            this.lblPrpieteGntMles.Name = "lblPrpieteGntMles";
-            this.lblPrpieteGntMles.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteGntMles.TabIndex = 153;
-            this.lblPrpieteGntMles.Text = "Aucune";
-            // 
-            // lblPrpieteGntlet
-            // 
-            this.lblPrpieteGntlet.AutoSize = true;
-            this.lblPrpieteGntlet.Location = new System.Drawing.Point(536, 52);
-            this.lblPrpieteGntlet.Name = "lblPrpieteGntlet";
-            this.lblPrpieteGntlet.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteGntlet.TabIndex = 154;
-            this.lblPrpieteGntlet.Text = "Aucune";
-            // 
-            // lblPrpieteMitne
-            // 
-            this.lblPrpieteMitne.AutoSize = true;
-            this.lblPrpieteMitne.Location = new System.Drawing.Point(536, 78);
-            this.lblPrpieteMitne.Name = "lblPrpieteMitne";
-            this.lblPrpieteMitne.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteMitne.TabIndex = 155;
-            this.lblPrpieteMitne.Text = "Aucune";
-            // 
-            // lblPrpieteMton
-            // 
-            this.lblPrpieteMton.AutoSize = true;
-            this.lblPrpieteMton.Location = new System.Drawing.Point(536, 105);
-            this.lblPrpieteMton.Name = "lblPrpieteMton";
-            this.lblPrpieteMton.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteMton.TabIndex = 156;
-            this.lblPrpieteMton.Text = "Aucune";
-            // 
-            // lblPrpieteGenouilleres
-            // 
-            this.lblPrpieteGenouilleres.AutoSize = true;
-            this.lblPrpieteGenouilleres.Location = new System.Drawing.Point(506, 3);
-            this.lblPrpieteGenouilleres.Name = "lblPrpieteGenouilleres";
-            this.lblPrpieteGenouilleres.Size = new System.Drawing.Size(49, 13);
-            this.lblPrpieteGenouilleres.TabIndex = 156;
-            this.lblPrpieteGenouilleres.Text = "Propriété";
-            // 
-            // lblPrpieteCuissrd
-            // 
-            this.lblPrpieteCuissrd.AutoSize = true;
-            this.lblPrpieteCuissrd.Location = new System.Drawing.Point(506, 22);
-            this.lblPrpieteCuissrd.Name = "lblPrpieteCuissrd";
-            this.lblPrpieteCuissrd.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteCuissrd.TabIndex = 157;
-            this.lblPrpieteCuissrd.Text = "Aucune";
-            // 
-            // lblPrpietePntlonTle
-            // 
-            this.lblPrpietePntlonTle.AutoSize = true;
-            this.lblPrpietePntlonTle.Location = new System.Drawing.Point(506, 49);
-            this.lblPrpietePntlonTle.Name = "lblPrpietePntlonTle";
-            this.lblPrpietePntlonTle.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpietePntlonTle.TabIndex = 158;
-            this.lblPrpietePntlonTle.Text = "Aucune";
-            // 
-            // lblPrpieteCmide
-            // 
-            this.lblPrpieteCmide.AutoSize = true;
-            this.lblPrpieteCmide.Location = new System.Drawing.Point(506, 79);
-            this.lblPrpieteCmide.Name = "lblPrpieteCmide";
-            this.lblPrpieteCmide.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteCmide.TabIndex = 159;
-            this.lblPrpieteCmide.Text = "Aucune";
-            // 
-            // lblPrpieteChaussures
-            // 
-            this.lblPrpieteChaussures.AutoSize = true;
-            this.lblPrpieteChaussures.Location = new System.Drawing.Point(464, 3);
-            this.lblPrpieteChaussures.Name = "lblPrpieteChaussures";
-            this.lblPrpieteChaussures.Size = new System.Drawing.Size(49, 13);
-            this.lblPrpieteChaussures.TabIndex = 161;
-            this.lblPrpieteChaussures.Text = "Propriété";
-            // 
-            // lblPrpieteSndles
-            // 
-            this.lblPrpieteSndles.AutoSize = true;
-            this.lblPrpieteSndles.Location = new System.Drawing.Point(464, 22);
-            this.lblPrpieteSndles.Name = "lblPrpieteSndles";
-            this.lblPrpieteSndles.Size = new System.Drawing.Size(216, 13);
-            this.lblPrpieteSndles.TabIndex = 162;
-            this.lblPrpieteSndles.Text = "Peuvent se casser si elles prennent un coup";
-            // 
-            // lblPrpieteChssuresCuir
-            // 
-            this.lblPrpieteChssuresCuir.AutoSize = true;
-            this.lblPrpieteChssuresCuir.Location = new System.Drawing.Point(464, 51);
-            this.lblPrpieteChssuresCuir.Name = "lblPrpieteChssuresCuir";
-            this.lblPrpieteChssuresCuir.Size = new System.Drawing.Size(216, 13);
-            this.lblPrpieteChssuresCuir.TabIndex = 163;
-            this.lblPrpieteChssuresCuir.Text = "Peuvent se casser si elles prennent un coup";
-            // 
-            // lblPrpieteBoucliers
-            // 
-            this.lblPrpieteBoucliers.AutoSize = true;
-            this.lblPrpieteBoucliers.Location = new System.Drawing.Point(542, 3);
-            this.lblPrpieteBoucliers.Name = "lblPrpieteBoucliers";
-            this.lblPrpieteBoucliers.Size = new System.Drawing.Size(49, 13);
-            this.lblPrpieteBoucliers.TabIndex = 169;
-            this.lblPrpieteBoucliers.Text = "Propriété";
-            // 
-            // lblPrpieteEcu
-            // 
-            this.lblPrpieteEcu.AutoSize = true;
-            this.lblPrpieteEcu.Location = new System.Drawing.Point(542, 27);
-            this.lblPrpieteEcu.Name = "lblPrpieteEcu";
-            this.lblPrpieteEcu.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteEcu.TabIndex = 170;
-            this.lblPrpieteEcu.Text = "Aucune";
-            // 
-            // lblPrpietePvois
-            // 
-            this.lblPrpietePvois.AutoSize = true;
-            this.lblPrpietePvois.Location = new System.Drawing.Point(542, 51);
-            this.lblPrpietePvois.Name = "lblPrpietePvois";
-            this.lblPrpietePvois.Size = new System.Drawing.Size(146, 13);
-            this.lblPrpietePvois.TabIndex = 171;
-            this.lblPrpietePvois.Text = "Impossible de bouger si utilisé";
-            // 
-            // lblPrpieteBclrAmde
-            // 
-            this.lblPrpieteBclrAmde.AutoSize = true;
-            this.lblPrpieteBclrAmde.Location = new System.Drawing.Point(542, 76);
-            this.lblPrpieteBclrAmde.Name = "lblPrpieteBclrAmde";
-            this.lblPrpieteBclrAmde.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteBclrAmde.TabIndex = 172;
-            this.lblPrpieteBclrAmde.Text = "Aucune";
-            // 
-            // lblPrpieteBclrBze
-            // 
-            this.lblPrpieteBclrBze.AutoSize = true;
-            this.lblPrpieteBclrBze.Location = new System.Drawing.Point(542, 103);
-            this.lblPrpieteBclrBze.Name = "lblPrpieteBclrBze";
-            this.lblPrpieteBclrBze.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteBclrBze.TabIndex = 173;
-            this.lblPrpieteBclrBze.Text = "Aucune";
-            // 
-            // lblPrpietePlta
-            // 
-            this.lblPrpietePlta.AutoSize = true;
-            this.lblPrpietePlta.Location = new System.Drawing.Point(542, 128);
-            this.lblPrpietePlta.Name = "lblPrpietePlta";
-            this.lblPrpietePlta.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpietePlta.TabIndex = 174;
-            this.lblPrpietePlta.Text = "Aucune";
             // 
             // FormulaireTalentsEtObjets
             // 
@@ -7483,6 +7484,7 @@ namespace maFichePersonnageJDR.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.nudCntus)).EndInit();
             this.tpPoignards.ResumeLayout(false);
             this.tpPoignards.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDgeAssin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudFclGure)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDge)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCtau)).EndInit();
@@ -7568,7 +7570,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpDemoniaque.PerformLayout();
             this.tpNeutre.ResumeLayout(false);
             this.tpNeutre.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDgeAssin)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -7599,13 +7600,13 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblNbDagues;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.Label lblDgtsDague;
-        private System.Windows.Forms.Label lblCtau;
+        private System.Windows.Forms.Label lblNomCtau;
         private System.Windows.Forms.Label lblPdsCtau;
         private System.Windows.Forms.Label lblPrteCtau;
         private System.Windows.Forms.NumericUpDown nudCtau;
         private System.Windows.Forms.Label lblTpeCtau;
         private System.Windows.Forms.Label lblDgtsCtau;
-        private System.Windows.Forms.Label lblDge;
+        private System.Windows.Forms.Label lblNomDge;
         private System.Windows.Forms.Label lblPdsDge;
         private System.Windows.Forms.Label lblPrteDge;
         private System.Windows.Forms.NumericUpDown nudDge;
@@ -7632,13 +7633,13 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblNbArcs;
         private System.Windows.Forms.Label lblTpeArcs;
         private System.Windows.Forms.Label lblDgtsArcs;
-        private System.Windows.Forms.Label lblArc;
+        private System.Windows.Forms.Label lblNomArc;
         private System.Windows.Forms.Label lblPdsArc;
         private System.Windows.Forms.Label lblPrteArc;
         private System.Windows.Forms.NumericUpDown nudArc;
         private System.Windows.Forms.Label lblTpeArc;
         private System.Windows.Forms.Label lblDgtsArc;
-        private System.Windows.Forms.Label lblAblte;
+        private System.Windows.Forms.Label lblNomAblte;
         private System.Windows.Forms.Label lblPdsAblte;
         private System.Windows.Forms.Label lblPrteAblte;
         private System.Windows.Forms.NumericUpDown nudAblte;
@@ -7650,11 +7651,11 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblNbChaines;
         private System.Windows.Forms.Label lblTpeChaines;
         private System.Windows.Forms.Label lblDgtsChaines;
-        private System.Windows.Forms.Label lblFouet;
+        private System.Windows.Forms.Label lblNomFouet;
         private System.Windows.Forms.NumericUpDown nudFouet;
         private System.Windows.Forms.Label lblTpeFouet;
         private System.Windows.Forms.Label lblDgtsFouet;
-        private System.Windows.Forms.Label lblFaC;
+        private System.Windows.Forms.Label lblNomFaC;
         private System.Windows.Forms.Label lblPdsFaC;
         private System.Windows.Forms.NumericUpDown nudFaC;
         private System.Windows.Forms.Label lblTpeFaC;
@@ -7675,11 +7676,11 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblPdsBuste;
         private System.Windows.Forms.Label lblNbBuste;
         private System.Windows.Forms.Label lblEftBuste;
-        private System.Windows.Forms.Label lblVtments;
+        private System.Windows.Forms.Label lblNomVtments;
         private System.Windows.Forms.Label lblPdsVtments;
         private System.Windows.Forms.NumericUpDown nudVtments;
         private System.Windows.Forms.Label lblEftsVtments;
-        private System.Windows.Forms.Label lblBrgne;
+        private System.Windows.Forms.Label lblNomBrgne;
         private System.Windows.Forms.Label lblPdsBrgne;
         private System.Windows.Forms.NumericUpDown nudBrgne;
         private System.Windows.Forms.Label lblEftsBrgne;
@@ -7687,19 +7688,19 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblPdsGants;
         private System.Windows.Forms.Label lblNbGants;
         private System.Windows.Forms.Label lblEftGants;
-        private System.Windows.Forms.Label lblGntMles;
+        private System.Windows.Forms.Label lblNomGntMles;
         private System.Windows.Forms.Label lblPdsGntMles;
         private System.Windows.Forms.NumericUpDown nudGntMles;
         private System.Windows.Forms.Label lblEftsGntMles;
-        private System.Windows.Forms.Label lblGntlet;
+        private System.Windows.Forms.Label lblNomGntlet;
         private System.Windows.Forms.Label lblPdsGntlet;
         private System.Windows.Forms.NumericUpDown nudGntlet;
         private System.Windows.Forms.Label lblEftsGntlet;
-        private System.Windows.Forms.Label lblMitne;
+        private System.Windows.Forms.Label lblNomMitne;
         private System.Windows.Forms.Label lblPdsMitne;
         private System.Windows.Forms.NumericUpDown nudMitne;
         private System.Windows.Forms.Label lblEftsMitne;
-        private System.Windows.Forms.Label lblCuissrd;
+        private System.Windows.Forms.Label lblNomCuissrd;
         private System.Windows.Forms.Label lblPdsCuissrd;
         private System.Windows.Forms.NumericUpDown nudCuissrd;
         private System.Windows.Forms.Label lblEftsCuissrd;
@@ -7707,7 +7708,7 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblPdsGenouilleres;
         private System.Windows.Forms.Label lblNbGenouilleres;
         private System.Windows.Forms.Label lblEftGenouilleres;
-        private System.Windows.Forms.Label lblMton;
+        private System.Windows.Forms.Label lblNomMton;
         private System.Windows.Forms.Label lblPdsMton;
         private System.Windows.Forms.NumericUpDown nudMton;
         private System.Windows.Forms.Label lblEftsMton;
@@ -7717,47 +7718,47 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.NumericUpDown nudScrmx;
         private System.Windows.Forms.Label lblTpeScrmx;
         private System.Windows.Forms.Label lblDgtsScrmx;
-        private System.Windows.Forms.Label lblCtphrcte;
+        private System.Windows.Forms.Label lblNomCtphrcte;
         private System.Windows.Forms.Label lblPdsCtphrcte;
         private System.Windows.Forms.NumericUpDown nudCtphrcte;
         private System.Windows.Forms.Label lblEftsCtphrcte;
-        private System.Windows.Forms.Label lblCntus;
+        private System.Windows.Forms.Label lblNomCntus;
         private System.Windows.Forms.Label lblPdsCntus;
         private System.Windows.Forms.Label lblPrteCntus;
         private System.Windows.Forms.NumericUpDown nudCntus;
         private System.Windows.Forms.Label lblTpeCntus;
         private System.Windows.Forms.Label lblDgtsCntus;
-        private System.Windows.Forms.Label lblFrncsque;
+        private System.Windows.Forms.Label lblNomFrncsque;
         private System.Windows.Forms.Label lblPdsFrncsque;
         private System.Windows.Forms.Label lblPrteFrncsque;
         private System.Windows.Forms.NumericUpDown nudFrncsque;
         private System.Windows.Forms.Label lblTpeFrncsque;
         private System.Windows.Forms.Label lblDgtsFrncsque;
-        private System.Windows.Forms.Label lblEpCrte;
+        private System.Windows.Forms.Label lblNomEpCrte;
         private System.Windows.Forms.Label lblPdsEpCrte;
         private System.Windows.Forms.Label lblPrteEpCrte;
         private System.Windows.Forms.NumericUpDown nudEpCrte;
         private System.Windows.Forms.Label lblTpeEpCrte;
         private System.Windows.Forms.Label lblDgtsEpCrte;
-        private System.Windows.Forms.Label lblEpLge;
+        private System.Windows.Forms.Label lblNomEpLge;
         private System.Windows.Forms.Label lblPdsEpLge;
         private System.Windows.Forms.Label lblPrteEpLge;
         private System.Windows.Forms.NumericUpDown nudEpLge;
         private System.Windows.Forms.Label lblTpeEpLge;
         private System.Windows.Forms.Label lblDgtsEpLge;
-        private System.Windows.Forms.Label lblGlve;
+        private System.Windows.Forms.Label lblNomGlve;
         private System.Windows.Forms.Label lblPdsGlve;
         private System.Windows.Forms.Label lblPrteGlve;
         private System.Windows.Forms.NumericUpDown nudGlve;
         private System.Windows.Forms.Label lblTpeGlve;
         private System.Windows.Forms.Label lblDgtsGlve;
-        private System.Windows.Forms.Label lblJvlot;
+        private System.Windows.Forms.Label lblNomJvlot;
         private System.Windows.Forms.Label lblPdsJvlot;
         private System.Windows.Forms.Label lblPrteJvlot;
         private System.Windows.Forms.NumericUpDown nudJvlot;
         private System.Windows.Forms.Label lblTpeJvlot;
         private System.Windows.Forms.Label lblDgtsJvlot;
-        private System.Windows.Forms.Label lblLte;
+        private System.Windows.Forms.Label lblNomLte;
         private System.Windows.Forms.Label lblPdsLte;
         private System.Windows.Forms.Label lblPrteLte;
         private System.Windows.Forms.Label lblTpeLte;
@@ -7766,44 +7767,44 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblPdsBoucliers;
         private System.Windows.Forms.Label lblNbBoucliers;
         private System.Windows.Forms.Label lblEftsBoucliers;
-        private System.Windows.Forms.Label lblEcu;
+        private System.Windows.Forms.Label lblNomEcu;
         private System.Windows.Forms.Label lblPdsEcu;
         private System.Windows.Forms.NumericUpDown nudEcu;
         private System.Windows.Forms.Label lblEftsEcu;
-        private System.Windows.Forms.Label lblSbreCrbe;
+        private System.Windows.Forms.Label lblNomSbreCrbe;
         private System.Windows.Forms.Label lblPdsSbreCrbe;
         private System.Windows.Forms.Label lblPrteSbreCrbe;
         private System.Windows.Forms.Label lblTpeSbreCrbe;
         private System.Windows.Forms.Label lblDgtsSbreCrbe;
-        private System.Windows.Forms.Label lblSpghlm;
+        private System.Windows.Forms.Label lblNomSpghlm;
         private System.Windows.Forms.Label lblPdsSpghlm;
         private System.Windows.Forms.NumericUpDown nudSpghlm;
         private System.Windows.Forms.Label lblEftsSpghlm;
-        private System.Windows.Forms.Label lblCfeMle;
+        private System.Windows.Forms.Label lblNomCfeMle;
         private System.Windows.Forms.Label lblPdsCfeMle;
         private System.Windows.Forms.NumericUpDown nudCfeMle;
         private System.Windows.Forms.Label lblEftsCfeMle;
-        private System.Windows.Forms.Label lblCrsFr;
+        private System.Windows.Forms.Label lblNomCrsFr;
         private System.Windows.Forms.Label lblPdsCrsFr;
         private System.Windows.Forms.NumericUpDown nudCrsFr;
         private System.Windows.Forms.Label lblEftsCrsFr;
-        private System.Windows.Forms.Label lblMrn;
+        private System.Windows.Forms.Label lblNomMrn;
         private System.Windows.Forms.Label lblPdsMrn;
         private System.Windows.Forms.NumericUpDown nudMrn;
         private System.Windows.Forms.Label lblEftsMrn;
-        private System.Windows.Forms.Label lblCrvlre;
+        private System.Windows.Forms.Label lblNomCrvlre;
         private System.Windows.Forms.Label lblPdsCrvlre;
         private System.Windows.Forms.NumericUpDown nudCrvlre;
         private System.Windows.Forms.Label lblEftsCrvlre;
-        private System.Windows.Forms.Label lblPvois;
+        private System.Windows.Forms.Label lblNomPvois;
         private System.Windows.Forms.Label lblPdsPvois;
         private System.Windows.Forms.NumericUpDown nudPvois;
         private System.Windows.Forms.Label lblEftsPvois;
-        private System.Windows.Forms.Label lblBclrAmde;
+        private System.Windows.Forms.Label lblNomBclrAmde;
         private System.Windows.Forms.Label lblPdsBclrAmde;
         private System.Windows.Forms.NumericUpDown nudBclrAmde;
         private System.Windows.Forms.Label lblEftsBclrAmde;
-        private System.Windows.Forms.Label lblChplFr;
+        private System.Windows.Forms.Label lblNomChplFr;
         private System.Windows.Forms.Label lblPdsChplFr;
         private System.Windows.Forms.NumericUpDown nudChplFr;
         private System.Windows.Forms.Label lblEftsChplFr;
@@ -7814,7 +7815,7 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblNbBton;
         private System.Windows.Forms.Label lblTpeBton;
         private System.Windows.Forms.Label lblDgtsBton;
-        private System.Windows.Forms.Label lblBtonChne;
+        private System.Windows.Forms.Label lblNomBtonChne;
         private System.Windows.Forms.Label lblPdsBtonChne;
         private System.Windows.Forms.NumericUpDown nudBtonChne;
         private System.Windows.Forms.Label lblTpeBtonChne;
@@ -7822,22 +7823,22 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblEftsBtonChne;
         private System.Windows.Forms.Label lblEftsBton;
         private System.Windows.Forms.Label lblEftsSctre;
-        private System.Windows.Forms.Label lblSctre;
+        private System.Windows.Forms.Label lblNomSctre;
         private System.Windows.Forms.Label lblPdsSctre;
         private System.Windows.Forms.NumericUpDown nudSctre;
         private System.Windows.Forms.Label lblTpeSctre;
         private System.Windows.Forms.Label lblDgtsSctre;
-        private System.Windows.Forms.Label lblRbeCuir;
+        private System.Windows.Forms.Label lblNomRbeCuir;
         private System.Windows.Forms.Label lblPdsRbeCuir;
         private System.Windows.Forms.NumericUpDown nudRbeCuir;
         private System.Windows.Forms.Label lblEftsRbeCuir;
-        private System.Windows.Forms.Label lblFrche;
+        private System.Windows.Forms.Label lblNomFrche;
         private System.Windows.Forms.Label lblPdsFrche;
         private System.Windows.Forms.Label lblPrteFrche;
         private System.Windows.Forms.NumericUpDown nudFrche;
         private System.Windows.Forms.Label lblTpeFrche;
         private System.Windows.Forms.Label lblDgtsFrche;
-        private System.Windows.Forms.Label lblSndles;
+        private System.Windows.Forms.Label lblNomSndles;
         private System.Windows.Forms.Label lblPdsSndles;
         private System.Windows.Forms.NumericUpDown nudSndles;
         private System.Windows.Forms.Label lblEftsSndles;
@@ -7845,19 +7846,19 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblPdsChssures;
         private System.Windows.Forms.Label lblNbChssures;
         private System.Windows.Forms.Label lblEftsChssures;
-        private System.Windows.Forms.Label lblChssuresCuir;
+        private System.Windows.Forms.Label lblNomChssuresCuir;
         private System.Windows.Forms.Label lblPdsChssuresCuir;
         private System.Windows.Forms.NumericUpDown nudChssuresCuir;
         private System.Windows.Forms.Label lblEftsChssuresCuir;
-        private System.Windows.Forms.Label lblPntlonTle;
+        private System.Windows.Forms.Label lblNomPntlonTle;
         private System.Windows.Forms.Label lblPdsPntlonTle;
         private System.Windows.Forms.NumericUpDown nudPntlonTle;
         private System.Windows.Forms.Label lblEftsPntlonTle;
-        private System.Windows.Forms.Label lblCrde;
+        private System.Windows.Forms.Label lblNomCrde;
         private System.Windows.Forms.Label lblPdsCrde;
         private System.Windows.Forms.NumericUpDown nudCrde;
         private System.Windows.Forms.Label lblEftsCrde;
-        private System.Windows.Forms.Label lblTrche;
+        private System.Windows.Forms.Label lblNomTrche;
         private System.Windows.Forms.Label lblPdsTrche;
         private System.Windows.Forms.NumericUpDown nudTrche;
         private System.Windows.Forms.Label lblEftsTrche;
@@ -7865,39 +7866,39 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblPdsObjts;
         private System.Windows.Forms.Label lblNbObjts;
         private System.Windows.Forms.Label lblEftsObjts;
-        private System.Windows.Forms.Label lblSrse;
+        private System.Windows.Forms.Label lblNomSrse;
         private System.Windows.Forms.Label lblPdsSrse;
         private System.Windows.Forms.Label lblPrteSrse;
         private System.Windows.Forms.NumericUpDown nudSrse;
         private System.Windows.Forms.Label lblTpeSrse;
         private System.Windows.Forms.Label lblDgtsSrse;
-        private System.Windows.Forms.Label lblCmide;
+        private System.Windows.Forms.Label lblNomCmide;
         private System.Windows.Forms.Label lblPdsCmide;
         private System.Windows.Forms.NumericUpDown nudCmide;
         private System.Windows.Forms.Label lblEftsCmide;
-        private System.Windows.Forms.Label lblCsqueBrbre;
+        private System.Windows.Forms.Label lblNomCsqueBrbre;
         private System.Windows.Forms.Label lblPdsCsqueBrbre;
         private System.Windows.Forms.NumericUpDown nudCsqueBrbre;
         private System.Windows.Forms.Label lblEftsCsqueBrbre;
-        private System.Windows.Forms.Label lblCrsBze;
+        private System.Windows.Forms.Label lblNomCrsBze;
         private System.Windows.Forms.Label lblPdsCrsBze;
         private System.Windows.Forms.NumericUpDown nudCrsBze;
         private System.Windows.Forms.Label lblEftsCrsBze;
-        private System.Windows.Forms.Label lblBclrBze;
+        private System.Windows.Forms.Label lblNomBclrBze;
         private System.Windows.Forms.Label lblPdsBclrBze;
         private System.Windows.Forms.NumericUpDown nudBclrBze;
         private System.Windows.Forms.Label lblEftsBclrBze;
-        private System.Windows.Forms.Label lblPlta;
+        private System.Windows.Forms.Label lblNomPlta;
         private System.Windows.Forms.Label lblPdsPlta;
         private System.Windows.Forms.NumericUpDown nudPlta;
         private System.Windows.Forms.Label lblEftsPlta;
-        private System.Windows.Forms.Label lblFclGure;
+        private System.Windows.Forms.Label lblNomFclGure;
         private System.Windows.Forms.Label lblPdsFclGure;
         private System.Windows.Forms.Label lblPrteFclGure;
         private System.Windows.Forms.NumericUpDown nudFclGure;
         private System.Windows.Forms.Label lblTpeFclGure;
         private System.Windows.Forms.Label lblDgtsFclGure;
-        private System.Windows.Forms.Label lblFnde;
+        private System.Windows.Forms.Label lblNomFnde;
         private System.Windows.Forms.Label lblPrteFnde;
         private System.Windows.Forms.NumericUpDown nudFnde;
         private System.Windows.Forms.Label lblTpeFnde;
@@ -7906,17 +7907,17 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblTlleTrche;
         private System.Windows.Forms.Label lblTlleObjets;
         private System.Windows.Forms.Label lblTlleOte;
-        private System.Windows.Forms.Label lblOte;
+        private System.Windows.Forms.Label lblNomOte;
         private System.Windows.Forms.Label lblPdsOte;
         private System.Windows.Forms.NumericUpDown nudOte;
         private System.Windows.Forms.Label lblEftsOte;
         private System.Windows.Forms.Label lblTlleSc;
-        private System.Windows.Forms.Label lblSc;
+        private System.Windows.Forms.Label lblNomSc;
         private System.Windows.Forms.Label lblPdsSc;
         private System.Windows.Forms.NumericUpDown nudSc;
         private System.Windows.Forms.Label lblEftsSc;
         private System.Windows.Forms.Label lblTlleTnte;
-        private System.Windows.Forms.Label lblTnte;
+        private System.Windows.Forms.Label lblNomTnte;
         private System.Windows.Forms.Label lblPdsTnte;
         private System.Windows.Forms.NumericUpDown nudTnte;
         private System.Windows.Forms.Label lblEftsTnte;
@@ -8050,7 +8051,7 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.NumericUpDown nudSbreCrbe;
         private System.Windows.Forms.NumericUpDown nudLte;
         private System.Windows.Forms.CheckBox chkTrdnt;
-        private System.Windows.Forms.Label lblTrdnt;
+        private System.Windows.Forms.Label lblNomTrdnt;
         private System.Windows.Forms.Label lblPdsTrdnt;
         private System.Windows.Forms.Label lblPrteTrdnt;
         private System.Windows.Forms.NumericUpDown nudTrdnt;
@@ -8154,7 +8155,7 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblPprieteTrdnt;
         private System.Windows.Forms.Label lblVleurDgeAssin;
         private System.Windows.Forms.CheckBox chkDgeAssin;
-        private System.Windows.Forms.Label lblDgeAssin;
+        private System.Windows.Forms.Label lblNomDgeAssin;
         private System.Windows.Forms.Label lblPdsDgeAssin;
         private System.Windows.Forms.Label lblPrteDgeAssin;
         private System.Windows.Forms.NumericUpDown nudDgeAssin;

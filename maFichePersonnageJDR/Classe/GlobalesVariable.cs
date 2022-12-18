@@ -136,6 +136,11 @@ namespace maFichePersonnageJDR.Classe
 
         private const string taille = ", Taille : ";
 
+        private const int ptsPhysiqueMax = 55;
+
+        private const int ptsMentalMax = 65;
+
+        private const int ptsSocialMax = 30;
         public static double PdsScrasamax => pdsScrasamax;
 
         public static double PdsEpeeCourte => pdsEpeeCourte;
@@ -263,5 +268,11 @@ namespace maFichePersonnageJDR.Classe
         public static string Taille => taille;
 
         public static string Nom => nom;
+
+        public static int PtsPhysiqueMax => ptsPhysiqueMax;
+
+        public static int PtsMentalMax => ptsMentalMax;
+
+        public static int PtsSocialMax => ptsSocialMax;
     }
 }
