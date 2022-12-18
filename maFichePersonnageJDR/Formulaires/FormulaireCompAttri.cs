@@ -242,10 +242,6 @@ namespace maFichePersonnageJDR.Formulaires
             rchTbAttributs.Text = rchTbAttributs.Text.Remove(0, rchTbAttributs.TextLength);
         }
 
-        private void nudEndurance_ValueChanged(object sender, EventArgs e)
-        {
-        }
-
         /// <summary>
         /// Calcul les points à répartir dans les différentes cases
         /// Fais la différence avec les points ajouter
@@ -514,6 +510,11 @@ namespace maFichePersonnageJDR.Formulaires
                 nudMental.Maximum = 55;
                 nudSocial.Maximum = 55;
             }
+        }
+
+        private void nudEndurance_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

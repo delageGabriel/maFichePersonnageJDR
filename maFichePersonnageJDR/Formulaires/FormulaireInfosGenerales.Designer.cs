@@ -141,15 +141,15 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // txtBoxNiveau
             // 
-            this.txtBoxNiveau.Location = new System.Drawing.Point(137, 74);
+            this.txtBoxNiveau.Location = new System.Drawing.Point(40, 77);
             this.txtBoxNiveau.Name = "txtBoxNiveau";
-            this.txtBoxNiveau.Size = new System.Drawing.Size(100, 20);
+            this.txtBoxNiveau.Size = new System.Drawing.Size(32, 20);
             this.txtBoxNiveau.TabIndex = 10;
             // 
             // lblNiveau
             // 
             this.lblNiveau.AutoSize = true;
-            this.lblNiveau.Location = new System.Drawing.Point(161, 55);
+            this.lblNiveau.Location = new System.Drawing.Point(37, 55);
             this.lblNiveau.Name = "lblNiveau";
             this.lblNiveau.Size = new System.Drawing.Size(41, 13);
             this.lblNiveau.TabIndex = 9;
@@ -204,7 +204,7 @@ namespace maFichePersonnageJDR.Formulaires
             // lblChargeMaxi
             // 
             this.lblChargeMaxi.AutoSize = true;
-            this.lblChargeMaxi.Location = new System.Drawing.Point(624, 382);
+            this.lblChargeMaxi.Location = new System.Drawing.Point(471, 387);
             this.lblChargeMaxi.Name = "lblChargeMaxi";
             this.lblChargeMaxi.Size = new System.Drawing.Size(91, 13);
             this.lblChargeMaxi.TabIndex = 20;
@@ -213,7 +213,7 @@ namespace maFichePersonnageJDR.Formulaires
             // lblVitesse
             // 
             this.lblVitesse.AutoSize = true;
-            this.lblVitesse.Location = new System.Drawing.Point(624, 434);
+            this.lblVitesse.Location = new System.Drawing.Point(595, 387);
             this.lblVitesse.Name = "lblVitesse";
             this.lblVitesse.Size = new System.Drawing.Size(123, 13);
             this.lblVitesse.TabIndex = 21;
@@ -222,22 +222,22 @@ namespace maFichePersonnageJDR.Formulaires
             // txtBoxCharge
             // 
             this.txtBoxCharge.Enabled = false;
-            this.txtBoxCharge.Location = new System.Drawing.Point(629, 398);
+            this.txtBoxCharge.Location = new System.Drawing.Point(486, 403);
             this.txtBoxCharge.Name = "txtBoxCharge";
-            this.txtBoxCharge.Size = new System.Drawing.Size(121, 20);
+            this.txtBoxCharge.Size = new System.Drawing.Size(58, 20);
             this.txtBoxCharge.TabIndex = 22;
             // 
             // txtVitesse
             // 
             this.txtVitesse.Enabled = false;
-            this.txtVitesse.Location = new System.Drawing.Point(629, 454);
+            this.txtVitesse.Location = new System.Drawing.Point(623, 403);
             this.txtVitesse.Name = "txtVitesse";
-            this.txtVitesse.Size = new System.Drawing.Size(118, 20);
+            this.txtVitesse.Size = new System.Drawing.Size(54, 20);
             this.txtVitesse.TabIndex = 23;
             // 
             // btnSaveInfos
             // 
-            this.btnSaveInfos.Location = new System.Drawing.Point(318, 414);
+            this.btnSaveInfos.Location = new System.Drawing.Point(147, 414);
             this.btnSaveInfos.Name = "btnSaveInfos";
             this.btnSaveInfos.Size = new System.Drawing.Size(167, 62);
             this.btnSaveInfos.TabIndex = 24;
@@ -280,7 +280,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // btnAjouterImage
             // 
-            this.btnAjouterImage.Location = new System.Drawing.Point(649, 275);
+            this.btnAjouterImage.Location = new System.Drawing.Point(578, 275);
             this.btnAjouterImage.Name = "btnAjouterImage";
             this.btnAjouterImage.Size = new System.Drawing.Size(109, 23);
             this.btnAjouterImage.TabIndex = 29;

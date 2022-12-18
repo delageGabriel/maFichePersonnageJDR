@@ -24,7 +24,7 @@ namespace maFichePersonnageJDR.Formulaires
             txtVitesse.Text = "9 m";
             if (Convert.ToInt32(Properties.Settings.Default.Force) > 0)
             {
-                int calculCharge = Convert.ToInt32((25 + (Convert.ToInt32(Properties.Settings.Default.Force) * 25)) / 2.205);
+                int calculCharge = Convert.ToInt32((20 + (Convert.ToInt32(Properties.Settings.Default.Force) * 20)) / 2.205);
                 txtBoxCharge.Text = calculCharge.ToString() + "kg";
             }
             else
