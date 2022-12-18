@@ -278,7 +278,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudPrestance.Size = new System.Drawing.Size(41, 20);
             this.nudPrestance.TabIndex = 63;
             this.nudPrestance.Tag = "Social";
-            this.nudPrestance.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudPrestance.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesSocial_ValueChanged);
             // 
             // lblPrestance
             // 
@@ -301,7 +301,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudMarchandage.Size = new System.Drawing.Size(41, 20);
             this.nudMarchandage.TabIndex = 61;
             this.nudMarchandage.Tag = "Social";
-            this.nudMarchandage.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudMarchandage.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesSocial_ValueChanged);
             // 
             // lblMarchandage
             // 
@@ -324,7 +324,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudEscamotage.Size = new System.Drawing.Size(41, 20);
             this.nudEscamotage.TabIndex = 59;
             this.nudEscamotage.Tag = "Physique";
-            this.nudEscamotage.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudEscamotage.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesPhysique_ValueChanged);
             // 
             // lblEscamotage
             // 
@@ -347,7 +347,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudCharme.Size = new System.Drawing.Size(41, 20);
             this.nudCharme.TabIndex = 57;
             this.nudCharme.Tag = "Social";
-            this.nudCharme.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudCharme.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesSocial_ValueChanged);
             // 
             // nudEndurance
             // 
@@ -376,7 +376,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudDiscretion.Size = new System.Drawing.Size(41, 20);
             this.nudDiscretion.TabIndex = 53;
             this.nudDiscretion.Tag = "Physique";
-            this.nudDiscretion.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudDiscretion.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesPhysique_ValueChanged);
             // 
             // lblCharme
             // 
@@ -417,7 +417,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudVolonte.Size = new System.Drawing.Size(41, 20);
             this.nudVolonte.TabIndex = 51;
             this.nudVolonte.Tag = "Mental";
-            this.nudVolonte.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudVolonte.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesMental_ValueChanged);
             // 
             // lblVolonte
             // 
@@ -440,7 +440,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudVigueur.Size = new System.Drawing.Size(41, 20);
             this.nudVigueur.TabIndex = 49;
             this.nudVigueur.Tag = "Physique";
-            this.nudVigueur.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudVigueur.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesPhysique_ValueChanged);
             // 
             // lblVigueur
             // 
@@ -463,7 +463,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudDressage.Size = new System.Drawing.Size(41, 20);
             this.nudDressage.TabIndex = 5;
             this.nudDressage.Tag = "Social";
-            this.nudDressage.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudDressage.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesSocial_ValueChanged);
             // 
             // nudReflexes
             // 
@@ -477,7 +477,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudReflexes.Size = new System.Drawing.Size(41, 20);
             this.nudReflexes.TabIndex = 47;
             this.nudReflexes.Tag = "Physique";
-            this.nudReflexes.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudReflexes.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesPhysique_ValueChanged);
             // 
             // lblDressage
             // 
@@ -509,7 +509,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudSpiritualite.Size = new System.Drawing.Size(41, 20);
             this.nudSpiritualite.TabIndex = 45;
             this.nudSpiritualite.Tag = "Mental";
-            this.nudSpiritualite.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudSpiritualite.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesMental_ValueChanged);
             // 
             // lblSpiritualite
             // 
@@ -532,7 +532,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudPerspicacite.Size = new System.Drawing.Size(41, 20);
             this.nudPerspicacite.TabIndex = 41;
             this.nudPerspicacite.Tag = "Mental";
-            this.nudPerspicacite.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudPerspicacite.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesMental_ValueChanged);
             // 
             // lblPerspicacite
             // 
@@ -555,7 +555,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudPerception.Size = new System.Drawing.Size(41, 20);
             this.nudPerception.TabIndex = 39;
             this.nudPerception.Tag = "Mental";
-            this.nudPerception.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudPerception.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesMental_ValueChanged);
             // 
             // lblPerception
             // 
@@ -578,7 +578,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudNatation.Size = new System.Drawing.Size(41, 20);
             this.nudNatation.TabIndex = 37;
             this.nudNatation.Tag = "Physique";
-            this.nudNatation.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudNatation.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesPhysique_ValueChanged);
             // 
             // lblNatation
             // 
@@ -601,7 +601,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudMedecine.Size = new System.Drawing.Size(41, 20);
             this.nudMedecine.TabIndex = 35;
             this.nudMedecine.Tag = "Mental";
-            this.nudMedecine.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudMedecine.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesMental_ValueChanged);
             // 
             // lblMedecine
             // 
@@ -624,7 +624,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudMecanique.Size = new System.Drawing.Size(41, 20);
             this.nudMecanique.TabIndex = 33;
             this.nudMecanique.Tag = "Mental";
-            this.nudMecanique.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudMecanique.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesMental_ValueChanged);
             // 
             // lblMecanique
             // 
@@ -647,7 +647,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudLangages.Size = new System.Drawing.Size(41, 20);
             this.nudLangages.TabIndex = 31;
             this.nudLangages.Tag = "Mental";
-            this.nudLangages.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudLangages.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesMental_ValueChanged);
             // 
             // lblLangages
             // 
@@ -670,7 +670,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudIntimidation.Size = new System.Drawing.Size(41, 20);
             this.nudIntimidation.TabIndex = 29;
             this.nudIntimidation.Tag = "Social";
-            this.nudIntimidation.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudIntimidation.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesSocial_ValueChanged);
             // 
             // lblIntimidation
             // 
@@ -693,7 +693,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudForce.Size = new System.Drawing.Size(41, 20);
             this.nudForce.TabIndex = 27;
             this.nudForce.Tag = "Physique";
-            this.nudForce.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudForce.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesPhysique_ValueChanged);
             // 
             // lblForce
             // 
@@ -716,7 +716,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudExplosifs.Size = new System.Drawing.Size(41, 20);
             this.nudExplosifs.TabIndex = 25;
             this.nudExplosifs.Tag = "Mental";
-            this.nudExplosifs.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudExplosifs.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesMental_ValueChanged);
             // 
             // lblExplosifs
             // 
@@ -739,7 +739,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudEscalade.Size = new System.Drawing.Size(41, 20);
             this.nudEscalade.TabIndex = 23;
             this.nudEscalade.Tag = "Physique";
-            this.nudEscalade.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudEscalade.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesPhysique_ValueChanged);
             // 
             // lblEscalade
             // 
@@ -762,7 +762,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudDiplomatie.Size = new System.Drawing.Size(41, 20);
             this.nudDiplomatie.TabIndex = 21;
             this.nudDiplomatie.Tag = "Social";
-            this.nudDiplomatie.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudDiplomatie.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesSocial_ValueChanged);
             // 
             // lblDiplomatie
             // 
@@ -785,7 +785,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudCrochetage.Size = new System.Drawing.Size(41, 20);
             this.nudCrochetage.TabIndex = 19;
             this.nudCrochetage.Tag = "Physique";
-            this.nudCrochetage.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudCrochetage.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesPhysique_ValueChanged);
             // 
             // lblCrochetage
             // 
@@ -808,7 +808,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudConnReligieuses.Size = new System.Drawing.Size(41, 20);
             this.nudConnReligieuses.TabIndex = 17;
             this.nudConnReligieuses.Tag = "Mental";
-            this.nudConnReligieuses.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudConnReligieuses.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesMental_ValueChanged);
             // 
             // lblConnReligieuses
             // 
@@ -831,7 +831,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudMagiques.Size = new System.Drawing.Size(41, 20);
             this.nudMagiques.TabIndex = 15;
             this.nudMagiques.Tag = "Mental";
-            this.nudMagiques.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudMagiques.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesMental_ValueChanged);
             // 
             // lblConnMagiques
             // 
@@ -854,7 +854,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudConnHistoriques.Size = new System.Drawing.Size(41, 20);
             this.nudConnHistoriques.TabIndex = 13;
             this.nudConnHistoriques.Tag = "Mental";
-            this.nudConnHistoriques.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudConnHistoriques.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesMental_ValueChanged);
             // 
             // lblConnHistoriques
             // 
@@ -877,7 +877,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudConnGeographiques.Size = new System.Drawing.Size(41, 20);
             this.nudConnGeographiques.TabIndex = 11;
             this.nudConnGeographiques.Tag = "Mental";
-            this.nudConnGeographiques.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudConnGeographiques.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesMental_ValueChanged);
             // 
             // lblConnGeographique
             // 
@@ -900,7 +900,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudConnNatures.Size = new System.Drawing.Size(41, 20);
             this.nudConnNatures.TabIndex = 9;
             this.nudConnNatures.Tag = "Mental";
-            this.nudConnNatures.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudConnNatures.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesMental_ValueChanged);
             // 
             // lblConnNatures
             // 
@@ -923,7 +923,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudArtisanat.Size = new System.Drawing.Size(41, 20);
             this.nudArtisanat.TabIndex = 7;
             this.nudArtisanat.Tag = "Physique";
-            this.nudArtisanat.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudArtisanat.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesPhysique_ValueChanged);
             // 
             // lblArtisanat
             // 
@@ -946,7 +946,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudAgilite.Size = new System.Drawing.Size(41, 20);
             this.nudAgilite.TabIndex = 3;
             this.nudAgilite.Tag = "Physique";
-            this.nudAgilite.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudAgilite.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesPhysique_ValueChanged);
             // 
             // lblAgilite
             // 
@@ -969,7 +969,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudAdresse.Size = new System.Drawing.Size(41, 20);
             this.nudAdresse.TabIndex = 1;
             this.nudAdresse.Tag = "Physique";
-            this.nudAdresse.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetences_ValueChanged);
+            this.nudAdresse.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesPhysique_ValueChanged);
             // 
             // lblAdresse
             // 

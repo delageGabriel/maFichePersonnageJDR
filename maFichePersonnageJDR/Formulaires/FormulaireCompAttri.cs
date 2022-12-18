@@ -252,17 +252,11 @@ namespace maFichePersonnageJDR.Formulaires
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void numericUpDownValeurChangeCompetences_ValueChanged(object sender, EventArgs e)
+        private void numericUpDownValeurChangeCompetencesPhysique_ValueChanged(object sender, EventArgs e)
         {
             int valeurTotaleRepartitionPhysique = GlobalesVariable.PtsPhysiqueMax;
-            int valeurTotaleRepartitionMental = GlobalesVariable.PtsMentalMax;
-            int valeurTotaleRepartitionSocial = GlobalesVariable.PtsSocialMax;
             int valeurCommunePhysique = 0;
-            int valeurCommuneMental = 0;
-            int valeurCommuneSocial = 0;
             int valeurRepartitionPhysiqueRetournee = 0;
-            int valeurRepartitionMentalRetournee = 0;
-            int valeurRepartitionSocialRetournee = 0;
 
             NumericUpDown numericUp = (NumericUpDown)sender;
             /// Cas Physique
@@ -282,40 +276,6 @@ namespace maFichePersonnageJDR.Formulaires
                 valeurRepartitionPhysiqueRetournee = valeurTotaleRepartitionPhysique - valeurCommunePhysique;
                 txtPntsPhysique.Text = valeurRepartitionPhysiqueRetournee.ToString();
             }
-            /// Cas Mental
-            else if (numericUp.Tag.ToString().Contains("Mental"))
-            {
-                foreach (object uneCompetence in grpbCompetences.Controls)
-                {
-                    if (uneCompetence is NumericUpDown)
-                    {
-                        NumericUpDown numComp = (NumericUpDown)uneCompetence;
-                        if (numComp.Tag.ToString().Contains("Mental"))
-                        {
-                            valeurCommuneMental += Convert.ToInt32(numComp.Value);
-                        }
-                    }
-                }
-                valeurRepartitionMentalRetournee = valeurTotaleRepartitionMental - valeurCommuneMental;
-                txtPntsMental.Text = valeurRepartitionMentalRetournee.ToString();
-            }
-            /// Cas Social
-            else if (numericUp.Tag.ToString().Contains("Social"))
-            {
-                foreach (object uneCompetence in grpbCompetences.Controls)
-                {
-                    if (uneCompetence is NumericUpDown)
-                    {
-                        NumericUpDown numComp = (NumericUpDown)uneCompetence;
-                        if (numComp.Tag.ToString().Contains("Social"))
-                        {
-                            valeurCommuneSocial += Convert.ToInt32(numComp.Value);
-                        }
-                    }
-                }
-                valeurRepartitionSocialRetournee = valeurTotaleRepartitionSocial - valeurCommuneSocial;
-                txtPntsSocial.Text = valeurRepartitionSocialRetournee.ToString();
-            }
             /// Cas Physique
             if (txtPntsPhysique.Text == "0")
             {
@@ -334,8 +294,51 @@ namespace maFichePersonnageJDR.Formulaires
                     }
                 }
             }
+            else
+            {
+                foreach (object uneCompetence in grpbCompetences.Controls)
+                {
+                    if (uneCompetence is NumericUpDown)
+                    {
+                        NumericUpDown numComp = (NumericUpDown)uneCompetence;
+                        numComp.Maximum = 15;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Calcul les points à répartir dans les différentes cases
+        /// Fais la différence avec les points ajouter
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void numericUpDownValeurChangeCompetencesMental_ValueChanged(object sender, EventArgs e)
+        {
+            int valeurTotaleRepartitionMental = GlobalesVariable.PtsMentalMax;
+            int valeurCommuneMental = 0;
+            int valeurRepartitionMentalRetournee = 0;
+            NumericUpDown numericUp = (NumericUpDown)sender;
+
             /// Cas Mental
-            if(txtPntsMental.Text == "0")
+            if (numericUp.Tag.ToString().Contains("Mental"))
+            {
+                foreach (object uneCompetence in grpbCompetences.Controls)
+                {
+                    if (uneCompetence is NumericUpDown)
+                    {
+                        NumericUpDown numComp = (NumericUpDown)uneCompetence;
+                        if (numComp.Tag.ToString().Contains("Mental"))
+                        {
+                            valeurCommuneMental += Convert.ToInt32(numComp.Value);
+                        }
+                    }
+                }
+                valeurRepartitionMentalRetournee = valeurTotaleRepartitionMental - valeurCommuneMental;
+                txtPntsMental.Text = valeurRepartitionMentalRetournee.ToString();
+            }
+            /// Cas Mental
+            if (txtPntsMental.Text == "0")
             {
                 foreach (object uneCompetence in grpbCompetences.Controls)
                 {
@@ -350,6 +353,49 @@ namespace maFichePersonnageJDR.Formulaires
                         }
                     }
                 }
+            }
+            else
+            {
+                foreach (object uneCompetence in grpbCompetences.Controls)
+                {
+                    if (uneCompetence is NumericUpDown)
+                    {
+                        NumericUpDown numComp = (NumericUpDown)uneCompetence;
+                        numComp.Maximum = 15;
+                    }
+                }
+            }
+        }
+        /// <summary>
+        /// Calcul les points à répartir dans les différentes cases
+        /// Fais la différence avec les points ajouter
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void numericUpDownValeurChangeCompetencesSocial_ValueChanged(object sender, EventArgs e)
+        {
+            int valeurTotaleRepartitionSocial = GlobalesVariable.PtsSocialMax;
+            int valeurCommuneSocial = 0;
+            int valeurRepartitionSocialRetournee = 0;
+
+            NumericUpDown numericUp = (NumericUpDown)sender;
+            
+            /// Cas Social
+            if (numericUp.Tag.ToString().Contains("Social"))
+            {
+                foreach (object uneCompetence in grpbCompetences.Controls)
+                {
+                    if (uneCompetence is NumericUpDown)
+                    {
+                        NumericUpDown numComp = (NumericUpDown)uneCompetence;
+                        if (numComp.Tag.ToString().Contains("Social"))
+                        {
+                            valeurCommuneSocial += Convert.ToInt32(numComp.Value);
+                        }
+                    }
+                }
+                valeurRepartitionSocialRetournee = valeurTotaleRepartitionSocial - valeurCommuneSocial;
+                txtPntsSocial.Text = valeurRepartitionSocialRetournee.ToString();
             }
             if (txtPntsSocial.Text == "0")
             {
@@ -368,7 +414,7 @@ namespace maFichePersonnageJDR.Formulaires
                     }
                 }
             }
-            if(txtPntsPhysique.Text != "0" || txtPntsMental.Text != "0" || txtPntsSocial.Text !="0")
+            else
             {
                 foreach (object uneCompetence in grpbCompetences.Controls)
                 {
@@ -380,7 +426,6 @@ namespace maFichePersonnageJDR.Formulaires
                 }
             }
         }
-
         /// <summary>
         /// Calcule la répartition des points entre les PV et l'énergie
         /// Impose une limite entre les deux numericUpDown
