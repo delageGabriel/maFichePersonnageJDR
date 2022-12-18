@@ -28,11 +28,11 @@ namespace maFichePersonnageJDR.Formulaires
         public void GetSettings()
         {
             rchTbAttributs.Text = Properties.Settings.Default.Attributs;
-            txtBoxPV.Text = Properties.Settings.Default.PV;
-            txtBoxEnrgie.Text = Properties.Settings.Default.Energie;
-            txtPhysique.Text = Properties.Settings.Default.Physique;
-            txtMental.Text = Properties.Settings.Default.Mental;
-            txtSocial.Text = Properties.Settings.Default.Social;
+            nudPV.Value = Properties.Settings.Default.PV;
+            nudEnergie.Value = Properties.Settings.Default.Energie;
+            nudPhysique.Value = Properties.Settings.Default.Physique;
+            nudMental.Value = Properties.Settings.Default.Mental;
+            nudSocial.Value = Properties.Settings.Default.Social;
             nudAdresse.Value = Properties.Settings.Default.Adresse;
             nudAgilite.Value = Properties.Settings.Default.Agilité;
             nudDressage.Value = Properties.Settings.Default.Dressage;
@@ -169,11 +169,11 @@ namespace maFichePersonnageJDR.Formulaires
         private void btnSauvegarder_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.Attributs = rchTbAttributs.Text;
-            Properties.Settings.Default.PV = txtBoxPV.Text;
-            Properties.Settings.Default.Energie = txtBoxEnrgie.Text;
-            Properties.Settings.Default.Physique = txtPhysique.Text;
-            Properties.Settings.Default.Mental = txtMental.Text;
-            Properties.Settings.Default.Social = txtSocial.Text;
+            Properties.Settings.Default.PV = Convert.ToInt32(nudPV.Value);
+            Properties.Settings.Default.Energie = Convert.ToInt32(nudEnergie.Value);
+            Properties.Settings.Default.Physique = Convert.ToInt32(nudPhysique.Value);
+            Properties.Settings.Default.Mental = Convert.ToInt32(nudMental.Value);
+            Properties.Settings.Default.Social = Convert.ToInt32(nudSocial.Value);
             Properties.Settings.Default.Adresse = Convert.ToInt32(nudAdresse.Value);
             Properties.Settings.Default.Agilité = Convert.ToInt32(nudAgilite.Value);
             Properties.Settings.Default.Dressage = Convert.ToInt32(nudDressage.Value);
@@ -244,122 +244,231 @@ namespace maFichePersonnageJDR.Formulaires
 
         private void nudEndurance_ValueChanged(object sender, EventArgs e)
         {
-            nudEndurance.Value = (Int32.Parse(txtPhysique.Text) + Int32.Parse(txtMental.Text)) / 10;
         }
 
-        private void numericUpDownValeurChange_ValueChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Calcul les points à répartir dans les différentes cases
+        /// Fais la différence avec les points ajouter
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void numericUpDownValeurChangeCompetences_ValueChanged(object sender, EventArgs e)
         {
-            int valeurNumPhysique = 0;
-            int valeurNumMental = 0;
-            int valeurNumSocial = 0;
-            int valeurMaxPhysique = GlobalesVariable.PtsPhysiqueMax;
-            int valeurMaxMental = GlobalesVariable.PtsMentalMax;
-            int valeurMaxSocial = GlobalesVariable.PtsSocialMax;
-            NumericUpDown numSender = (NumericUpDown)sender;
-            string tagNumSender = numSender.Tag.ToString();
+            int valeurTotaleRepartitionPhysique = GlobalesVariable.PtsPhysiqueMax;
+            int valeurTotaleRepartitionMental = GlobalesVariable.PtsMentalMax;
+            int valeurTotaleRepartitionSocial = GlobalesVariable.PtsSocialMax;
+            int valeurCommunePhysique = 0;
+            int valeurCommuneMental = 0;
+            int valeurCommuneSocial = 0;
+            int valeurRepartitionPhysiqueRetournee = 0;
+            int valeurRepartitionMentalRetournee = 0;
+            int valeurRepartitionSocialRetournee = 0;
 
-            foreach (object objetNumeric in grpbCompetences.Controls)
+            NumericUpDown numericUp = (NumericUpDown)sender;
+            /// Cas Physique
+            if(numericUp.Tag.ToString().Contains("Physique"))
             {
-                if (objetNumeric is NumericUpDown)
+                foreach(object uneCompetence in grpbCompetences.Controls)
                 {
-                    NumericUpDown numericUpDown = (NumericUpDown)objetNumeric;
-                    string tagNum = numericUpDown.Tag.ToString();
-                    if (tagNum == "Physique" && numericUpDown.Value > 0)
+                    if(uneCompetence is NumericUpDown)
                     {
-                        valeurNumPhysique += Convert.ToInt32(numericUpDown.Value);
+                        NumericUpDown numComp = (NumericUpDown)uneCompetence;
+                        if(numComp.Tag.ToString().Contains("Physique"))
+                        {
+                            valeurCommunePhysique += Convert.ToInt32(numComp.Value);
+                        }
                     }
-                    if (tagNum == "Mental" && numericUpDown.Value > 0)
+                }
+                valeurRepartitionPhysiqueRetournee = valeurTotaleRepartitionPhysique - valeurCommunePhysique;
+                txtPntsPhysique.Text = valeurRepartitionPhysiqueRetournee.ToString();
+            }
+            /// Cas Mental
+            else if (numericUp.Tag.ToString().Contains("Mental"))
+            {
+                foreach (object uneCompetence in grpbCompetences.Controls)
+                {
+                    if (uneCompetence is NumericUpDown)
                     {
-                        valeurNumMental += Convert.ToInt32(numericUpDown.Value);
+                        NumericUpDown numComp = (NumericUpDown)uneCompetence;
+                        if (numComp.Tag.ToString().Contains("Mental"))
+                        {
+                            valeurCommuneMental += Convert.ToInt32(numComp.Value);
+                        }
                     }
-                    if (tagNum == "Social" && numericUpDown.Value > 0)
+                }
+                valeurRepartitionMentalRetournee = valeurTotaleRepartitionMental - valeurCommuneMental;
+                txtPntsMental.Text = valeurRepartitionMentalRetournee.ToString();
+            }
+            /// Cas Social
+            else if (numericUp.Tag.ToString().Contains("Social"))
+            {
+                foreach (object uneCompetence in grpbCompetences.Controls)
+                {
+                    if (uneCompetence is NumericUpDown)
                     {
-                        valeurNumSocial += Convert.ToInt32(numericUpDown.Value);
+                        NumericUpDown numComp = (NumericUpDown)uneCompetence;
+                        if (numComp.Tag.ToString().Contains("Social"))
+                        {
+                            valeurCommuneSocial += Convert.ToInt32(numComp.Value);
+                        }
+                    }
+                }
+                valeurRepartitionSocialRetournee = valeurTotaleRepartitionSocial - valeurCommuneSocial;
+                txtPntsSocial.Text = valeurRepartitionSocialRetournee.ToString();
+            }
+            /// Cas Physique
+            if (txtPntsPhysique.Text == "0")
+            {
+                foreach (object uneCompetence in grpbCompetences.Controls)
+                {
+                    if (uneCompetence is NumericUpDown)
+                    {
+                        NumericUpDown numComp = (NumericUpDown)uneCompetence;
+                        /// Cas Physique
+                        if (numComp.Tag.ToString().Contains("Physique") && 
+                            !numComp.Tag.ToString().Contains("Mental") &&
+                            !numComp.Tag.ToString().Contains("Social"))
+                        {
+                            numComp.Maximum = Convert.ToInt32(numComp.Value);
+                        }
                     }
                 }
             }
+            /// Cas Mental
+            if(txtPntsMental.Text == "0")
+            {
+                foreach (object uneCompetence in grpbCompetences.Controls)
+                {
+                    if (uneCompetence is NumericUpDown)
+                    {
+                        NumericUpDown numComp = (NumericUpDown)uneCompetence;
+                        if (!numComp.Tag.ToString().Contains("Physique") &&
+                             numComp.Tag.ToString().Contains("Mental") &&
+                            !numComp.Tag.ToString().Contains("Social"))
+                        {
+                            numComp.Maximum = Convert.ToInt32(numComp.Value);
+                        }
+                    }
+                }
+            }
+            if (txtPntsSocial.Text == "0")
+            {
+                foreach (object uneCompetence in grpbCompetences.Controls)
+                {
+                    if (uneCompetence is NumericUpDown)
+                    {
+                        NumericUpDown numComp = (NumericUpDown)uneCompetence;
+                        /// Cas Social
+                        if (!numComp.Tag.ToString().Contains("Physique") &&
+                            !numComp.Tag.ToString().Contains("Mental") &&
+                             numComp.Tag.ToString().Contains("Social"))
+                        {
+                            numComp.Maximum = Convert.ToInt32(numComp.Value);
+                        }
+                    }
+                }
+            }
+            if(txtPntsPhysique.Text != "0" || txtPntsMental.Text != "0" || txtPntsSocial.Text !="0")
+            {
+                foreach (object uneCompetence in grpbCompetences.Controls)
+                {
+                    if (uneCompetence is NumericUpDown)
+                    {
+                        NumericUpDown numComp = (NumericUpDown)uneCompetence;
+                        numComp.Maximum = 15;
+                    }
+                }
+            }
+        }
 
-            valeurMaxPhysique -= valeurNumPhysique;
-            valeurMaxMental -= valeurNumMental;
-            valeurMaxSocial -= valeurNumSocial;
-            // bloque les checkbox à 0 s'il n'y a plus de points à répartir, cas physique
-            foreach (object nudCompetences in grpbCompetences.Controls)
+        /// <summary>
+        /// Calcule la répartition des points entre les PV et l'énergie
+        /// Impose une limite entre les deux numericUpDown
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void numericUpDownValeurChangePVEnergie_ValueChanged(object sender, EventArgs e)
+        {
+
+            int valeurRepartitionBox = 12;
+            int valeurPV = Convert.ToInt32(nudPV.Value);
+            int valeurEnergie = Convert.ToInt32(nudEnergie.Value);
+            int valeurCommune = 0;
+            int valeurRepartitionRetournee = 0;
+
+            NumericUpDown numericUpDown = (NumericUpDown)sender;
+
+            if (numericUpDown.Tag.ToString().Contains("PV"))
             {
-                if (nudCompetences is NumericUpDown)
-                {
-                    if (valeurMaxPhysique <= 0)
-                    {
-                        NumericUpDown numericUpDown = (NumericUpDown)nudCompetences;
-                        string tagNum = numericUpDown.Tag.ToString();
-                        if (tagNum == "Physique" && numericUpDown.Value == 0)
-                        {
-                            numericUpDown.Enabled = false;
-                        }
-                    }
-                    else
-                    {
-                        NumericUpDown numericUpDown = (NumericUpDown)nudCompetences;
-                        string tagNum = numericUpDown.Tag.ToString();
-                        if (tagNum == "Physique" && numericUpDown.Value == 0)
-                        {
-                            numericUpDown.Enabled = true;
-                        }
-                    }
-                }
+                nudEnergie.Maximum = valeurRepartitionBox - valeurPV;
+
+                valeurCommune = valeurPV + valeurEnergie;
+
+                valeurRepartitionRetournee = valeurRepartitionBox - valeurCommune;
+                txtPntsPVEnergie.Text = valeurRepartitionRetournee.ToString();
+
             }
-            // bloque les checkbox à 0 s'il n'y a plus de points à répartir, cas mental
-            foreach (object nudCompetences in grpbCompetences.Controls)
+            if (numericUpDown.Tag.ToString().Contains("Energie"))
             {
-                if (nudCompetences is NumericUpDown)
-                {
-                    if (valeurMaxMental <= 0)
-                    {
-                        NumericUpDown numericUpDown = (NumericUpDown)nudCompetences;
-                        string tagNum = numericUpDown.Tag.ToString();
-                        if (tagNum == "Mental" && numericUpDown.Value == 0)
-                        {
-                            numericUpDown.Enabled = false;
-                        }
-                    }
-                    else
-                    {
-                        NumericUpDown numericUpDown = (NumericUpDown)nudCompetences;
-                        string tagNum = numericUpDown.Tag.ToString();
-                        if (tagNum == "Mental" && numericUpDown.Value == 0)
-                        {
-                            numericUpDown.Enabled = true;
-                        }
-                    }
-                }
+                nudPV.Maximum = valeurRepartitionBox - valeurEnergie;
+
+                valeurCommune = valeurPV + valeurEnergie;
+
+                valeurRepartitionRetournee = valeurRepartitionBox - valeurCommune;
+                txtPntsPVEnergie.Text = valeurRepartitionRetournee.ToString();
+
             }
-            // bloque les checkbox à 0 s'il n'y a plus de points à répartir, cas social
-            foreach (object nudCompetences in grpbCompetences.Controls)
+        }
+
+        /// <summary>
+        /// Calcule la répartition des points entre les trois caractéristiques
+        /// Impose une limite entre les trois numericUpDown
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void numericUpDownValeurChangeCaracteristiques_ValueChanged(object sender, EventArgs e)
+        {
+            int valeurRepartitionTotale = 135;
+            int valeurPhysique = Convert.ToInt32(nudPhysique.Value);
+            int valeurMental = Convert.ToInt32(nudMental.Value);
+            int valeurSocial = Convert.ToInt32(nudSocial.Value);
+            int valeurCommune = 0;
+            int valeurRepartitionRetournee = 0;
+
+            NumericUpDown numericUpDown = (NumericUpDown)sender;
+            if(numericUpDown.Tag.ToString().Contains("Physique"))
             {
-                if (nudCompetences is NumericUpDown)
-                {
-                    if (valeurMaxSocial <= 0)
-                    {
-                        NumericUpDown numericUpDown = (NumericUpDown)nudCompetences;
-                        string tagNum = numericUpDown.Tag.ToString();
-                        if (tagNum == "Social" && numericUpDown.Value == 0)
-                        {
-                            numericUpDown.Enabled = false;
-                        }
-                    }
-                    else
-                    {
-                        NumericUpDown numericUpDown = (NumericUpDown)nudCompetences;
-                        string tagNum = numericUpDown.Tag.ToString();
-                        if (tagNum == "Social" && numericUpDown.Value == 0)
-                        {
-                            numericUpDown.Enabled = true;
-                        }
-                    }
-                }
+                valeurCommune = valeurPhysique + valeurMental + valeurSocial;
+                valeurRepartitionRetournee = valeurRepartitionTotale - valeurCommune;
+                nudEndurance.Value = (nudPhysique.Value + nudMental.Value) / 10;
+                txtPntsCaracteristiques.Text = valeurRepartitionRetournee.ToString();
             }
-            txtPntsPhysique.Text = valeurMaxPhysique.ToString();
-            txtPntsMental.Text = valeurMaxMental.ToString();
-            txtPntsSocial.Text = valeurMaxSocial.ToString();
+            if (numericUpDown.Tag.ToString().Contains("Mental"))
+            {
+                valeurCommune = valeurPhysique + valeurMental + valeurSocial;
+                valeurRepartitionRetournee = valeurRepartitionTotale - valeurCommune;
+                nudEndurance.Value = (nudPhysique.Value + nudMental.Value) / 10;
+                txtPntsCaracteristiques.Text = valeurRepartitionRetournee.ToString();
+            }
+            if (numericUpDown.Tag.ToString().Contains("Social"))
+            {
+                valeurCommune = valeurPhysique + valeurMental + valeurSocial;
+                valeurRepartitionRetournee = valeurRepartitionTotale - valeurCommune;
+
+                txtPntsCaracteristiques.Text = valeurRepartitionRetournee.ToString();
+            }
+            if(txtPntsCaracteristiques.Text == "0")
+            {
+                nudPhysique.Maximum = Convert.ToInt32(nudPhysique.Value);
+                nudMental.Maximum = Convert.ToInt32(nudMental.Value);
+                nudSocial.Maximum = Convert.ToInt32(nudSocial.Value);
+            }
+            else
+            {
+                nudPhysique.Maximum = 55;
+                nudMental.Maximum = 55;
+                nudSocial.Maximum = 55;
+            }
         }
     }
 }

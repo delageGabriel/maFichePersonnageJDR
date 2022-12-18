@@ -2,13 +2,13 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="maFichePersonnageJDR.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="Physique" Type="System.String" Scope="User">
+    <Setting Name="Physique" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="Mental" Type="System.String" Scope="User">
+    <Setting Name="Mental" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="Social" Type="System.String" Scope="User">
+    <Setting Name="Social" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Adresse" Type="System.Int32" Scope="User">
@@ -89,11 +89,11 @@
     <Setting Name="Volonte" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="PV" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Empty</Value>
+    <Setting Name="PV" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="Energie" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Empty</Value>
+    <Setting Name="Energie" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Attributs" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

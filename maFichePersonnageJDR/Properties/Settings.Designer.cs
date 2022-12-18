@@ -26,9 +26,9 @@ namespace maFichePersonnageJDR.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public string Physique {
+        public int Physique {
             get {
-                return ((string)(this["Physique"]));
+                return ((int)(this["Physique"]));
             }
             set {
                 this["Physique"] = value;
@@ -38,9 +38,9 @@ namespace maFichePersonnageJDR.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public string Mental {
+        public int Mental {
             get {
-                return ((string)(this["Mental"]));
+                return ((int)(this["Mental"]));
             }
             set {
                 this["Mental"] = value;
@@ -50,9 +50,9 @@ namespace maFichePersonnageJDR.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public string Social {
+        public int Social {
             get {
-                return ((string)(this["Social"]));
+                return ((int)(this["Social"]));
             }
             set {
                 this["Social"] = value;
@@ -373,10 +373,10 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
-        public string PV {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int PV {
             get {
-                return ((string)(this["PV"]));
+                return ((int)(this["PV"]));
             }
             set {
                 this["PV"] = value;
@@ -385,10 +385,10 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
-        public string Energie {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Energie {
             get {
-                return ((string)(this["Energie"]));
+                return ((int)(this["Energie"]));
             }
             set {
                 this["Energie"] = value;

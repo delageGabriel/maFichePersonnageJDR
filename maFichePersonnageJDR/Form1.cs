@@ -124,7 +124,7 @@ namespace maFichePersonnageJDR
             
             #region tableau_pv_energie
             string[] enTete = { "PV", "Énergie" };
-            string[] donnees = { Properties.Settings.Default.PV, Properties.Settings.Default.Energie };
+            string[] donnees = { Properties.Settings.Default.PV.ToString(), Properties.Settings.Default.Energie.ToString() };
             Spire.Doc.Table table = section.AddTable(true);
             table.ResetCells(donnees.Length, enTete.Length);
             TableRow row = table.Rows[0];
@@ -154,7 +154,9 @@ namespace maFichePersonnageJDR
 
             #region tableau_caracteristiques
             string[] enTeteCaracteristiques = { "Physique", "Mental", "Social" };
-            string[] donneesCaracteristiques = { Properties.Settings.Default.Physique, Properties.Settings.Default.Mental, Properties.Settings.Default.Social };
+            string[] donneesCaracteristiques = { Properties.Settings.Default.Physique.ToString(), 
+                Properties.Settings.Default.Mental.ToString(), 
+                Properties.Settings.Default.Social.ToString() };
             Spire.Doc.Table tableCaracteristiques = section.AddTable(true);
             tableCaracteristiques.ResetCells(2, enTeteCaracteristiques.Length);
             TableRow rowCaracteristiques = tableCaracteristiques.Rows[0];
