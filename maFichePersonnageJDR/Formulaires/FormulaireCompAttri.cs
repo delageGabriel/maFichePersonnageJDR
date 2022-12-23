@@ -33,7 +33,7 @@ namespace maFichePersonnageJDR.Formulaires
             nudPhysique.Value = Properties.Settings.Default.Physique;
             nudMental.Value = Properties.Settings.Default.Mental;
             nudSocial.Value = Properties.Settings.Default.Social;
-            nudAdresse.Value = Properties.Settings.Default.Adresse;
+            nudDexterite.Value = Properties.Settings.Default.Dexterite;
             nudAgilite.Value = Properties.Settings.Default.Agilité;
             nudDressage.Value = Properties.Settings.Default.Dressage;
             nudArtisanat.Value = Properties.Settings.Default.Artisanat;
@@ -46,21 +46,22 @@ namespace maFichePersonnageJDR.Formulaires
             nudCrochetage.Value = Properties.Settings.Default.Crochetage;
             nudDiplomatie.Value = Properties.Settings.Default.Diplomatie;
             nudDiscretion.Value = Properties.Settings.Default.Discretion;
-            nudEndurance.Value = Properties.Settings.Default.Endurance;
             nudEscalade.Value = Properties.Settings.Default.Escalade;
             nudEscamotage.Value = Properties.Settings.Default.Escamotage;
             nudExplosifs.Value = Properties.Settings.Default.Explosifs;
             nudForce.Value = Properties.Settings.Default.Force;
             nudIntimidation.Value = Properties.Settings.Default.Intimidation;
-            nudLangages.Value = Properties.Settings.Default.Langages;
+            nudDecryptage.Value = Properties.Settings.Default.Decryptage;
             nudMarchandage.Value = Properties.Settings.Default.Marchandage;
             nudMecanique.Value = Properties.Settings.Default.Mecanique;
             nudMedecine.Value = Properties.Settings.Default.Medecine;
+            nudMemoire.Value = Properties.Settings.Default.Memoire;
             nudNatation.Value = Properties.Settings.Default.Natation;
             nudPerception.Value = Properties.Settings.Default.Perception;
             nudPerspicacite.Value = Properties.Settings.Default.Perspicacité;
             nudPrestance.Value = Properties.Settings.Default.Prestance;
-            nudSpiritualite.Value = Properties.Settings.Default.Spiritualite;
+            nudProvocation.Value = Properties.Settings.Default.Provocation;
+            nudEsprit.Value = Properties.Settings.Default.Esprit;
             nudReflexes.Value = Properties.Settings.Default.Reflexes;
             nudVigueur.Value = Properties.Settings.Default.Vigueur;
             nudVolonte.Value = Properties.Settings.Default.Volonte;
@@ -174,7 +175,7 @@ namespace maFichePersonnageJDR.Formulaires
             Properties.Settings.Default.Physique = Convert.ToInt32(nudPhysique.Value);
             Properties.Settings.Default.Mental = Convert.ToInt32(nudMental.Value);
             Properties.Settings.Default.Social = Convert.ToInt32(nudSocial.Value);
-            Properties.Settings.Default.Adresse = Convert.ToInt32(nudAdresse.Value);
+            Properties.Settings.Default.Dexterite = Convert.ToInt32(nudDexterite.Value);
             Properties.Settings.Default.Agilité = Convert.ToInt32(nudAgilite.Value);
             Properties.Settings.Default.Dressage = Convert.ToInt32(nudDressage.Value);
             Properties.Settings.Default.Artisanat = Convert.ToInt32(nudArtisanat.Value);
@@ -187,21 +188,22 @@ namespace maFichePersonnageJDR.Formulaires
             Properties.Settings.Default.Crochetage = Convert.ToInt32(nudCrochetage.Value);
             Properties.Settings.Default.Diplomatie = Convert.ToInt32(nudDiplomatie.Value);
             Properties.Settings.Default.Discretion = Convert.ToInt32(nudDiscretion.Value);
-            Properties.Settings.Default.Endurance = Convert.ToInt32(nudEndurance.Value);
             Properties.Settings.Default.Escalade = Convert.ToInt32(nudEscalade.Value);
             Properties.Settings.Default.Escamotage = Convert.ToInt32(nudEscamotage.Value);
             Properties.Settings.Default.Explosifs = Convert.ToInt32(nudExplosifs.Value);
             Properties.Settings.Default.Force = Convert.ToInt32(nudForce.Value);
             Properties.Settings.Default.Intimidation = Convert.ToInt32(nudIntimidation.Value);
-            Properties.Settings.Default.Langages = Convert.ToInt32(nudLangages.Value);
+            Properties.Settings.Default.Decryptage = Convert.ToInt32(nudDecryptage.Value);
             Properties.Settings.Default.Marchandage = Convert.ToInt32(nudMarchandage.Value);
             Properties.Settings.Default.Mecanique = Convert.ToInt32(nudMecanique.Value);
             Properties.Settings.Default.Medecine = Convert.ToInt32(nudMedecine.Value);
+            Properties.Settings.Default.Memoire = Convert.ToInt32(nudMemoire.Value);
             Properties.Settings.Default.Natation = Convert.ToInt32(nudNatation.Value);
             Properties.Settings.Default.Perception = Convert.ToInt32(nudPerception.Value);
             Properties.Settings.Default.Perspicacité = Convert.ToInt32(nudPerspicacite.Value);
             Properties.Settings.Default.Prestance = Convert.ToInt32(nudPrestance.Value);
-            Properties.Settings.Default.Spiritualite = Convert.ToInt32(nudSpiritualite.Value);
+            Properties.Settings.Default.Provocation = Convert.ToInt32(nudProvocation.Value);
+            Properties.Settings.Default.Esprit = Convert.ToInt32(nudEsprit.Value);
             Properties.Settings.Default.Reflexes = Convert.ToInt32(nudReflexes.Value);
             Properties.Settings.Default.Vigueur = Convert.ToInt32(nudVigueur.Value);
             Properties.Settings.Default.Volonte = Convert.ToInt32(nudVolonte.Value);
@@ -481,14 +483,14 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 valeurCommune = valeurPhysique + valeurMental + valeurSocial;
                 valeurRepartitionRetournee = valeurRepartitionTotale - valeurCommune;
-                nudEndurance.Value = (nudPhysique.Value + nudMental.Value) / 10;
+                nudDexterite.Value = (nudPhysique.Value + nudMental.Value) / 10;
                 txtPntsCaracteristiques.Text = valeurRepartitionRetournee.ToString();
             }
             if (numericUpDown.Tag.ToString().Contains("Mental"))
             {
                 valeurCommune = valeurPhysique + valeurMental + valeurSocial;
                 valeurRepartitionRetournee = valeurRepartitionTotale - valeurCommune;
-                nudEndurance.Value = (nudPhysique.Value + nudMental.Value) / 10;
+                nudDexterite.Value = (nudPhysique.Value + nudMental.Value) / 10;
                 txtPntsCaracteristiques.Text = valeurRepartitionRetournee.ToString();
             }
             if (numericUpDown.Tag.ToString().Contains("Social"))

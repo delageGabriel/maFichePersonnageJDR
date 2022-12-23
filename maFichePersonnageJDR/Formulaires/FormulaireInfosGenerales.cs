@@ -20,6 +20,7 @@ namespace maFichePersonnageJDR.Formulaires
 
         private void FormulaireInfosGenerales_Load(object sender, EventArgs e)
         {
+            
             GetSettings();
             txtVitesse.Text = "9 m";
             if (Convert.ToInt32(Properties.Settings.Default.Force) > 0)
@@ -64,9 +65,9 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 ptbAvatar.Image = GetUneImage(Properties.Settings.Default.CheminImage);
             }
-            txtPO.Text = Properties.Settings.Default.Or;
-            txtPA.Text = Properties.Settings.Default.Argent;
-            txtPC.Text = Properties.Settings.Default.Cuivre;
+            nudOr.Value = Properties.Settings.Default.Or;
+            nudArgent.Value = Properties.Settings.Default.Argent;
+            nudCuivre.Value = Properties.Settings.Default.Cuivre;
             Properties.Settings.Default.ChargeMax = txtBoxCharge.Text;
             Properties.Settings.Default.VitesseDepla = txtVitesse.Text;
         }
@@ -99,9 +100,9 @@ namespace maFichePersonnageJDR.Formulaires
             Properties.Settings.Default.Langues = rtbLangues.Text;
             Properties.Settings.Default.ChargeMax = txtBoxCharge.Text;
             Properties.Settings.Default.VitesseDepla = txtVitesse.Text;
-            Properties.Settings.Default.Or = txtPO.Text;
-            Properties.Settings.Default.Argent = txtPA.Text;
-            Properties.Settings.Default.Cuivre = txtPC.Text;
+            Properties.Settings.Default.Or = Convert.ToInt32(nudOr);
+            Properties.Settings.Default.Argent = Convert.ToInt32(nudArgent);
+            Properties.Settings.Default.Cuivre = Convert.ToInt32(nudCuivre);
             txtBoxCharge.Text = Properties.Settings.Default.ChargeMax;
             txtVitesse.Text = Properties.Settings.Default.VitesseDepla;
             Properties.Settings.Default.Save();

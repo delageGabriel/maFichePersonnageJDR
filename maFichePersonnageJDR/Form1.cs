@@ -184,14 +184,14 @@ namespace maFichePersonnageJDR
 
             #region caracteristiques
             Paragraph paragraphCaracteristique = section.AddParagraph();
-            TextRange rangeAdresse = paragraphCaracteristique.AppendText("Adresse : " + Properties.Settings.Default.Adresse);
+            TextRange rangeAdresse = paragraphCaracteristique.AppendText("Adresse : " + Properties.Settings.Default.Dexterite);
             TextRange rangeExplosifs = paragraphCaracteristique.AppendText("\t\t\t\tExplosifs : " + Properties.Settings.Default.Explosifs + "\n");
             TextRange rangeAgilite = paragraphCaracteristique.AppendText("Agilité : " + Properties.Settings.Default.Agilité);
             TextRange rangeForce = paragraphCaracteristique.AppendText("\t\t\t\tForce : " + Properties.Settings.Default.Force + "\n");
             TextRange rangeAnimale = paragraphCaracteristique.AppendText("Animale : " + Properties.Settings.Default.Dressage);
             TextRange rangeIntimidation = paragraphCaracteristique.AppendText("\t\t\t\tIntimidation : " + Properties.Settings.Default.Intimidation + "\n");
             TextRange rangeArtisanat = paragraphCaracteristique.AppendText("Artisanat : " + Properties.Settings.Default.Artisanat);
-            TextRange rangeLangages = paragraphCaracteristique.AppendText("\t\t\t\tLangages : " + Properties.Settings.Default.Langages + "\n");
+            TextRange rangeLangages = paragraphCaracteristique.AppendText("\t\t\t\tLangages : " + Properties.Settings.Default.Decryptage + "\n");
             TextRange rangeBotanique = paragraphCaracteristique.AppendText("Botanique : " + Properties.Settings.Default.ConnNature);
             TextRange rangeMécanique = paragraphCaracteristique.AppendText("\t\t\t\tMécanique : " + Properties.Settings.Default.Mecanique + "\n");
             TextRange rangeCharme = paragraphCaracteristique.AppendText("\t\t\t\tCharme : " + Properties.Settings.Default.Charme + "\n");
@@ -206,7 +206,7 @@ namespace maFichePersonnageJDR
             TextRange rangeCrochetage = paragraphCaracteristique.AppendText("Crochetage : " + Properties.Settings.Default.Crochetage);
             TextRange rangePersuasion = paragraphCaracteristique.AppendText("\t\t\t\tPersuasion : " + Properties.Settings.Default.Persuasion + "\n");
             TextRange rangeDiplomatie = paragraphCaracteristique.AppendText("Diplomatie : " + Properties.Settings.Default.Diplomatie);
-            TextRange rangePsyche = paragraphCaracteristique.AppendText("\t\t\t\tPsyché : " + Properties.Settings.Default.Spiritualite + "\n");
+            TextRange rangePsyche = paragraphCaracteristique.AppendText("\t\t\t\tPsyché : " + Properties.Settings.Default.Esprit + "\n");
             TextRange rangeDiscretion = paragraphCaracteristique.AppendText("Discrétion : " + Properties.Settings.Default.Discretion);
             TextRange rangeReflexes = paragraphCaracteristique.AppendText("\t\t\t\tRéflexes : " + Properties.Settings.Default.Reflexes + "\n");
             TextRange rangeEndurance = paragraphCaracteristique.AppendText("Endurance : " + Properties.Settings.Default.Endurance);

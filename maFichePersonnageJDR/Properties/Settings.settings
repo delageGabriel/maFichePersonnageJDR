@@ -11,7 +11,7 @@
     <Setting Name="Social" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="Adresse" Type="System.Int32" Scope="User">
+    <Setting Name="Dexterite" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Agilité" Type="System.Int32" Scope="User">
@@ -56,7 +56,7 @@
     <Setting Name="Intimidation" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="Langages" Type="System.Int32" Scope="User">
+    <Setting Name="Decryptage" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Mecanique" Type="System.Int32" Scope="User">
@@ -77,7 +77,7 @@
     <Setting Name="Persuasion" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="Spiritualite" Type="System.Int32" Scope="User">
+    <Setting Name="Esprit" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Reflexes" Type="System.Int32" Scope="User">
@@ -125,14 +125,14 @@
     <Setting Name="VitesseDepla" Type="System.String" Scope="User">
       <Value Profile="(Default)">Empty</Value>
     </Setting>
-    <Setting Name="Or" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="Or" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="Argent" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="Argent" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="Cuivre" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="Cuivre" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Inventaires" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -322,6 +322,12 @@
     </Setting>
     <Setting Name="VNTente" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="Memoire" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="Provocation" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>
 </SettingsFile>

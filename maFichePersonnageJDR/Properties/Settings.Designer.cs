@@ -62,12 +62,12 @@ namespace maFichePersonnageJDR.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int Adresse {
+        public int Dexterite {
             get {
-                return ((int)(this["Adresse"]));
+                return ((int)(this["Dexterite"]));
             }
             set {
-                this["Adresse"] = value;
+                this["Dexterite"] = value;
             }
         }
         
@@ -242,12 +242,12 @@ namespace maFichePersonnageJDR.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int Langages {
+        public int Decryptage {
             get {
-                return ((int)(this["Langages"]));
+                return ((int)(this["Decryptage"]));
             }
             set {
-                this["Langages"] = value;
+                this["Decryptage"] = value;
             }
         }
         
@@ -326,12 +326,12 @@ namespace maFichePersonnageJDR.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int Spiritualite {
+        public int Esprit {
             get {
-                return ((int)(this["Spiritualite"]));
+                return ((int)(this["Esprit"]));
             }
             set {
-                this["Spiritualite"] = value;
+                this["Esprit"] = value;
             }
         }
         
@@ -517,10 +517,10 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Or {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Or {
             get {
-                return ((string)(this["Or"]));
+                return ((int)(this["Or"]));
             }
             set {
                 this["Or"] = value;
@@ -529,10 +529,10 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Argent {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Argent {
             get {
-                return ((string)(this["Argent"]));
+                return ((int)(this["Argent"]));
             }
             set {
                 this["Argent"] = value;
@@ -541,10 +541,10 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Cuivre {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Cuivre {
             get {
-                return ((string)(this["Cuivre"]));
+                return ((int)(this["Cuivre"]));
             }
             set {
                 this["Cuivre"] = value;
@@ -1304,6 +1304,30 @@ namespace maFichePersonnageJDR.Properties {
             }
             set {
                 this["VNTente"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Memoire {
+            get {
+                return ((int)(this["Memoire"]));
+            }
+            set {
+                this["Memoire"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Provocation {
+            get {
+                return ((int)(this["Provocation"]));
+            }
+            set {
+                this["Provocation"] = value;
             }
         }
     }
