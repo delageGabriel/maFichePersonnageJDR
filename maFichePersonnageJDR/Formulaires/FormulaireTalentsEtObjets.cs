@@ -76,6 +76,8 @@ namespace maFichePersonnageJDR.Formulaires
                 , "Tente"};
         private void FormulaireTalentsEtObjets_Load(object sender, EventArgs e)
         {
+            nudChargeMaximale.Value = Convert.ToDecimal(Properties.Settings.Default.ChargeMax);
+            nudChargeRestante.Value = Convert.ToDecimal(Properties.Settings.Default.ChargePortee);
             GetSettings();
             GetSortileges();
             GetInventaires();
@@ -205,71 +207,51 @@ namespace maFichePersonnageJDR.Formulaires
         {
             if (!Properties.Settings.Default.Attributs.Contains("Magie Aquatique — magie de l'eau"))
             {
-                chkMgieAqua.Visible = false;
-                lblMgieAqua.Visible = false;
+                chkMgieAqua.Enabled = false;
             }
             if (!Properties.Settings.Default.Attributs.Contains("Magie Céleste — magie du ciel"))
             {
-                chkMgieCeleste.Visible = false;
-                lblMgieCeleste.Visible = false;
+                chkMgieCeleste.Enabled = false;
             }
             if (!Properties.Settings.Default.Attributs.Contains("Magie Démoniaque — magie liée aux ténèbres"))
             {
-                chkMgieDemoniaqueAbspton.Visible = false;
-                lblMgieDemoniaqueAbspton.Visible = false;
-                chkMgieDemoniaqueCntrole.Visible = false;
-                lblMgieDemoniaqueCntrole.Visible = false;
-                chkMgieDemoniaqueMldction.Visible = false;
-                lblMgieDemoniaqueMldction.Visible = false;
-                chkMgieDemoniaqueNecro.Visible = false;
-                lblMgieDemoniaqueNecro.Visible = false;
+                chkMgieDemoniaqueAbspton.Enabled = false;
+                chkMgieDemoniaqueCntrole.Enabled = false;
+                chkMgieDemoniaqueMldction.Enabled = false;
+                chkMgieDemoniaqueNecro.Enabled = false;
+                chkMgieDemoniaqueIllusions.Enabled = false;
             }
             if (!Properties.Settings.Default.Attributs.Contains("Magie Divine — magie liée aux divinités"))
             {
-                chkMgieDivineBclrPrtc.Visible = false;
-                lblMgieDivineBclrPrtc.Visible = false;
-                chkMgieDivineBene.Visible = false;
-                lblMgieDivineBene.Visible = false;
-                chkMgieDivineDvnation.Visible = false;
-                lblMgieDivineDvnation.Visible = false;
-                chkMgieDivineGueri.Visible = false;
-                lblMgieDivineGueri.Visible = false;
-                chkMgieDivineRestauration.Visible = false;
-                lblMgieDivineRestauration.Visible = false;
+                chkMgieDivineBclrPrtc.Enabled = false;
+                chkMgieDivineBene.Enabled = false;
+                chkMgieDivineDvnation.Enabled = false;
+                chkMgieDivineGueri.Enabled = false;
+                chkMgieDivineRestauration.Enabled = false;
             }
             if (!Properties.Settings.Default.Attributs.Contains("Magie Ignis — magie du feu"))
             {
-                chkMgieIgnis.Visible = false;
-                lblMgieIgnis.Visible = false;
+                chkMgieIgnis.Enabled = false;
             }
             if (!Properties.Settings.Default.Attributs.Contains("Magie Naturelle — magie de la nature"))
             {
-                chkMgieNatureChgmTemp.Visible = false;
-                lblMgieNatureChgmTemp.Visible = false;
-                chkMgieNatureComm.Visible = false;
-                lblMgieNatureComm.Visible = false;
-                chkMgieNatureInvoc.Visible = false;
-                lblMgieNatureInvoc.Visible = false;
-                chkMgieNatureVsionNoir.Visible = false;
-                lblMgieNatureVsionNoir.Visible = false;
+                chkMgieNatureChgmTemp.Enabled = false;
+                chkMgieNatureComm.Enabled = false;
+                chkMgieNatureInvoc.Enabled = false;
+                chkMgieNatureVsionNoir.Enabled = false;
+                chkMgieNatureMetamphse.Enabled = false;
             }
             if (!Properties.Settings.Default.Attributs.Contains("Magie Neutre — magie neutre"))
             {
-                chkMgieNeutreAltration.Visible = false;
-                lblMgieNeutreAltration.Visible = false;
-                chkMgieNeutreInvsbilté.Visible = false;
-                lblMgieNeutreInvsbilté.Visible = false;
-                chkMgieNeutreMsg.Visible = false;
-                lblMgieNeutreMsg.Visible = false;
-                chkMgieNeutreSsie.Visible = false;
-                lblMgieNeutreSsie.Visible = false;
-                chkMgieNeutreTelkinesie.Visible = false;
-                lblMgieNeutreTelkinesie.Visible = false;
+                chkMgieNeutreAltration.Enabled = false;
+                chkMgieNeutreInvsbilté.Enabled = false;
+                chkMgieNeutreMsg.Enabled = false;
+                chkMgieNeutreSsie.Enabled = false;
+                chkMgieNeutreTelkinesie.Enabled = false;
             }
             if (!Properties.Settings.Default.Attributs.Contains("Magie Terrestre: magie de la terre"))
             {
-                chkMgieTerrestre.Visible = false;
-                lblMgieTerrestre.Visible = false;
+                chkMgieTerrestre.Enabled = false;
             }
         }
 
@@ -1516,9 +1498,12 @@ namespace maFichePersonnageJDR.Formulaires
         private void btnViderRchTbInventaires_Click(object sender, EventArgs e)
         {
             rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(0, rchTxtIvtaires.TextLength);
+            nudChargeRestante.Value = 0;
             foreach (TabPage tabPage in tcArmes.Controls)
             {
                 VideRichTextBoxBoutonVider(tabPage);
+                Properties.Settings.Default.ChargePortee = 0;
+
             }
             foreach (TabPage tabPage in tcArmure.Controls)
             {
@@ -3144,12 +3129,47 @@ namespace maFichePersonnageJDR.Formulaires
         /// <summary>
         /// Méthode qui permet d'ajouter ou de retirer une ligne
         /// de la richtextbox inventaire en cliquant sur la 
-        /// checkbox associée
+        /// checkbox associée, incrémente ou décremente la progress
+        /// bar aussi
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void chkAddOrDeleteItem_click(object sender, EventArgs e)
         {
+            /// <summary>
+            /// Champs récupérés de la ligne associée au tag de la checkbox
+            /// </summary>
+            /// <param name="chargeMaximum"> La charge maximale exprimée en kilos que la créature peut porter </param>
+            /// <param name="=caractersPoids"> Tableau de char qui retire les caractères "kg" des poids extraits </param>
+            /// <param name="strTemp"> La chaîne de caractère qui sera renvoyée à la fin </param>
+            /// <param name="chkName"> La checkBox qui sera récupéré grâce au sender </param>
+            /// <param name="tagEvenement"> Le tag de la checkbox récupéré sans le "chk" devant </param>
+            /// <param name="nudEvenement"> Le NumericUpDown de la ligne associée au tag de la checkbox, récupéré grâce
+            /// à la méthode GetNudObjet qui prend en paramètre le tag de l'événement </param>
+            /// <param name="nomEvenement">Le nom de l'événement de la ligne associée au tag de la checkbox, récupéré grâce
+            /// à la méthode GetNomObjet qui prend en paramètre le tag de l'événement</param>
+            /// <param name="pdsEvenement">Le poids de l'événement de la ligne associée au tag de la checkbox, récupéré grâce
+            /// à la méthode GetPoidsObjet qui prend en paramètre le tag de l'événement</param>
+            /// <param name="porteeEvenement">La portée de l'événement de la ligne associée au tag de la checkbox, récupérée grâce
+            /// à la méthode GetPorteeObjet qui prend en paramètre le tag de l'événement</param>
+            /// <param name="qteEvenement">La quantité de l'événement de la ligne associée au tag de la checkbox, récupérée grâce
+            /// à la méthode GetQuantiteObjet qui prend en paramètre le tag de l'événement</param>
+            /// <param name="typeEvenement">Le type de dégât de l'événement de la ligne associée au tag de la checkbox, récupéré grâce
+            /// à la méthode GetTypeObjet qui prend en paramètre le tag de l'événement</param>
+            /// <param name="degatsEvenement">Les dégâts de l'événement de la ligne associée au tag de la checkbox, récupéré grâce
+            /// à la méthode GetDegatsObjet qui prend en paramètre le tag de l'événement</param>
+            /// <param name="valeurEvenement">La valeur de l'événement (à l'unité) de la ligne associée au tag de la checkbox, récupérée grâce
+            /// à la méthode GetValeursObjet qui prend en paramètre le tag de l'événement</param>
+            /// <param name="proprieteEvenement">La propriété de l'événement de la ligne associée au tag de la checkbox, récupérée grâce
+            /// à la méthode GetProprieteObjet qui prend en paramètre le tag de l'événement</param>
+            /// <param name="effetsEvenement">L'effet de l'événement de la ligne associée au tag de la checkbox, récupéré grâce
+            /// à la méthode GetEffetsObjet qui prend en paramètre le tag de l'événement</param>
+            /// <param name="tailleEvenement">La taille de l'événement de la ligne associée au tag de la checkbox, récupérée grâce
+            /// à la méthode GetTailleObjet qui prend en paramètre le tag de l'événement</param>
+            /// <param name="poidsSansKg">Le poids sans "kg" qui sera ajouté à la charge portée</param>
+
+            decimal chargeMaximum = Properties.Settings.Default.ChargeMax;
+            char[] caracteresPoids = { 'k', 'g' };
             string strTemp = string.Empty;
             CheckBox chkName = (CheckBox)sender;
             string tagEvenement = chkName.Name.Substring(3);
@@ -3164,12 +3184,27 @@ namespace maFichePersonnageJDR.Formulaires
             string proprieteEvenement = GetProprieteObjet(tagEvenement);
             string effetsEvenement = GetEffetsObjet(tagEvenement);
             string tailleEvenement = GetTailleObjet(tagEvenement);
+            decimal poidsSansKg = decimal.Parse(pdsEvenement.TrimEnd(caracteresPoids));
+
+            /// <summary>
+            /// Regroupement de condition qui permettent d'ajouter à rchTxtIvtaires
+            /// strTemp en fonction de si c'est : une arme, une armure ou un objet
+            /// </summary>
+            /// <remarks>
+            /// Si le champ tailleEvenement n'est ni vide, ni null,
+            /// alors le strTemp est forcément un objet.
+            /// </remarks>
             if (!String.IsNullOrEmpty(tailleEvenement))
             {
                 strTemp = GlobalesVariable.Nom + nomEvenement + GlobalesVariable.Poids + pdsEvenement
                     + GlobalesVariable.Taille + tailleEvenement + GlobalesVariable.Quantite + qteEvenement
                     + GlobalesVariable.Effets + effetsEvenement + GlobalesVariable.Valeur + valeurEvenement;
             }
+            /// <remarks>
+            /// Sinon si les champs : degatsEvenement, porteeEvenement, effetsEvenement,
+            /// proprieteEvenement ne sont ni vides ni null, alors c'est forcément une arme de
+            /// type "Bâton"
+            /// </remarks>
             else if (!String.IsNullOrEmpty(degatsEvenement) && !String.IsNullOrEmpty(porteeEvenement)
                 && !String.IsNullOrEmpty(effetsEvenement) && !String.IsNullOrEmpty(proprieteEvenement))
             {
@@ -3179,6 +3214,10 @@ namespace maFichePersonnageJDR.Formulaires
                                 + GlobalesVariable.Effets + effetsEvenement + GlobalesVariable.Valeur + valeurEvenement
                                 + GlobalesVariable.Propriete + proprieteEvenement;
             }
+            /// <remarks>
+            /// Sinon si les champs : effetsEvenement, degatsEvenements, porteeEvenement
+            /// ne sont ni vides ni null, alors c'est forcément  une armure
+            /// </remarks>
             else if (!String.IsNullOrEmpty(effetsEvenement) && String.IsNullOrEmpty(degatsEvenement)
                 && String.IsNullOrEmpty(porteeEvenement))
             {
@@ -3186,6 +3225,10 @@ namespace maFichePersonnageJDR.Formulaires
                     + GlobalesVariable.Quantite + qteEvenement + GlobalesVariable.Effets + effetsEvenement
                     + GlobalesVariable.Valeur + valeurEvenement + GlobalesVariable.Propriete + proprieteEvenement;
             }
+            /// <remarks>
+            /// Sinon si les champs degatsEvenement et porteeEvenement ne sont ni null ni vides,
+            /// alors c'est forcément une arme
+            /// </remarks>
             else if (!String.IsNullOrEmpty(degatsEvenement) && !String.IsNullOrEmpty(porteeEvenement))
             {
                 strTemp = GlobalesVariable.Nom + nomEvenement + GlobalesVariable.Poids + pdsEvenement
@@ -3195,9 +3238,70 @@ namespace maFichePersonnageJDR.Formulaires
             }
             if (chkName.Checked)
             {
-                nudEvenement.Enabled = false;
-                rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+                /// <remarks> 
+                /// Si la propriété ChargePortee est inférieur à la chargeMaximum
+                /// alors on pourra ajouter strTemp
+                /// </remarks>
+                if (Properties.Settings.Default.ChargePortee < chargeMaximum)
+                {
+                    nudEvenement.Enabled = false;
+                    rchTxtIvtaires.Text += String.IsNullOrEmpty(rchTxtIvtaires.Text) ? strTemp : "\n" + strTemp;
+                    Properties.Settings.Default.ChargePortee += poidsSansKg;
+
+                    /// <remarks> 
+                    /// Si après avoir ajouté l'objet, la charge portée
+                    /// devient plus grande que la charge maximum, alors on annule
+                    /// et on supprime la ligne
+                    /// </remarks>
+                    if (Properties.Settings.Default.ChargePortee >= chargeMaximum)
+                    {
+                        MessageBox.Show("Impossible de porter plus d'objets !");
+                        chkName.Checked = false;
+                        Properties.Settings.Default.ChargePortee -= poidsSansKg;
+                        nudEvenement.Enabled = true;
+
+                        if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
+                        {
+                            strTemp = strTemp + "\n";
+                            rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                            nudChargeRestante.Value -= Convert.ToDecimal(poidsSansKg);
+                        }
+                        else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
+                        {
+                            strTemp = "\n" + strTemp;
+                            rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                            nudChargeRestante.Value -= Convert.ToDecimal(poidsSansKg);
+                        }
+                        else
+                        {
+                            rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                            nudChargeRestante.Value -= Convert.ToDecimal(poidsSansKg);
+                        }
+                    }
+                    /// <remarks>
+                    /// Sinon on incrémente la progress bar
+                    /// </remarks>
+                    else
+                    {
+                        nudChargeRestante.Value += Convert.ToDecimal(poidsSansKg);
+                    }
+                }
+                /// <remarks>
+                /// Sinon, on affiche un message indiquant à l'utilisateur
+                /// qu'il ne peut plus porter d'objets
+                /// </remarks>
+                else
+                {
+                    MessageBox.Show("Impossible de porter plus d'objets !");
+                    chkName.Checked = false;
+                }
+
             }
+            /// <remarks>
+            /// Sinon si chkName n'est pas cochée, on va chercher
+            /// à supprimer la ligne qui lui est associée
+            /// de la richtextbox inventaires et décrémenter la
+            /// progressbar </remarks>
             else if (!chkName.Checked)
             {
                 for (int i = 0; i < rchTxtIvtaires.Lines.Length; i++)
@@ -3208,21 +3312,25 @@ namespace maFichePersonnageJDR.Formulaires
                     }
                 }
                 nudEvenement.Enabled = true;
+                Properties.Settings.Default.ChargePortee -= poidsSansKg;
                 if (rchTxtIvtaires.Text.Contains(strTemp))
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
                     {
                         strTemp = strTemp + "\n";
                         rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                        nudChargeRestante.Value -= Convert.ToDecimal(poidsSansKg);
                     }
                     else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
                     {
                         strTemp = "\n" + strTemp;
                         rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                        nudChargeRestante.Value -= Convert.ToDecimal(poidsSansKg);
                     }
                     else
                     {
                         rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
+                        nudChargeRestante.Value -= Convert.ToDecimal(poidsSansKg);
                     }
                 }
             }

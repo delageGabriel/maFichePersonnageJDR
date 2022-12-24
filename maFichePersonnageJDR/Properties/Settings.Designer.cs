@@ -445,10 +445,10 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
-        public string Niveau {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Niveau {
             get {
-                return ((string)(this["Niveau"]));
+                return ((int)(this["Niveau"]));
             }
             set {
                 this["Niveau"] = value;
@@ -493,10 +493,10 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
-        public string ChargeMax {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public decimal ChargeMax {
             get {
-                return ((string)(this["ChargeMax"]));
+                return ((decimal)(this["ChargeMax"]));
             }
             set {
                 this["ChargeMax"] = value;
@@ -505,10 +505,10 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
-        public string VitesseDepla {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int VitesseDepla {
             get {
-                return ((string)(this["VitesseDepla"]));
+                return ((int)(this["VitesseDepla"]));
             }
             set {
                 this["VitesseDepla"] = value;
@@ -1328,6 +1328,30 @@ namespace maFichePersonnageJDR.Properties {
             }
             set {
                 this["Provocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int PointsExp {
+            get {
+                return ((int)(this["PointsExp"]));
+            }
+            set {
+                this["PointsExp"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public decimal ChargePortee {
+            get {
+                return ((decimal)(this["ChargePortee"]));
+            }
+            set {
+                this["ChargePortee"] = value;
             }
         }
     }

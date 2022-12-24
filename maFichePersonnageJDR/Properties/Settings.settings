@@ -107,8 +107,8 @@
     <Setting Name="Race" Type="System.String" Scope="User">
       <Value Profile="(Default)">Empty</Value>
     </Setting>
-    <Setting Name="Niveau" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Empty</Value>
+    <Setting Name="Niveau" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Sexe" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -119,11 +119,11 @@
     <Setting Name="Langues" Type="System.String" Scope="User">
       <Value Profile="(Default)">Empty</Value>
     </Setting>
-    <Setting Name="ChargeMax" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Empty</Value>
+    <Setting Name="ChargeMax" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="VitesseDepla" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Empty</Value>
+    <Setting Name="VitesseDepla" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Or" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
@@ -327,6 +327,12 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Provocation" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="PointsExp" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="ChargePortee" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>

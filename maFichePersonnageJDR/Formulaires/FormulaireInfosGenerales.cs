@@ -8,30 +8,58 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using maFichePersonnageJDR.Classe;
 
 namespace maFichePersonnageJDR.Formulaires
 {
     public partial class FormulaireInfosGenerales : Form
     {
+        int[] tableauBaseNormaleExp = { 0,
+            4060,
+            5595,
+            7711,
+            10630,
+            14650,
+            20185,
+            27820,
+            38340,
+            52840,
+            72820,
+            100360,
+            138310,
+            190613,
+            262700,
+            362042,
+            498955,
+            687645,
+            947692,
+            1306080,
+            1800000};
         public FormulaireInfosGenerales()
         {
             InitializeComponent();
+            
         }
 
         private void FormulaireInfosGenerales_Load(object sender, EventArgs e)
         {
-            
+
             GetSettings();
-            txtVitesse.Text = "9 m";
+            nudCharge.Value = Convert.ToDecimal(Properties.Settings.Default.ChargePortee);
+            nudVitesse.Value = Convert.ToInt32(9);
             if (Convert.ToInt32(Properties.Settings.Default.Force) > 0)
             {
                 int calculCharge = Convert.ToInt32((20 + (Convert.ToInt32(Properties.Settings.Default.Force) * 20)) / 2.205);
-                txtBoxCharge.Text = calculCharge.ToString() + "kg";
+                if(calculCharge > nudChargeMax.Value)
+                {
+                    nudChargeMax.Maximum = calculCharge;
+                }
+                nudChargeMax.Value = calculCharge;
             }
             else
             {
                 int calculCharge = 30;
-                txtBoxCharge.Text = calculCharge.ToString() + "kg";
+                nudVitesse.Value = calculCharge;
             }
 
             if (Properties.Settings.Default.Sexe == "Masculin")
@@ -56,11 +84,11 @@ namespace maFichePersonnageJDR.Formulaires
             txtBoxPrenom.Text = Properties.Settings.Default.Prenom;
             txtBoxNom.Text = Properties.Settings.Default.Nom;
             TxtBoxRace.Text = Properties.Settings.Default.Race;
-            txtBoxNiveau.Text = Properties.Settings.Default.Niveau;
+            nudNiveau.Value = Properties.Settings.Default.Niveau;
             rtbHistoire.Text = Properties.Settings.Default.Histoire;
             rtbLangues.Text = Properties.Settings.Default.Langues;
-            txtBoxCharge.Text = Properties.Settings.Default.ChargeMax;
-            txtVitesse.Text = Properties.Settings.Default.VitesseDepla;
+            nudChargeMax.Value = Convert.ToDecimal(Properties.Settings.Default.ChargeMax);
+            nudVitesse.Value = Properties.Settings.Default.VitesseDepla;
             if (!String.IsNullOrEmpty(Properties.Settings.Default.CheminImage))
             {
                 ptbAvatar.Image = GetUneImage(Properties.Settings.Default.CheminImage);
@@ -68,8 +96,6 @@ namespace maFichePersonnageJDR.Formulaires
             nudOr.Value = Properties.Settings.Default.Or;
             nudArgent.Value = Properties.Settings.Default.Argent;
             nudCuivre.Value = Properties.Settings.Default.Cuivre;
-            Properties.Settings.Default.ChargeMax = txtBoxCharge.Text;
-            Properties.Settings.Default.VitesseDepla = txtVitesse.Text;
         }
 
         /// <summary>
@@ -83,7 +109,7 @@ namespace maFichePersonnageJDR.Formulaires
             Properties.Settings.Default.Prenom = txtBoxPrenom.Text;
             Properties.Settings.Default.Nom = txtBoxNom.Text;
             Properties.Settings.Default.Race = TxtBoxRace.Text;
-            Properties.Settings.Default.Niveau = txtBoxNiveau.Text;
+            Properties.Settings.Default.Niveau = Convert.ToInt32(nudNiveau.Value);
             if (rdbHomme.Checked == true)
             {
                 Properties.Settings.Default.Sexe = "Masculin";
@@ -98,13 +124,11 @@ namespace maFichePersonnageJDR.Formulaires
             }
             Properties.Settings.Default.Histoire = rtbHistoire.Text;
             Properties.Settings.Default.Langues = rtbLangues.Text;
-            Properties.Settings.Default.ChargeMax = txtBoxCharge.Text;
-            Properties.Settings.Default.VitesseDepla = txtVitesse.Text;
-            Properties.Settings.Default.Or = Convert.ToInt32(nudOr);
-            Properties.Settings.Default.Argent = Convert.ToInt32(nudArgent);
-            Properties.Settings.Default.Cuivre = Convert.ToInt32(nudCuivre);
-            txtBoxCharge.Text = Properties.Settings.Default.ChargeMax;
-            txtVitesse.Text = Properties.Settings.Default.VitesseDepla;
+            Properties.Settings.Default.ChargeMax = Convert.ToInt32(nudChargeMax.Value);
+            Properties.Settings.Default.VitesseDepla = Convert.ToInt32(nudVitesse.Value);
+            Properties.Settings.Default.Or = Convert.ToInt32(nudOr.Value);
+            Properties.Settings.Default.Argent = Convert.ToInt32(nudArgent.Value);
+            Properties.Settings.Default.Cuivre = Convert.ToInt32(nudCuivre.Value);
             Properties.Settings.Default.Save();
         }
 
@@ -156,6 +180,12 @@ namespace maFichePersonnageJDR.Formulaires
         private void btnViderLangues_Click(object sender, EventArgs e)
         {
             rtbLangues.Text = rtbLangues.Text.Remove(0, rtbLangues.TextLength);
+        }
+
+        private void nudNiveau_ValueChanged(object sender, EventArgs e)
+        {
+            lblPointsRestants.Text = "/" + tableauBaseNormaleExp[Convert.ToInt32(nudNiveau.Value)];
+
         }
     }
 }

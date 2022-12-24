@@ -34,6 +34,10 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblMental = new System.Windows.Forms.Label();
             this.lblSocial = new System.Windows.Forms.Label();
             this.grpbCompetences = new System.Windows.Forms.GroupBox();
+            this.nudProvocation = new System.Windows.Forms.NumericUpDown();
+            this.lblProvocation = new System.Windows.Forms.Label();
+            this.nudMemoire = new System.Windows.Forms.NumericUpDown();
+            this.lblMemoire = new System.Windows.Forms.Label();
             this.nudPrestance = new System.Windows.Forms.NumericUpDown();
             this.lblPrestance = new System.Windows.Forms.Label();
             this.nudMarchandage = new System.Windows.Forms.NumericUpDown();
@@ -116,11 +120,9 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudPhysique = new System.Windows.Forms.NumericUpDown();
             this.nudMental = new System.Windows.Forms.NumericUpDown();
             this.nudSocial = new System.Windows.Forms.NumericUpDown();
-            this.nudMemoire = new System.Windows.Forms.NumericUpDown();
-            this.lblMemoire = new System.Windows.Forms.Label();
-            this.nudProvocation = new System.Windows.Forms.NumericUpDown();
-            this.lblProvocation = new System.Windows.Forms.Label();
             this.grpbCompetences.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudProvocation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMemoire)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrestance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMarchandage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEscamotage)).BeginInit();
@@ -156,8 +158,6 @@ namespace maFichePersonnageJDR.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.nudPhysique)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMental)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSocial)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMemoire)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudProvocation)).BeginInit();
             this.SuspendLayout();
             // 
             // lblPhysique
@@ -270,6 +270,62 @@ namespace maFichePersonnageJDR.Formulaires
             this.grpbCompetences.TabIndex = 7;
             this.grpbCompetences.TabStop = false;
             this.grpbCompetences.Text = "Compétences";
+            // 
+            // nudProvocation
+            // 
+            this.nudProvocation.Location = new System.Drawing.Point(424, 75);
+            this.nudProvocation.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.nudProvocation.Minimum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            -2147483648});
+            this.nudProvocation.Name = "nudProvocation";
+            this.nudProvocation.Size = new System.Drawing.Size(41, 20);
+            this.nudProvocation.TabIndex = 67;
+            this.nudProvocation.Tag = "Social";
+            this.nudProvocation.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesSocial_ValueChanged);
+            // 
+            // lblProvocation
+            // 
+            this.lblProvocation.AutoSize = true;
+            this.lblProvocation.Location = new System.Drawing.Point(350, 77);
+            this.lblProvocation.Name = "lblProvocation";
+            this.lblProvocation.Size = new System.Drawing.Size(64, 13);
+            this.lblProvocation.TabIndex = 66;
+            this.lblProvocation.Text = "Provocation";
+            // 
+            // nudMemoire
+            // 
+            this.nudMemoire.Location = new System.Drawing.Point(286, 275);
+            this.nudMemoire.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.nudMemoire.Minimum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            -2147483648});
+            this.nudMemoire.Name = "nudMemoire";
+            this.nudMemoire.Size = new System.Drawing.Size(41, 20);
+            this.nudMemoire.TabIndex = 65;
+            this.nudMemoire.Tag = "Mental";
+            this.nudMemoire.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesMental_ValueChanged);
+            // 
+            // lblMemoire
+            // 
+            this.lblMemoire.AutoSize = true;
+            this.lblMemoire.Location = new System.Drawing.Point(212, 277);
+            this.lblMemoire.Name = "lblMemoire";
+            this.lblMemoire.Size = new System.Drawing.Size(47, 13);
+            this.lblMemoire.TabIndex = 64;
+            this.lblMemoire.Text = "Mémoire";
             // 
             // nudPrestance
             // 
@@ -1146,6 +1202,51 @@ namespace maFichePersonnageJDR.Formulaires
             this.chckLstAttributs.BackColor = System.Drawing.SystemColors.Window;
             this.chckLstAttributs.FormattingEnabled = true;
             this.chckLstAttributs.HorizontalScrollbar = true;
+            this.chckLstAttributs.Items.AddRange(new object[] {
+            "Alifère: capacité de voler à {X} mètres d\'altitude",
+            "Amphibien: capacité de nager à {X} mètres de profondeur peut respirer sous l\'eau " +
+                "et sur la terre",
+            "Armure naturelle: peau épaisse jusqu\'à x% de dégâts physiques absorbés",
+            "Avantage du terrain: sur {X} terrain(s) en particulier la créature n\'a pas de mal" +
+                "us",
+            "Célérité: attaque toujours en premier lors de tour d\'initiative",
+            "Corps artificiels: créature artificielle nul besoin pour elle de respirer",
+            "Dégagement: impossible d\'être encerclé Double frappe: capacité d\'attaquer deux fo" +
+                "is par tour de jeu",
+            "Fin limier: plafond supplémentaire de 5% dans une des compétences techniques",
+            "Frigifugé: capacité de survivre à basse température jusqu\'à x degrés Celsius",
+            "Gros dormeur: temps de récupération divisé par deux lors de repos",
+            "Hyperesthésie: chance de ne pas être empoisonné égale à x%",
+            "Ignifugé: capacité de survivre à haute température jusqu\'à x degrés Celsius",
+            "Insensibilité contondante: Insensible aux dégâts contondants",
+            "Insensibilité perforante: Insensible aux dégâts perforants",
+            "Insensibilité tranchante: Insensible aux dégâts tranchants",
+            "Insubmersible: impossible d\'être submergé",
+            "Lourdaud: trop lourd pour attaquer en premier attaque en dernier",
+            "Magie Aquatique — magie de l\'eau",
+            "Magie Céleste — magie du ciel",
+            "Magie Démoniaque — magie liée aux ténèbres",
+            "Magie Divine — magie liée aux divinités",
+            "Magie Ignis — magie du feu",
+            "Magie Naturelle — magie de la nature",
+            "Magie Neutre — magie neutre",
+            "Magie Terrestre: magie de la terre",
+            "Mithridatisation: chance de ne pas être empoisonné égale à x%",
+            "Mort-vivant: ne peut pas être soigné par des moyens conventionnels (sauf repos) e" +
+                "st obligé de dévorer un corps ou boire des fluides corporels",
+            "Porteur de charges lourdes: capacité de porter 20% la charge maximum que l\'on peu" +
+                "t porter",
+            "Prodige: plafond supplémentaire de 5% dans une des compétences naturelles",
+            "Régénération spirituelle: à chaque début de tour 10% de l\'énergie est régénérée p" +
+                "ar le lanceur",
+            "Régénération vitale: à chaque début de tour 10% de PV régénérés pour le lanceur",
+            "Soif de bataille: plafond supplémentaire de 5% dans une des compétences de combat" +
+                "",
+            "Souffle: la créature est capable de cracher du feu ou n\'importe quel autre élémen" +
+                "t (dégâts non magiques)",
+            "Vague de panique: fais trop peur les adversaires doivent réussir un jet de Volont" +
+                "é tous les x tour(s) pour agir mais peuvent toujours esquiver en cas d\'échec",
+            "Voie libre: capacité de déplacement doublée lorsque le terrain est dégagé."});
             this.chckLstAttributs.Location = new System.Drawing.Point(12, 176);
             this.chckLstAttributs.Name = "chckLstAttributs";
             this.chckLstAttributs.ScrollAlwaysVisible = true;
@@ -1155,11 +1256,13 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // rchTbAttributs
             // 
+            this.rchTbAttributs.Enabled = false;
             this.rchTbAttributs.Location = new System.Drawing.Point(13, 394);
             this.rchTbAttributs.Name = "rchTbAttributs";
             this.rchTbAttributs.Size = new System.Drawing.Size(236, 72);
             this.rchTbAttributs.TabIndex = 15;
             this.rchTbAttributs.Text = "";
+            this.rchTbAttributs.TextChanged += new System.EventHandler(this.rchTbAttributs_TextChanged);
             // 
             // btnViderRchTbAttributs
             // 
@@ -1337,62 +1440,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudSocial.Tag = "Social";
             this.nudSocial.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCaracteristiques_ValueChanged);
             // 
-            // nudMemoire
-            // 
-            this.nudMemoire.Location = new System.Drawing.Point(286, 275);
-            this.nudMemoire.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.nudMemoire.Minimum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            -2147483648});
-            this.nudMemoire.Name = "nudMemoire";
-            this.nudMemoire.Size = new System.Drawing.Size(41, 20);
-            this.nudMemoire.TabIndex = 65;
-            this.nudMemoire.Tag = "Mental";
-            this.nudMemoire.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesMental_ValueChanged);
-            // 
-            // lblMemoire
-            // 
-            this.lblMemoire.AutoSize = true;
-            this.lblMemoire.Location = new System.Drawing.Point(212, 277);
-            this.lblMemoire.Name = "lblMemoire";
-            this.lblMemoire.Size = new System.Drawing.Size(47, 13);
-            this.lblMemoire.TabIndex = 64;
-            this.lblMemoire.Text = "Mémoire";
-            // 
-            // nudProvocation
-            // 
-            this.nudProvocation.Location = new System.Drawing.Point(424, 75);
-            this.nudProvocation.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.nudProvocation.Minimum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            -2147483648});
-            this.nudProvocation.Name = "nudProvocation";
-            this.nudProvocation.Size = new System.Drawing.Size(41, 20);
-            this.nudProvocation.TabIndex = 67;
-            this.nudProvocation.Tag = "Social";
-            this.nudProvocation.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCompetencesSocial_ValueChanged);
-            // 
-            // lblProvocation
-            // 
-            this.lblProvocation.AutoSize = true;
-            this.lblProvocation.Location = new System.Drawing.Point(350, 77);
-            this.lblProvocation.Name = "lblProvocation";
-            this.lblProvocation.Size = new System.Drawing.Size(64, 13);
-            this.lblProvocation.TabIndex = 66;
-            this.lblProvocation.Text = "Provocation";
-            // 
             // FormulaireCompAttri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1430,6 +1477,8 @@ namespace maFichePersonnageJDR.Formulaires
             this.Load += new System.EventHandler(this.FormulaireCompAttri_Load);
             this.grpbCompetences.ResumeLayout(false);
             this.grpbCompetences.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudProvocation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMemoire)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrestance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMarchandage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEscamotage)).EndInit();
@@ -1465,8 +1514,6 @@ namespace maFichePersonnageJDR.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.nudPhysique)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMental)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSocial)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMemoire)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudProvocation)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
