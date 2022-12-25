@@ -494,9 +494,9 @@ namespace maFichePersonnageJDR.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public decimal ChargeMax {
+        public double ChargeMax {
             get {
-                return ((decimal)(this["ChargeMax"]));
+                return ((double)(this["ChargeMax"]));
             }
             set {
                 this["ChargeMax"] = value;
@@ -1346,9 +1346,9 @@ namespace maFichePersonnageJDR.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public decimal ChargePortee {
+        public double ChargePortee {
             get {
-                return ((decimal)(this["ChargePortee"]));
+                return ((double)(this["ChargePortee"]));
             }
             set {
                 this["ChargePortee"] = value;

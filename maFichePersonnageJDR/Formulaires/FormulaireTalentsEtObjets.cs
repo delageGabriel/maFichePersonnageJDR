@@ -76,8 +76,10 @@ namespace maFichePersonnageJDR.Formulaires
                 , "Tente"};
         private void FormulaireTalentsEtObjets_Load(object sender, EventArgs e)
         {
-            nudChargeMaximale.Value = Convert.ToDecimal(Properties.Settings.Default.ChargeMax);
-            nudChargeRestante.Value = Convert.ToDecimal(Properties.Settings.Default.ChargePortee);
+            double poidsMaximal = Math.Round((8.5 * (Properties.Settings.Default.Force + 25)) / 2.205);
+            Properties.Settings.Default.ChargeMax = poidsMaximal;
+            txtChargeMaximale.Text = poidsMaximal.ToString();
+            txtChargeRestante.Text = Properties.Settings.Default.ChargePortee.ToString();
             GetSettings();
             GetSortileges();
             GetInventaires();
@@ -1498,7 +1500,7 @@ namespace maFichePersonnageJDR.Formulaires
         private void btnViderRchTbInventaires_Click(object sender, EventArgs e)
         {
             rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(0, rchTxtIvtaires.TextLength);
-            nudChargeRestante.Value = 0;
+            txtChargeRestante.Text = "0";
             foreach (TabPage tabPage in tcArmes.Controls)
             {
                 VideRichTextBoxBoutonVider(tabPage);
@@ -3168,7 +3170,7 @@ namespace maFichePersonnageJDR.Formulaires
             /// à la méthode GetTailleObjet qui prend en paramètre le tag de l'événement</param>
             /// <param name="poidsSansKg">Le poids sans "kg" qui sera ajouté à la charge portée</param>
 
-            decimal chargeMaximum = Properties.Settings.Default.ChargeMax;
+            double chargeMaximum = Properties.Settings.Default.ChargeMax;
             char[] caracteresPoids = { 'k', 'g' };
             string strTemp = string.Empty;
             CheckBox chkName = (CheckBox)sender;
@@ -3184,7 +3186,7 @@ namespace maFichePersonnageJDR.Formulaires
             string proprieteEvenement = GetProprieteObjet(tagEvenement);
             string effetsEvenement = GetEffetsObjet(tagEvenement);
             string tailleEvenement = GetTailleObjet(tagEvenement);
-            decimal poidsSansKg = decimal.Parse(pdsEvenement.TrimEnd(caracteresPoids));
+            double poidsSansKg = double.Parse(pdsEvenement.TrimEnd(caracteresPoids));
 
             /// <summary>
             /// Regroupement de condition qui permettent d'ajouter à rchTxtIvtaires
@@ -3262,20 +3264,23 @@ namespace maFichePersonnageJDR.Formulaires
 
                         if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
                         {
+                            double differenceCharge = Properties.Settings.Default.ChargePortee;
                             strTemp = strTemp + "\n";
                             rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
-                            nudChargeRestante.Value -= Convert.ToDecimal(poidsSansKg);
+                            txtChargeRestante.Text = differenceCharge.ToString();
                         }
                         else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
                         {
+                            double differenceCharge = Properties.Settings.Default.ChargePortee;
                             strTemp = "\n" + strTemp;
                             rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
-                            nudChargeRestante.Value -= Convert.ToDecimal(poidsSansKg);
+                            txtChargeRestante.Text = differenceCharge.ToString();
                         }
                         else
                         {
+                            double differenceCharge = Properties.Settings.Default.ChargePortee;
                             rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
-                            nudChargeRestante.Value -= Convert.ToDecimal(poidsSansKg);
+                            txtChargeRestante.Text = differenceCharge.ToString();
                         }
                     }
                     /// <remarks>
@@ -3283,7 +3288,8 @@ namespace maFichePersonnageJDR.Formulaires
                     /// </remarks>
                     else
                     {
-                        nudChargeRestante.Value += Convert.ToDecimal(poidsSansKg);
+                        double differenceCharge = poidsSansKg + Convert.ToDouble(txtChargeRestante.Text);
+                        txtChargeRestante.Text = differenceCharge.ToString();
                     }
                 }
                 /// <remarks>
@@ -3317,21 +3323,147 @@ namespace maFichePersonnageJDR.Formulaires
                 {
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
                     {
+                        double differenceCharge = Properties.Settings.Default.ChargePortee;
                         strTemp = strTemp + "\n";
                         rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
-                        nudChargeRestante.Value -= Convert.ToDecimal(poidsSansKg);
+                        txtChargeRestante.Text = differenceCharge.ToString();
                     }
                     else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
                     {
+                        double differenceCharge = Properties.Settings.Default.ChargePortee;
                         strTemp = "\n" + strTemp;
                         rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
-                        nudChargeRestante.Value -= Convert.ToDecimal(poidsSansKg);
+                        txtChargeRestante.Text = differenceCharge.ToString();
                     }
                     else
                     {
+                        double differenceCharge = Properties.Settings.Default.ChargePortee;
                         rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
-                        nudChargeRestante.Value -= Convert.ToDecimal(poidsSansKg);
+                        txtChargeRestante.Text = differenceCharge.ToString();
                     }
+                }
+            }
+        }
+
+        private void rchTbSorts_TextChanged(object sender, EventArgs e)
+        {
+            string[] tabSortileges = rchTbSorts.Text.Split('\n');
+            if (Properties.Settings.Default.Niveau == 1 && tabSortileges.Count() >= 2)
+            {
+                foreach (object controls in tpAqua.Controls)
+                {
+                    if (controls is CheckBox)
+                    {
+                        CheckBox checkBox = (CheckBox)controls;
+                        checkBox.Enabled = false;
+                    }
+                }
+                foreach (object controls in tpIgnis.Controls)
+                {
+                    if (controls is CheckBox)
+                    {
+                        CheckBox checkBox = (CheckBox)controls;
+                        checkBox.Enabled = false;
+                    }
+                }
+                foreach (object controls in tpCeleste.Controls)
+                {
+                    if (controls is CheckBox)
+                    {
+                        CheckBox checkBox = (CheckBox)controls;
+                        checkBox.Enabled = false;
+                    }
+                }
+                foreach (object controls in tpTerrestre.Controls)
+                {
+                    if (controls is CheckBox)
+                    {
+                        CheckBox checkBox = (CheckBox)controls;
+                        checkBox.Enabled = false;
+                    }
+                }
+                foreach (object controls in tpNature.Controls)
+                {
+                    if (controls is CheckBox)
+                    {
+                        CheckBox checkBox = (CheckBox)controls;
+                        checkBox.Enabled = false;
+                    }
+                }
+                foreach (object controls in tpNeutre.Controls)
+                {
+                    if (controls is CheckBox)
+                    {
+                        CheckBox checkBox = (CheckBox)controls;
+                        checkBox.Enabled = false;
+                    }
+                }
+                foreach (object controls in tpDivine.Controls)
+                {
+                    if (controls is CheckBox)
+                    {
+                        CheckBox checkBox = (CheckBox)controls;
+                        checkBox.Enabled = false;
+                    }
+                }
+                foreach (object controls in tpDemoniaque.Controls)
+                {
+                    if (controls is CheckBox)
+                    {
+                        CheckBox checkBox = (CheckBox)controls;
+                        checkBox.Enabled = false;
+                    }
+                }
+            }
+            else if(tabSortileges.Count() < 2 )
+            {
+                if (Properties.Settings.Default.Attributs.Contains("Magie Aquatique — magie de l'eau"))
+                {
+                    chkMgieAqua.Enabled = true;
+                }
+                if (Properties.Settings.Default.Attributs.Contains("Magie Céleste — magie du ciel"))
+                {
+                    chkMgieCeleste.Enabled = true;
+                }
+                if (Properties.Settings.Default.Attributs.Contains("Magie Démoniaque — magie liée aux ténèbres"))
+                {
+                    chkMgieDemoniaqueAbspton.Enabled = true;
+                    chkMgieDemoniaqueCntrole.Enabled = true;
+                    chkMgieDemoniaqueMldction.Enabled = true;
+                    chkMgieDemoniaqueNecro.Enabled = true;
+                    chkMgieDemoniaqueIllusions.Enabled = true;
+                }
+                if (Properties.Settings.Default.Attributs.Contains("Magie Divine — magie liée aux divinités"))
+                {
+                    chkMgieDivineBclrPrtc.Enabled = true;
+                    chkMgieDivineBene.Enabled = true;
+                    chkMgieDivineDvnation.Enabled = true;
+                    chkMgieDivineGueri.Enabled = true;
+                    chkMgieDivineRestauration.Enabled = true;
+                }
+                if (Properties.Settings.Default.Attributs.Contains("Magie Ignis — magie du feu"))
+                {
+                    chkMgieIgnis.Enabled = true;
+                }
+                if (Properties.Settings.Default.Attributs.Contains("Magie Naturelle — magie de la nature"))
+                {
+                    chkMgieNatureChgmTemp.Enabled = true;
+                    chkMgieNatureComm.Enabled = true;
+                    chkMgieNatureInvoc.Enabled = true;
+                    chkMgieNatureVsionNoir.Enabled = true;
+                    chkMgieNatureMetamphse.Enabled = true;
+                }
+                if (Properties.Settings.Default.Attributs.Contains("Magie Neutre — magie neutre"))
+                {
+                    chkMgieNeutreAltration.Enabled = true;
+                    chkMgieNeutreInvsbilté.Enabled = true;
+                    chkMgieNeutreMsg.Enabled = true;
+                    chkMgieNeutreSsie.Enabled = true;
+                    chkMgieNeutreTelkinesie.Enabled = true;
+                }
+                if (Properties.Settings.Default.Attributs.Contains("Magie Terrestre: magie de la terre"))
+                {
+                    chkMgieTerrestre.Enabled = true;
                 }
             }
         }

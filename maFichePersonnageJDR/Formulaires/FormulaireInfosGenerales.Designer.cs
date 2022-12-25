@@ -44,8 +44,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.rtbLangues = new System.Windows.Forms.RichTextBox();
             this.lblHistoire = new System.Windows.Forms.Label();
             this.lblLangages = new System.Windows.Forms.Label();
-            this.lblChargeMaxi = new System.Windows.Forms.Label();
-            this.lblVitesse = new System.Windows.Forms.Label();
             this.btnSaveInfos = new System.Windows.Forms.Button();
             this.lblMonnaie = new System.Windows.Forms.Label();
             this.btnAjouterImage = new System.Windows.Forms.Button();
@@ -63,19 +61,13 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblPointsRestants = new System.Windows.Forms.Label();
             this.txtPointsXp = new System.Windows.Forms.TextBox();
             this.lblPtsXpTotal = new System.Windows.Forms.Label();
-            this.nudChargeMax = new System.Windows.Forms.NumericUpDown();
-            this.nudVitesse = new System.Windows.Forms.NumericUpDown();
-            this.lblSeparationCharge = new System.Windows.Forms.Label();
-            this.nudCharge = new System.Windows.Forms.NumericUpDown();
-            this.lblChargePorteeChargeMax = new System.Windows.Forms.Label();
+            this.txtVitesseDeplacement = new System.Windows.Forms.TextBox();
+            this.lblVitesseDeplacement = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudOr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudArgent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCuivre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNiveau)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudChargeMax)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudVitesse)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCharge)).BeginInit();
             this.SuspendLayout();
             // 
             // lblPrenom
@@ -213,31 +205,11 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblLangages.TabIndex = 19;
             this.lblLangages.Text = "Langues";
             // 
-            // lblChargeMaxi
-            // 
-            this.lblChargeMaxi.AutoSize = true;
-            this.lblChargeMaxi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChargeMaxi.Location = new System.Drawing.Point(193, 405);
-            this.lblChargeMaxi.Name = "lblChargeMaxi";
-            this.lblChargeMaxi.Size = new System.Drawing.Size(65, 13);
-            this.lblChargeMaxi.TabIndex = 20;
-            this.lblChargeMaxi.Text = "Charge (kg):";
-            // 
-            // lblVitesse
-            // 
-            this.lblVitesse.AutoSize = true;
-            this.lblVitesse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVitesse.Location = new System.Drawing.Point(299, 405);
-            this.lblVitesse.Name = "lblVitesse";
-            this.lblVitesse.Size = new System.Drawing.Size(140, 13);
-            this.lblVitesse.TabIndex = 21;
-            this.lblVitesse.Text = "Vitesse de déplacement (m):";
-            // 
             // btnSaveInfos
             // 
             this.btnSaveInfos.Location = new System.Drawing.Point(502, 346);
             this.btnSaveInfos.Name = "btnSaveInfos";
-            this.btnSaveInfos.Size = new System.Drawing.Size(256, 130);
+            this.btnSaveInfos.Size = new System.Drawing.Size(256, 96);
             this.btnSaveInfos.TabIndex = 24;
             this.btnSaveInfos.Text = "Sauvegarde";
             this.btnSaveInfos.UseVisualStyleBackColor = true;
@@ -397,60 +369,31 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblPtsXpTotal.TabIndex = 43;
             this.lblPtsXpTotal.Text = "Points d\'expérience :";
             // 
-            // nudChargeMax
+            // txtVitesseDeplacement
             // 
-            this.nudChargeMax.Enabled = false;
-            this.nudChargeMax.Location = new System.Drawing.Point(244, 422);
-            this.nudChargeMax.Name = "nudChargeMax";
-            this.nudChargeMax.Size = new System.Drawing.Size(43, 20);
-            this.nudChargeMax.TabIndex = 44;
+            this.txtVitesseDeplacement.Enabled = false;
+            this.txtVitesseDeplacement.Location = new System.Drawing.Point(202, 421);
+            this.txtVitesseDeplacement.Name = "txtVitesseDeplacement";
+            this.txtVitesseDeplacement.Size = new System.Drawing.Size(64, 20);
+            this.txtVitesseDeplacement.TabIndex = 49;
             // 
-            // nudVitesse
+            // lblVitesseDeplacement
             // 
-            this.nudVitesse.Enabled = false;
-            this.nudVitesse.Location = new System.Drawing.Point(348, 422);
-            this.nudVitesse.Name = "nudVitesse";
-            this.nudVitesse.Size = new System.Drawing.Size(43, 20);
-            this.nudVitesse.TabIndex = 45;
-            // 
-            // lblSeparationCharge
-            // 
-            this.lblSeparationCharge.AutoSize = true;
-            this.lblSeparationCharge.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSeparationCharge.Location = new System.Drawing.Point(226, 422);
-            this.lblSeparationCharge.Name = "lblSeparationCharge";
-            this.lblSeparationCharge.Size = new System.Drawing.Size(12, 17);
-            this.lblSeparationCharge.TabIndex = 46;
-            this.lblSeparationCharge.Text = "/";
-            // 
-            // nudCharge
-            // 
-            this.nudCharge.Enabled = false;
-            this.nudCharge.Location = new System.Drawing.Point(175, 422);
-            this.nudCharge.Name = "nudCharge";
-            this.nudCharge.Size = new System.Drawing.Size(43, 20);
-            this.nudCharge.TabIndex = 47;
-            // 
-            // lblChargePorteeChargeMax
-            // 
-            this.lblChargePorteeChargeMax.AutoSize = true;
-            this.lblChargePorteeChargeMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChargePorteeChargeMax.Location = new System.Drawing.Point(9, 424);
-            this.lblChargePorteeChargeMax.Name = "lblChargePorteeChargeMax";
-            this.lblChargePorteeChargeMax.Size = new System.Drawing.Size(159, 13);
-            this.lblChargePorteeChargeMax.TabIndex = 48;
-            this.lblChargePorteeChargeMax.Text = "Charge portée/Charge maximale";
+            this.lblVitesseDeplacement.AutoSize = true;
+            this.lblVitesseDeplacement.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVitesseDeplacement.Location = new System.Drawing.Point(152, 403);
+            this.lblVitesseDeplacement.Name = "lblVitesseDeplacement";
+            this.lblVitesseDeplacement.Size = new System.Drawing.Size(176, 13);
+            this.lblVitesseDeplacement.TabIndex = 48;
+            this.lblVitesseDeplacement.Text = "Vitesse de déplacement en combat:";
             // 
             // FormulaireInfosGenerales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 488);
-            this.Controls.Add(this.lblChargePorteeChargeMax);
-            this.Controls.Add(this.nudCharge);
-            this.Controls.Add(this.lblSeparationCharge);
-            this.Controls.Add(this.nudVitesse);
-            this.Controls.Add(this.nudChargeMax);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtVitesseDeplacement);
+            this.Controls.Add(this.lblVitesseDeplacement);
             this.Controls.Add(this.lblPtsXpTotal);
             this.Controls.Add(this.txtPointsXp);
             this.Controls.Add(this.lblPointsRestants);
@@ -468,8 +411,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.Controls.Add(this.btnAjouterImage);
             this.Controls.Add(this.lblMonnaie);
             this.Controls.Add(this.btnSaveInfos);
-            this.Controls.Add(this.lblVitesse);
-            this.Controls.Add(this.lblChargeMaxi);
             this.Controls.Add(this.lblLangages);
             this.Controls.Add(this.lblHistoire);
             this.Controls.Add(this.rtbLangues);
@@ -493,9 +434,6 @@ namespace maFichePersonnageJDR.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.nudArgent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCuivre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNiveau)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudChargeMax)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudVitesse)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCharge)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -518,8 +456,6 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.RichTextBox rtbLangues;
         private System.Windows.Forms.Label lblHistoire;
         private System.Windows.Forms.Label lblLangages;
-        private System.Windows.Forms.Label lblChargeMaxi;
-        private System.Windows.Forms.Label lblVitesse;
         private System.Windows.Forms.Button btnSaveInfos;
         private System.Windows.Forms.Label lblMonnaie;
         private System.Windows.Forms.Button btnAjouterImage;
@@ -537,10 +473,7 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblPointsRestants;
         private System.Windows.Forms.TextBox txtPointsXp;
         private System.Windows.Forms.Label lblPtsXpTotal;
-        private System.Windows.Forms.NumericUpDown nudChargeMax;
-        private System.Windows.Forms.NumericUpDown nudVitesse;
-        private System.Windows.Forms.Label lblSeparationCharge;
-        private System.Windows.Forms.NumericUpDown nudCharge;
-        private System.Windows.Forms.Label lblChargePorteeChargeMax;
+        private System.Windows.Forms.TextBox txtVitesseDeplacement;
+        private System.Windows.Forms.Label lblVitesseDeplacement;
     }
 }
