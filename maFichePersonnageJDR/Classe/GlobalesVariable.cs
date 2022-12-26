@@ -116,6 +116,56 @@ namespace maFichePersonnageJDR.Classe
 
         private const double pdsTente = 15.0;
 
+        private const double pdsEpeeBois = 0.2;
+
+        private const double pdsEpeeBatarde = 1.25;
+
+        private const double pdsHacheBucheron = 2.5;
+
+        private const double pdsMassueChene = 0.55;
+
+        private const double pdsMarteauForgeron = 1.9;
+
+        private const double pdsSabaton = 1.2;
+
+        private const double pdsCapeElfique = 0.2;
+        
+        private const double pdsCanneAquatique = 0.45;
+
+        private const double pdsBaguetteFeu = 0.35;
+
+        private const double pdsBatonCeleste = 0.25;
+
+        private const double pdsSceptreTerre = 0.55;
+
+        private const double pdsBatonNature = 0.40;
+
+        private const double pdsCanneLumiere = 0.65;
+
+        private const double pdsBaguetteInfernale = 0.37;
+
+        private const double pdsSceptreNeutre = 0.70;
+        
+        private const double pdsMouchoir = 0.02;
+
+        private const double pdsCouverture  = 0.1;
+
+        private const double pdsPlanteMedicinale = 1;
+
+        private const double pdsContrePoison = 1.5;
+
+        private const double pdsFlecheBois = 0.8;
+
+        private const double pdsFlecheFer = 1.75;
+
+        private const double pdsFlecheArgent = 1.9;
+
+        private const double pdsCarreauBois = 1;
+
+        private const double pdsCarreauFer = 2.5;
+
+        private const double pdsPierre = 0.75;
+
         private const string nom = "Nom : ";
 
         private const string poids = ", Poids : ";
@@ -279,5 +329,55 @@ namespace maFichePersonnageJDR.Classe
         public static int PtsSocialMax => ptsSocialMax;
 
         public static double PoidsTotal { get => poidsTotal; set => poidsTotal = value; }
+
+        public static double PdsEpeeBois => pdsEpeeBois;
+
+        public static double PdsEpeeBatarde => pdsEpeeBatarde;
+
+        public static double PdsHacheBucheron => pdsHacheBucheron;
+
+        public static double PdsMassueChene => pdsMassueChene;
+
+        public static double PdsMarteauForgeron => pdsMarteauForgeron;
+
+        public static double PdsSabaton => pdsSabaton;
+
+        public static double PdsCapeElfique => pdsCapeElfique;
+
+        public static double PdsCanneAquatique => pdsCanneAquatique;
+
+        public static double PdsBaguetteFeu => pdsBaguetteFeu;
+
+        public static double PdsBatonCeleste => pdsBatonCeleste;
+
+        public static double PdsSceptreTerre => pdsSceptreTerre;
+
+        public static double PdsBatonNature => pdsBatonNature;
+
+        public static double PdsCanneLumiere => pdsCanneLumiere;
+
+        public static double PdsBaguetteInfernale => pdsBaguetteInfernale;
+
+        public static double PdsSceptreNeutre => pdsSceptreNeutre;
+
+        public static double PdsMouchoir => pdsMouchoir;
+
+        public static double PdsCouverture => pdsCouverture;
+
+        public static double PdsPlanteMedicinale => pdsPlanteMedicinale;
+
+        public static double PdsContrePoison => pdsContrePoison;
+
+        public static double PdsFlecheBois => pdsFlecheBois;
+
+        public static double PdsFlecheFer => pdsFlecheFer;
+
+        public static double PdsFlecheArgent => pdsFlecheArgent;
+
+        public static double PdsCarreauBois => pdsCarreauBois;
+
+        public static double PdsCarreauFer => pdsCarreauFer;
+
+        public static double PdsPierre => pdsPierre;
     }
 }

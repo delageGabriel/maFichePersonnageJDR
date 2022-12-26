@@ -96,6 +96,8 @@ namespace maFichePersonnageJDR.Formulaires
             Properties.Settings.Default.VNGlaive = Convert.ToInt32(nudGlve.Value);
             Properties.Settings.Default.VNLatte = Convert.ToInt32(nudLte.Value);
             Properties.Settings.Default.VNSabreCourbe = Convert.ToInt32(nudSbreCrbe.Value);
+            Properties.Settings.Default.VNEpeeBois = Convert.ToInt32(nudEpBois.Value);
+            Properties.Settings.Default.VNEpeeBatarde = Convert.ToInt32(nudEpBtrde.Value);
             Properties.Settings.Default.VNContus = Convert.ToInt32(nudCntus.Value);
             Properties.Settings.Default.VNJavelot = Convert.ToInt32(nudJvlot.Value);
             Properties.Settings.Default.VNFourche = Convert.ToInt32(nudFrche.Value);
@@ -106,6 +108,8 @@ namespace maFichePersonnageJDR.Formulaires
             Properties.Settings.Default.VNFaucilleGuerre = Convert.ToInt32(nudFclGure.Value);
             Properties.Settings.Default.VNDagueAssassin = Convert.ToInt32(nudDgeAssin.Value);
             Properties.Settings.Default.VNFrancisque = Convert.ToInt32(nudFrncsque.Value);
+            Properties.Settings.Default.VNHacheBucheron = Convert.ToInt32(nudHcheBhron.Value);
+            Properties.Settings.Default.VNMassueChene = Convert.ToInt32(nudMrteauFgron.Value);
             Properties.Settings.Default.VNArc = Convert.ToInt32(nudArc.Value);
             Properties.Settings.Default.VNArbalete = Convert.ToInt32(nudAblte.Value);
             Properties.Settings.Default.VNFronde = Convert.ToInt32(nudFnde.Value);
@@ -113,6 +117,14 @@ namespace maFichePersonnageJDR.Formulaires
             Properties.Settings.Default.VNFaucilleChaine = Convert.ToInt32(nudFaC.Value);
             Properties.Settings.Default.VNBatonChene = Convert.ToInt32(nudBtonChne.Value);
             Properties.Settings.Default.VNSceptre = Convert.ToInt32(nudSctre.Value);
+            Properties.Settings.Default.VNCanneAqua = Convert.ToInt32(nudCneAqua.Value);
+            Properties.Settings.Default.VNBaguetteFeu = Convert.ToInt32(nudBgteFeu.Value);
+            Properties.Settings.Default.VNBtonCeleste = Convert.ToInt32(nudBtonCelste.Value);
+            Properties.Settings.Default.VNScreptreTerre = Convert.ToInt32(nudScptreTerre.Value);
+            Properties.Settings.Default.VNBatonNature = Convert.ToInt32(nudBtonNture.Value);
+            Properties.Settings.Default.VNCanneLumiere = Convert.ToInt32(nudCneLmiere.Value);
+            Properties.Settings.Default.VNBaguetteInfernale = Convert.ToInt32(nudBgteInfernale.Value);
+            Properties.Settings.Default.VNSceptreNeutralite = Convert.ToInt32(nudSptreNeutre.Value);
             Properties.Settings.Default.VNSpangenhelm = Convert.ToInt32(nudSpghlm.Value);
             Properties.Settings.Default.VNCoiffeMailles = Convert.ToInt32(nudCfeMle.Value);
             Properties.Settings.Default.VNMorion = Convert.ToInt32(nudMrn.Value);
@@ -134,16 +146,28 @@ namespace maFichePersonnageJDR.Formulaires
             Properties.Settings.Default.VNCnemide = Convert.ToInt32(nudCmide.Value);
             Properties.Settings.Default.VNSandales = Convert.ToInt32(nudSndles.Value);
             Properties.Settings.Default.VNChaussuresCuir = Convert.ToInt32(nudChssuresCuir.Value);
+            Properties.Settings.Default.VNSabatons = Convert.ToInt32(nudSbton.Value);
             Properties.Settings.Default.VNEcu = Convert.ToInt32(nudEcu.Value);
             Properties.Settings.Default.VNPavois = Convert.ToInt32(nudPvois.Value);
             Properties.Settings.Default.VNBouclierAmande = Convert.ToInt32(nudBclrAmde.Value);
             Properties.Settings.Default.VNBouclierBronze = Convert.ToInt32(nudBclrBze.Value);
             Properties.Settings.Default.VNPelta = Convert.ToInt32(nudPlta.Value);
+            Properties.Settings.Default.VNCapeElfique = Convert.ToInt32(nudCpeElfique.Value);
             Properties.Settings.Default.VNTorche = Convert.ToInt32(nudTrche.Value);
             Properties.Settings.Default.VNCorde = Convert.ToInt32(nudCrde.Value);
             Properties.Settings.Default.VNOutre = Convert.ToInt32(nudOte.Value);
             Properties.Settings.Default.VNSac = Convert.ToInt32(nudSc.Value);
             Properties.Settings.Default.VNTente = Convert.ToInt32(nudTnte.Value);
+            Properties.Settings.Default.VNMouchoir = Convert.ToInt32(nudMhoir.Value);
+            Properties.Settings.Default.VNCouverture = Convert.ToInt32(nudCvture.Value);
+            Properties.Settings.Default.VNPlanteMedicinale = Convert.ToInt32(nudPlnteMcnale.Value);
+            Properties.Settings.Default.VNContrePoison = Convert.ToInt32(nudCntrePson.Value);
+            Properties.Settings.Default.VNFlecheBois = Convert.ToInt32(nudFlcheBois.Value);
+            Properties.Settings.Default.VNFlecheFer = Convert.ToInt32(nudFlcheFr.Value);
+            Properties.Settings.Default.VNFlecheArgent = Convert.ToInt32(nudFlcheArgent.Value);
+            Properties.Settings.Default.VNCarreauBois = Convert.ToInt32(nudCrauBois.Value);
+            Properties.Settings.Default.VNCarreauFer = Convert.ToInt32(nudCrauFr.Value);
+            Properties.Settings.Default.VNPierre = Convert.ToInt32(nudPrre.Value);
             Properties.Settings.Default.Save();
         }
 
@@ -155,6 +179,8 @@ namespace maFichePersonnageJDR.Formulaires
             nudGlve.Value = Properties.Settings.Default.VNGlaive;
             nudLte.Value = Properties.Settings.Default.VNLatte;
             nudSbreCrbe.Value = Properties.Settings.Default.VNSabreCourbe;
+            nudEpBois.Value = Properties.Settings.Default.VNEpeeBois;
+            nudEpBtrde.Value = Properties.Settings.Default.VNEpeeBatarde;
             nudCntus.Value = Properties.Settings.Default.VNContus;
             nudJvlot.Value = Properties.Settings.Default.VNJavelot;
             nudFrche.Value = Properties.Settings.Default.VNFourche;
@@ -164,6 +190,9 @@ namespace maFichePersonnageJDR.Formulaires
             nudFclGure.Value = Properties.Settings.Default.VNFaucilleGuerre;
             nudDgeAssin.Value = Properties.Settings.Default.VNDagueAssassin;
             nudFrncsque.Value = Properties.Settings.Default.VNFrancisque;
+            nudHcheBhron.Value = Properties.Settings.Default.VNHacheBucheron;
+            nudMsueChne.Value = Properties.Settings.Default.VNMassueChene;
+            nudMrteauFgron.Value = Properties.Settings.Default.VNMarteauForgeron;
             nudArc.Value = Properties.Settings.Default.VNArc;
             nudAblte.Value = Properties.Settings.Default.VNArbalete;
             nudFnde.Value = Properties.Settings.Default.VNFronde;
@@ -171,6 +200,13 @@ namespace maFichePersonnageJDR.Formulaires
             nudFaC.Value = Properties.Settings.Default.VNFaucilleChaine;
             nudBtonChne.Value = Properties.Settings.Default.VNBatonChene;
             nudSctre.Value = Properties.Settings.Default.VNSceptre;
+            nudBgteFeu.Value = Properties.Settings.Default.VNBaguetteFeu;
+            nudBtonCelste.Value = Properties.Settings.Default.VNBtonCeleste;
+            nudScptreTerre.Value = Properties.Settings.Default.VNScreptreTerre;
+            nudBtonNture.Value = Properties.Settings.Default.VNBatonNature;
+            nudCneLmiere.Value = Properties.Settings.Default.VNCanneLumiere;
+            nudBgteInfernale.Value = Properties.Settings.Default.VNBaguetteInfernale;
+            nudSptreNeutre.Value = Properties.Settings.Default.VNSceptreNeutralite;
             nudSpghlm.Value = Properties.Settings.Default.VNSpangenhelm;
             nudCfeMle.Value = Properties.Settings.Default.VNCoiffeMailles;
             nudMrn.Value = Properties.Settings.Default.VNMorion;
@@ -192,11 +228,28 @@ namespace maFichePersonnageJDR.Formulaires
             nudCmide.Value = Properties.Settings.Default.VNCnemide;
             nudSndles.Value = Properties.Settings.Default.VNSandales;
             nudChssuresCuir.Value = Properties.Settings.Default.VNChaussuresCuir;
+            nudSbton.Value = Properties.Settings.Default.VNSabatons;
             nudEcu.Value = Properties.Settings.Default.VNEcu;
             nudPvois.Value = Properties.Settings.Default.VNPavois;
             nudBclrAmde.Value = Properties.Settings.Default.VNBouclierAmande;
             nudBclrBze.Value = Properties.Settings.Default.VNBouclierBronze;
             nudPlta.Value = Properties.Settings.Default.VNPelta;
+            nudCpeElfique.Value = Properties.Settings.Default.VNCapeElfique;
+            nudTrche.Value = Properties.Settings.Default.VNTorche;
+            nudCrde.Value = Properties.Settings.Default.VNCorde;
+            nudOte.Value = Properties.Settings.Default.VNOutre;
+            nudSc.Value = Properties.Settings.Default.VNSac;
+            nudTnte.Value = Properties.Settings.Default.VNTente;
+            nudMhoir.Value = Properties.Settings.Default.VNMouchoir;
+            nudCvture.Value = Properties.Settings.Default.VNCouverture;
+            nudPlnteMcnale.Value = Properties.Settings.Default.VNPlanteMedicinale;
+            nudCntrePson.Value = Properties.Settings.Default.VNContrePoison;
+            nudFlcheBois.Value = Properties.Settings.Default.VNFlecheBois;
+            nudFlcheFr.Value = Properties.Settings.Default.VNFlecheFer;
+            nudFlcheArgent.Value = Properties.Settings.Default.VNFlecheArgent;
+            nudCrauBois.Value = Properties.Settings.Default.VNCarreauBois;
+            nudCrauFr.Value = Properties.Settings.Default.VNCarreauFer;
+            nudPrre.Value = Properties.Settings.Default.VNPierre;
             rchTxtIvtaires.Text = Properties.Settings.Default.Inventaires;
             rchTbSorts.Text = Properties.Settings.Default.Sortilèges;
         }
@@ -3465,6 +3518,456 @@ namespace maFichePersonnageJDR.Formulaires
                 {
                     chkMgieTerrestre.Enabled = true;
                 }
+            }
+        }
+
+        private void nudEpBois_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudEpBois.Value == 0)
+            {
+                chkEpBois.Visible = false;
+                double poids = GlobalesVariable.PdsEpeeBois;
+                double poidsModifie = poids * Convert.ToDouble(nudEpBois.Value);
+                lblPdsEpBois.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudEpBois.Value > 0)
+            {
+                chkEpBois.Visible = true;
+                double poids = GlobalesVariable.PdsEpeeBois;
+                double poidsModifie = poids * Convert.ToDouble(nudEpBois.Value);
+                lblPdsEpBois.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudEpBtrde_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudEpBtrde.Value == 0)
+            {
+                chkEpBtrde.Visible = false;
+                double poids = GlobalesVariable.PdsEpeeBatarde;
+                double poidsModifie = poids * Convert.ToDouble(nudEpBtrde.Value);
+                lblPdsEpBtrde.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudEpBtrde.Value > 0)
+            {
+                chkEpBtrde.Visible = true;
+                double poids = GlobalesVariable.PdsEpeeBatarde;
+                double poidsModifie = poids * Convert.ToDouble(nudEpBtrde.Value);
+                lblPdsEpBtrde.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudHcheBhron_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudHcheBhron.Value == 0)
+            {
+                chkHcheBhron.Visible = false;
+                double poids = GlobalesVariable.PdsHacheBucheron;
+                double poidsModifie = poids * Convert.ToDouble(nudHcheBhron.Value);
+                lblPdsHcheBhron.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudHcheBhron.Value > 0)
+            {
+                chkHcheBhron.Visible = true;
+                double poids = GlobalesVariable.PdsHacheBucheron;
+                double poidsModifie = poids * Convert.ToDouble(nudHcheBhron.Value);
+                lblPdsHcheBhron.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudMsueChne_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudMsueChne.Value == 0)
+            {
+                chkMsueChne.Visible = false;
+                double poids = GlobalesVariable.PdsMassueChene;
+                double poidsModifie = poids * Convert.ToDouble(nudMsueChne.Value);
+                lblPdsMsueChne.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudMsueChne.Value > 0)
+            {
+                chkMsueChne.Visible = true;
+                double poids = GlobalesVariable.PdsMassueChene;
+                double poidsModifie = poids * Convert.ToDouble(nudMsueChne.Value);
+                lblPdsMsueChne.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudMrteauFgron_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudMrteauFgron.Value == 0)
+            {
+                chkMrteauFgron.Visible = false;
+                double poids = GlobalesVariable.PdsMarteauForgeron;
+                double poidsModifie = poids * Convert.ToDouble(nudMrteauFgron.Value);
+                lblPdsMrteauFgron.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudMrteauFgron.Value > 0)
+            {
+                chkMrteauFgron.Visible = true;
+                double poids = GlobalesVariable.PdsMarteauForgeron;
+                double poidsModifie = poids * Convert.ToDouble(nudMrteauFgron.Value);
+                lblPdsMrteauFgron.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudSbton_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudSbton.Value == 0)
+            {
+                chkSbton.Visible = false;
+                double poids = GlobalesVariable.PdsSabaton;
+                double poidsModifie = poids * Convert.ToDouble(nudSbton.Value);
+                lblPdsSbton.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudSbton.Value > 0)
+            {
+                chkSbton.Visible = true;
+                double poids = GlobalesVariable.PdsSabaton;
+                double poidsModifie = poids * Convert.ToDouble(nudSbton.Value);
+                lblPdsSbton.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudCpeElfique_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudCpeElfique.Value == 0)
+            {
+                chkCpeElfique.Visible = false;
+                double poids = GlobalesVariable.PdsCapeElfique;
+                double poidsModifie = poids * Convert.ToDouble(nudCpeElfique.Value);
+                lblPdsCpeElfique.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudCpeElfique.Value > 0)
+            {
+                chkCpeElfique.Visible = true;
+                double poids = GlobalesVariable.PdsCapeElfique;
+                double poidsModifie = poids * Convert.ToDouble(nudCpeElfique.Value);
+                lblPdsCpeElfique.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudCneAqua_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudCneAqua.Value == 0)
+            {
+                chkCneAqua.Visible = false;
+                double poids = GlobalesVariable.PdsCanneAquatique;
+                double poidsModifie = poids * Convert.ToDouble(nudCneAqua.Value);
+                lblPdsCneAqua.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudCneAqua.Value > 0)
+            {
+                chkCneAqua.Visible = true;
+                double poids = GlobalesVariable.PdsCanneAquatique;
+                double poidsModifie = poids * Convert.ToDouble(nudCneAqua.Value);
+                lblPdsCneAqua.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudBgteFeu_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudBgteFeu.Value == 0)
+            {
+                chkBgteFeu.Visible = false;
+                double poids = GlobalesVariable.PdsBaguetteFeu;
+                double poidsModifie = poids * Convert.ToDouble(nudBgteFeu.Value);
+                lblPdsBgteFeu.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudBgteFeu.Value > 0)
+            {
+                chkBgteFeu.Visible = true;
+                double poids = GlobalesVariable.PdsBaguetteFeu;
+                double poidsModifie = poids * Convert.ToDouble(nudBgteFeu.Value);
+                lblPdsBgteFeu.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudBtonCelste_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudBtonCelste.Value == 0)
+            {
+                chkBtonCelste.Visible = false;
+                double poids = GlobalesVariable.PdsBatonCeleste;
+                double poidsModifie = poids * Convert.ToDouble(nudBtonCelste.Value);
+                lblPdsBtonCelste.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudBtonCelste.Value > 0)
+            {
+                chkBtonCelste.Visible = true;
+                double poids = GlobalesVariable.PdsBatonCeleste;
+                double poidsModifie = poids * Convert.ToDouble(nudBtonCelste.Value);
+                lblPdsBtonCelste.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudScptreTerre_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudScptreTerre.Value == 0)
+            {
+                chkScptreTerre.Visible = false;
+                double poids = GlobalesVariable.PdsSceptreTerre;
+                double poidsModifie = poids * Convert.ToDouble(nudScptreTerre.Value);
+                lblPdsScptreTerre.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudScptreTerre.Value > 0)
+            {
+                chkScptreTerre.Visible = true;
+                double poids = GlobalesVariable.PdsSceptreTerre;
+                double poidsModifie = poids * Convert.ToDouble(nudScptreTerre.Value);
+                lblPdsScptreTerre.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudBtonNture_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudBtonNture.Value == 0)
+            {
+                chkBtonNture.Visible = false;
+                double poids = GlobalesVariable.PdsBatonNature;
+                double poidsModifie = poids * Convert.ToDouble(nudBtonNture.Value);
+                lblPdsBtonNture.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudBtonNture.Value > 0)
+            {
+                chkBtonNture.Visible = true;
+                double poids = GlobalesVariable.PdsBatonNature;
+                double poidsModifie = poids * Convert.ToDouble(nudBtonNture.Value);
+                lblPdsBtonNture.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudCneLmiere_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudCneLmiere.Value == 0)
+            {
+                chkCneLmiere.Visible = false;
+                double poids = GlobalesVariable.PdsCanneLumiere;
+                double poidsModifie = poids * Convert.ToDouble(nudCneLmiere.Value);
+                lblPdsCneLmiere.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudCneLmiere.Value > 0)
+            {
+                chkCneLmiere.Visible = true;
+                double poids = GlobalesVariable.PdsCanneLumiere;
+                double poidsModifie = poids * Convert.ToDouble(nudCneLmiere.Value);
+                lblPdsCneLmiere.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudBgteInfernale_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudBgteInfernale.Value == 0)
+            {
+                chkBgteInfernale.Visible = false;
+                double poids = GlobalesVariable.PdsBaguetteInfernale;
+                double poidsModifie = poids * Convert.ToDouble(nudBgteInfernale.Value);
+                lblPdsBgteInfernale.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudBgteInfernale.Value > 0)
+            {
+                chkBgteInfernale.Visible = true;
+                double poids = GlobalesVariable.PdsBaguetteInfernale;
+                double poidsModifie = poids * Convert.ToDouble(nudBgteInfernale.Value);
+                lblPdsBgteInfernale.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudSptreNeutre_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudSptreNeutre.Value == 0)
+            {
+                chkSptreNeutre.Visible = false;
+                double poids = GlobalesVariable.PdsSceptreNeutre;
+                double poidsModifie = poids * Convert.ToDouble(nudSptreNeutre.Value);
+                lblPdsSptreNeutre.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudSptreNeutre.Value > 0)
+            {
+                chkSptreNeutre.Visible = true;
+                double poids = GlobalesVariable.PdsSceptreNeutre;
+                double poidsModifie = poids * Convert.ToDouble(nudSptreNeutre.Value);
+                lblPdsSptreNeutre.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudMhoir_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudMhoir.Value == 0)
+            {
+                chkMhoir.Visible = false;
+                double poids = GlobalesVariable.PdsMouchoir;
+                double poidsModifie = poids * Convert.ToDouble(nudMhoir.Value);
+                lblPdsMhoir.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudMhoir.Value > 0)
+            {
+                chkMhoir.Visible = true;
+                double poids = GlobalesVariable.PdsMouchoir;
+                double poidsModifie = poids * Convert.ToDouble(nudMhoir.Value);
+                lblPdsMhoir.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudCvture_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudCvture.Value == 0)
+            {
+                chkCvture.Visible = false;
+                double poids = GlobalesVariable.PdsCouverture;
+                double poidsModifie = poids * Convert.ToDouble(nudCvture.Value);
+                lblPdsCvture.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudCvture.Value > 0)
+            {
+                chkCvture.Visible = true;
+                double poids = GlobalesVariable.PdsCouverture;
+                double poidsModifie = poids * Convert.ToDouble(nudCvture.Value);
+                lblPdsCvture.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudPlnteMcnale_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudPlnteMcnale.Value == 0)
+            {
+                chkPlnteMcnale.Visible = false;
+                double poids = GlobalesVariable.PdsPlanteMedicinale;
+                double poidsModifie = poids * Convert.ToDouble(nudPlnteMcnale.Value);
+                lblPdsPlnteMcnale.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudPlnteMcnale.Value > 0)
+            {
+                chkPlnteMcnale.Visible = true;
+                double poids = GlobalesVariable.PdsPlanteMedicinale;
+                double poidsModifie = poids * Convert.ToDouble(nudPlnteMcnale.Value);
+                lblPdsPlnteMcnale.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudCntrePson_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudCntrePson.Value == 0)
+            {
+                chkCntrePson.Visible = false;
+                double poids = GlobalesVariable.PdsContrePoison;
+                double poidsModifie = poids * Convert.ToDouble(nudCntrePson.Value);
+                lblPdsCntrePson.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudCntrePson.Value > 0)
+            {
+                chkCntrePson.Visible = true;
+                double poids = GlobalesVariable.PdsContrePoison;
+                double poidsModifie = poids * Convert.ToDouble(nudCntrePson.Value);
+                lblPdsCntrePson.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudFlcheBois_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudFlcheBois.Value == 0)
+            {
+                chkFlcheBois.Visible = false;
+                double poids = GlobalesVariable.PdsFlecheBois;
+                double poidsModifie = poids * Convert.ToDouble(nudFlcheBois.Value);
+                lblPdsFlcheBois.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudFlcheBois.Value > 0)
+            {
+                chkFlcheBois.Visible = true;
+                double poids = GlobalesVariable.PdsFlecheBois;
+                double poidsModifie = poids * Convert.ToDouble(nudFlcheBois.Value);
+                lblPdsFlcheBois.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudFlcheFr_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudFlcheFr.Value == 0)
+            {
+                chkFlcheFr.Visible = false;
+                double poids = GlobalesVariable.PdsFlecheFer;
+                double poidsModifie = poids * Convert.ToDouble(nudFlcheFr.Value);
+                lblPdsFlcheFr.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudFlcheFr.Value > 0)
+            {
+                chkFlcheFr.Visible = true;
+                double poids = GlobalesVariable.PdsFlecheFer;
+                double poidsModifie = poids * Convert.ToDouble(nudFlcheFr.Value);
+                lblPdsFlcheFr.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudFlcheArgent_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudFlcheArgent.Value == 0)
+            {
+                chkFlcheArgent.Visible = false;
+                double poids = GlobalesVariable.PdsFlecheArgent;
+                double poidsModifie = poids * Convert.ToDouble(nudFlcheArgent.Value);
+                lblPdsFlcheArgent.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudFlcheArgent.Value > 0)
+            {
+                chkFlcheArgent.Visible = true;
+                double poids = GlobalesVariable.PdsFlecheArgent;
+                double poidsModifie = poids * Convert.ToDouble(nudFlcheArgent.Value);
+                lblPdsFlcheArgent.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudCrauBois_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudCrauBois.Value == 0)
+            {
+                chkCrauBois.Visible = false;
+                double poids = GlobalesVariable.PdsCarreauBois;
+                double poidsModifie = poids * Convert.ToDouble(nudCrauBois.Value);
+                lblPdsCrauBois.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudCrauBois.Value > 0)
+            {
+                chkCrauBois.Visible = true;
+                double poids = GlobalesVariable.PdsCarreauBois;
+                double poidsModifie = poids * Convert.ToDouble(nudCrauBois.Value);
+                lblPdsCrauBois.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudCrauFr_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudCrauFr.Value == 0)
+            {
+                chkCrauFr.Visible = false;
+                double poids = GlobalesVariable.PdsCarreauFer;
+                double poidsModifie = poids * Convert.ToDouble(nudCrauFr.Value);
+                lblPdsCrauFr.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudCrauFr.Value > 0)
+            {
+                chkCrauFr.Visible = true;
+                double poids = GlobalesVariable.PdsCarreauFer;
+                double poidsModifie = poids * Convert.ToDouble(nudCrauFr.Value);
+                lblPdsCrauFr.Text = poidsModifie.ToString() + " kg";
+            }
+        }
+
+        private void nudPrre_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudPrre.Value == 0)
+            {
+                chkPrre.Visible = false;
+                double poids = GlobalesVariable.PdsPierre;
+                double poidsModifie = poids * Convert.ToDouble(nudPrre.Value);
+                lblPdsPrre.Text = poidsModifie.ToString() + " kg";
+            }
+            else if (nudPrre.Value > 0)
+            {
+                chkPrre.Visible = true;
+                double poids = GlobalesVariable.PdsPierre;
+                double poidsModifie = poids * Convert.ToDouble(nudPrre.Value);
+                lblPdsPrre.Text = poidsModifie.ToString() + " kg";
             }
         }
     }
