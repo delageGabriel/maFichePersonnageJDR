@@ -70,8 +70,6 @@ namespace maFichePersonnageJDR.Formulaires
                 rdbAutre.Checked = true;
             }
 
-            
-            
             GetSettings();
         }
 

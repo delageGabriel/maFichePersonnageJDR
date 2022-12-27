@@ -337,6 +337,57 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblTpeChaines = new System.Windows.Forms.Label();
             this.lblDgtsChaines = new System.Windows.Forms.Label();
             this.tpBatons = new System.Windows.Forms.TabPage();
+            this.lblDescBatons = new System.Windows.Forms.Label();
+            this.lblPrpieteSptreNeutre = new System.Windows.Forms.Label();
+            this.lblVleurSptreNeutre = new System.Windows.Forms.Label();
+            this.chkSptreNeutre = new System.Windows.Forms.CheckBox();
+            this.lblPrteSptreNeutre = new System.Windows.Forms.Label();
+            this.lblEftsSptreNeutre = new System.Windows.Forms.Label();
+            this.lblNomSptreNeutre = new System.Windows.Forms.Label();
+            this.lblPdsSptreNeutre = new System.Windows.Forms.Label();
+            this.nudSptreNeutre = new System.Windows.Forms.NumericUpDown();
+            this.lblTpeSptreNeutre = new System.Windows.Forms.Label();
+            this.lblDgtsSptreNeutre = new System.Windows.Forms.Label();
+            this.lblPrpieteBgteInfernale = new System.Windows.Forms.Label();
+            this.lblVleurBgteInfernale = new System.Windows.Forms.Label();
+            this.chkBgteInfernale = new System.Windows.Forms.CheckBox();
+            this.lblPrteBgteInfernale = new System.Windows.Forms.Label();
+            this.lblEftsBgteInfernale = new System.Windows.Forms.Label();
+            this.lblNomBgteInfernale = new System.Windows.Forms.Label();
+            this.lblPdsBgteInfernale = new System.Windows.Forms.Label();
+            this.nudBgteInfernale = new System.Windows.Forms.NumericUpDown();
+            this.lblTpeBgteInfernale = new System.Windows.Forms.Label();
+            this.lblDgtsBgteInfernale = new System.Windows.Forms.Label();
+            this.lblPrpieteCneLmiere = new System.Windows.Forms.Label();
+            this.lblVleurCneLmiere = new System.Windows.Forms.Label();
+            this.chkCneLmiere = new System.Windows.Forms.CheckBox();
+            this.lblPrteCneLmiere = new System.Windows.Forms.Label();
+            this.lblEftsCneLmiere = new System.Windows.Forms.Label();
+            this.lblNomCneLmiere = new System.Windows.Forms.Label();
+            this.lblPdsCneLmiere = new System.Windows.Forms.Label();
+            this.nudCneLmiere = new System.Windows.Forms.NumericUpDown();
+            this.lblTpeCneLmiere = new System.Windows.Forms.Label();
+            this.lblDgtsCneLmiere = new System.Windows.Forms.Label();
+            this.lblPrpieteBtonNture = new System.Windows.Forms.Label();
+            this.lblVleurBtonNture = new System.Windows.Forms.Label();
+            this.chkBtonNture = new System.Windows.Forms.CheckBox();
+            this.lblPrteBtonNture = new System.Windows.Forms.Label();
+            this.lblEftsBtonNture = new System.Windows.Forms.Label();
+            this.lblNomBtonNture = new System.Windows.Forms.Label();
+            this.lblPdsBtonNture = new System.Windows.Forms.Label();
+            this.nudBtonNture = new System.Windows.Forms.NumericUpDown();
+            this.lblTpeBtonNture = new System.Windows.Forms.Label();
+            this.lblDgtsBtonNture = new System.Windows.Forms.Label();
+            this.lblPrpieteScptreTerre = new System.Windows.Forms.Label();
+            this.lblVleurScptreTerre = new System.Windows.Forms.Label();
+            this.chkScptreTerre = new System.Windows.Forms.CheckBox();
+            this.lblPrteScptreTerre = new System.Windows.Forms.Label();
+            this.lblEftsScptreTerre = new System.Windows.Forms.Label();
+            this.lblNomScptreTerre = new System.Windows.Forms.Label();
+            this.lblPdsScptreTerre = new System.Windows.Forms.Label();
+            this.nudScptreTerre = new System.Windows.Forms.NumericUpDown();
+            this.lblTpeScptreTerre = new System.Windows.Forms.Label();
+            this.lblDgtsScptreTerre = new System.Windows.Forms.Label();
             this.lblPrpieteBtonCelste = new System.Windows.Forms.Label();
             this.lblVleurBtonCelste = new System.Windows.Forms.Label();
             this.chkBtonCelste = new System.Windows.Forms.CheckBox();
@@ -648,6 +699,76 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblNbBoucliers = new System.Windows.Forms.Label();
             this.lblEftsBoucliers = new System.Windows.Forms.Label();
             this.tpObjets = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
+            this.chkPrre = new System.Windows.Forms.CheckBox();
+            this.lblTllePrre = new System.Windows.Forms.Label();
+            this.lblNomPrre = new System.Windows.Forms.Label();
+            this.lblPdsPrre = new System.Windows.Forms.Label();
+            this.nudPrre = new System.Windows.Forms.NumericUpDown();
+            this.lblEftsPrre = new System.Windows.Forms.Label();
+            this.lblVleurCrauFr = new System.Windows.Forms.Label();
+            this.chkCrauFr = new System.Windows.Forms.CheckBox();
+            this.lblTlleCrauFr = new System.Windows.Forms.Label();
+            this.lblNomCrauFr = new System.Windows.Forms.Label();
+            this.lblPdsCrauFr = new System.Windows.Forms.Label();
+            this.nudCrauFr = new System.Windows.Forms.NumericUpDown();
+            this.lblEftsCrauFr = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.chkCrauBois = new System.Windows.Forms.CheckBox();
+            this.lblTlleCrauBois = new System.Windows.Forms.Label();
+            this.lblNomCrauBois = new System.Windows.Forms.Label();
+            this.lblPdsCrauBois = new System.Windows.Forms.Label();
+            this.nudCrauBois = new System.Windows.Forms.NumericUpDown();
+            this.lblEftsCrauBois = new System.Windows.Forms.Label();
+            this.lblVleurFlcheArgent = new System.Windows.Forms.Label();
+            this.chkFlcheArgent = new System.Windows.Forms.CheckBox();
+            this.lblTlleFlcheArgent = new System.Windows.Forms.Label();
+            this.lblnomFlcheArgent = new System.Windows.Forms.Label();
+            this.lblPdsFlcheArgent = new System.Windows.Forms.Label();
+            this.nudFlcheArgent = new System.Windows.Forms.NumericUpDown();
+            this.lblEftsFlcheArgent = new System.Windows.Forms.Label();
+            this.lblVleurFlcheFr = new System.Windows.Forms.Label();
+            this.chkFlcheFr = new System.Windows.Forms.CheckBox();
+            this.lblTlleFlcheFr = new System.Windows.Forms.Label();
+            this.lblNomFlcheFr = new System.Windows.Forms.Label();
+            this.lblPdsFlcheFr = new System.Windows.Forms.Label();
+            this.nudFlcheFr = new System.Windows.Forms.NumericUpDown();
+            this.lblDgtsFlcheFr = new System.Windows.Forms.Label();
+            this.lblVleurFlcheBois = new System.Windows.Forms.Label();
+            this.chkFlcheBois = new System.Windows.Forms.CheckBox();
+            this.lblTlleFlcheBois = new System.Windows.Forms.Label();
+            this.lblNomFlcheBois = new System.Windows.Forms.Label();
+            this.lblPdsFlcheBois = new System.Windows.Forms.Label();
+            this.nudFlcheBois = new System.Windows.Forms.NumericUpDown();
+            this.lblEftsFlcheBois = new System.Windows.Forms.Label();
+            this.lblVleurCntrePson = new System.Windows.Forms.Label();
+            this.chkCntrePson = new System.Windows.Forms.CheckBox();
+            this.lblTlleCntrePson = new System.Windows.Forms.Label();
+            this.lblNomCntrePson = new System.Windows.Forms.Label();
+            this.lblPdsCntrePson = new System.Windows.Forms.Label();
+            this.nudCntrePson = new System.Windows.Forms.NumericUpDown();
+            this.lblEftsCntrePson = new System.Windows.Forms.Label();
+            this.lblVleurPlnteMcnale = new System.Windows.Forms.Label();
+            this.chkPlnteMcnale = new System.Windows.Forms.CheckBox();
+            this.lblTllePlnteMcnale = new System.Windows.Forms.Label();
+            this.lblNomPlnteMcnale = new System.Windows.Forms.Label();
+            this.lblPdsPlnteMcnale = new System.Windows.Forms.Label();
+            this.nudPlnteMcnale = new System.Windows.Forms.NumericUpDown();
+            this.lblEftsPlnteMcnale = new System.Windows.Forms.Label();
+            this.lblVleurCvture = new System.Windows.Forms.Label();
+            this.chkCvture = new System.Windows.Forms.CheckBox();
+            this.lblTlleCvture = new System.Windows.Forms.Label();
+            this.lblNomCvture = new System.Windows.Forms.Label();
+            this.lblPdsCvture = new System.Windows.Forms.Label();
+            this.nudCvture = new System.Windows.Forms.NumericUpDown();
+            this.lblEftsCvture = new System.Windows.Forms.Label();
+            this.lblVleurMhoir = new System.Windows.Forms.Label();
+            this.chkMhoir = new System.Windows.Forms.CheckBox();
+            this.lblTlleMhoir = new System.Windows.Forms.Label();
+            this.lblNomMhoir = new System.Windows.Forms.Label();
+            this.lblPdsMhoir = new System.Windows.Forms.Label();
+            this.nudMhoir = new System.Windows.Forms.NumericUpDown();
+            this.lblEftsMhoir = new System.Windows.Forms.Label();
             this.lblVleurTnte = new System.Windows.Forms.Label();
             this.lblVleurSc = new System.Windows.Forms.Label();
             this.lblVleurOte = new System.Windows.Forms.Label();
@@ -763,127 +884,12 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblChargeMaximale = new System.Windows.Forms.Label();
             this.txtChargeMaximale = new System.Windows.Forms.TextBox();
             this.txtChargeRestante = new System.Windows.Forms.TextBox();
-            this.lblPrpieteScptreTerre = new System.Windows.Forms.Label();
-            this.lblVleurScptreTerre = new System.Windows.Forms.Label();
-            this.chkScptreTerre = new System.Windows.Forms.CheckBox();
-            this.lblPrteScptreTerre = new System.Windows.Forms.Label();
-            this.lblEftsScptreTerre = new System.Windows.Forms.Label();
-            this.lblNomScptreTerre = new System.Windows.Forms.Label();
-            this.lblPdsScptreTerre = new System.Windows.Forms.Label();
-            this.nudScptreTerre = new System.Windows.Forms.NumericUpDown();
-            this.lblTpeScptreTerre = new System.Windows.Forms.Label();
-            this.lblDgtsScptreTerre = new System.Windows.Forms.Label();
-            this.lblPrpieteBtonNture = new System.Windows.Forms.Label();
-            this.lblVleurBtonNture = new System.Windows.Forms.Label();
-            this.chkBtonNture = new System.Windows.Forms.CheckBox();
-            this.lblPrteBtonNture = new System.Windows.Forms.Label();
-            this.lblEftsBtonNture = new System.Windows.Forms.Label();
-            this.lblNomBtonNture = new System.Windows.Forms.Label();
-            this.lblPdsBtonNture = new System.Windows.Forms.Label();
-            this.nudBtonNture = new System.Windows.Forms.NumericUpDown();
-            this.lblTpeBtonNture = new System.Windows.Forms.Label();
-            this.lblDgtsBtonNture = new System.Windows.Forms.Label();
-            this.lblPrpieteCneLmiere = new System.Windows.Forms.Label();
-            this.lblVleurCneLmiere = new System.Windows.Forms.Label();
-            this.chkCneLmiere = new System.Windows.Forms.CheckBox();
-            this.lblPrteCneLmiere = new System.Windows.Forms.Label();
-            this.lblEftsCneLmiere = new System.Windows.Forms.Label();
-            this.lblNomCneLmiere = new System.Windows.Forms.Label();
-            this.lblPdsCneLmiere = new System.Windows.Forms.Label();
-            this.nudCneLmiere = new System.Windows.Forms.NumericUpDown();
-            this.lblTpeCneLmiere = new System.Windows.Forms.Label();
-            this.lblDgtsCneLmiere = new System.Windows.Forms.Label();
-            this.lblPrpieteBgteInfernale = new System.Windows.Forms.Label();
-            this.lblVleurBgteInfernale = new System.Windows.Forms.Label();
-            this.chkBgteInfernale = new System.Windows.Forms.CheckBox();
-            this.lblPrteBgteInfernale = new System.Windows.Forms.Label();
-            this.lblEftsBgteInfernale = new System.Windows.Forms.Label();
-            this.lblNomBgteInfernale = new System.Windows.Forms.Label();
-            this.lblPdsBgteInfernale = new System.Windows.Forms.Label();
-            this.nudBgteInfernale = new System.Windows.Forms.NumericUpDown();
-            this.lblTpeBgteInfernale = new System.Windows.Forms.Label();
-            this.lblDgtsBgteInfernale = new System.Windows.Forms.Label();
-            this.lblPrpieteSptreNeutre = new System.Windows.Forms.Label();
-            this.lblVleurSptreNeutre = new System.Windows.Forms.Label();
-            this.chkSptreNeutre = new System.Windows.Forms.CheckBox();
-            this.lblPrteSptreNeutre = new System.Windows.Forms.Label();
-            this.lblEftsSptreNeutre = new System.Windows.Forms.Label();
-            this.lblNomSptreNeutre = new System.Windows.Forms.Label();
-            this.lblPdsSptreNeutre = new System.Windows.Forms.Label();
-            this.nudSptreNeutre = new System.Windows.Forms.NumericUpDown();
-            this.lblTpeSptreNeutre = new System.Windows.Forms.Label();
-            this.lblDgtsSptreNeutre = new System.Windows.Forms.Label();
-            this.lblDescBatons = new System.Windows.Forms.Label();
-            this.lblVleurMhoir = new System.Windows.Forms.Label();
-            this.chkMhoir = new System.Windows.Forms.CheckBox();
-            this.lblTlleMhoir = new System.Windows.Forms.Label();
-            this.lblNomMhoir = new System.Windows.Forms.Label();
-            this.lblPdsMhoir = new System.Windows.Forms.Label();
-            this.nudMhoir = new System.Windows.Forms.NumericUpDown();
-            this.lblEftsMhoir = new System.Windows.Forms.Label();
-            this.lblVleurCvture = new System.Windows.Forms.Label();
-            this.chkCvture = new System.Windows.Forms.CheckBox();
-            this.lblTlleCvture = new System.Windows.Forms.Label();
-            this.lblNomCvture = new System.Windows.Forms.Label();
-            this.lblPdsCvture = new System.Windows.Forms.Label();
-            this.nudCvture = new System.Windows.Forms.NumericUpDown();
-            this.lblEftsCvture = new System.Windows.Forms.Label();
-            this.lblVleurPlnteMcnale = new System.Windows.Forms.Label();
-            this.chkPlnteMcnale = new System.Windows.Forms.CheckBox();
-            this.lblTllePlnteMcnale = new System.Windows.Forms.Label();
-            this.lblNomPlnteMcnale = new System.Windows.Forms.Label();
-            this.lblPdsPlnteMcnale = new System.Windows.Forms.Label();
-            this.nudPlnteMcnale = new System.Windows.Forms.NumericUpDown();
-            this.lblEftsPlnteMcnale = new System.Windows.Forms.Label();
-            this.lblVleurCntrePson = new System.Windows.Forms.Label();
-            this.chkCntrePson = new System.Windows.Forms.CheckBox();
-            this.lblTlleCntrePson = new System.Windows.Forms.Label();
-            this.lblNomCntrePson = new System.Windows.Forms.Label();
-            this.lblPdsCntrePson = new System.Windows.Forms.Label();
-            this.nudCntrePson = new System.Windows.Forms.NumericUpDown();
-            this.lblEftsCntrePson = new System.Windows.Forms.Label();
-            this.lblVleurFlcheBois = new System.Windows.Forms.Label();
-            this.chkFlcheBois = new System.Windows.Forms.CheckBox();
-            this.lblTlleFlcheBois = new System.Windows.Forms.Label();
-            this.lblNomFlcheBois = new System.Windows.Forms.Label();
-            this.lblPdsFlcheBois = new System.Windows.Forms.Label();
-            this.nudFlcheBois = new System.Windows.Forms.NumericUpDown();
-            this.lblEftsFlcheBois = new System.Windows.Forms.Label();
-            this.lblVleurFlcheFr = new System.Windows.Forms.Label();
-            this.chkFlcheFr = new System.Windows.Forms.CheckBox();
-            this.lblTlleFlcheFr = new System.Windows.Forms.Label();
-            this.lblNomFlcheFr = new System.Windows.Forms.Label();
-            this.lblPdsFlcheFr = new System.Windows.Forms.Label();
-            this.nudFlcheFr = new System.Windows.Forms.NumericUpDown();
-            this.lblDgtsFlcheFr = new System.Windows.Forms.Label();
-            this.lblVleurFlcheArgent = new System.Windows.Forms.Label();
-            this.chkFlcheArgent = new System.Windows.Forms.CheckBox();
-            this.lblTlleFlcheArgent = new System.Windows.Forms.Label();
-            this.lblnomFlcheArgent = new System.Windows.Forms.Label();
-            this.lblPdsFlcheArgent = new System.Windows.Forms.Label();
-            this.nudFlcheArgent = new System.Windows.Forms.NumericUpDown();
-            this.lblEftsFlcheArgent = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.chkCrauBois = new System.Windows.Forms.CheckBox();
-            this.lblTlleCrauBois = new System.Windows.Forms.Label();
-            this.lblNomCrauBois = new System.Windows.Forms.Label();
-            this.lblPdsCrauBois = new System.Windows.Forms.Label();
-            this.nudCrauBois = new System.Windows.Forms.NumericUpDown();
-            this.lblEftsCrauBois = new System.Windows.Forms.Label();
-            this.lblVleurCrauFr = new System.Windows.Forms.Label();
-            this.chkCrauFr = new System.Windows.Forms.CheckBox();
-            this.lblTlleCrauFr = new System.Windows.Forms.Label();
-            this.lblNomCrauFr = new System.Windows.Forms.Label();
-            this.lblPdsCrauFr = new System.Windows.Forms.Label();
-            this.nudCrauFr = new System.Windows.Forms.NumericUpDown();
-            this.lblEftsCrauFr = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.chkPrre = new System.Windows.Forms.CheckBox();
-            this.lblTllePrre = new System.Windows.Forms.Label();
-            this.lblNomPrre = new System.Windows.Forms.Label();
-            this.lblPdsPrre = new System.Windows.Forms.Label();
-            this.nudPrre = new System.Windows.Forms.NumericUpDown();
-            this.lblEftsPrre = new System.Windows.Forms.Label();
+            this.lblCuivre = new System.Windows.Forms.Label();
+            this.lblArgent = new System.Windows.Forms.Label();
+            this.lblOr = new System.Windows.Forms.Label();
+            this.txtOr = new System.Windows.Forms.TextBox();
+            this.txtArgent = new System.Windows.Forms.TextBox();
+            this.txtCuivre = new System.Windows.Forms.TextBox();
             this.tcInventaires.SuspendLayout();
             this.tpArmes.SuspendLayout();
             this.tcArmes.SuspendLayout();
@@ -921,6 +927,11 @@ namespace maFichePersonnageJDR.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.nudFaC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudFouet)).BeginInit();
             this.tpBatons.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSptreNeutre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudBgteInfernale)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCneLmiere)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudBtonNture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudScptreTerre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBtonCelste)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBgteFeu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCneAqua)).BeginInit();
@@ -963,6 +974,16 @@ namespace maFichePersonnageJDR.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.nudPvois)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEcu)).BeginInit();
             this.tpObjets.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCrauFr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCrauBois)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFlcheArgent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFlcheFr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFlcheBois)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCntrePson)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPlnteMcnale)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCvture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMhoir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTnte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudOte)).BeginInit();
@@ -977,21 +998,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpDivine.SuspendLayout();
             this.tpDemoniaque.SuspendLayout();
             this.tpNeutre.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudScptreTerre)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudBtonNture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCneLmiere)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudBgteInfernale)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSptreNeutre)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMhoir)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCvture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPlnteMcnale)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCntrePson)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudFlcheBois)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudFlcheFr)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudFlcheArgent)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCrauBois)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCrauFr)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPrre)).BeginInit();
             this.SuspendLayout();
             // 
             // lblDgtsEpee
@@ -1190,7 +1196,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpEpee.Location = new System.Drawing.Point(4, 22);
             this.tpEpee.Name = "tpEpee";
             this.tpEpee.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEpee.Size = new System.Drawing.Size(689, 293);
+            this.tpEpee.Size = new System.Drawing.Size(689, 272);
             this.tpEpee.TabIndex = 0;
             this.tpEpee.Text = "Épées";
             this.tpEpee.UseVisualStyleBackColor = true;
@@ -1974,7 +1980,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpLances.Location = new System.Drawing.Point(4, 22);
             this.tpLances.Name = "tpLances";
             this.tpLances.Padding = new System.Windows.Forms.Padding(3);
-            this.tpLances.Size = new System.Drawing.Size(689, 293);
+            this.tpLances.Size = new System.Drawing.Size(689, 272);
             this.tpLances.TabIndex = 1;
             this.tpLances.Text = "Lances";
             this.tpLances.UseVisualStyleBackColor = true;
@@ -2549,7 +2555,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpPoignards.Controls.Add(this.lblDgtsDagues);
             this.tpPoignards.Location = new System.Drawing.Point(4, 22);
             this.tpPoignards.Name = "tpPoignards";
-            this.tpPoignards.Size = new System.Drawing.Size(689, 293);
+            this.tpPoignards.Size = new System.Drawing.Size(689, 272);
             this.tpPoignards.TabIndex = 2;
             this.tpPoignards.Text = "Poignards";
             this.tpPoignards.UseVisualStyleBackColor = true;
@@ -3020,7 +3026,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpHaches.Controls.Add(this.lblDgtsHache);
             this.tpHaches.Location = new System.Drawing.Point(4, 22);
             this.tpHaches.Name = "tpHaches";
-            this.tpHaches.Size = new System.Drawing.Size(689, 293);
+            this.tpHaches.Size = new System.Drawing.Size(689, 272);
             this.tpHaches.TabIndex = 3;
             this.tpHaches.Text = "Haches";
             this.tpHaches.UseVisualStyleBackColor = true;
@@ -3069,7 +3075,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblPdsHcheBhron.Name = "lblPdsHcheBhron";
             this.lblPdsHcheBhron.Size = new System.Drawing.Size(34, 13);
             this.lblPdsHcheBhron.TabIndex = 133;
-            this.lblPdsHcheBhron.Text = "2.5kg";
+            this.lblPdsHcheBhron.Text = "2,5kg";
             // 
             // lblPrteHcheBhron
             // 
@@ -3319,7 +3325,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpMasse.Controls.Add(this.lblDgtsMassues);
             this.tpMasse.Location = new System.Drawing.Point(4, 22);
             this.tpMasse.Name = "tpMasse";
-            this.tpMasse.Size = new System.Drawing.Size(689, 293);
+            this.tpMasse.Size = new System.Drawing.Size(689, 272);
             this.tpMasse.TabIndex = 4;
             this.tpMasse.Text = "Masses";
             this.tpMasse.UseVisualStyleBackColor = true;
@@ -3368,7 +3374,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblPdsMrteauFgron.Name = "lblPdsMrteauFgron";
             this.lblPdsMrteauFgron.Size = new System.Drawing.Size(34, 13);
             this.lblPdsMrteauFgron.TabIndex = 149;
-            this.lblPdsMrteauFgron.Text = "1.9kg";
+            this.lblPdsMrteauFgron.Text = "1,9kg";
             // 
             // lblPrteMrteauFgron
             // 
@@ -3464,7 +3470,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblPdsMsueChne.Name = "lblPdsMsueChne";
             this.lblPdsMsueChne.Size = new System.Drawing.Size(40, 13);
             this.lblPdsMsueChne.TabIndex = 139;
-            this.lblPdsMsueChne.Text = "0.55kg";
+            this.lblPdsMsueChne.Text = "0,55kg";
             // 
             // lblPrteMsueChne
             // 
@@ -4011,7 +4017,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpChaînes.Controls.Add(this.lblDgtsChaines);
             this.tpChaînes.Location = new System.Drawing.Point(4, 22);
             this.tpChaînes.Name = "tpChaînes";
-            this.tpChaînes.Size = new System.Drawing.Size(689, 293);
+            this.tpChaînes.Size = new System.Drawing.Size(689, 272);
             this.tpChaînes.TabIndex = 6;
             this.tpChaînes.Text = "Chaînes";
             this.tpChaînes.UseVisualStyleBackColor = true;
@@ -4387,6 +4393,491 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpBatons.TabIndex = 7;
             this.tpBatons.Text = "Bâtons";
             this.tpBatons.UseVisualStyleBackColor = true;
+            // 
+            // lblDescBatons
+            // 
+            this.lblDescBatons.AutoSize = true;
+            this.lblDescBatons.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescBatons.Location = new System.Drawing.Point(10, 281);
+            this.lblDescBatons.Name = "lblDescBatons";
+            this.lblDescBatons.Size = new System.Drawing.Size(75, 13);
+            this.lblDescBatons.TabIndex = 19;
+            this.lblDescBatons.Text = "enrg = énergie";
+            // 
+            // lblPrpieteSptreNeutre
+            // 
+            this.lblPrpieteSptreNeutre.AutoSize = true;
+            this.lblPrpieteSptreNeutre.Location = new System.Drawing.Point(661, 252);
+            this.lblPrpieteSptreNeutre.Name = "lblPrpieteSptreNeutre";
+            this.lblPrpieteSptreNeutre.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteSptreNeutre.TabIndex = 220;
+            this.lblPrpieteSptreNeutre.Text = "Aucune";
+            // 
+            // lblVleurSptreNeutre
+            // 
+            this.lblVleurSptreNeutre.AutoSize = true;
+            this.lblVleurSptreNeutre.Location = new System.Drawing.Point(552, 252);
+            this.lblVleurSptreNeutre.Name = "lblVleurSptreNeutre";
+            this.lblVleurSptreNeutre.Size = new System.Drawing.Size(82, 13);
+            this.lblVleurSptreNeutre.TabIndex = 219;
+            this.lblVleurSptreNeutre.Text = "2 po, 5 pa, 3 pc";
+            // 
+            // chkSptreNeutre
+            // 
+            this.chkSptreNeutre.AutoSize = true;
+            this.chkSptreNeutre.Location = new System.Drawing.Point(13, 252);
+            this.chkSptreNeutre.Name = "chkSptreNeutre";
+            this.chkSptreNeutre.Size = new System.Drawing.Size(15, 14);
+            this.chkSptreNeutre.TabIndex = 218;
+            this.chkSptreNeutre.UseVisualStyleBackColor = true;
+            this.chkSptreNeutre.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
+            // 
+            // lblPrteSptreNeutre
+            // 
+            this.lblPrteSptreNeutre.AutoSize = true;
+            this.lblPrteSptreNeutre.Location = new System.Drawing.Point(200, 252);
+            this.lblPrteSptreNeutre.Name = "lblPrteSptreNeutre";
+            this.lblPrteSptreNeutre.Size = new System.Drawing.Size(36, 13);
+            this.lblPrteSptreNeutre.TabIndex = 217;
+            this.lblPrteSptreNeutre.Text = "60 cm";
+            // 
+            // lblEftsSptreNeutre
+            // 
+            this.lblEftsSptreNeutre.AutoSize = true;
+            this.lblEftsSptreNeutre.Location = new System.Drawing.Point(454, 252);
+            this.lblEftsSptreNeutre.Name = "lblEftsSptreNeutre";
+            this.lblEftsSptreNeutre.Size = new System.Drawing.Size(93, 13);
+            this.lblEftsSptreNeutre.TabIndex = 216;
+            this.lblEftsSptreNeutre.Text = "-1 enrg sort neutre";
+            // 
+            // lblNomSptreNeutre
+            // 
+            this.lblNomSptreNeutre.AutoSize = true;
+            this.lblNomSptreNeutre.Location = new System.Drawing.Point(34, 252);
+            this.lblNomSptreNeutre.Name = "lblNomSptreNeutre";
+            this.lblNomSptreNeutre.Size = new System.Drawing.Size(90, 13);
+            this.lblNomSptreNeutre.TabIndex = 211;
+            this.lblNomSptreNeutre.Text = "Sceptre neutralité";
+            // 
+            // lblPdsSptreNeutre
+            // 
+            this.lblPdsSptreNeutre.AutoSize = true;
+            this.lblPdsSptreNeutre.Location = new System.Drawing.Point(128, 252);
+            this.lblPdsSptreNeutre.Name = "lblPdsSptreNeutre";
+            this.lblPdsSptreNeutre.Size = new System.Drawing.Size(40, 13);
+            this.lblPdsSptreNeutre.TabIndex = 212;
+            this.lblPdsSptreNeutre.Text = "0,70kg";
+            // 
+            // nudSptreNeutre
+            // 
+            this.nudSptreNeutre.Location = new System.Drawing.Point(266, 250);
+            this.nudSptreNeutre.Name = "nudSptreNeutre";
+            this.nudSptreNeutre.Size = new System.Drawing.Size(41, 20);
+            this.nudSptreNeutre.TabIndex = 213;
+            this.nudSptreNeutre.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudSptreNeutre.ValueChanged += new System.EventHandler(this.nudSptreNeutre_ValueChanged);
+            // 
+            // lblTpeSptreNeutre
+            // 
+            this.lblTpeSptreNeutre.AutoSize = true;
+            this.lblTpeSptreNeutre.Location = new System.Drawing.Point(325, 252);
+            this.lblTpeSptreNeutre.Name = "lblTpeSptreNeutre";
+            this.lblTpeSptreNeutre.Size = new System.Drawing.Size(62, 13);
+            this.lblTpeSptreNeutre.TabIndex = 214;
+            this.lblTpeSptreNeutre.Text = "Contondant";
+            // 
+            // lblDgtsSptreNeutre
+            // 
+            this.lblDgtsSptreNeutre.AutoSize = true;
+            this.lblDgtsSptreNeutre.Location = new System.Drawing.Point(397, 252);
+            this.lblDgtsSptreNeutre.Name = "lblDgtsSptreNeutre";
+            this.lblDgtsSptreNeutre.Size = new System.Drawing.Size(13, 13);
+            this.lblDgtsSptreNeutre.TabIndex = 215;
+            this.lblDgtsSptreNeutre.Text = "1";
+            // 
+            // lblPrpieteBgteInfernale
+            // 
+            this.lblPrpieteBgteInfernale.AutoSize = true;
+            this.lblPrpieteBgteInfernale.Location = new System.Drawing.Point(661, 227);
+            this.lblPrpieteBgteInfernale.Name = "lblPrpieteBgteInfernale";
+            this.lblPrpieteBgteInfernale.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteBgteInfernale.TabIndex = 210;
+            this.lblPrpieteBgteInfernale.Text = "Aucune";
+            // 
+            // lblVleurBgteInfernale
+            // 
+            this.lblVleurBgteInfernale.AutoSize = true;
+            this.lblVleurBgteInfernale.Location = new System.Drawing.Point(552, 227);
+            this.lblVleurBgteInfernale.Name = "lblVleurBgteInfernale";
+            this.lblVleurBgteInfernale.Size = new System.Drawing.Size(82, 13);
+            this.lblVleurBgteInfernale.TabIndex = 209;
+            this.lblVleurBgteInfernale.Text = "2 po, 1 pa, 8 pc";
+            // 
+            // chkBgteInfernale
+            // 
+            this.chkBgteInfernale.AutoSize = true;
+            this.chkBgteInfernale.Location = new System.Drawing.Point(13, 227);
+            this.chkBgteInfernale.Name = "chkBgteInfernale";
+            this.chkBgteInfernale.Size = new System.Drawing.Size(15, 14);
+            this.chkBgteInfernale.TabIndex = 208;
+            this.chkBgteInfernale.UseVisualStyleBackColor = true;
+            this.chkBgteInfernale.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
+            // 
+            // lblPrteBgteInfernale
+            // 
+            this.lblPrteBgteInfernale.AutoSize = true;
+            this.lblPrteBgteInfernale.Location = new System.Drawing.Point(200, 227);
+            this.lblPrteBgteInfernale.Name = "lblPrteBgteInfernale";
+            this.lblPrteBgteInfernale.Size = new System.Drawing.Size(36, 13);
+            this.lblPrteBgteInfernale.TabIndex = 207;
+            this.lblPrteBgteInfernale.Text = "40 cm";
+            // 
+            // lblEftsBgteInfernale
+            // 
+            this.lblEftsBgteInfernale.AutoSize = true;
+            this.lblEftsBgteInfernale.Location = new System.Drawing.Point(454, 227);
+            this.lblEftsBgteInfernale.Name = "lblEftsBgteInfernale";
+            this.lblEftsBgteInfernale.Size = new System.Drawing.Size(95, 13);
+            this.lblEftsBgteInfernale.TabIndex = 206;
+            this.lblEftsBgteInfernale.Text = "-1 enrg sort démon";
+            // 
+            // lblNomBgteInfernale
+            // 
+            this.lblNomBgteInfernale.AutoSize = true;
+            this.lblNomBgteInfernale.Location = new System.Drawing.Point(34, 227);
+            this.lblNomBgteInfernale.Name = "lblNomBgteInfernale";
+            this.lblNomBgteInfernale.Size = new System.Drawing.Size(93, 13);
+            this.lblNomBgteInfernale.TabIndex = 201;
+            this.lblNomBgteInfernale.Text = "Baguette infernale";
+            // 
+            // lblPdsBgteInfernale
+            // 
+            this.lblPdsBgteInfernale.AutoSize = true;
+            this.lblPdsBgteInfernale.Location = new System.Drawing.Point(128, 227);
+            this.lblPdsBgteInfernale.Name = "lblPdsBgteInfernale";
+            this.lblPdsBgteInfernale.Size = new System.Drawing.Size(40, 13);
+            this.lblPdsBgteInfernale.TabIndex = 202;
+            this.lblPdsBgteInfernale.Text = "0,37kg";
+            // 
+            // nudBgteInfernale
+            // 
+            this.nudBgteInfernale.Location = new System.Drawing.Point(266, 225);
+            this.nudBgteInfernale.Name = "nudBgteInfernale";
+            this.nudBgteInfernale.Size = new System.Drawing.Size(41, 20);
+            this.nudBgteInfernale.TabIndex = 203;
+            this.nudBgteInfernale.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudBgteInfernale.ValueChanged += new System.EventHandler(this.nudBgteInfernale_ValueChanged);
+            // 
+            // lblTpeBgteInfernale
+            // 
+            this.lblTpeBgteInfernale.AutoSize = true;
+            this.lblTpeBgteInfernale.Location = new System.Drawing.Point(325, 227);
+            this.lblTpeBgteInfernale.Name = "lblTpeBgteInfernale";
+            this.lblTpeBgteInfernale.Size = new System.Drawing.Size(50, 13);
+            this.lblTpeBgteInfernale.TabIndex = 204;
+            this.lblTpeBgteInfernale.Text = "Perforant";
+            // 
+            // lblDgtsBgteInfernale
+            // 
+            this.lblDgtsBgteInfernale.AutoSize = true;
+            this.lblDgtsBgteInfernale.Location = new System.Drawing.Point(397, 227);
+            this.lblDgtsBgteInfernale.Name = "lblDgtsBgteInfernale";
+            this.lblDgtsBgteInfernale.Size = new System.Drawing.Size(13, 13);
+            this.lblDgtsBgteInfernale.TabIndex = 205;
+            this.lblDgtsBgteInfernale.Text = "1";
+            // 
+            // lblPrpieteCneLmiere
+            // 
+            this.lblPrpieteCneLmiere.AutoSize = true;
+            this.lblPrpieteCneLmiere.Location = new System.Drawing.Point(661, 203);
+            this.lblPrpieteCneLmiere.Name = "lblPrpieteCneLmiere";
+            this.lblPrpieteCneLmiere.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteCneLmiere.TabIndex = 200;
+            this.lblPrpieteCneLmiere.Text = "Aucune";
+            // 
+            // lblVleurCneLmiere
+            // 
+            this.lblVleurCneLmiere.AutoSize = true;
+            this.lblVleurCneLmiere.Location = new System.Drawing.Point(552, 202);
+            this.lblVleurCneLmiere.Name = "lblVleurCneLmiere";
+            this.lblVleurCneLmiere.Size = new System.Drawing.Size(82, 13);
+            this.lblVleurCneLmiere.TabIndex = 199;
+            this.lblVleurCneLmiere.Text = "3 po, 5 pa, 3 pc";
+            // 
+            // chkCneLmiere
+            // 
+            this.chkCneLmiere.AutoSize = true;
+            this.chkCneLmiere.Location = new System.Drawing.Point(13, 202);
+            this.chkCneLmiere.Name = "chkCneLmiere";
+            this.chkCneLmiere.Size = new System.Drawing.Size(15, 14);
+            this.chkCneLmiere.TabIndex = 198;
+            this.chkCneLmiere.UseVisualStyleBackColor = true;
+            this.chkCneLmiere.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
+            // 
+            // lblPrteCneLmiere
+            // 
+            this.lblPrteCneLmiere.AutoSize = true;
+            this.lblPrteCneLmiere.Location = new System.Drawing.Point(200, 202);
+            this.lblPrteCneLmiere.Name = "lblPrteCneLmiere";
+            this.lblPrteCneLmiere.Size = new System.Drawing.Size(36, 13);
+            this.lblPrteCneLmiere.TabIndex = 197;
+            this.lblPrteCneLmiere.Text = "65 cm";
+            // 
+            // lblEftsCneLmiere
+            // 
+            this.lblEftsCneLmiere.AutoSize = true;
+            this.lblEftsCneLmiere.Location = new System.Drawing.Point(454, 202);
+            this.lblEftsCneLmiere.Name = "lblEftsCneLmiere";
+            this.lblEftsCneLmiere.Size = new System.Drawing.Size(85, 13);
+            this.lblEftsCneLmiere.TabIndex = 196;
+            this.lblEftsCneLmiere.Text = "-1 enrg sort divin";
+            // 
+            // lblNomCneLmiere
+            // 
+            this.lblNomCneLmiere.AutoSize = true;
+            this.lblNomCneLmiere.Location = new System.Drawing.Point(34, 202);
+            this.lblNomCneLmiere.Name = "lblNomCneLmiere";
+            this.lblNomCneLmiere.Size = new System.Drawing.Size(89, 13);
+            this.lblNomCneLmiere.TabIndex = 191;
+            this.lblNomCneLmiere.Text = "Canne de lumière";
+            // 
+            // lblPdsCneLmiere
+            // 
+            this.lblPdsCneLmiere.AutoSize = true;
+            this.lblPdsCneLmiere.Location = new System.Drawing.Point(128, 202);
+            this.lblPdsCneLmiere.Name = "lblPdsCneLmiere";
+            this.lblPdsCneLmiere.Size = new System.Drawing.Size(40, 13);
+            this.lblPdsCneLmiere.TabIndex = 192;
+            this.lblPdsCneLmiere.Text = "0,65kg";
+            // 
+            // nudCneLmiere
+            // 
+            this.nudCneLmiere.Location = new System.Drawing.Point(266, 200);
+            this.nudCneLmiere.Name = "nudCneLmiere";
+            this.nudCneLmiere.Size = new System.Drawing.Size(41, 20);
+            this.nudCneLmiere.TabIndex = 193;
+            this.nudCneLmiere.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudCneLmiere.ValueChanged += new System.EventHandler(this.nudCneLmiere_ValueChanged);
+            // 
+            // lblTpeCneLmiere
+            // 
+            this.lblTpeCneLmiere.AutoSize = true;
+            this.lblTpeCneLmiere.Location = new System.Drawing.Point(325, 202);
+            this.lblTpeCneLmiere.Name = "lblTpeCneLmiere";
+            this.lblTpeCneLmiere.Size = new System.Drawing.Size(62, 13);
+            this.lblTpeCneLmiere.TabIndex = 194;
+            this.lblTpeCneLmiere.Text = "Contondant";
+            // 
+            // lblDgtsCneLmiere
+            // 
+            this.lblDgtsCneLmiere.AutoSize = true;
+            this.lblDgtsCneLmiere.Location = new System.Drawing.Point(397, 202);
+            this.lblDgtsCneLmiere.Name = "lblDgtsCneLmiere";
+            this.lblDgtsCneLmiere.Size = new System.Drawing.Size(13, 13);
+            this.lblDgtsCneLmiere.TabIndex = 195;
+            this.lblDgtsCneLmiere.Text = "1";
+            // 
+            // lblPrpieteBtonNture
+            // 
+            this.lblPrpieteBtonNture.AutoSize = true;
+            this.lblPrpieteBtonNture.Location = new System.Drawing.Point(661, 177);
+            this.lblPrpieteBtonNture.Name = "lblPrpieteBtonNture";
+            this.lblPrpieteBtonNture.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteBtonNture.TabIndex = 190;
+            this.lblPrpieteBtonNture.Text = "Aucune";
+            // 
+            // lblVleurBtonNture
+            // 
+            this.lblVleurBtonNture.AutoSize = true;
+            this.lblVleurBtonNture.Location = new System.Drawing.Point(552, 177);
+            this.lblVleurBtonNture.Name = "lblVleurBtonNture";
+            this.lblVleurBtonNture.Size = new System.Drawing.Size(82, 13);
+            this.lblVleurBtonNture.TabIndex = 189;
+            this.lblVleurBtonNture.Text = "2 po, 9 pa, 6 pc";
+            // 
+            // chkBtonNture
+            // 
+            this.chkBtonNture.AutoSize = true;
+            this.chkBtonNture.Location = new System.Drawing.Point(13, 177);
+            this.chkBtonNture.Name = "chkBtonNture";
+            this.chkBtonNture.Size = new System.Drawing.Size(15, 14);
+            this.chkBtonNture.TabIndex = 188;
+            this.chkBtonNture.UseVisualStyleBackColor = true;
+            this.chkBtonNture.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
+            // 
+            // lblPrteBtonNture
+            // 
+            this.lblPrteBtonNture.AutoSize = true;
+            this.lblPrteBtonNture.Location = new System.Drawing.Point(200, 177);
+            this.lblPrteBtonNture.Name = "lblPrteBtonNture";
+            this.lblPrteBtonNture.Size = new System.Drawing.Size(36, 13);
+            this.lblPrteBtonNture.TabIndex = 187;
+            this.lblPrteBtonNture.Text = "65 cm";
+            // 
+            // lblEftsBtonNture
+            // 
+            this.lblEftsBtonNture.AutoSize = true;
+            this.lblEftsBtonNture.Location = new System.Drawing.Point(454, 177);
+            this.lblEftsBtonNture.Name = "lblEftsBtonNture";
+            this.lblEftsBtonNture.Size = new System.Drawing.Size(93, 13);
+            this.lblEftsBtonNture.TabIndex = 186;
+            this.lblEftsBtonNture.Text = "-1 enrg sort nature";
+            // 
+            // lblNomBtonNture
+            // 
+            this.lblNomBtonNture.AutoSize = true;
+            this.lblNomBtonNture.Location = new System.Drawing.Point(34, 177);
+            this.lblNomBtonNture.Name = "lblNomBtonNture";
+            this.lblNomBtonNture.Size = new System.Drawing.Size(87, 13);
+            this.lblNomBtonNture.TabIndex = 181;
+            this.lblNomBtonNture.Text = "Bâton des sylves";
+            // 
+            // lblPdsBtonNture
+            // 
+            this.lblPdsBtonNture.AutoSize = true;
+            this.lblPdsBtonNture.Location = new System.Drawing.Point(128, 177);
+            this.lblPdsBtonNture.Name = "lblPdsBtonNture";
+            this.lblPdsBtonNture.Size = new System.Drawing.Size(40, 13);
+            this.lblPdsBtonNture.TabIndex = 182;
+            this.lblPdsBtonNture.Text = "0,40kg";
+            // 
+            // nudBtonNture
+            // 
+            this.nudBtonNture.Location = new System.Drawing.Point(266, 175);
+            this.nudBtonNture.Name = "nudBtonNture";
+            this.nudBtonNture.Size = new System.Drawing.Size(41, 20);
+            this.nudBtonNture.TabIndex = 183;
+            this.nudBtonNture.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudBtonNture.ValueChanged += new System.EventHandler(this.nudBtonNture_ValueChanged);
+            // 
+            // lblTpeBtonNture
+            // 
+            this.lblTpeBtonNture.AutoSize = true;
+            this.lblTpeBtonNture.Location = new System.Drawing.Point(325, 177);
+            this.lblTpeBtonNture.Name = "lblTpeBtonNture";
+            this.lblTpeBtonNture.Size = new System.Drawing.Size(62, 13);
+            this.lblTpeBtonNture.TabIndex = 184;
+            this.lblTpeBtonNture.Text = "Contondant";
+            // 
+            // lblDgtsBtonNture
+            // 
+            this.lblDgtsBtonNture.AutoSize = true;
+            this.lblDgtsBtonNture.Location = new System.Drawing.Point(397, 177);
+            this.lblDgtsBtonNture.Name = "lblDgtsBtonNture";
+            this.lblDgtsBtonNture.Size = new System.Drawing.Size(13, 13);
+            this.lblDgtsBtonNture.TabIndex = 185;
+            this.lblDgtsBtonNture.Text = "1";
+            // 
+            // lblPrpieteScptreTerre
+            // 
+            this.lblPrpieteScptreTerre.AutoSize = true;
+            this.lblPrpieteScptreTerre.Location = new System.Drawing.Point(661, 152);
+            this.lblPrpieteScptreTerre.Name = "lblPrpieteScptreTerre";
+            this.lblPrpieteScptreTerre.Size = new System.Drawing.Size(44, 13);
+            this.lblPrpieteScptreTerre.TabIndex = 180;
+            this.lblPrpieteScptreTerre.Text = "Aucune";
+            // 
+            // lblVleurScptreTerre
+            // 
+            this.lblVleurScptreTerre.AutoSize = true;
+            this.lblVleurScptreTerre.Location = new System.Drawing.Point(552, 152);
+            this.lblVleurScptreTerre.Name = "lblVleurScptreTerre";
+            this.lblVleurScptreTerre.Size = new System.Drawing.Size(82, 13);
+            this.lblVleurScptreTerre.TabIndex = 179;
+            this.lblVleurScptreTerre.Text = "2 po, 2 pa, 3 pc";
+            // 
+            // chkScptreTerre
+            // 
+            this.chkScptreTerre.AutoSize = true;
+            this.chkScptreTerre.Location = new System.Drawing.Point(13, 152);
+            this.chkScptreTerre.Name = "chkScptreTerre";
+            this.chkScptreTerre.Size = new System.Drawing.Size(15, 14);
+            this.chkScptreTerre.TabIndex = 178;
+            this.chkScptreTerre.UseVisualStyleBackColor = true;
+            this.chkScptreTerre.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
+            // 
+            // lblPrteScptreTerre
+            // 
+            this.lblPrteScptreTerre.AutoSize = true;
+            this.lblPrteScptreTerre.Location = new System.Drawing.Point(200, 152);
+            this.lblPrteScptreTerre.Name = "lblPrteScptreTerre";
+            this.lblPrteScptreTerre.Size = new System.Drawing.Size(36, 13);
+            this.lblPrteScptreTerre.TabIndex = 177;
+            this.lblPrteScptreTerre.Text = "70 cm";
+            // 
+            // lblEftsScptreTerre
+            // 
+            this.lblEftsScptreTerre.AutoSize = true;
+            this.lblEftsScptreTerre.Location = new System.Drawing.Point(454, 152);
+            this.lblEftsScptreTerre.Name = "lblEftsScptreTerre";
+            this.lblEftsScptreTerre.Size = new System.Drawing.Size(84, 13);
+            this.lblEftsScptreTerre.TabIndex = 176;
+            this.lblEftsScptreTerre.Text = "-1 enrg sort terre";
+            // 
+            // lblNomScptreTerre
+            // 
+            this.lblNomScptreTerre.AutoSize = true;
+            this.lblNomScptreTerre.Location = new System.Drawing.Point(34, 152);
+            this.lblNomScptreTerre.Name = "lblNomScptreTerre";
+            this.lblNomScptreTerre.Size = new System.Drawing.Size(85, 13);
+            this.lblNomScptreTerre.TabIndex = 171;
+            this.lblNomScptreTerre.Text = "Sceptre terrestre";
+            // 
+            // lblPdsScptreTerre
+            // 
+            this.lblPdsScptreTerre.AutoSize = true;
+            this.lblPdsScptreTerre.Location = new System.Drawing.Point(128, 152);
+            this.lblPdsScptreTerre.Name = "lblPdsScptreTerre";
+            this.lblPdsScptreTerre.Size = new System.Drawing.Size(40, 13);
+            this.lblPdsScptreTerre.TabIndex = 172;
+            this.lblPdsScptreTerre.Text = "0,55kg";
+            // 
+            // nudScptreTerre
+            // 
+            this.nudScptreTerre.Location = new System.Drawing.Point(266, 150);
+            this.nudScptreTerre.Name = "nudScptreTerre";
+            this.nudScptreTerre.Size = new System.Drawing.Size(41, 20);
+            this.nudScptreTerre.TabIndex = 173;
+            this.nudScptreTerre.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudScptreTerre.ValueChanged += new System.EventHandler(this.nudScptreTerre_ValueChanged);
+            // 
+            // lblTpeScptreTerre
+            // 
+            this.lblTpeScptreTerre.AutoSize = true;
+            this.lblTpeScptreTerre.Location = new System.Drawing.Point(325, 152);
+            this.lblTpeScptreTerre.Name = "lblTpeScptreTerre";
+            this.lblTpeScptreTerre.Size = new System.Drawing.Size(62, 13);
+            this.lblTpeScptreTerre.TabIndex = 174;
+            this.lblTpeScptreTerre.Text = "Contondant";
+            // 
+            // lblDgtsScptreTerre
+            // 
+            this.lblDgtsScptreTerre.AutoSize = true;
+            this.lblDgtsScptreTerre.Location = new System.Drawing.Point(397, 152);
+            this.lblDgtsScptreTerre.Name = "lblDgtsScptreTerre";
+            this.lblDgtsScptreTerre.Size = new System.Drawing.Size(13, 13);
+            this.lblDgtsScptreTerre.TabIndex = 175;
+            this.lblDgtsScptreTerre.Text = "1";
             // 
             // lblPrpieteBtonCelste
             // 
@@ -4958,7 +5449,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpArmures.Controls.Add(this.tcArmure);
             this.tpArmures.Location = new System.Drawing.Point(4, 22);
             this.tpArmures.Name = "tpArmures";
-            this.tpArmures.Size = new System.Drawing.Size(703, 287);
+            this.tpArmures.Size = new System.Drawing.Size(703, 252);
             this.tpArmures.TabIndex = 1;
             this.tpArmures.Text = "Armure";
             this.tpArmures.UseVisualStyleBackColor = true;
@@ -7782,6 +8273,686 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpObjets.Text = "Objets";
             this.tpObjets.UseVisualStyleBackColor = true;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(505, 375);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(28, 13);
+            this.label4.TabIndex = 240;
+            this.label4.Text = "1 pc";
+            // 
+            // chkPrre
+            // 
+            this.chkPrre.AutoSize = true;
+            this.chkPrre.Location = new System.Drawing.Point(13, 377);
+            this.chkPrre.Name = "chkPrre";
+            this.chkPrre.Size = new System.Drawing.Size(15, 14);
+            this.chkPrre.TabIndex = 239;
+            this.chkPrre.UseVisualStyleBackColor = true;
+            this.chkPrre.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
+            // 
+            // lblTllePrre
+            // 
+            this.lblTllePrre.AutoSize = true;
+            this.lblTllePrre.Location = new System.Drawing.Point(200, 377);
+            this.lblTllePrre.Name = "lblTllePrre";
+            this.lblTllePrre.Size = new System.Drawing.Size(36, 13);
+            this.lblTllePrre.TabIndex = 238;
+            this.lblTllePrre.Text = "35 cm";
+            // 
+            // lblNomPrre
+            // 
+            this.lblNomPrre.AutoSize = true;
+            this.lblNomPrre.Location = new System.Drawing.Point(34, 377);
+            this.lblNomPrre.Name = "lblNomPrre";
+            this.lblNomPrre.Size = new System.Drawing.Size(34, 13);
+            this.lblNomPrre.TabIndex = 234;
+            this.lblNomPrre.Text = "Pierre";
+            // 
+            // lblPdsPrre
+            // 
+            this.lblPdsPrre.AutoSize = true;
+            this.lblPdsPrre.Location = new System.Drawing.Point(128, 377);
+            this.lblPdsPrre.Name = "lblPdsPrre";
+            this.lblPdsPrre.Size = new System.Drawing.Size(40, 13);
+            this.lblPdsPrre.TabIndex = 235;
+            this.lblPdsPrre.Text = "0,75kg";
+            // 
+            // nudPrre
+            // 
+            this.nudPrre.Location = new System.Drawing.Point(266, 375);
+            this.nudPrre.Name = "nudPrre";
+            this.nudPrre.Size = new System.Drawing.Size(41, 20);
+            this.nudPrre.TabIndex = 236;
+            this.nudPrre.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudPrre.ValueChanged += new System.EventHandler(this.nudPrre_ValueChanged);
+            // 
+            // lblEftsPrre
+            // 
+            this.lblEftsPrre.AutoSize = true;
+            this.lblEftsPrre.Location = new System.Drawing.Point(325, 377);
+            this.lblEftsPrre.Name = "lblEftsPrre";
+            this.lblEftsPrre.Size = new System.Drawing.Size(56, 13);
+            this.lblEftsPrre.TabIndex = 237;
+            this.lblEftsPrre.Text = "Dégâts : 1";
+            // 
+            // lblVleurCrauFr
+            // 
+            this.lblVleurCrauFr.AutoSize = true;
+            this.lblVleurCrauFr.Location = new System.Drawing.Point(505, 352);
+            this.lblVleurCrauFr.Name = "lblVleurCrauFr";
+            this.lblVleurCrauFr.Size = new System.Drawing.Size(82, 13);
+            this.lblVleurCrauFr.TabIndex = 233;
+            this.lblVleurCrauFr.Text = "1 po, 2 pa, 4 pc";
+            // 
+            // chkCrauFr
+            // 
+            this.chkCrauFr.AutoSize = true;
+            this.chkCrauFr.Location = new System.Drawing.Point(13, 352);
+            this.chkCrauFr.Name = "chkCrauFr";
+            this.chkCrauFr.Size = new System.Drawing.Size(15, 14);
+            this.chkCrauFr.TabIndex = 232;
+            this.chkCrauFr.UseVisualStyleBackColor = true;
+            this.chkCrauFr.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
+            // 
+            // lblTlleCrauFr
+            // 
+            this.lblTlleCrauFr.AutoSize = true;
+            this.lblTlleCrauFr.Location = new System.Drawing.Point(200, 352);
+            this.lblTlleCrauFr.Name = "lblTlleCrauFr";
+            this.lblTlleCrauFr.Size = new System.Drawing.Size(36, 13);
+            this.lblTlleCrauFr.TabIndex = 231;
+            this.lblTlleCrauFr.Text = "60 cm";
+            // 
+            // lblNomCrauFr
+            // 
+            this.lblNomCrauFr.AutoSize = true;
+            this.lblNomCrauFr.Location = new System.Drawing.Point(34, 352);
+            this.lblNomCrauFr.Name = "lblNomCrauFr";
+            this.lblNomCrauFr.Size = new System.Drawing.Size(74, 13);
+            this.lblNomCrauFr.TabIndex = 227;
+            this.lblNomCrauFr.Text = "Carreau de fer";
+            // 
+            // lblPdsCrauFr
+            // 
+            this.lblPdsCrauFr.AutoSize = true;
+            this.lblPdsCrauFr.Location = new System.Drawing.Point(128, 352);
+            this.lblPdsCrauFr.Name = "lblPdsCrauFr";
+            this.lblPdsCrauFr.Size = new System.Drawing.Size(34, 13);
+            this.lblPdsCrauFr.TabIndex = 228;
+            this.lblPdsCrauFr.Text = "2,5kg";
+            // 
+            // nudCrauFr
+            // 
+            this.nudCrauFr.Location = new System.Drawing.Point(266, 350);
+            this.nudCrauFr.Name = "nudCrauFr";
+            this.nudCrauFr.Size = new System.Drawing.Size(41, 20);
+            this.nudCrauFr.TabIndex = 229;
+            this.nudCrauFr.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudCrauFr.ValueChanged += new System.EventHandler(this.nudCrauFr_ValueChanged);
+            // 
+            // lblEftsCrauFr
+            // 
+            this.lblEftsCrauFr.AutoSize = true;
+            this.lblEftsCrauFr.Location = new System.Drawing.Point(325, 352);
+            this.lblEftsCrauFr.Name = "lblEftsCrauFr";
+            this.lblEftsCrauFr.Size = new System.Drawing.Size(56, 13);
+            this.lblEftsCrauFr.TabIndex = 230;
+            this.lblEftsCrauFr.Text = "Dégâts : 5";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(505, 327);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.TabIndex = 226;
+            this.label2.Text = "6 pa, 4 pc";
+            // 
+            // chkCrauBois
+            // 
+            this.chkCrauBois.AutoSize = true;
+            this.chkCrauBois.Location = new System.Drawing.Point(13, 327);
+            this.chkCrauBois.Name = "chkCrauBois";
+            this.chkCrauBois.Size = new System.Drawing.Size(15, 14);
+            this.chkCrauBois.TabIndex = 225;
+            this.chkCrauBois.UseVisualStyleBackColor = true;
+            this.chkCrauBois.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
+            // 
+            // lblTlleCrauBois
+            // 
+            this.lblTlleCrauBois.AutoSize = true;
+            this.lblTlleCrauBois.Location = new System.Drawing.Point(200, 327);
+            this.lblTlleCrauBois.Name = "lblTlleCrauBois";
+            this.lblTlleCrauBois.Size = new System.Drawing.Size(36, 13);
+            this.lblTlleCrauBois.TabIndex = 224;
+            this.lblTlleCrauBois.Text = "60 cm";
+            // 
+            // lblNomCrauBois
+            // 
+            this.lblNomCrauBois.AutoSize = true;
+            this.lblNomCrauBois.Location = new System.Drawing.Point(34, 327);
+            this.lblNomCrauBois.Name = "lblNomCrauBois";
+            this.lblNomCrauBois.Size = new System.Drawing.Size(81, 13);
+            this.lblNomCrauBois.TabIndex = 220;
+            this.lblNomCrauBois.Text = "Carreau de bois";
+            // 
+            // lblPdsCrauBois
+            // 
+            this.lblPdsCrauBois.AutoSize = true;
+            this.lblPdsCrauBois.Location = new System.Drawing.Point(128, 327);
+            this.lblPdsCrauBois.Name = "lblPdsCrauBois";
+            this.lblPdsCrauBois.Size = new System.Drawing.Size(25, 13);
+            this.lblPdsCrauBois.TabIndex = 221;
+            this.lblPdsCrauBois.Text = "1kg";
+            // 
+            // nudCrauBois
+            // 
+            this.nudCrauBois.Location = new System.Drawing.Point(266, 325);
+            this.nudCrauBois.Name = "nudCrauBois";
+            this.nudCrauBois.Size = new System.Drawing.Size(41, 20);
+            this.nudCrauBois.TabIndex = 222;
+            this.nudCrauBois.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudCrauBois.ValueChanged += new System.EventHandler(this.nudCrauBois_ValueChanged);
+            // 
+            // lblEftsCrauBois
+            // 
+            this.lblEftsCrauBois.AutoSize = true;
+            this.lblEftsCrauBois.Location = new System.Drawing.Point(325, 327);
+            this.lblEftsCrauBois.Name = "lblEftsCrauBois";
+            this.lblEftsCrauBois.Size = new System.Drawing.Size(56, 13);
+            this.lblEftsCrauBois.TabIndex = 223;
+            this.lblEftsCrauBois.Text = "Dégâts : 2";
+            // 
+            // lblVleurFlcheArgent
+            // 
+            this.lblVleurFlcheArgent.AutoSize = true;
+            this.lblVleurFlcheArgent.Location = new System.Drawing.Point(505, 301);
+            this.lblVleurFlcheArgent.Name = "lblVleurFlcheArgent";
+            this.lblVleurFlcheArgent.Size = new System.Drawing.Size(82, 13);
+            this.lblVleurFlcheArgent.TabIndex = 219;
+            this.lblVleurFlcheArgent.Text = "1 po, 2 pa, 9 pc";
+            // 
+            // chkFlcheArgent
+            // 
+            this.chkFlcheArgent.AutoSize = true;
+            this.chkFlcheArgent.Location = new System.Drawing.Point(13, 302);
+            this.chkFlcheArgent.Name = "chkFlcheArgent";
+            this.chkFlcheArgent.Size = new System.Drawing.Size(15, 14);
+            this.chkFlcheArgent.TabIndex = 218;
+            this.chkFlcheArgent.UseVisualStyleBackColor = true;
+            this.chkFlcheArgent.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
+            // 
+            // lblTlleFlcheArgent
+            // 
+            this.lblTlleFlcheArgent.AutoSize = true;
+            this.lblTlleFlcheArgent.Location = new System.Drawing.Point(200, 302);
+            this.lblTlleFlcheArgent.Name = "lblTlleFlcheArgent";
+            this.lblTlleFlcheArgent.Size = new System.Drawing.Size(36, 13);
+            this.lblTlleFlcheArgent.TabIndex = 217;
+            this.lblTlleFlcheArgent.Text = "68 cm";
+            // 
+            // lblnomFlcheArgent
+            // 
+            this.lblnomFlcheArgent.AutoSize = true;
+            this.lblnomFlcheArgent.Location = new System.Drawing.Point(34, 302);
+            this.lblnomFlcheArgent.Name = "lblnomFlcheArgent";
+            this.lblnomFlcheArgent.Size = new System.Drawing.Size(85, 13);
+            this.lblnomFlcheArgent.TabIndex = 213;
+            this.lblnomFlcheArgent.Text = "Flèches d\'argent";
+            // 
+            // lblPdsFlcheArgent
+            // 
+            this.lblPdsFlcheArgent.AutoSize = true;
+            this.lblPdsFlcheArgent.Location = new System.Drawing.Point(128, 302);
+            this.lblPdsFlcheArgent.Name = "lblPdsFlcheArgent";
+            this.lblPdsFlcheArgent.Size = new System.Drawing.Size(40, 13);
+            this.lblPdsFlcheArgent.TabIndex = 214;
+            this.lblPdsFlcheArgent.Text = "1,90kg";
+            // 
+            // nudFlcheArgent
+            // 
+            this.nudFlcheArgent.Location = new System.Drawing.Point(266, 300);
+            this.nudFlcheArgent.Name = "nudFlcheArgent";
+            this.nudFlcheArgent.Size = new System.Drawing.Size(41, 20);
+            this.nudFlcheArgent.TabIndex = 215;
+            this.nudFlcheArgent.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudFlcheArgent.ValueChanged += new System.EventHandler(this.nudFlcheArgent_ValueChanged);
+            // 
+            // lblEftsFlcheArgent
+            // 
+            this.lblEftsFlcheArgent.AutoSize = true;
+            this.lblEftsFlcheArgent.Location = new System.Drawing.Point(325, 302);
+            this.lblEftsFlcheArgent.Name = "lblEftsFlcheArgent";
+            this.lblEftsFlcheArgent.Size = new System.Drawing.Size(56, 13);
+            this.lblEftsFlcheArgent.TabIndex = 216;
+            this.lblEftsFlcheArgent.Text = "Dégâts : 8";
+            // 
+            // lblVleurFlcheFr
+            // 
+            this.lblVleurFlcheFr.AutoSize = true;
+            this.lblVleurFlcheFr.Location = new System.Drawing.Point(505, 277);
+            this.lblVleurFlcheFr.Name = "lblVleurFlcheFr";
+            this.lblVleurFlcheFr.Size = new System.Drawing.Size(55, 13);
+            this.lblVleurFlcheFr.TabIndex = 212;
+            this.lblVleurFlcheFr.Text = "9 pa, 6 pc";
+            // 
+            // chkFlcheFr
+            // 
+            this.chkFlcheFr.AutoSize = true;
+            this.chkFlcheFr.Location = new System.Drawing.Point(13, 277);
+            this.chkFlcheFr.Name = "chkFlcheFr";
+            this.chkFlcheFr.Size = new System.Drawing.Size(15, 14);
+            this.chkFlcheFr.TabIndex = 211;
+            this.chkFlcheFr.UseVisualStyleBackColor = true;
+            this.chkFlcheFr.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
+            // 
+            // lblTlleFlcheFr
+            // 
+            this.lblTlleFlcheFr.AutoSize = true;
+            this.lblTlleFlcheFr.Location = new System.Drawing.Point(200, 277);
+            this.lblTlleFlcheFr.Name = "lblTlleFlcheFr";
+            this.lblTlleFlcheFr.Size = new System.Drawing.Size(36, 13);
+            this.lblTlleFlcheFr.TabIndex = 210;
+            this.lblTlleFlcheFr.Text = "65 cm";
+            // 
+            // lblNomFlcheFr
+            // 
+            this.lblNomFlcheFr.AutoSize = true;
+            this.lblNomFlcheFr.Location = new System.Drawing.Point(34, 277);
+            this.lblNomFlcheFr.Name = "lblNomFlcheFr";
+            this.lblNomFlcheFr.Size = new System.Drawing.Size(74, 13);
+            this.lblNomFlcheFr.TabIndex = 206;
+            this.lblNomFlcheFr.Text = "Flèches de fer";
+            // 
+            // lblPdsFlcheFr
+            // 
+            this.lblPdsFlcheFr.AutoSize = true;
+            this.lblPdsFlcheFr.Location = new System.Drawing.Point(128, 277);
+            this.lblPdsFlcheFr.Name = "lblPdsFlcheFr";
+            this.lblPdsFlcheFr.Size = new System.Drawing.Size(40, 13);
+            this.lblPdsFlcheFr.TabIndex = 207;
+            this.lblPdsFlcheFr.Text = "1,75kg";
+            // 
+            // nudFlcheFr
+            // 
+            this.nudFlcheFr.Location = new System.Drawing.Point(266, 275);
+            this.nudFlcheFr.Name = "nudFlcheFr";
+            this.nudFlcheFr.Size = new System.Drawing.Size(41, 20);
+            this.nudFlcheFr.TabIndex = 208;
+            this.nudFlcheFr.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudFlcheFr.ValueChanged += new System.EventHandler(this.nudFlcheFr_ValueChanged);
+            // 
+            // lblDgtsFlcheFr
+            // 
+            this.lblDgtsFlcheFr.AutoSize = true;
+            this.lblDgtsFlcheFr.Location = new System.Drawing.Point(325, 277);
+            this.lblDgtsFlcheFr.Name = "lblDgtsFlcheFr";
+            this.lblDgtsFlcheFr.Size = new System.Drawing.Size(56, 13);
+            this.lblDgtsFlcheFr.TabIndex = 209;
+            this.lblDgtsFlcheFr.Text = "Dégâts : 4";
+            // 
+            // lblVleurFlcheBois
+            // 
+            this.lblVleurFlcheBois.AutoSize = true;
+            this.lblVleurFlcheBois.Location = new System.Drawing.Point(505, 252);
+            this.lblVleurFlcheBois.Name = "lblVleurFlcheBois";
+            this.lblVleurFlcheBois.Size = new System.Drawing.Size(55, 13);
+            this.lblVleurFlcheBois.TabIndex = 205;
+            this.lblVleurFlcheBois.Text = "5 pa, 6 pc";
+            // 
+            // chkFlcheBois
+            // 
+            this.chkFlcheBois.AutoSize = true;
+            this.chkFlcheBois.Location = new System.Drawing.Point(13, 252);
+            this.chkFlcheBois.Name = "chkFlcheBois";
+            this.chkFlcheBois.Size = new System.Drawing.Size(15, 14);
+            this.chkFlcheBois.TabIndex = 204;
+            this.chkFlcheBois.UseVisualStyleBackColor = true;
+            this.chkFlcheBois.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
+            // 
+            // lblTlleFlcheBois
+            // 
+            this.lblTlleFlcheBois.AutoSize = true;
+            this.lblTlleFlcheBois.Location = new System.Drawing.Point(200, 252);
+            this.lblTlleFlcheBois.Name = "lblTlleFlcheBois";
+            this.lblTlleFlcheBois.Size = new System.Drawing.Size(36, 13);
+            this.lblTlleFlcheBois.TabIndex = 203;
+            this.lblTlleFlcheBois.Text = "60 cm";
+            // 
+            // lblNomFlcheBois
+            // 
+            this.lblNomFlcheBois.AutoSize = true;
+            this.lblNomFlcheBois.Location = new System.Drawing.Point(34, 252);
+            this.lblNomFlcheBois.Name = "lblNomFlcheBois";
+            this.lblNomFlcheBois.Size = new System.Drawing.Size(81, 13);
+            this.lblNomFlcheBois.TabIndex = 199;
+            this.lblNomFlcheBois.Text = "Flèches de bois";
+            // 
+            // lblPdsFlcheBois
+            // 
+            this.lblPdsFlcheBois.AutoSize = true;
+            this.lblPdsFlcheBois.Location = new System.Drawing.Point(128, 252);
+            this.lblPdsFlcheBois.Name = "lblPdsFlcheBois";
+            this.lblPdsFlcheBois.Size = new System.Drawing.Size(34, 13);
+            this.lblPdsFlcheBois.TabIndex = 200;
+            this.lblPdsFlcheBois.Text = "0,8kg";
+            // 
+            // nudFlcheBois
+            // 
+            this.nudFlcheBois.Location = new System.Drawing.Point(266, 250);
+            this.nudFlcheBois.Name = "nudFlcheBois";
+            this.nudFlcheBois.Size = new System.Drawing.Size(41, 20);
+            this.nudFlcheBois.TabIndex = 201;
+            this.nudFlcheBois.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudFlcheBois.ValueChanged += new System.EventHandler(this.nudFlcheBois_ValueChanged);
+            // 
+            // lblEftsFlcheBois
+            // 
+            this.lblEftsFlcheBois.AutoSize = true;
+            this.lblEftsFlcheBois.Location = new System.Drawing.Point(325, 252);
+            this.lblEftsFlcheBois.Name = "lblEftsFlcheBois";
+            this.lblEftsFlcheBois.Size = new System.Drawing.Size(56, 13);
+            this.lblEftsFlcheBois.TabIndex = 202;
+            this.lblEftsFlcheBois.Text = "Dégâts : 2";
+            // 
+            // lblVleurCntrePson
+            // 
+            this.lblVleurCntrePson.AutoSize = true;
+            this.lblVleurCntrePson.Location = new System.Drawing.Point(505, 227);
+            this.lblVleurCntrePson.Name = "lblVleurCntrePson";
+            this.lblVleurCntrePson.Size = new System.Drawing.Size(82, 13);
+            this.lblVleurCntrePson.TabIndex = 198;
+            this.lblVleurCntrePson.Text = "1 po, 5 pa, 5 pc";
+            // 
+            // chkCntrePson
+            // 
+            this.chkCntrePson.AutoSize = true;
+            this.chkCntrePson.Location = new System.Drawing.Point(13, 227);
+            this.chkCntrePson.Name = "chkCntrePson";
+            this.chkCntrePson.Size = new System.Drawing.Size(15, 14);
+            this.chkCntrePson.TabIndex = 197;
+            this.chkCntrePson.UseVisualStyleBackColor = true;
+            this.chkCntrePson.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
+            // 
+            // lblTlleCntrePson
+            // 
+            this.lblTlleCntrePson.AutoSize = true;
+            this.lblTlleCntrePson.Location = new System.Drawing.Point(200, 227);
+            this.lblTlleCntrePson.Name = "lblTlleCntrePson";
+            this.lblTlleCntrePson.Size = new System.Drawing.Size(36, 13);
+            this.lblTlleCntrePson.TabIndex = 196;
+            this.lblTlleCntrePson.Text = "25 cm";
+            // 
+            // lblNomCntrePson
+            // 
+            this.lblNomCntrePson.AutoSize = true;
+            this.lblNomCntrePson.Location = new System.Drawing.Point(34, 227);
+            this.lblNomCntrePson.Name = "lblNomCntrePson";
+            this.lblNomCntrePson.Size = new System.Drawing.Size(72, 13);
+            this.lblNomCntrePson.TabIndex = 192;
+            this.lblNomCntrePson.Text = "Contre-poison";
+            // 
+            // lblPdsCntrePson
+            // 
+            this.lblPdsCntrePson.AutoSize = true;
+            this.lblPdsCntrePson.Location = new System.Drawing.Point(128, 227);
+            this.lblPdsCntrePson.Name = "lblPdsCntrePson";
+            this.lblPdsCntrePson.Size = new System.Drawing.Size(34, 13);
+            this.lblPdsCntrePson.TabIndex = 193;
+            this.lblPdsCntrePson.Text = "1,5kg";
+            // 
+            // nudCntrePson
+            // 
+            this.nudCntrePson.Location = new System.Drawing.Point(266, 225);
+            this.nudCntrePson.Name = "nudCntrePson";
+            this.nudCntrePson.Size = new System.Drawing.Size(41, 20);
+            this.nudCntrePson.TabIndex = 194;
+            this.nudCntrePson.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudCntrePson.ValueChanged += new System.EventHandler(this.nudCntrePson_ValueChanged);
+            // 
+            // lblEftsCntrePson
+            // 
+            this.lblEftsCntrePson.AutoSize = true;
+            this.lblEftsCntrePson.Location = new System.Drawing.Point(325, 227);
+            this.lblEftsCntrePson.Name = "lblEftsCntrePson";
+            this.lblEftsCntrePson.Size = new System.Drawing.Size(141, 13);
+            this.lblEftsCntrePson.TabIndex = 195;
+            this.lblEftsCntrePson.Text = "Permet de guérir d\'un poison";
+            // 
+            // lblVleurPlnteMcnale
+            // 
+            this.lblVleurPlnteMcnale.AutoSize = true;
+            this.lblVleurPlnteMcnale.Location = new System.Drawing.Point(505, 202);
+            this.lblVleurPlnteMcnale.Name = "lblVleurPlnteMcnale";
+            this.lblVleurPlnteMcnale.Size = new System.Drawing.Size(28, 13);
+            this.lblVleurPlnteMcnale.TabIndex = 191;
+            this.lblVleurPlnteMcnale.Text = "6 pa";
+            // 
+            // chkPlnteMcnale
+            // 
+            this.chkPlnteMcnale.AutoSize = true;
+            this.chkPlnteMcnale.Location = new System.Drawing.Point(13, 202);
+            this.chkPlnteMcnale.Name = "chkPlnteMcnale";
+            this.chkPlnteMcnale.Size = new System.Drawing.Size(15, 14);
+            this.chkPlnteMcnale.TabIndex = 190;
+            this.chkPlnteMcnale.UseVisualStyleBackColor = true;
+            this.chkPlnteMcnale.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
+            // 
+            // lblTllePlnteMcnale
+            // 
+            this.lblTllePlnteMcnale.AutoSize = true;
+            this.lblTllePlnteMcnale.Location = new System.Drawing.Point(200, 202);
+            this.lblTllePlnteMcnale.Name = "lblTllePlnteMcnale";
+            this.lblTllePlnteMcnale.Size = new System.Drawing.Size(36, 13);
+            this.lblTllePlnteMcnale.TabIndex = 189;
+            this.lblTllePlnteMcnale.Text = "50 cm";
+            // 
+            // lblNomPlnteMcnale
+            // 
+            this.lblNomPlnteMcnale.AutoSize = true;
+            this.lblNomPlnteMcnale.Location = new System.Drawing.Point(34, 202);
+            this.lblNomPlnteMcnale.Name = "lblNomPlnteMcnale";
+            this.lblNomPlnteMcnale.Size = new System.Drawing.Size(84, 13);
+            this.lblNomPlnteMcnale.TabIndex = 185;
+            this.lblNomPlnteMcnale.Text = "Plante médicinal";
+            // 
+            // lblPdsPlnteMcnale
+            // 
+            this.lblPdsPlnteMcnale.AutoSize = true;
+            this.lblPdsPlnteMcnale.Location = new System.Drawing.Point(128, 202);
+            this.lblPdsPlnteMcnale.Name = "lblPdsPlnteMcnale";
+            this.lblPdsPlnteMcnale.Size = new System.Drawing.Size(25, 13);
+            this.lblPdsPlnteMcnale.TabIndex = 186;
+            this.lblPdsPlnteMcnale.Text = "1kg";
+            // 
+            // nudPlnteMcnale
+            // 
+            this.nudPlnteMcnale.Location = new System.Drawing.Point(266, 200);
+            this.nudPlnteMcnale.Name = "nudPlnteMcnale";
+            this.nudPlnteMcnale.Size = new System.Drawing.Size(41, 20);
+            this.nudPlnteMcnale.TabIndex = 187;
+            this.nudPlnteMcnale.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudPlnteMcnale.ValueChanged += new System.EventHandler(this.nudPlnteMcnale_ValueChanged);
+            // 
+            // lblEftsPlnteMcnale
+            // 
+            this.lblEftsPlnteMcnale.AutoSize = true;
+            this.lblEftsPlnteMcnale.Location = new System.Drawing.Point(325, 202);
+            this.lblEftsPlnteMcnale.Name = "lblEftsPlnteMcnale";
+            this.lblEftsPlnteMcnale.Size = new System.Drawing.Size(96, 13);
+            this.lblEftsPlnteMcnale.TabIndex = 188;
+            this.lblEftsPlnteMcnale.Text = "Soigne 1 dé de vie";
+            // 
+            // lblVleurCvture
+            // 
+            this.lblVleurCvture.AutoSize = true;
+            this.lblVleurCvture.Location = new System.Drawing.Point(505, 177);
+            this.lblVleurCvture.Name = "lblVleurCvture";
+            this.lblVleurCvture.Size = new System.Drawing.Size(55, 13);
+            this.lblVleurCvture.TabIndex = 184;
+            this.lblVleurCvture.Text = "9 pa, 5 pc";
+            // 
+            // chkCvture
+            // 
+            this.chkCvture.AutoSize = true;
+            this.chkCvture.Location = new System.Drawing.Point(13, 177);
+            this.chkCvture.Name = "chkCvture";
+            this.chkCvture.Size = new System.Drawing.Size(15, 14);
+            this.chkCvture.TabIndex = 183;
+            this.chkCvture.UseVisualStyleBackColor = true;
+            this.chkCvture.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
+            // 
+            // lblTlleCvture
+            // 
+            this.lblTlleCvture.AutoSize = true;
+            this.lblTlleCvture.Location = new System.Drawing.Point(200, 177);
+            this.lblTlleCvture.Name = "lblTlleCvture";
+            this.lblTlleCvture.Size = new System.Drawing.Size(24, 13);
+            this.lblTlleCvture.TabIndex = 182;
+            this.lblTlleCvture.Text = "1 m";
+            // 
+            // lblNomCvture
+            // 
+            this.lblNomCvture.AutoSize = true;
+            this.lblNomCvture.Location = new System.Drawing.Point(34, 177);
+            this.lblNomCvture.Name = "lblNomCvture";
+            this.lblNomCvture.Size = new System.Drawing.Size(59, 13);
+            this.lblNomCvture.TabIndex = 178;
+            this.lblNomCvture.Text = "Couverture";
+            // 
+            // lblPdsCvture
+            // 
+            this.lblPdsCvture.AutoSize = true;
+            this.lblPdsCvture.Location = new System.Drawing.Point(128, 177);
+            this.lblPdsCvture.Name = "lblPdsCvture";
+            this.lblPdsCvture.Size = new System.Drawing.Size(34, 13);
+            this.lblPdsCvture.TabIndex = 179;
+            this.lblPdsCvture.Text = "0,1kg";
+            // 
+            // nudCvture
+            // 
+            this.nudCvture.Location = new System.Drawing.Point(266, 175);
+            this.nudCvture.Name = "nudCvture";
+            this.nudCvture.Size = new System.Drawing.Size(41, 20);
+            this.nudCvture.TabIndex = 180;
+            this.nudCvture.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudCvture.ValueChanged += new System.EventHandler(this.nudCvture_ValueChanged);
+            // 
+            // lblEftsCvture
+            // 
+            this.lblEftsCvture.AutoSize = true;
+            this.lblEftsCvture.Location = new System.Drawing.Point(325, 177);
+            this.lblEftsCvture.Name = "lblEftsCvture";
+            this.lblEftsCvture.Size = new System.Drawing.Size(144, 13);
+            this.lblEftsCvture.TabIndex = 181;
+            this.lblEftsCvture.Text = "Pour ne pas avoir froid la nuit";
+            // 
+            // lblVleurMhoir
+            // 
+            this.lblVleurMhoir.AutoSize = true;
+            this.lblVleurMhoir.Location = new System.Drawing.Point(505, 152);
+            this.lblVleurMhoir.Name = "lblVleurMhoir";
+            this.lblVleurMhoir.Size = new System.Drawing.Size(28, 13);
+            this.lblVleurMhoir.TabIndex = 177;
+            this.lblVleurMhoir.Text = "3 pc";
+            // 
+            // chkMhoir
+            // 
+            this.chkMhoir.AutoSize = true;
+            this.chkMhoir.Location = new System.Drawing.Point(13, 152);
+            this.chkMhoir.Name = "chkMhoir";
+            this.chkMhoir.Size = new System.Drawing.Size(15, 14);
+            this.chkMhoir.TabIndex = 176;
+            this.chkMhoir.UseVisualStyleBackColor = true;
+            this.chkMhoir.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
+            // 
+            // lblTlleMhoir
+            // 
+            this.lblTlleMhoir.AutoSize = true;
+            this.lblTlleMhoir.Location = new System.Drawing.Point(200, 152);
+            this.lblTlleMhoir.Name = "lblTlleMhoir";
+            this.lblTlleMhoir.Size = new System.Drawing.Size(36, 13);
+            this.lblTlleMhoir.TabIndex = 175;
+            this.lblTlleMhoir.Text = "10 cm";
+            // 
+            // lblNomMhoir
+            // 
+            this.lblNomMhoir.AutoSize = true;
+            this.lblNomMhoir.Location = new System.Drawing.Point(34, 152);
+            this.lblNomMhoir.Name = "lblNomMhoir";
+            this.lblNomMhoir.Size = new System.Drawing.Size(51, 13);
+            this.lblNomMhoir.TabIndex = 171;
+            this.lblNomMhoir.Text = "Mouchoir";
+            // 
+            // lblPdsMhoir
+            // 
+            this.lblPdsMhoir.AutoSize = true;
+            this.lblPdsMhoir.Location = new System.Drawing.Point(128, 152);
+            this.lblPdsMhoir.Name = "lblPdsMhoir";
+            this.lblPdsMhoir.Size = new System.Drawing.Size(46, 13);
+            this.lblPdsMhoir.TabIndex = 172;
+            this.lblPdsMhoir.Text = "0.020kg";
+            // 
+            // nudMhoir
+            // 
+            this.nudMhoir.Location = new System.Drawing.Point(266, 150);
+            this.nudMhoir.Name = "nudMhoir";
+            this.nudMhoir.Size = new System.Drawing.Size(41, 20);
+            this.nudMhoir.TabIndex = 173;
+            this.nudMhoir.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudMhoir.ValueChanged += new System.EventHandler(this.nudMhoir_ValueChanged);
+            // 
+            // lblEftsMhoir
+            // 
+            this.lblEftsMhoir.AutoSize = true;
+            this.lblEftsMhoir.Location = new System.Drawing.Point(325, 152);
+            this.lblEftsMhoir.Name = "lblEftsMhoir";
+            this.lblEftsMhoir.Size = new System.Drawing.Size(169, 13);
+            this.lblEftsMhoir.TabIndex = 174;
+            this.lblEftsMhoir.Text = "Essuyer ses larmes ou se moucher";
+            // 
             // lblVleurTnte
             // 
             this.lblVleurTnte.AutoSize = true;
@@ -8906,7 +10077,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lblChargeRestanteProgressBar.AutoSize = true;
             this.lblChargeRestanteProgressBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChargeRestanteProgressBar.Location = new System.Drawing.Point(253, 454);
+            this.lblChargeRestanteProgressBar.Location = new System.Drawing.Point(34, 453);
             this.lblChargeRestanteProgressBar.Name = "lblChargeRestanteProgressBar";
             this.lblChargeRestanteProgressBar.Size = new System.Drawing.Size(88, 13);
             this.lblChargeRestanteProgressBar.TabIndex = 13;
@@ -8916,7 +10087,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lblSeparationRestanteMax.AutoSize = true;
             this.lblSeparationRestanteMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSeparationRestanteMax.Location = new System.Drawing.Point(337, 473);
+            this.lblSeparationRestanteMax.Location = new System.Drawing.Point(118, 472);
             this.lblSeparationRestanteMax.Name = "lblSeparationRestanteMax";
             this.lblSeparationRestanteMax.Size = new System.Drawing.Size(12, 16);
             this.lblSeparationRestanteMax.TabIndex = 15;
@@ -8926,7 +10097,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lblChargeMaximale.AutoSize = true;
             this.lblChargeMaximale.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChargeMaximale.Location = new System.Drawing.Point(351, 454);
+            this.lblChargeMaximale.Location = new System.Drawing.Point(132, 453);
             this.lblChargeMaximale.Name = "lblChargeMaximale";
             this.lblChargeMaximale.Size = new System.Drawing.Size(93, 13);
             this.lblChargeMaximale.TabIndex = 16;
@@ -8935,7 +10106,7 @@ namespace maFichePersonnageJDR.Formulaires
             // txtChargeMaximale
             // 
             this.txtChargeMaximale.Enabled = false;
-            this.txtChargeMaximale.Location = new System.Drawing.Point(372, 469);
+            this.txtChargeMaximale.Location = new System.Drawing.Point(153, 468);
             this.txtChargeMaximale.Name = "txtChargeMaximale";
             this.txtChargeMaximale.Size = new System.Drawing.Size(37, 20);
             this.txtChargeMaximale.TabIndex = 17;
@@ -8943,1175 +10114,58 @@ namespace maFichePersonnageJDR.Formulaires
             // txtChargeRestante
             // 
             this.txtChargeRestante.Enabled = false;
-            this.txtChargeRestante.Location = new System.Drawing.Point(271, 469);
+            this.txtChargeRestante.Location = new System.Drawing.Point(52, 468);
             this.txtChargeRestante.Name = "txtChargeRestante";
             this.txtChargeRestante.Size = new System.Drawing.Size(46, 20);
             this.txtChargeRestante.TabIndex = 18;
             // 
-            // lblPrpieteScptreTerre
-            // 
-            this.lblPrpieteScptreTerre.AutoSize = true;
-            this.lblPrpieteScptreTerre.Location = new System.Drawing.Point(661, 152);
-            this.lblPrpieteScptreTerre.Name = "lblPrpieteScptreTerre";
-            this.lblPrpieteScptreTerre.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteScptreTerre.TabIndex = 180;
-            this.lblPrpieteScptreTerre.Text = "Aucune";
-            // 
-            // lblVleurScptreTerre
-            // 
-            this.lblVleurScptreTerre.AutoSize = true;
-            this.lblVleurScptreTerre.Location = new System.Drawing.Point(552, 152);
-            this.lblVleurScptreTerre.Name = "lblVleurScptreTerre";
-            this.lblVleurScptreTerre.Size = new System.Drawing.Size(82, 13);
-            this.lblVleurScptreTerre.TabIndex = 179;
-            this.lblVleurScptreTerre.Text = "2 po, 2 pa, 3 pc";
-            // 
-            // chkScptreTerre
-            // 
-            this.chkScptreTerre.AutoSize = true;
-            this.chkScptreTerre.Location = new System.Drawing.Point(13, 152);
-            this.chkScptreTerre.Name = "chkScptreTerre";
-            this.chkScptreTerre.Size = new System.Drawing.Size(15, 14);
-            this.chkScptreTerre.TabIndex = 178;
-            this.chkScptreTerre.UseVisualStyleBackColor = true;
-            this.chkScptreTerre.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
-            // 
-            // lblPrteScptreTerre
-            // 
-            this.lblPrteScptreTerre.AutoSize = true;
-            this.lblPrteScptreTerre.Location = new System.Drawing.Point(200, 152);
-            this.lblPrteScptreTerre.Name = "lblPrteScptreTerre";
-            this.lblPrteScptreTerre.Size = new System.Drawing.Size(36, 13);
-            this.lblPrteScptreTerre.TabIndex = 177;
-            this.lblPrteScptreTerre.Text = "70 cm";
-            // 
-            // lblEftsScptreTerre
-            // 
-            this.lblEftsScptreTerre.AutoSize = true;
-            this.lblEftsScptreTerre.Location = new System.Drawing.Point(454, 152);
-            this.lblEftsScptreTerre.Name = "lblEftsScptreTerre";
-            this.lblEftsScptreTerre.Size = new System.Drawing.Size(84, 13);
-            this.lblEftsScptreTerre.TabIndex = 176;
-            this.lblEftsScptreTerre.Text = "-1 enrg sort terre";
-            // 
-            // lblNomScptreTerre
-            // 
-            this.lblNomScptreTerre.AutoSize = true;
-            this.lblNomScptreTerre.Location = new System.Drawing.Point(34, 152);
-            this.lblNomScptreTerre.Name = "lblNomScptreTerre";
-            this.lblNomScptreTerre.Size = new System.Drawing.Size(85, 13);
-            this.lblNomScptreTerre.TabIndex = 171;
-            this.lblNomScptreTerre.Text = "Sceptre terrestre";
-            // 
-            // lblPdsScptreTerre
-            // 
-            this.lblPdsScptreTerre.AutoSize = true;
-            this.lblPdsScptreTerre.Location = new System.Drawing.Point(128, 152);
-            this.lblPdsScptreTerre.Name = "lblPdsScptreTerre";
-            this.lblPdsScptreTerre.Size = new System.Drawing.Size(40, 13);
-            this.lblPdsScptreTerre.TabIndex = 172;
-            this.lblPdsScptreTerre.Text = "0,55kg";
-            // 
-            // nudScptreTerre
-            // 
-            this.nudScptreTerre.Location = new System.Drawing.Point(266, 150);
-            this.nudScptreTerre.Name = "nudScptreTerre";
-            this.nudScptreTerre.Size = new System.Drawing.Size(41, 20);
-            this.nudScptreTerre.TabIndex = 173;
-            this.nudScptreTerre.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudScptreTerre.ValueChanged += new System.EventHandler(this.nudScptreTerre_ValueChanged);
-            // 
-            // lblTpeScptreTerre
-            // 
-            this.lblTpeScptreTerre.AutoSize = true;
-            this.lblTpeScptreTerre.Location = new System.Drawing.Point(325, 152);
-            this.lblTpeScptreTerre.Name = "lblTpeScptreTerre";
-            this.lblTpeScptreTerre.Size = new System.Drawing.Size(62, 13);
-            this.lblTpeScptreTerre.TabIndex = 174;
-            this.lblTpeScptreTerre.Text = "Contondant";
-            // 
-            // lblDgtsScptreTerre
-            // 
-            this.lblDgtsScptreTerre.AutoSize = true;
-            this.lblDgtsScptreTerre.Location = new System.Drawing.Point(397, 152);
-            this.lblDgtsScptreTerre.Name = "lblDgtsScptreTerre";
-            this.lblDgtsScptreTerre.Size = new System.Drawing.Size(13, 13);
-            this.lblDgtsScptreTerre.TabIndex = 175;
-            this.lblDgtsScptreTerre.Text = "1";
-            // 
-            // lblPrpieteBtonNture
-            // 
-            this.lblPrpieteBtonNture.AutoSize = true;
-            this.lblPrpieteBtonNture.Location = new System.Drawing.Point(661, 177);
-            this.lblPrpieteBtonNture.Name = "lblPrpieteBtonNture";
-            this.lblPrpieteBtonNture.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteBtonNture.TabIndex = 190;
-            this.lblPrpieteBtonNture.Text = "Aucune";
-            // 
-            // lblVleurBtonNture
-            // 
-            this.lblVleurBtonNture.AutoSize = true;
-            this.lblVleurBtonNture.Location = new System.Drawing.Point(552, 177);
-            this.lblVleurBtonNture.Name = "lblVleurBtonNture";
-            this.lblVleurBtonNture.Size = new System.Drawing.Size(82, 13);
-            this.lblVleurBtonNture.TabIndex = 189;
-            this.lblVleurBtonNture.Text = "2 po, 9 pa, 6 pc";
-            // 
-            // chkBtonNture
-            // 
-            this.chkBtonNture.AutoSize = true;
-            this.chkBtonNture.Location = new System.Drawing.Point(13, 177);
-            this.chkBtonNture.Name = "chkBtonNture";
-            this.chkBtonNture.Size = new System.Drawing.Size(15, 14);
-            this.chkBtonNture.TabIndex = 188;
-            this.chkBtonNture.UseVisualStyleBackColor = true;
-            this.chkBtonNture.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
-            // 
-            // lblPrteBtonNture
-            // 
-            this.lblPrteBtonNture.AutoSize = true;
-            this.lblPrteBtonNture.Location = new System.Drawing.Point(200, 177);
-            this.lblPrteBtonNture.Name = "lblPrteBtonNture";
-            this.lblPrteBtonNture.Size = new System.Drawing.Size(36, 13);
-            this.lblPrteBtonNture.TabIndex = 187;
-            this.lblPrteBtonNture.Text = "65 cm";
-            // 
-            // lblEftsBtonNture
-            // 
-            this.lblEftsBtonNture.AutoSize = true;
-            this.lblEftsBtonNture.Location = new System.Drawing.Point(454, 177);
-            this.lblEftsBtonNture.Name = "lblEftsBtonNture";
-            this.lblEftsBtonNture.Size = new System.Drawing.Size(93, 13);
-            this.lblEftsBtonNture.TabIndex = 186;
-            this.lblEftsBtonNture.Text = "-1 enrg sort nature";
-            // 
-            // lblNomBtonNture
-            // 
-            this.lblNomBtonNture.AutoSize = true;
-            this.lblNomBtonNture.Location = new System.Drawing.Point(34, 177);
-            this.lblNomBtonNture.Name = "lblNomBtonNture";
-            this.lblNomBtonNture.Size = new System.Drawing.Size(87, 13);
-            this.lblNomBtonNture.TabIndex = 181;
-            this.lblNomBtonNture.Text = "Bâton des sylves";
-            // 
-            // lblPdsBtonNture
-            // 
-            this.lblPdsBtonNture.AutoSize = true;
-            this.lblPdsBtonNture.Location = new System.Drawing.Point(128, 177);
-            this.lblPdsBtonNture.Name = "lblPdsBtonNture";
-            this.lblPdsBtonNture.Size = new System.Drawing.Size(40, 13);
-            this.lblPdsBtonNture.TabIndex = 182;
-            this.lblPdsBtonNture.Text = "0,40kg";
-            // 
-            // nudBtonNture
-            // 
-            this.nudBtonNture.Location = new System.Drawing.Point(266, 175);
-            this.nudBtonNture.Name = "nudBtonNture";
-            this.nudBtonNture.Size = new System.Drawing.Size(41, 20);
-            this.nudBtonNture.TabIndex = 183;
-            this.nudBtonNture.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudBtonNture.ValueChanged += new System.EventHandler(this.nudBtonNture_ValueChanged);
-            // 
-            // lblTpeBtonNture
-            // 
-            this.lblTpeBtonNture.AutoSize = true;
-            this.lblTpeBtonNture.Location = new System.Drawing.Point(325, 177);
-            this.lblTpeBtonNture.Name = "lblTpeBtonNture";
-            this.lblTpeBtonNture.Size = new System.Drawing.Size(62, 13);
-            this.lblTpeBtonNture.TabIndex = 184;
-            this.lblTpeBtonNture.Text = "Contondant";
-            // 
-            // lblDgtsBtonNture
-            // 
-            this.lblDgtsBtonNture.AutoSize = true;
-            this.lblDgtsBtonNture.Location = new System.Drawing.Point(397, 177);
-            this.lblDgtsBtonNture.Name = "lblDgtsBtonNture";
-            this.lblDgtsBtonNture.Size = new System.Drawing.Size(13, 13);
-            this.lblDgtsBtonNture.TabIndex = 185;
-            this.lblDgtsBtonNture.Text = "1";
-            // 
-            // lblPrpieteCneLmiere
-            // 
-            this.lblPrpieteCneLmiere.AutoSize = true;
-            this.lblPrpieteCneLmiere.Location = new System.Drawing.Point(661, 203);
-            this.lblPrpieteCneLmiere.Name = "lblPrpieteCneLmiere";
-            this.lblPrpieteCneLmiere.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteCneLmiere.TabIndex = 200;
-            this.lblPrpieteCneLmiere.Text = "Aucune";
-            // 
-            // lblVleurCneLmiere
-            // 
-            this.lblVleurCneLmiere.AutoSize = true;
-            this.lblVleurCneLmiere.Location = new System.Drawing.Point(552, 202);
-            this.lblVleurCneLmiere.Name = "lblVleurCneLmiere";
-            this.lblVleurCneLmiere.Size = new System.Drawing.Size(82, 13);
-            this.lblVleurCneLmiere.TabIndex = 199;
-            this.lblVleurCneLmiere.Text = "3 po, 5 pa, 3 pc";
-            // 
-            // chkCneLmiere
-            // 
-            this.chkCneLmiere.AutoSize = true;
-            this.chkCneLmiere.Location = new System.Drawing.Point(13, 202);
-            this.chkCneLmiere.Name = "chkCneLmiere";
-            this.chkCneLmiere.Size = new System.Drawing.Size(15, 14);
-            this.chkCneLmiere.TabIndex = 198;
-            this.chkCneLmiere.UseVisualStyleBackColor = true;
-            this.chkCneLmiere.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
-            // 
-            // lblPrteCneLmiere
-            // 
-            this.lblPrteCneLmiere.AutoSize = true;
-            this.lblPrteCneLmiere.Location = new System.Drawing.Point(200, 202);
-            this.lblPrteCneLmiere.Name = "lblPrteCneLmiere";
-            this.lblPrteCneLmiere.Size = new System.Drawing.Size(36, 13);
-            this.lblPrteCneLmiere.TabIndex = 197;
-            this.lblPrteCneLmiere.Text = "65 cm";
-            // 
-            // lblEftsCneLmiere
-            // 
-            this.lblEftsCneLmiere.AutoSize = true;
-            this.lblEftsCneLmiere.Location = new System.Drawing.Point(454, 202);
-            this.lblEftsCneLmiere.Name = "lblEftsCneLmiere";
-            this.lblEftsCneLmiere.Size = new System.Drawing.Size(85, 13);
-            this.lblEftsCneLmiere.TabIndex = 196;
-            this.lblEftsCneLmiere.Text = "-1 enrg sort divin";
-            // 
-            // lblNomCneLmiere
-            // 
-            this.lblNomCneLmiere.AutoSize = true;
-            this.lblNomCneLmiere.Location = new System.Drawing.Point(34, 202);
-            this.lblNomCneLmiere.Name = "lblNomCneLmiere";
-            this.lblNomCneLmiere.Size = new System.Drawing.Size(89, 13);
-            this.lblNomCneLmiere.TabIndex = 191;
-            this.lblNomCneLmiere.Text = "Canne de lumière";
-            // 
-            // lblPdsCneLmiere
-            // 
-            this.lblPdsCneLmiere.AutoSize = true;
-            this.lblPdsCneLmiere.Location = new System.Drawing.Point(128, 202);
-            this.lblPdsCneLmiere.Name = "lblPdsCneLmiere";
-            this.lblPdsCneLmiere.Size = new System.Drawing.Size(40, 13);
-            this.lblPdsCneLmiere.TabIndex = 192;
-            this.lblPdsCneLmiere.Text = "0,65kg";
-            // 
-            // nudCneLmiere
-            // 
-            this.nudCneLmiere.Location = new System.Drawing.Point(266, 200);
-            this.nudCneLmiere.Name = "nudCneLmiere";
-            this.nudCneLmiere.Size = new System.Drawing.Size(41, 20);
-            this.nudCneLmiere.TabIndex = 193;
-            this.nudCneLmiere.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudCneLmiere.ValueChanged += new System.EventHandler(this.nudCneLmiere_ValueChanged);
-            // 
-            // lblTpeCneLmiere
-            // 
-            this.lblTpeCneLmiere.AutoSize = true;
-            this.lblTpeCneLmiere.Location = new System.Drawing.Point(325, 202);
-            this.lblTpeCneLmiere.Name = "lblTpeCneLmiere";
-            this.lblTpeCneLmiere.Size = new System.Drawing.Size(62, 13);
-            this.lblTpeCneLmiere.TabIndex = 194;
-            this.lblTpeCneLmiere.Text = "Contondant";
-            // 
-            // lblDgtsCneLmiere
-            // 
-            this.lblDgtsCneLmiere.AutoSize = true;
-            this.lblDgtsCneLmiere.Location = new System.Drawing.Point(397, 202);
-            this.lblDgtsCneLmiere.Name = "lblDgtsCneLmiere";
-            this.lblDgtsCneLmiere.Size = new System.Drawing.Size(13, 13);
-            this.lblDgtsCneLmiere.TabIndex = 195;
-            this.lblDgtsCneLmiere.Text = "1";
-            // 
-            // lblPrpieteBgteInfernale
-            // 
-            this.lblPrpieteBgteInfernale.AutoSize = true;
-            this.lblPrpieteBgteInfernale.Location = new System.Drawing.Point(661, 227);
-            this.lblPrpieteBgteInfernale.Name = "lblPrpieteBgteInfernale";
-            this.lblPrpieteBgteInfernale.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteBgteInfernale.TabIndex = 210;
-            this.lblPrpieteBgteInfernale.Text = "Aucune";
-            // 
-            // lblVleurBgteInfernale
-            // 
-            this.lblVleurBgteInfernale.AutoSize = true;
-            this.lblVleurBgteInfernale.Location = new System.Drawing.Point(552, 227);
-            this.lblVleurBgteInfernale.Name = "lblVleurBgteInfernale";
-            this.lblVleurBgteInfernale.Size = new System.Drawing.Size(82, 13);
-            this.lblVleurBgteInfernale.TabIndex = 209;
-            this.lblVleurBgteInfernale.Text = "2 po, 1 pa, 8 pc";
-            // 
-            // chkBgteInfernale
-            // 
-            this.chkBgteInfernale.AutoSize = true;
-            this.chkBgteInfernale.Location = new System.Drawing.Point(13, 227);
-            this.chkBgteInfernale.Name = "chkBgteInfernale";
-            this.chkBgteInfernale.Size = new System.Drawing.Size(15, 14);
-            this.chkBgteInfernale.TabIndex = 208;
-            this.chkBgteInfernale.UseVisualStyleBackColor = true;
-            this.chkBgteInfernale.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
-            // 
-            // lblPrteBgteInfernale
-            // 
-            this.lblPrteBgteInfernale.AutoSize = true;
-            this.lblPrteBgteInfernale.Location = new System.Drawing.Point(200, 227);
-            this.lblPrteBgteInfernale.Name = "lblPrteBgteInfernale";
-            this.lblPrteBgteInfernale.Size = new System.Drawing.Size(36, 13);
-            this.lblPrteBgteInfernale.TabIndex = 207;
-            this.lblPrteBgteInfernale.Text = "40 cm";
-            // 
-            // lblEftsBgteInfernale
-            // 
-            this.lblEftsBgteInfernale.AutoSize = true;
-            this.lblEftsBgteInfernale.Location = new System.Drawing.Point(454, 227);
-            this.lblEftsBgteInfernale.Name = "lblEftsBgteInfernale";
-            this.lblEftsBgteInfernale.Size = new System.Drawing.Size(95, 13);
-            this.lblEftsBgteInfernale.TabIndex = 206;
-            this.lblEftsBgteInfernale.Text = "-1 enrg sort démon";
-            // 
-            // lblNomBgteInfernale
-            // 
-            this.lblNomBgteInfernale.AutoSize = true;
-            this.lblNomBgteInfernale.Location = new System.Drawing.Point(34, 227);
-            this.lblNomBgteInfernale.Name = "lblNomBgteInfernale";
-            this.lblNomBgteInfernale.Size = new System.Drawing.Size(93, 13);
-            this.lblNomBgteInfernale.TabIndex = 201;
-            this.lblNomBgteInfernale.Text = "Baguette infernale";
-            // 
-            // lblPdsBgteInfernale
-            // 
-            this.lblPdsBgteInfernale.AutoSize = true;
-            this.lblPdsBgteInfernale.Location = new System.Drawing.Point(128, 227);
-            this.lblPdsBgteInfernale.Name = "lblPdsBgteInfernale";
-            this.lblPdsBgteInfernale.Size = new System.Drawing.Size(40, 13);
-            this.lblPdsBgteInfernale.TabIndex = 202;
-            this.lblPdsBgteInfernale.Text = "0,37kg";
-            // 
-            // nudBgteInfernale
-            // 
-            this.nudBgteInfernale.Location = new System.Drawing.Point(266, 225);
-            this.nudBgteInfernale.Name = "nudBgteInfernale";
-            this.nudBgteInfernale.Size = new System.Drawing.Size(41, 20);
-            this.nudBgteInfernale.TabIndex = 203;
-            this.nudBgteInfernale.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudBgteInfernale.ValueChanged += new System.EventHandler(this.nudBgteInfernale_ValueChanged);
-            // 
-            // lblTpeBgteInfernale
-            // 
-            this.lblTpeBgteInfernale.AutoSize = true;
-            this.lblTpeBgteInfernale.Location = new System.Drawing.Point(325, 227);
-            this.lblTpeBgteInfernale.Name = "lblTpeBgteInfernale";
-            this.lblTpeBgteInfernale.Size = new System.Drawing.Size(50, 13);
-            this.lblTpeBgteInfernale.TabIndex = 204;
-            this.lblTpeBgteInfernale.Text = "Perforant";
-            // 
-            // lblDgtsBgteInfernale
-            // 
-            this.lblDgtsBgteInfernale.AutoSize = true;
-            this.lblDgtsBgteInfernale.Location = new System.Drawing.Point(397, 227);
-            this.lblDgtsBgteInfernale.Name = "lblDgtsBgteInfernale";
-            this.lblDgtsBgteInfernale.Size = new System.Drawing.Size(13, 13);
-            this.lblDgtsBgteInfernale.TabIndex = 205;
-            this.lblDgtsBgteInfernale.Text = "1";
-            // 
-            // lblPrpieteSptreNeutre
-            // 
-            this.lblPrpieteSptreNeutre.AutoSize = true;
-            this.lblPrpieteSptreNeutre.Location = new System.Drawing.Point(661, 252);
-            this.lblPrpieteSptreNeutre.Name = "lblPrpieteSptreNeutre";
-            this.lblPrpieteSptreNeutre.Size = new System.Drawing.Size(44, 13);
-            this.lblPrpieteSptreNeutre.TabIndex = 220;
-            this.lblPrpieteSptreNeutre.Text = "Aucune";
-            // 
-            // lblVleurSptreNeutre
-            // 
-            this.lblVleurSptreNeutre.AutoSize = true;
-            this.lblVleurSptreNeutre.Location = new System.Drawing.Point(552, 252);
-            this.lblVleurSptreNeutre.Name = "lblVleurSptreNeutre";
-            this.lblVleurSptreNeutre.Size = new System.Drawing.Size(82, 13);
-            this.lblVleurSptreNeutre.TabIndex = 219;
-            this.lblVleurSptreNeutre.Text = "2 po, 5 pa, 3 pc";
-            // 
-            // chkSptreNeutre
-            // 
-            this.chkSptreNeutre.AutoSize = true;
-            this.chkSptreNeutre.Location = new System.Drawing.Point(13, 252);
-            this.chkSptreNeutre.Name = "chkSptreNeutre";
-            this.chkSptreNeutre.Size = new System.Drawing.Size(15, 14);
-            this.chkSptreNeutre.TabIndex = 218;
-            this.chkSptreNeutre.UseVisualStyleBackColor = true;
-            this.chkSptreNeutre.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
-            // 
-            // lblPrteSptreNeutre
-            // 
-            this.lblPrteSptreNeutre.AutoSize = true;
-            this.lblPrteSptreNeutre.Location = new System.Drawing.Point(200, 252);
-            this.lblPrteSptreNeutre.Name = "lblPrteSptreNeutre";
-            this.lblPrteSptreNeutre.Size = new System.Drawing.Size(36, 13);
-            this.lblPrteSptreNeutre.TabIndex = 217;
-            this.lblPrteSptreNeutre.Text = "60 cm";
-            // 
-            // lblEftsSptreNeutre
-            // 
-            this.lblEftsSptreNeutre.AutoSize = true;
-            this.lblEftsSptreNeutre.Location = new System.Drawing.Point(454, 252);
-            this.lblEftsSptreNeutre.Name = "lblEftsSptreNeutre";
-            this.lblEftsSptreNeutre.Size = new System.Drawing.Size(93, 13);
-            this.lblEftsSptreNeutre.TabIndex = 216;
-            this.lblEftsSptreNeutre.Text = "-1 enrg sort neutre";
-            // 
-            // lblNomSptreNeutre
-            // 
-            this.lblNomSptreNeutre.AutoSize = true;
-            this.lblNomSptreNeutre.Location = new System.Drawing.Point(34, 252);
-            this.lblNomSptreNeutre.Name = "lblNomSptreNeutre";
-            this.lblNomSptreNeutre.Size = new System.Drawing.Size(90, 13);
-            this.lblNomSptreNeutre.TabIndex = 211;
-            this.lblNomSptreNeutre.Text = "Sceptre neutralité";
-            // 
-            // lblPdsSptreNeutre
-            // 
-            this.lblPdsSptreNeutre.AutoSize = true;
-            this.lblPdsSptreNeutre.Location = new System.Drawing.Point(128, 252);
-            this.lblPdsSptreNeutre.Name = "lblPdsSptreNeutre";
-            this.lblPdsSptreNeutre.Size = new System.Drawing.Size(40, 13);
-            this.lblPdsSptreNeutre.TabIndex = 212;
-            this.lblPdsSptreNeutre.Text = "0,70kg";
-            // 
-            // nudSptreNeutre
-            // 
-            this.nudSptreNeutre.Location = new System.Drawing.Point(266, 250);
-            this.nudSptreNeutre.Name = "nudSptreNeutre";
-            this.nudSptreNeutre.Size = new System.Drawing.Size(41, 20);
-            this.nudSptreNeutre.TabIndex = 213;
-            this.nudSptreNeutre.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudSptreNeutre.ValueChanged += new System.EventHandler(this.nudSptreNeutre_ValueChanged);
-            // 
-            // lblTpeSptreNeutre
-            // 
-            this.lblTpeSptreNeutre.AutoSize = true;
-            this.lblTpeSptreNeutre.Location = new System.Drawing.Point(325, 252);
-            this.lblTpeSptreNeutre.Name = "lblTpeSptreNeutre";
-            this.lblTpeSptreNeutre.Size = new System.Drawing.Size(62, 13);
-            this.lblTpeSptreNeutre.TabIndex = 214;
-            this.lblTpeSptreNeutre.Text = "Contondant";
-            // 
-            // lblDgtsSptreNeutre
-            // 
-            this.lblDgtsSptreNeutre.AutoSize = true;
-            this.lblDgtsSptreNeutre.Location = new System.Drawing.Point(397, 252);
-            this.lblDgtsSptreNeutre.Name = "lblDgtsSptreNeutre";
-            this.lblDgtsSptreNeutre.Size = new System.Drawing.Size(13, 13);
-            this.lblDgtsSptreNeutre.TabIndex = 215;
-            this.lblDgtsSptreNeutre.Text = "1";
-            // 
-            // lblDescBatons
-            // 
-            this.lblDescBatons.AutoSize = true;
-            this.lblDescBatons.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescBatons.Location = new System.Drawing.Point(10, 281);
-            this.lblDescBatons.Name = "lblDescBatons";
-            this.lblDescBatons.Size = new System.Drawing.Size(75, 13);
-            this.lblDescBatons.TabIndex = 19;
-            this.lblDescBatons.Text = "enrg = énergie";
-            // 
-            // lblVleurMhoir
-            // 
-            this.lblVleurMhoir.AutoSize = true;
-            this.lblVleurMhoir.Location = new System.Drawing.Point(505, 152);
-            this.lblVleurMhoir.Name = "lblVleurMhoir";
-            this.lblVleurMhoir.Size = new System.Drawing.Size(28, 13);
-            this.lblVleurMhoir.TabIndex = 177;
-            this.lblVleurMhoir.Text = "3 pc";
-            // 
-            // chkMhoir
-            // 
-            this.chkMhoir.AutoSize = true;
-            this.chkMhoir.Location = new System.Drawing.Point(13, 152);
-            this.chkMhoir.Name = "chkMhoir";
-            this.chkMhoir.Size = new System.Drawing.Size(15, 14);
-            this.chkMhoir.TabIndex = 176;
-            this.chkMhoir.UseVisualStyleBackColor = true;
-            this.chkMhoir.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
-            // 
-            // lblTlleMhoir
-            // 
-            this.lblTlleMhoir.AutoSize = true;
-            this.lblTlleMhoir.Location = new System.Drawing.Point(200, 152);
-            this.lblTlleMhoir.Name = "lblTlleMhoir";
-            this.lblTlleMhoir.Size = new System.Drawing.Size(36, 13);
-            this.lblTlleMhoir.TabIndex = 175;
-            this.lblTlleMhoir.Text = "10 cm";
-            // 
-            // lblNomMhoir
-            // 
-            this.lblNomMhoir.AutoSize = true;
-            this.lblNomMhoir.Location = new System.Drawing.Point(34, 152);
-            this.lblNomMhoir.Name = "lblNomMhoir";
-            this.lblNomMhoir.Size = new System.Drawing.Size(51, 13);
-            this.lblNomMhoir.TabIndex = 171;
-            this.lblNomMhoir.Text = "Mouchoir";
-            // 
-            // lblPdsMhoir
-            // 
-            this.lblPdsMhoir.AutoSize = true;
-            this.lblPdsMhoir.Location = new System.Drawing.Point(128, 152);
-            this.lblPdsMhoir.Name = "lblPdsMhoir";
-            this.lblPdsMhoir.Size = new System.Drawing.Size(46, 13);
-            this.lblPdsMhoir.TabIndex = 172;
-            this.lblPdsMhoir.Text = "0.020kg";
-            // 
-            // nudMhoir
-            // 
-            this.nudMhoir.Location = new System.Drawing.Point(266, 150);
-            this.nudMhoir.Name = "nudMhoir";
-            this.nudMhoir.Size = new System.Drawing.Size(41, 20);
-            this.nudMhoir.TabIndex = 173;
-            this.nudMhoir.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudMhoir.ValueChanged += new System.EventHandler(this.nudMhoir_ValueChanged);
-            // 
-            // lblEftsMhoir
-            // 
-            this.lblEftsMhoir.AutoSize = true;
-            this.lblEftsMhoir.Location = new System.Drawing.Point(325, 152);
-            this.lblEftsMhoir.Name = "lblEftsMhoir";
-            this.lblEftsMhoir.Size = new System.Drawing.Size(169, 13);
-            this.lblEftsMhoir.TabIndex = 174;
-            this.lblEftsMhoir.Text = "Essuyer ses larmes ou se moucher";
-            // 
-            // lblVleurCvture
-            // 
-            this.lblVleurCvture.AutoSize = true;
-            this.lblVleurCvture.Location = new System.Drawing.Point(505, 177);
-            this.lblVleurCvture.Name = "lblVleurCvture";
-            this.lblVleurCvture.Size = new System.Drawing.Size(55, 13);
-            this.lblVleurCvture.TabIndex = 184;
-            this.lblVleurCvture.Text = "9 pa, 5 pc";
-            // 
-            // chkCvture
-            // 
-            this.chkCvture.AutoSize = true;
-            this.chkCvture.Location = new System.Drawing.Point(13, 177);
-            this.chkCvture.Name = "chkCvture";
-            this.chkCvture.Size = new System.Drawing.Size(15, 14);
-            this.chkCvture.TabIndex = 183;
-            this.chkCvture.UseVisualStyleBackColor = true;
-            this.chkCvture.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
-            // 
-            // lblTlleCvture
-            // 
-            this.lblTlleCvture.AutoSize = true;
-            this.lblTlleCvture.Location = new System.Drawing.Point(200, 177);
-            this.lblTlleCvture.Name = "lblTlleCvture";
-            this.lblTlleCvture.Size = new System.Drawing.Size(24, 13);
-            this.lblTlleCvture.TabIndex = 182;
-            this.lblTlleCvture.Text = "1 m";
-            // 
-            // lblNomCvture
-            // 
-            this.lblNomCvture.AutoSize = true;
-            this.lblNomCvture.Location = new System.Drawing.Point(34, 177);
-            this.lblNomCvture.Name = "lblNomCvture";
-            this.lblNomCvture.Size = new System.Drawing.Size(59, 13);
-            this.lblNomCvture.TabIndex = 178;
-            this.lblNomCvture.Text = "Couverture";
-            // 
-            // lblPdsCvture
-            // 
-            this.lblPdsCvture.AutoSize = true;
-            this.lblPdsCvture.Location = new System.Drawing.Point(128, 177);
-            this.lblPdsCvture.Name = "lblPdsCvture";
-            this.lblPdsCvture.Size = new System.Drawing.Size(34, 13);
-            this.lblPdsCvture.TabIndex = 179;
-            this.lblPdsCvture.Text = "0,1kg";
-            // 
-            // nudCvture
-            // 
-            this.nudCvture.Location = new System.Drawing.Point(266, 175);
-            this.nudCvture.Name = "nudCvture";
-            this.nudCvture.Size = new System.Drawing.Size(41, 20);
-            this.nudCvture.TabIndex = 180;
-            this.nudCvture.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudCvture.ValueChanged += new System.EventHandler(this.nudCvture_ValueChanged);
-            // 
-            // lblEftsCvture
-            // 
-            this.lblEftsCvture.AutoSize = true;
-            this.lblEftsCvture.Location = new System.Drawing.Point(325, 177);
-            this.lblEftsCvture.Name = "lblEftsCvture";
-            this.lblEftsCvture.Size = new System.Drawing.Size(144, 13);
-            this.lblEftsCvture.TabIndex = 181;
-            this.lblEftsCvture.Text = "Pour ne pas avoir froid la nuit";
-            // 
-            // lblVleurPlnteMcnale
-            // 
-            this.lblVleurPlnteMcnale.AutoSize = true;
-            this.lblVleurPlnteMcnale.Location = new System.Drawing.Point(505, 202);
-            this.lblVleurPlnteMcnale.Name = "lblVleurPlnteMcnale";
-            this.lblVleurPlnteMcnale.Size = new System.Drawing.Size(28, 13);
-            this.lblVleurPlnteMcnale.TabIndex = 191;
-            this.lblVleurPlnteMcnale.Text = "6 pa";
-            // 
-            // chkPlnteMcnale
-            // 
-            this.chkPlnteMcnale.AutoSize = true;
-            this.chkPlnteMcnale.Location = new System.Drawing.Point(13, 202);
-            this.chkPlnteMcnale.Name = "chkPlnteMcnale";
-            this.chkPlnteMcnale.Size = new System.Drawing.Size(15, 14);
-            this.chkPlnteMcnale.TabIndex = 190;
-            this.chkPlnteMcnale.UseVisualStyleBackColor = true;
-            this.chkPlnteMcnale.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
-            // 
-            // lblTllePlnteMcnale
-            // 
-            this.lblTllePlnteMcnale.AutoSize = true;
-            this.lblTllePlnteMcnale.Location = new System.Drawing.Point(200, 202);
-            this.lblTllePlnteMcnale.Name = "lblTllePlnteMcnale";
-            this.lblTllePlnteMcnale.Size = new System.Drawing.Size(36, 13);
-            this.lblTllePlnteMcnale.TabIndex = 189;
-            this.lblTllePlnteMcnale.Text = "50 cm";
-            // 
-            // lblNomPlnteMcnale
-            // 
-            this.lblNomPlnteMcnale.AutoSize = true;
-            this.lblNomPlnteMcnale.Location = new System.Drawing.Point(34, 202);
-            this.lblNomPlnteMcnale.Name = "lblNomPlnteMcnale";
-            this.lblNomPlnteMcnale.Size = new System.Drawing.Size(84, 13);
-            this.lblNomPlnteMcnale.TabIndex = 185;
-            this.lblNomPlnteMcnale.Text = "Plante médicinal";
-            // 
-            // lblPdsPlnteMcnale
-            // 
-            this.lblPdsPlnteMcnale.AutoSize = true;
-            this.lblPdsPlnteMcnale.Location = new System.Drawing.Point(128, 202);
-            this.lblPdsPlnteMcnale.Name = "lblPdsPlnteMcnale";
-            this.lblPdsPlnteMcnale.Size = new System.Drawing.Size(25, 13);
-            this.lblPdsPlnteMcnale.TabIndex = 186;
-            this.lblPdsPlnteMcnale.Text = "1kg";
-            // 
-            // nudPlnteMcnale
-            // 
-            this.nudPlnteMcnale.Location = new System.Drawing.Point(266, 200);
-            this.nudPlnteMcnale.Name = "nudPlnteMcnale";
-            this.nudPlnteMcnale.Size = new System.Drawing.Size(41, 20);
-            this.nudPlnteMcnale.TabIndex = 187;
-            this.nudPlnteMcnale.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudPlnteMcnale.ValueChanged += new System.EventHandler(this.nudPlnteMcnale_ValueChanged);
-            // 
-            // lblEftsPlnteMcnale
-            // 
-            this.lblEftsPlnteMcnale.AutoSize = true;
-            this.lblEftsPlnteMcnale.Location = new System.Drawing.Point(325, 202);
-            this.lblEftsPlnteMcnale.Name = "lblEftsPlnteMcnale";
-            this.lblEftsPlnteMcnale.Size = new System.Drawing.Size(96, 13);
-            this.lblEftsPlnteMcnale.TabIndex = 188;
-            this.lblEftsPlnteMcnale.Text = "Soigne 1 dé de vie";
-            // 
-            // lblVleurCntrePson
-            // 
-            this.lblVleurCntrePson.AutoSize = true;
-            this.lblVleurCntrePson.Location = new System.Drawing.Point(505, 227);
-            this.lblVleurCntrePson.Name = "lblVleurCntrePson";
-            this.lblVleurCntrePson.Size = new System.Drawing.Size(82, 13);
-            this.lblVleurCntrePson.TabIndex = 198;
-            this.lblVleurCntrePson.Text = "1 po, 5 pa, 5 pc";
-            // 
-            // chkCntrePson
-            // 
-            this.chkCntrePson.AutoSize = true;
-            this.chkCntrePson.Location = new System.Drawing.Point(13, 227);
-            this.chkCntrePson.Name = "chkCntrePson";
-            this.chkCntrePson.Size = new System.Drawing.Size(15, 14);
-            this.chkCntrePson.TabIndex = 197;
-            this.chkCntrePson.UseVisualStyleBackColor = true;
-            this.chkCntrePson.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
-            // 
-            // lblTlleCntrePson
-            // 
-            this.lblTlleCntrePson.AutoSize = true;
-            this.lblTlleCntrePson.Location = new System.Drawing.Point(200, 227);
-            this.lblTlleCntrePson.Name = "lblTlleCntrePson";
-            this.lblTlleCntrePson.Size = new System.Drawing.Size(36, 13);
-            this.lblTlleCntrePson.TabIndex = 196;
-            this.lblTlleCntrePson.Text = "25 cm";
-            // 
-            // lblNomCntrePson
-            // 
-            this.lblNomCntrePson.AutoSize = true;
-            this.lblNomCntrePson.Location = new System.Drawing.Point(34, 227);
-            this.lblNomCntrePson.Name = "lblNomCntrePson";
-            this.lblNomCntrePson.Size = new System.Drawing.Size(72, 13);
-            this.lblNomCntrePson.TabIndex = 192;
-            this.lblNomCntrePson.Text = "Contre-poison";
-            // 
-            // lblPdsCntrePson
-            // 
-            this.lblPdsCntrePson.AutoSize = true;
-            this.lblPdsCntrePson.Location = new System.Drawing.Point(128, 227);
-            this.lblPdsCntrePson.Name = "lblPdsCntrePson";
-            this.lblPdsCntrePson.Size = new System.Drawing.Size(34, 13);
-            this.lblPdsCntrePson.TabIndex = 193;
-            this.lblPdsCntrePson.Text = "1,5kg";
-            // 
-            // nudCntrePson
-            // 
-            this.nudCntrePson.Location = new System.Drawing.Point(266, 225);
-            this.nudCntrePson.Name = "nudCntrePson";
-            this.nudCntrePson.Size = new System.Drawing.Size(41, 20);
-            this.nudCntrePson.TabIndex = 194;
-            this.nudCntrePson.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudCntrePson.ValueChanged += new System.EventHandler(this.nudCntrePson_ValueChanged);
-            // 
-            // lblEftsCntrePson
-            // 
-            this.lblEftsCntrePson.AutoSize = true;
-            this.lblEftsCntrePson.Location = new System.Drawing.Point(325, 227);
-            this.lblEftsCntrePson.Name = "lblEftsCntrePson";
-            this.lblEftsCntrePson.Size = new System.Drawing.Size(141, 13);
-            this.lblEftsCntrePson.TabIndex = 195;
-            this.lblEftsCntrePson.Text = "Permet de guérir d\'un poison";
-            // 
-            // lblVleurFlcheBois
-            // 
-            this.lblVleurFlcheBois.AutoSize = true;
-            this.lblVleurFlcheBois.Location = new System.Drawing.Point(505, 252);
-            this.lblVleurFlcheBois.Name = "lblVleurFlcheBois";
-            this.lblVleurFlcheBois.Size = new System.Drawing.Size(55, 13);
-            this.lblVleurFlcheBois.TabIndex = 205;
-            this.lblVleurFlcheBois.Text = "5 pa, 6 pc";
-            // 
-            // chkFlcheBois
-            // 
-            this.chkFlcheBois.AutoSize = true;
-            this.chkFlcheBois.Location = new System.Drawing.Point(13, 252);
-            this.chkFlcheBois.Name = "chkFlcheBois";
-            this.chkFlcheBois.Size = new System.Drawing.Size(15, 14);
-            this.chkFlcheBois.TabIndex = 204;
-            this.chkFlcheBois.UseVisualStyleBackColor = true;
-            this.chkFlcheBois.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
-            // 
-            // lblTlleFlcheBois
-            // 
-            this.lblTlleFlcheBois.AutoSize = true;
-            this.lblTlleFlcheBois.Location = new System.Drawing.Point(200, 252);
-            this.lblTlleFlcheBois.Name = "lblTlleFlcheBois";
-            this.lblTlleFlcheBois.Size = new System.Drawing.Size(36, 13);
-            this.lblTlleFlcheBois.TabIndex = 203;
-            this.lblTlleFlcheBois.Text = "60 cm";
-            // 
-            // lblNomFlcheBois
-            // 
-            this.lblNomFlcheBois.AutoSize = true;
-            this.lblNomFlcheBois.Location = new System.Drawing.Point(34, 252);
-            this.lblNomFlcheBois.Name = "lblNomFlcheBois";
-            this.lblNomFlcheBois.Size = new System.Drawing.Size(81, 13);
-            this.lblNomFlcheBois.TabIndex = 199;
-            this.lblNomFlcheBois.Text = "Flèches de bois";
-            // 
-            // lblPdsFlcheBois
-            // 
-            this.lblPdsFlcheBois.AutoSize = true;
-            this.lblPdsFlcheBois.Location = new System.Drawing.Point(128, 252);
-            this.lblPdsFlcheBois.Name = "lblPdsFlcheBois";
-            this.lblPdsFlcheBois.Size = new System.Drawing.Size(34, 13);
-            this.lblPdsFlcheBois.TabIndex = 200;
-            this.lblPdsFlcheBois.Text = "0,8kg";
-            // 
-            // nudFlcheBois
-            // 
-            this.nudFlcheBois.Location = new System.Drawing.Point(266, 250);
-            this.nudFlcheBois.Name = "nudFlcheBois";
-            this.nudFlcheBois.Size = new System.Drawing.Size(41, 20);
-            this.nudFlcheBois.TabIndex = 201;
-            this.nudFlcheBois.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudFlcheBois.ValueChanged += new System.EventHandler(this.nudFlcheBois_ValueChanged);
-            // 
-            // lblEftsFlcheBois
-            // 
-            this.lblEftsFlcheBois.AutoSize = true;
-            this.lblEftsFlcheBois.Location = new System.Drawing.Point(325, 252);
-            this.lblEftsFlcheBois.Name = "lblEftsFlcheBois";
-            this.lblEftsFlcheBois.Size = new System.Drawing.Size(56, 13);
-            this.lblEftsFlcheBois.TabIndex = 202;
-            this.lblEftsFlcheBois.Text = "Dégâts : 2";
-            // 
-            // lblVleurFlcheFr
-            // 
-            this.lblVleurFlcheFr.AutoSize = true;
-            this.lblVleurFlcheFr.Location = new System.Drawing.Point(505, 277);
-            this.lblVleurFlcheFr.Name = "lblVleurFlcheFr";
-            this.lblVleurFlcheFr.Size = new System.Drawing.Size(55, 13);
-            this.lblVleurFlcheFr.TabIndex = 212;
-            this.lblVleurFlcheFr.Text = "9 pa, 6 pc";
-            // 
-            // chkFlcheFr
-            // 
-            this.chkFlcheFr.AutoSize = true;
-            this.chkFlcheFr.Location = new System.Drawing.Point(13, 277);
-            this.chkFlcheFr.Name = "chkFlcheFr";
-            this.chkFlcheFr.Size = new System.Drawing.Size(15, 14);
-            this.chkFlcheFr.TabIndex = 211;
-            this.chkFlcheFr.UseVisualStyleBackColor = true;
-            this.chkFlcheFr.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
-            // 
-            // lblTlleFlcheFr
-            // 
-            this.lblTlleFlcheFr.AutoSize = true;
-            this.lblTlleFlcheFr.Location = new System.Drawing.Point(200, 277);
-            this.lblTlleFlcheFr.Name = "lblTlleFlcheFr";
-            this.lblTlleFlcheFr.Size = new System.Drawing.Size(36, 13);
-            this.lblTlleFlcheFr.TabIndex = 210;
-            this.lblTlleFlcheFr.Text = "65 cm";
-            // 
-            // lblNomFlcheFr
-            // 
-            this.lblNomFlcheFr.AutoSize = true;
-            this.lblNomFlcheFr.Location = new System.Drawing.Point(34, 277);
-            this.lblNomFlcheFr.Name = "lblNomFlcheFr";
-            this.lblNomFlcheFr.Size = new System.Drawing.Size(74, 13);
-            this.lblNomFlcheFr.TabIndex = 206;
-            this.lblNomFlcheFr.Text = "Flèches de fer";
-            // 
-            // lblPdsFlcheFr
-            // 
-            this.lblPdsFlcheFr.AutoSize = true;
-            this.lblPdsFlcheFr.Location = new System.Drawing.Point(128, 277);
-            this.lblPdsFlcheFr.Name = "lblPdsFlcheFr";
-            this.lblPdsFlcheFr.Size = new System.Drawing.Size(40, 13);
-            this.lblPdsFlcheFr.TabIndex = 207;
-            this.lblPdsFlcheFr.Text = "1,75kg";
-            // 
-            // nudFlcheFr
-            // 
-            this.nudFlcheFr.Location = new System.Drawing.Point(266, 275);
-            this.nudFlcheFr.Name = "nudFlcheFr";
-            this.nudFlcheFr.Size = new System.Drawing.Size(41, 20);
-            this.nudFlcheFr.TabIndex = 208;
-            this.nudFlcheFr.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudFlcheFr.ValueChanged += new System.EventHandler(this.nudFlcheFr_ValueChanged);
-            // 
-            // lblDgtsFlcheFr
-            // 
-            this.lblDgtsFlcheFr.AutoSize = true;
-            this.lblDgtsFlcheFr.Location = new System.Drawing.Point(325, 277);
-            this.lblDgtsFlcheFr.Name = "lblDgtsFlcheFr";
-            this.lblDgtsFlcheFr.Size = new System.Drawing.Size(56, 13);
-            this.lblDgtsFlcheFr.TabIndex = 209;
-            this.lblDgtsFlcheFr.Text = "Dégâts : 4";
-            // 
-            // lblVleurFlcheArgent
-            // 
-            this.lblVleurFlcheArgent.AutoSize = true;
-            this.lblVleurFlcheArgent.Location = new System.Drawing.Point(505, 301);
-            this.lblVleurFlcheArgent.Name = "lblVleurFlcheArgent";
-            this.lblVleurFlcheArgent.Size = new System.Drawing.Size(82, 13);
-            this.lblVleurFlcheArgent.TabIndex = 219;
-            this.lblVleurFlcheArgent.Text = "1 po, 2 pa, 9 pc";
-            // 
-            // chkFlcheArgent
-            // 
-            this.chkFlcheArgent.AutoSize = true;
-            this.chkFlcheArgent.Location = new System.Drawing.Point(13, 302);
-            this.chkFlcheArgent.Name = "chkFlcheArgent";
-            this.chkFlcheArgent.Size = new System.Drawing.Size(15, 14);
-            this.chkFlcheArgent.TabIndex = 218;
-            this.chkFlcheArgent.UseVisualStyleBackColor = true;
-            this.chkFlcheArgent.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
-            // 
-            // lblTlleFlcheArgent
-            // 
-            this.lblTlleFlcheArgent.AutoSize = true;
-            this.lblTlleFlcheArgent.Location = new System.Drawing.Point(200, 302);
-            this.lblTlleFlcheArgent.Name = "lblTlleFlcheArgent";
-            this.lblTlleFlcheArgent.Size = new System.Drawing.Size(36, 13);
-            this.lblTlleFlcheArgent.TabIndex = 217;
-            this.lblTlleFlcheArgent.Text = "68 cm";
-            // 
-            // lblnomFlcheArgent
-            // 
-            this.lblnomFlcheArgent.AutoSize = true;
-            this.lblnomFlcheArgent.Location = new System.Drawing.Point(34, 302);
-            this.lblnomFlcheArgent.Name = "lblnomFlcheArgent";
-            this.lblnomFlcheArgent.Size = new System.Drawing.Size(85, 13);
-            this.lblnomFlcheArgent.TabIndex = 213;
-            this.lblnomFlcheArgent.Text = "Flèches d\'argent";
-            // 
-            // lblPdsFlcheArgent
-            // 
-            this.lblPdsFlcheArgent.AutoSize = true;
-            this.lblPdsFlcheArgent.Location = new System.Drawing.Point(128, 302);
-            this.lblPdsFlcheArgent.Name = "lblPdsFlcheArgent";
-            this.lblPdsFlcheArgent.Size = new System.Drawing.Size(40, 13);
-            this.lblPdsFlcheArgent.TabIndex = 214;
-            this.lblPdsFlcheArgent.Text = "1,90kg";
-            // 
-            // nudFlcheArgent
-            // 
-            this.nudFlcheArgent.Location = new System.Drawing.Point(266, 300);
-            this.nudFlcheArgent.Name = "nudFlcheArgent";
-            this.nudFlcheArgent.Size = new System.Drawing.Size(41, 20);
-            this.nudFlcheArgent.TabIndex = 215;
-            this.nudFlcheArgent.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudFlcheArgent.ValueChanged += new System.EventHandler(this.nudFlcheArgent_ValueChanged);
-            // 
-            // lblEftsFlcheArgent
-            // 
-            this.lblEftsFlcheArgent.AutoSize = true;
-            this.lblEftsFlcheArgent.Location = new System.Drawing.Point(325, 302);
-            this.lblEftsFlcheArgent.Name = "lblEftsFlcheArgent";
-            this.lblEftsFlcheArgent.Size = new System.Drawing.Size(56, 13);
-            this.lblEftsFlcheArgent.TabIndex = 216;
-            this.lblEftsFlcheArgent.Text = "Dégâts : 8";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(505, 327);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
-            this.label2.TabIndex = 226;
-            this.label2.Text = "6 pa, 4 pc";
-            // 
-            // chkCrauBois
-            // 
-            this.chkCrauBois.AutoSize = true;
-            this.chkCrauBois.Location = new System.Drawing.Point(13, 327);
-            this.chkCrauBois.Name = "chkCrauBois";
-            this.chkCrauBois.Size = new System.Drawing.Size(15, 14);
-            this.chkCrauBois.TabIndex = 225;
-            this.chkCrauBois.UseVisualStyleBackColor = true;
-            this.chkCrauBois.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
-            // 
-            // lblTlleCrauBois
-            // 
-            this.lblTlleCrauBois.AutoSize = true;
-            this.lblTlleCrauBois.Location = new System.Drawing.Point(200, 327);
-            this.lblTlleCrauBois.Name = "lblTlleCrauBois";
-            this.lblTlleCrauBois.Size = new System.Drawing.Size(36, 13);
-            this.lblTlleCrauBois.TabIndex = 224;
-            this.lblTlleCrauBois.Text = "60 cm";
-            // 
-            // lblNomCrauBois
-            // 
-            this.lblNomCrauBois.AutoSize = true;
-            this.lblNomCrauBois.Location = new System.Drawing.Point(34, 327);
-            this.lblNomCrauBois.Name = "lblNomCrauBois";
-            this.lblNomCrauBois.Size = new System.Drawing.Size(81, 13);
-            this.lblNomCrauBois.TabIndex = 220;
-            this.lblNomCrauBois.Text = "Carreau de bois";
-            // 
-            // lblPdsCrauBois
-            // 
-            this.lblPdsCrauBois.AutoSize = true;
-            this.lblPdsCrauBois.Location = new System.Drawing.Point(128, 327);
-            this.lblPdsCrauBois.Name = "lblPdsCrauBois";
-            this.lblPdsCrauBois.Size = new System.Drawing.Size(25, 13);
-            this.lblPdsCrauBois.TabIndex = 221;
-            this.lblPdsCrauBois.Text = "1kg";
-            // 
-            // nudCrauBois
-            // 
-            this.nudCrauBois.Location = new System.Drawing.Point(266, 325);
-            this.nudCrauBois.Name = "nudCrauBois";
-            this.nudCrauBois.Size = new System.Drawing.Size(41, 20);
-            this.nudCrauBois.TabIndex = 222;
-            this.nudCrauBois.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudCrauBois.ValueChanged += new System.EventHandler(this.nudCrauBois_ValueChanged);
-            // 
-            // lblEftsCrauBois
-            // 
-            this.lblEftsCrauBois.AutoSize = true;
-            this.lblEftsCrauBois.Location = new System.Drawing.Point(325, 327);
-            this.lblEftsCrauBois.Name = "lblEftsCrauBois";
-            this.lblEftsCrauBois.Size = new System.Drawing.Size(56, 13);
-            this.lblEftsCrauBois.TabIndex = 223;
-            this.lblEftsCrauBois.Text = "Dégâts : 2";
-            // 
-            // lblVleurCrauFr
-            // 
-            this.lblVleurCrauFr.AutoSize = true;
-            this.lblVleurCrauFr.Location = new System.Drawing.Point(505, 352);
-            this.lblVleurCrauFr.Name = "lblVleurCrauFr";
-            this.lblVleurCrauFr.Size = new System.Drawing.Size(82, 13);
-            this.lblVleurCrauFr.TabIndex = 233;
-            this.lblVleurCrauFr.Text = "1 po, 2 pa, 4 pc";
-            // 
-            // chkCrauFr
-            // 
-            this.chkCrauFr.AutoSize = true;
-            this.chkCrauFr.Location = new System.Drawing.Point(13, 352);
-            this.chkCrauFr.Name = "chkCrauFr";
-            this.chkCrauFr.Size = new System.Drawing.Size(15, 14);
-            this.chkCrauFr.TabIndex = 232;
-            this.chkCrauFr.UseVisualStyleBackColor = true;
-            this.chkCrauFr.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
-            // 
-            // lblTlleCrauFr
-            // 
-            this.lblTlleCrauFr.AutoSize = true;
-            this.lblTlleCrauFr.Location = new System.Drawing.Point(200, 352);
-            this.lblTlleCrauFr.Name = "lblTlleCrauFr";
-            this.lblTlleCrauFr.Size = new System.Drawing.Size(36, 13);
-            this.lblTlleCrauFr.TabIndex = 231;
-            this.lblTlleCrauFr.Text = "60 cm";
-            // 
-            // lblNomCrauFr
-            // 
-            this.lblNomCrauFr.AutoSize = true;
-            this.lblNomCrauFr.Location = new System.Drawing.Point(34, 352);
-            this.lblNomCrauFr.Name = "lblNomCrauFr";
-            this.lblNomCrauFr.Size = new System.Drawing.Size(74, 13);
-            this.lblNomCrauFr.TabIndex = 227;
-            this.lblNomCrauFr.Text = "Carreau de fer";
-            // 
-            // lblPdsCrauFr
-            // 
-            this.lblPdsCrauFr.AutoSize = true;
-            this.lblPdsCrauFr.Location = new System.Drawing.Point(128, 352);
-            this.lblPdsCrauFr.Name = "lblPdsCrauFr";
-            this.lblPdsCrauFr.Size = new System.Drawing.Size(34, 13);
-            this.lblPdsCrauFr.TabIndex = 228;
-            this.lblPdsCrauFr.Text = "2,5kg";
-            // 
-            // nudCrauFr
-            // 
-            this.nudCrauFr.Location = new System.Drawing.Point(266, 350);
-            this.nudCrauFr.Name = "nudCrauFr";
-            this.nudCrauFr.Size = new System.Drawing.Size(41, 20);
-            this.nudCrauFr.TabIndex = 229;
-            this.nudCrauFr.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudCrauFr.ValueChanged += new System.EventHandler(this.nudCrauFr_ValueChanged);
-            // 
-            // lblEftsCrauFr
-            // 
-            this.lblEftsCrauFr.AutoSize = true;
-            this.lblEftsCrauFr.Location = new System.Drawing.Point(325, 352);
-            this.lblEftsCrauFr.Name = "lblEftsCrauFr";
-            this.lblEftsCrauFr.Size = new System.Drawing.Size(56, 13);
-            this.lblEftsCrauFr.TabIndex = 230;
-            this.lblEftsCrauFr.Text = "Dégâts : 5";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(505, 375);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 13);
-            this.label4.TabIndex = 240;
-            this.label4.Text = "1 pc";
-            // 
-            // chkPrre
-            // 
-            this.chkPrre.AutoSize = true;
-            this.chkPrre.Location = new System.Drawing.Point(13, 377);
-            this.chkPrre.Name = "chkPrre";
-            this.chkPrre.Size = new System.Drawing.Size(15, 14);
-            this.chkPrre.TabIndex = 239;
-            this.chkPrre.UseVisualStyleBackColor = true;
-            this.chkPrre.Click += new System.EventHandler(this.chkAddOrDeleteItem_click);
-            // 
-            // lblTllePrre
-            // 
-            this.lblTllePrre.AutoSize = true;
-            this.lblTllePrre.Location = new System.Drawing.Point(200, 377);
-            this.lblTllePrre.Name = "lblTllePrre";
-            this.lblTllePrre.Size = new System.Drawing.Size(36, 13);
-            this.lblTllePrre.TabIndex = 238;
-            this.lblTllePrre.Text = "35 cm";
-            // 
-            // lblNomPrre
-            // 
-            this.lblNomPrre.AutoSize = true;
-            this.lblNomPrre.Location = new System.Drawing.Point(34, 377);
-            this.lblNomPrre.Name = "lblNomPrre";
-            this.lblNomPrre.Size = new System.Drawing.Size(34, 13);
-            this.lblNomPrre.TabIndex = 234;
-            this.lblNomPrre.Text = "Pierre";
-            // 
-            // lblPdsPrre
-            // 
-            this.lblPdsPrre.AutoSize = true;
-            this.lblPdsPrre.Location = new System.Drawing.Point(128, 377);
-            this.lblPdsPrre.Name = "lblPdsPrre";
-            this.lblPdsPrre.Size = new System.Drawing.Size(40, 13);
-            this.lblPdsPrre.TabIndex = 235;
-            this.lblPdsPrre.Text = "0,75kg";
-            // 
-            // nudPrre
-            // 
-            this.nudPrre.Location = new System.Drawing.Point(266, 375);
-            this.nudPrre.Name = "nudPrre";
-            this.nudPrre.Size = new System.Drawing.Size(41, 20);
-            this.nudPrre.TabIndex = 236;
-            this.nudPrre.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudPrre.ValueChanged += new System.EventHandler(this.nudPrre_ValueChanged);
-            // 
-            // lblEftsPrre
-            // 
-            this.lblEftsPrre.AutoSize = true;
-            this.lblEftsPrre.Location = new System.Drawing.Point(325, 377);
-            this.lblEftsPrre.Name = "lblEftsPrre";
-            this.lblEftsPrre.Size = new System.Drawing.Size(56, 13);
-            this.lblEftsPrre.TabIndex = 237;
-            this.lblEftsPrre.Text = "Dégâts : 1";
+            // lblCuivre
+            // 
+            this.lblCuivre.AutoSize = true;
+            this.lblCuivre.Location = new System.Drawing.Point(620, 453);
+            this.lblCuivre.Name = "lblCuivre";
+            this.lblCuivre.Size = new System.Drawing.Size(37, 13);
+            this.lblCuivre.TabIndex = 43;
+            this.lblCuivre.Text = "Cuivre";
+            // 
+            // lblArgent
+            // 
+            this.lblArgent.AutoSize = true;
+            this.lblArgent.Location = new System.Drawing.Point(560, 453);
+            this.lblArgent.Name = "lblArgent";
+            this.lblArgent.Size = new System.Drawing.Size(38, 13);
+            this.lblArgent.TabIndex = 42;
+            this.lblArgent.Text = "Argent";
+            // 
+            // lblOr
+            // 
+            this.lblOr.AutoSize = true;
+            this.lblOr.Location = new System.Drawing.Point(507, 453);
+            this.lblOr.Name = "lblOr";
+            this.lblOr.Size = new System.Drawing.Size(18, 13);
+            this.lblOr.TabIndex = 41;
+            this.lblOr.Text = "Or";
+            // 
+            // txtOr
+            // 
+            this.txtOr.Location = new System.Drawing.Point(496, 468);
+            this.txtOr.Name = "txtOr";
+            this.txtOr.Size = new System.Drawing.Size(37, 20);
+            this.txtOr.TabIndex = 44;
+            // 
+            // txtArgent
+            // 
+            this.txtArgent.Location = new System.Drawing.Point(558, 468);
+            this.txtArgent.Name = "txtArgent";
+            this.txtArgent.Size = new System.Drawing.Size(37, 20);
+            this.txtArgent.TabIndex = 45;
+            // 
+            // txtCuivre
+            // 
+            this.txtCuivre.Location = new System.Drawing.Point(620, 468);
+            this.txtCuivre.Name = "txtCuivre";
+            this.txtCuivre.Size = new System.Drawing.Size(37, 20);
+            this.txtCuivre.TabIndex = 46;
             // 
             // FormulaireTalentsEtObjets
             // 
@@ -10119,6 +10173,12 @@ namespace maFichePersonnageJDR.Formulaires
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1171, 501);
+            this.Controls.Add(this.txtCuivre);
+            this.Controls.Add(this.txtArgent);
+            this.Controls.Add(this.txtOr);
+            this.Controls.Add(this.lblCuivre);
+            this.Controls.Add(this.lblArgent);
+            this.Controls.Add(this.lblOr);
             this.Controls.Add(this.txtChargeRestante);
             this.Controls.Add(this.txtChargeMaximale);
             this.Controls.Add(this.lblChargeMaximale);
@@ -10179,6 +10239,11 @@ namespace maFichePersonnageJDR.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.nudFouet)).EndInit();
             this.tpBatons.ResumeLayout(false);
             this.tpBatons.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSptreNeutre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudBgteInfernale)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCneLmiere)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudBtonNture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudScptreTerre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBtonCelste)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBgteFeu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCneAqua)).EndInit();
@@ -10228,6 +10293,16 @@ namespace maFichePersonnageJDR.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.nudEcu)).EndInit();
             this.tpObjets.ResumeLayout(false);
             this.tpObjets.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCrauFr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCrauBois)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFlcheArgent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFlcheFr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFlcheBois)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCntrePson)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPlnteMcnale)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCvture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMhoir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudTnte)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudOte)).EndInit();
@@ -10250,21 +10325,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.tpDemoniaque.PerformLayout();
             this.tpNeutre.ResumeLayout(false);
             this.tpNeutre.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudScptreTerre)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudBtonNture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCneLmiere)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudBgteInfernale)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSptreNeutre)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMhoir)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCvture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPlnteMcnale)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCntrePson)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudFlcheBois)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudFlcheFr)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudFlcheArgent)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCrauBois)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCrauFr)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPrre)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -11126,5 +11186,11 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblPdsPrre;
         private System.Windows.Forms.NumericUpDown nudPrre;
         private System.Windows.Forms.Label lblEftsPrre;
+        private System.Windows.Forms.Label lblCuivre;
+        private System.Windows.Forms.Label lblArgent;
+        private System.Windows.Forms.Label lblOr;
+        private System.Windows.Forms.TextBox txtOr;
+        private System.Windows.Forms.TextBox txtArgent;
+        private System.Windows.Forms.TextBox txtCuivre;
     }
 }

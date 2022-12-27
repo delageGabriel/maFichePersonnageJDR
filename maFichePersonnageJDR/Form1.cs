@@ -18,9 +18,9 @@ namespace maFichePersonnageJDR
     public partial class FrmPrincipal : Form
     {
         private Document documentPdf = new Document();
-        public string cheminTemplate = Path.GetFullPath(@"C:\Users\Utilisateur\source\repos\maFichePersonnageJDR\maFichePersonnageJDR\Templates\template_fiche_personnage.docx");
-        public string cheminPdf = Path.GetFullPath(@"C:\Users\Utilisateur\source\repos\maFichePersonnageJDR\maFichePersonnageJDR\Templates\template_fiche.pdf");
-        public string cheminDocx = Path.GetFullPath(@"C:\Users\Utilisateur\source\repos\maFichePersonnageJDR\maFichePersonnageJDR\Templates\template_fiche.docx");
+        public string cheminTemplate = Path.GetFullPath(@"Templates\template_fiche_personnage.docx");
+        public string cheminPdf = Path.GetFullPath(@"Templates\template_fiche.pdf");
+        public string cheminDocx = Path.GetFullPath(@"Templates\template_fiche.docx");
         public ClasseImage imgAvatar = new ClasseImage();
         public Document DocumentPdf { get => documentPdf; set => documentPdf = value; }
 
@@ -61,13 +61,14 @@ namespace maFichePersonnageJDR
 
             Paragraph paragrapheNomPrenom = section.Paragraphs.Count > 0 ? section.Paragraphs[0] : section.AddParagraph();
             TextRange rangeNomPrenom = paragrapheNomPrenom.AppendText(Properties.Settings.Default.Prenom + " " + Properties.Settings.Default.Nom);
-            rangeNomPrenom.CharacterFormat.FontSize = 20;
+            rangeNomPrenom.CharacterFormat.FontSize = 24;
             paragrapheNomPrenom.AppendBreak(BreakType.LineBreak);
 
             DocPicture imageAEnvoye = paragrapheNomPrenom.AppendPicture(imageAvtar);
             imageAEnvoye.TextWrappingStyle = TextWrappingStyle.Square;
             imageAEnvoye.HorizontalPosition = 300.0F;
             imageAEnvoye.VerticalPosition = 0.0F;
+
 
             Paragraph paragrapheSexe
                 = section.Paragraphs.Count > 0 ? section.Paragraphs[0] : section.AddParagraph();
@@ -91,7 +92,6 @@ namespace maFichePersonnageJDR
                 = section.Paragraphs.Count > 0 ? section.Paragraphs[0] : section.AddParagraph();
             TextRange rangeHistoireTitre = paragrapheHistoire.AppendText("Histoire : ");
             TextRange rangeHistoire = paragrapheHistoire.AppendText(Properties.Settings.Default.Histoire);
-            paragrapheHistoire.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Justify;
             rangeHistoireTitre.CharacterFormat.FontSize = 14;
             rangeHistoireTitre.CharacterFormat.UnderlineStyle = UnderlineStyle.Single;
             rangeHistoire.CharacterFormat.FontSize = 12;
@@ -108,6 +108,10 @@ namespace maFichePersonnageJDR
             
             Paragraph paragrapheChargeVitesse
                 = section.Paragraphs.Count > 0 ? section.Paragraphs[0] : section.AddParagraph();
+            if(Properties.Settings.Default.Attributs.Contains("Porteur de charges lourdes"))
+            {
+                Properties.Settings.Default.ChargeMax = Math.Round(Convert.ToDouble(Properties.Settings.Default.ChargeMax) * 1.12);
+            }
             TextRange rangeChargeVitesse = paragrapheChargeVitesse.AppendText("Charge maximum : " +
                 Properties.Settings.Default.ChargeMax + ", Vitesse de déplacement : " + Properties.Settings.Default.VitesseDepla);
             rangeChargeVitesse.CharacterFormat.FontSize = 12;
@@ -220,7 +224,6 @@ namespace maFichePersonnageJDR
             TextRange rangeAttributs = paragraphAttribut.AppendText(Properties.Settings.Default.Attributs);
             rangeAttributTitre.CharacterFormat.FontSize = 14;
             rangeAttributTitre.CharacterFormat.UnderlineStyle = UnderlineStyle.Single;
-            paragraphAttribut.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Justify;
             paragraphAttribut.AppendBreak(BreakType.LineBreak);
 
             Paragraph paragraphObjets = section.AddParagraph();
@@ -228,7 +231,7 @@ namespace maFichePersonnageJDR
             TextRange rangeObjets = paragraphObjets.AppendText(Properties.Settings.Default.Inventaires);
             rangeObjetsTitre.CharacterFormat.FontSize = 14;
             rangeObjetsTitre.CharacterFormat.UnderlineStyle = UnderlineStyle.Single;
-            paragraphObjets.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Justify;
+            paragraphObjets.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Left;
             paragraphObjets.AppendBreak(BreakType.LineBreak);
 
             Paragraph paragraphSortileges = section.Paragraphs.Count > 0 ? section.Paragraphs[0] : section.AddParagraph();
@@ -236,7 +239,6 @@ namespace maFichePersonnageJDR
             TextRange rangeSortileges = paragraphObjets.AppendText(Properties.Settings.Default.Sortilèges);
             rangeSortilegesTitres.CharacterFormat.FontSize = 14;
             rangeSortilegesTitres.CharacterFormat.UnderlineStyle = UnderlineStyle.Single;
-            paragraphSortileges.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Justify;
 
             // Enregistrer le fichier doc.  
             documentPdf.SaveToFile(cheminDocx, FileFormat.Docx);
