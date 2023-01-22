@@ -91,6 +91,7 @@ namespace maFichePersonnageJDR.Formulaires
             nudOr.Value = Properties.Settings.Default.Or;
             nudArgent.Value = Properties.Settings.Default.Argent;
             nudCuivre.Value = Properties.Settings.Default.Cuivre;
+            txtPointsXp.Text = Properties.Settings.Default.PointsExp.ToString();
         }
 
         /// <summary>
@@ -122,6 +123,7 @@ namespace maFichePersonnageJDR.Formulaires
             Properties.Settings.Default.Or = Convert.ToInt32(nudOr.Value);
             Properties.Settings.Default.Argent = Convert.ToInt32(nudArgent.Value);
             Properties.Settings.Default.Cuivre = Convert.ToInt32(nudCuivre.Value);
+            Properties.Settings.Default.PointsExp = Int32.Parse(txtPointsXp.Text);
             Properties.Settings.Default.Save();
         }
 

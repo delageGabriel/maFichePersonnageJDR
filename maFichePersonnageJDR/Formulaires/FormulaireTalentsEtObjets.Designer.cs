@@ -8929,7 +8929,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblPdsMhoir.Name = "lblPdsMhoir";
             this.lblPdsMhoir.Size = new System.Drawing.Size(46, 13);
             this.lblPdsMhoir.TabIndex = 172;
-            this.lblPdsMhoir.Text = "0.020kg";
+            this.lblPdsMhoir.Text = "0,020kg";
             // 
             // nudMhoir
             // 

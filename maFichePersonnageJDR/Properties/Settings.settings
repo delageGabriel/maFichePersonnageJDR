@@ -96,7 +96,7 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Attributs" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Empty</Value>
     </Setting>
     <Setting Name="Prenom" Type="System.String" Scope="User">
       <Value Profile="(Default)">Empty</Value>
@@ -111,7 +111,7 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Sexe" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Empty</Value>
     </Setting>
     <Setting Name="Histoire" Type="System.String" Scope="User">
       <Value Profile="(Default)">Empty</Value>
@@ -135,16 +135,16 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Inventaires" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Empty</Value>
     </Setting>
     <Setting Name="Discretion" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Sortilèges" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Empty</Value>
     </Setting>
     <Setting Name="CheminImage" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Empty</Value>
     </Setting>
     <Setting Name="Endurance" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>

@@ -23,12 +23,123 @@ namespace maFichePersonnageJDR
         public string cheminDocx = Path.GetFullPath(@"Templates\template_fiche.docx");
         public ClasseImage imgAvatar = new ClasseImage();
         public Document DocumentPdf { get => documentPdf; set => documentPdf = value; }
-
+        int[] tableauBaseNormaleExp = { 0,
+            4060,
+            5595,
+            7711,
+            10630,
+            14650,
+            20185,
+            27820,
+            38340,
+            52840,
+            72820,
+            100360,
+            138310,
+            190613,
+            262700,
+            362042,
+            498955,
+            687645,
+            947692,
+            1306080,
+            1800000};
         public FrmPrincipal()
         {
             InitializeComponent();
         }
 
+        public bool PairOuImpair(int chiffre)
+        {
+            bool retour = false;
+
+            int[] tableauPair = new int[]{0,
+                2,
+                4,
+                6,
+                8,
+                10,
+                12,
+                14,
+                16,
+                18,
+                20,
+                22,
+                24,
+                26,
+                28,
+                30,
+                32,
+                34,
+                36,
+                38,
+                40,
+                42,
+                44,
+                46,
+                48,
+                50,
+                52,
+                54,
+                56,
+                58,
+                60,
+                62,
+                64
+            };
+
+            int[] tableauImpair = new int[]{1,
+                3,
+                5,
+                7,
+                9,
+                11,
+                13,
+                15,
+                17,
+                19,
+                21,
+                23,
+                25,
+                27,
+                29,
+                31,
+                33,
+                35,
+                37,
+                39,
+                41,
+                43,
+                45,
+                47,
+                49,
+                51,
+                53,
+                55,
+                57,
+                59,
+                61,
+                63
+            };
+
+            for (int i = 0; i < tableauPair.Length; i++)
+            {
+                if (tableauPair[i].Equals(chiffre))
+                {
+                    retour = true;
+                    break;
+                }
+            }
+            for (int i = 0; i < tableauImpair.Length; i++)
+            {
+                if (tableauImpair[i].Equals(chiffre))
+                {
+                    retour = false;
+                    break;
+                }
+            }
+            return retour;
+        }
         private void btnFormCompAttri_Click(object sender, EventArgs e)
         {
             FormulaireCompAttri frmCA = new FormulaireCompAttri();
@@ -54,8 +165,11 @@ namespace maFichePersonnageJDR
 
         private void btnSoumettreFiche_Click(object sender, EventArgs e)
         {
+            int nbPv = Properties.Settings.Default.PV + (Properties.Settings.Default.Vigueur / 3);
+            int nbEnergie = Properties.Settings.Default.Energie + (Properties.Settings.Default.Esprit / 3);
             documentPdf.LoadFromFile(cheminTemplate);
 
+            #region general
             Image imageAvtar = imgAvatar.GetUneImage(Properties.Settings.Default.CheminImage);
             Section section = documentPdf.Sections[0];
 
@@ -99,42 +213,49 @@ namespace maFichePersonnageJDR
 
             Paragraph paragrapheLangues
                 = section.Paragraphs.Count > 0 ? section.Paragraphs[0] : section.AddParagraph();
-            TextRange rangeLanguesTitre = paragrapheLangues.AppendText("Langue(s) parlée(s) : \n");
+            TextRange rangeLanguesTitre = paragrapheLangues.AppendText("Langue(s) : \n");
             TextRange rangeLangues = paragrapheLangues.AppendText(Properties.Settings.Default.Langues);
             rangeLanguesTitre.CharacterFormat.FontSize = 14;
             rangeLanguesTitre.CharacterFormat.UnderlineStyle = UnderlineStyle.Single;
             rangeLangues.CharacterFormat.FontSize = 12;
             paragrapheLangues.AppendBreak(BreakType.LineBreak);
-            
+
             Paragraph paragrapheChargeVitesse
                 = section.Paragraphs.Count > 0 ? section.Paragraphs[0] : section.AddParagraph();
-            if(Properties.Settings.Default.Attributs.Contains("Porteur de charges lourdes"))
-            {
-                Properties.Settings.Default.ChargeMax = Math.Round(Convert.ToDouble(Properties.Settings.Default.ChargeMax) * 1.12);
-            }
-            TextRange rangeChargeVitesse = paragrapheChargeVitesse.AppendText("Charge maximum : " +
-                Properties.Settings.Default.ChargeMax + ", Vitesse de déplacement : " + Properties.Settings.Default.VitesseDepla);
+            TextRange rangeChargeVitesse = paragrapheChargeVitesse.AppendText("Charge : " +
+                Properties.Settings.Default.ChargePortee + "/" + Properties.Settings.Default.ChargeMax + " kg"
+                + ", Vitesse de déplacement : " + Properties.Settings.Default.VitesseDepla + " m");
             rangeChargeVitesse.CharacterFormat.FontSize = 12;
             paragrapheChargeVitesse.AppendBreak(BreakType.LineBreak);
 
             Paragraph paragrapheMonnaie
                 = section.Paragraphs.Count > 0 ? section.Paragraphs[0] : section.AddParagraph();
             TextRange rangeMonnaie = paragrapheMonnaie.AppendText("Argent possédé : " +
-                                                            Properties.Settings.Default.Or + "PO, "
-                                                            + Properties.Settings.Default.Argent + "PA, "
-                                                            + Properties.Settings.Default.Cuivre + "PC");
+                                                            Properties.Settings.Default.Or + " PO, "
+                                                            + Properties.Settings.Default.Argent + " PA, "
+                                                            + Properties.Settings.Default.Cuivre + " PC");
             rangeMonnaie.CharacterFormat.FontSize = 12;
             paragrapheMonnaie.AppendBreak(BreakType.LineBreak);
-            
+
+            Paragraph paragrapheExperience
+                = section.Paragraphs.Count > 0 ? section.Paragraphs[0] : section.AddParagraph();
+            TextRange rangeExp = paragrapheExperience.AppendText("Points d'expérience : "
+                + Properties.Settings.Default.PointsExp.ToString() + "/"
+                + tableauBaseNormaleExp[Properties.Settings.Default.Niveau].ToString());
+
+            rangeMonnaie.CharacterFormat.FontSize = 12;
+            paragrapheExperience.AppendBreak(BreakType.LineBreak);
+            #endregion
+
             #region tableau_pv_energie
             string[] enTete = { "PV", "Énergie" };
-            string[] donnees = { Properties.Settings.Default.PV.ToString(), Properties.Settings.Default.Energie.ToString() };
+            string[] donnees = { nbPv.ToString(), nbEnergie.ToString() };
             Spire.Doc.Table table = section.AddTable(true);
             table.ResetCells(donnees.Length, enTete.Length);
             TableRow row = table.Rows[0];
             TableRow rowDeux = table.Rows[1];
             row.IsHeader = true;
-            row.Height = 20;    //unit: point, 1point = 0.3528 mm
+            row.Height = 10;    //unit: point, 1point = 0.3528 mm
 
             for (int i = 0; i < enTete.Length; i++)
             {
@@ -157,16 +278,30 @@ namespace maFichePersonnageJDR
             Paragraph paragrapheVide = section.AddParagraph();
 
             #region tableau_caracteristiques
+            Spire.Doc.Table headerTableCaracteristique = section.AddTable(true);
+            headerTableCaracteristique.ResetCells(1, 1);
+
+            TableRow rowHeaderCaracteristique = headerTableCaracteristique.Rows[0];
+
+            rowHeaderCaracteristique.Height = 20;
+
+            rowHeaderCaracteristique.Cells[0].CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+            Paragraph pHeaderCaracteristique = rowHeaderCaracteristique.Cells[0].AddParagraph();
+            pHeaderCaracteristique.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Center;
+            TextRange txtRangeHeaderCaracteristiques = pHeaderCaracteristique.AppendText("Caractéristiques");
+            txtRangeHeaderCaracteristiques.CharacterFormat.FontSize = 20f;
+            txtRangeHeaderCaracteristiques.CharacterFormat.Bold = true;
+
             string[] enTeteCaracteristiques = { "Physique", "Mental", "Social" };
-            string[] donneesCaracteristiques = { Properties.Settings.Default.Physique.ToString(), 
-                Properties.Settings.Default.Mental.ToString(), 
+            string[] donneesCaracteristiques = { Properties.Settings.Default.Physique.ToString(),
+                Properties.Settings.Default.Mental.ToString(),
                 Properties.Settings.Default.Social.ToString() };
             Spire.Doc.Table tableCaracteristiques = section.AddTable(true);
             tableCaracteristiques.ResetCells(2, enTeteCaracteristiques.Length);
             TableRow rowCaracteristiques = tableCaracteristiques.Rows[0];
             TableRow rowDeuxCaracteristiques = tableCaracteristiques.Rows[1];
             rowCaracteristiques.IsHeader = true;
-            rowCaracteristiques.Height = 20;    //unit: point, 1point = 0.3528 mm
+            rowCaracteristiques.Height = 10;    //unit: point, 1point = 0.3528 mm
 
             for (int x = 0; x < enTeteCaracteristiques.Length; x++)
             {
@@ -186,59 +321,223 @@ namespace maFichePersonnageJDR
             }
             #endregion
 
-            #region caracteristiques
-            Paragraph paragraphCaracteristique = section.AddParagraph();
-            TextRange rangeAdresse = paragraphCaracteristique.AppendText("Adresse : " + Properties.Settings.Default.Dexterite);
-            TextRange rangeExplosifs = paragraphCaracteristique.AppendText("\t\t\t\tExplosifs : " + Properties.Settings.Default.Explosifs + "\n");
-            TextRange rangeAgilite = paragraphCaracteristique.AppendText("Agilité : " + Properties.Settings.Default.Agilité);
-            TextRange rangeForce = paragraphCaracteristique.AppendText("\t\t\t\tForce : " + Properties.Settings.Default.Force + "\n");
-            TextRange rangeAnimale = paragraphCaracteristique.AppendText("Animale : " + Properties.Settings.Default.Dressage);
-            TextRange rangeIntimidation = paragraphCaracteristique.AppendText("\t\t\t\tIntimidation : " + Properties.Settings.Default.Intimidation + "\n");
-            TextRange rangeArtisanat = paragraphCaracteristique.AppendText("Artisanat : " + Properties.Settings.Default.Artisanat);
-            TextRange rangeLangages = paragraphCaracteristique.AppendText("\t\t\t\tLangages : " + Properties.Settings.Default.Decryptage + "\n");
-            TextRange rangeBotanique = paragraphCaracteristique.AppendText("Botanique : " + Properties.Settings.Default.ConnNature);
-            TextRange rangeMécanique = paragraphCaracteristique.AppendText("\t\t\t\tMécanique : " + Properties.Settings.Default.Mecanique + "\n");
-            TextRange rangeCharme = paragraphCaracteristique.AppendText("\t\t\t\tCharme : " + Properties.Settings.Default.Charme + "\n");
-            TextRange rangeCnGeo = paragraphCaracteristique.AppendText("Connaissances géographiques : " + Properties.Settings.Default.ConnGeographiques);
-            TextRange rangeMedecine = paragraphCaracteristique.AppendText("\tMédecine : " + Properties.Settings.Default.Medecine + "\n");
-            TextRange rangeCnHist = paragraphCaracteristique.AppendText("Connaissances historiques : " + Properties.Settings.Default.ConnHistoriques);
-            TextRange rangeNatation = paragraphCaracteristique.AppendText("\t\tNatation : " + Properties.Settings.Default.Natation + "\n");
-            TextRange rangeCnMag = paragraphCaracteristique.AppendText("Connaissances magiques : " + Properties.Settings.Default.ConnMagiques);
-            TextRange rangePerception = paragraphCaracteristique.AppendText("\t\tPerception : " + Properties.Settings.Default.Perception + "\n");
-            TextRange rangeCnReg = paragraphCaracteristique.AppendText("Connaissances religieuses : " + Properties.Settings.Default.ConnReligieuses);
-            TextRange rangePerspicacite = paragraphCaracteristique.AppendText("\t\tPerspicacité : " + Properties.Settings.Default.Perspicacité + "\n");
-            TextRange rangeCrochetage = paragraphCaracteristique.AppendText("Crochetage : " + Properties.Settings.Default.Crochetage);
-            TextRange rangePersuasion = paragraphCaracteristique.AppendText("\t\t\t\tPersuasion : " + Properties.Settings.Default.Persuasion + "\n");
-            TextRange rangeDiplomatie = paragraphCaracteristique.AppendText("Diplomatie : " + Properties.Settings.Default.Diplomatie);
-            TextRange rangePsyche = paragraphCaracteristique.AppendText("\t\t\t\tPsyché : " + Properties.Settings.Default.Esprit + "\n");
-            TextRange rangeDiscretion = paragraphCaracteristique.AppendText("Discrétion : " + Properties.Settings.Default.Discretion);
-            TextRange rangeReflexes = paragraphCaracteristique.AppendText("\t\t\t\tRéflexes : " + Properties.Settings.Default.Reflexes + "\n");
-            TextRange rangeEndurance = paragraphCaracteristique.AppendText("Endurance : " + Properties.Settings.Default.Endurance);
-            TextRange rangeVigueur = paragraphCaracteristique.AppendText("\t\t\t\tVigueur : " + Properties.Settings.Default.Vigueur + "\n");
-            TextRange rangeEscalade = paragraphCaracteristique.AppendText("Escalade : " + Properties.Settings.Default.Escalade);
-            TextRange rangeVolonte = paragraphCaracteristique.AppendText("\t\t\t\tVolonté : " + Properties.Settings.Default.Volonte + "\n");
+            Paragraph paragrapheVideDeux = section.AddParagraph();
+
+            #region competences
+            int nbLigne = 11;
+            int nbColonnes = 6;
+            string[] nomsCompetences = {"Agilité",
+                "Artisanat",
+                "Charme",
+                "Conn. Géographiques",
+                "Conn. Historiques",
+                "Conn. Magiques",
+                "Conn. Natures",
+                "Conn. Religieuses",
+                "Crochetage",
+                "Diplomatie",
+                "Discrétion",
+                "Dressage",
+                "Escalade",
+                "Esprit",
+                "Escamotage",
+                "Explosifs",
+                "Dextérité",
+                "Force",
+                "Décryptage",
+                "Intimidation",
+                "Marchandage",
+                "Mécanique",
+                "Médecine",
+                "Mémoire",
+                "Natation",
+                "Perception",
+                "Perspicacité",
+                "Prestance",
+                "Provocation",
+                "Réflexes",
+                "Vigueur",
+                "Volonté"
+            };
+            string[] pointsCompetences = { Properties.Settings.Default.Agilité.ToString(),
+                Properties.Settings.Default.Artisanat.ToString(),
+                Properties.Settings.Default.Charme.ToString(),
+                Properties.Settings.Default.ConnGeographiques.ToString(),
+                Properties.Settings.Default.ConnHistoriques.ToString(),
+                Properties.Settings.Default.ConnMagiques.ToString(),
+                Properties.Settings.Default.ConnNature.ToString(),
+                Properties.Settings.Default.ConnReligieuses.ToString(),
+                Properties.Settings.Default.Crochetage.ToString(),
+                Properties.Settings.Default.Diplomatie.ToString(),
+                Properties.Settings.Default.Discretion.ToString(),
+                Properties.Settings.Default.Dressage.ToString(),
+                Properties.Settings.Default.Escalade.ToString(),
+                Properties.Settings.Default.Esprit.ToString(),
+                Properties.Settings.Default.Escamotage.ToString(),
+                Properties.Settings.Default.Explosifs.ToString(),
+                Properties.Settings.Default.Dexterite.ToString(),
+                Properties.Settings.Default.Force.ToString(),
+                Properties.Settings.Default.Decryptage.ToString(),
+                Properties.Settings.Default.Intimidation.ToString(),
+                Properties.Settings.Default.Marchandage.ToString(),
+                Properties.Settings.Default.Mecanique.ToString(),
+                Properties.Settings.Default.Medecine.ToString(),
+                Properties.Settings.Default.Memoire.ToString(),
+                Properties.Settings.Default.Natation.ToString(),
+                Properties.Settings.Default.Perception.ToString(),
+                Properties.Settings.Default.Perspicacité.ToString(),
+                Properties.Settings.Default.Prestance.ToString(),
+                Properties.Settings.Default.Provocation.ToString(),
+                Properties.Settings.Default.Reflexes.ToString(),
+                Properties.Settings.Default.Vigueur.ToString(),
+                Properties.Settings.Default.Volonte.ToString(),
+            };
+            Spire.Doc.Table headerTableCompetence = section.AddTable(true);
+            Spire.Doc.Table tableCompetences = section.AddTable(true);
+            headerTableCompetence.ResetCells(1, 1);
+            tableCompetences.ResetCells(nbLigne, nbColonnes);
+
+            TableRow rowHeaderCompetence = headerTableCompetence.Rows[0];
+            TableRow rowCompetences = tableCompetences.Rows[0];
+
+            rowHeaderCompetence.Height = 20;
+            rowCompetences.Height = 12;    //unit: point, 1point = 0.3528 mm
+
+            rowHeaderCompetence.Cells[0].CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+            Paragraph pHeaderCompetences = rowHeaderCompetence.Cells[0].AddParagraph();
+            pHeaderCompetences.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Center;
+            TextRange txtRangeHeaderCompetences = pHeaderCompetences.AppendText("Compétences");
+            txtRangeHeaderCompetences.CharacterFormat.FontSize = 20f;
+            txtRangeHeaderCompetences.CharacterFormat.Bold = true;
+
+            int cpt = 0;
+            int cptNom = 1;
+            int cptPoints = 1;
+            int indiceNbLigne = 0;
+            int indice = 0;
+
+            while (cpt < (nomsCompetences.Length * 2) - 1)
+            {
+                if (indiceNbLigne > tableCompetences.Rows.Count - 1)
+                    break;
+                TableRow tableRow = tableCompetences.Rows[indiceNbLigne];
+                while (indice < 6)
+                {
+                    if (!PairOuImpair(cpt))
+                    {
+                        if (cptPoints > pointsCompetences.Length - 1)
+                        {
+                            cpt++;
+                            break;
+                        }
+                        tableRow.Cells[indice].CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+                        Paragraph p = tableRow.Cells[indice].AddParagraph();
+                        p.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Center;
+                        TextRange txtRange = p.AppendText(pointsCompetences[cptPoints - 1]);
+                        cpt++;
+                        cptPoints++;
+                        indice++;
+                    }
+                    else if (PairOuImpair(cpt))
+                    {
+                        if (cptNom > nomsCompetences.Length - 1)
+                        {
+                            cpt++;
+                            break;
+                        }
+                        tableRow.Cells[indice].CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+                        Paragraph p = tableRow.Cells[indice].AddParagraph();
+                        p.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Center;
+                        TextRange txtRange = p.AppendText(nomsCompetences[cptNom - 1]);
+                        txtRange.CharacterFormat.Bold = true;
+                        cpt++;
+                        cptNom++;
+                        indice++;
+                    }
+                    else
+                    {
+                        indiceNbLigne++;
+                    }
+                }
+                indiceNbLigne++;
+                indice = 0;
+            }
             #endregion
 
-            Paragraph paragraphAttribut = section.AddParagraph();
-            TextRange rangeAttributTitre = paragraphAttribut.AppendText("Attributs : \n");
+            Paragraph paragrapheVideTrois = section.AddParagraph();
+
+            #region attribut
+            Spire.Doc.Table headerTableAttribut = section.AddTable(true);
+            Spire.Doc.Table tableAttribut = section.AddTable(true);
+            headerTableAttribut.ResetCells(1, 1);
+            tableAttribut.ResetCells(1, 1);
+
+            TableRow rowHeaderAttribut = headerTableAttribut.Rows[0];
+            TableRow rowAttribut = tableAttribut.Rows[0];
+
+            rowHeaderAttribut.Height = 20;
+
+            rowHeaderAttribut.Cells[0].CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+            Paragraph pHeaderAttribut = rowHeaderAttribut.Cells[0].AddParagraph();
+            pHeaderAttribut.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Center;
+            TextRange txtRangeHeaderAttribut = pHeaderAttribut.AppendText("Attributs");
+            txtRangeHeaderAttribut.CharacterFormat.FontSize = 20f;
+            txtRangeHeaderAttribut.CharacterFormat.Bold = true;
+
+            Paragraph paragraphAttribut = rowAttribut.Cells[0].AddParagraph();
             TextRange rangeAttributs = paragraphAttribut.AppendText(Properties.Settings.Default.Attributs);
-            rangeAttributTitre.CharacterFormat.FontSize = 14;
-            rangeAttributTitre.CharacterFormat.UnderlineStyle = UnderlineStyle.Single;
-            paragraphAttribut.AppendBreak(BreakType.LineBreak);
 
-            Paragraph paragraphObjets = section.AddParagraph();
-            TextRange rangeObjetsTitre = paragraphObjets.AppendText("Inventaires : \n");
-            TextRange rangeObjets = paragraphObjets.AppendText(Properties.Settings.Default.Inventaires);
-            rangeObjetsTitre.CharacterFormat.FontSize = 14;
-            rangeObjetsTitre.CharacterFormat.UnderlineStyle = UnderlineStyle.Single;
-            paragraphObjets.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Left;
-            paragraphObjets.AppendBreak(BreakType.LineBreak);
+            #endregion
 
-            Paragraph paragraphSortileges = section.Paragraphs.Count > 0 ? section.Paragraphs[0] : section.AddParagraph();
-            TextRange rangeSortilegesTitres = paragraphObjets.AppendText("Sortilèges : \n");
-            TextRange rangeSortileges = paragraphObjets.AppendText(Properties.Settings.Default.Sortilèges);
-            rangeSortilegesTitres.CharacterFormat.FontSize = 14;
-            rangeSortilegesTitres.CharacterFormat.UnderlineStyle = UnderlineStyle.Single;
+            Paragraph paragrapheVideQuatre = section.AddParagraph();
+
+            #region inventaire
+            Spire.Doc.Table headerTableInventaire = section.AddTable(true);
+            Spire.Doc.Table tableInventaire = section.AddTable(true);
+            headerTableInventaire.ResetCells(1, 1);
+            tableInventaire.ResetCells(1, 1);
+
+            TableRow rowHeaderInventaire = headerTableInventaire.Rows[0];
+            TableRow rowInventaire = tableInventaire.Rows[0];
+
+            rowHeaderInventaire.Height = 20;
+
+            rowHeaderInventaire.Cells[0].CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+            Paragraph pHeaderInventaire = rowHeaderInventaire.Cells[0].AddParagraph();
+            pHeaderInventaire.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Center;
+            TextRange txtRangeHeaderInventaire = pHeaderInventaire.AppendText("Inventaire");
+            txtRangeHeaderInventaire.CharacterFormat.FontSize = 20f;
+            txtRangeHeaderInventaire.CharacterFormat.Bold = true;
+
+            Paragraph paragraphInventaire = rowInventaire.Cells[0].AddParagraph();
+            TextRange rangeInventaire = paragraphInventaire.AppendText(Properties.Settings.Default.Inventaires);
+
+            #endregion
+
+            Paragraph paragrapheVideCinq = section.AddParagraph();
+
+            #region sortileges
+
+            Spire.Doc.Table headerTableSortileges = section.AddTable(true);
+            Spire.Doc.Table tableSortileges = section.AddTable(true);
+            headerTableSortileges.ResetCells(1, 1);
+            tableSortileges.ResetCells(1, 1);
+
+            TableRow rowHeaderSortileges = headerTableSortileges.Rows[0];
+            TableRow rowSortileges = tableSortileges.Rows[0];
+
+            rowHeaderSortileges.Height = 20;
+
+            rowHeaderSortileges.Cells[0].CellFormat.VerticalAlignment = VerticalAlignment.Middle;
+            Paragraph pHeaderSortileges = rowHeaderSortileges.Cells[0].AddParagraph();
+            pHeaderSortileges.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Center;
+            TextRange txtRangeHeaderSortileges = pHeaderSortileges.AppendText("Sortilèges");
+            txtRangeHeaderSortileges.CharacterFormat.FontSize = 20f;
+            txtRangeHeaderSortileges.CharacterFormat.Bold = true;
+
+            Paragraph paragraphSortileges = rowSortileges.Cells[0].AddParagraph();
+            TextRange rangeSortileges = paragraphSortileges.AppendText(Properties.Settings.Default.Sortilèges);
+            #endregion
 
             // Enregistrer le fichier doc.  
             documentPdf.SaveToFile(cheminDocx, FileFormat.Docx);

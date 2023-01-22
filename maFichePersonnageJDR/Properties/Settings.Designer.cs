@@ -397,7 +397,7 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
         public string Attributs {
             get {
                 return ((string)(this["Attributs"]));
@@ -457,7 +457,7 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
         public string Sexe {
             get {
                 return ((string)(this["Sexe"]));
@@ -553,7 +553,7 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
         public string Inventaires {
             get {
                 return ((string)(this["Inventaires"]));
@@ -577,7 +577,7 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
         public string Sortilèges {
             get {
                 return ((string)(this["Sortilèges"]));
@@ -589,7 +589,7 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
         public string CheminImage {
             get {
                 return ((string)(this["CheminImage"]));

@@ -537,6 +537,56 @@ namespace maFichePersonnageJDR.Formulaires
                 chkTnte.Checked = true;
                 nudTnte.Enabled = false;
             }
+            if (Properties.Settings.Default.Inventaires.Contains("Mouchoir"))
+            {
+                chkMhoir.Checked = true;
+                nudMhoir.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Couverture"))
+            {
+                chkCvture.Checked = true;
+                nudCvture.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Plante médicinal"))
+            {
+                chkPlnteMcnale.Checked = true;
+                nudPlnteMcnale.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Contre-poison"))
+            {
+                chkCntrePson.Checked = true;
+                nudCntrePson.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Flèches de bois"))
+            {
+                chkFlcheBois.Checked = true;
+                nudFlcheBois.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Flèches de fer"))
+            {
+                chkFlcheFr.Checked = true;
+                nudFlcheFr.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Flèches d'argent"))
+            {
+                chkFlcheArgent.Checked = true;
+                nudFlcheArgent.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Carreau de bois"))
+            {
+                chkCrauBois.Checked = true;
+                nudCrauBois.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Carreau de fer"))
+            {
+                chkCrauFr.Checked = true;
+                nudCrauFr.Enabled = false;
+            }
+            if (Properties.Settings.Default.Inventaires.Contains("Pierre"))
+            {
+                chkPrre.Checked = true;
+                nudPrre.Enabled = false;
+            }
         }
 
         public void GetSortilegeProperties()
@@ -1810,7 +1860,7 @@ namespace maFichePersonnageJDR.Formulaires
                     }
                 }
             }
-            if (numericUpDown == null)
+            if (numericUpDown.Name.Equals(""))
             {
                 foreach (TabPage tabPagesArmures in tcArmure.Controls)
                 {
@@ -1829,7 +1879,7 @@ namespace maFichePersonnageJDR.Formulaires
                     }
                 }
             }
-            if (numericUpDown == null)
+            if (numericUpDown.Name.Equals(""))
             {
                 foreach (object tpControlsObjets in tpObjets.Controls)
                 {

@@ -49,8 +49,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnAjouterImage = new System.Windows.Forms.Button();
             this.btnViderHistoire = new System.Windows.Forms.Button();
             this.btnViderLangues = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lblStatut = new System.Windows.Forms.Label();
             this.lblOr = new System.Windows.Forms.Label();
             this.lblArgent = new System.Windows.Forms.Label();
             this.lblCuivre = new System.Windows.Forms.Label();
@@ -255,22 +253,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnViderLangues.UseVisualStyleBackColor = true;
             this.btnViderLangues.Click += new System.EventHandler(this.btnViderLangues_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(24, 77);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(68, 20);
-            this.textBox1.TabIndex = 33;
-            // 
-            // lblStatut
-            // 
-            this.lblStatut.AutoSize = true;
-            this.lblStatut.Location = new System.Drawing.Point(37, 57);
-            this.lblStatut.Name = "lblStatut";
-            this.lblStatut.Size = new System.Drawing.Size(35, 13);
-            this.lblStatut.TabIndex = 32;
-            this.lblStatut.Text = "Statut";
-            // 
             // lblOr
             // 
             this.lblOr.AutoSize = true;
@@ -346,7 +328,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lblPointsRestants.AutoSize = true;
             this.lblPointsRestants.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPointsRestants.Location = new System.Drawing.Point(305, 78);
+            this.lblPointsRestants.Location = new System.Drawing.Point(222, 77);
             this.lblPointsRestants.Name = "lblPointsRestants";
             this.lblPointsRestants.Size = new System.Drawing.Size(44, 17);
             this.lblPointsRestants.TabIndex = 41;
@@ -354,7 +336,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // txtPointsXp
             // 
-            this.txtPointsXp.Location = new System.Drawing.Point(231, 77);
+            this.txtPointsXp.Location = new System.Drawing.Point(148, 76);
             this.txtPointsXp.Name = "txtPointsXp";
             this.txtPointsXp.Size = new System.Drawing.Size(68, 20);
             this.txtPointsXp.TabIndex = 42;
@@ -363,7 +345,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lblPtsXpTotal.AutoSize = true;
             this.lblPtsXpTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPtsXpTotal.Location = new System.Drawing.Point(104, 78);
+            this.lblPtsXpTotal.Location = new System.Drawing.Point(21, 77);
             this.lblPtsXpTotal.Name = "lblPtsXpTotal";
             this.lblPtsXpTotal.Size = new System.Drawing.Size(121, 15);
             this.lblPtsXpTotal.TabIndex = 43;
@@ -404,8 +386,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.Controls.Add(this.lblCuivre);
             this.Controls.Add(this.lblArgent);
             this.Controls.Add(this.lblOr);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.lblStatut);
             this.Controls.Add(this.btnViderLangues);
             this.Controls.Add(this.btnViderHistoire);
             this.Controls.Add(this.btnAjouterImage);
@@ -461,8 +441,6 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Button btnAjouterImage;
         private System.Windows.Forms.Button btnViderHistoire;
         private System.Windows.Forms.Button btnViderLangues;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label lblStatut;
         private System.Windows.Forms.Label lblOr;
         private System.Windows.Forms.Label lblArgent;
         private System.Windows.Forms.Label lblCuivre;

@@ -1203,23 +1203,23 @@ namespace maFichePersonnageJDR.Formulaires
             this.chckLstAttributs.FormattingEnabled = true;
             this.chckLstAttributs.HorizontalScrollbar = true;
             this.chckLstAttributs.Items.AddRange(new object[] {
-            "Alifère: capacité de voler à {X} mètres d\'altitude",
-            "Amphibien: capacité de nager à {X} mètres de profondeur peut respirer sous l\'eau " +
-                "et sur la terre",
-            "Armure naturelle: peau épaisse jusqu\'à {X}% de dégâts physiques absorbés",
+            "Alifère: capacité de voler à 6 mètres d\'altitude",
+            "Amphibien: capacité de nager à 6 mètres de profondeur peut respirer sous l\'eau et" +
+                " sur la terre",
+            "Armure naturelle: peau épaisse jusqu\'à 10 % de dégâts physiques absorbés",
             "Artiller : la créature est capable d\'utiliser les armes de traits sans malus.",
             "Avantage du terrain: sur un terrain choisi par la créature, celle-ci n\'a pas de m" +
                 "alus liés aux conditions environnementales",
             "Célérité : attaque toujours en premier lors de tour d\'initiative",
             "Coagulation : le sang de la créature lui permet d\'arrêter le saignement au bout d" +
-                "e {X} tour(s)",
+                "e 1d4 tour(s)",
             "Corps artificiels: créature artificielle, non organique",
             "Dégagement: impossible d\'être encerclé",
             "Double frappe: capacité d\'attaquer deux fois par tour de jeu",
-            "Frigifugé: capacité de survivre à basse température jusqu\'à {X} degrés Celsius",
+            "Frigifugé: capacité de survivre à basse température jusqu\'à -50 degrés Celsius",
             "Gros dormeur: temps de récupération divisé par deux lors de repos",
-            "Hyperesthésie: chance de ne pas être paralysé égale à {X}%",
-            "Ignifugé: capacité de survivre à haute température jusqu\'à {X} degrés Celsius",
+            "Hyperesthésie: chance de ne pas être paralysé égale à 15%",
+            "Ignifugé: capacité de survivre à haute température jusqu\'à 65 degrés Celsius",
             "Insubmersible: impossible d\'être submergé",
             "Lourdaud: attaque forcément en dernier en combat",
             "Magie Aquatique — magie de l\'eau",
@@ -1230,19 +1230,17 @@ namespace maFichePersonnageJDR.Formulaires
             "Magie Naturelle — magie de la nature",
             "Magie Neutre — magie neutre",
             "Magie Terrestre — magie de la terre",
-            "Méditation : toutes les {X} heure(s), la créature régénère un point d\'énergie sup" +
-                "plémentaire",
-            "Mithridatisation: chance de ne pas être empoisonné égale à {X}%",
+            "Méditation : toutes les 4 heure(s), la créature régénère un point d\'énergie suppl" +
+                "émentaire",
+            "Mithridatisation: chance de ne pas être empoisonné égale à 15%",
             "Mort-vivant: ne peut pas être soigné par des moyens conventionnels (sauf repos) e" +
                 "st obligé de dévorer un corps ou boire des fluides corporels",
-            "Porteur de charges lourdes: capacité de porter {X}% la charge maximum que l\'on pe" +
-                "ut porter",
+            "Porteur de charges lourdes: capacité de porter 12% la charge maximum que l\'on peu" +
+                "t porter",
             "Résistance innée : La créature a une résistance innées au(x) type(s) de dégâts de" +
                 " son choix.",
             "Souffle: la créature est capable de cracher du feu ou n\'importe quel autre élémen" +
                 "t (dégâts non magiques)",
-            "Vague de panique: fais trop peur les adversaires doivent réussir un jet de Volont" +
-                "é tous les {X} tour(s) pour agir mais peuvent toujours esquiver en cas d\'échec",
             "Voie libre: capacité de déplacement doublée lorsque le terrain est dégagé."});
             this.chckLstAttributs.Location = new System.Drawing.Point(12, 176);
             this.chckLstAttributs.Name = "chckLstAttributs";
@@ -1386,10 +1384,15 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.nudPV.Location = new System.Drawing.Point(55, 28);
             this.nudPV.Maximum = new decimal(new int[] {
-            12,
+            45,
             0,
             0,
             0});
+            this.nudPV.Minimum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            -2147483648});
             this.nudPV.Name = "nudPV";
             this.nudPV.Size = new System.Drawing.Size(47, 20);
             this.nudPV.TabIndex = 28;
@@ -1400,10 +1403,15 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.nudEnergie.Location = new System.Drawing.Point(169, 28);
             this.nudEnergie.Maximum = new decimal(new int[] {
-            12,
+            45,
             0,
             0,
             0});
+            this.nudEnergie.Minimum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            -2147483648});
             this.nudEnergie.Name = "nudEnergie";
             this.nudEnergie.Size = new System.Drawing.Size(47, 20);
             this.nudEnergie.TabIndex = 29;
