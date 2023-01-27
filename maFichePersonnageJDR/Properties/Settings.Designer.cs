@@ -397,7 +397,7 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Attributs {
             get {
                 return ((string)(this["Attributs"]));
@@ -409,7 +409,7 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Prenom {
             get {
                 return ((string)(this["Prenom"]));
@@ -421,7 +421,7 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Nom {
             get {
                 return ((string)(this["Nom"]));
@@ -433,7 +433,7 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Race {
             get {
                 return ((string)(this["Race"]));
@@ -445,7 +445,7 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public int Niveau {
             get {
                 return ((int)(this["Niveau"]));
@@ -457,7 +457,7 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Sexe {
             get {
                 return ((string)(this["Sexe"]));
@@ -469,7 +469,7 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Histoire {
             get {
                 return ((string)(this["Histoire"]));
@@ -481,7 +481,7 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Langues {
             get {
                 return ((string)(this["Langues"]));
@@ -553,7 +553,7 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Inventaires {
             get {
                 return ((string)(this["Inventaires"]));
@@ -577,7 +577,7 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Sortilèges {
             get {
                 return ((string)(this["Sortilèges"]));
@@ -589,7 +589,7 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string CheminImage {
             get {
                 return ((string)(this["CheminImage"]));

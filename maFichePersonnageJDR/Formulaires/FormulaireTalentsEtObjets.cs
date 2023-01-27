@@ -15,18 +15,14 @@ namespace maFichePersonnageJDR.Formulaires
 {
     public partial class FormulaireTalentsEtObjets : Form
     {
-
         public FormulaireTalentsEtObjets()
         {
             InitializeComponent();
-        }
+    }
 
         private void FormulaireTalentsEtObjets_Load(object sender, EventArgs e)
         {
             double poidsMaximal = Math.Round((8.5 * (Properties.Settings.Default.Force + 25)) / 2.205);
-            txtOr.Text = Properties.Settings.Default.Or.ToString();
-            txtArgent.Text = Properties.Settings.Default.Argent.ToString();
-            txtCuivre.Text = Properties.Settings.Default.Cuivre.ToString();
             Properties.Settings.Default.ChargeMax = poidsMaximal;
             txtChargeMaximale.Text = poidsMaximal.ToString();
             txtChargeRestante.Text = Properties.Settings.Default.ChargePortee.ToString();
@@ -123,9 +119,274 @@ namespace maFichePersonnageJDR.Formulaires
             Properties.Settings.Default.VNCarreauBois = Convert.ToInt32(nudCrauBois.Value);
             Properties.Settings.Default.VNCarreauFer = Convert.ToInt32(nudCrauFr.Value);
             Properties.Settings.Default.VNPierre = Convert.ToInt32(nudPrre.Value);
+            Properties.Settings.Default.Or = int.Parse(txtOr.Text);
+            Properties.Settings.Default.Argent = int.Parse(txtArgent.Text);
+            Properties.Settings.Default.Cuivre = int.Parse(txtCuivre.Text);
             Properties.Settings.Default.Save();
+            MessageBox.Show("Formulaire sauvegardé !");
         }
 
+        /// <summary>
+        /// Méthode qui permet de faire la différence entre un objet acheté et
+        /// la monnaie restante de l'utilisateur
+        /// </summary>
+        /// <param name="libelleMonnaie">le libellé de la monnaie de l'objet acheté</param>
+        /// <param name="multiplicateur">la quantité d'objets achetés</param>
+        /// <returns>bool</returns>
+        public bool DifferenceMonnaie(string libelleMonnaie, int multiplicateur)
+        {
+            int pOr = int.Parse(txtOr.Text);
+            int pArgent = int.Parse(txtArgent.Text);
+            int pCuivre = int.Parse(txtCuivre.Text);
+            char[] tableauCaracteresMonnaie = { 'p', 'o', 'a', 'c' };
+            string[] sortieSplit = libelleMonnaie.Split(',');
+
+            string[,] tabMonnaie = new string[2, 3]
+            {
+                {"Or", "Argent","Cuivre" },
+                {string.Empty, string.Empty, string.Empty}
+            };
+
+            foreach (string strMonnaie in sortieSplit)
+            {
+                if (strMonnaie.Contains("po"))
+                {
+                    int temp = int.Parse(strMonnaie.TrimStart(tableauCaracteresMonnaie).TrimEnd(tableauCaracteresMonnaie)) * multiplicateur;
+                    tabMonnaie[1, 0] = temp.ToString();
+                }
+                if (strMonnaie.Contains("pa"))
+                {
+                    int temp = int.Parse(strMonnaie.TrimStart(tableauCaracteresMonnaie).TrimEnd(tableauCaracteresMonnaie)) * multiplicateur;
+                    tabMonnaie[1, 1] = temp.ToString();
+                }
+                if (strMonnaie.Contains("pc"))
+                {
+                    int temp = int.Parse(strMonnaie.TrimStart(tableauCaracteresMonnaie).TrimEnd(tableauCaracteresMonnaie)) * multiplicateur;
+                    tabMonnaie[1, 2] = temp.ToString();
+                }
+            }
+            // Cas Or
+            // On vérifie s'il y a des pièces d'or
+            if (tabMonnaie[1, 0] != string.Empty)
+            {
+                if (pOr - int.Parse(tabMonnaie[1, 0]) < 0)
+                {
+                    MessageBox.Show("Pas assez de pièce d'or !");
+                    return false;
+                }
+                else
+                {
+                    pOr -= int.Parse(tabMonnaie[1, 0]);
+                    txtOr.Text = pOr.ToString();
+                }
+                if (tabMonnaie[1, 1].Equals(string.Empty) && tabMonnaie[1, 2].Equals(string.Empty))
+                {
+                    return true;
+                }
+            }
+            // Cas Argent
+            // On vérifie s'il y a des pièces d'argent
+            if (tabMonnaie[1, 1] != string.Empty)
+            {
+                if (pArgent - int.Parse(tabMonnaie[1, 1]) < 0)
+                {
+                    if (pOr > 0)
+                    {
+                        while (pArgent < int.Parse(tabMonnaie[1, 1]))
+                        {
+                            if (pOr <= 0)
+                            {
+                                MessageBox.Show("Plus de pièces pour faire l'échange");
+                                return false;
+                            }
+                            else
+                            {
+                                pOr -= 1;
+                                pArgent += 10;
+                            }
+                        }
+                        pArgent -= int.Parse(tabMonnaie[1, 1]);
+                        txtArgent.Text = pArgent.ToString();
+                        txtOr.Text = pOr.ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Pas assez de pièce d'argent !");
+                        return false;
+                    }
+
+                }
+                else
+                {
+                    pArgent -= int.Parse(tabMonnaie[1, 1]);
+                    txtArgent.Text = pArgent.ToString();
+                }
+                if (tabMonnaie[1, 2].Equals(string.Empty))
+                {
+                    return true;
+                }
+            }
+            // Cas cuivre
+            // On vérifie s'il y a des pièces de cuivre
+            if (tabMonnaie[1, 2] != string.Empty)
+            {
+                if (pCuivre - int.Parse(tabMonnaie[1, 2]) < 0)
+                {
+                    if (pArgent > 0)
+                    {
+                        while (pCuivre < int.Parse(tabMonnaie[1, 2]))
+                        {
+                            if (pArgent <= 0)
+                            {
+                                if (pOr <= 0)
+                                {
+                                    MessageBox.Show("Plus de pièces pour faire l'échange");
+                                    return false;
+                                }
+                                else
+                                {
+                                    pOr -= 1;
+                                    pArgent += 9;
+                                    pCuivre += 10;
+                                    txtOr.Text = pOr.ToString();
+                                }
+                            }
+                            else
+                            {
+                                pArgent -= 1;
+                                pCuivre += 10;
+                            }
+                        }
+
+                        pCuivre -= int.Parse(tabMonnaie[1, 2]);
+                        txtCuivre.Text = pCuivre.ToString();
+                        txtArgent.Text = pArgent.ToString();
+                    }
+                    else if (pOr > 0)
+                    {
+                        while (pCuivre < int.Parse(tabMonnaie[1, 2]))
+                        {
+                            if (pOr <= 0)
+                            {
+                                MessageBox.Show("Plus de pièces pour faire l'échange");
+                                return false;
+                            }
+                            pOr -= 1;
+                            pArgent += 9;
+                            pCuivre += 10;
+                        }
+
+                        pCuivre -= int.Parse(tabMonnaie[1, 2]);
+                        txtCuivre.Text = pCuivre.ToString();
+                        txtArgent.Text = pArgent.ToString();
+                        txtOr.Text = pOr.ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Pas assez de pièce de cuivre !");
+                        return false;
+                    }
+                }
+                else
+                {
+                    pCuivre -= int.Parse(tabMonnaie[1, 2]);
+                    txtCuivre.Text = pCuivre.ToString();
+                }
+            }
+            return true;
+        }
+
+        public void SommeMonnaie(string libelleMonnaie, int multiplicateur)
+        {
+            int pOr = int.Parse(txtOr.Text);
+            int pArgent = int.Parse(txtArgent.Text);
+            int pCuivre = int.Parse(txtCuivre.Text);
+            char[] tableauCaracteresMonnaie = { 'p', 'o', 'a', 'c' };
+            string[] sortieSplit = libelleMonnaie.Split(',');
+
+            string[,] tabMonnaie = new string[2, 3]
+            {
+                {"Or", "Argent","Cuivre" },
+                {string.Empty, string.Empty, string.Empty}
+            };
+
+            foreach (string strMonnaie in sortieSplit)
+            {
+                if (strMonnaie.Contains("po"))
+                {
+                    int temp = int.Parse(strMonnaie.TrimStart(tableauCaracteresMonnaie).TrimEnd(tableauCaracteresMonnaie)) * multiplicateur;
+                    tabMonnaie[1, 0] = temp.ToString();
+                }
+                if (strMonnaie.Contains("pa"))
+                {
+                    int temp = int.Parse(strMonnaie.TrimStart(tableauCaracteresMonnaie).TrimEnd(tableauCaracteresMonnaie)) * multiplicateur;
+                    tabMonnaie[1, 1] = temp.ToString();
+                }
+                if (strMonnaie.Contains("pc"))
+                {
+                    int temp = int.Parse(strMonnaie.TrimStart(tableauCaracteresMonnaie).TrimEnd(tableauCaracteresMonnaie)) * multiplicateur;
+                    tabMonnaie[1, 2] = temp.ToString();
+                }
+            }
+
+            // Cas Or
+            if (tabMonnaie[1, 0] != string.Empty)
+            {
+                pOr += int.Parse(tabMonnaie[1, 0]);
+                txtOr.Text = pOr.ToString();
+            }
+            if (tabMonnaie[1, 1].Equals(string.Empty)
+                && tabMonnaie[1, 2].Equals(string.Empty))
+            {
+                return;
+            }
+            // Cas Argent
+            if (tabMonnaie[1, 1] != string.Empty)
+            {
+                pArgent += int.Parse(tabMonnaie[1, 1]);
+
+                if (pArgent > 10)
+                {
+                    while (pArgent > 10)
+                    {
+                        pOr += 1;
+                        pArgent -= 10;
+                    }
+                    txtOr.Text = pOr.ToString();
+                    txtArgent.Text = pArgent.ToString();
+                }
+                else
+                {
+                    txtArgent.Text = pArgent.ToString();
+                }
+            }
+            if (tabMonnaie[1, 2] != string.Empty)
+            {
+                pCuivre += int.Parse(tabMonnaie[1, 2]);
+
+                if (pCuivre > 10)
+                {
+                    while (pCuivre >= 10)
+                    {
+                        pArgent += 1;
+                        pCuivre -= 10;
+
+                        if (pArgent >= 10)
+                        {
+                            pOr += 1;
+                            pArgent -= 10;
+                            txtOr.Text = pOr.ToString();
+                        }
+                    }
+                    txtArgent.Text = pArgent.ToString();
+                    txtCuivre.Text = pCuivre.ToString();
+                }
+                else
+                {
+                    txtCuivre.Text = pCuivre.ToString();
+                }
+            }
+        }
         public void GetSettings()
         {
             nudScrmx.Value = Properties.Settings.Default.VNScramasax;
@@ -207,6 +468,9 @@ namespace maFichePersonnageJDR.Formulaires
             nudPrre.Value = Properties.Settings.Default.VNPierre;
             rchTxtIvtaires.Text = Properties.Settings.Default.Inventaires;
             rchTbSorts.Text = Properties.Settings.Default.Sortilèges;
+            txtOr.Text = Properties.Settings.Default.Or.ToString();
+            txtArgent.Text = Properties.Settings.Default.Argent.ToString();
+            txtCuivre.Text = Properties.Settings.Default.Cuivre.ToString();
         }
 
         /// <summary>
@@ -1557,6 +1821,9 @@ namespace maFichePersonnageJDR.Formulaires
         #region Boutons_vider
         private void btnViderRchTbInventaires_Click(object sender, EventArgs e)
         {
+            txtOr.Text = "10";
+            txtArgent.Text = "6";
+            txtCuivre.Text = "8";
             rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(0, rchTxtIvtaires.TextLength);
             txtChargeRestante.Text = "0";
             foreach (TabPage tabPage in tcArmes.Controls)
@@ -3680,6 +3947,7 @@ namespace maFichePersonnageJDR.Formulaires
             /// <param name="tableauMonnaie">Tableau de string à deux dimensions qui contiendra les
             /// valeurs de chaque objets</param>
 
+            bool stateCheckBox = false;
             double chargeMaximum = Properties.Settings.Default.ChargeMax;
             char[] caracteresPoids = { 'k', 'g' };
             string strTemp = string.Empty;
@@ -3698,7 +3966,19 @@ namespace maFichePersonnageJDR.Formulaires
             string tailleEvenement = GetTailleObjet(tagEvenement);
             double poidsSansKg = double.Parse(pdsEvenement.TrimEnd(caracteresPoids));
             string[] sortieValeurEvenement = valeurEvenement.Split(',');
-
+            stateCheckBox = chkName.Checked;
+            if (stateCheckBox)
+            {
+                if (!DifferenceMonnaie(valeurEvenement, int.Parse(qteEvenement)))
+                {
+                    chkName.Checked = false;
+                    return;
+                }
+            }
+            else if (!stateCheckBox)
+            {
+                SommeMonnaie(valeurEvenement, int.Parse(qteEvenement));
+            }
             /// <summary>
             /// Regroupement de condition qui permettent d'ajouter à rchTxtIvtaires
             /// strTemp en fonction de si c'est : une arme, une armure ou un objet
@@ -3776,6 +4056,8 @@ namespace maFichePersonnageJDR.Formulaires
                         if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
                         {
                             double differenceCharge = Properties.Settings.Default.ChargePortee;
+                            if (differenceCharge < 0)
+                                differenceCharge = 0;
                             strTemp = strTemp + "\n";
                             rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
                             txtChargeRestante.Text = differenceCharge.ToString();
@@ -3783,6 +4065,8 @@ namespace maFichePersonnageJDR.Formulaires
                         else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
                         {
                             double differenceCharge = Properties.Settings.Default.ChargePortee;
+                            if (differenceCharge < 0)
+                                differenceCharge = 0;
                             strTemp = "\n" + strTemp;
                             rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
                             txtChargeRestante.Text = differenceCharge.ToString();
@@ -3790,13 +4074,12 @@ namespace maFichePersonnageJDR.Formulaires
                         else
                         {
                             double differenceCharge = Properties.Settings.Default.ChargePortee;
+                            if (differenceCharge < 0)
+                                differenceCharge = 0;
                             rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
                             txtChargeRestante.Text = differenceCharge.ToString();
                         }
                     }
-                    /// <remarks>
-                    /// Sinon on incrémente la progress bar
-                    /// </remarks>
                     else
                     {
                         double differenceCharge = poidsSansKg + Convert.ToDouble(txtChargeRestante.Text);
@@ -3835,6 +4118,8 @@ namespace maFichePersonnageJDR.Formulaires
                     if (rchTxtIvtaires.Text.Contains(strTemp + "\n"))
                     {
                         double differenceCharge = Properties.Settings.Default.ChargePortee;
+                        if (differenceCharge < 0)
+                            differenceCharge = 0;
                         strTemp = strTemp + "\n";
                         rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
                         txtChargeRestante.Text = differenceCharge.ToString();
@@ -3842,6 +4127,8 @@ namespace maFichePersonnageJDR.Formulaires
                     else if (rchTxtIvtaires.Text.Contains("\n" + strTemp))
                     {
                         double differenceCharge = Properties.Settings.Default.ChargePortee;
+                        if (differenceCharge < 0)
+                            differenceCharge = 0;
                         strTemp = "\n" + strTemp;
                         rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
                         txtChargeRestante.Text = differenceCharge.ToString();
@@ -3849,6 +4136,8 @@ namespace maFichePersonnageJDR.Formulaires
                     else
                     {
                         double differenceCharge = Properties.Settings.Default.ChargePortee;
+                        if (differenceCharge < 0)
+                            differenceCharge = 0;
                         rchTxtIvtaires.Text = rchTxtIvtaires.Text.Remove(rchTxtIvtaires.Text.IndexOf(strTemp), strTemp.Length);
                         txtChargeRestante.Text = differenceCharge.ToString();
                     }

@@ -285,6 +285,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudProvocation.Name = "nudProvocation";
+            this.nudProvocation.ReadOnly = true;
             this.nudProvocation.Size = new System.Drawing.Size(41, 20);
             this.nudProvocation.TabIndex = 57;
             this.nudProvocation.Tag = "Social";
@@ -313,6 +314,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudMemoire.Name = "nudMemoire";
+            this.nudMemoire.ReadOnly = true;
             this.nudMemoire.Size = new System.Drawing.Size(41, 20);
             this.nudMemoire.TabIndex = 47;
             this.nudMemoire.Tag = "Mental";
@@ -341,6 +343,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudPrestance.Name = "nudPrestance";
+            this.nudPrestance.ReadOnly = true;
             this.nudPrestance.Size = new System.Drawing.Size(41, 20);
             this.nudPrestance.TabIndex = 55;
             this.nudPrestance.Tag = "Social";
@@ -369,6 +372,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudMarchandage.Name = "nudMarchandage";
+            this.nudMarchandage.ReadOnly = true;
             this.nudMarchandage.Size = new System.Drawing.Size(41, 20);
             this.nudMarchandage.TabIndex = 41;
             this.nudMarchandage.Tag = "Social";
@@ -397,6 +401,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudEscamotage.Name = "nudEscamotage";
+            this.nudEscamotage.ReadOnly = true;
             this.nudEscamotage.Size = new System.Drawing.Size(41, 20);
             this.nudEscamotage.TabIndex = 29;
             this.nudEscamotage.Tag = "Physique";
@@ -425,6 +430,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudCharme.Name = "nudCharme";
+            this.nudCharme.ReadOnly = true;
             this.nudCharme.Size = new System.Drawing.Size(41, 20);
             this.nudCharme.TabIndex = 5;
             this.nudCharme.Tag = "Social";
@@ -444,6 +450,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudDiscretion.Name = "nudDiscretion";
+            this.nudDiscretion.ReadOnly = true;
             this.nudDiscretion.Size = new System.Drawing.Size(41, 20);
             this.nudDiscretion.TabIndex = 21;
             this.nudDiscretion.Tag = "Physique";
@@ -481,6 +488,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudVolonte.Name = "nudVolonte";
+            this.nudVolonte.ReadOnly = true;
             this.nudVolonte.Size = new System.Drawing.Size(41, 20);
             this.nudVolonte.TabIndex = 63;
             this.nudVolonte.Tag = "Mental";
@@ -509,6 +517,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudVigueur.Name = "nudVigueur";
+            this.nudVigueur.ReadOnly = true;
             this.nudVigueur.Size = new System.Drawing.Size(41, 20);
             this.nudVigueur.TabIndex = 61;
             this.nudVigueur.Tag = "Physique";
@@ -537,6 +546,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudDressage.Name = "nudDressage";
+            this.nudDressage.ReadOnly = true;
             this.nudDressage.Size = new System.Drawing.Size(41, 20);
             this.nudDressage.TabIndex = 23;
             this.nudDressage.Tag = "Social";
@@ -556,6 +566,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudReflexes.Name = "nudReflexes";
+            this.nudReflexes.ReadOnly = true;
             this.nudReflexes.Size = new System.Drawing.Size(41, 20);
             this.nudReflexes.TabIndex = 59;
             this.nudReflexes.Tag = "Physique";
@@ -593,6 +604,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudEsprit.Name = "nudEsprit";
+            this.nudEsprit.ReadOnly = true;
             this.nudEsprit.Size = new System.Drawing.Size(41, 20);
             this.nudEsprit.TabIndex = 27;
             this.nudEsprit.Tag = "Mental";
@@ -621,6 +633,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudPerspicacite.Name = "nudPerspicacite";
+            this.nudPerspicacite.ReadOnly = true;
             this.nudPerspicacite.Size = new System.Drawing.Size(41, 20);
             this.nudPerspicacite.TabIndex = 53;
             this.nudPerspicacite.Tag = "Mental";
@@ -649,6 +662,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudPerception.Name = "nudPerception";
+            this.nudPerception.ReadOnly = true;
             this.nudPerception.Size = new System.Drawing.Size(41, 20);
             this.nudPerception.TabIndex = 51;
             this.nudPerception.Tag = "Mental";
@@ -677,6 +691,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudNatation.Name = "nudNatation";
+            this.nudNatation.ReadOnly = true;
             this.nudNatation.Size = new System.Drawing.Size(41, 20);
             this.nudNatation.TabIndex = 49;
             this.nudNatation.Tag = "Physique";
@@ -705,6 +720,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudMedecine.Name = "nudMedecine";
+            this.nudMedecine.ReadOnly = true;
             this.nudMedecine.Size = new System.Drawing.Size(41, 20);
             this.nudMedecine.TabIndex = 45;
             this.nudMedecine.Tag = "Mental";
@@ -733,6 +749,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudMecanique.Name = "nudMecanique";
+            this.nudMecanique.ReadOnly = true;
             this.nudMecanique.Size = new System.Drawing.Size(41, 20);
             this.nudMecanique.TabIndex = 43;
             this.nudMecanique.Tag = "Mental";
@@ -761,6 +778,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudDecryptage.Name = "nudDecryptage";
+            this.nudDecryptage.ReadOnly = true;
             this.nudDecryptage.Size = new System.Drawing.Size(41, 20);
             this.nudDecryptage.TabIndex = 37;
             this.nudDecryptage.Tag = "Mental";
@@ -789,6 +807,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudIntimidation.Name = "nudIntimidation";
+            this.nudIntimidation.ReadOnly = true;
             this.nudIntimidation.Size = new System.Drawing.Size(41, 20);
             this.nudIntimidation.TabIndex = 39;
             this.nudIntimidation.Tag = "Social";
@@ -817,6 +836,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudForce.Name = "nudForce";
+            this.nudForce.ReadOnly = true;
             this.nudForce.Size = new System.Drawing.Size(41, 20);
             this.nudForce.TabIndex = 35;
             this.nudForce.Tag = "Physique";
@@ -845,6 +865,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudExplosifs.Name = "nudExplosifs";
+            this.nudExplosifs.ReadOnly = true;
             this.nudExplosifs.Size = new System.Drawing.Size(41, 20);
             this.nudExplosifs.TabIndex = 31;
             this.nudExplosifs.Tag = "Mental";
@@ -873,6 +894,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudEscalade.Name = "nudEscalade";
+            this.nudEscalade.ReadOnly = true;
             this.nudEscalade.Size = new System.Drawing.Size(41, 20);
             this.nudEscalade.TabIndex = 25;
             this.nudEscalade.Tag = "Physique";
@@ -901,6 +923,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudDiplomatie.Name = "nudDiplomatie";
+            this.nudDiplomatie.ReadOnly = true;
             this.nudDiplomatie.Size = new System.Drawing.Size(41, 20);
             this.nudDiplomatie.TabIndex = 19;
             this.nudDiplomatie.Tag = "Social";
@@ -929,6 +952,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudCrochetage.Name = "nudCrochetage";
+            this.nudCrochetage.ReadOnly = true;
             this.nudCrochetage.Size = new System.Drawing.Size(41, 20);
             this.nudCrochetage.TabIndex = 17;
             this.nudCrochetage.Tag = "Physique";
@@ -957,6 +981,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudConnReligieuses.Name = "nudConnReligieuses";
+            this.nudConnReligieuses.ReadOnly = true;
             this.nudConnReligieuses.Size = new System.Drawing.Size(41, 20);
             this.nudConnReligieuses.TabIndex = 15;
             this.nudConnReligieuses.Tag = "Mental";
@@ -985,6 +1010,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudMagiques.Name = "nudMagiques";
+            this.nudMagiques.ReadOnly = true;
             this.nudMagiques.Size = new System.Drawing.Size(41, 20);
             this.nudMagiques.TabIndex = 11;
             this.nudMagiques.Tag = "Mental";
@@ -1013,6 +1039,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudConnHistoriques.Name = "nudConnHistoriques";
+            this.nudConnHistoriques.ReadOnly = true;
             this.nudConnHistoriques.Size = new System.Drawing.Size(41, 20);
             this.nudConnHistoriques.TabIndex = 9;
             this.nudConnHistoriques.Tag = "Mental";
@@ -1041,6 +1068,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudConnGeographiques.Name = "nudConnGeographiques";
+            this.nudConnGeographiques.ReadOnly = true;
             this.nudConnGeographiques.Size = new System.Drawing.Size(41, 20);
             this.nudConnGeographiques.TabIndex = 7;
             this.nudConnGeographiques.Tag = "Mental";
@@ -1069,6 +1097,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudConnNatures.Name = "nudConnNatures";
+            this.nudConnNatures.ReadOnly = true;
             this.nudConnNatures.Size = new System.Drawing.Size(41, 20);
             this.nudConnNatures.TabIndex = 13;
             this.nudConnNatures.Tag = "Mental";
@@ -1097,6 +1126,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudArtisanat.Name = "nudArtisanat";
+            this.nudArtisanat.ReadOnly = true;
             this.nudArtisanat.Size = new System.Drawing.Size(41, 20);
             this.nudArtisanat.TabIndex = 3;
             this.nudArtisanat.Tag = "Physique";
@@ -1125,6 +1155,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudAgilite.Name = "nudAgilite";
+            this.nudAgilite.ReadOnly = true;
             this.nudAgilite.Size = new System.Drawing.Size(41, 20);
             this.nudAgilite.TabIndex = 1;
             this.nudAgilite.Tag = "Physique";
@@ -1154,6 +1185,7 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             -2147483648});
             this.nudDexterite.Name = "nudDexterite";
+            this.nudDexterite.ReadOnly = true;
             this.nudDexterite.Size = new System.Drawing.Size(41, 20);
             this.nudDexterite.TabIndex = 33;
             this.nudDexterite.Tag = "Autre";
@@ -1203,24 +1235,20 @@ namespace maFichePersonnageJDR.Formulaires
             this.chckLstAttributs.FormattingEnabled = true;
             this.chckLstAttributs.HorizontalScrollbar = true;
             this.chckLstAttributs.Items.AddRange(new object[] {
-            "Alifère: capacité de voler à 6 mètres d\'altitude",
+            "Alifère: capacité de voler à 3 mètres d\'altitude",
             "Amphibien: capacité de nager à 6 mètres de profondeur peut respirer sous l\'eau et" +
                 " sur la terre",
             "Armure naturelle: peau épaisse jusqu\'à 10 % de dégâts physiques absorbés",
             "Artiller : la créature est capable d\'utiliser les armes de traits sans malus.",
             "Avantage du terrain: sur un terrain choisi par la créature, celle-ci n\'a pas de m" +
                 "alus liés aux conditions environnementales",
-            "Célérité : attaque toujours en premier lors de tour d\'initiative",
             "Coagulation : le sang de la créature lui permet d\'arrêter le saignement au bout d" +
                 "e 1d4 tour(s)",
             "Corps artificiels: créature artificielle, non organique",
-            "Dégagement: impossible d\'être encerclé",
-            "Double frappe: capacité d\'attaquer deux fois par tour de jeu",
             "Frigifugé: capacité de survivre à basse température jusqu\'à -50 degrés Celsius",
             "Gros dormeur: temps de récupération divisé par deux lors de repos",
             "Hyperesthésie: chance de ne pas être paralysé égale à 15%",
             "Ignifugé: capacité de survivre à haute température jusqu\'à 65 degrés Celsius",
-            "Insubmersible: impossible d\'être submergé",
             "Lourdaud: attaque forcément en dernier en combat",
             "Magie Aquatique — magie de l\'eau",
             "Magie Céleste — magie des cieux",
@@ -1241,11 +1269,13 @@ namespace maFichePersonnageJDR.Formulaires
                 " son choix.",
             "Souffle: la créature est capable de cracher du feu ou n\'importe quel autre élémen" +
                 "t (dégâts non magiques)",
+            "Vision dans les grottes: la créature peut voir jusqu\'à 9 m autour de lui dans les" +
+                " grottes",
             "Voie libre: capacité de déplacement doublée lorsque le terrain est dégagé."});
             this.chckLstAttributs.Location = new System.Drawing.Point(12, 176);
             this.chckLstAttributs.Name = "chckLstAttributs";
             this.chckLstAttributs.ScrollAlwaysVisible = true;
-            this.chckLstAttributs.Size = new System.Drawing.Size(237, 199);
+            this.chckLstAttributs.Size = new System.Drawing.Size(237, 184);
             this.chckLstAttributs.TabIndex = 14;
             this.chckLstAttributs.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.SetAttribut);
             // 
@@ -1384,16 +1414,12 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.nudPV.Location = new System.Drawing.Point(55, 28);
             this.nudPV.Maximum = new decimal(new int[] {
-            45,
+            12,
             0,
             0,
             0});
-            this.nudPV.Minimum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            -2147483648});
             this.nudPV.Name = "nudPV";
+            this.nudPV.ReadOnly = true;
             this.nudPV.Size = new System.Drawing.Size(47, 20);
             this.nudPV.TabIndex = 28;
             this.nudPV.Tag = "PV";
@@ -1403,16 +1429,12 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.nudEnergie.Location = new System.Drawing.Point(169, 28);
             this.nudEnergie.Maximum = new decimal(new int[] {
-            45,
+            12,
             0,
             0,
             0});
-            this.nudEnergie.Minimum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            -2147483648});
             this.nudEnergie.Name = "nudEnergie";
+            this.nudEnergie.ReadOnly = true;
             this.nudEnergie.Size = new System.Drawing.Size(47, 20);
             this.nudEnergie.TabIndex = 29;
             this.nudEnergie.Tag = "Energie";
@@ -1422,6 +1444,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.nudPhysique.Location = new System.Drawing.Point(55, 93);
             this.nudPhysique.Name = "nudPhysique";
+            this.nudPhysique.ReadOnly = true;
             this.nudPhysique.Size = new System.Drawing.Size(47, 20);
             this.nudPhysique.TabIndex = 30;
             this.nudPhysique.Tag = "Physique";
@@ -1429,8 +1452,9 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // nudMental
             // 
-            this.nudMental.Location = new System.Drawing.Point(113, 94);
+            this.nudMental.Location = new System.Drawing.Point(112, 93);
             this.nudMental.Name = "nudMental";
+            this.nudMental.ReadOnly = true;
             this.nudMental.Size = new System.Drawing.Size(47, 20);
             this.nudMental.TabIndex = 31;
             this.nudMental.Tag = "Mental";
@@ -1438,8 +1462,9 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // nudSocial
             // 
-            this.nudSocial.Location = new System.Drawing.Point(176, 94);
+            this.nudSocial.Location = new System.Drawing.Point(176, 93);
             this.nudSocial.Name = "nudSocial";
+            this.nudSocial.ReadOnly = true;
             this.nudSocial.Size = new System.Drawing.Size(47, 20);
             this.nudSocial.TabIndex = 32;
             this.nudSocial.Tag = "Social";

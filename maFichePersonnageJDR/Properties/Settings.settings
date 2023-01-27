@@ -96,28 +96,28 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Attributs" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Empty</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Prenom" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Empty</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Nom" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Empty</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Race" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Empty</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Niveau" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">1</Value>
     </Setting>
     <Setting Name="Sexe" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Empty</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Histoire" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Empty</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Langues" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Empty</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="ChargeMax" Type="System.Double" Scope="User">
       <Value Profile="(Default)">0</Value>
@@ -135,16 +135,16 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Inventaires" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Empty</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Discretion" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Sortilèges" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Empty</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="CheminImage" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Empty</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Endurance" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>

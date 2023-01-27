@@ -24,26 +24,26 @@ namespace maFichePersonnageJDR
         public ClasseImage imgAvatar = new ClasseImage();
         public Document DocumentPdf { get => documentPdf; set => documentPdf = value; }
         int[] tableauBaseNormaleExp = { 0,
-            3000,
-            9650,
-            18490,
-            30255,
-            45900,
-            66710,
-            94385,
-            131190,
-            180145,
-            245250,
-            331845,
-            447015,
-            600190,
-            803915,
-            1074865,
-            1435235,
-            1914520,
-            2551975,
-            3399785
-        };
+            4060,
+            5595,
+            7711,
+            10630,
+            14650,
+            20185,
+            27820,
+            38340,
+            52840,
+            72820,
+            100360,
+            138310,
+            190613,
+            262700,
+            362042,
+            498955,
+            687645,
+            947692,
+            1306080,
+            1800000};
         public FrmPrincipal()
         {
             InitializeComponent();
@@ -165,7 +165,6 @@ namespace maFichePersonnageJDR
 
         private void btnSoumettreFiche_Click(object sender, EventArgs e)
         {
-            pbEtatFiche.Value = 0;
             int nbPv = Properties.Settings.Default.PV + (Properties.Settings.Default.Vigueur / 3);
             int nbEnergie = Properties.Settings.Default.Energie + (Properties.Settings.Default.Esprit / 3);
             documentPdf.LoadFromFile(cheminTemplate);
@@ -248,7 +247,6 @@ namespace maFichePersonnageJDR
             paragrapheExperience.AppendBreak(BreakType.LineBreak);
             #endregion
 
-            pbEtatFiche.Value += 25;
             #region tableau_pv_energie
             string[] enTete = { "PV", "Énergie" };
             string[] donnees = { nbPv.ToString(), nbEnergie.ToString() };
@@ -322,7 +320,7 @@ namespace maFichePersonnageJDR
                 txtRange.CharacterFormat.Bold = true;
             }
             #endregion
-            pbEtatFiche.Value += 25;
+
             Paragraph paragrapheVideDeux = section.AddParagraph();
 
             #region competences
@@ -413,8 +411,8 @@ namespace maFichePersonnageJDR
             txtRangeHeaderCompetences.CharacterFormat.Bold = true;
 
             int cpt = 0;
-            int cptNom = 0;
-            int cptPoints = 0;
+            int cptNom = 1;
+            int cptPoints = 1;
             int indiceNbLigne = 0;
             int indice = 0;
 
@@ -435,7 +433,7 @@ namespace maFichePersonnageJDR
                         tableRow.Cells[indice].CellFormat.VerticalAlignment = VerticalAlignment.Middle;
                         Paragraph p = tableRow.Cells[indice].AddParagraph();
                         p.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Center;
-                        TextRange txtRange = p.AppendText(pointsCompetences[cptPoints]);
+                        TextRange txtRange = p.AppendText(pointsCompetences[cptPoints - 1]);
                         cpt++;
                         cptPoints++;
                         indice++;
@@ -450,7 +448,7 @@ namespace maFichePersonnageJDR
                         tableRow.Cells[indice].CellFormat.VerticalAlignment = VerticalAlignment.Middle;
                         Paragraph p = tableRow.Cells[indice].AddParagraph();
                         p.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Center;
-                        TextRange txtRange = p.AppendText(nomsCompetences[cptNom]);
+                        TextRange txtRange = p.AppendText(nomsCompetences[cptNom - 1]);
                         txtRange.CharacterFormat.Bold = true;
                         cpt++;
                         cptNom++;
@@ -490,7 +488,7 @@ namespace maFichePersonnageJDR
             TextRange rangeAttributs = paragraphAttribut.AppendText(Properties.Settings.Default.Attributs);
 
             #endregion
-            pbEtatFiche.Value += 25;
+
             Paragraph paragrapheVideQuatre = section.AddParagraph();
 
             #region inventaire
@@ -545,7 +543,6 @@ namespace maFichePersonnageJDR
             documentPdf.SaveToFile(cheminDocx, FileFormat.Docx);
             // Convertir en PDF  
             documentPdf.SaveToFile(cheminPdf, FileFormat.PDF);
-            pbEtatFiche.Value += 25;
             MessageBox.Show("Toutes les tâches sont terminées.", "Traitement des documents", MessageBoxButtons.OK, MessageBoxIcon.Information);
             documentPdf.Close();
         }

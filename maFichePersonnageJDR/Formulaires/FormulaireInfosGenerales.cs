@@ -14,48 +14,41 @@ namespace maFichePersonnageJDR.Formulaires
 {
     public partial class FormulaireInfosGenerales : Form
     {
-        int[] tableauBaseNormaleExp = { 0,
-            4060,
-            5595,
-            7711,
-            10630,
-            14650,
-            20185,
-            27820,
-            38340,
-            52840,
-            72820,
-            100360,
-            138310,
-            190613,
-            262700,
-            362042,
-            498955,
-            687645,
-            947692,
-            1306080,
-            1800000};
+        int[] tableauBaseNormaleExp =
+        {
+            0,
+            3000,
+            9650,
+            18490,
+            30255,
+            45900,
+            66710,
+            94385,
+            131190,
+            180145,
+            245250,
+            331845,
+            447015,
+            600190,
+            803915,
+            1074865,
+            1435235,
+            1914520,
+            2551975,
+            3399785,
+            0
+        };
         public FormulaireInfosGenerales()
         {
             InitializeComponent();
-            
+
         }
 
         private void FormulaireInfosGenerales_Load(object sender, EventArgs e)
         {
-            double divisionParTroisChargeMax = Properties.Settings.Default.ChargeMax / 3;
-            double deuxTierChargeMax = divisionParTroisChargeMax * 2;
-
-            if (Properties.Settings.Default.ChargePortee >= deuxTierChargeMax)
-            {
-                Properties.Settings.Default.VitesseDepla = 6;
-                txtVitesseDeplacement.Text = Properties.Settings.Default.VitesseDepla.ToString() + " m";
-            }
-            else
-            {
-                Properties.Settings.Default.VitesseDepla = 9;
-                txtVitesseDeplacement.Text = Properties.Settings.Default.VitesseDepla.ToString() + " m";
-            }
+            lblPointsRestants.Text = "/" + tableauBaseNormaleExp[Properties.Settings.Default.Niveau].ToString();
+            Properties.Settings.Default.VitesseDepla = 9;
+            txtVitesseDeplacement.Text = Properties.Settings.Default.VitesseDepla.ToString() + " m";
 
             if (Properties.Settings.Default.Sexe == "Masculin")
             {
@@ -125,6 +118,7 @@ namespace maFichePersonnageJDR.Formulaires
             Properties.Settings.Default.Cuivre = Convert.ToInt32(nudCuivre.Value);
             Properties.Settings.Default.PointsExp = Int32.Parse(txtPointsXp.Text);
             Properties.Settings.Default.Save();
+            MessageBox.Show("Formulaire sauvegardé !");
         }
 
         private void btnAjouterImage_Click(object sender, EventArgs e)
@@ -163,7 +157,10 @@ namespace maFichePersonnageJDR.Formulaires
                     MessageBox.Show("Chemin d'accès non valide !");
                 }
             }
-
+            else
+            {
+                cheminImage = Path.GetFullPath(@"Images\roto.png");
+            }
             return cheminImage;
         }
 

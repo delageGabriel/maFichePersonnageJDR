@@ -14,7 +14,7 @@ namespace maFichePersonnageJDR.Formulaires
     public partial class FormulaireCompAttri : Form
     {
         private int x = Convert.ToInt16(Properties.Settings.Default.Niveau);
-
+        public static Control.ControlCollection formStateCompAttri;
         public int X { get => x; set => x = value; }
 
         public FormulaireCompAttri()
@@ -163,6 +163,7 @@ namespace maFichePersonnageJDR.Formulaires
             Properties.Settings.Default.Vigueur = Convert.ToInt32(nudVigueur.Value);
             Properties.Settings.Default.Volonte = Convert.ToInt32(nudVolonte.Value);
             Properties.Settings.Default.Save();
+            MessageBox.Show("Formulaire sauvegardé !");
         }
 
         /// <summary>

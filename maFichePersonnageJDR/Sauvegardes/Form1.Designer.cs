@@ -33,7 +33,6 @@ namespace maFichePersonnageJDR
             this.btnInfosGenerales = new System.Windows.Forms.Button();
             this.btnTalentEtEquipement = new System.Windows.Forms.Button();
             this.btnSoumettreFiche = new System.Windows.Forms.Button();
-            this.pbEtatFiche = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // btnFormCompAttri
@@ -76,20 +75,11 @@ namespace maFichePersonnageJDR
             this.btnSoumettreFiche.UseVisualStyleBackColor = true;
             this.btnSoumettreFiche.Click += new System.EventHandler(this.btnSoumettreFiche_Click);
             // 
-            // pbEtatFiche
-            // 
-            this.pbEtatFiche.Location = new System.Drawing.Point(33, 161);
-            this.pbEtatFiche.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pbEtatFiche.Name = "pbEtatFiche";
-            this.pbEtatFiche.Size = new System.Drawing.Size(142, 22);
-            this.pbEtatFiche.TabIndex = 4;
-            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(205, 200);
-            this.Controls.Add(this.pbEtatFiche);
+            this.ClientSize = new System.Drawing.Size(205, 150);
             this.Controls.Add(this.btnSoumettreFiche);
             this.Controls.Add(this.btnTalentEtEquipement);
             this.Controls.Add(this.btnInfosGenerales);
@@ -107,7 +97,6 @@ namespace maFichePersonnageJDR
         private System.Windows.Forms.Button btnInfosGenerales;
         private System.Windows.Forms.Button btnTalentEtEquipement;
         private System.Windows.Forms.Button btnSoumettreFiche;
-        private System.Windows.Forms.ProgressBar pbEtatFiche;
     }
 }
 
