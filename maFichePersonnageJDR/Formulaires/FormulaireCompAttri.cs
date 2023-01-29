@@ -13,9 +13,56 @@ namespace maFichePersonnageJDR.Formulaires
 {
     public partial class FormulaireCompAttri : Form
     {
-        private int x = Convert.ToInt16(Properties.Settings.Default.Niveau);
-        public static Control.ControlCollection formStateCompAttri;
+        private int x = Properties.Settings.Default.Niveau;
+        private int[] tableauPV = {
+            12,
+            19,
+            26,
+            33,
+            40,
+            47,
+            54,
+            61,
+            68,
+            75,
+            84,
+            93,
+            102,
+            111,
+            120,
+            129,
+            138,
+            147,
+            158,
+            169
+        };
+
+        private short[] tableauCaracteristiques = {
+            135,
+            140,
+            140,
+            145,
+            145,
+            150,
+            150,
+            155,
+            160,
+            165,
+            165,
+            170,
+            170,
+            175,
+            180,
+            185,
+            185,
+            190,
+            190,
+            195
+        };
+
         public int X { get => x; set => x = value; }
+        public int[] TableauPV { get => tableauPV; set => tableauPV = value; }
+        public short[] TableauCaracteristiques { get => tableauCaracteristiques; set => tableauCaracteristiques = value; }
 
         public FormulaireCompAttri()
         {
@@ -66,6 +113,80 @@ namespace maFichePersonnageJDR.Formulaires
             nudVigueur.Value = Properties.Settings.Default.Vigueur;
             nudVolonte.Value = Properties.Settings.Default.Volonte;
         }
+
+        public void GetAttributJoueurOuMJ()
+        {
+#if MJ
+            chckLstAttributs.Items.Clear();
+            chckLstAttributs.Items.AddRange(new[]   {
+                "Alifère: capacité de voler à 3 mètres d'altitude",
+                "Amphibien: capacité de nager à 6 mètres de profondeur, peut respirer sous l'eau et sur la terre",
+                "Armure naturelle: peau épaisse, jusqu'à 10% de dégâts physiques absorbés par l'ennemi",
+                "Avantage du terrain: sur un terrain(s), la créature n'a pas de malus",
+                "Célérité: attaque toujours en premier lors de tour d'initiative",
+                "Corps artificiels: créature artificielle, nul besoin pour elle de respirer",
+                "Dégagement: impossible d'être encerclé",
+                "Double frappe: capacité d'attaquer deux fois par tour de jeu",
+                "Frigifugé: capacité de survivre à basse température jusqu'à -50 degrés Celsius",
+                "Gros dormeur: temps de récupération divisé par deux lors de repos",
+                "Hyperesthésie: chance de ne pas être empoisonné égale à 15%",
+                "Ignifugé: capacité de survivre à haute température jusqu'à 65 degrés Celsius",
+                "Insubmersible: impossible d'être submergé",
+                "Lourdaud: trop lourd pour attaquer en premier, attaque en dernier",
+                "Magie Aquatique — magie de l'eau",
+                "Magie Céleste — magie du ciel",
+                "Magie Démoniaque — magie liée aux ténèbres",
+                "Magie Divine — magie liée aux divinités",
+                "Magie Ignis — magie du feu",
+                "Magie Naturelle — magie de la nature",
+                "Magie Neutre — magie neutre",
+                "Magie Terrestre: magie de la terre",
+                "Méditation : toutes les 4 heure(s), la créature régénère un point d'énergie supplémentaire",
+                "Mithridatisation: chance de ne pas être empoisonné égale à 15%",
+                "Mort-vivant: ne peut pas être soigné par des moyens conventionnels (sauf repos), est obligé de dévorer un corps ou boire des fluides corporels",
+                "Porteur de charges lourdes: capacité de porter 25% la charge maximum que l'on peut porter",
+                "Régénération spirituelle: à chaque début de tour, 10% de l'énergie est régénérée par le lanceur",
+                "Régénération vitale: à chaque début de tour, 10% de PV régénérés pour le lanceur",
+                "Souffle: la créature est capable de cracher du feu ou n'importe quel autre élément (dégâts non magiques)",
+                "Vague de panique: fais trop peur, les adversaires doivent réussir un jet de Volonté tous les 1d4 tour(s) pour agir, mais peuvent toujours esquiver en cas d'échec",
+                "Voie libre: capacité de déplacement doublée lorsque le terrain est dégagé."
+            });
+#endif
+#if JOUEUR
+            chckLstAttributs.Items.Clear();
+            chckLstAttributs.Items.AddRange(new[]
+            {
+                "Alifère: capacité de voler à 3 mètres d'altitude",
+                "Amphibien: capacité de nager à 6 mètres de profondeur peut respirer sous l'eau et sur la terre",
+                "Armure naturelle: peau épaisse jusqu'à 10 % de dégâts physiques absorbés",
+                "Artiller : la créature est capable d'utiliser les armes de traits sans malus.",
+                "Avantage du terrain: sur un terrain choisi par la créature, celle-ci n'a pas de malus liés aux conditions environnementales",
+                "Coagulation : le sang de la créature lui permet d'arrêter le saignement au bout de 1d4 tour(s)",
+                "Corps artificiels: créature artificielle, non organique",
+                "Frigifugé: capacité de survivre à basse température jusqu'à -50 degrés Celsius",
+                "Gros dormeur: temps de récupération divisé par deux lors de repos",
+                "Hyperesthésie: chance de ne pas être paralysé égale à 15%",
+                "Ignifugé: capacité de survivre à haute température jusqu'à 65 degrés Celsius",
+                "Lourdaud: attaque forcément en dernier en combat",
+                "Magie Aquatique — magie de l'eau",
+                "Magie Céleste — magie des cieux",
+                "Magie Démoniaque — magie liée aux ténèbres",
+                "Magie Divine — magie liée aux divinités",
+                "Magie Ignis — magie du feu",
+                "Magie Naturelle — magie de la nature",
+                "Magie Neutre — magie neutre",
+                "Magie Terrestre — magie de la terre",
+                "Méditation : toutes les 4 heure(s), la créature régénère un point d'énergie supplémentaire",
+                "Mithridatisation: chance de ne pas être empoisonné égale à 15%",
+                "Mort-vivant: ne peut pas être soigné par des moyens conventionnels (sauf repos) est obligé de dévorer un corps ou boire des fluides corporels",
+                "Porteur de charges lourdes: capacité de porter 12% la charge maximum que l'on peut porter",
+                "Résistance innée : La créature a une résistance innées au(x) type(s) de dégâts de son choix.",
+                "Souffle: la créature est capable de cracher du feu ou n'importe quel autre élément (dégâts non magiques)",
+                "Vision dans les grottes: la créature peut voir jusqu'à 9 m autour de lui dans les grottes",
+                "Voie libre: capacité de déplacement doublée lorsque le terrain est dégagé.",
+            });
+#endif
+        }
         /// <summary>
         /// Rempli la richtextbox en fonction des attributs cochés
         /// </summary>
@@ -113,8 +234,13 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void FormulaireCompAttri_Load(object sender, EventArgs e)
         {
+            txtPntsPVEnergie.Text = TableauPV[X - 1].ToString();
+            txtPntsCaracteristiques.Text = TableauCaracteristiques[X - 1].ToString();
+            nudPV.Maximum = decimal.Parse(txtPntsPVEnergie.Text);
+            nudEnergie.Maximum = decimal.Parse(txtPntsPVEnergie.Text);
             GetSettings();
             GetAttributCheckbox();
+            GetAttributJoueurOuMJ();
         }
 
         /// <summary>
@@ -214,14 +340,14 @@ namespace maFichePersonnageJDR.Formulaires
 
             NumericUpDown numericUp = (NumericUpDown)sender;
             /// Cas Physique
-            if(numericUp.Tag.ToString().Contains("Physique"))
+            if (numericUp.Tag.ToString().Contains("Physique"))
             {
-                foreach(object uneCompetence in grpbCompetences.Controls)
+                foreach (object uneCompetence in grpbCompetences.Controls)
                 {
-                    if(uneCompetence is NumericUpDown)
+                    if (uneCompetence is NumericUpDown)
                     {
                         NumericUpDown numComp = (NumericUpDown)uneCompetence;
-                        if(numComp.Tag.ToString().Contains("Physique"))
+                        if (numComp.Tag.ToString().Contains("Physique"))
                         {
                             valeurCommunePhysique += Convert.ToInt32(numComp.Value);
                         }
@@ -239,7 +365,7 @@ namespace maFichePersonnageJDR.Formulaires
                     {
                         NumericUpDown numComp = (NumericUpDown)uneCompetence;
                         /// Cas Physique
-                        if (numComp.Tag.ToString().Contains("Physique") && 
+                        if (numComp.Tag.ToString().Contains("Physique") &&
                             !numComp.Tag.ToString().Contains("Mental") &&
                             !numComp.Tag.ToString().Contains("Social"))
                         {
@@ -333,7 +459,7 @@ namespace maFichePersonnageJDR.Formulaires
             int valeurRepartitionSocialRetournee = 0;
 
             NumericUpDown numericUp = (NumericUpDown)sender;
-            
+
             /// Cas Social
             if (numericUp.Tag.ToString().Contains("Social"))
             {
@@ -388,8 +514,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void numericUpDownValeurChangePVEnergie_ValueChanged(object sender, EventArgs e)
         {
-
-            int valeurRepartitionBox = 12;
+            int valeurRepartitionBox = TableauPV[X - 1];
             int valeurPV = Convert.ToInt32(nudPV.Value);
             int valeurEnergie = Convert.ToInt32(nudEnergie.Value);
             int valeurCommune = 0;
@@ -427,7 +552,8 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void numericUpDownValeurChangeCaracteristiques_ValueChanged(object sender, EventArgs e)
         {
-            int valeurRepartitionTotale = 135;
+            int valeurRepartitionTotale = TableauCaracteristiques[X - 1];
+
             int valeurPhysique = Convert.ToInt32(nudPhysique.Value);
             int valeurMental = Convert.ToInt32(nudMental.Value);
             int valeurSocial = Convert.ToInt32(nudSocial.Value);
@@ -435,7 +561,7 @@ namespace maFichePersonnageJDR.Formulaires
             int valeurRepartitionRetournee = 0;
 
             NumericUpDown numericUpDown = (NumericUpDown)sender;
-            if(numericUpDown.Tag.ToString().Contains("Physique"))
+            if (numericUpDown.Tag.ToString().Contains("Physique"))
             {
                 valeurCommune = valeurPhysique + valeurMental + valeurSocial;
                 valeurRepartitionRetournee = valeurRepartitionTotale - valeurCommune;
@@ -456,7 +582,7 @@ namespace maFichePersonnageJDR.Formulaires
 
                 txtPntsCaracteristiques.Text = valeurRepartitionRetournee.ToString();
             }
-            if(txtPntsCaracteristiques.Text == "0")
+            if (txtPntsCaracteristiques.Text == "0")
             {
                 nudPhysique.Maximum = Convert.ToInt32(nudPhysique.Value);
                 nudMental.Maximum = Convert.ToInt32(nudMental.Value);
@@ -464,9 +590,30 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else
             {
-                nudPhysique.Maximum = 55;
-                nudMental.Maximum = 55;
-                nudSocial.Maximum = 55;
+                if (X >= 1 && X <= 4)
+                {
+                    nudPhysique.Maximum = 55;
+                    nudMental.Maximum = 55;
+                    nudSocial.Maximum = 55;
+                }
+                else if (X >= 5 && X <= 9)
+                {
+                    nudPhysique.Maximum = 65;
+                    nudMental.Maximum = 65;
+                    nudSocial.Maximum = 65;
+                }
+                else if (X >= 10 && X <= 14)
+                {
+                    nudPhysique.Maximum = 70;
+                    nudMental.Maximum = 70;
+                    nudSocial.Maximum = 70;
+                }
+                else if(X >= 15 && X <= 20)
+                {
+                    nudPhysique.Maximum = 75;
+                    nudMental.Maximum = 75;
+                    nudSocial.Maximum = 75;
+                }
             }
         }
 

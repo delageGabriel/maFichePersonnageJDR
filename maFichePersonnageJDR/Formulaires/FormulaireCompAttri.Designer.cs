@@ -1377,7 +1377,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.txtPntsCaracteristiques.Name = "txtPntsCaracteristiques";
             this.txtPntsCaracteristiques.Size = new System.Drawing.Size(26, 20);
             this.txtPntsCaracteristiques.TabIndex = 25;
-            this.txtPntsCaracteristiques.Text = "135";
             // 
             // lblPntsRepartitionCaracteristiques
             // 
@@ -1397,7 +1396,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.txtPntsPVEnergie.Name = "txtPntsPVEnergie";
             this.txtPntsPVEnergie.Size = new System.Drawing.Size(26, 20);
             this.txtPntsPVEnergie.TabIndex = 27;
-            this.txtPntsPVEnergie.Text = "12";
             // 
             // lblPntsRepartitionPVEnergie
             // 
