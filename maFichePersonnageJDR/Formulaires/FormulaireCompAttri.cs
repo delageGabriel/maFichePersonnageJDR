@@ -17,13 +17,13 @@ namespace maFichePersonnageJDR.Formulaires
         private int[] tableauPV = {
             12,
             19,
-            26,
-            33,
-            40,
-            47,
-            54,
+            23,
+            30,
+            37,
+            44,
+            52,
             61,
-            68,
+            71,
             75,
             84,
             93,
@@ -39,14 +39,14 @@ namespace maFichePersonnageJDR.Formulaires
 
         private short[] tableauCaracteristiques = {
             135,
+            135,
+            135,
+            135,
             140,
             140,
             145,
-            145,
-            150,
             150,
             155,
-            160,
             165,
             165,
             170,
@@ -122,15 +122,20 @@ namespace maFichePersonnageJDR.Formulaires
                 "Alifère: capacité de voler à 3 mètres d'altitude",
                 "Amphibien: capacité de nager à 6 mètres de profondeur, peut respirer sous l'eau et sur la terre",
                 "Armure naturelle: peau épaisse, jusqu'à 10% de dégâts physiques absorbés par l'ennemi",
+                "Arachnoïde : la créature peut grimper sur les surfaces",
                 "Avantage du terrain: sur un terrain(s), la créature n'a pas de malus",
+                "Bras fin : la créature a des petits bras et ne peut pas porter beaucoup de poids",
+                "Canaliseur : la créature posséde un pourcentage supplémentaire de ses points d'énergie basé sur le total",
                 "Célérité: attaque toujours en premier lors de tour d'initiative",
                 "Corps artificiels: créature artificielle, nul besoin pour elle de respirer",
                 "Dégagement: impossible d'être encerclé",
-                "Double frappe: capacité d'attaquer deux fois par tour de jeu",
                 "Frigifugé: capacité de survivre à basse température jusqu'à -50 degrés Celsius",
+                "Gigantisme : la créature est tellement grande que l'adversaire a un bonus pour le toucher",
                 "Gros dormeur: temps de récupération divisé par deux lors de repos",
+                "Guerrier aguerri: l'adversaire a un malus pour toucher le détenteur de cet attribut",
                 "Hyperesthésie: chance de ne pas être empoisonné égale à 15%",
                 "Ignifugé: capacité de survivre à haute température jusqu'à 65 degrés Celsius",
+                "Immortel : la créature ne peut pas mourir",
                 "Insubmersible: impossible d'être submergé",
                 "Lourdaud: trop lourd pour attaquer en premier, attaque en dernier",
                 "Magie Aquatique — magie de l'eau",
@@ -141,16 +146,25 @@ namespace maFichePersonnageJDR.Formulaires
                 "Magie Naturelle — magie de la nature",
                 "Magie Neutre — magie neutre",
                 "Magie Terrestre: magie de la terre",
+                "Maladie : La créature peut apporter des maladies",
                 "Méditation : toutes les 4 heure(s), la créature régénère un point d'énergie supplémentaire",
+                "Minus : l'adversaire a un malus pour toucher la créature",
                 "Mithridatisation: chance de ne pas être empoisonné égale à 15%",
                 "Mort-vivant: ne peut pas être soigné par des moyens conventionnels (sauf repos), est obligé de dévorer un corps ou boire des fluides corporels",
+                "Multifrappe : la créature peut agir plusieurs fois en combat",
+                "Paralysateur : la créature peut paralyser ses ennemis",
+                "Peau enflammée : si la créature reçoit un coup physique, l'adversaire reçoit 1dX dégâts.",
+                "Personnage non joueur : ne possède pas d'attributs",
                 "Porteur de charges lourdes: capacité de porter 25% la charge maximum que l'on peut porter",
                 "Régénération spirituelle: à chaque début de tour, 10% de l'énergie est régénérée par le lanceur",
                 "Régénération vitale: à chaque début de tour, 10% de PV régénérés pour le lanceur",
+                "Sac d'énergie : la créature posséde un pourcentage supplémentaire de ses points de vie basé sur le total",
                 "Souffle: la créature est capable de cracher du feu ou n'importe quel autre élément (dégâts non magiques)",
+                "Tour gratuit : la créature attaque quand elle veut (priorité sur les autres attributs de priorité)",
                 "Vague de panique: fais trop peur, les adversaires doivent réussir un jet de Volonté tous les 1d4 tour(s) pour agir, mais peuvent toujours esquiver en cas d'échec",
+                "Venimeux : La créature peut empoisonner ses ennemis",
                 "Voie libre: capacité de déplacement doublée lorsque le terrain est dégagé."
-            });
+            }) ;
 #endif
 #if JOUEUR
             chckLstAttributs.Items.Clear();
@@ -621,7 +635,7 @@ namespace maFichePersonnageJDR.Formulaires
         {
 
             string[] subs = rchTbAttributs.Text.Split(',');
-
+#if JOUEUR
             if (Properties.Settings.Default.Niveau == 1)
             {
                 if (subs.Count() > 1)
@@ -634,11 +648,26 @@ namespace maFichePersonnageJDR.Formulaires
                     chckLstAttributs.Enabled = true;
                 }
             }
+#endif
         }
 
         private void chckAttribut_click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnReinitialiserCompetences_Click(object sender, EventArgs e)
+        {
+            foreach(Control competencesControls in grpbCompetences.Controls)
+            {
+                NumericUpDown numericUpDown = new NumericUpDown();
+
+                if (competencesControls is NumericUpDown)
+                {
+                    numericUpDown = (NumericUpDown)competencesControls;
+                    numericUpDown.Value = 0;
+                }                
+            }
         }
     }
 }

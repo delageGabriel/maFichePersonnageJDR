@@ -31,6 +31,8 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 txtChargeMaximale.Text = Math.Round(double.Parse(txtChargeMaximale.Text) * 1.12).ToString();
             }
+            else if (Properties.Settings.Default.Attributs.Contains("Bras fin"))
+                txtChargeMaximale.Text = Math.Round(double.Parse(txtChargeMaximale.Text) * 0.25).ToString();
             GetSettings();
             GetSortileges();
             GetInventaires();

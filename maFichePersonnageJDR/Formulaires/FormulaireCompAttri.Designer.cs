@@ -120,6 +120,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudPhysique = new System.Windows.Forms.NumericUpDown();
             this.nudMental = new System.Windows.Forms.NumericUpDown();
             this.nudSocial = new System.Windows.Forms.NumericUpDown();
+            this.btnReinitialiserCompetences = new System.Windows.Forms.Button();
             this.grpbCompetences.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudProvocation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMemoire)).BeginInit();
@@ -1468,11 +1469,22 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudSocial.Tag = "Social";
             this.nudSocial.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCaracteristiques_ValueChanged);
             // 
+            // btnReinitialiserCompetences
+            // 
+            this.btnReinitialiserCompetences.Location = new System.Drawing.Point(596, 408);
+            this.btnReinitialiserCompetences.Name = "btnReinitialiserCompetences";
+            this.btnReinitialiserCompetences.Size = new System.Drawing.Size(75, 23);
+            this.btnReinitialiserCompetences.TabIndex = 33;
+            this.btnReinitialiserCompetences.Text = "Réinitialiser";
+            this.btnReinitialiserCompetences.UseVisualStyleBackColor = true;
+            this.btnReinitialiserCompetences.Click += new System.EventHandler(this.btnReinitialiserCompetences_Click);
+            // 
             // FormulaireCompAttri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(780, 507);
+            this.Controls.Add(this.btnReinitialiserCompetences);
             this.Controls.Add(this.nudSocial);
             this.Controls.Add(this.nudMental);
             this.Controls.Add(this.nudPhysique);
@@ -1640,5 +1652,6 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblMemoire;
         private System.Windows.Forms.NumericUpDown nudProvocation;
         private System.Windows.Forms.Label lblProvocation;
+        private System.Windows.Forms.Button btnReinitialiserCompetences;
     }
 }
