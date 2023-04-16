@@ -129,7 +129,8 @@ namespace maFichePersonnageJDR.Formulaires
 
         public static Bitmap GetUneImage(string cheminDeLImage)
         {
-            Bitmap uneImage = new Bitmap(cheminDeLImage);
+            string cheminImageARecuperer = !String.IsNullOrEmpty(cheminDeLImage) ? cheminDeLImage : Path.GetFullPath(@"Images\roto.png");
+            Bitmap uneImage = new Bitmap(cheminImageARecuperer);
             Bitmap imageRedimensionner = new Bitmap(uneImage, new Size(256, 256));
             uneImage = imageRedimensionner;
 

@@ -38,6 +38,8 @@ namespace maFichePersonnageJDR
             // 
             // btnFormCompAttri
             // 
+            this.btnFormCompAttri.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFormCompAttri.Location = new System.Drawing.Point(33, 41);
             this.btnFormCompAttri.Name = "btnFormCompAttri";
             this.btnFormCompAttri.Size = new System.Drawing.Size(142, 23);
@@ -48,6 +50,8 @@ namespace maFichePersonnageJDR
             // 
             // btnInfosGenerales
             // 
+            this.btnInfosGenerales.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnInfosGenerales.Location = new System.Drawing.Point(33, 12);
             this.btnInfosGenerales.Name = "btnInfosGenerales";
             this.btnInfosGenerales.Size = new System.Drawing.Size(142, 23);
@@ -58,6 +62,8 @@ namespace maFichePersonnageJDR
             // 
             // btnTalentEtEquipement
             // 
+            this.btnTalentEtEquipement.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTalentEtEquipement.Location = new System.Drawing.Point(33, 70);
             this.btnTalentEtEquipement.Name = "btnTalentEtEquipement";
             this.btnTalentEtEquipement.Size = new System.Drawing.Size(142, 23);
@@ -68,6 +74,9 @@ namespace maFichePersonnageJDR
             // 
             // btnSoumettreFiche
             // 
+            this.btnSoumettreFiche.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSoumettreFiche.Location = new System.Drawing.Point(47, 115);
             this.btnSoumettreFiche.Name = "btnSoumettreFiche";
             this.btnSoumettreFiche.Size = new System.Drawing.Size(103, 23);
@@ -78,8 +87,10 @@ namespace maFichePersonnageJDR
             // 
             // pbEtatFiche
             // 
+            this.pbEtatFiche.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pbEtatFiche.Location = new System.Drawing.Point(33, 161);
-            this.pbEtatFiche.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbEtatFiche.Margin = new System.Windows.Forms.Padding(2);
             this.pbEtatFiche.Name = "pbEtatFiche";
             this.pbEtatFiche.Size = new System.Drawing.Size(142, 22);
             this.pbEtatFiche.TabIndex = 4;
