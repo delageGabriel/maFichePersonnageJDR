@@ -38,23 +38,34 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblRace = new System.Windows.Forms.Label();
             this.rdbHomme = new System.Windows.Forms.RadioButton();
             this.rdbFemme = new System.Windows.Forms.RadioButton();
-            this.txtBoxNiveau = new System.Windows.Forms.TextBox();
             this.lblNiveau = new System.Windows.Forms.Label();
             this.rdbAutre = new System.Windows.Forms.RadioButton();
             this.rtbHistoire = new System.Windows.Forms.RichTextBox();
             this.rtbLangues = new System.Windows.Forms.RichTextBox();
             this.lblHistoire = new System.Windows.Forms.Label();
             this.lblLangages = new System.Windows.Forms.Label();
-            this.lblChargeMaxi = new System.Windows.Forms.Label();
-            this.lblVitesse = new System.Windows.Forms.Label();
-            this.txtBoxCharge = new System.Windows.Forms.TextBox();
-            this.txtVitesse = new System.Windows.Forms.TextBox();
             this.btnSaveInfos = new System.Windows.Forms.Button();
             this.lblMonnaie = new System.Windows.Forms.Label();
-            this.txtPO = new System.Windows.Forms.TextBox();
-            this.txtPA = new System.Windows.Forms.TextBox();
-            this.txtPC = new System.Windows.Forms.TextBox();
+            this.btnAjouterImage = new System.Windows.Forms.Button();
+            this.btnViderHistoire = new System.Windows.Forms.Button();
+            this.btnViderLangues = new System.Windows.Forms.Button();
+            this.lblOr = new System.Windows.Forms.Label();
+            this.lblArgent = new System.Windows.Forms.Label();
+            this.lblCuivre = new System.Windows.Forms.Label();
+            this.nudOr = new System.Windows.Forms.NumericUpDown();
+            this.nudArgent = new System.Windows.Forms.NumericUpDown();
+            this.nudCuivre = new System.Windows.Forms.NumericUpDown();
+            this.nudNiveau = new System.Windows.Forms.NumericUpDown();
+            this.lblPointsRestants = new System.Windows.Forms.Label();
+            this.txtPointsXp = new System.Windows.Forms.TextBox();
+            this.lblPtsXpTotal = new System.Windows.Forms.Label();
+            this.txtVitesseDeplacement = new System.Windows.Forms.TextBox();
+            this.lblVitesseDeplacement = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudOr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudArgent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCuivre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNiveau)).BeginInit();
             this.SuspendLayout();
             // 
             // lblPrenom
@@ -68,22 +79,22 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // txtBoxPrenom
             // 
-            this.txtBoxPrenom.Location = new System.Drawing.Point(12, 29);
+            this.txtBoxPrenom.Location = new System.Drawing.Point(24, 28);
             this.txtBoxPrenom.Name = "txtBoxPrenom";
-            this.txtBoxPrenom.Size = new System.Drawing.Size(100, 20);
+            this.txtBoxPrenom.Size = new System.Drawing.Size(68, 20);
             this.txtBoxPrenom.TabIndex = 1;
             // 
             // txtBoxNom
             // 
-            this.txtBoxNom.Location = new System.Drawing.Point(137, 29);
+            this.txtBoxNom.Location = new System.Drawing.Point(117, 28);
             this.txtBoxNom.Name = "txtBoxNom";
-            this.txtBoxNom.Size = new System.Drawing.Size(100, 20);
+            this.txtBoxNom.Size = new System.Drawing.Size(68, 20);
             this.txtBoxNom.TabIndex = 3;
             // 
             // lblNom
             // 
             this.lblNom.AutoSize = true;
-            this.lblNom.Location = new System.Drawing.Point(173, 13);
+            this.lblNom.Location = new System.Drawing.Point(134, 13);
             this.lblNom.Name = "lblNom";
             this.lblNom.Size = new System.Drawing.Size(29, 13);
             this.lblNom.TabIndex = 2;
@@ -100,15 +111,15 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // TxtBoxRace
             // 
-            this.TxtBoxRace.Location = new System.Drawing.Point(262, 29);
+            this.TxtBoxRace.Location = new System.Drawing.Point(210, 28);
             this.TxtBoxRace.Name = "TxtBoxRace";
-            this.TxtBoxRace.Size = new System.Drawing.Size(100, 20);
+            this.TxtBoxRace.Size = new System.Drawing.Size(65, 20);
             this.TxtBoxRace.TabIndex = 5;
             // 
             // lblRace
             // 
             this.lblRace.AutoSize = true;
-            this.lblRace.Location = new System.Drawing.Point(294, 13);
+            this.lblRace.Location = new System.Drawing.Point(227, 13);
             this.lblRace.Name = "lblRace";
             this.lblRace.Size = new System.Drawing.Size(33, 13);
             this.lblRace.TabIndex = 6;
@@ -119,10 +130,10 @@ namespace maFichePersonnageJDR.Formulaires
             this.rdbHomme.AutoSize = true;
             this.rdbHomme.Location = new System.Drawing.Point(396, 29);
             this.rdbHomme.Name = "rdbHomme";
-            this.rdbHomme.Size = new System.Drawing.Size(61, 17);
+            this.rdbHomme.Size = new System.Drawing.Size(67, 17);
             this.rdbHomme.TabIndex = 7;
             this.rdbHomme.TabStop = true;
-            this.rdbHomme.Text = "Homme";
+            this.rdbHomme.Text = "Masculin";
             this.rdbHomme.UseVisualStyleBackColor = true;
             // 
             // rdbFemme
@@ -130,23 +141,16 @@ namespace maFichePersonnageJDR.Formulaires
             this.rdbFemme.AutoSize = true;
             this.rdbFemme.Location = new System.Drawing.Point(396, 53);
             this.rdbFemme.Name = "rdbFemme";
-            this.rdbFemme.Size = new System.Drawing.Size(59, 17);
+            this.rdbFemme.Size = new System.Drawing.Size(61, 17);
             this.rdbFemme.TabIndex = 8;
             this.rdbFemme.TabStop = true;
-            this.rdbFemme.Text = "Femme";
+            this.rdbFemme.Text = "Féminin";
             this.rdbFemme.UseVisualStyleBackColor = true;
-            // 
-            // txtBoxNiveau
-            // 
-            this.txtBoxNiveau.Location = new System.Drawing.Point(137, 74);
-            this.txtBoxNiveau.Name = "txtBoxNiveau";
-            this.txtBoxNiveau.Size = new System.Drawing.Size(100, 20);
-            this.txtBoxNiveau.TabIndex = 10;
             // 
             // lblNiveau
             // 
             this.lblNiveau.AutoSize = true;
-            this.lblNiveau.Location = new System.Drawing.Point(162, 58);
+            this.lblNiveau.Location = new System.Drawing.Point(305, 13);
             this.lblNiveau.Name = "lblNiveau";
             this.lblNiveau.Size = new System.Drawing.Size(41, 13);
             this.lblNiveau.TabIndex = 9;
@@ -167,16 +171,17 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.rtbHistoire.AccessibleDescription = "";
             this.rtbHistoire.Location = new System.Drawing.Point(12, 125);
+            this.rtbHistoire.MaxLength = 500;
             this.rtbHistoire.Name = "rtbHistoire";
-            this.rtbHistoire.Size = new System.Drawing.Size(444, 154);
+            this.rtbHistoire.Size = new System.Drawing.Size(444, 80);
             this.rtbHistoire.TabIndex = 16;
-            this.rtbHistoire.Text = "Veuillez renseigner l\'histoire du personnage";
+            this.rtbHistoire.Text = "500 caractères maximum.";
             // 
             // rtbLangues
             // 
-            this.rtbLangues.Location = new System.Drawing.Point(10, 309);
+            this.rtbLangues.Location = new System.Drawing.Point(12, 272);
             this.rtbLangues.Name = "rtbLangues";
-            this.rtbLangues.Size = new System.Drawing.Size(445, 68);
+            this.rtbLangues.Size = new System.Drawing.Size(445, 26);
             this.rtbLangues.TabIndex = 17;
             this.rtbLangues.Text = "";
             // 
@@ -192,51 +197,17 @@ namespace maFichePersonnageJDR.Formulaires
             // lblLangages
             // 
             this.lblLangages.AutoSize = true;
-            this.lblLangages.Location = new System.Drawing.Point(193, 293);
+            this.lblLangages.Location = new System.Drawing.Point(195, 256);
             this.lblLangages.Name = "lblLangages";
             this.lblLangages.Size = new System.Drawing.Size(48, 13);
             this.lblLangages.TabIndex = 19;
             this.lblLangages.Text = "Langues";
             // 
-            // lblChargeMaxi
-            // 
-            this.lblChargeMaxi.AutoSize = true;
-            this.lblChargeMaxi.Location = new System.Drawing.Point(499, 293);
-            this.lblChargeMaxi.Name = "lblChargeMaxi";
-            this.lblChargeMaxi.Size = new System.Drawing.Size(91, 13);
-            this.lblChargeMaxi.TabIndex = 20;
-            this.lblChargeMaxi.Text = "Charge Maximum:";
-            // 
-            // lblVitesse
-            // 
-            this.lblVitesse.AutoSize = true;
-            this.lblVitesse.Location = new System.Drawing.Point(499, 320);
-            this.lblVitesse.Name = "lblVitesse";
-            this.lblVitesse.Size = new System.Drawing.Size(123, 13);
-            this.lblVitesse.TabIndex = 21;
-            this.lblVitesse.Text = "Vitesse de déplacement:";
-            // 
-            // txtBoxCharge
-            // 
-            this.txtBoxCharge.Enabled = false;
-            this.txtBoxCharge.Location = new System.Drawing.Point(596, 290);
-            this.txtBoxCharge.Name = "txtBoxCharge";
-            this.txtBoxCharge.Size = new System.Drawing.Size(35, 20);
-            this.txtBoxCharge.TabIndex = 22;
-            // 
-            // txtVitesse
-            // 
-            this.txtVitesse.Enabled = false;
-            this.txtVitesse.Location = new System.Drawing.Point(628, 317);
-            this.txtVitesse.Name = "txtVitesse";
-            this.txtVitesse.Size = new System.Drawing.Size(35, 20);
-            this.txtVitesse.TabIndex = 23;
-            // 
             // btnSaveInfos
             // 
-            this.btnSaveInfos.Location = new System.Drawing.Point(683, 353);
+            this.btnSaveInfos.Location = new System.Drawing.Point(502, 346);
             this.btnSaveInfos.Name = "btnSaveInfos";
-            this.btnSaveInfos.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveInfos.Size = new System.Drawing.Size(256, 96);
             this.btnSaveInfos.TabIndex = 24;
             this.btnSaveInfos.Text = "Sauvegarde";
             this.btnSaveInfos.UseVisualStyleBackColor = true;
@@ -245,56 +216,187 @@ namespace maFichePersonnageJDR.Formulaires
             // lblMonnaie
             // 
             this.lblMonnaie.AutoSize = true;
-            this.lblMonnaie.Location = new System.Drawing.Point(461, 363);
+            this.lblMonnaie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMonnaie.Location = new System.Drawing.Point(36, 358);
             this.lblMonnaie.Name = "lblMonnaie";
-            this.lblMonnaie.Size = new System.Drawing.Size(51, 13);
+            this.lblMonnaie.Size = new System.Drawing.Size(82, 20);
             this.lblMonnaie.TabIndex = 25;
             this.lblMonnaie.Text = "Monnaie:";
             // 
-            // txtPO
+            // btnAjouterImage
             // 
-            this.txtPO.Location = new System.Drawing.Point(518, 360);
-            this.txtPO.Name = "txtPO";
-            this.txtPO.Size = new System.Drawing.Size(30, 20);
-            this.txtPO.TabIndex = 26;
-            this.txtPO.Text = "Or";
+            this.btnAjouterImage.Location = new System.Drawing.Point(578, 275);
+            this.btnAjouterImage.Name = "btnAjouterImage";
+            this.btnAjouterImage.Size = new System.Drawing.Size(109, 23);
+            this.btnAjouterImage.TabIndex = 29;
+            this.btnAjouterImage.Text = "Ajouter image";
+            this.btnAjouterImage.UseVisualStyleBackColor = true;
+            this.btnAjouterImage.Click += new System.EventHandler(this.btnAjouterImage_Click);
             // 
-            // txtPA
+            // btnViderHistoire
             // 
-            this.txtPA.Location = new System.Drawing.Point(560, 360);
-            this.txtPA.Name = "txtPA";
-            this.txtPA.Size = new System.Drawing.Size(43, 20);
-            this.txtPA.TabIndex = 27;
-            this.txtPA.Text = "Argent";
+            this.btnViderHistoire.Location = new System.Drawing.Point(176, 211);
+            this.btnViderHistoire.Name = "btnViderHistoire";
+            this.btnViderHistoire.Size = new System.Drawing.Size(109, 23);
+            this.btnViderHistoire.TabIndex = 30;
+            this.btnViderHistoire.Text = "Vider";
+            this.btnViderHistoire.UseVisualStyleBackColor = true;
+            this.btnViderHistoire.Click += new System.EventHandler(this.btnViderHistoire_Click);
             // 
-            // txtPC
+            // btnViderLangues
             // 
-            this.txtPC.Location = new System.Drawing.Point(609, 360);
-            this.txtPC.Name = "txtPC";
-            this.txtPC.Size = new System.Drawing.Size(40, 20);
-            this.txtPC.TabIndex = 28;
-            this.txtPC.Text = "Cuivre";
+            this.btnViderLangues.Location = new System.Drawing.Point(177, 304);
+            this.btnViderLangues.Name = "btnViderLangues";
+            this.btnViderLangues.Size = new System.Drawing.Size(109, 23);
+            this.btnViderLangues.TabIndex = 31;
+            this.btnViderLangues.Text = "Vider";
+            this.btnViderLangues.UseVisualStyleBackColor = true;
+            this.btnViderLangues.Click += new System.EventHandler(this.btnViderLangues_Click);
+            // 
+            // lblOr
+            // 
+            this.lblOr.AutoSize = true;
+            this.lblOr.Location = new System.Drawing.Point(167, 345);
+            this.lblOr.Name = "lblOr";
+            this.lblOr.Size = new System.Drawing.Size(18, 13);
+            this.lblOr.TabIndex = 34;
+            this.lblOr.Text = "Or";
+            // 
+            // lblArgent
+            // 
+            this.lblArgent.AutoSize = true;
+            this.lblArgent.Location = new System.Drawing.Point(220, 345);
+            this.lblArgent.Name = "lblArgent";
+            this.lblArgent.Size = new System.Drawing.Size(38, 13);
+            this.lblArgent.TabIndex = 35;
+            this.lblArgent.Text = "Argent";
+            // 
+            // lblCuivre
+            // 
+            this.lblCuivre.AutoSize = true;
+            this.lblCuivre.Location = new System.Drawing.Point(280, 345);
+            this.lblCuivre.Name = "lblCuivre";
+            this.lblCuivre.Size = new System.Drawing.Size(37, 13);
+            this.lblCuivre.TabIndex = 36;
+            this.lblCuivre.Text = "Cuivre";
+            // 
+            // nudOr
+            // 
+            this.nudOr.Location = new System.Drawing.Point(155, 361);
+            this.nudOr.Name = "nudOr";
+            this.nudOr.Size = new System.Drawing.Size(43, 20);
+            this.nudOr.TabIndex = 37;
+            // 
+            // nudArgent
+            // 
+            this.nudArgent.Location = new System.Drawing.Point(217, 361);
+            this.nudArgent.Name = "nudArgent";
+            this.nudArgent.Size = new System.Drawing.Size(43, 20);
+            this.nudArgent.TabIndex = 38;
+            // 
+            // nudCuivre
+            // 
+            this.nudCuivre.Location = new System.Drawing.Point(274, 361);
+            this.nudCuivre.Name = "nudCuivre";
+            this.nudCuivre.Size = new System.Drawing.Size(43, 20);
+            this.nudCuivre.TabIndex = 39;
+            // 
+            // nudNiveau
+            // 
+            this.nudNiveau.Location = new System.Drawing.Point(303, 29);
+            this.nudNiveau.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.nudNiveau.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudNiveau.Name = "nudNiveau";
+            this.nudNiveau.Size = new System.Drawing.Size(43, 20);
+            this.nudNiveau.TabIndex = 40;
+            this.nudNiveau.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudNiveau.ValueChanged += new System.EventHandler(this.nudNiveau_ValueChanged);
+            // 
+            // lblPointsRestants
+            // 
+            this.lblPointsRestants.AutoSize = true;
+            this.lblPointsRestants.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPointsRestants.Location = new System.Drawing.Point(222, 78);
+            this.lblPointsRestants.Name = "lblPointsRestants";
+            this.lblPointsRestants.Size = new System.Drawing.Size(48, 17);
+            this.lblPointsRestants.TabIndex = 41;
+            this.lblPointsRestants.Text = "/XXXX";
+            // 
+            // txtPointsXp
+            // 
+            this.txtPointsXp.Location = new System.Drawing.Point(148, 76);
+            this.txtPointsXp.Name = "txtPointsXp";
+            this.txtPointsXp.Size = new System.Drawing.Size(68, 20);
+            this.txtPointsXp.TabIndex = 42;
+            // 
+            // lblPtsXpTotal
+            // 
+            this.lblPtsXpTotal.AutoSize = true;
+            this.lblPtsXpTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPtsXpTotal.Location = new System.Drawing.Point(21, 77);
+            this.lblPtsXpTotal.Name = "lblPtsXpTotal";
+            this.lblPtsXpTotal.Size = new System.Drawing.Size(121, 15);
+            this.lblPtsXpTotal.TabIndex = 43;
+            this.lblPtsXpTotal.Text = "Points d\'expérience :";
+            // 
+            // txtVitesseDeplacement
+            // 
+            this.txtVitesseDeplacement.Enabled = false;
+            this.txtVitesseDeplacement.Location = new System.Drawing.Point(202, 421);
+            this.txtVitesseDeplacement.Name = "txtVitesseDeplacement";
+            this.txtVitesseDeplacement.Size = new System.Drawing.Size(64, 20);
+            this.txtVitesseDeplacement.TabIndex = 49;
+            this.txtVitesseDeplacement.Text = "9 m";
+            // 
+            // lblVitesseDeplacement
+            // 
+            this.lblVitesseDeplacement.AutoSize = true;
+            this.lblVitesseDeplacement.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVitesseDeplacement.Location = new System.Drawing.Point(152, 403);
+            this.lblVitesseDeplacement.Name = "lblVitesseDeplacement";
+            this.lblVitesseDeplacement.Size = new System.Drawing.Size(176, 13);
+            this.lblVitesseDeplacement.TabIndex = 48;
+            this.lblVitesseDeplacement.Text = "Vitesse de déplacement en combat:";
             // 
             // FormulaireInfosGenerales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 395);
-            this.Controls.Add(this.txtPC);
-            this.Controls.Add(this.txtPA);
-            this.Controls.Add(this.txtPO);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtVitesseDeplacement);
+            this.Controls.Add(this.lblVitesseDeplacement);
+            this.Controls.Add(this.lblPtsXpTotal);
+            this.Controls.Add(this.txtPointsXp);
+            this.Controls.Add(this.lblPointsRestants);
+            this.Controls.Add(this.nudNiveau);
+            this.Controls.Add(this.nudCuivre);
+            this.Controls.Add(this.nudArgent);
+            this.Controls.Add(this.nudOr);
+            this.Controls.Add(this.lblCuivre);
+            this.Controls.Add(this.lblArgent);
+            this.Controls.Add(this.lblOr);
+            this.Controls.Add(this.btnViderLangues);
+            this.Controls.Add(this.btnViderHistoire);
+            this.Controls.Add(this.btnAjouterImage);
             this.Controls.Add(this.lblMonnaie);
             this.Controls.Add(this.btnSaveInfos);
-            this.Controls.Add(this.txtVitesse);
-            this.Controls.Add(this.txtBoxCharge);
-            this.Controls.Add(this.lblVitesse);
-            this.Controls.Add(this.lblChargeMaxi);
             this.Controls.Add(this.lblLangages);
             this.Controls.Add(this.lblHistoire);
             this.Controls.Add(this.rtbLangues);
             this.Controls.Add(this.rtbHistoire);
             this.Controls.Add(this.rdbAutre);
-            this.Controls.Add(this.txtBoxNiveau);
             this.Controls.Add(this.lblNiveau);
             this.Controls.Add(this.rdbFemme);
             this.Controls.Add(this.rdbHomme);
@@ -309,6 +411,10 @@ namespace maFichePersonnageJDR.Formulaires
             this.Text = "FormulaireInfosGenerales";
             this.Load += new System.EventHandler(this.FormulaireInfosGenerales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudOr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudArgent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCuivre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNiveau)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -325,21 +431,28 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblRace;
         private System.Windows.Forms.RadioButton rdbHomme;
         private System.Windows.Forms.RadioButton rdbFemme;
-        private System.Windows.Forms.TextBox txtBoxNiveau;
         private System.Windows.Forms.Label lblNiveau;
         private System.Windows.Forms.RadioButton rdbAutre;
         private System.Windows.Forms.RichTextBox rtbHistoire;
         private System.Windows.Forms.RichTextBox rtbLangues;
         private System.Windows.Forms.Label lblHistoire;
         private System.Windows.Forms.Label lblLangages;
-        private System.Windows.Forms.Label lblChargeMaxi;
-        private System.Windows.Forms.Label lblVitesse;
-        private System.Windows.Forms.TextBox txtBoxCharge;
-        private System.Windows.Forms.TextBox txtVitesse;
         private System.Windows.Forms.Button btnSaveInfos;
         private System.Windows.Forms.Label lblMonnaie;
-        private System.Windows.Forms.TextBox txtPO;
-        private System.Windows.Forms.TextBox txtPA;
-        private System.Windows.Forms.TextBox txtPC;
+        private System.Windows.Forms.Button btnAjouterImage;
+        private System.Windows.Forms.Button btnViderHistoire;
+        private System.Windows.Forms.Button btnViderLangues;
+        private System.Windows.Forms.Label lblOr;
+        private System.Windows.Forms.Label lblArgent;
+        private System.Windows.Forms.Label lblCuivre;
+        private System.Windows.Forms.NumericUpDown nudOr;
+        private System.Windows.Forms.NumericUpDown nudArgent;
+        private System.Windows.Forms.NumericUpDown nudCuivre;
+        private System.Windows.Forms.NumericUpDown nudNiveau;
+        private System.Windows.Forms.Label lblPointsRestants;
+        private System.Windows.Forms.TextBox txtPointsXp;
+        private System.Windows.Forms.Label lblPtsXpTotal;
+        private System.Windows.Forms.TextBox txtVitesseDeplacement;
+        private System.Windows.Forms.Label lblVitesseDeplacement;
     }
 }

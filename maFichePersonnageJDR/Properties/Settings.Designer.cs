@@ -26,9 +26,9 @@ namespace maFichePersonnageJDR.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public string Physique {
+        public int Physique {
             get {
-                return ((string)(this["Physique"]));
+                return ((int)(this["Physique"]));
             }
             set {
                 this["Physique"] = value;
@@ -38,9 +38,9 @@ namespace maFichePersonnageJDR.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public string Mental {
+        public int Mental {
             get {
-                return ((string)(this["Mental"]));
+                return ((int)(this["Mental"]));
             }
             set {
                 this["Mental"] = value;
@@ -50,9 +50,9 @@ namespace maFichePersonnageJDR.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public string Social {
+        public int Social {
             get {
-                return ((string)(this["Social"]));
+                return ((int)(this["Social"]));
             }
             set {
                 this["Social"] = value;
@@ -62,12 +62,12 @@ namespace maFichePersonnageJDR.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int Adresse {
+        public int Dexterite {
             get {
-                return ((int)(this["Adresse"]));
+                return ((int)(this["Dexterite"]));
             }
             set {
-                this["Adresse"] = value;
+                this["Dexterite"] = value;
             }
         }
         
@@ -86,12 +86,12 @@ namespace maFichePersonnageJDR.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int Animale {
+        public int Dressage {
             get {
-                return ((int)(this["Animale"]));
+                return ((int)(this["Dressage"]));
             }
             set {
-                this["Animale"] = value;
+                this["Dressage"] = value;
             }
         }
         
@@ -110,12 +110,12 @@ namespace maFichePersonnageJDR.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int Botanique {
+        public int ConnNature {
             get {
-                return ((int)(this["Botanique"]));
+                return ((int)(this["ConnNature"]));
             }
             set {
-                this["Botanique"] = value;
+                this["ConnNature"] = value;
             }
         }
         
@@ -242,12 +242,12 @@ namespace maFichePersonnageJDR.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int Langages {
+        public int Decryptage {
             get {
-                return ((int)(this["Langages"]));
+                return ((int)(this["Decryptage"]));
             }
             set {
-                this["Langages"] = value;
+                this["Decryptage"] = value;
             }
         }
         
@@ -326,12 +326,12 @@ namespace maFichePersonnageJDR.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int Psyche {
+        public int Esprit {
             get {
-                return ((int)(this["Psyche"]));
+                return ((int)(this["Esprit"]));
             }
             set {
-                this["Psyche"] = value;
+                this["Esprit"] = value;
             }
         }
         
@@ -373,10 +373,10 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
-        public string PV {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int PV {
             get {
-                return ((string)(this["PV"]));
+                return ((int)(this["PV"]));
             }
             set {
                 this["PV"] = value;
@@ -385,10 +385,10 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
-        public string Energie {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Energie {
             get {
-                return ((string)(this["Energie"]));
+                return ((int)(this["Energie"]));
             }
             set {
                 this["Energie"] = value;
@@ -409,7 +409,7 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Prenom {
             get {
                 return ((string)(this["Prenom"]));
@@ -421,7 +421,7 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Nom {
             get {
                 return ((string)(this["Nom"]));
@@ -433,7 +433,7 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Race {
             get {
                 return ((string)(this["Race"]));
@@ -445,10 +445,10 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
-        public string Niveau {
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int Niveau {
             get {
-                return ((string)(this["Niveau"]));
+                return ((int)(this["Niveau"]));
             }
             set {
                 this["Niveau"] = value;
@@ -469,7 +469,7 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Histoire {
             get {
                 return ((string)(this["Histoire"]));
@@ -481,7 +481,7 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Langues {
             get {
                 return ((string)(this["Langues"]));
@@ -493,10 +493,10 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
-        public string ChargeMax {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double ChargeMax {
             get {
-                return ((string)(this["ChargeMax"]));
+                return ((double)(this["ChargeMax"]));
             }
             set {
                 this["ChargeMax"] = value;
@@ -505,10 +505,10 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Empty")]
-        public string VitesseDepla {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int VitesseDepla {
             get {
-                return ((string)(this["VitesseDepla"]));
+                return ((int)(this["VitesseDepla"]));
             }
             set {
                 this["VitesseDepla"] = value;
@@ -517,10 +517,10 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Or {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Or {
             get {
-                return ((string)(this["Or"]));
+                return ((int)(this["Or"]));
             }
             set {
                 this["Or"] = value;
@@ -529,10 +529,10 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Argent {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Argent {
             get {
-                return ((string)(this["Argent"]));
+                return ((int)(this["Argent"]));
             }
             set {
                 this["Argent"] = value;
@@ -541,10 +541,10 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Cuivre {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Cuivre {
             get {
-                return ((string)(this["Cuivre"]));
+                return ((int)(this["Cuivre"]));
             }
             set {
                 this["Cuivre"] = value;
@@ -553,9 +553,10 @@ namespace maFichePersonnageJDR.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Collections.Specialized.StringCollection Inventaires {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Inventaires {
             get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["Inventaires"]));
+                return ((string)(this["Inventaires"]));
             }
             set {
                 this["Inventaires"] = value;
@@ -571,6 +572,1086 @@ namespace maFichePersonnageJDR.Properties {
             }
             set {
                 this["Discretion"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Sortilèges {
+            get {
+                return ((string)(this["Sortilèges"]));
+            }
+            set {
+                this["Sortilèges"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CheminImage {
+            get {
+                return ((string)(this["CheminImage"]));
+            }
+            set {
+                this["CheminImage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Endurance {
+            get {
+                return ((int)(this["Endurance"]));
+            }
+            set {
+                this["Endurance"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Marchandage {
+            get {
+                return ((int)(this["Marchandage"]));
+            }
+            set {
+                this["Marchandage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Charme {
+            get {
+                return ((int)(this["Charme"]));
+            }
+            set {
+                this["Charme"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Prestance {
+            get {
+                return ((int)(this["Prestance"]));
+            }
+            set {
+                this["Prestance"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Escamotage {
+            get {
+                return ((int)(this["Escamotage"]));
+            }
+            set {
+                this["Escamotage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNScramasax {
+            get {
+                return ((int)(this["VNScramasax"]));
+            }
+            set {
+                this["VNScramasax"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNEpeeCourte {
+            get {
+                return ((int)(this["VNEpeeCourte"]));
+            }
+            set {
+                this["VNEpeeCourte"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNEpeeLongue {
+            get {
+                return ((int)(this["VNEpeeLongue"]));
+            }
+            set {
+                this["VNEpeeLongue"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNGlaive {
+            get {
+                return ((int)(this["VNGlaive"]));
+            }
+            set {
+                this["VNGlaive"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNLatte {
+            get {
+                return ((int)(this["VNLatte"]));
+            }
+            set {
+                this["VNLatte"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNSabreCourbe {
+            get {
+                return ((int)(this["VNSabreCourbe"]));
+            }
+            set {
+                this["VNSabreCourbe"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNContus {
+            get {
+                return ((int)(this["VNContus"]));
+            }
+            set {
+                this["VNContus"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNJavelot {
+            get {
+                return ((int)(this["VNJavelot"]));
+            }
+            set {
+                this["VNJavelot"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNFourche {
+            get {
+                return ((int)(this["VNFourche"]));
+            }
+            set {
+                this["VNFourche"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNSarisse {
+            get {
+                return ((int)(this["VNSarisse"]));
+            }
+            set {
+                this["VNSarisse"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNTrident {
+            get {
+                return ((int)(this["VNTrident"]));
+            }
+            set {
+                this["VNTrident"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNCouteau {
+            get {
+                return ((int)(this["VNCouteau"]));
+            }
+            set {
+                this["VNCouteau"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNDague {
+            get {
+                return ((int)(this["VNDague"]));
+            }
+            set {
+                this["VNDague"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNFaucilleGuerre {
+            get {
+                return ((int)(this["VNFaucilleGuerre"]));
+            }
+            set {
+                this["VNFaucilleGuerre"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNDagueAssassin {
+            get {
+                return ((int)(this["VNDagueAssassin"]));
+            }
+            set {
+                this["VNDagueAssassin"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNFrancisque {
+            get {
+                return ((int)(this["VNFrancisque"]));
+            }
+            set {
+                this["VNFrancisque"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNArc {
+            get {
+                return ((int)(this["VNArc"]));
+            }
+            set {
+                this["VNArc"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNArbalete {
+            get {
+                return ((int)(this["VNArbalete"]));
+            }
+            set {
+                this["VNArbalete"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNFronde {
+            get {
+                return ((int)(this["VNFronde"]));
+            }
+            set {
+                this["VNFronde"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNFouet {
+            get {
+                return ((int)(this["VNFouet"]));
+            }
+            set {
+                this["VNFouet"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNFaucilleChaine {
+            get {
+                return ((int)(this["VNFaucilleChaine"]));
+            }
+            set {
+                this["VNFaucilleChaine"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNBatonChene {
+            get {
+                return ((int)(this["VNBatonChene"]));
+            }
+            set {
+                this["VNBatonChene"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNSceptre {
+            get {
+                return ((int)(this["VNSceptre"]));
+            }
+            set {
+                this["VNSceptre"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNSpangenhelm {
+            get {
+                return ((int)(this["VNSpangenhelm"]));
+            }
+            set {
+                this["VNSpangenhelm"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNCoiffeMailles {
+            get {
+                return ((int)(this["VNCoiffeMailles"]));
+            }
+            set {
+                this["VNCoiffeMailles"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNMorion {
+            get {
+                return ((int)(this["VNMorion"]));
+            }
+            set {
+                this["VNMorion"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNCerveliere {
+            get {
+                return ((int)(this["VNCerveliere"]));
+            }
+            set {
+                this["VNCerveliere"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNChapelFer {
+            get {
+                return ((int)(this["VNChapelFer"]));
+            }
+            set {
+                this["VNChapelFer"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNCasqueBarbare {
+            get {
+                return ((int)(this["VNCasqueBarbare"]));
+            }
+            set {
+                this["VNCasqueBarbare"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNVetements {
+            get {
+                return ((int)(this["VNVetements"]));
+            }
+            set {
+                this["VNVetements"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNBroigne {
+            get {
+                return ((int)(this["VNBroigne"]));
+            }
+            set {
+                this["VNBroigne"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNCataphracte {
+            get {
+                return ((int)(this["VNCataphracte"]));
+            }
+            set {
+                this["VNCataphracte"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNCuirasseFer {
+            get {
+                return ((int)(this["VNCuirasseFer"]));
+            }
+            set {
+                this["VNCuirasseFer"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNRobeCuir {
+            get {
+                return ((int)(this["VNRobeCuir"]));
+            }
+            set {
+                this["VNRobeCuir"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNCuirasseBronze {
+            get {
+                return ((int)(this["VNCuirasseBronze"]));
+            }
+            set {
+                this["VNCuirasseBronze"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNGantsMailles {
+            get {
+                return ((int)(this["VNGantsMailles"]));
+            }
+            set {
+                this["VNGantsMailles"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNGantelets {
+            get {
+                return ((int)(this["VNGantelets"]));
+            }
+            set {
+                this["VNGantelets"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNMitaines {
+            get {
+                return ((int)(this["VNMitaines"]));
+            }
+            set {
+                this["VNMitaines"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNMitons {
+            get {
+                return ((int)(this["VNMitons"]));
+            }
+            set {
+                this["VNMitons"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNCuissardesFer {
+            get {
+                return ((int)(this["VNCuissardesFer"]));
+            }
+            set {
+                this["VNCuissardesFer"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNPantalonToile {
+            get {
+                return ((int)(this["VNPantalonToile"]));
+            }
+            set {
+                this["VNPantalonToile"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNCnemide {
+            get {
+                return ((int)(this["VNCnemide"]));
+            }
+            set {
+                this["VNCnemide"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNSandales {
+            get {
+                return ((int)(this["VNSandales"]));
+            }
+            set {
+                this["VNSandales"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNChaussuresCuir {
+            get {
+                return ((int)(this["VNChaussuresCuir"]));
+            }
+            set {
+                this["VNChaussuresCuir"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNEcu {
+            get {
+                return ((int)(this["VNEcu"]));
+            }
+            set {
+                this["VNEcu"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNPavois {
+            get {
+                return ((int)(this["VNPavois"]));
+            }
+            set {
+                this["VNPavois"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNBouclierAmande {
+            get {
+                return ((int)(this["VNBouclierAmande"]));
+            }
+            set {
+                this["VNBouclierAmande"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNBouclierBronze {
+            get {
+                return ((int)(this["VNBouclierBronze"]));
+            }
+            set {
+                this["VNBouclierBronze"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNPelta {
+            get {
+                return ((int)(this["VNPelta"]));
+            }
+            set {
+                this["VNPelta"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNTorche {
+            get {
+                return ((int)(this["VNTorche"]));
+            }
+            set {
+                this["VNTorche"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNCorde {
+            get {
+                return ((int)(this["VNCorde"]));
+            }
+            set {
+                this["VNCorde"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNOutre {
+            get {
+                return ((int)(this["VNOutre"]));
+            }
+            set {
+                this["VNOutre"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNSac {
+            get {
+                return ((int)(this["VNSac"]));
+            }
+            set {
+                this["VNSac"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNTente {
+            get {
+                return ((int)(this["VNTente"]));
+            }
+            set {
+                this["VNTente"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Memoire {
+            get {
+                return ((int)(this["Memoire"]));
+            }
+            set {
+                this["Memoire"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Provocation {
+            get {
+                return ((int)(this["Provocation"]));
+            }
+            set {
+                this["Provocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int PointsExp {
+            get {
+                return ((int)(this["PointsExp"]));
+            }
+            set {
+                this["PointsExp"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double ChargePortee {
+            get {
+                return ((double)(this["ChargePortee"]));
+            }
+            set {
+                this["ChargePortee"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNEpeeBois {
+            get {
+                return ((int)(this["VNEpeeBois"]));
+            }
+            set {
+                this["VNEpeeBois"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNEpeeBatarde {
+            get {
+                return ((int)(this["VNEpeeBatarde"]));
+            }
+            set {
+                this["VNEpeeBatarde"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNHacheBucheron {
+            get {
+                return ((int)(this["VNHacheBucheron"]));
+            }
+            set {
+                this["VNHacheBucheron"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNMassueChene {
+            get {
+                return ((int)(this["VNMassueChene"]));
+            }
+            set {
+                this["VNMassueChene"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNMarteauForgeron {
+            get {
+                return ((int)(this["VNMarteauForgeron"]));
+            }
+            set {
+                this["VNMarteauForgeron"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNSabatons {
+            get {
+                return ((int)(this["VNSabatons"]));
+            }
+            set {
+                this["VNSabatons"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNCapeElfique {
+            get {
+                return ((int)(this["VNCapeElfique"]));
+            }
+            set {
+                this["VNCapeElfique"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNCanneAqua {
+            get {
+                return ((int)(this["VNCanneAqua"]));
+            }
+            set {
+                this["VNCanneAqua"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNBaguetteFeu {
+            get {
+                return ((int)(this["VNBaguetteFeu"]));
+            }
+            set {
+                this["VNBaguetteFeu"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNBtonCeleste {
+            get {
+                return ((int)(this["VNBtonCeleste"]));
+            }
+            set {
+                this["VNBtonCeleste"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNScreptreTerre {
+            get {
+                return ((int)(this["VNScreptreTerre"]));
+            }
+            set {
+                this["VNScreptreTerre"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNBatonNature {
+            get {
+                return ((int)(this["VNBatonNature"]));
+            }
+            set {
+                this["VNBatonNature"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNCanneLumiere {
+            get {
+                return ((int)(this["VNCanneLumiere"]));
+            }
+            set {
+                this["VNCanneLumiere"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNBaguetteInfernale {
+            get {
+                return ((int)(this["VNBaguetteInfernale"]));
+            }
+            set {
+                this["VNBaguetteInfernale"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNSceptreNeutralite {
+            get {
+                return ((int)(this["VNSceptreNeutralite"]));
+            }
+            set {
+                this["VNSceptreNeutralite"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNMouchoir {
+            get {
+                return ((int)(this["VNMouchoir"]));
+            }
+            set {
+                this["VNMouchoir"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNCouverture {
+            get {
+                return ((int)(this["VNCouverture"]));
+            }
+            set {
+                this["VNCouverture"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNPlanteMedicinale {
+            get {
+                return ((int)(this["VNPlanteMedicinale"]));
+            }
+            set {
+                this["VNPlanteMedicinale"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNContrePoison {
+            get {
+                return ((int)(this["VNContrePoison"]));
+            }
+            set {
+                this["VNContrePoison"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNFlecheBois {
+            get {
+                return ((int)(this["VNFlecheBois"]));
+            }
+            set {
+                this["VNFlecheBois"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNFlecheFer {
+            get {
+                return ((int)(this["VNFlecheFer"]));
+            }
+            set {
+                this["VNFlecheFer"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNFlecheArgent {
+            get {
+                return ((int)(this["VNFlecheArgent"]));
+            }
+            set {
+                this["VNFlecheArgent"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNCarreauBois {
+            get {
+                return ((int)(this["VNCarreauBois"]));
+            }
+            set {
+                this["VNCarreauBois"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNCarreauFer {
+            get {
+                return ((int)(this["VNCarreauFer"]));
+            }
+            set {
+                this["VNCarreauFer"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int VNPierre {
+            get {
+                return ((int)(this["VNPierre"]));
+            }
+            set {
+                this["VNPierre"] = value;
             }
         }
     }
