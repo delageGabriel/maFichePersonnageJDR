@@ -18,40 +18,40 @@ namespace maFichePersonnageJDR.Formulaires
             12,
             19,
             23,
-            30,
-            37,
+            26,
+            29,
+            33,
+            38,
             44,
-            52,
-            61,
-            71,
-            75,
-            84,
-            93,
-            102,
-            111,
+            51,
+            59,
+            68,
+            78,
+            88,
+            98,
+            108,
+            115,
             120,
-            129,
-            138,
-            147,
-            158,
-            169
+            124,
+            126,
+            127
         };
 
         private short[] tableauCaracteristiques = {
             135,
             135,
-            135,
-            135,
+            140,
             140,
             140,
             145,
-            150,
             155,
-            165,
+            155,
+            160,
             165,
             170,
             170,
-            175,
+            180,
+            180,
             180,
             185,
             185,
@@ -80,19 +80,23 @@ namespace maFichePersonnageJDR.Formulaires
             nudPhysique.Value = Properties.Settings.Default.Physique;
             nudMental.Value = Properties.Settings.Default.Mental;
             nudSocial.Value = Properties.Settings.Default.Social;
-            nudDexterite.Value = Properties.Settings.Default.Dexterite;
             nudAgilite.Value = Properties.Settings.Default.Agilité;
-            nudDressage.Value = Properties.Settings.Default.Dressage;
             nudArtisanat.Value = Properties.Settings.Default.Artisanat;
-            nudConnNatures.Value = Properties.Settings.Default.ConnNature;
+            nudBtinage.Value = Properties.Settings.Default.Baratinage;
             nudCharme.Value = Properties.Settings.Default.Charme;
+            nudCmedie.Value = Properties.Settings.Default.Comédie;
+            nudCncention.Value = Properties.Settings.Default.Concentration;
             nudConnGeographiques.Value = Properties.Settings.Default.ConnGeographiques;
             nudConnHistoriques.Value = Properties.Settings.Default.ConnHistoriques;
             nudMagiques.Value = Properties.Settings.Default.ConnMagiques;
+            nudConnNatures.Value = Properties.Settings.Default.ConnNature;
             nudConnReligieuses.Value = Properties.Settings.Default.ConnReligieuses;
             nudCrochetage.Value = Properties.Settings.Default.Crochetage;
+            nudDexterite.Value = Properties.Settings.Default.Dexterite;
             nudDiplomatie.Value = Properties.Settings.Default.Diplomatie;
             nudDiscretion.Value = Properties.Settings.Default.Discretion;
+            nudDressage.Value = Properties.Settings.Default.Dressage;
+            nudEqlibre.Value = Properties.Settings.Default.Equilibre;
             nudEscalade.Value = Properties.Settings.Default.Escalade;
             nudEscamotage.Value = Properties.Settings.Default.Escamotage;
             nudExplosifs.Value = Properties.Settings.Default.Explosifs;
@@ -250,8 +254,10 @@ namespace maFichePersonnageJDR.Formulaires
         {
             txtPntsPVEnergie.Text = TableauPV[X - 1].ToString();
             txtPntsCaracteristiques.Text = TableauCaracteristiques[X - 1].ToString();
+
             nudPV.Maximum = decimal.Parse(txtPntsPVEnergie.Text);
             nudEnergie.Maximum = decimal.Parse(txtPntsPVEnergie.Text);
+
             GetSettings();
             GetAttributCheckbox();
             GetAttributJoueurOuMJ();
@@ -272,10 +278,12 @@ namespace maFichePersonnageJDR.Formulaires
             Properties.Settings.Default.Social = Convert.ToInt32(nudSocial.Value);
             Properties.Settings.Default.Dexterite = Convert.ToInt32(nudDexterite.Value);
             Properties.Settings.Default.Agilité = Convert.ToInt32(nudAgilite.Value);
-            Properties.Settings.Default.Dressage = Convert.ToInt32(nudDressage.Value);
             Properties.Settings.Default.Artisanat = Convert.ToInt32(nudArtisanat.Value);
-            Properties.Settings.Default.ConnNature = Convert.ToInt32(nudConnNatures.Value);
+            Properties.Settings.Default.Baratinage = Convert.ToInt32(nudBtinage.Value);
             Properties.Settings.Default.Charme = Convert.ToInt32(nudCharme.Value);
+            Properties.Settings.Default.Comédie = Convert.ToInt32(nudCmedie.Value);
+            Properties.Settings.Default.Concentration = Convert.ToInt32(nudCncention.Value);
+            Properties.Settings.Default.ConnNature = Convert.ToInt32(nudConnNatures.Value);
             Properties.Settings.Default.ConnGeographiques = Convert.ToInt32(nudConnGeographiques.Value);
             Properties.Settings.Default.ConnHistoriques = Convert.ToInt32(nudConnHistoriques.Value);
             Properties.Settings.Default.ConnMagiques = Convert.ToInt32(nudMagiques.Value);
@@ -283,6 +291,8 @@ namespace maFichePersonnageJDR.Formulaires
             Properties.Settings.Default.Crochetage = Convert.ToInt32(nudCrochetage.Value);
             Properties.Settings.Default.Diplomatie = Convert.ToInt32(nudDiplomatie.Value);
             Properties.Settings.Default.Discretion = Convert.ToInt32(nudDiscretion.Value);
+            Properties.Settings.Default.Dressage = Convert.ToInt32(nudDressage.Value);
+            Properties.Settings.Default.Equilibre = Convert.ToInt32(nudEqlibre.Value);
             Properties.Settings.Default.Escalade = Convert.ToInt32(nudEscalade.Value);
             Properties.Settings.Default.Escamotage = Convert.ToInt32(nudEscamotage.Value);
             Properties.Settings.Default.Explosifs = Convert.ToInt32(nudExplosifs.Value);
@@ -352,24 +362,21 @@ namespace maFichePersonnageJDR.Formulaires
             int valeurCommunePhysique = 0;
             int valeurRepartitionPhysiqueRetournee = 0;
 
-            NumericUpDown numericUp = (NumericUpDown)sender;
-            /// Cas Physique
-            if (numericUp.Tag.ToString().Contains("Physique"))
+            foreach (object uneCompetence in grpbCompetences.Controls)
             {
-                foreach (object uneCompetence in grpbCompetences.Controls)
+                if (uneCompetence is NumericUpDown)
                 {
-                    if (uneCompetence is NumericUpDown)
+                    NumericUpDown numComp = (NumericUpDown)uneCompetence;
+
+                    if (numComp.Tag.ToString().Contains("Physique"))
                     {
-                        NumericUpDown numComp = (NumericUpDown)uneCompetence;
-                        if (numComp.Tag.ToString().Contains("Physique"))
-                        {
-                            valeurCommunePhysique += Convert.ToInt32(numComp.Value);
-                        }
+                        valeurCommunePhysique += Convert.ToInt32(numComp.Value);
                     }
                 }
-                valeurRepartitionPhysiqueRetournee = valeurTotaleRepartitionPhysique - valeurCommunePhysique;
-                txtPntsPhysique.Text = valeurRepartitionPhysiqueRetournee.ToString();
             }
+
+            valeurRepartitionPhysiqueRetournee = valeurTotaleRepartitionPhysique - valeurCommunePhysique;
+            txtPntsPhysique.Text = valeurRepartitionPhysiqueRetournee.ToString();
             /// Cas Physique
             if (txtPntsPhysique.Text == "0")
             {
@@ -622,7 +629,7 @@ namespace maFichePersonnageJDR.Formulaires
                     nudMental.Maximum = 70;
                     nudSocial.Maximum = 70;
                 }
-                else if(X >= 15 && X <= 20)
+                else if (X >= 15 && X <= 20)
                 {
                     nudPhysique.Maximum = 75;
                     nudMental.Maximum = 75;
@@ -658,15 +665,16 @@ namespace maFichePersonnageJDR.Formulaires
 
         private void btnReinitialiserCompetences_Click(object sender, EventArgs e)
         {
-            foreach(Control competencesControls in grpbCompetences.Controls)
+            foreach (Control competencesControls in grpbCompetences.Controls)
             {
                 NumericUpDown numericUpDown = new NumericUpDown();
 
                 if (competencesControls is NumericUpDown)
                 {
                     numericUpDown = (NumericUpDown)competencesControls;
+                    Console.WriteLine(numericUpDown.TabIndex);
                     numericUpDown.Value = 0;
-                }                
+                }
             }
         }
     }

@@ -186,11 +186,11 @@ namespace maFichePersonnageJDR.Classe
 
         private const string taille = ", Taille : ";
 
-        private const int ptsPhysiqueMax = 50;
+        private const int ptsPhysiqueMax = 55;
 
-        private const int ptsMentalMax = 70;
+        private const int ptsMentalMax = 75;
 
-        private const int ptsSocialMax = 35;
+        private const int ptsSocialMax = 45;
 
         private static double poidsTotal = 0;
 
