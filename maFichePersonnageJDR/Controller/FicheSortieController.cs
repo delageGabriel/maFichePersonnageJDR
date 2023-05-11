@@ -8,6 +8,11 @@ namespace maFichePersonnageJDR.Controller
 {
     class FicheSortieController
     {
+        /// <summary>
+        /// Méthode qui retourne la valeur random à calculer
+        /// </summary>
+        /// <param name="valeur">la vigueur ou l'esprit du personnage</param>
+        /// <returns></returns>
         public static int GetPVEnergiePersonnage(int valeur)
         {
             try
@@ -25,24 +30,37 @@ namespace maFichePersonnageJDR.Controller
 
                 return deSortie;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw e;
             }
         }
 
+        /// <summary>
+        /// Méthode qui retourne le nombre pv calculé de manière aléatoire
+        /// </summary>
+        /// <param name="nombreDeDé">nombre de dés à jeter</param>
+        /// <param name="valeurRandom">la valeur aléatoire à calculer</param>
+        /// <returns></returns>
         public static int CalculPVEnergiePersonnage(int nombreDeDé, int valeurRandom)
         {
-            int valeurARetourner = 0;
-
-            for(int i = 0; i < nombreDeDé; i++)
+            try
             {
-                Random randomObject = new Random();
+                int valeurARetourner = 0;
 
-                valeurARetourner += randomObject.Next(valeurRandom);
+                for (int i = 0; i < nombreDeDé; i++)
+                {
+                    Random randomObject = new Random();
+
+                    valeurARetourner += randomObject.Next(valeurRandom);
+                }
+
+                return valeurARetourner;
             }
-
-            return valeurARetourner;
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
     }
 }

@@ -173,6 +173,7 @@ namespace maFichePersonnageJDR
             int nbEnergie = Properties.Settings.Default.Energie + (Properties.Settings.Default.Esprit / 3);
             int niveauPersonnage = Properties.Settings.Default.Niveau;
 
+            // Calcul supplémentaire des pv et de l'énergie si le personnage n'est pas niveau 1
             if(niveauPersonnage > 1)
             {
                 int nbDes = niveauPersonnage - 1;
