@@ -201,7 +201,7 @@ namespace maFichePersonnageJDR
                 nbPv += FicheSortieController.CalculPVEnergiePersonnage(nbDes, valeurPV);
                 nbEnergie += FicheSortieController.CalculPVEnergiePersonnage(nbDes, valeurEnergie);
             }
-
+            
             documentPdf.LoadFromFile(cheminTemplate);
 
             #region general

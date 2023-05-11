@@ -80,7 +80,6 @@ namespace maFichePersonnageJDR.Formulaires
             nudPhysique.Value = Properties.Settings.Default.Physique;
             nudMental.Value = Properties.Settings.Default.Mental;
             nudSocial.Value = Properties.Settings.Default.Social;
-
             nudAgilite.Value = Properties.Settings.Default.Agilité;
             nudArtisanat.Value = Properties.Settings.Default.Artisanat;
             nudBtinage.Value = Properties.Settings.Default.Baratinage;

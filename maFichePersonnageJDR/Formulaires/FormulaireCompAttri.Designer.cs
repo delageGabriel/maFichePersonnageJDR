@@ -1709,7 +1709,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudSocial.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangeCaracteristiques_ValueChanged);
             // 
             // btnReinitialiserCompetences
-            // 
+            //
             this.btnReinitialiserCompetences.Location = new System.Drawing.Point(795, 502);
             this.btnReinitialiserCompetences.Margin = new System.Windows.Forms.Padding(4);
             this.btnReinitialiserCompetences.Name = "btnReinitialiserCompetences";
