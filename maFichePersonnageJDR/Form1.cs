@@ -13,6 +13,8 @@ using Spire.Doc;
 using Spire.Doc.Fields;
 using Spire.Doc.Documents;
 using maFichePersonnageJDR.Classe;
+using maFichePersonnageJDR.Controller;
+
 namespace maFichePersonnageJDR
 {
     public partial class FrmPrincipal : Form
@@ -166,8 +168,21 @@ namespace maFichePersonnageJDR
         private void btnSoumettreFiche_Click(object sender, EventArgs e)
         {
             pbEtatFiche.Value = 0;
+            
             int nbPv = Properties.Settings.Default.PV + (Properties.Settings.Default.Vigueur / 3);
             int nbEnergie = Properties.Settings.Default.Energie + (Properties.Settings.Default.Esprit / 3);
+            int niveauPersonnage = Properties.Settings.Default.Niveau;
+
+            if(niveauPersonnage > 1)
+            {
+                int nbDes = niveauPersonnage - 1;
+                int valeurPV = FicheSortieController.GetPVEnergiePersonnage(Properties.Settings.Default.Vigueur);
+                int valeurEnergie = FicheSortieController.GetPVEnergiePersonnage(Properties.Settings.Default.Esprit);
+
+                nbPv += FicheSortieController.CalculPVEnergiePersonnage(nbDes, valeurPV);
+                nbEnergie += FicheSortieController.CalculPVEnergiePersonnage(nbDes, valeurEnergie);
+            }
+
             documentPdf.LoadFromFile(cheminTemplate);
 
             #region general
