@@ -87,10 +87,19 @@ namespace maFichePersonnageJDR
                 58,
                 60,
                 62,
-                64
+                64,
+                66,
+                68,
+                70,
+                72,
+                74,
+                76,
+                78,
+                80
             };
 
-            int[] tableauImpair = new int[]{1,
+            int[] tableauImpair = new int[]{
+                1,
                 3,
                 5,
                 7,
@@ -121,7 +130,16 @@ namespace maFichePersonnageJDR
                 57,
                 59,
                 61,
-                63
+                63,
+                65,
+                67,
+                69,
+                71,
+                73,
+                75,
+                77,
+                79,
+                81
             };
 
             for (int i = 0; i < tableauPair.Length; i++)
@@ -342,27 +360,32 @@ namespace maFichePersonnageJDR
             Paragraph paragrapheVideDeux = section.AddParagraph();
 
             #region competences
-            int nbLigne = 11;
+            int nbLigne = 12;
             int nbColonnes = 6;
-            string[] nomsCompetences = {"Agilité",
+            string[] nomsCompetences = {
+                "Agilité",
                 "Artisanat",
+                "Baratinage",
                 "Charme",
+                "Comédie",
+                "Concentration",
                 "Conn. Géographiques",
                 "Conn. Historiques",
                 "Conn. Magiques",
                 "Conn. Natures",
                 "Conn. Religieuses",
                 "Crochetage",
+                "Décryptage",
+                "Dextérité",
                 "Diplomatie",
                 "Discrétion",
                 "Dressage",
+                "Équilibre",
                 "Escalade",
                 "Esprit",
                 "Escamotage",
                 "Explosifs",
-                "Dextérité",
                 "Force",
-                "Décryptage",
                 "Intimidation",
                 "Marchandage",
                 "Mécanique",
@@ -377,25 +400,30 @@ namespace maFichePersonnageJDR
                 "Vigueur",
                 "Volonté"
             };
-            string[] pointsCompetences = { Properties.Settings.Default.Agilité.ToString(),
+            string[] pointsCompetences = {
+                Properties.Settings.Default.Agilité.ToString(),
                 Properties.Settings.Default.Artisanat.ToString(),
+                Properties.Settings.Default.Baratinage.ToString(),
                 Properties.Settings.Default.Charme.ToString(),
+                Properties.Settings.Default.Comédie.ToString(),
+                Properties.Settings.Default.Concentration.ToString(),
                 Properties.Settings.Default.ConnGeographiques.ToString(),
                 Properties.Settings.Default.ConnHistoriques.ToString(),
                 Properties.Settings.Default.ConnMagiques.ToString(),
                 Properties.Settings.Default.ConnNature.ToString(),
                 Properties.Settings.Default.ConnReligieuses.ToString(),
                 Properties.Settings.Default.Crochetage.ToString(),
+                Properties.Settings.Default.Decryptage.ToString(),
+                Properties.Settings.Default.Dexterite.ToString(),
                 Properties.Settings.Default.Diplomatie.ToString(),
                 Properties.Settings.Default.Discretion.ToString(),
                 Properties.Settings.Default.Dressage.ToString(),
+                Properties.Settings.Default.Equilibre.ToString(),
                 Properties.Settings.Default.Escalade.ToString(),
                 Properties.Settings.Default.Esprit.ToString(),
                 Properties.Settings.Default.Escamotage.ToString(),
                 Properties.Settings.Default.Explosifs.ToString(),
-                Properties.Settings.Default.Dexterite.ToString(),
                 Properties.Settings.Default.Force.ToString(),
-                Properties.Settings.Default.Decryptage.ToString(),
                 Properties.Settings.Default.Intimidation.ToString(),
                 Properties.Settings.Default.Marchandage.ToString(),
                 Properties.Settings.Default.Mecanique.ToString(),
@@ -434,7 +462,7 @@ namespace maFichePersonnageJDR
             int indiceNbLigne = 0;
             int indice = 0;
 
-            while (cpt < (nomsCompetences.Length * 2) - 1)
+            while (cpt < (nomsCompetences.Length + pointsCompetences.Length) - 2)
             {
                 if (indiceNbLigne > tableCompetences.Rows.Count - 1)
                     break;
@@ -549,7 +577,7 @@ namespace maFichePersonnageJDR
             rowHeaderSortileges.Cells[0].CellFormat.VerticalAlignment = VerticalAlignment.Middle;
             Paragraph pHeaderSortileges = rowHeaderSortileges.Cells[0].AddParagraph();
             pHeaderSortileges.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Center;
-            TextRange txtRangeHeaderSortileges = pHeaderSortileges.AppendText("Sortilèges");
+            TextRange txtRangeHeaderSortileges = pHeaderSortileges.AppendText("Sortilèges & Aptitudes");
             txtRangeHeaderSortileges.CharacterFormat.FontSize = 20f;
             txtRangeHeaderSortileges.CharacterFormat.Bold = true;
 
