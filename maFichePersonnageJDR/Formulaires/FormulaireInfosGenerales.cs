@@ -77,10 +77,10 @@ namespace maFichePersonnageJDR.Formulaires
             nudNiveau.Value = Properties.Settings.Default.Niveau;
             rtbHistoire.Text = Properties.Settings.Default.Histoire;
             rtbLangues.Text = Properties.Settings.Default.Langues;
-            if (!String.IsNullOrEmpty(Properties.Settings.Default.CheminImage))
-            {
-                ptbAvatar.Image = GetUneImage(Properties.Settings.Default.CheminImage);
-            }
+            //if (!String.IsNullOrEmpty(Properties.Settings.Default.CheminImage))
+            //{
+            //    ptbAvatar.Image = GetUneImage(Properties.Settings.Default.CheminImage);
+            //}
             nudOr.Value = Properties.Settings.Default.Or;
             nudArgent.Value = Properties.Settings.Default.Argent;
             nudCuivre.Value = Properties.Settings.Default.Cuivre;

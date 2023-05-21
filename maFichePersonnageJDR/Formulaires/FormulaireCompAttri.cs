@@ -253,7 +253,27 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void FormulaireCompAttri_Load(object sender, EventArgs e)
         {
-            txtPntsPVEnergie.Text = TableauPV[X - 1].ToString();
+            /// On commence par créer nos objets qui vont communiquer avec la base de données                   
+            // Connexion
+            SQLiteConnection connection = new SQLiteConnection(@"Data Source =BDD\20221227_base_fiche_perso.db; Version = 3;");
+            // Commande
+            SQLiteCommand command;
+            // Reader
+            SQLiteDataReader reader;
+
+            connection.Open();
+            command = connection.CreateCommand();
+            command.CommandText = $"SELECT nb_pv_point_personnage FROM POINTS_VIE_ENERGIE WHERE niveau_personnage = {Properties.Settings.Default.Niveau}";
+            reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                object idReader = reader.GetValue(0);
+
+                txtPntsPVEnergie.Text += idReader.ToString();
+            }
+
+            connection.Close();
             txtPntsCaracteristiques.Text = TableauCaracteristiques[X - 1].ToString();
 
             nudPV.Maximum = decimal.Parse(txtPntsPVEnergie.Text);
@@ -681,9 +701,7 @@ namespace maFichePersonnageJDR.Formulaires
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /// On commence par créer nos objets qui vont communiquer avec la base de données
-            /// 
-            
+            /// On commence par créer nos objets qui vont communiquer avec la base de données                   
             // Connexion
             SQLiteConnection connection = new SQLiteConnection(@"Data Source =BDD\20221227_base_fiche_perso.db; Version = 3;");
             // Commande
@@ -702,6 +720,8 @@ namespace maFichePersonnageJDR.Formulaires
 
                 txtBoxBdd.Text += idReader.ToString();
             }
+
+            connection.Close();
         }
     }
 }
