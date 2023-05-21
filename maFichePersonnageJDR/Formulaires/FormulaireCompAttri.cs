@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using maFichePersonnageJDR.Classe;
+using System.Data.SQLite;
 
 namespace maFichePersonnageJDR.Formulaires
 {
@@ -675,6 +676,31 @@ namespace maFichePersonnageJDR.Formulaires
                     Console.WriteLine(numericUpDown.TabIndex);
                     numericUpDown.Value = 0;
                 }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            /// On commence par créer nos objets qui vont communiquer avec la base de données
+            /// 
+            
+            // Connexion
+            SQLiteConnection connection = new SQLiteConnection(@"Data Source =BDD\20221227_base_fiche_perso.db; Version = 3;");
+            // Commande
+            SQLiteCommand command;
+            // Reader
+            SQLiteDataReader reader;
+
+            connection.Open();
+            command = connection.CreateCommand();
+            command.CommandText = "SELECT nom_magie FROM MAGIE WHERE id_magie = 2";
+            reader = command.ExecuteReader();
+
+            while(reader.Read())
+            {
+                object idReader = reader.GetValue(0);
+
+                txtBoxBdd.Text += idReader.ToString();
             }
         }
     }
