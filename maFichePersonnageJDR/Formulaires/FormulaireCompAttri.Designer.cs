@@ -129,8 +129,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudMental = new System.Windows.Forms.NumericUpDown();
             this.nudSocial = new System.Windows.Forms.NumericUpDown();
             this.btnReinitialiserCompetences = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtBoxBdd = new System.Windows.Forms.TextBox();
             this.grpbCompetences.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudEqlibre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCmedie)).BeginInit();
@@ -1527,7 +1525,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudPV.Size = new System.Drawing.Size(47, 20);
             this.nudPV.TabIndex = 28;
             this.nudPV.Tag = "PV";
-            this.nudPV.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangePVEnergie_ValueChanged);
             // 
             // nudEnergie
             // 
@@ -1542,7 +1539,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudEnergie.Size = new System.Drawing.Size(47, 20);
             this.nudEnergie.TabIndex = 29;
             this.nudEnergie.Tag = "Energie";
-            this.nudEnergie.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangePVEnergie_ValueChanged);
             // 
             // nudPhysique
             // 
@@ -1584,30 +1580,11 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnReinitialiserCompetences.UseVisualStyleBackColor = true;
             this.btnReinitialiserCompetences.Click += new System.EventHandler(this.btnReinitialiserCompetences_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(645, 454);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 23);
-            this.button1.TabIndex = 34;
-            this.button1.Text = "Bouton Test BDD";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // txtBoxBdd
-            // 
-            this.txtBoxBdd.Location = new System.Drawing.Point(645, 428);
-            this.txtBoxBdd.Name = "txtBoxBdd";
-            this.txtBoxBdd.Size = new System.Drawing.Size(120, 20);
-            this.txtBoxBdd.TabIndex = 35;
-            // 
             // FormulaireCompAttri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(780, 507);
-            this.Controls.Add(this.txtBoxBdd);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnReinitialiserCompetences);
             this.Controls.Add(this.nudSocial);
             this.Controls.Add(this.nudMental);
@@ -1789,7 +1766,5 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblCmedie;
         private System.Windows.Forms.NumericUpDown nudEqlibre;
         private System.Windows.Forms.Label lblEqlibre;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox txtBoxBdd;
     }
 }

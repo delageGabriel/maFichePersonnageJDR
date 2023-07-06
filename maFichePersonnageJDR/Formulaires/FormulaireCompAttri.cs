@@ -15,28 +15,6 @@ namespace maFichePersonnageJDR.Formulaires
     public partial class FormulaireCompAttri : Form
     {
         private int x = Properties.Settings.Default.Niveau;
-        private int[] tableauPV = {
-            12,
-            19,
-            23,
-            26,
-            29,
-            33,
-            38,
-            44,
-            51,
-            59,
-            68,
-            78,
-            88,
-            98,
-            108,
-            115,
-            120,
-            124,
-            126,
-            127
-        };
 
         private short[] tableauCaracteristiques = {
             135,
@@ -62,7 +40,6 @@ namespace maFichePersonnageJDR.Formulaires
         };
 
         public int X { get => x; set => x = value; }
-        public int[] TableauPV { get => tableauPV; set => tableauPV = value; }
         public short[] TableauCaracteristiques { get => tableauCaracteristiques; set => tableauCaracteristiques = value; }
 
         public FormulaireCompAttri()
@@ -256,32 +233,12 @@ namespace maFichePersonnageJDR.Formulaires
             /// On commence par créer nos objets qui vont communiquer avec la base de données                   
             // Connexion
             SQLiteConnection connection = new SQLiteConnection(@"Data Source =BDD\20221227_base_fiche_perso.db; Version = 3;");
-            // Commande
-            SQLiteCommand command;
-            // Reader
-            SQLiteDataReader reader;
-
-            connection.Open();
-            command = connection.CreateCommand();
-            command.CommandText = $"SELECT nb_pv_point_personnage FROM POINTS_VIE_ENERGIE WHERE niveau_personnage = {Properties.Settings.Default.Niveau}";
-            reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                object idReader = reader.GetValue(0);
-
-                txtPntsPVEnergie.Text += idReader.ToString();
-            }
-
-            connection.Close();
-            txtPntsCaracteristiques.Text = TableauCaracteristiques[X - 1].ToString();
-
-            nudPV.Maximum = decimal.Parse(txtPntsPVEnergie.Text);
-            nudEnergie.Maximum = decimal.Parse(txtPntsPVEnergie.Text);
 
             GetSettings();
             GetAttributCheckbox();
             GetAttributJoueurOuMJ();
+            GetPointsPVEnergie(connection);
+            GetPointsCaracteristiques(connection);
         }
 
         /// <summary>
@@ -556,34 +513,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void numericUpDownValeurChangePVEnergie_ValueChanged(object sender, EventArgs e)
         {
-            int valeurRepartitionBox = TableauPV[X - 1];
-            int valeurPV = Convert.ToInt32(nudPV.Value);
-            int valeurEnergie = Convert.ToInt32(nudEnergie.Value);
-            int valeurCommune = 0;
-            int valeurRepartitionRetournee = 0;
 
-            NumericUpDown numericUpDown = (NumericUpDown)sender;
-
-            if (numericUpDown.Tag.ToString().Contains("PV"))
-            {
-                nudEnergie.Maximum = valeurRepartitionBox - valeurPV;
-
-                valeurCommune = valeurPV + valeurEnergie;
-
-                valeurRepartitionRetournee = valeurRepartitionBox - valeurCommune;
-                txtPntsPVEnergie.Text = valeurRepartitionRetournee.ToString();
-
-            }
-            if (numericUpDown.Tag.ToString().Contains("Energie"))
-            {
-                nudPV.Maximum = valeurRepartitionBox - valeurEnergie;
-
-                valeurCommune = valeurPV + valeurEnergie;
-
-                valeurRepartitionRetournee = valeurRepartitionBox - valeurCommune;
-                txtPntsPVEnergie.Text = valeurRepartitionRetournee.ToString();
-
-            }
         }
 
         /// <summary>
@@ -699,26 +629,44 @@ namespace maFichePersonnageJDR.Formulaires
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void GetPointsPVEnergie(SQLiteConnection connexion)
         {
-            /// On commence par créer nos objets qui vont communiquer avec la base de données                   
-            // Connexion
-            SQLiteConnection connection = new SQLiteConnection(@"Data Source =BDD\20221227_base_fiche_perso.db; Version = 3;");
             // Commande
             SQLiteCommand command;
             // Reader
             SQLiteDataReader reader;
 
-            connection.Open();
-            command = connection.CreateCommand();
-            command.CommandText = "SELECT nom_magie FROM MAGIE WHERE id_magie = 2";
+            connexion.Open();
+            command = connexion.CreateCommand();
+            command.CommandText = $"SELECT nb_pv_point_personnage FROM POINTS_VIE_ENERGIE WHERE niveau_personnage = {Properties.Settings.Default.Niveau}";
             reader = command.ExecuteReader();
 
-            while(reader.Read())
+            while (reader.Read())
             {
                 object idReader = reader.GetValue(0);
 
-                txtBoxBdd.Text += idReader.ToString();
+                txtPntsPVEnergie.Text += idReader.ToString();
+            }
+
+            connexion.Close();
+        }
+
+        public void GetPointsCaracteristiques(SQLiteConnection connection)
+        {
+            SQLiteCommand command;
+
+            SQLiteDataReader reader;
+
+            connection.Open();
+            command = connection.CreateCommand();
+            command.CommandText = $"SELECT nb_points_caracteristiques FROM POINTS_CARACTERISTIQUES WHERE niveau_personnage = {Properties.Settings.Default.Niveau}";
+            reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                object idReader = reader.GetValue(0);
+
+                txtPntsCaracteristiques.Text += idReader.ToString();
             }
 
             connection.Close();

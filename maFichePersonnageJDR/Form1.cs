@@ -538,10 +538,12 @@ namespace maFichePersonnageJDR
             Paragraph paragrapheVideQuatre = section.AddParagraph();
 
             #region inventaire
+            string[] inventairePersonnage = Properties.Settings.Default.Inventaires.Split('\n');
+
             Spire.Doc.Table headerTableInventaire = section.AddTable(true);
             Spire.Doc.Table tableInventaire = section.AddTable(true);
-            headerTableInventaire.ResetCells(1, 1);
-            tableInventaire.ResetCells(1, 1);
+            headerTableInventaire.ResetCells(1, 6);
+            tableInventaire.ResetCells(inventairePersonnage.Length, 6);
 
             TableRow rowHeaderInventaire = headerTableInventaire.Rows[0];
             TableRow rowInventaire = tableInventaire.Rows[0];
@@ -557,6 +559,7 @@ namespace maFichePersonnageJDR
 
             Paragraph paragraphInventaire = rowInventaire.Cells[0].AddParagraph();
             TextRange rangeInventaire = paragraphInventaire.AppendText(Properties.Settings.Default.Inventaires);
+
 
             #endregion
 
