@@ -149,6 +149,12 @@
       <DependentUpon>FormulaireCompAttri.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Formulaires\FormulaireEquipments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulaires\FormulaireEquipments.Designer.cs">
+      <DependentUpon>FormulaireEquipments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formulaires\FormulaireTalentsEtObjets.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -173,6 +179,9 @@
     <EmbeddedResource Include="Formulaires\FormulaireCompAttri.resx">
       <DependentUpon>FormulaireCompAttri.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulaires\FormulaireEquipments.resx">
+      <DependentUpon>FormulaireEquipments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formulaires\FormulaireInfosGenerales.resx">
       <DependentUpon>FormulaireInfosGenerales.cs</DependentUpon>
