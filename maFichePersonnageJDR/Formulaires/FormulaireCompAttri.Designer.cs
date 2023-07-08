@@ -1525,6 +1525,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudPV.Size = new System.Drawing.Size(47, 20);
             this.nudPV.TabIndex = 28;
             this.nudPV.Tag = "PV";
+            this.nudPV.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangePVEnergie_ValueChanged);
             // 
             // nudEnergie
             // 
@@ -1539,6 +1540,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudEnergie.Size = new System.Drawing.Size(47, 20);
             this.nudEnergie.TabIndex = 29;
             this.nudEnergie.Tag = "Energie";
+            this.nudEnergie.ValueChanged += new System.EventHandler(this.numericUpDownValeurChangePVEnergie_ValueChanged);
             // 
             // nudPhysique
             // 

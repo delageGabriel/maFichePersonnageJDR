@@ -513,7 +513,11 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void numericUpDownValeurChangePVEnergie_ValueChanged(object sender, EventArgs e)
         {
+            int maxPvValue = int.Parse(txtPntsPVEnergie.Text) - Convert.ToInt32(nudEnergie.Value);
+            int maxEnergieValue = int.Parse(txtPntsPVEnergie.Text) - Convert.ToInt32(nudPV.Value);
 
+            nudEnergie.Maximum = maxEnergieValue;
+            nudPV.Maximum = maxPvValue;
         }
 
         /// <summary>
