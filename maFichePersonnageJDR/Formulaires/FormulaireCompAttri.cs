@@ -14,6 +14,8 @@ namespace maFichePersonnageJDR.Formulaires
 {
     public partial class FormulaireCompAttri : Form
     {
+        private SQLiteConnection sqlLiteConnection = new SQLiteConnection(@"Data Source =BDD\20221227_base_fiche_perso.db; Version = 3;");
+
         private int x = Properties.Settings.Default.Niveau;
 
         private short[] tableauCaracteristiques = {
@@ -38,9 +40,9 @@ namespace maFichePersonnageJDR.Formulaires
             190,
             195
         };
-
         public int X { get => x; set => x = value; }
         public short[] TableauCaracteristiques { get => tableauCaracteristiques; set => tableauCaracteristiques = value; }
+        public SQLiteConnection SqlLiteConnection { get => sqlLiteConnection; set => sqlLiteConnection = value; }
 
         public FormulaireCompAttri()
         {
@@ -230,15 +232,11 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void FormulaireCompAttri_Load(object sender, EventArgs e)
         {
-            /// On commence par créer nos objets qui vont communiquer avec la base de données                   
-            // Connexion
-            SQLiteConnection connection = new SQLiteConnection(@"Data Source =BDD\20221227_base_fiche_perso.db; Version = 3;");
-
             GetSettings();
             GetAttributCheckbox();
             GetAttributJoueurOuMJ();
-            GetPointsPVEnergie(connection);
-            GetPointsCaracteristiques(connection);
+            txtPntsPVEnergie.Text = GetPointsPVEnergie(SqlLiteConnection, Properties.Settings.Default.Niveau).ToString();
+            GetPointsCaracteristiques(SqlLiteConnection);
         }
 
         /// <summary>
@@ -513,11 +511,40 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void numericUpDownValeurChangePVEnergie_ValueChanged(object sender, EventArgs e)
         {
-            int maxPvValue = int.Parse(txtPntsPVEnergie.Text) - Convert.ToInt32(nudEnergie.Value);
-            int maxEnergieValue = int.Parse(txtPntsPVEnergie.Text) - Convert.ToInt32(nudPV.Value);
+            int maxPvValue = 0;
+            int maxEnergieValue = 0;
+
+            if (GetPointsPVEnergie(SqlLiteConnection, Properties.Settings.Default.Niveau) > Convert.ToInt32(nudEnergie.Value))
+            {
+                maxPvValue = GetPointsPVEnergie(SqlLiteConnection, Properties.Settings.Default.Niveau) - Convert.ToInt32(nudEnergie.Value);
+            }
+            else if (GetPointsPVEnergie(SqlLiteConnection, Properties.Settings.Default.Niveau) > Convert.ToInt32(nudEnergie.Value))
+            {
+                maxPvValue = Convert.ToInt32(nudEnergie.Value) - GetPointsPVEnergie(SqlLiteConnection, Properties.Settings.Default.Niveau);
+            }
+            else if (int.Parse(txtPntsPVEnergie.Text) == Convert.ToInt32(nudEnergie.Value))
+            {
+                maxPvValue = int.Parse(txtPntsPVEnergie.Text);
+            }
+
+            if (GetPointsPVEnergie(SqlLiteConnection, Properties.Settings.Default.Niveau) > Convert.ToInt32(nudPV.Value))
+            {
+                maxEnergieValue = GetPointsPVEnergie(SqlLiteConnection, Properties.Settings.Default.Niveau) - Convert.ToInt32(nudPV.Value);
+            }
+            else if (GetPointsPVEnergie(SqlLiteConnection, Properties.Settings.Default.Niveau) > Convert.ToInt32(nudPV.Value))
+            {
+                maxEnergieValue = Convert.ToInt32(nudPV.Value) - GetPointsPVEnergie(SqlLiteConnection, Properties.Settings.Default.Niveau);
+            }
+            else if (int.Parse(txtPntsPVEnergie.Text) == Convert.ToInt32(nudPV.Value))
+            {
+                maxEnergieValue = int.Parse(txtPntsPVEnergie.Text);
+            }
+
+            int pointsRestants = GetPointsPVEnergie(SqlLiteConnection, Properties.Settings.Default.Niveau) - Convert.ToInt32(nudPV.Value + nudEnergie.Value);
 
             nudEnergie.Maximum = maxEnergieValue;
             nudPV.Maximum = maxPvValue;
+            txtPntsPVEnergie.Text = pointsRestants.ToString();
         }
 
         /// <summary>
@@ -633,26 +660,25 @@ namespace maFichePersonnageJDR.Formulaires
             }
         }
 
-        public void GetPointsPVEnergie(SQLiteConnection connexion)
+        public int GetPointsPVEnergie(SQLiteConnection connexion, int niveauPersonnage)
         {
             // Commande
             SQLiteCommand command;
             // Reader
             SQLiteDataReader reader;
+            object idReader = 12;
 
             connexion.Open();
             command = connexion.CreateCommand();
-            command.CommandText = $"SELECT nb_pv_point_personnage FROM POINTS_VIE_ENERGIE WHERE niveau_personnage = {Properties.Settings.Default.Niveau}";
+            command.CommandText = $"SELECT nb_pv_point_personnage FROM POINTS_VIE_ENERGIE WHERE niveau_personnage = {niveauPersonnage}";
             reader = command.ExecuteReader();
 
             while (reader.Read())
             {
-                object idReader = reader.GetValue(0);
-
-                txtPntsPVEnergie.Text += idReader.ToString();
+                idReader = reader.GetValue(0);
             }
-
             connexion.Close();
+            return Convert.ToInt32(idReader);
         }
 
         public void GetPointsCaracteristiques(SQLiteConnection connection)
