@@ -253,6 +253,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.Controls.Add(this.tbCntlArmes);
             this.Name = "FormulaireEquipments";
             this.Text = " Équipements";
+            this.Load += new System.EventHandler(this.FormulaireEquipments_Load);
             this.tbCntlArmes.ResumeLayout(false);
             this.tbCntlArmures.ResumeLayout(false);
             this.tbCntlObjets.ResumeLayout(false);

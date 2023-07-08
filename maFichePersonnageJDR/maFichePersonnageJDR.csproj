@@ -135,6 +135,7 @@
     <Compile Include="Controller\FicheSortieController.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Controller\FormController.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

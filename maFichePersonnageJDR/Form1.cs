@@ -596,5 +596,11 @@ namespace maFichePersonnageJDR
             MessageBox.Show("Toutes les tâches sont terminées.", "Traitement des documents", MessageBoxButtons.OK, MessageBoxIcon.Information);
             documentPdf.Close();
         }
+
+        private void btnEquipments_Click(object sender, EventArgs e)
+        {
+            FormulaireEquipments frmEquipment = new FormulaireEquipments();
+            frmEquipment.Show();
+        }
     }
 }

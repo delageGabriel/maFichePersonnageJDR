@@ -34,6 +34,7 @@ namespace maFichePersonnageJDR
             this.btnTalentEtEquipement = new System.Windows.Forms.Button();
             this.btnSoumettreFiche = new System.Windows.Forms.Button();
             this.pbEtatFiche = new System.Windows.Forms.ProgressBar();
+            this.btnEquipments = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnFormCompAttri
@@ -77,7 +78,7 @@ namespace maFichePersonnageJDR
             this.btnSoumettreFiche.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSoumettreFiche.Location = new System.Drawing.Point(47, 115);
+            this.btnSoumettreFiche.Location = new System.Drawing.Point(93, 124);
             this.btnSoumettreFiche.Name = "btnSoumettreFiche";
             this.btnSoumettreFiche.Size = new System.Drawing.Size(99, 23);
             this.btnSoumettreFiche.TabIndex = 3;
@@ -95,11 +96,22 @@ namespace maFichePersonnageJDR
             this.pbEtatFiche.Size = new System.Drawing.Size(138, 22);
             this.pbEtatFiche.TabIndex = 4;
             // 
+            // btnEquipments
+            // 
+            this.btnEquipments.Location = new System.Drawing.Point(12, 99);
+            this.btnEquipments.Name = "btnEquipments";
+            this.btnEquipments.Size = new System.Drawing.Size(75, 23);
+            this.btnEquipments.TabIndex = 5;
+            this.btnEquipments.Text = "Equipements";
+            this.btnEquipments.UseVisualStyleBackColor = true;
+            this.btnEquipments.Click += new System.EventHandler(this.btnEquipments_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(201, 200);
+            this.Controls.Add(this.btnEquipments);
             this.Controls.Add(this.pbEtatFiche);
             this.Controls.Add(this.btnSoumettreFiche);
             this.Controls.Add(this.btnTalentEtEquipement);
@@ -119,6 +131,7 @@ namespace maFichePersonnageJDR
         private System.Windows.Forms.Button btnTalentEtEquipement;
         private System.Windows.Forms.Button btnSoumettreFiche;
         private System.Windows.Forms.ProgressBar pbEtatFiche;
+        private System.Windows.Forms.Button btnEquipments;
     }
 }
 
