@@ -84,7 +84,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbPgeLance.Location = new System.Drawing.Point(4, 22);
             this.tbPgeLance.Name = "tbPgeLance";
             this.tbPgeLance.Padding = new System.Windows.Forms.Padding(3);
-            this.tbPgeLance.Size = new System.Drawing.Size(192, 74);
+            this.tbPgeLance.Size = new System.Drawing.Size(319, 142);
             this.tbPgeLance.TabIndex = 1;
             this.tbPgeLance.Text = "Lances";
             this.tbPgeLance.UseVisualStyleBackColor = true;
@@ -93,7 +93,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgePoignard.Location = new System.Drawing.Point(4, 22);
             this.tbPgePoignard.Name = "tbPgePoignard";
-            this.tbPgePoignard.Size = new System.Drawing.Size(192, 74);
+            this.tbPgePoignard.Size = new System.Drawing.Size(319, 142);
             this.tbPgePoignard.TabIndex = 2;
             this.tbPgePoignard.Text = "Poignards";
             this.tbPgePoignard.UseVisualStyleBackColor = true;
@@ -102,7 +102,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgeHache.Location = new System.Drawing.Point(4, 22);
             this.tbPgeHache.Name = "tbPgeHache";
-            this.tbPgeHache.Size = new System.Drawing.Size(192, 74);
+            this.tbPgeHache.Size = new System.Drawing.Size(319, 142);
             this.tbPgeHache.TabIndex = 3;
             this.tbPgeHache.Text = "Haches";
             this.tbPgeHache.UseVisualStyleBackColor = true;
@@ -111,7 +111,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgeMasse.Location = new System.Drawing.Point(4, 22);
             this.tbPgeMasse.Name = "tbPgeMasse";
-            this.tbPgeMasse.Size = new System.Drawing.Size(192, 74);
+            this.tbPgeMasse.Size = new System.Drawing.Size(319, 142);
             this.tbPgeMasse.TabIndex = 4;
             this.tbPgeMasse.Text = "Masses";
             this.tbPgeMasse.UseVisualStyleBackColor = true;
@@ -120,7 +120,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgeArmTrt.Location = new System.Drawing.Point(4, 22);
             this.tbPgeArmTrt.Name = "tbPgeArmTrt";
-            this.tbPgeArmTrt.Size = new System.Drawing.Size(192, 74);
+            this.tbPgeArmTrt.Size = new System.Drawing.Size(319, 142);
             this.tbPgeArmTrt.TabIndex = 5;
             this.tbPgeArmTrt.Text = "Armes de trait";
             this.tbPgeArmTrt.UseVisualStyleBackColor = true;
@@ -129,7 +129,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgeChaines.Location = new System.Drawing.Point(4, 22);
             this.tbPgeChaines.Name = "tbPgeChaines";
-            this.tbPgeChaines.Size = new System.Drawing.Size(192, 74);
+            this.tbPgeChaines.Size = new System.Drawing.Size(319, 142);
             this.tbPgeChaines.TabIndex = 6;
             this.tbPgeChaines.Text = "Chaînes";
             this.tbPgeChaines.UseVisualStyleBackColor = true;
@@ -138,7 +138,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgeBaton.Location = new System.Drawing.Point(4, 22);
             this.tbPgeBaton.Name = "tbPgeBaton";
-            this.tbPgeBaton.Size = new System.Drawing.Size(192, 74);
+            this.tbPgeBaton.Size = new System.Drawing.Size(319, 142);
             this.tbPgeBaton.TabIndex = 7;
             this.tbPgeBaton.Text = "Bâtons";
             this.tbPgeBaton.UseVisualStyleBackColor = true;
@@ -172,7 +172,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbPgeBustes.Location = new System.Drawing.Point(4, 22);
             this.tbPgeBustes.Name = "tbPgeBustes";
             this.tbPgeBustes.Padding = new System.Windows.Forms.Padding(3);
-            this.tbPgeBustes.Size = new System.Drawing.Size(263, 142);
+            this.tbPgeBustes.Size = new System.Drawing.Size(272, 142);
             this.tbPgeBustes.TabIndex = 1;
             this.tbPgeBustes.Text = "Bustes";
             this.tbPgeBustes.UseVisualStyleBackColor = true;
@@ -181,7 +181,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgeGants.Location = new System.Drawing.Point(4, 22);
             this.tbPgeGants.Name = "tbPgeGants";
-            this.tbPgeGants.Size = new System.Drawing.Size(263, 142);
+            this.tbPgeGants.Size = new System.Drawing.Size(272, 142);
             this.tbPgeGants.TabIndex = 2;
             this.tbPgeGants.Text = "Gants";
             this.tbPgeGants.UseVisualStyleBackColor = true;
@@ -190,7 +190,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgeGenouilleres.Location = new System.Drawing.Point(4, 22);
             this.tbPgeGenouilleres.Name = "tbPgeGenouilleres";
-            this.tbPgeGenouilleres.Size = new System.Drawing.Size(263, 142);
+            this.tbPgeGenouilleres.Size = new System.Drawing.Size(272, 142);
             this.tbPgeGenouilleres.TabIndex = 3;
             this.tbPgeGenouilleres.Text = "Genouillères";
             this.tbPgeGenouilleres.UseVisualStyleBackColor = true;
@@ -199,7 +199,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgeChaussure.Location = new System.Drawing.Point(4, 22);
             this.tbPgeChaussure.Name = "tbPgeChaussure";
-            this.tbPgeChaussure.Size = new System.Drawing.Size(263, 142);
+            this.tbPgeChaussure.Size = new System.Drawing.Size(272, 142);
             this.tbPgeChaussure.TabIndex = 4;
             this.tbPgeChaussure.Text = "Chaussures";
             this.tbPgeChaussure.UseVisualStyleBackColor = true;
@@ -208,7 +208,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgeBouclier.Location = new System.Drawing.Point(4, 22);
             this.tbPgeBouclier.Name = "tbPgeBouclier";
-            this.tbPgeBouclier.Size = new System.Drawing.Size(263, 142);
+            this.tbPgeBouclier.Size = new System.Drawing.Size(272, 142);
             this.tbPgeBouclier.TabIndex = 5;
             this.tbPgeBouclier.Text = "Boucliers";
             this.tbPgeBouclier.UseVisualStyleBackColor = true;

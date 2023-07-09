@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
-using maFichePersonnageJDR.Controller;
+using System.Diagnostics;
+using System.IO;
 
 namespace maFichePersonnageJDR.Formulaires
 {
@@ -60,15 +61,26 @@ namespace maFichePersonnageJDR.Formulaires
                     // On récupère uniquement les épées dans la liste d'armes
                     List<string> listesEpees = new List<string>();
                     listesEpees = listesArmes.Where(epee => epee.Contains("Épée")).ToList();
-
-                    foreach(string epee in listesEpees)
+                    
+                    
+                    foreach (string epee in listesEpees)
                     {
                         string[] subSplit = epee.Split('.');
-
-                        for (int i = 0; i < subSplit.Length; i++)
+                        int x = 10;
+                        int y = 10;
+                        for (int i = 1; i < subSplit.Length; i++)
                         {
-                            FormController.CreateAndPlaceControlInTabPage(tabPage, )
+                            LinkLabel linkLabel = new LinkLabel();
+                            linkLabel.Text = subSplit[i];
+                            linkLabel.Name = subSplit[i];
+                            linkLabel.Location = new Point(x, y);
+                            linkLabel.LinkClicked += linkLabelArme_LinkClicked;
+
+                            tbCntlArmes.TabPages[0].Controls.Add(linkLabel);
+
+                            x += 20;
                         }
+                        y += 20;
                     }
                 }
             }
@@ -81,6 +93,13 @@ namespace maFichePersonnageJDR.Formulaires
             SQLiteConnection connection = new SQLiteConnection(@"Data Source =BDD\20221227_base_fiche_perso.db; Version = 3;");
 
             GetArmes(connection);
+        }
+
+        private void linkLabelArme_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            LinkLabel linkLabel = sender as LinkLabel;
+
+            Process.Start(Path.GetFullPath(string.Format(@"Fiches\Armes\{0}.docx", linkLabel.Text)));
         }
     }
 }
