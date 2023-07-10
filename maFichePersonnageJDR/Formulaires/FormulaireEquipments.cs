@@ -15,10 +15,15 @@ namespace maFichePersonnageJDR.Formulaires
 {
     public partial class FormulaireEquipments : Form
     {
+        SQLiteConnection connection = new SQLiteConnection(@"Data Source =BDD\20221227_base_fiche_perso.db; Version = 3;");
+
+        public SQLiteConnection Connection { get => connection; set => connection = value; }
         public FormulaireEquipments()
         {
             InitializeComponent();
         }
+
+        
 
         public void GetArmes(SQLiteConnection connexion)
         {
@@ -61,26 +66,41 @@ namespace maFichePersonnageJDR.Formulaires
                     // On récupère uniquement les épées dans la liste d'armes
                     List<string> listesEpees = new List<string>();
                     listesEpees = listesArmes.Where(epee => epee.Contains("Épée")).ToList();
-                    
-                    
+
+                    int y = 10;
+                    int x = 20;
+
                     foreach (string epee in listesEpees)
                     {
                         string[] subSplit = epee.Split('.');
-                        int x = 10;
-                        int y = 10;
-                        for (int i = 1; i < subSplit.Length; i++)
-                        {
-                            LinkLabel linkLabel = new LinkLabel();
-                            linkLabel.Text = subSplit[i];
-                            linkLabel.Name = subSplit[i];
-                            linkLabel.Location = new Point(x, y);
-                            linkLabel.LinkClicked += linkLabelArme_LinkClicked;
 
-                            tbCntlArmes.TabPages[0].Controls.Add(linkLabel);
+                        CheckBox checkBox = new CheckBox();
+                        checkBox.Location = new Point(1, y - 5);
+                        checkBox.Name = ("chck" + subSplit[1]).Trim();
 
-                            x += 20;
-                        }
-                        y += 20;
+                        LinkLabel linkLabel = new LinkLabel();
+                        linkLabel.Text = subSplit[1];
+                        linkLabel.Name = ("lnkLbl" + subSplit[1]).Trim();
+                        linkLabel.Location = new Point(x, y);
+                        linkLabel.LinkClicked += linkLabelArme_LinkClicked;
+
+                        Label label = new Label();
+                        label.Name = "lbl" + subSplit[2];
+                        label.Location = new Point(x + linkLabel.Width, y);
+                        label.Text = subSplit[2];
+
+                        NumericUpDown numericUpDown = new NumericUpDown();
+                        numericUpDown.Location = new Point(x + (linkLabel.Width + label.Width), y - 3);
+                        numericUpDown.Maximum = 99;
+                        numericUpDown.Minimum = 0;
+                        numericUpDown.Width = 40;
+
+                        tbCntlArmes.TabPages[0].Controls.Add(linkLabel);
+                        tbCntlArmes.TabPages[0].Controls.Add(checkBox);
+                        tbCntlArmes.TabPages[0].Controls.Add(label);
+                        tbCntlArmes.TabPages[0].Controls.Add(numericUpDown);
+
+                        y += 25;
                     }
                 }
             }
@@ -90,16 +110,15 @@ namespace maFichePersonnageJDR.Formulaires
         {
             /// On commence par créer nos objets qui vont communiquer avec la base de données                   
             // Connexion
-            SQLiteConnection connection = new SQLiteConnection(@"Data Source =BDD\20221227_base_fiche_perso.db; Version = 3;");
-
-            GetArmes(connection);
+            GetArmes(Connection);
         }
 
         private void linkLabelArme_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             LinkLabel linkLabel = sender as LinkLabel;
+            TabPage tabPage = linkLabel.Parent as TabPage;
 
-            Process.Start(Path.GetFullPath(string.Format(@"Fiches\Armes\{0}.docx", linkLabel.Text)));
+            Process.Start(Path.GetFullPath(string.Format(@"Fiches\Armes\{0}\{1}.docx", tabPage.Text, linkLabel.Text)));
         }
     }
 }

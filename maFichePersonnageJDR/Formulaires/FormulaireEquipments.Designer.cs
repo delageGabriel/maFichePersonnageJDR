@@ -71,6 +71,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tbPgeEpee
             // 
+            this.tbPgeEpee.AutoScroll = true;
             this.tbPgeEpee.Location = new System.Drawing.Point(4, 22);
             this.tbPgeEpee.Name = "tbPgeEpee";
             this.tbPgeEpee.Padding = new System.Windows.Forms.Padding(3);
