@@ -216,10 +216,28 @@
     </None>
     <None Include="BDD\20221227_base_fiche_perso.sqbpro" />
     <None Include="BDD\base_fiche_perso.sqbpro" />
+    <None Include="Fiches\Armes\Épées\Glaive.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Épées\Latte.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Épées\Sabre courbé.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Fiches\Armes\Épées\Scramasax.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Fiches\Armes\Épées\Épée bâtarde.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Fiches\Armes\Épées\Épée courte.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Épées\Épée en bois.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Épées\Épée lourde.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="maFichePersonnageJDR_TemporaryKey.pfx" />
