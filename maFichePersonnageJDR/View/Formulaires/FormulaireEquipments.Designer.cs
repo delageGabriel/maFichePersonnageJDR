@@ -82,6 +82,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tbPgeLance
             // 
+            this.tbPgeLance.AutoScroll = true;
             this.tbPgeLance.Location = new System.Drawing.Point(4, 22);
             this.tbPgeLance.Name = "tbPgeLance";
             this.tbPgeLance.Padding = new System.Windows.Forms.Padding(3);
@@ -92,6 +93,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tbPgePoignard
             // 
+            this.tbPgePoignard.AutoScroll = true;
             this.tbPgePoignard.Location = new System.Drawing.Point(4, 22);
             this.tbPgePoignard.Name = "tbPgePoignard";
             this.tbPgePoignard.Size = new System.Drawing.Size(319, 142);
@@ -101,6 +103,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tbPgeHache
             // 
+            this.tbPgeHache.AutoScroll = true;
             this.tbPgeHache.Location = new System.Drawing.Point(4, 22);
             this.tbPgeHache.Name = "tbPgeHache";
             this.tbPgeHache.Size = new System.Drawing.Size(319, 142);
@@ -110,6 +113,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tbPgeMasse
             // 
+            this.tbPgeMasse.AutoScroll = true;
             this.tbPgeMasse.Location = new System.Drawing.Point(4, 22);
             this.tbPgeMasse.Name = "tbPgeMasse";
             this.tbPgeMasse.Size = new System.Drawing.Size(319, 142);
@@ -119,15 +123,17 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tbPgeArmTrt
             // 
+            this.tbPgeArmTrt.AutoScroll = true;
             this.tbPgeArmTrt.Location = new System.Drawing.Point(4, 22);
             this.tbPgeArmTrt.Name = "tbPgeArmTrt";
             this.tbPgeArmTrt.Size = new System.Drawing.Size(319, 142);
             this.tbPgeArmTrt.TabIndex = 5;
-            this.tbPgeArmTrt.Text = "Armes de trait";
+            this.tbPgeArmTrt.Text = "Arme de trait";
             this.tbPgeArmTrt.UseVisualStyleBackColor = true;
             // 
             // tbPgeChaines
             // 
+            this.tbPgeChaines.AutoScroll = true;
             this.tbPgeChaines.Location = new System.Drawing.Point(4, 22);
             this.tbPgeChaines.Name = "tbPgeChaines";
             this.tbPgeChaines.Size = new System.Drawing.Size(319, 142);
@@ -137,6 +143,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tbPgeBaton
             // 
+            this.tbPgeBaton.AutoScroll = true;
             this.tbPgeBaton.Location = new System.Drawing.Point(4, 22);
             this.tbPgeBaton.Name = "tbPgeBaton";
             this.tbPgeBaton.Size = new System.Drawing.Size(319, 142);

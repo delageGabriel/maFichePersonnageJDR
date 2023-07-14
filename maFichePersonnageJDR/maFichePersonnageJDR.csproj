@@ -219,6 +219,21 @@
     </None>
     <None Include="BDD\20221227_base_fiche_perso.sqbpro" />
     <None Include="BDD\base_fiche_perso.sqbpro" />
+    <None Include="Fiches\Armes\Lances\Contus.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Lances\Fourche.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Lances\Javelot.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Lances\Sarisse.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Lances\Trident.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Fiches\Armes\Épées\Glaive.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

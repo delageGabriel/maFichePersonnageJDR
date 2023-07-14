@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SQLite;
+using System.Windows.Forms;
+using maFichePersonnageJDR.Classe;
 
 namespace maFichePersonnageJDR.Model
 {
@@ -36,5 +39,45 @@ namespace maFichePersonnageJDR.Model
         public int ValeurArme { get => valeurArme; set => valeurArme = value; }
         public string DescriptionArme { get => descriptionArme; set => descriptionArme = value; }
 
+        public List<ArmesModel> GetListArmesByTypes(string typeArme)
+        {
+            #region Initialisation variables
+            List<ArmesModel> armesModels = new List<ArmesModel>();
+            #endregion
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM ARMES WHERE type_arme = @typeArme", connection);
+                command.Parameters.AddWithValue("@typeArme", typeArme);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ArmesModel armeModel = new ArmesModel();
+
+                        armeModel.IdArme = reader.GetInt32(0);
+                        armeModel.TypeArme = reader.GetString(1);
+                        armeModel.NomArme = reader.GetString(2);
+                        armeModel.PoidsArmes = reader.GetDouble(3);
+                        armeModel.AllongeArmes = reader.GetString(4);
+                        armeModel.MainArmes = reader.GetString(5);
+                        armeModel.TypeDegatsArmes = reader.GetString(6);
+                        armeModel.DegatsArmes = reader.GetString(7);
+                        armeModel.ValeurArme = reader.GetInt32(8);
+                        armeModel.DescriptionArme = reader.GetString(9);
+
+                        armesModels.Add(armeModel);
+                    }
+                }
+
+                return armesModels;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }
