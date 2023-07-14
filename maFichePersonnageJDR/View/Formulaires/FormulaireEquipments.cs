@@ -95,7 +95,7 @@ namespace maFichePersonnageJDR.Formulaires
                         numericUpDown.Minimum = 0;
                         numericUpDown.Width = 40;
 
-                        tbCntlArmes.TabPages[0].Controls.Add(linkLabel);
+                        tbCntlArmes.TabPages["Épées"].Controls.Add(linkLabel);
                         tbCntlArmes.TabPages[0].Controls.Add(checkBox);
                         tbCntlArmes.TabPages[0].Controls.Add(label);
                         tbCntlArmes.TabPages[0].Controls.Add(numericUpDown);

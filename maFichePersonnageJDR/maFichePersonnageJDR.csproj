@@ -126,12 +126,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classe\DatabaseConnection.cs" />
     <Compile Include="Classe\GlobalesVariable.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Classe\ClasseImage.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Controller\EquipmentController.cs" />
     <Compile Include="Controller\FicheSortieController.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
@@ -142,39 +144,40 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formulaires\FormulaireCompAttri.cs">
+    <Compile Include="Model\ArmesModel.cs" />
+    <Compile Include="View\Formulaires\FormulaireCompAttri.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Formulaires\FormulaireCompAttri.Designer.cs">
+    <Compile Include="View\Formulaires\FormulaireCompAttri.Designer.cs">
       <DependentUpon>FormulaireCompAttri.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Formulaires\FormulaireEquipments.cs">
+    <Compile Include="View\Formulaires\FormulaireEquipments.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formulaires\FormulaireEquipments.Designer.cs">
+    <Compile Include="View\Formulaires\FormulaireEquipments.Designer.cs">
       <DependentUpon>FormulaireEquipments.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formulaires\FormulaireMagieEtAptitudes.cs">
+    <Compile Include="View\Formulaires\FormulaireMagieEtAptitudes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formulaires\FormulaireMagieEtAptitudes.Designer.cs">
+    <Compile Include="View\Formulaires\FormulaireMagieEtAptitudes.Designer.cs">
       <DependentUpon>FormulaireMagieEtAptitudes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formulaires\FormulaireTalentsEtObjets.cs">
+    <Compile Include="View\Formulaires\FormulaireTalentsEtObjets.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Formulaires\FormulaireTalentsEtObjets.Designer.cs">
+    <Compile Include="View\Formulaires\FormulaireTalentsEtObjets.Designer.cs">
       <DependentUpon>FormulaireTalentsEtObjets.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Formulaires\FormulaireInfosGenerales.cs">
+    <Compile Include="View\Formulaires\FormulaireInfosGenerales.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Formulaires\FormulaireInfosGenerales.Designer.cs">
+    <Compile Include="View\Formulaires\FormulaireInfosGenerales.Designer.cs">
       <DependentUpon>FormulaireInfosGenerales.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
@@ -183,21 +186,21 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formulaires\FormulaireCompAttri.resx">
+    <EmbeddedResource Include="View\Formulaires\FormulaireCompAttri.resx">
       <DependentUpon>FormulaireCompAttri.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formulaires\FormulaireEquipments.resx">
+    <EmbeddedResource Include="View\Formulaires\FormulaireEquipments.resx">
       <DependentUpon>FormulaireEquipments.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formulaires\FormulaireInfosGenerales.resx">
+    <EmbeddedResource Include="View\Formulaires\FormulaireInfosGenerales.resx">
       <DependentUpon>FormulaireInfosGenerales.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formulaires\FormulaireMagieEtAptitudes.resx">
+    <EmbeddedResource Include="View\Formulaires\FormulaireMagieEtAptitudes.resx">
       <DependentUpon>FormulaireMagieEtAptitudes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formulaires\FormulaireTalentsEtObjets.resx">
+    <EmbeddedResource Include="View\Formulaires\FormulaireTalentsEtObjets.resx">
       <DependentUpon>FormulaireTalentsEtObjets.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
