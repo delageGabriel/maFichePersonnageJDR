@@ -219,6 +219,21 @@
     </None>
     <None Include="BDD\20221227_base_fiche_perso.sqbpro" />
     <None Include="BDD\base_fiche_perso.sqbpro" />
+    <None Include="Fiches\Armes\Arme de trait\Arbalète.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Arme de trait\Arc.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Arme de trait\Fronde.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Haches\Francisque.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Haches\Hache de bûcheron.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Fiches\Armes\Lances\Contus.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -232,6 +247,24 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Fiches\Armes\Lances\Trident.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Masses\Marteau de forgeron.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Masses\Massue de chêne.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Poignards\Couteau.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Poignards\Dague d%27assassin.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Poignards\Dague.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Poignards\Faucille de guerre.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Fiches\Armes\Épées\Glaive.docx">

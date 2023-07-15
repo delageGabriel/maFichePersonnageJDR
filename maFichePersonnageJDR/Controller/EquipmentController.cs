@@ -69,11 +69,12 @@ namespace maFichePersonnageJDR.Controller
                         linkLabel.Text = armes.NomArme;
                         linkLabel.Name = ("lnkLbl" + armes.NomArme).Trim();
                         linkLabel.Location = new Point(x, y);
+                        linkLabel.AutoSize = true;
                         linkLabel.LinkClicked += formulaireEquipments.linkLabelArme_LinkClicked;
 
                         Label label = new Label();
                         label.Name = "lblPds" + armes.PoidsArmes.ToString();
-                        label.Location = new Point(x + linkLabel.Width, y);
+                        label.Location = new Point(x + (linkLabel.Width), y);
                         label.Text = armes.PoidsArmes.ToString();
 
                         NumericUpDown numericUpDown = new NumericUpDown();

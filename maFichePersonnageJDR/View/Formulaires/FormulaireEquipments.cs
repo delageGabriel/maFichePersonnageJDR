@@ -21,6 +21,9 @@ namespace maFichePersonnageJDR.Formulaires
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Remplit chaque TabPages du TabControl Armes avec les armes correspondantes.
+        /// </summary>
         public void GetArmes()
         {
             Console.WriteLine("Classe : FormulaireEquipments; Méthode : GetArmes;");
@@ -42,8 +45,6 @@ namespace maFichePersonnageJDR.Formulaires
 
         private void FormulaireEquipments_Load(object sender, EventArgs e)
         {
-            /// On commence par créer nos objets qui vont communiquer avec la base de données                   
-            // Connexion
             GetArmes();
         }
 
