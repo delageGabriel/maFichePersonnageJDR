@@ -167,6 +167,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tbPgeCasque
             // 
+            this.tbPgeCasque.AutoScroll = true;
             this.tbPgeCasque.Location = new System.Drawing.Point(4, 22);
             this.tbPgeCasque.Name = "tbPgeCasque";
             this.tbPgeCasque.Padding = new System.Windows.Forms.Padding(3);
@@ -177,6 +178,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tbPgeBustes
             // 
+            this.tbPgeBustes.AutoScroll = true;
             this.tbPgeBustes.Location = new System.Drawing.Point(4, 22);
             this.tbPgeBustes.Name = "tbPgeBustes";
             this.tbPgeBustes.Padding = new System.Windows.Forms.Padding(3);
@@ -187,6 +189,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tbPgeGants
             // 
+            this.tbPgeGants.AutoScroll = true;
             this.tbPgeGants.Location = new System.Drawing.Point(4, 22);
             this.tbPgeGants.Name = "tbPgeGants";
             this.tbPgeGants.Size = new System.Drawing.Size(272, 142);
@@ -196,6 +199,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tbPgeGenouilleres
             // 
+            this.tbPgeGenouilleres.AutoScroll = true;
             this.tbPgeGenouilleres.Location = new System.Drawing.Point(4, 22);
             this.tbPgeGenouilleres.Name = "tbPgeGenouilleres";
             this.tbPgeGenouilleres.Size = new System.Drawing.Size(272, 142);
@@ -205,6 +209,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tbPgeChaussure
             // 
+            this.tbPgeChaussure.AutoScroll = true;
             this.tbPgeChaussure.Location = new System.Drawing.Point(4, 22);
             this.tbPgeChaussure.Name = "tbPgeChaussure";
             this.tbPgeChaussure.Size = new System.Drawing.Size(272, 142);
@@ -214,6 +219,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tbPgeBouclier
             // 
+            this.tbPgeBouclier.AutoScroll = true;
             this.tbPgeBouclier.Location = new System.Drawing.Point(4, 22);
             this.tbPgeBouclier.Name = "tbPgeBouclier";
             this.tbPgeBouclier.Size = new System.Drawing.Size(272, 142);

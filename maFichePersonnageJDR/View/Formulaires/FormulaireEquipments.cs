@@ -26,7 +26,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// </summary>
         public void GetArmes()
         {
-            Console.WriteLine("Classe : FormulaireEquipments; Méthode : GetArmes;");
+            Console.WriteLine("########### Classe : FormulaireEquipments; Méthode : GetArmes; ###########");
 
             try
             {
@@ -40,12 +40,36 @@ namespace maFichePersonnageJDR.Formulaires
                 throw e;
             }
 
-            Console.WriteLine("FIN Méthode GetArmes");
+            Console.WriteLine("########### FIN Méthode GetArmes ###########");
         }
+
+        /// <summary>
+        /// Remplit chaque TabPages du TabControl Amures avec les armures correspondantes.
+        /// </summary>
+        public void GetArmures()
+        {
+            Console.WriteLine("########### Classe : FormulaireEquipments; Méthode : GetArmures; ###########");
+
+            try
+            {
+                foreach (TabPage page in tbCntlArmures.TabPages)
+                {
+                    Controller.EquipmentController.GetArmuresByType(page.Text.Trim('s'), tbCntlArmures, page);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            Console.WriteLine("########### FIN Méthode GetArmures ###########");
+        }
+
 
         private void FormulaireEquipments_Load(object sender, EventArgs e)
         {
             GetArmes();
+            GetArmures();
         }
 
         public void linkLabelArme_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

@@ -145,6 +145,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\ArmesModel.cs" />
+    <Compile Include="Model\ArmuresModel.cs" />
     <Compile Include="View\Formulaires\FormulaireCompAttri.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

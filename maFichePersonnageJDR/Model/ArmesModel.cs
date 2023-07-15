@@ -24,6 +24,7 @@ namespace maFichePersonnageJDR.Model
         private string degatsArmes;
         private int valeurArme;
         private string descriptionArme;
+        private string specialArme;
 
         /// <summary>
         /// Accesseurs et Mutateurs
@@ -38,12 +39,19 @@ namespace maFichePersonnageJDR.Model
         public string DegatsArmes { get => degatsArmes; set => degatsArmes = value; }
         public int ValeurArme { get => valeurArme; set => valeurArme = value; }
         public string DescriptionArme { get => descriptionArme; set => descriptionArme = value; }
+        public string SpecialArme { get => specialArme; set => specialArme = value; }
 
+        /// <summary>
+        /// Permet d'obtenir la liste de toutes les armes pour un type d'arme
+        /// </summary>
+        /// <param name="typeArme">le type d'arme</param>
+        /// <returns>la liste d'armes</returns>
         public List<ArmesModel> GetListArmesByTypes(string typeArme)
         {
             #region Initialisation variables
             List<ArmesModel> armesModels = new List<ArmesModel>();
             #endregion
+
             try
             {
                 SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
@@ -67,6 +75,7 @@ namespace maFichePersonnageJDR.Model
                         armeModel.DegatsArmes = reader.GetString(7);
                         armeModel.ValeurArme = reader.GetInt32(8);
                         armeModel.DescriptionArme = reader.GetString(9);
+                        armeModel.SpecialArme = reader.GetString(10);
 
                         armesModels.Add(armeModel);
                     }
