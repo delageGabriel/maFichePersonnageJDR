@@ -228,6 +228,42 @@
     <None Include="Fiches\Armes\Arme de trait\Fronde.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Fiches\Armes\Bâtons\Baguette de feu.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Bâtons\Baguette infernale.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Bâtons\Bâton céleste.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Bâtons\Bâton de chêne.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Bâtons\Bâton des sylves.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Bâtons\Canne aquatique.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Bâtons\Canne de lumière.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Bâtons\Sceptre de neutralité.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Bâtons\Sceptre des fées.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Bâtons\Sceptre terrestre.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Chaînes\Faucille à chaînes.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armes\Chaînes\Fouet.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Fiches\Armes\Haches\Francisque.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

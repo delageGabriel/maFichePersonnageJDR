@@ -48,7 +48,7 @@ namespace maFichePersonnageJDR.Controller
                     // Label Quantité
                     Label lblQte = new Label();
                     lblQte.Name = "lblQte" + tabPage.Text;
-                    lblQte.Location = new Point(x + (lblNom.Width + lblQte.Width), y);
+                    lblQte.Location = new Point(x + (lblNom.Width + lblQte.Width + 10), y);
                     lblQte.Text = "Quantité";
                     lblQte.Font = new Font(lblNom.Font, FontStyle.Underline);
 
@@ -74,11 +74,11 @@ namespace maFichePersonnageJDR.Controller
 
                         Label label = new Label();
                         label.Name = "lblPds" + armes.PoidsArmes.ToString();
-                        label.Location = new Point(x + (linkLabel.Width), y);
+                        label.Location = new Point(x + (linkLabel.Width + 10), y);
                         label.Text = armes.PoidsArmes.ToString();
 
                         NumericUpDown numericUpDown = new NumericUpDown();
-                        numericUpDown.Location = new Point(x + (linkLabel.Width + label.Width), y - 3);
+                        numericUpDown.Location = new Point(x + (linkLabel.Width + label.Width + 10), y - 3);
                         numericUpDown.Maximum = 99;
                         numericUpDown.Minimum = 0;
                         numericUpDown.Width = 40;                        
