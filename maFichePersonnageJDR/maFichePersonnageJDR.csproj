@@ -146,6 +146,7 @@
     </Compile>
     <Compile Include="Model\ArmesModel.cs" />
     <Compile Include="Model\ArmuresModel.cs" />
+    <Compile Include="Model\ObjetsModel.cs" />
     <Compile Include="View\Formulaires\FormulaireCompAttri.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -328,6 +329,24 @@
     <None Include="Fiches\Armes\Épées\Épée lourde.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Fiches\Armures\Boucliers\Bouclier de bronze.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armures\Boucliers\Bouclier en amande.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armures\Boucliers\Cape elfique.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armures\Boucliers\Pavois.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armures\Boucliers\Pelta.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armures\Boucliers\Écu.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Fiches\Armures\Bustes\Broigne.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -364,6 +383,15 @@
     <None Include="Fiches\Armures\Casques\Spangenhelm.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Fiches\Armures\Chaussures\Chaussures de cuir.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armures\Chaussures\Sabatons.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armures\Chaussures\Sandales.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Fiches\Armures\Gants\Gantelets.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -374,6 +402,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Fiches\Armures\Gants\Mitons.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armures\Genouillères\Cnémide.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armures\Genouillères\Cuissardes de fer.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armures\Genouillères\Pantalon de toile.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="maFichePersonnageJDR_TemporaryKey.pfx" />

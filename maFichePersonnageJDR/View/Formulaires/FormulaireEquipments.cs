@@ -44,7 +44,7 @@ namespace maFichePersonnageJDR.Formulaires
         }
 
         /// <summary>
-        /// Remplit chaque TabPages du TabControl Amures avec les armures correspondantes.
+        /// Remplit chaque TabPages du TabControl Armures avec les armures correspondantes.
         /// </summary>
         public void GetArmures()
         {
@@ -65,6 +65,27 @@ namespace maFichePersonnageJDR.Formulaires
             Console.WriteLine("########### FIN Méthode GetArmures ###########");
         }
 
+        /// <summary>
+        /// Remplit chaque TabPages du TabControl Objets avec les objets correspondantes.
+        /// </summary>
+        public void GetObjets()
+        {
+            Console.WriteLine("########### Classe : FormulaireEquipments; Méthode : GetObjets; ###########");
+
+            try
+            {
+                foreach (TabPage page in tbCntlArmures.TabPages)
+                {
+                    Controller.EquipmentController.GetObjetsByType(page.Text.Trim('s'), tbCntlObjets, page);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            Console.WriteLine("########### FIN Méthode GetArmures ###########");
+        }
 
         private void FormulaireEquipments_Load(object sender, EventArgs e)
         {
@@ -77,7 +98,23 @@ namespace maFichePersonnageJDR.Formulaires
             LinkLabel linkLabel = sender as LinkLabel;
             TabPage tabPage = linkLabel.Parent as TabPage;
 
+            Process.Start(Path.GetFullPath(string.Format(@"Fiches\Armes\{0}\{1}.docx", tabPage.Text, linkLabel.Text)));
+        }
+
+        public void linkLabelArmure_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            LinkLabel linkLabel = sender as LinkLabel;
+            TabPage tabPage = linkLabel.Parent as TabPage;
+
             Process.Start(Path.GetFullPath(string.Format(@"Fiches\Armures\{0}\{1}.docx", tabPage.Text, linkLabel.Text)));
+        }
+
+        public void linkLabelObjet_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            LinkLabel linkLabel = sender as LinkLabel;
+            TabPage tabPage = linkLabel.Parent as TabPage;
+
+            Process.Start(Path.GetFullPath(string.Format(@"Fiches\Objets\{0}\{1}.docx", tabPage.Text, linkLabel.Text)));
         }
     }
 }
