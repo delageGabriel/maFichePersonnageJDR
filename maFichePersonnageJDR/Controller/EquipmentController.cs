@@ -97,10 +97,11 @@ namespace maFichePersonnageJDR.Controller
                 throw e;
             }
         }
+        
 
         public static void GetArmuresByType(string typeArmure, TabControl controlParent, TabPage tabPage)
         {
-            Console.WriteLine(string.Format("########### Méthode GetArmes — Type d'arme : {0} ###########", typeArmure));
+            Console.WriteLine(string.Format("########### Méthode GetArmures — Type d'armure : {0} ###########", typeArmure));
 
             FormulaireEquipments formulaireEquipments = new FormulaireEquipments();
             ArmuresModel armuresModel = new ArmuresModel();

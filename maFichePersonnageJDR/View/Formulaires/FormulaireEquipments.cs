@@ -77,7 +77,7 @@ namespace maFichePersonnageJDR.Formulaires
             LinkLabel linkLabel = sender as LinkLabel;
             TabPage tabPage = linkLabel.Parent as TabPage;
 
-            Process.Start(Path.GetFullPath(string.Format(@"Fiches\Armes\{0}\{1}.docx", tabPage.Text, linkLabel.Text)));
+            Process.Start(Path.GetFullPath(string.Format(@"Fiches\Armures\{0}\{1}.docx", tabPage.Text, linkLabel.Text)));
         }
     }
 }
