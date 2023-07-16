@@ -328,6 +328,24 @@
     <None Include="Fiches\Armes\Épées\Épée lourde.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Fiches\Armures\Bustes\Broigne.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armures\Bustes\Cataphracte.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armures\Bustes\Cuirasse de bronze.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armures\Bustes\Cuirasse de fer.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armures\Bustes\Robe de cuir.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armures\Bustes\Vêtements.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Fiches\Armures\Casques\Casque barbare.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
