@@ -364,6 +364,18 @@
     <None Include="Fiches\Armures\Casques\Spangenhelm.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Fiches\Armures\Gants\Gantelets.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armures\Gants\Gants de mailles.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armures\Gants\Mitaines.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Armures\Gants\Mitons.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="maFichePersonnageJDR_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\maFichePersonnageJDR.Formulaires.FormulaireCompAttri.datasource" />
