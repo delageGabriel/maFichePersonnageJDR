@@ -14,6 +14,7 @@ using Spire.Doc.Fields;
 using Spire.Doc.Documents;
 using maFichePersonnageJDR.Classe;
 using maFichePersonnageJDR.Controller;
+using System.Windows;
 
 namespace maFichePersonnageJDR
 {

@@ -11,6 +11,7 @@ using System.Data.SQLite;
 using System.Diagnostics;
 using System.IO;
 using maFichePersonnageJDR.Controller;
+using maFichePersonnageJDR.View.Formulaires;
 
 namespace maFichePersonnageJDR.Formulaires
 {
@@ -98,6 +99,8 @@ namespace maFichePersonnageJDR.Formulaires
             LinkLabel linkLabel = sender as LinkLabel;
             TabPage tabPage = linkLabel.Parent as TabPage;
 
+            FormulaireApercuEquipement apercuEquipement = new FormulaireApercuEquipement();
+            
             Process.Start(Path.GetFullPath(string.Format(@"Fiches\Armes\{0}\{1}.docx", tabPage.Text, linkLabel.Text)));
         }
 

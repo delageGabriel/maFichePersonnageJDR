@@ -147,6 +147,12 @@
     <Compile Include="Model\ArmesModel.cs" />
     <Compile Include="Model\ArmuresModel.cs" />
     <Compile Include="Model\ObjetsModel.cs" />
+    <Compile Include="View\Formulaires\FormulaireApercuEquipement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Formulaires\FormulaireApercuEquipement.Designer.cs">
+      <DependentUpon>FormulaireApercuEquipement.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Formulaires\FormulaireCompAttri.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -187,6 +193,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Formulaires\FormulaireApercuEquipement.resx">
+      <DependentUpon>FormulaireApercuEquipement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Formulaires\FormulaireCompAttri.resx">
       <DependentUpon>FormulaireCompAttri.cs</DependentUpon>
@@ -413,6 +422,12 @@
     <None Include="Fiches\Armures\Genouillères\Pantalon de toile.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Fiches\Objets\Normaux\Corde de chanvre.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Fiches\Objets\Normaux\Torche.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="maFichePersonnageJDR_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\maFichePersonnageJDR.Formulaires.FormulaireCompAttri.datasource" />
@@ -431,6 +446,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Fiches\Objets\Importants\" />
     <Folder Include="Images\" />
     <Folder Include="Templates\" />
   </ItemGroup>

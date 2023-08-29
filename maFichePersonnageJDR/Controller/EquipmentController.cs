@@ -283,5 +283,10 @@ namespace maFichePersonnageJDR.Controller
                 throw e;
             }
         }
+
+        public static void GetApercuArmes(string nomArme)
+        {
+            Formu
+        }
     }
 }
