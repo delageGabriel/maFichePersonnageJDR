@@ -88,5 +88,50 @@ namespace maFichePersonnageJDR.Model
                 throw e;
             }
         }
+
+        /// <summary>
+        /// Permet d'obtenir une arme par rapport à son nom
+        /// </summary>
+        /// <param name="nomArme"></param>
+        /// <returns></returns>
+        public ArmesModel GetArmeByName(string nomArme)
+        {
+            ArmesModel armeModel = new ArmesModel();
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM ARMES WHERE nom_arme = @nomArme", connection);
+                command.Parameters.AddWithValue("@nomArme", nomArme);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ArmesModel arme = new ArmesModel();
+
+                        arme.IdArme = reader.GetInt32(0);
+                        arme.TypeArme = reader.GetString(1);
+                        arme.NomArme = reader.GetString(2);
+                        arme.PoidsArmes = reader.GetDouble(3);
+                        arme.AllongeArmes = reader.GetString(4);
+                        arme.MainArmes = reader.GetString(5);
+                        arme.TypeDegatsArmes = reader.GetString(6);
+                        arme.DegatsArmes = reader.GetString(7);
+                        arme.ValeurArme = reader.GetInt32(8);
+                        arme.DescriptionArme = reader.GetString(9);
+                        arme.SpecialArme = reader.GetString(10);
+
+                        armeModel = arme;
+                    }
+                }
+
+                return armeModel;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

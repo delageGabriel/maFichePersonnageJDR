@@ -104,9 +104,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.lblValeurEquipement.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblValeurEquipement.Location = new System.Drawing.Point(12, 166);
             this.lblValeurEquipement.Name = "lblValeurEquipement";
-            this.lblValeurEquipement.Size = new System.Drawing.Size(137, 21);
+            this.lblValeurEquipement.Size = new System.Drawing.Size(65, 21);
             this.lblValeurEquipement.TabIndex = 6;
-            this.lblValeurEquipement.Text = "Valeur de l\'arme :";
+            this.lblValeurEquipement.Text = "Valeur :";
             // 
             // lblTemplateValeur
             // 

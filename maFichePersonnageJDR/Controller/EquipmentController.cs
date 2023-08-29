@@ -8,6 +8,7 @@ using System.Data.SQLite;
 using maFichePersonnageJDR.Model;
 using maFichePersonnageJDR.Formulaires;
 using System.Drawing;
+using maFichePersonnageJDR.View.Formulaires;
 
 namespace maFichePersonnageJDR.Controller
 {
@@ -284,9 +285,25 @@ namespace maFichePersonnageJDR.Controller
             }
         }
 
-        public static void GetApercuArmes(string nomArme)
+        public static void GetApercuArmes(FormulaireApercuEquipement formulaire, string nomArme)
         {
-            Formu
+            #region Initialisation des variables
+            ArmesModel armesModel = new ArmesModel();
+            #endregion
+
+            try
+            {
+                ArmesModel armeToGet = armesModel.GetArmeByName(nomArme);
+                formulaire.TextLblNom = armeToGet.NomArme;
+                formulaire.TextLblType = armeToGet.TypeArme;
+                formulaire.TextLblPoids = armeToGet.PoidsArmes.ToString();
+                formulaire.TextLblValeur = armeToGet.ValeurArme.ToString();
+                formulaire.TextLblDescription = armeToGet.DescriptionArme;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
     }
 }
