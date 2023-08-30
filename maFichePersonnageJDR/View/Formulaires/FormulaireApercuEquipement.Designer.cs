@@ -64,7 +64,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblTypeEquipement.AutoSize = true;
             this.lblTypeEquipement.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTypeEquipement.Location = new System.Drawing.Point(154, 11);
+            this.lblTypeEquipement.Location = new System.Drawing.Point(204, 11);
             this.lblTypeEquipement.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTypeEquipement.Name = "lblTypeEquipement";
             this.lblTypeEquipement.Size = new System.Drawing.Size(71, 27);
@@ -98,7 +98,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblTemplateType.AutoSize = true;
             this.lblTemplateType.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTemplateType.Location = new System.Drawing.Point(156, 54);
+            this.lblTemplateType.Location = new System.Drawing.Point(206, 54);
             this.lblTemplateType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTemplateType.Name = "lblTemplateType";
             this.lblTemplateType.Size = new System.Drawing.Size(37, 22);
@@ -165,7 +165,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblTemplateAllonge.AutoSize = true;
             this.lblTemplateAllonge.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTemplateAllonge.Location = new System.Drawing.Point(288, 54);
+            this.lblTemplateAllonge.Location = new System.Drawing.Point(338, 54);
             this.lblTemplateAllonge.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTemplateAllonge.Name = "lblTemplateAllonge";
             this.lblTemplateAllonge.Size = new System.Drawing.Size(37, 22);
@@ -177,7 +177,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblAllongeArme.AutoSize = true;
             this.lblAllongeArme.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAllongeArme.Location = new System.Drawing.Point(287, 11);
+            this.lblAllongeArme.Location = new System.Drawing.Point(337, 11);
             this.lblAllongeArme.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAllongeArme.Name = "lblAllongeArme";
             this.lblAllongeArme.Size = new System.Drawing.Size(99, 27);
@@ -189,7 +189,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblTemplateMains.AutoSize = true;
             this.lblTemplateMains.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTemplateMains.Location = new System.Drawing.Point(432, 54);
+            this.lblTemplateMains.Location = new System.Drawing.Point(482, 54);
             this.lblTemplateMains.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTemplateMains.Name = "lblTemplateMains";
             this.lblTemplateMains.Size = new System.Drawing.Size(37, 22);
@@ -201,7 +201,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblMainsArmes.AutoSize = true;
             this.lblMainsArmes.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMainsArmes.Location = new System.Drawing.Point(431, 11);
+            this.lblMainsArmes.Location = new System.Drawing.Point(481, 11);
             this.lblMainsArmes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMainsArmes.Name = "lblMainsArmes";
             this.lblMainsArmes.Size = new System.Drawing.Size(99, 27);
@@ -213,7 +213,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblTemplateDegatsArmes.AutoSize = true;
             this.lblTemplateDegatsArmes.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTemplateDegatsArmes.Location = new System.Drawing.Point(583, 54);
+            this.lblTemplateDegatsArmes.Location = new System.Drawing.Point(633, 54);
             this.lblTemplateDegatsArmes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTemplateDegatsArmes.Name = "lblTemplateDegatsArmes";
             this.lblTemplateDegatsArmes.Size = new System.Drawing.Size(37, 22);
@@ -225,7 +225,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblDegatsArmes.AutoSize = true;
             this.lblDegatsArmes.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDegatsArmes.Location = new System.Drawing.Point(582, 11);
+            this.lblDegatsArmes.Location = new System.Drawing.Point(632, 11);
             this.lblDegatsArmes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDegatsArmes.Name = "lblDegatsArmes";
             this.lblDegatsArmes.Size = new System.Drawing.Size(90, 27);
