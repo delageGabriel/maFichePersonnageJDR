@@ -296,7 +296,7 @@ namespace maFichePersonnageJDR.Controller
                 ArmesModel armeToGet = armesModel.GetArmeByName(nomArme);
                 formulaire.TextLblNom = armeToGet.NomArme;
                 formulaire.TextLblType = armeToGet.TypeArme;
-                formulaire.TextLblPoids = armeToGet.PoidsArmes.ToString();
+                formulaire.TextLblPoids = armeToGet.PoidsArmes.ToString() + " kg";
                 formulaire.TextLblValeur = armeToGet.ValeurArme.ToString();
                 formulaire.TextLblDescription = armeToGet.DescriptionArme;
             }

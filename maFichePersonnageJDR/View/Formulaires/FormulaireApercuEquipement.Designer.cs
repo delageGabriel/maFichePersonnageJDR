@@ -38,16 +38,17 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.lblValeurEquipement = new System.Windows.Forms.Label();
             this.lblTemplateValeur = new System.Windows.Forms.Label();
             this.lblDescriptionEquipement = new System.Windows.Forms.Label();
-            this.lblTemplateDescription = new System.Windows.Forms.Label();
+            this.rTxtBxTemplateDescr = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // lblNomEquipement
             // 
             this.lblNomEquipement.AutoSize = true;
             this.lblNomEquipement.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomEquipement.Location = new System.Drawing.Point(12, 9);
+            this.lblNomEquipement.Location = new System.Drawing.Point(16, 11);
+            this.lblNomEquipement.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNomEquipement.Name = "lblNomEquipement";
-            this.lblNomEquipement.Size = new System.Drawing.Size(56, 21);
+            this.lblNomEquipement.Size = new System.Drawing.Size(71, 27);
             this.lblNomEquipement.TabIndex = 0;
             this.lblNomEquipement.Text = "Nom :";
             // 
@@ -55,9 +56,10 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblTypeEquipement.AutoSize = true;
             this.lblTypeEquipement.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTypeEquipement.Location = new System.Drawing.Point(265, 9);
+            this.lblTypeEquipement.Location = new System.Drawing.Point(353, 11);
+            this.lblTypeEquipement.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTypeEquipement.Name = "lblTypeEquipement";
-            this.lblTypeEquipement.Size = new System.Drawing.Size(57, 21);
+            this.lblTypeEquipement.Size = new System.Drawing.Size(71, 27);
             this.lblTypeEquipement.TabIndex = 1;
             this.lblTypeEquipement.Text = "Type :";
             // 
@@ -65,36 +67,44 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblPoidsEquipement.AutoSize = true;
             this.lblPoidsEquipement.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPoidsEquipement.Location = new System.Drawing.Point(12, 87);
+            this.lblPoidsEquipement.Location = new System.Drawing.Point(16, 107);
+            this.lblPoidsEquipement.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPoidsEquipement.Name = "lblPoidsEquipement";
-            this.lblPoidsEquipement.Size = new System.Drawing.Size(62, 21);
+            this.lblPoidsEquipement.Size = new System.Drawing.Size(77, 27);
             this.lblPoidsEquipement.TabIndex = 2;
             this.lblPoidsEquipement.Text = "Poids :";
             // 
             // lblTemplateNom
             // 
             this.lblTemplateNom.AutoSize = true;
-            this.lblTemplateNom.Location = new System.Drawing.Point(13, 44);
+            this.lblTemplateNom.BackColor = System.Drawing.SystemColors.Control;
+            this.lblTemplateNom.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTemplateNom.Location = new System.Drawing.Point(17, 54);
+            this.lblTemplateNom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTemplateNom.Name = "lblTemplateNom";
-            this.lblTemplateNom.Size = new System.Drawing.Size(22, 13);
+            this.lblTemplateNom.Size = new System.Drawing.Size(37, 22);
             this.lblTemplateNom.TabIndex = 3;
             this.lblTemplateNom.Text = "xxx";
             // 
             // lblTemplateType
             // 
             this.lblTemplateType.AutoSize = true;
-            this.lblTemplateType.Location = new System.Drawing.Point(266, 44);
+            this.lblTemplateType.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTemplateType.Location = new System.Drawing.Point(355, 54);
+            this.lblTemplateType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTemplateType.Name = "lblTemplateType";
-            this.lblTemplateType.Size = new System.Drawing.Size(22, 13);
+            this.lblTemplateType.Size = new System.Drawing.Size(37, 22);
             this.lblTemplateType.TabIndex = 4;
-            this.lblTemplateType.Text = "xxx";
+            this.lblTemplateType.Text = "xxx\r\n";
             // 
             // lblTemplatePoids
             // 
             this.lblTemplatePoids.AutoSize = true;
-            this.lblTemplatePoids.Location = new System.Drawing.Point(13, 125);
+            this.lblTemplatePoids.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTemplatePoids.Location = new System.Drawing.Point(17, 154);
+            this.lblTemplatePoids.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTemplatePoids.Name = "lblTemplatePoids";
-            this.lblTemplatePoids.Size = new System.Drawing.Size(22, 13);
+            this.lblTemplatePoids.Size = new System.Drawing.Size(37, 22);
             this.lblTemplatePoids.TabIndex = 5;
             this.lblTemplatePoids.Text = "xxx";
             // 
@@ -102,18 +112,21 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblValeurEquipement.AutoSize = true;
             this.lblValeurEquipement.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValeurEquipement.Location = new System.Drawing.Point(12, 166);
+            this.lblValeurEquipement.Location = new System.Drawing.Point(16, 204);
+            this.lblValeurEquipement.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblValeurEquipement.Name = "lblValeurEquipement";
-            this.lblValeurEquipement.Size = new System.Drawing.Size(65, 21);
+            this.lblValeurEquipement.Size = new System.Drawing.Size(85, 27);
             this.lblValeurEquipement.TabIndex = 6;
             this.lblValeurEquipement.Text = "Valeur :";
             // 
             // lblTemplateValeur
             // 
             this.lblTemplateValeur.AutoSize = true;
-            this.lblTemplateValeur.Location = new System.Drawing.Point(13, 202);
+            this.lblTemplateValeur.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTemplateValeur.Location = new System.Drawing.Point(17, 249);
+            this.lblTemplateValeur.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTemplateValeur.Name = "lblTemplateValeur";
-            this.lblTemplateValeur.Size = new System.Drawing.Size(22, 13);
+            this.lblTemplateValeur.Size = new System.Drawing.Size(37, 22);
             this.lblTemplateValeur.TabIndex = 7;
             this.lblTemplateValeur.Text = "xxx";
             // 
@@ -121,27 +134,30 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblDescriptionEquipement.AutoSize = true;
             this.lblDescriptionEquipement.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescriptionEquipement.Location = new System.Drawing.Point(12, 246);
+            this.lblDescriptionEquipement.Location = new System.Drawing.Point(16, 290);
+            this.lblDescriptionEquipement.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescriptionEquipement.Name = "lblDescriptionEquipement";
-            this.lblDescriptionEquipement.Size = new System.Drawing.Size(105, 21);
+            this.lblDescriptionEquipement.Size = new System.Drawing.Size(135, 27);
             this.lblDescriptionEquipement.TabIndex = 8;
             this.lblDescriptionEquipement.Text = "Description :";
             // 
-            // lblTemplateDescription
+            // rTxtBxTemplateDescr
             // 
-            this.lblTemplateDescription.AutoSize = true;
-            this.lblTemplateDescription.Location = new System.Drawing.Point(13, 287);
-            this.lblTemplateDescription.Name = "lblTemplateDescription";
-            this.lblTemplateDescription.Size = new System.Drawing.Size(22, 13);
-            this.lblTemplateDescription.TabIndex = 9;
-            this.lblTemplateDescription.Text = "xxx";
+            this.rTxtBxTemplateDescr.EnableAutoDragDrop = true;
+            this.rTxtBxTemplateDescr.Enabled = false;
+            this.rTxtBxTemplateDescr.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rTxtBxTemplateDescr.Location = new System.Drawing.Point(21, 333);
+            this.rTxtBxTemplateDescr.Name = "rTxtBxTemplateDescr";
+            this.rTxtBxTemplateDescr.Size = new System.Drawing.Size(739, 146);
+            this.rTxtBxTemplateDescr.TabIndex = 9;
+            this.rTxtBxTemplateDescr.Text = "";
             // 
             // FormulaireApercuEquipement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblTemplateDescription);
+            this.ClientSize = new System.Drawing.Size(786, 491);
+            this.Controls.Add(this.rTxtBxTemplateDescr);
             this.Controls.Add(this.lblDescriptionEquipement);
             this.Controls.Add(this.lblTemplateValeur);
             this.Controls.Add(this.lblValeurEquipement);
@@ -151,6 +167,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.Controls.Add(this.lblPoidsEquipement);
             this.Controls.Add(this.lblTypeEquipement);
             this.Controls.Add(this.lblNomEquipement);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormulaireApercuEquipement";
             this.Text = "Aperçu";
             this.ResumeLayout(false);
@@ -169,6 +186,6 @@ namespace maFichePersonnageJDR.View.Formulaires
         private System.Windows.Forms.Label lblValeurEquipement;
         private System.Windows.Forms.Label lblTemplateValeur;
         private System.Windows.Forms.Label lblDescriptionEquipement;
-        private System.Windows.Forms.Label lblTemplateDescription;
+        private System.Windows.Forms.RichTextBox rTxtBxTemplateDescr;
     }
 }

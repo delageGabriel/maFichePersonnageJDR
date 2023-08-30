@@ -23,6 +23,6 @@ namespace maFichePersonnageJDR.View.Formulaires
         public string TextLblType { get => lblTemplateType.Text; set => lblTemplateType.Text = value; }
         public string TextLblPoids { get => lblTemplatePoids.Text; set => lblTemplatePoids.Text = value; }
         public string TextLblValeur { get => lblTemplateValeur.Text; set => lblTemplateValeur.Text = value; }
-        public string TextLblDescription { get => lblTemplateDescription.Text; set => lblTemplateDescription.Text = value; }
+        public string TextLblDescription { get => rTxtBxTemplateDescr.Text; set => rTxtBxTemplateDescr.Text = value; }
     }
 }
