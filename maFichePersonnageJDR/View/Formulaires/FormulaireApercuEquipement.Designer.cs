@@ -47,6 +47,10 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.lblDegatsArmes = new System.Windows.Forms.Label();
             this.lblSpecialEquipement = new System.Windows.Forms.Label();
             this.rTxtBxSpecial = new System.Windows.Forms.RichTextBox();
+            this.lblTemplateProtection = new System.Windows.Forms.Label();
+            this.lblProtectionArmure = new System.Windows.Forms.Label();
+            this.lblTemplateBonusArmure = new System.Windows.Forms.Label();
+            this.lblBonusArmure = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblNomEquipement
@@ -254,12 +258,64 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.rTxtBxSpecial.TabIndex = 17;
             this.rTxtBxSpecial.Text = "";
             // 
+            // lblTemplateProtection
+            // 
+            this.lblTemplateProtection.AutoSize = true;
+            this.lblTemplateProtection.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTemplateProtection.Location = new System.Drawing.Point(338, 54);
+            this.lblTemplateProtection.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTemplateProtection.Name = "lblTemplateProtection";
+            this.lblTemplateProtection.Size = new System.Drawing.Size(37, 22);
+            this.lblTemplateProtection.TabIndex = 19;
+            this.lblTemplateProtection.Text = "xxx\r\n";
+            this.lblTemplateProtection.Visible = false;
+            // 
+            // lblProtectionArmure
+            // 
+            this.lblProtectionArmure.AutoSize = true;
+            this.lblProtectionArmure.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProtectionArmure.Location = new System.Drawing.Point(337, 11);
+            this.lblProtectionArmure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblProtectionArmure.Name = "lblProtectionArmure";
+            this.lblProtectionArmure.Size = new System.Drawing.Size(124, 27);
+            this.lblProtectionArmure.TabIndex = 18;
+            this.lblProtectionArmure.Text = "Protection :";
+            this.lblProtectionArmure.Visible = false;
+            // 
+            // lblTemplateBonusArmure
+            // 
+            this.lblTemplateBonusArmure.AutoSize = true;
+            this.lblTemplateBonusArmure.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTemplateBonusArmure.Location = new System.Drawing.Point(588, 54);
+            this.lblTemplateBonusArmure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTemplateBonusArmure.Name = "lblTemplateBonusArmure";
+            this.lblTemplateBonusArmure.Size = new System.Drawing.Size(37, 22);
+            this.lblTemplateBonusArmure.TabIndex = 21;
+            this.lblTemplateBonusArmure.Text = "xxx\r\n";
+            this.lblTemplateBonusArmure.Visible = false;
+            // 
+            // lblBonusArmure
+            // 
+            this.lblBonusArmure.AutoSize = true;
+            this.lblBonusArmure.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBonusArmure.Location = new System.Drawing.Point(571, 11);
+            this.lblBonusArmure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBonusArmure.Name = "lblBonusArmure";
+            this.lblBonusArmure.Size = new System.Drawing.Size(85, 27);
+            this.lblBonusArmure.TabIndex = 20;
+            this.lblBonusArmure.Text = "Bonus :";
+            this.lblBonusArmure.Visible = false;
+            // 
             // FormulaireApercuEquipement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(786, 494);
+            this.Controls.Add(this.lblTemplateBonusArmure);
+            this.Controls.Add(this.lblBonusArmure);
+            this.Controls.Add(this.lblTemplateProtection);
+            this.Controls.Add(this.lblProtectionArmure);
             this.Controls.Add(this.rTxtBxSpecial);
             this.Controls.Add(this.lblSpecialEquipement);
             this.Controls.Add(this.lblTemplateDegatsArmes);
@@ -306,5 +362,9 @@ namespace maFichePersonnageJDR.View.Formulaires
         private System.Windows.Forms.Label lblDegatsArmes;
         private System.Windows.Forms.Label lblSpecialEquipement;
         private System.Windows.Forms.RichTextBox rTxtBxSpecial;
+        private System.Windows.Forms.Label lblTemplateProtection;
+        private System.Windows.Forms.Label lblProtectionArmure;
+        private System.Windows.Forms.Label lblTemplateBonusArmure;
+        private System.Windows.Forms.Label lblBonusArmure;
     }
 }

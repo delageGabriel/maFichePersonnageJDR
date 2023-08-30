@@ -46,22 +46,14 @@ namespace maFichePersonnageJDR.Controller
                     lblNom.Text = "Nom";
                     lblNom.Font = new Font(lblNom.Font, FontStyle.Underline);
 
-                    // Label Poids
-                    Label lblPoids = new Label();
-                    lblPoids.Name = "lblPoids" + tabPage.Text;
-                    lblPoids.Location = new Point(x + lblNom.Width, y);
-                    lblPoids.Text = "Poids (kg)";
-                    lblPoids.Font = new Font(lblNom.Font, FontStyle.Underline);
-
                     // Label Quantité
                     Label lblQte = new Label();
                     lblQte.Name = "lblQte" + tabPage.Text;
-                    lblQte.Location = new Point(x + (lblNom.Width + lblQte.Width + 10), y);
+                    lblQte.Location = new Point(x + (lblNom.Width + 10), y);
                     lblQte.Text = "Quantité";
                     lblQte.Font = new Font(lblNom.Font, FontStyle.Underline);
 
                     controlParent.TabPages[indexOfTabPage].Controls.Add(lblNom);
-                    controlParent.TabPages[indexOfTabPage].Controls.Add(lblPoids);
                     controlParent.TabPages[indexOfTabPage].Controls.Add(lblQte);
 
                     y += 30;
@@ -80,20 +72,14 @@ namespace maFichePersonnageJDR.Controller
                         linkLabel.AutoSize = true;
                         linkLabel.LinkClicked += formulaireEquipments.linkLabelArme_LinkClicked;
 
-                        Label label = new Label();
-                        label.Name = "lblPds" + armes.PoidsArmes.ToString();
-                        label.Location = new Point(x + (linkLabel.Width + 10), y);
-                        label.Text = armes.PoidsArmes.ToString();
-
                         NumericUpDown numericUpDown = new NumericUpDown();
-                        numericUpDown.Location = new Point(x + (linkLabel.Width + label.Width + 10), y - 3);
+                        numericUpDown.Location = new Point(x + (linkLabel.Width + 10), y - 3);
                         numericUpDown.Maximum = 99;
                         numericUpDown.Minimum = 0;
                         numericUpDown.Width = 40;                        
 
                         controlParent.TabPages[indexOfTabPage].Controls.Add(linkLabel);
                         controlParent.TabPages[indexOfTabPage].Controls.Add(checkBox);
-                        controlParent.TabPages[indexOfTabPage].Controls.Add(label);
                         controlParent.TabPages[indexOfTabPage].Controls.Add(numericUpDown);
 
                         y += 25;
@@ -225,13 +211,6 @@ namespace maFichePersonnageJDR.Controller
                     lblNom.Text = "Nom";
                     lblNom.Font = new Font(lblNom.Font, FontStyle.Underline);
 
-                    // Label Poids
-                    Label lblPoids = new Label();
-                    lblPoids.Name = "lblPoids" + tabPage.Text;
-                    lblPoids.Location = new Point(x + lblNom.Width, y);
-                    lblPoids.Text = "Poids (kg)";
-                    lblPoids.Font = new Font(lblNom.Font, FontStyle.Underline);
-
                     // Label Quantité
                     Label lblQte = new Label();
                     lblQte.Name = "lblQte" + tabPage.Text;
@@ -240,7 +219,6 @@ namespace maFichePersonnageJDR.Controller
                     lblQte.Font = new Font(lblNom.Font, FontStyle.Underline);
 
                     controlParent.TabPages[indexOfTabPage].Controls.Add(lblNom);
-                    controlParent.TabPages[indexOfTabPage].Controls.Add(lblPoids);
                     controlParent.TabPages[indexOfTabPage].Controls.Add(lblQte);
 
                     y += 30;
@@ -259,20 +237,14 @@ namespace maFichePersonnageJDR.Controller
                         linkLabel.AutoSize = true;
                         linkLabel.LinkClicked += formulaireEquipments.linkLabelObjet_LinkClicked;
 
-                        Label label = new Label();
-                        label.Name = "lblPds" + objet.PoidsObjet.ToString();
-                        label.Location = new Point(x + (linkLabel.Width + 10), y);
-                        label.Text = objet.PoidsObjet.ToString();
-
                         NumericUpDown numericUpDown = new NumericUpDown();
-                        numericUpDown.Location = new Point(x + (linkLabel.Width + label.Width + 10), y - 3);
+                        numericUpDown.Location = new Point(x + (linkLabel.Width + 10), y - 3);
                         numericUpDown.Maximum = 99;
                         numericUpDown.Minimum = 0;
                         numericUpDown.Width = 40;
 
                         controlParent.TabPages[indexOfTabPage].Controls.Add(linkLabel);
                         controlParent.TabPages[indexOfTabPage].Controls.Add(checkBox);
-                        controlParent.TabPages[indexOfTabPage].Controls.Add(label);
                         controlParent.TabPages[indexOfTabPage].Controls.Add(numericUpDown);
 
                         y += 25;
@@ -312,6 +284,37 @@ namespace maFichePersonnageJDR.Controller
                 formulaire.TextLblMains.Text = armeToGet.MainArmes;
                 formulaire.TextLblDegats.Text = armeToGet.DegatsArmes;
                 formulaire.TextLblSpecial = armeToGet.SpecialArme;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static void GetApercuArmure(FormulaireApercuEquipement formulaire, string nomArmure)
+        {
+            #region Initialisation des variables
+            ArmuresModel armuresModel = new ArmuresModel();
+            #endregion
+
+            try
+            {
+                // On commence par rendre visible les différentes label liés aux armes
+                formulaire.LabelProtection.Visible = true;
+                formulaire.TextLblProtection.Visible = true;
+                formulaire.LabelBonus.Visible = true;
+                formulaire.TextLblBonus.Visible = true;
+
+                // Puis on y ajoute les valeurs de l'arme sélectionnée.
+                ArmuresModel armureToGet = armuresModel.GetArmureByName(nomArmure);
+                formulaire.TextLblNom = armureToGet.NomArmure;
+                formulaire.TextLblType = armureToGet.TypeArmure;
+                formulaire.TextLblPoids = armureToGet.PoidsArmure.ToString() + " kg";
+                formulaire.TextLblValeur = armureToGet.ValeurArmure.ToString();
+                formulaire.TextLblDescription = armureToGet.DescriptionArmure;
+                formulaire.TextLblProtection.Text = armureToGet.ProtectionArmure;
+                formulaire.TextLblBonus.Text = armureToGet.BonusArmure.ToString();
+                formulaire.TextLblSpecial = armureToGet.SpecialArmure;
             }
             catch (Exception e)
             {

@@ -107,10 +107,12 @@ namespace maFichePersonnageJDR.Formulaires
 
         public void linkLabelArmure_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            FormulaireApercuEquipement formulaireApercuEquipement = new FormulaireApercuEquipement();
             LinkLabel linkLabel = sender as LinkLabel;
             TabPage tabPage = linkLabel.Parent as TabPage;
 
-            Process.Start(Path.GetFullPath(string.Format(@"Fiches\Armures\{0}\{1}.docx", tabPage.Text, linkLabel.Text)));
+            EquipmentController.GetApercuArmure(formulaireApercuEquipement, linkLabel.Text);
+            formulaireApercuEquipement.Show();
         }
 
         public void linkLabelObjet_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

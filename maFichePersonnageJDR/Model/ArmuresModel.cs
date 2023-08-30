@@ -16,8 +16,9 @@ namespace maFichePersonnageJDR.Model
         private int idArmure;
         private string nomArmure;
         private double poidsArmure;
-        private int valeurArmure;
+        private string valeurArmure;
         private string protectionArmure;
+        private string bonusArmure;
         private string typeArmure;
         private string descriptionArmure;
         private string specialArmure;
@@ -28,8 +29,9 @@ namespace maFichePersonnageJDR.Model
         public int IdArmure { get => idArmure; set => idArmure = value; }
         public string NomArmure { get => nomArmure; set => nomArmure = value; }
         public double PoidsArmure { get => poidsArmure; set => poidsArmure = value; }
-        public int ValeurArmure { get => valeurArmure; set => valeurArmure = value; }
+        public string ValeurArmure { get => valeurArmure; set => valeurArmure = value; }
         public string ProtectionArmure { get => protectionArmure; set => protectionArmure = value; }
+        public string BonusArmure { get => bonusArmure; set => bonusArmure = value; }
         public string TypeArmure { get => typeArmure; set => typeArmure = value; }
         public string DescriptionArmure { get => descriptionArmure; set => descriptionArmure = value; }
         public string SpecialArmure { get => specialArmure; set => specialArmure = value; }
@@ -56,17 +58,61 @@ namespace maFichePersonnageJDR.Model
                         armureModel.IdArmure = reader.GetInt32(0);
                         armureModel.NomArmure = reader.GetString(1);
                         armureModel.PoidsArmure = reader.GetDouble(2);
-                        armureModel.ValeurArmure = reader.GetInt32(3);
+                        armureModel.ValeurArmure = reader.GetString(3);
                         armureModel.ProtectionArmure = reader.GetString(4);
-                        armureModel.TypeArmure = reader.GetString(5);
-                        armureModel.DescriptionArmure = reader.GetString(6);
-                        armureModel.SpecialArmure = reader.GetString(7);
+                        armureModel.BonusArmure = reader.GetString(5);
+                        armureModel.TypeArmure = reader.GetString(6);
+                        armureModel.DescriptionArmure = reader.GetString(7);
+                        armureModel.SpecialArmure = reader.GetString(8);
 
                         armuresModels.Add(armureModel);
                     }
                 }
 
                 return armuresModels;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Permet d'obtenir une arme par rapport à son nom
+        /// </summary>
+        /// <param name="nomArmure"></param>
+        /// <returns></returns>
+        public ArmuresModel GetArmureByName(string nomArmure)
+        {
+            ArmuresModel armureModel = new ArmuresModel();
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM ARMURES WHERE nom_armure = @nomArmure", connection);
+                command.Parameters.AddWithValue("@nomArmure", nomArmure);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ArmuresModel armure = new ArmuresModel();
+
+                        armure.IdArmure = reader.GetInt32(0);
+                        armure.NomArmure = reader.GetString(1);
+                        armure.PoidsArmure = reader.GetDouble(2);
+                        armure.ValeurArmure = reader.GetString(3);
+                        armure.ProtectionArmure = reader.GetString(4);
+                        armure.BonusArmure = reader.GetString(5);
+                        armure.TypeArmure = reader.GetString(6);
+                        armure.DescriptionArmure = reader.GetString(7);
+                        armure.SpecialArmure = reader.GetString(8);
+
+                        armureModel = armure;
+                    }
+                }
+
+                return armureModel;
             }
             catch (Exception e)
             {
