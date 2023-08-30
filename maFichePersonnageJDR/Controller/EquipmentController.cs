@@ -293,12 +293,25 @@ namespace maFichePersonnageJDR.Controller
 
             try
             {
+                // On commence par rendre visible les différentes label liés aux armes
+                formulaire.LabelAllonge.Visible = true;
+                formulaire.TextLblAllonge.Visible = true;
+                formulaire.LabelMains.Visible = true;
+                formulaire.TextLblMains.Visible = true;
+                formulaire.TextLblDegats.Visible = true;
+                formulaire.LabelDegats.Visible = true;
+
+                // Puis on y ajoute les valeurs de l'arme sélectionnée.
                 ArmesModel armeToGet = armesModel.GetArmeByName(nomArme);
                 formulaire.TextLblNom = armeToGet.NomArme;
                 formulaire.TextLblType = armeToGet.TypeArme;
                 formulaire.TextLblPoids = armeToGet.PoidsArmes.ToString() + " kg";
                 formulaire.TextLblValeur = armeToGet.ValeurArme.ToString();
-                formulaire.TextLblDescription = armeToGet.DescriptionArme;
+                formulaire.TextLblDescription = armeToGet.DescriptionArme;                
+                formulaire.TextLblAllonge.Text = armeToGet.AllongeArmes;                
+                formulaire.TextLblMains.Text = armeToGet.MainArmes;
+                formulaire.TextLblDegats.Text = armeToGet.DegatsArmes;
+                formulaire.TextLblSpecial = armeToGet.SpecialArme;
             }
             catch (Exception e)
             {

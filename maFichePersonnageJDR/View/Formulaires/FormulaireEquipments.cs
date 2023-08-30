@@ -103,8 +103,6 @@ namespace maFichePersonnageJDR.Formulaires
 
             EquipmentController.GetApercuArmes(formulaireApercuEquipement, linkLabel.Text);
             formulaireApercuEquipement.Show();
-
-            //Process.Start(Path.GetFullPath(string.Format(@"Fiches\Armes\{0}\{1}.docx", tabPage.Text, linkLabel.Text)));
         }
 
         public void linkLabelArmure_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

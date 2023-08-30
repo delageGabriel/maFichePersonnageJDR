@@ -24,5 +24,12 @@ namespace maFichePersonnageJDR.View.Formulaires
         public string TextLblPoids { get => lblTemplatePoids.Text; set => lblTemplatePoids.Text = value; }
         public string TextLblValeur { get => lblTemplateValeur.Text; set => lblTemplateValeur.Text = value; }
         public string TextLblDescription { get => rTxtBxTemplateDescr.Text; set => rTxtBxTemplateDescr.Text = value; }
+        public Label TextLblAllonge { get => lblTemplateAllonge; set => lblTemplateAllonge = value; }
+        public Label LabelAllonge { get => lblAllongeArme; set => lblAllongeArme = value; }
+        public Label TextLblMains { get => lblTemplateMains; set => lblTemplateMains = value; }
+        public Label LabelMains { get => lblMainsArmes; set => lblMainsArmes = value; }
+        public Label TextLblDegats { get => lblTemplateDegatsArmes; set => lblTemplateDegatsArmes = value; }
+        public Label LabelDegats { get => lblDegatsArmes; set => lblDegatsArmes = value; }
+        public string TextLblSpecial { get => rTxtBxSpecial.Text; set => rTxtBxSpecial.Text = value; }
     }
 }
