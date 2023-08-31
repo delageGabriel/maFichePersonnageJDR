@@ -56,12 +56,12 @@ namespace maFichePersonnageJDR.Model
                         ArmuresModel armureModel = new ArmuresModel();
 
                         armureModel.IdArmure = reader.GetInt32(0);
-                        armureModel.NomArmure = reader.GetString(1);
-                        armureModel.PoidsArmure = reader.GetDouble(2);
-                        armureModel.ValeurArmure = reader.GetString(3);
-                        armureModel.ProtectionArmure = reader.GetString(4);
-                        armureModel.BonusArmure = reader.GetString(5);
-                        armureModel.TypeArmure = reader.GetString(6);
+                        armureModel.TypeArmure = reader.GetString(1);
+                        armureModel.NomArmure = reader.GetString(2);
+                        armureModel.PoidsArmure = reader.GetDouble(3);
+                        armureModel.ValeurArmure = reader.GetString(4);
+                        armureModel.ProtectionArmure = reader.GetString(5);
+                        armureModel.BonusArmure = reader.GetString(6);
                         armureModel.DescriptionArmure = reader.GetString(7);
                         armureModel.SpecialArmure = reader.GetString(8);
 
@@ -99,12 +99,12 @@ namespace maFichePersonnageJDR.Model
                         ArmuresModel armure = new ArmuresModel();
 
                         armure.IdArmure = reader.GetInt32(0);
-                        armure.NomArmure = reader.GetString(1);
-                        armure.PoidsArmure = reader.GetDouble(2);
-                        armure.ValeurArmure = reader.GetString(3);
-                        armure.ProtectionArmure = reader.GetString(4);
-                        armure.BonusArmure = reader.GetString(5);
-                        armure.TypeArmure = reader.GetString(6);
+                        armure.TypeArmure = reader.GetString(1);
+                        armure.NomArmure = reader.GetString(2);
+                        armure.PoidsArmure = reader.GetDouble(3);
+                        armure.ValeurArmure = reader.GetString(4);
+                        armure.ProtectionArmure = reader.GetString(5);
+                        armure.BonusArmure = reader.GetString(6);
                         armure.DescriptionArmure = reader.GetString(7);
                         armure.SpecialArmure = reader.GetString(8);
 

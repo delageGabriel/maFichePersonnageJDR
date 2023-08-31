@@ -125,22 +125,14 @@ namespace maFichePersonnageJDR.Controller
                     lblNom.Text = "Nom";
                     lblNom.Font = new Font(lblNom.Font, FontStyle.Underline);
 
-                    // Label Poids
-                    Label lblPoids = new Label();
-                    lblPoids.Name = "lblPoids" + tabPage.Text;
-                    lblPoids.Location = new Point(x + lblNom.Width, y);
-                    lblPoids.Text = "Poids (kg)";
-                    lblPoids.Font = new Font(lblNom.Font, FontStyle.Underline);
-
                     // Label Quantité
                     Label lblQte = new Label();
                     lblQte.Name = "lblQte" + tabPage.Text;
-                    lblQte.Location = new Point(x + (lblNom.Width + lblQte.Width + 10), y);
+                    lblQte.Location = new Point(x + (lblNom.Width + 30), y);
                     lblQte.Text = "Quantité";
                     lblQte.Font = new Font(lblNom.Font, FontStyle.Underline);
 
                     controlParent.TabPages[indexOfTabPage].Controls.Add(lblNom);
-                    controlParent.TabPages[indexOfTabPage].Controls.Add(lblPoids);
                     controlParent.TabPages[indexOfTabPage].Controls.Add(lblQte);
 
                     y += 30;
@@ -159,20 +151,14 @@ namespace maFichePersonnageJDR.Controller
                         linkLabel.AutoSize = true;
                         linkLabel.LinkClicked += formulaireEquipments.linkLabelArmure_LinkClicked;
 
-                        Label label = new Label();
-                        label.Name = "lblPds" + armure.PoidsArmure.ToString();
-                        label.Location = new Point(x + (linkLabel.Width + 10), y);
-                        label.Text = armure.PoidsArmure.ToString();
-
                         NumericUpDown numericUpDown = new NumericUpDown();
-                        numericUpDown.Location = new Point(x + (linkLabel.Width + label.Width + 10), y - 3);
+                        numericUpDown.Location = new Point(x + (linkLabel.Width + 30), y - 3);
                         numericUpDown.Maximum = 99;
                         numericUpDown.Minimum = 0;
                         numericUpDown.Width = 40;
 
                         controlParent.TabPages[indexOfTabPage].Controls.Add(linkLabel);
                         controlParent.TabPages[indexOfTabPage].Controls.Add(checkBox);
-                        controlParent.TabPages[indexOfTabPage].Controls.Add(label);
                         controlParent.TabPages[indexOfTabPage].Controls.Add(numericUpDown);
 
                         y += 25;
