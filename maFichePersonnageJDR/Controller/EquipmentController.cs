@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Data.SQLite;
+﻿using maFichePersonnageJDR.Formulaires;
 using maFichePersonnageJDR.Model;
-using maFichePersonnageJDR.Formulaires;
-using System.Drawing;
 using maFichePersonnageJDR.View.Formulaires;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace maFichePersonnageJDR.Controller
 {
@@ -31,7 +27,7 @@ namespace maFichePersonnageJDR.Controller
             {
                 List<ArmesModel> armesModels = armesModel.GetListArmesByTypes(typeArme);
 
-                if( armesModel != null)
+                if (armesModel != null)
                 {
                     /// Les coordonnées qui gèrent tout les localisation
                     /// Et l'index de la tabpage
@@ -76,7 +72,7 @@ namespace maFichePersonnageJDR.Controller
                         numericUpDown.Location = new Point(x + (linkLabel.Width + 10), y - 3);
                         numericUpDown.Maximum = 99;
                         numericUpDown.Minimum = 0;
-                        numericUpDown.Width = 40;                        
+                        numericUpDown.Width = 40;
 
                         controlParent.TabPages[indexOfTabPage].Controls.Add(linkLabel);
                         controlParent.TabPages[indexOfTabPage].Controls.Add(checkBox);
@@ -86,7 +82,7 @@ namespace maFichePersonnageJDR.Controller
                     }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw e;
             }
@@ -271,8 +267,8 @@ namespace maFichePersonnageJDR.Controller
                 formulaire.TextLblType = armeToGet.TypeArme;
                 formulaire.TextLblPoids = armeToGet.PoidsArmes.ToString() + " kg";
                 formulaire.TextLblValeur = armeToGet.ValeurArme.ToString();
-                formulaire.TextLblDescription = armeToGet.DescriptionArme;                
-                formulaire.TextLblAllonge.Text = armeToGet.AllongeArmes;                
+                formulaire.TextLblDescription = armeToGet.DescriptionArme;
+                formulaire.TextLblAllonge.Text = armeToGet.AllongeArmes;
                 formulaire.TextLblMains.Text = armeToGet.MainArmes;
                 formulaire.TextLblDegats.Text = armeToGet.DegatsArmes;
                 formulaire.TextLblSpecial = armeToGet.SpecialArme;

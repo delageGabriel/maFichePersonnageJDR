@@ -138,6 +138,7 @@
     <Compile Include="Controller\FicheSortieController.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Controller\MagieController.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
