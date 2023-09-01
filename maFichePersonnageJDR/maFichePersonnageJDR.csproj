@@ -138,7 +138,6 @@
     <Compile Include="Controller\FicheSortieController.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Controller\FormController.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,54 +230,6 @@
     </None>
     <None Include="BDD\20221227_base_fiche_perso.sqbpro" />
     <None Include="BDD\base_fiche_perso.sqbpro" />
-    <None Include="Fiches\Armures\Boucliers\Bouclier de bronze.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Fiches\Armures\Boucliers\Bouclier en amande.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Fiches\Armures\Boucliers\Cape elfique.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Fiches\Armures\Boucliers\Pavois.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Fiches\Armures\Boucliers\Pelta.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Fiches\Armures\Boucliers\Écu.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Fiches\Armures\Chaussures\Chaussures de cuir.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Fiches\Armures\Chaussures\Sabatons.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Fiches\Armures\Chaussures\Sandales.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Fiches\Armures\Gants\Gantelets.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Fiches\Armures\Gants\Gants de mailles.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Fiches\Armures\Gants\Mitaines.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Fiches\Armures\Gants\Mitons.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Fiches\Armures\Genouillères\Cnémide.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Fiches\Armures\Genouillères\Cuissardes de fer.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Fiches\Armures\Genouillères\Pantalon de toile.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="Fiches\Objets\Normaux\Corde de chanvre.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
