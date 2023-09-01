@@ -62,7 +62,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbCntlMagie.Controls.Add(this.tbPgeDivine);
             this.tbCntlMagie.Controls.Add(this.tbPgeNeutre);
             this.tbCntlMagie.Location = new System.Drawing.Point(16, 15);
-            this.tbCntlMagie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCntlMagie.Margin = new System.Windows.Forms.Padding(4);
             this.tbCntlMagie.Name = "tbCntlMagie";
             this.tbCntlMagie.SelectedIndex = 0;
             this.tbCntlMagie.Size = new System.Drawing.Size(379, 190);
@@ -71,9 +71,9 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeAquatique
             // 
             this.tbPgeAquatique.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeAquatique.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeAquatique.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeAquatique.Name = "tbPgeAquatique";
-            this.tbPgeAquatique.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeAquatique.Padding = new System.Windows.Forms.Padding(4);
             this.tbPgeAquatique.Size = new System.Drawing.Size(371, 161);
             this.tbPgeAquatique.TabIndex = 0;
             this.tbPgeAquatique.Text = "Aquatique";
@@ -82,9 +82,9 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeIgnis
             // 
             this.tbPgeIgnis.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeIgnis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeIgnis.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeIgnis.Name = "tbPgeIgnis";
-            this.tbPgeIgnis.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeIgnis.Padding = new System.Windows.Forms.Padding(4);
             this.tbPgeIgnis.Size = new System.Drawing.Size(371, 161);
             this.tbPgeIgnis.TabIndex = 1;
             this.tbPgeIgnis.Text = "Ignis";
@@ -93,7 +93,7 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeCeleste
             // 
             this.tbPgeCeleste.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeCeleste.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeCeleste.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeCeleste.Name = "tbPgeCeleste";
             this.tbPgeCeleste.Size = new System.Drawing.Size(371, 161);
             this.tbPgeCeleste.TabIndex = 2;
@@ -103,7 +103,7 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeTerrestre
             // 
             this.tbPgeTerrestre.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeTerrestre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeTerrestre.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeTerrestre.Name = "tbPgeTerrestre";
             this.tbPgeTerrestre.Size = new System.Drawing.Size(371, 161);
             this.tbPgeTerrestre.TabIndex = 3;
@@ -113,7 +113,7 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeNature
             // 
             this.tbPgeNature.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeNature.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeNature.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeNature.Name = "tbPgeNature";
             this.tbPgeNature.Size = new System.Drawing.Size(371, 161);
             this.tbPgeNature.TabIndex = 4;
@@ -123,7 +123,7 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeCorrompue
             // 
             this.tbPgeCorrompue.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeCorrompue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeCorrompue.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeCorrompue.Name = "tbPgeCorrompue";
             this.tbPgeCorrompue.Size = new System.Drawing.Size(371, 161);
             this.tbPgeCorrompue.TabIndex = 5;
@@ -133,7 +133,7 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeDivine
             // 
             this.tbPgeDivine.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeDivine.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeDivine.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeDivine.Name = "tbPgeDivine";
             this.tbPgeDivine.Size = new System.Drawing.Size(371, 161);
             this.tbPgeDivine.TabIndex = 6;
@@ -143,7 +143,7 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeNeutre
             // 
             this.tbPgeNeutre.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeNeutre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeNeutre.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeNeutre.Name = "tbPgeNeutre";
             this.tbPgeNeutre.Size = new System.Drawing.Size(371, 161);
             this.tbPgeNeutre.TabIndex = 7;
@@ -161,7 +161,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbCntlAptitudes.Controls.Add(this.tbPgeAptChaine);
             this.tbCntlAptitudes.Controls.Add(this.tbPgeAptSpecial);
             this.tbCntlAptitudes.Location = new System.Drawing.Point(429, 15);
-            this.tbCntlAptitudes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCntlAptitudes.Margin = new System.Windows.Forms.Padding(4);
             this.tbCntlAptitudes.Name = "tbCntlAptitudes";
             this.tbCntlAptitudes.SelectedIndex = 0;
             this.tbCntlAptitudes.Size = new System.Drawing.Size(339, 185);
@@ -170,9 +170,9 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeAptEpee
             // 
             this.tbPgeAptEpee.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeAptEpee.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeAptEpee.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeAptEpee.Name = "tbPgeAptEpee";
-            this.tbPgeAptEpee.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeAptEpee.Padding = new System.Windows.Forms.Padding(4);
             this.tbPgeAptEpee.Size = new System.Drawing.Size(331, 156);
             this.tbPgeAptEpee.TabIndex = 0;
             this.tbPgeAptEpee.Text = "Épées";
@@ -181,9 +181,9 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeAptLance
             // 
             this.tbPgeAptLance.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeAptLance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeAptLance.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeAptLance.Name = "tbPgeAptLance";
-            this.tbPgeAptLance.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeAptLance.Padding = new System.Windows.Forms.Padding(4);
             this.tbPgeAptLance.Size = new System.Drawing.Size(331, 156);
             this.tbPgeAptLance.TabIndex = 1;
             this.tbPgeAptLance.Text = "Lances";
@@ -192,7 +192,7 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeAptPoignard
             // 
             this.tbPgeAptPoignard.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeAptPoignard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeAptPoignard.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeAptPoignard.Name = "tbPgeAptPoignard";
             this.tbPgeAptPoignard.Size = new System.Drawing.Size(331, 156);
             this.tbPgeAptPoignard.TabIndex = 2;
@@ -202,7 +202,7 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeAptHaches
             // 
             this.tbPgeAptHaches.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeAptHaches.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeAptHaches.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeAptHaches.Name = "tbPgeAptHaches";
             this.tbPgeAptHaches.Size = new System.Drawing.Size(331, 156);
             this.tbPgeAptHaches.TabIndex = 3;
@@ -212,7 +212,7 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeAptMasse
             // 
             this.tbPgeAptMasse.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeAptMasse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeAptMasse.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeAptMasse.Name = "tbPgeAptMasse";
             this.tbPgeAptMasse.Size = new System.Drawing.Size(331, 156);
             this.tbPgeAptMasse.TabIndex = 4;
@@ -222,7 +222,7 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeAptArmTrt
             // 
             this.tbPgeAptArmTrt.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeAptArmTrt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeAptArmTrt.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeAptArmTrt.Name = "tbPgeAptArmTrt";
             this.tbPgeAptArmTrt.Size = new System.Drawing.Size(331, 156);
             this.tbPgeAptArmTrt.TabIndex = 5;
@@ -232,7 +232,7 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeAptChaine
             // 
             this.tbPgeAptChaine.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeAptChaine.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeAptChaine.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeAptChaine.Name = "tbPgeAptChaine";
             this.tbPgeAptChaine.Size = new System.Drawing.Size(331, 156);
             this.tbPgeAptChaine.TabIndex = 6;
@@ -242,7 +242,7 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeAptSpecial
             // 
             this.tbPgeAptSpecial.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeAptSpecial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeAptSpecial.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeAptSpecial.Name = "tbPgeAptSpecial";
             this.tbPgeAptSpecial.Size = new System.Drawing.Size(331, 156);
             this.tbPgeAptSpecial.TabIndex = 7;
@@ -256,9 +256,10 @@ namespace maFichePersonnageJDR.Formulaires
             this.ClientSize = new System.Drawing.Size(795, 554);
             this.Controls.Add(this.tbCntlAptitudes);
             this.Controls.Add(this.tbCntlMagie);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormulaireMagieEtAptitudes";
             this.Text = "Magies & Aptitudes";
+            this.Load += new System.EventHandler(this.FormulaireMagieEtAptitudes_Load);
             this.tbCntlMagie.ResumeLayout(false);
             this.tbCntlAptitudes.ResumeLayout(false);
             this.ResumeLayout(false);

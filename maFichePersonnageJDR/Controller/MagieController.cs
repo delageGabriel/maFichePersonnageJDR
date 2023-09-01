@@ -22,13 +22,13 @@ namespace maFichePersonnageJDR.Controller
             Console.WriteLine(string.Format("########### Méthode GetMagiesByType — Type de magie : {0} ###########", typeMagie));
             
             FormulaireMagieEtAptitudes formulaireMagieEtAptitudes = new FormulaireMagieEtAptitudes();
-            MagieModel magie = new MagieModel();
+            MagieModel magieObjet = new MagieModel();
 
             try
             {
-                List<MagieModel> magieList = magie.GetMagieModels(typeMagie);
+                List<MagieModel> magieList = magieObjet.GetMagieModels(typeMagie);
 
-                if (magie != null)
+                if (magieObjet != null)
                 {
                     /// Les coordonnées qui gèrent tout les localisation
                     /// Et l'index de la tabpage
@@ -79,34 +79,22 @@ namespace maFichePersonnageJDR.Controller
         /// et les affiche dans un formulaire
         /// </summary>
         /// <param name="formulaire">le formulaire à sauvegarder</param>
-        /// <param name="nomArme">le nom de l'arme à modifier</param>
-        public static void GetApercuArmes(FormulaireApercuEquipement formulaire, string nomArme)
+        /// <param name="nomMagie">le nom de l'arme à modifier</param>
+        public static void GetApercuMagie(FormulaireApercuMagieEtAptitudes formulaire, string nomMagie)
         {
             #region Initialisation des variables
-            ArmesModel armesModel = new ArmesModel();
+            MagieModel magieModel = new MagieModel();
             #endregion
 
             try
             {
-                // On commence par rendre visible les différentes label liés aux armes
-                formulaire.LabelAllonge.Visible = true;
-                formulaire.TextLblAllonge.Visible = true;
-                formulaire.LabelMains.Visible = true;
-                formulaire.TextLblMains.Visible = true;
-                formulaire.TextLblDegats.Visible = true;
-                formulaire.LabelDegats.Visible = true;
-
                 // Puis on y ajoute les valeurs de l'arme sélectionnée.
-                ArmesModel armeToGet = armesModel.GetArmeByName(nomArme);
-                formulaire.TextLblNom = armeToGet.NomArme;
-                formulaire.TextLblType = armeToGet.TypeArme;
-                formulaire.TextLblPoids = armeToGet.PoidsArmes.ToString() + " kg";
-                formulaire.TextLblValeur = armeToGet.ValeurArme.ToString();
-                formulaire.TextLblDescription = armeToGet.DescriptionArme;
-                formulaire.TextLblAllonge.Text = armeToGet.AllongeArmes;
-                formulaire.TextLblMains.Text = armeToGet.MainArmes;
-                formulaire.TextLblDegats.Text = armeToGet.DegatsArmes;
-                formulaire.TextLblSpecial = armeToGet.SpecialArme;
+                MagieModel magieToGet = magieModel.GetMagieByName(nomMagie);
+
+                formulaire.TextLblNomMagieAptitude = magieToGet.NomMagie;
+                formulaire.TextLblTypeMagieAptitude = magieToGet.TypeMagie;
+                formulaire.TextLblCoutMagieAptitude = magieToGet.CoutMagie.ToString();
+                formulaire.TextLblNiveauMagieAptitude = magieToGet.NiveauMagie.ToString();
             }
             catch (Exception e)
             {

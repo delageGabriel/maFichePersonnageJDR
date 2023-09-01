@@ -603,5 +603,11 @@ namespace maFichePersonnageJDR
             FormulaireEquipments frmEquipment = new FormulaireEquipments();
             frmEquipment.Show();
         }
+
+        private void btnMagieAptitudes_Click(object sender, EventArgs e)
+        {
+            FormulaireMagieEtAptitudes frmMagieEtAptitudes = new FormulaireMagieEtAptitudes();
+            frmMagieEtAptitudes.Show();
+        }
     }
 }

@@ -70,5 +70,46 @@ namespace maFichePersonnageJDR.Model
                 throw e;
             }
         }
+
+        /// <summary>
+        /// Permet d'obtenir une arme par rapport à son nom
+        /// </summary>
+        /// <param name="nomMagie"></param>
+        /// <returns></returns>
+        public MagieModel GetMagieByName(string nomMagie)
+        {
+            MagieModel magieModel = new MagieModel();
+
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM MAGIE WHERE nom_magie = @nomMagie", connection);
+                command.Parameters.AddWithValue("@nomMagie", nomMagie);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        MagieModel magie = new MagieModel();
+
+                        magie.IdMagie = reader.GetInt32(0);
+                        magie.NomMagie = reader.GetString(1);
+                        magie.TypeMagie = reader.GetString(2);
+                        magie.DescriptionMagie = reader.GetString(3);
+                        magie.CoutMagie = reader.GetInt32(4);
+                        magie.NiveauMagie = reader.GetInt32(5);
+
+                        magieModel = magie;
+                    }
+                }
+
+                return magieModel;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }
