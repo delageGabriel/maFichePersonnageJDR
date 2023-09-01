@@ -34,6 +34,8 @@ namespace maFichePersonnageJDR.View.Formulaires
         public Label TextLblBonus { get => lblTemplateBonusArmure; set => lblTemplateBonusArmure = value; }
         public Label LabelProtection { get => lblProtectionArmure; set => lblProtectionArmure = value; }
         public RichTextBox TextLblProtection { get => rTxtBxProtection; set => rTxtBxProtection = value; }
+        public Label LabelConsommable { get => lblConsommable; set => lblConsommable = value; }
+        public Label TextLblConsommable { get => lblTemplateConsommable; set => lblTemplateConsommable = value; }
         public string TextLblSpecial { get => rTxtBxSpecial.Text; set => rTxtBxSpecial.Text = value; }
     }
 }

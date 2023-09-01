@@ -16,11 +16,11 @@ namespace maFichePersonnageJDR.Model
         private int idObjet;
         private string nomObjet;
         private double poidsObjet;
-        private string tailleObjet;
-        private int valeurObjet;
+        private string valeurObjet;
         private string descriptionObjet;
         private string typeObjet;
-        private string durabiliteObjet;
+        private string consommableObjet;
+        private string specialObjet;
 
         /// <summary>
         /// Accesseurs et Mutateurs
@@ -28,12 +28,11 @@ namespace maFichePersonnageJDR.Model
         public int IdObjet { get => idObjet; set => idObjet = value; }
         public string NomObjet { get => nomObjet; set => nomObjet = value; }
         public double PoidsObjet { get => poidsObjet; set => poidsObjet = value; }
-        public string TailleObjet { get => tailleObjet; set => tailleObjet = value; }
-        public int ValeurObjet { get => valeurObjet; set => valeurObjet = value; }
+        public string ValeurObjet { get => valeurObjet; set => valeurObjet = value; }
         public string DescriptionObjet { get => descriptionObjet; set => descriptionObjet = value; }
         public string TypeObjet { get => typeObjet; set => typeObjet = value; }
-        public string DurabiliteObjet { get => durabiliteObjet; set => durabiliteObjet = value; }
-
+        public string ConsommationObjet { get => consommableObjet; set => consommableObjet = value; }
+        public string SpecialObjet { get => specialObjet; set => specialObjet = value; }
         public List<ObjetsModel> GetListObjetsByTypes(string typeObjet)
         {
             #region Initialisation variables
@@ -44,7 +43,7 @@ namespace maFichePersonnageJDR.Model
             {
                 SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT * FROM OBJETS WHERE typeObjet = @typeObjet", connection);
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM OBJETS WHERE type_objet = @typeObjet", connection);
                 command.Parameters.AddWithValue("@typeObjet", typeObjet);
 
                 using (SQLiteDataReader reader = command.ExecuteReader())
@@ -56,17 +55,59 @@ namespace maFichePersonnageJDR.Model
                         objetsModel.IdObjet = reader.GetInt32(0);
                         objetsModel.NomObjet = reader.GetString(1);
                         objetsModel.PoidsObjet = reader.GetDouble(2);
-                        objetsModel.TailleObjet = reader.GetString(3);
-                        objetsModel.ValeurObjet = reader.GetInt32(4);
-                        objetsModel.DescriptionObjet = reader.GetString(5);
-                        objetsModel.TypeObjet = reader.GetString(6);
-                        objetsModel.DurabiliteObjet = reader.GetString(7);
+                        objetsModel.ValeurObjet = reader.GetString(3);
+                        objetsModel.DescriptionObjet = reader.GetString(4);
+                        objetsModel.TypeObjet = reader.GetString(5);
+                        objetsModel.ConsommationObjet = reader.GetString(6);
+                        objetsModel.SpecialObjet = reader.GetString(7);
 
                         objetsModels.Add(objetsModel);
                     }
                 }
 
                 return objetsModels;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Permet d'obtenir une armure par rapport à son nom
+        /// </summary>
+        /// <param name="nomObjet"></param>
+        /// <returns></returns>
+        public ObjetsModel GetObjetByName(string nomObjet)
+        {
+            ObjetsModel objetModel = new ObjetsModel();
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM OBJETS WHERE nom_objet = @nomObjet", connection);
+                command.Parameters.AddWithValue("@nomObjet", nomObjet);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ObjetsModel objet = new ObjetsModel();
+
+                        objet.IdObjet = reader.GetInt32(0);
+                        objet.NomObjet = reader.GetString(1);
+                        objet.PoidsObjet = reader.GetDouble(2);
+                        objet.ValeurObjet = reader.GetString(3);
+                        objet.DescriptionObjet = reader.GetString(4);
+                        objet.TypeObjet = reader.GetString(5);
+                        objet.ConsommationObjet = reader.GetString(6);
+                        objet.SpecialObjet = reader.GetString(7);
+
+                        objetModel = objet;
+                    }
+                }
+
+                return objetModel;
             }
             catch (Exception e)
             {

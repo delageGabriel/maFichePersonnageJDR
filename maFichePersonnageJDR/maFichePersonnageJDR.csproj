@@ -230,12 +230,6 @@
     </None>
     <None Include="BDD\20221227_base_fiche_perso.sqbpro" />
     <None Include="BDD\base_fiche_perso.sqbpro" />
-    <None Include="Fiches\Objets\Normaux\Corde de chanvre.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Fiches\Objets\Normaux\Torche.docx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="maFichePersonnageJDR_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\maFichePersonnageJDR.Formulaires.FormulaireCompAttri.datasource" />
@@ -254,7 +248,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Fiches\Objets\Importants\" />
+    <Folder Include="Fiches\" />
     <Folder Include="Images\" />
     <Folder Include="Templates\" />
   </ItemGroup>

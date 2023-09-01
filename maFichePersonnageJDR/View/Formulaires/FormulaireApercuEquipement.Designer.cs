@@ -52,6 +52,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.lblBonusArmure = new System.Windows.Forms.Label();
             this.rTxtBxProtection = new System.Windows.Forms.RichTextBox();
             this.lblSeparation = new System.Windows.Forms.Label();
+            this.lblTemplateConsommable = new System.Windows.Forms.Label();
+            this.lblConsommable = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblNomEquipement
@@ -315,12 +317,38 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.lblSeparation.Text = "_________________________________________________________________________________" +
     "__________";
             // 
+            // lblTemplateConsommable
+            // 
+            this.lblTemplateConsommable.AutoSize = true;
+            this.lblTemplateConsommable.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTemplateConsommable.Location = new System.Drawing.Point(368, 54);
+            this.lblTemplateConsommable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTemplateConsommable.Name = "lblTemplateConsommable";
+            this.lblTemplateConsommable.Size = new System.Drawing.Size(37, 22);
+            this.lblTemplateConsommable.TabIndex = 25;
+            this.lblTemplateConsommable.Text = "xxx\r\n";
+            this.lblTemplateConsommable.Visible = false;
+            // 
+            // lblConsommable
+            // 
+            this.lblConsommable.AutoSize = true;
+            this.lblConsommable.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConsommable.Location = new System.Drawing.Point(351, 11);
+            this.lblConsommable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblConsommable.Name = "lblConsommable";
+            this.lblConsommable.Size = new System.Drawing.Size(161, 27);
+            this.lblConsommable.TabIndex = 24;
+            this.lblConsommable.Text = "Consommable :";
+            this.lblConsommable.Visible = false;
+            // 
             // FormulaireApercuEquipement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(786, 494);
+            this.Controls.Add(this.lblTemplateConsommable);
+            this.Controls.Add(this.lblConsommable);
             this.Controls.Add(this.lblSeparation);
             this.Controls.Add(this.rTxtBxProtection);
             this.Controls.Add(this.lblTemplateBonusArmure);
@@ -377,5 +405,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         private System.Windows.Forms.Label lblBonusArmure;
         private System.Windows.Forms.RichTextBox rTxtBxProtection;
         private System.Windows.Forms.Label lblSeparation;
+        private System.Windows.Forms.Label lblTemplateConsommable;
+        private System.Windows.Forms.Label lblConsommable;
     }
 }

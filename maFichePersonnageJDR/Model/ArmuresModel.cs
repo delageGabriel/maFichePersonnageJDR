@@ -46,7 +46,7 @@ namespace maFichePersonnageJDR.Model
             {
                 SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT * FROM ARMURES WHERE type_armure = @typeArmure", connection);
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM ARMURES WHERE type_armure = @typeArmure ORDER BY nom_armure ASC", connection);
                 command.Parameters.AddWithValue("@typeArmure", typeArmure);
 
                 using (SQLiteDataReader reader = command.ExecuteReader())
@@ -78,7 +78,7 @@ namespace maFichePersonnageJDR.Model
         }
 
         /// <summary>
-        /// Permet d'obtenir une arme par rapport à son nom
+        /// Permet d'obtenir une armure par rapport à son nom
         /// </summary>
         /// <param name="nomArmure"></param>
         /// <returns></returns>

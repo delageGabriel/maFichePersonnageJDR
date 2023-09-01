@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Data.SQLite;
+﻿using maFichePersonnageJDR.Controller;
+using maFichePersonnageJDR.View.Formulaires;
+using System;
 using System.Diagnostics;
 using System.IO;
-using maFichePersonnageJDR.Controller;
-using maFichePersonnageJDR.View.Formulaires;
+using System.Windows.Forms;
 
 namespace maFichePersonnageJDR.Formulaires
 {
@@ -75,9 +67,9 @@ namespace maFichePersonnageJDR.Formulaires
 
             try
             {
-                foreach (TabPage page in tbCntlArmures.TabPages)
+                foreach (TabPage page in tbCntlObjets.TabPages)
                 {
-                    Controller.EquipmentController.GetObjetsByType(page.Text.Trim('s'), tbCntlObjets, page);
+                    Controller.EquipmentController.GetObjetsByType(page.Text, tbCntlObjets, page);
                 }
             }
             catch (Exception e)
@@ -92,6 +84,7 @@ namespace maFichePersonnageJDR.Formulaires
         {
             GetArmes();
             GetArmures();
+            GetObjets();
         }
 
         public void linkLabelArme_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -117,10 +110,12 @@ namespace maFichePersonnageJDR.Formulaires
 
         public void linkLabelObjet_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            FormulaireApercuEquipement formulaireApercuEquipement = new FormulaireApercuEquipement();
             LinkLabel linkLabel = sender as LinkLabel;
             TabPage tabPage = linkLabel.Parent as TabPage;
 
-            Process.Start(Path.GetFullPath(string.Format(@"Fiches\Objets\{0}\{1}.docx", tabPage.Text, linkLabel.Text)));
+            EquipmentController.GetApercuObjet(formulaireApercuEquipement, linkLabel.Text);
+            formulaireApercuEquipement.Show();
         }
     }
 }
