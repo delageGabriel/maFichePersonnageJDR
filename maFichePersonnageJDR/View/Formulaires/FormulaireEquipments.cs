@@ -1,8 +1,6 @@
 ﻿using maFichePersonnageJDR.Controller;
 using maFichePersonnageJDR.View.Formulaires;
 using System;
-using System.Diagnostics;
-using System.IO;
 using System.Windows.Forms;
 
 namespace maFichePersonnageJDR.Formulaires

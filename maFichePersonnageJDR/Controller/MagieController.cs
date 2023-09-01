@@ -59,7 +59,7 @@ namespace maFichePersonnageJDR.Controller
                         linkLabel.Name = ("lnkLbl" + magie.NomMagie).Trim();
                         linkLabel.Location = new Point(x, y);
                         linkLabel.AutoSize = true;
-                        linkLabel.LinkClicked += formulaireMagieEtAptitudes.linkLabelArme_LinkClicked;
+                        linkLabel.LinkClicked += formulaireMagieEtAptitudes.linkLabelMagie_LinkClicked;
 
                         controlParent.TabPages[indexOfTabPage].Controls.Add(linkLabel);
                         controlParent.TabPages[indexOfTabPage].Controls.Add(checkBox);
