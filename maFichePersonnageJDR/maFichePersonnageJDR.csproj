@@ -146,6 +146,7 @@
     </Compile>
     <Compile Include="Model\ArmesModel.cs" />
     <Compile Include="Model\ArmuresModel.cs" />
+    <Compile Include="Model\MagieModel.cs" />
     <Compile Include="Model\ObjetsModel.cs" />
     <Compile Include="View\Formulaires\FormulaireApercuEquipement.cs">
       <SubType>Form</SubType>
@@ -247,11 +248,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Fiches\" />
-    <Folder Include="Images\" />
-    <Folder Include="Templates\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
