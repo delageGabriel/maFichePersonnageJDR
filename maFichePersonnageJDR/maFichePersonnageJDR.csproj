@@ -134,6 +134,7 @@
     <Compile Include="Classe\ClasseImage.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Controller\AptitudesController.cs" />
     <Compile Include="Controller\EquipmentController.cs" />
     <Compile Include="Controller\FicheSortieController.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -145,6 +146,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\AptitudesModel.cs" />
     <Compile Include="Model\ArmesModel.cs" />
     <Compile Include="Model\ArmuresModel.cs" />
     <Compile Include="Model\MagieModel.cs" />
