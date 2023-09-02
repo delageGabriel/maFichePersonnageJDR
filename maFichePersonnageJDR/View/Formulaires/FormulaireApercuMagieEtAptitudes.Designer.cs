@@ -69,7 +69,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblTemplateTypeMagieAptitude.AutoSize = true;
             this.lblTemplateTypeMagieAptitude.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTemplateTypeMagieAptitude.Location = new System.Drawing.Point(177, 52);
+            this.lblTemplateTypeMagieAptitude.Location = new System.Drawing.Point(358, 52);
             this.lblTemplateTypeMagieAptitude.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTemplateTypeMagieAptitude.Name = "lblTemplateTypeMagieAptitude";
             this.lblTemplateTypeMagieAptitude.Size = new System.Drawing.Size(37, 22);
@@ -80,7 +80,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblTypeMagieAptitude.AutoSize = true;
             this.lblTypeMagieAptitude.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTypeMagieAptitude.Location = new System.Drawing.Point(175, 9);
+            this.lblTypeMagieAptitude.Location = new System.Drawing.Point(356, 9);
             this.lblTypeMagieAptitude.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTypeMagieAptitude.Name = "lblTypeMagieAptitude";
             this.lblTypeMagieAptitude.Size = new System.Drawing.Size(71, 27);
@@ -180,7 +180,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.Controls.Add(this.lblTemplateNomMagieAptitude);
             this.Controls.Add(this.lblNomMagieAptitude);
             this.Name = "FormulaireApercuMagieEtAptitudes";
-            this.Text = "FormulaireApercuMagieEtAptitudes";
+            this.Text = "Aperçu";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -95,78 +95,7 @@ namespace maFichePersonnageJDR.Controller
                 formulaire.TextLblTypeMagieAptitude = magieToGet.TypeMagie;
                 formulaire.TextLblCoutMagieAptitude = magieToGet.CoutMagie.ToString();
                 formulaire.TextLblNiveauMagieAptitude = magieToGet.NiveauMagie.ToString();
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// Va chercher en base les informations par rapport au nom d'une armure
-        /// et les affiche dans un formulaire
-        /// </summary>
-        /// <param name="formulaire"></param>
-        /// <param name="nomArmure"></param>
-        public static void GetApercuArmure(FormulaireApercuEquipement formulaire, string nomArmure)
-        {
-            #region Initialisation des variables
-            ArmuresModel armuresModel = new ArmuresModel();
-            #endregion
-
-            try
-            {
-                // On commence par rendre visible les différentes label liés aux armes
-                formulaire.LabelProtection.Visible = true;
-                formulaire.TextLblProtection.Visible = true;
-                formulaire.LabelBonus.Visible = true;
-                formulaire.TextLblBonus.Visible = true;
-
-                // Puis on y ajoute les valeurs de l'arme sélectionnée.
-                ArmuresModel armureToGet = armuresModel.GetArmureByName(nomArmure);
-                formulaire.TextLblNom = armureToGet.NomArmure;
-                formulaire.TextLblType = armureToGet.TypeArmure;
-                formulaire.TextLblPoids = armureToGet.PoidsArmure.ToString() + " kg";
-                formulaire.TextLblValeur = armureToGet.ValeurArmure.ToString();
-                formulaire.TextLblDescription = armureToGet.DescriptionArmure;
-                formulaire.TextLblProtection.Text = armureToGet.ProtectionArmure;
-                formulaire.TextLblBonus.Text = armureToGet.BonusArmure.ToString();
-                formulaire.TextLblSpecial = armureToGet.SpecialArmure;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// Va chercher en base les informations par rapport au nom d'un objet
-        /// et les affiche dans un formulaire
-        /// </summary>
-        /// <param name="formulaire"></param>
-        /// <param name="nomArmure"></param>
-        public static void GetApercuObjet(FormulaireApercuEquipement formulaire, string objet)
-        {
-            #region Initialisation des variables
-            ObjetsModel objetsModel = new ObjetsModel();
-            #endregion
-
-            try
-            {
-                // On commence par rendre visible les différentes label liés aux armes
-                formulaire.LabelConsommable.Visible = true;
-                formulaire.TextLblConsommable.Visible = true;
-
-                // Puis on y ajoute les valeurs de l'arme sélectionnée.
-                ObjetsModel objetToGet = objetsModel.GetObjetByName(objet);
-
-                formulaire.TextLblNom = objetToGet.NomObjet;
-                formulaire.TextLblType = objetToGet.TypeObjet;
-                formulaire.TextLblPoids = objetToGet.PoidsObjet.ToString() + " kg";
-                formulaire.TextLblValeur = objetToGet.ValeurObjet.ToString();
-                formulaire.TextLblDescription = objetToGet.DescriptionObjet;
-                formulaire.TextLblConsommable.Text = objetToGet.ConsommationObjet;
-                formulaire.TextLblSpecial = objetToGet.SpecialObjet;
+                formulaire.RchTextBxDescrMagieEtAptitude.Text = magieToGet.DescriptionMagie;
             }
             catch (Exception e)
             {

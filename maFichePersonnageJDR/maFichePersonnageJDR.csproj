@@ -240,6 +240,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="BDD\20221227_base_fiche_perso.sqbpro" />
+    <None Include="BDD\20230901_base_fiche_perso.db" />
     <None Include="BDD\base_fiche_perso.sqbpro" />
     <None Include="maFichePersonnageJDR_TemporaryKey.pfx" />
     <None Include="packages.config" />

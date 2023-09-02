@@ -45,7 +45,7 @@ namespace maFichePersonnageJDR
             this.btnFormCompAttri.Location = new System.Drawing.Point(44, 50);
             this.btnFormCompAttri.Margin = new System.Windows.Forms.Padding(4);
             this.btnFormCompAttri.Name = "btnFormCompAttri";
-            this.btnFormCompAttri.Size = new System.Drawing.Size(184, 28);
+            this.btnFormCompAttri.Size = new System.Drawing.Size(237, 28);
             this.btnFormCompAttri.TabIndex = 0;
             this.btnFormCompAttri.Text = "Compétences et Attributs";
             this.btnFormCompAttri.UseVisualStyleBackColor = true;
@@ -58,7 +58,7 @@ namespace maFichePersonnageJDR
             this.btnInfosGenerales.Location = new System.Drawing.Point(44, 15);
             this.btnInfosGenerales.Margin = new System.Windows.Forms.Padding(4);
             this.btnInfosGenerales.Name = "btnInfosGenerales";
-            this.btnInfosGenerales.Size = new System.Drawing.Size(184, 28);
+            this.btnInfosGenerales.Size = new System.Drawing.Size(237, 28);
             this.btnInfosGenerales.TabIndex = 1;
             this.btnInfosGenerales.Text = "Informations générales";
             this.btnInfosGenerales.UseVisualStyleBackColor = true;
@@ -71,7 +71,7 @@ namespace maFichePersonnageJDR
             this.btnTalentEtEquipement.Location = new System.Drawing.Point(44, 86);
             this.btnTalentEtEquipement.Margin = new System.Windows.Forms.Padding(4);
             this.btnTalentEtEquipement.Name = "btnTalentEtEquipement";
-            this.btnTalentEtEquipement.Size = new System.Drawing.Size(184, 28);
+            this.btnTalentEtEquipement.Size = new System.Drawing.Size(237, 28);
             this.btnTalentEtEquipement.TabIndex = 2;
             this.btnTalentEtEquipement.Text = "Talent et Équipement";
             this.btnTalentEtEquipement.UseVisualStyleBackColor = true;
@@ -82,10 +82,10 @@ namespace maFichePersonnageJDR
             this.btnSoumettreFiche.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSoumettreFiche.Location = new System.Drawing.Point(124, 153);
+            this.btnSoumettreFiche.Location = new System.Drawing.Point(68, 158);
             this.btnSoumettreFiche.Margin = new System.Windows.Forms.Padding(4);
             this.btnSoumettreFiche.Name = "btnSoumettreFiche";
-            this.btnSoumettreFiche.Size = new System.Drawing.Size(132, 28);
+            this.btnSoumettreFiche.Size = new System.Drawing.Size(185, 28);
             this.btnSoumettreFiche.TabIndex = 3;
             this.btnSoumettreFiche.Text = "Soumettre la fiche";
             this.btnSoumettreFiche.UseVisualStyleBackColor = true;
@@ -98,7 +98,7 @@ namespace maFichePersonnageJDR
             this.pbEtatFiche.Location = new System.Drawing.Point(44, 198);
             this.pbEtatFiche.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbEtatFiche.Name = "pbEtatFiche";
-            this.pbEtatFiche.Size = new System.Drawing.Size(184, 27);
+            this.pbEtatFiche.Size = new System.Drawing.Size(237, 27);
             this.pbEtatFiche.TabIndex = 4;
             // 
             // btnEquipments
@@ -117,9 +117,9 @@ namespace maFichePersonnageJDR
             this.btnMagieAptitudes.Location = new System.Drawing.Point(142, 122);
             this.btnMagieAptitudes.Margin = new System.Windows.Forms.Padding(4);
             this.btnMagieAptitudes.Name = "btnMagieAptitudes";
-            this.btnMagieAptitudes.Size = new System.Drawing.Size(100, 28);
+            this.btnMagieAptitudes.Size = new System.Drawing.Size(167, 28);
             this.btnMagieAptitudes.TabIndex = 6;
-            this.btnMagieAptitudes.Text = "Équipements";
+            this.btnMagieAptitudes.Text = "Magies et Aptitudes";
             this.btnMagieAptitudes.UseVisualStyleBackColor = true;
             this.btnMagieAptitudes.Click += new System.EventHandler(this.btnMagieAptitudes_Click);
             // 
@@ -127,7 +127,7 @@ namespace maFichePersonnageJDR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(268, 246);
+            this.ClientSize = new System.Drawing.Size(321, 246);
             this.Controls.Add(this.btnMagieAptitudes);
             this.Controls.Add(this.btnEquipments);
             this.Controls.Add(this.pbEtatFiche);

@@ -70,6 +70,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tbPgeAquatique
             // 
+            this.tbPgeAquatique.AutoScroll = true;
             this.tbPgeAquatique.Location = new System.Drawing.Point(4, 25);
             this.tbPgeAquatique.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeAquatique.Name = "tbPgeAquatique";
@@ -81,6 +82,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tbPgeIgnis
             // 
+            this.tbPgeIgnis.AutoScroll = true;
             this.tbPgeIgnis.Location = new System.Drawing.Point(4, 25);
             this.tbPgeIgnis.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeIgnis.Name = "tbPgeIgnis";
@@ -92,6 +94,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tbPgeCeleste
             // 
+            this.tbPgeCeleste.AutoScroll = true;
             this.tbPgeCeleste.Location = new System.Drawing.Point(4, 25);
             this.tbPgeCeleste.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeCeleste.Name = "tbPgeCeleste";
@@ -102,6 +105,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tbPgeTerrestre
             // 
+            this.tbPgeTerrestre.AutoScroll = true;
             this.tbPgeTerrestre.Location = new System.Drawing.Point(4, 25);
             this.tbPgeTerrestre.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeTerrestre.Name = "tbPgeTerrestre";
@@ -112,6 +116,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tbPgeNature
             // 
+            this.tbPgeNature.AutoScroll = true;
             this.tbPgeNature.Location = new System.Drawing.Point(4, 25);
             this.tbPgeNature.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeNature.Name = "tbPgeNature";
@@ -122,6 +127,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tbPgeCorrompue
             // 
+            this.tbPgeCorrompue.AutoScroll = true;
             this.tbPgeCorrompue.Location = new System.Drawing.Point(4, 25);
             this.tbPgeCorrompue.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeCorrompue.Name = "tbPgeCorrompue";
@@ -132,6 +138,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tbPgeDivine
             // 
+            this.tbPgeDivine.AutoScroll = true;
             this.tbPgeDivine.Location = new System.Drawing.Point(4, 25);
             this.tbPgeDivine.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeDivine.Name = "tbPgeDivine";
@@ -142,6 +149,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tbPgeNeutre
             // 
+            this.tbPgeNeutre.AutoScroll = true;
             this.tbPgeNeutre.Location = new System.Drawing.Point(4, 25);
             this.tbPgeNeutre.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeNeutre.Name = "tbPgeNeutre";
