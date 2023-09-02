@@ -15,6 +15,7 @@ using Spire.Doc.Documents;
 using maFichePersonnageJDR.Classe;
 using maFichePersonnageJDR.Controller;
 using System.Windows;
+using maFichePersonnageJDR.View.Formulaires;
 
 namespace maFichePersonnageJDR
 {
@@ -608,6 +609,12 @@ namespace maFichePersonnageJDR
         {
             FormulaireMagieEtAptitudes frmMagieEtAptitudes = new FormulaireMagieEtAptitudes();
             frmMagieEtAptitudes.Show();
+        }
+
+        private void btnCreerPersonnage_Click(object sender, EventArgs e)
+        {
+            FormulaireMenu formulaireMenu = new FormulaireMenu();
+            formulaireMenu.Show();
         }
     }
 }

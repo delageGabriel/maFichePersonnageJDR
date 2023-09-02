@@ -48,7 +48,6 @@ namespace maFichePersonnageJDR.Formulaires
         {
             lblPointsRestants.Text = "/" + tableauBaseNormaleExp[Properties.Settings.Default.Niveau].ToString();
             Properties.Settings.Default.VitesseDepla = 9;
-            txtVitesseDeplacement.Text = Properties.Settings.Default.VitesseDepla.ToString() + " m";
 
             if (Properties.Settings.Default.Sexe == "Masculin")
             {
@@ -81,9 +80,6 @@ namespace maFichePersonnageJDR.Formulaires
             //{
             //    ptbAvatar.Image = GetUneImage(Properties.Settings.Default.CheminImage);
             //}
-            nudOr.Value = Properties.Settings.Default.Or;
-            nudArgent.Value = Properties.Settings.Default.Argent;
-            nudCuivre.Value = Properties.Settings.Default.Cuivre;
             txtPointsXp.Text = Properties.Settings.Default.PointsExp.ToString();
         }
 
@@ -113,9 +109,6 @@ namespace maFichePersonnageJDR.Formulaires
             }
             Properties.Settings.Default.Histoire = rtbHistoire.Text;
             Properties.Settings.Default.Langues = rtbLangues.Text;
-            Properties.Settings.Default.Or = Convert.ToInt32(nudOr.Value);
-            Properties.Settings.Default.Argent = Convert.ToInt32(nudArgent.Value);
-            Properties.Settings.Default.Cuivre = Convert.ToInt32(nudCuivre.Value);
             Properties.Settings.Default.PointsExp = Int32.Parse(txtPointsXp.Text);
             Properties.Settings.Default.Save();
             MessageBox.Show("Formulaire sauvegardé !");
