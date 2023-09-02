@@ -14,6 +14,7 @@ using Spire.Doc.Fields;
 using Spire.Doc.Documents;
 using maFichePersonnageJDR.Classe;
 using maFichePersonnageJDR.Controller;
+using System.Windows;
 
 namespace maFichePersonnageJDR
 {
@@ -595,6 +596,18 @@ namespace maFichePersonnageJDR
             pbEtatFiche.Value += 25;
             MessageBox.Show("Toutes les tâches sont terminées.", "Traitement des documents", MessageBoxButtons.OK, MessageBoxIcon.Information);
             documentPdf.Close();
+        }
+
+        private void btnEquipments_Click(object sender, EventArgs e)
+        {
+            FormulaireEquipments frmEquipment = new FormulaireEquipments();
+            frmEquipment.Show();
+        }
+
+        private void btnMagieAptitudes_Click(object sender, EventArgs e)
+        {
+            FormulaireMagieEtAptitudes frmMagieEtAptitudes = new FormulaireMagieEtAptitudes();
+            frmMagieEtAptitudes.Show();
         }
     }
 }

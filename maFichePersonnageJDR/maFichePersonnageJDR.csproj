@@ -88,6 +88,7 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
@@ -126,42 +127,75 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classe\DatabaseConnection.cs" />
     <Compile Include="Classe\GlobalesVariable.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Classe\ClasseImage.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Controller\AptitudesController.cs" />
+    <Compile Include="Controller\EquipmentController.cs" />
     <Compile Include="Controller\FicheSortieController.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Controller\MagieController.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formulaires\FormulaireCompAttri.cs">
+    <Compile Include="Model\AptitudesModel.cs" />
+    <Compile Include="Model\ArmesModel.cs" />
+    <Compile Include="Model\ArmuresModel.cs" />
+    <Compile Include="Model\MagieModel.cs" />
+    <Compile Include="Model\ObjetsModel.cs" />
+    <Compile Include="View\Formulaires\FormulaireApercuEquipement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Formulaires\FormulaireApercuEquipement.Designer.cs">
+      <DependentUpon>FormulaireApercuEquipement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Formulaires\FormulaireApercuMagieEtAptitudes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Formulaires\FormulaireApercuMagieEtAptitudes.Designer.cs">
+      <DependentUpon>FormulaireApercuMagieEtAptitudes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Formulaires\FormulaireCompAttri.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Formulaires\FormulaireCompAttri.Designer.cs">
+    <Compile Include="View\Formulaires\FormulaireCompAttri.Designer.cs">
       <DependentUpon>FormulaireCompAttri.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Formulaires\FormulaireTalentsEtObjets.cs">
+    <Compile Include="View\Formulaires\FormulaireEquipments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Formulaires\FormulaireEquipments.Designer.cs">
+      <DependentUpon>FormulaireEquipments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Formulaires\FormulaireMagieEtAptitudes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Formulaires\FormulaireMagieEtAptitudes.Designer.cs">
+      <DependentUpon>FormulaireMagieEtAptitudes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Formulaires\FormulaireTalentsEtObjets.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Formulaires\FormulaireTalentsEtObjets.Designer.cs">
+    <Compile Include="View\Formulaires\FormulaireTalentsEtObjets.Designer.cs">
       <DependentUpon>FormulaireTalentsEtObjets.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Formulaires\FormulaireInfosGenerales.cs">
+    <Compile Include="View\Formulaires\FormulaireInfosGenerales.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Formulaires\FormulaireInfosGenerales.Designer.cs">
+    <Compile Include="View\Formulaires\FormulaireInfosGenerales.Designer.cs">
       <DependentUpon>FormulaireInfosGenerales.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
@@ -170,15 +204,27 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formulaires\FormulaireCompAttri.resx">
+    <EmbeddedResource Include="View\Formulaires\FormulaireApercuEquipement.resx">
+      <DependentUpon>FormulaireApercuEquipement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Formulaires\FormulaireApercuMagieEtAptitudes.resx">
+      <DependentUpon>FormulaireApercuMagieEtAptitudes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Formulaires\FormulaireCompAttri.resx">
       <DependentUpon>FormulaireCompAttri.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formulaires\FormulaireInfosGenerales.resx">
+    <EmbeddedResource Include="View\Formulaires\FormulaireEquipments.resx">
+      <DependentUpon>FormulaireEquipments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Formulaires\FormulaireInfosGenerales.resx">
       <DependentUpon>FormulaireInfosGenerales.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formulaires\FormulaireTalentsEtObjets.resx">
+    <EmbeddedResource Include="View\Formulaires\FormulaireMagieEtAptitudes.resx">
+      <DependentUpon>FormulaireMagieEtAptitudes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Formulaires\FormulaireTalentsEtObjets.resx">
       <DependentUpon>FormulaireTalentsEtObjets.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -196,6 +242,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="BDD\20221227_base_fiche_perso.sqbpro" />
+    <None Include="BDD\20230901_base_fiche_perso.db" />
     <None Include="BDD\base_fiche_perso.sqbpro" />
     <None Include="maFichePersonnageJDR_TemporaryKey.pfx" />
     <None Include="packages.config" />
@@ -214,10 +261,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
-    <Folder Include="Templates\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
