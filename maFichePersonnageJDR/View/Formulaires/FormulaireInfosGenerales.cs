@@ -14,6 +14,22 @@ namespace maFichePersonnageJDR.Formulaires
 {
     public partial class FormulaireInfosGenerales : Form
     {
+
+        /// <summary>
+        /// Accesseurs et Mutateurs
+        /// </summary>
+        public string PrenomPersonnage { get => txtBoxPrenom.Text; set => txtBoxPrenom.Text = value; }
+        public string NomPersonnage { get => txtBoxNom.Text; set => txtBoxNom.Text = value; }
+        public string RacePersonnage { get => TxtBoxRace.Text; set => TxtBoxRace.Text = value; }
+        public int NiveauPersonnage { get => Convert.ToInt32(nudNiveau.Value); set => nudNiveau.Value = value; }
+        public string HommePersonnage { get => rdbHomme.Text; set => rdbHomme.Text = value; }
+        public string FemmePersonnage { get => rdbFemme.Text; set => rdbFemme.Text = value; }
+        public string AutrePersonnage { get => rdbAutre.Text; set => rdbAutre.Text = value; }
+        public int ExperiencePersonnage { get => int.Parse(txtPointsXp.Text); set => txtPointsXp.Text = value.ToString(); }
+        public string AvatarPersonnage { get => ptbAvatar.ImageLocation; set => ptbAvatar.ImageLocation = value; }
+        public string LanguesPersonnage { get => rtbLangues.Text; set => rtbLangues.Text = value; }
+        public string HistoirePersonnage { get => rtbHistoire.Text; set => rtbHistoire.Text = value; }
+
         int[] tableauBaseNormaleExp =
         {
             0,
@@ -91,26 +107,101 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void btnSaveInfos_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.Prenom = txtBoxPrenom.Text;
-            Properties.Settings.Default.Nom = txtBoxNom.Text;
-            Properties.Settings.Default.Race = TxtBoxRace.Text;
-            Properties.Settings.Default.Niveau = Convert.ToInt32(nudNiveau.Value);
-            if (rdbHomme.Checked == true)
+            //Properties.Settings.Default.Prenom = txtBoxPrenom.Text;
+            //Properties.Settings.Default.Nom = txtBoxNom.Text;
+            //Properties.Settings.Default.Race = TxtBoxRace.Text;
+            //Properties.Settings.Default.Niveau = Convert.ToInt32(nudNiveau.Value);
+            //if (rdbHomme.Checked == true)
+            //{
+            //    Properties.Settings.Default.Sexe = "Masculin";
+            //}
+            //else if (rdbFemme.Checked == true)
+            //{
+            //    Properties.Settings.Default.Sexe = "Féminin";
+            //}
+            //else
+            //{
+            //    Properties.Settings.Default.Sexe = "Autre";
+            //}
+            //Properties.Settings.Default.Histoire = rtbHistoire.Text;
+            //Properties.Settings.Default.Langues = rtbLangues.Text;
+            //Properties.Settings.Default.PointsExp = Int32.Parse(txtPointsXp.Text);
+            //Properties.Settings.Default.Save();
+
+            Console.WriteLine("########### Classe : FormulaireInfosGenerales; Méthode : btnSaveInfos_Click; ###########");
+
+            try
             {
-                Properties.Settings.Default.Sexe = "Masculin";
+                string sexe = "";
+
+                /**
+                 * Test du PRENOM
+                 */
+                if (String.IsNullOrEmpty(txtBoxPrenom.Text))
+                {
+                    MessageBox.Show("Le champ « Prénom » doit être rempli !");
+                    return;
+                }
+
+                /**
+                 * Test du NOM
+                 */
+                if (String.IsNullOrEmpty(txtBoxNom.Text))
+                {
+                    MessageBox.Show("Le champ « Nom » doit être rempli !");
+                    return;
+                }
+
+                /**
+                 * Test RACE
+                 */
+                if (String.IsNullOrEmpty(TxtBoxRace.Text))
+                {
+                    MessageBox.Show("Le champ « Race » doit être rempli !");
+                    return;
+                }
+
+                /**
+                 * Test SEXE
+                 */
+                if (rdbHomme.Checked == true)
+                {
+                    sexe = HommePersonnage;
+                }
+                else if (rdbFemme.Checked == true)
+                {
+                    sexe = FemmePersonnage;
+                }
+                else if (rdbAutre.Checked == true)
+                {
+                    sexe = AutrePersonnage;
+                }
+                else
+                {
+                    MessageBox.Show("Veuillez cocher un sexe pour le personnage !");
+                    return;
+                }
+
+                /**
+                 * Test LANGUES
+                 */
+                if (String.IsNullOrEmpty(rtbLangues.Text))
+                {
+                    MessageBox.Show("Le champ « Langues » doit être rempli !");
+                    return;
+                }
+
+                // Si tout est bon, on sauvegarde les informations et on créait le personnage
+                Controller.PersonnageController.SaveInformationsPersonnage(PrenomPersonnage, NomPersonnage, RacePersonnage, NiveauPersonnage,
+                    sexe, ExperiencePersonnage, LanguesPersonnage, AvatarPersonnage, HistoirePersonnage);
             }
-            else if (rdbFemme.Checked == true)
+            catch (Exception exception)
             {
-                Properties.Settings.Default.Sexe = "Féminin";
+                throw exception;
             }
-            else
-            {
-                Properties.Settings.Default.Sexe = "Autre";
-            }
-            Properties.Settings.Default.Histoire = rtbHistoire.Text;
-            Properties.Settings.Default.Langues = rtbLangues.Text;
-            Properties.Settings.Default.PointsExp = Int32.Parse(txtPointsXp.Text);
-            Properties.Settings.Default.Save();
+
+            Console.WriteLine("########### FIN Méthode btnSaveInfos_Click ###########");
+
             MessageBox.Show("Formulaire sauvegardé !");
         }
 
@@ -173,5 +264,7 @@ namespace maFichePersonnageJDR.Formulaires
             lblPointsRestants.Text = "/" + tableauBaseNormaleExp[Convert.ToInt32(nudNiveau.Value)];
 
         }
+
+
     }
 }

@@ -54,29 +54,11 @@ namespace maFichePersonnageJDR.Model
             {
                 SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
-                SQLiteCommand command = new SQLiteCommand("INSERT INTO PERSONNAGE (prenom_personnage, nom_personnage, race_personnage, niveau_personnage," +
-                    "sexe_personnage, experience_personnage, langues_personnage, avatar_personnage, histoire_personnage)" +
-                    "VALUES (@prenomPersonnage," +
-                    "@nomPersonnage," +
-                    "@racePersonnage," +
-                    "@niveauPersonnage," +
-                    "@sexePersonnage," +
-                    "@experiencePersonnage," +
-                    "@languesPersonnage," +
-                    "@avatarPersonnage," +
-                    "@histoirePersonnage)", connection);
+                SQLiteCommand command = new SQLiteCommand(string.Format("INSERT INTO PERSONNAGE (prenom_personnage, nom_personnage, race_personnage, niveau_personnage, sexe_personnage, experience_personnage, langues_personnage, avatar_personnage, histoire_personnage) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", prenomPersonnage, nomPersonnage, racePersonnage, niveauPersonnage, sexePersonnage, experiencePersonnage, languesPersonnage, avatarPersonnage, histoirePersonnage), connection);
 
-                command.Parameters.AddWithValue("@prenomPersonnage", prenomPersonnage);
-                command.Parameters.AddWithValue("@nomPersonnage", nomPersonnage);
-                command.Parameters.AddWithValue("@racePersonnage", racePersonnage);
-                command.Parameters.AddWithValue("@niveauPersonnage", niveauPersonnage);
-                command.Parameters.AddWithValue("@sexePersonnage", sexePersonnage);
-                command.Parameters.AddWithValue("@experiencePersonnage", experiencePersonnage);
-                command.Parameters.AddWithValue("@languesPersonnage", languesPersonnage);
-                command.Parameters.AddWithValue("@avatarPersonnage", avatarPersonnage);
-                command.Parameters.AddWithValue("@histoirePersonnage", histoirePersonnage);
 
-                command.ExecuteNonQuery();
+                int rowsAffected = command.ExecuteNonQuery();
+
             }
             catch (Exception e)
             {

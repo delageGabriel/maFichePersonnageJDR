@@ -10,11 +10,35 @@ namespace maFichePersonnageJDR.Controller
 {
     class PersonnageController
     {
+        /// <summary>
+        /// Méthode qui permet de sauvegarder les informations générales d'un personnage
+        /// </summary>
+        /// <param name="prenomPersonnage"></param>
+        /// <param name="nomPersonnage"></param>
+        /// <param name="racePersonnage"></param>
+        /// <param name="niveauPersonnage"></param>
+        /// <param name="sexePersonnage"></param>
+        /// <param name="experiencePersonnage"></param>
+        /// <param name="languesPersonnage"></param>
+        /// <param name="avatarPersonnage"></param>
+        /// <param name="histoirePersonnage"></param>
         public static void SaveInformationsPersonnage(string prenomPersonnage, string nomPersonnage, string racePersonnage, int niveauPersonnage,
             string sexePersonnage, int experiencePersonnage, string languesPersonnage, string avatarPersonnage, string histoirePersonnage)
         {
             Console.WriteLine(string.Format("########### Méthode SaveInformationsPersonnage — Personnage créé : Prénom : {0} ###########", prenomPersonnage));
 
+            PersonnageModel personnageToSave = new PersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                personnageToSave.SaveInformationsPersonnage(prenomPersonnage, nomPersonnage, racePersonnage, niveauPersonnage, sexePersonnage, experiencePersonnage,
+                    languesPersonnage, avatarPersonnage, histoirePersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
     }
 }
