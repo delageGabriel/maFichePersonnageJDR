@@ -28,5 +28,11 @@ namespace maFichePersonnageJDR.View.Formulaires
             FormulaireInfosGenerales frmIG = new FormulaireInfosGenerales();
             frmIG.Show();
         }
+
+        private void btnAttributs_Click(object sender, EventArgs e)
+        {
+            FormulaireAttributs formulaireAttributs = new FormulaireAttributs();
+            formulaireAttributs.Show();
+        }
     }
 }

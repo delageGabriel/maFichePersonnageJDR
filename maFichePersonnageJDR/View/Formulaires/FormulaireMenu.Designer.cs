@@ -32,6 +32,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.btnInformationsGenerales = new System.Windows.Forms.Button();
             this.btnEquipment = new System.Windows.Forms.Button();
             this.btnMagieAptitudes = new System.Windows.Forms.Button();
+            this.btnAttributs = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnInformationsGenerales
@@ -64,11 +65,22 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.btnMagieAptitudes.UseVisualStyleBackColor = true;
             this.btnMagieAptitudes.Click += new System.EventHandler(this.btnMagieAptitudes_Click);
             // 
+            // btnAttributs
+            // 
+            this.btnAttributs.Location = new System.Drawing.Point(101, 104);
+            this.btnAttributs.Name = "btnAttributs";
+            this.btnAttributs.Size = new System.Drawing.Size(75, 23);
+            this.btnAttributs.TabIndex = 3;
+            this.btnAttributs.Text = "Attributs";
+            this.btnAttributs.UseVisualStyleBackColor = true;
+            this.btnAttributs.Click += new System.EventHandler(this.btnAttributs_Click);
+            // 
             // FormulaireMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(305, 450);
+            this.Controls.Add(this.btnAttributs);
             this.Controls.Add(this.btnMagieAptitudes);
             this.Controls.Add(this.btnEquipment);
             this.Controls.Add(this.btnInformationsGenerales);
@@ -83,5 +95,6 @@ namespace maFichePersonnageJDR.View.Formulaires
         private System.Windows.Forms.Button btnInformationsGenerales;
         private System.Windows.Forms.Button btnEquipment;
         private System.Windows.Forms.Button btnMagieAptitudes;
+        private System.Windows.Forms.Button btnAttributs;
     }
 }

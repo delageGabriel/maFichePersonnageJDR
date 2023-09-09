@@ -57,46 +57,11 @@ namespace maFichePersonnageJDR.Formulaires
         public FormulaireInfosGenerales()
         {
             InitializeComponent();
-
         }
 
         private void FormulaireInfosGenerales_Load(object sender, EventArgs e)
         {
-            lblPointsRestants.Text = "/" + tableauBaseNormaleExp[Properties.Settings.Default.Niveau].ToString();
-            Properties.Settings.Default.VitesseDepla = 9;
 
-            if (Properties.Settings.Default.Sexe == "Masculin")
-            {
-                rdbHomme.Checked = true;
-            }
-            else if (Properties.Settings.Default.Sexe == "Féminin")
-            {
-                rdbFemme.Checked = true;
-            }
-            else
-            {
-                rdbAutre.Checked = true;
-            }
-
-            GetSettings();
-        }
-
-        /// <summary>
-        /// Méthode pour obtenir les informations entrées par l'utilisateur
-        /// </summary>
-        public void GetSettings()
-        {
-            txtBoxPrenom.Text = Properties.Settings.Default.Prenom;
-            txtBoxNom.Text = Properties.Settings.Default.Nom;
-            TxtBoxRace.Text = Properties.Settings.Default.Race;
-            nudNiveau.Value = Properties.Settings.Default.Niveau;
-            rtbHistoire.Text = Properties.Settings.Default.Histoire;
-            rtbLangues.Text = Properties.Settings.Default.Langues;
-            //if (!String.IsNullOrEmpty(Properties.Settings.Default.CheminImage))
-            //{
-            //    ptbAvatar.Image = GetUneImage(Properties.Settings.Default.CheminImage);
-            //}
-            txtPointsXp.Text = Properties.Settings.Default.PointsExp.ToString();
         }
 
         /// <summary>
@@ -107,27 +72,6 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void btnSaveInfos_Click(object sender, EventArgs e)
         {
-            //Properties.Settings.Default.Prenom = txtBoxPrenom.Text;
-            //Properties.Settings.Default.Nom = txtBoxNom.Text;
-            //Properties.Settings.Default.Race = TxtBoxRace.Text;
-            //Properties.Settings.Default.Niveau = Convert.ToInt32(nudNiveau.Value);
-            //if (rdbHomme.Checked == true)
-            //{
-            //    Properties.Settings.Default.Sexe = "Masculin";
-            //}
-            //else if (rdbFemme.Checked == true)
-            //{
-            //    Properties.Settings.Default.Sexe = "Féminin";
-            //}
-            //else
-            //{
-            //    Properties.Settings.Default.Sexe = "Autre";
-            //}
-            //Properties.Settings.Default.Histoire = rtbHistoire.Text;
-            //Properties.Settings.Default.Langues = rtbLangues.Text;
-            //Properties.Settings.Default.PointsExp = Int32.Parse(txtPointsXp.Text);
-            //Properties.Settings.Default.Save();
-
             Console.WriteLine("########### Classe : FormulaireInfosGenerales; Méthode : btnSaveInfos_Click; ###########");
 
             try
@@ -264,7 +208,5 @@ namespace maFichePersonnageJDR.Formulaires
             lblPointsRestants.Text = "/" + tableauBaseNormaleExp[Convert.ToInt32(nudNiveau.Value)];
 
         }
-
-
     }
 }

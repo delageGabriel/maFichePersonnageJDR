@@ -35,6 +35,24 @@ namespace maFichePersonnageJDR.Model
         public string AvatarPersonnage { get => avatarPersonnage; set => avatarPersonnage = value; }
         public string HistoirePersonnage { get => histoirePersonnage; set => histoirePersonnage = value; }
 
+        public void CreatePersonnage()
+        {
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand(string.Format("INSERT INTO CREATION_PERSONNAGE " +
+                    "(prenom_personnage, nom_personnage, race_personnage, niveau_personnage, sexe_personnage, experience_personnage, langues_personnage, avatar_personnage, histoire_personnage) " +
+                    "VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", 
+                    PrenomPersonnage, NomPersonnage, RacePersonnage, NiveauPersonnage, SexePersonnage, ExperiencePersonnage, LanguesPersonnages, AvatarPersonnage, HistoirePersonnage), connection);
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         /// <summary>
         /// Méthode qui permet de sauvegarder en base les informations d'un personnage
         /// </summary>
