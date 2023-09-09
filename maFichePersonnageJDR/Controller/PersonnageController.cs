@@ -11,6 +11,27 @@ namespace maFichePersonnageJDR.Controller
     class PersonnageController
     {
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        public static void CreatePersonnage(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode CreatePersonnage — Personnage créé : idPersonnage : {0} ###########", idPersonnage.ToString()));
+
+            CreationPersonnageModel personnageToCreate = new CreationPersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                personnageToCreate.CreatePersonnage(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
         /// Méthode qui permet de sauvegarder les informations générales d'un personnage
         /// </summary>
         /// <param name="prenomPersonnage"></param>
@@ -40,5 +61,24 @@ namespace maFichePersonnageJDR.Controller
                 throw e;
             }
         }
+
+        public static int GetIdPersonnageByNameAndSurname(string nomPersonnage, string prenomPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetIdPersonnageByNameAndSurname — Personnage recherchée : Prénom : {0}; Nom : {1} ###########", prenomPersonnage, nomPersonnage));
+
+            PersonnageModel personnageToSave = new PersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return personnageToSave.GetIdByNameAndSurname(prenomPersonnage, nomPersonnage);               
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static int CheckPersonnageExist()
     }
 }

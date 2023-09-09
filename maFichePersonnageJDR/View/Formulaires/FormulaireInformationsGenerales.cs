@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
-using maFichePersonnageJDR.Classe;
+using System.Windows.Forms;
+using maFichePersonnageJDR.View.Formulaires;
 
 namespace maFichePersonnageJDR.Formulaires
 {
@@ -73,6 +67,9 @@ namespace maFichePersonnageJDR.Formulaires
         private void btnSaveInfos_Click(object sender, EventArgs e)
         {
             Console.WriteLine("########### Classe : FormulaireInfosGenerales; Méthode : btnSaveInfos_Click; ###########");
+            #region Initialisation des variables
+            FormulaireAttributs formulaireAttributs = new FormulaireAttributs();
+            #endregion
 
             try
             {
@@ -138,6 +135,14 @@ namespace maFichePersonnageJDR.Formulaires
                 // Si tout est bon, on sauvegarde les informations et on créait le personnage
                 Controller.PersonnageController.SaveInformationsPersonnage(PrenomPersonnage, NomPersonnage, RacePersonnage, NiveauPersonnage,
                     sexe, ExperiencePersonnage, LanguesPersonnage, AvatarPersonnage, HistoirePersonnage);
+
+                // On récupère l'id du personnage créé
+                formulaireAttributs.IdDuPersonnage = Controller.PersonnageController.GetIdPersonnageByNameAndSurname(NomPersonnage, PrenomPersonnage);
+                MessageBox.Show("Formulaire sauvegardé !");
+
+                formulaireAttributs.Show();
+                this.Close();
+                
             }
             catch (Exception exception)
             {
@@ -146,7 +151,6 @@ namespace maFichePersonnageJDR.Formulaires
 
             Console.WriteLine("########### FIN Méthode btnSaveInfos_Click ###########");
 
-            MessageBox.Show("Formulaire sauvegardé !");
         }
 
         private void btnAjouterImage_Click(object sender, EventArgs e)

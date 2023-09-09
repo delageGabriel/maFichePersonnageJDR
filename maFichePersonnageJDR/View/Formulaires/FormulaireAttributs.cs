@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using maFichePersonnageJDR.Controller;
+using System;
 using System.Windows.Forms;
-using maFichePersonnageJDR.Controller;
-using maFichePersonnageJDR.View.Formulaires;
+using maFichePersonnageJDR.Formulaires;
 
 namespace maFichePersonnageJDR.View.Formulaires
 {
     public partial class FormulaireAttributs : Form
     {
+        private int idDuPersonnage;
+        public int IdDuPersonnage { get => idDuPersonnage; set => idDuPersonnage = value; }
         public FormulaireAttributs()
         {
             InitializeComponent();

@@ -35,24 +35,6 @@ namespace maFichePersonnageJDR.Model
         public string AvatarPersonnage { get => avatarPersonnage; set => avatarPersonnage = value; }
         public string HistoirePersonnage { get => histoirePersonnage; set => histoirePersonnage = value; }
 
-        public void CreatePersonnage()
-        {
-            try
-            {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
-                // Commande
-                SQLiteCommand command = new SQLiteCommand(string.Format("INSERT INTO CREATION_PERSONNAGE " +
-                    "(prenom_personnage, nom_personnage, race_personnage, niveau_personnage, sexe_personnage, experience_personnage, langues_personnage, avatar_personnage, histoire_personnage) " +
-                    "VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", 
-                    PrenomPersonnage, NomPersonnage, RacePersonnage, NiveauPersonnage, SexePersonnage, ExperiencePersonnage, LanguesPersonnages, AvatarPersonnage, HistoirePersonnage), connection);
-
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
         /// <summary>
         /// Méthode qui permet de sauvegarder en base les informations d'un personnage
         /// </summary>
@@ -65,7 +47,7 @@ namespace maFichePersonnageJDR.Model
         /// <param name="languesPersonnage"></param>
         /// <param name="avatarPersonnage"></param>
         /// <param name="histoirePersonnage"></param>
-        public void SaveInformationsPersonnage(string prenomPersonnage, string nomPersonnage, string racePersonnage, int niveauPersonnage, 
+        public void SaveInformationsPersonnage(string prenomPersonnage, string nomPersonnage, string racePersonnage, int niveauPersonnage,
             string sexePersonnage, int experiencePersonnage, string languesPersonnage, string avatarPersonnage, string histoirePersonnage)
         {
             try
@@ -77,6 +59,40 @@ namespace maFichePersonnageJDR.Model
 
                 int rowsAffected = command.ExecuteNonQuery();
 
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public int GetIdByNameAndSurname(string nomPersonnage, string prenomPersonnage)
+        {
+            #region Initialisation des variables
+            int idDuPersonnage = 0;
+            #endregion
+
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT id_personnage FROM PERSONNAGE WHERE nom_personnage = @nomPersonnage AND prenom_personnage = @prenomPersonnage", connection);
+                command.Parameters.AddWithValue("@prenomPersonnage", prenomPersonnage);
+                command.Parameters.AddWithValue("@nomPersonnage", nomPersonnage);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        PersonnageModel personnageModel = new PersonnageModel();
+
+                        personnageModel.IdPersonnage = reader.GetInt32(0);
+
+                        idDuPersonnage = personnageModel.IdPersonnage;
+                    }
+                }
+
+                return idDuPersonnage;
             }
             catch (Exception e)
             {

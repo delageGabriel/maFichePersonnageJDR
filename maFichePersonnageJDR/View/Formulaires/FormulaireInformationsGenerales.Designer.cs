@@ -197,7 +197,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnSaveInfos.Name = "btnSaveInfos";
             this.btnSaveInfos.Size = new System.Drawing.Size(256, 96);
             this.btnSaveInfos.TabIndex = 24;
-            this.btnSaveInfos.Text = "Sauvegarde et continuer";
+            this.btnSaveInfos.Text = "Suivant";
             this.btnSaveInfos.UseVisualStyleBackColor = true;
             this.btnSaveInfos.Click += new System.EventHandler(this.btnSaveInfos_Click);
             // 
