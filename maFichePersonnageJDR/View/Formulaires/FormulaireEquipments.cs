@@ -90,7 +90,6 @@ namespace maFichePersonnageJDR.Formulaires
             FormulaireApercuEquipement formulaireApercuEquipement = new FormulaireApercuEquipement();
 
             LinkLabel linkLabel = sender as LinkLabel;
-            TabPage tabPage = linkLabel.Parent as TabPage;
 
             EquipmentController.GetApercuArmes(formulaireApercuEquipement, linkLabel.Text);
             formulaireApercuEquipement.Show();
@@ -100,7 +99,6 @@ namespace maFichePersonnageJDR.Formulaires
         {
             FormulaireApercuEquipement formulaireApercuEquipement = new FormulaireApercuEquipement();
             LinkLabel linkLabel = sender as LinkLabel;
-            TabPage tabPage = linkLabel.Parent as TabPage;
 
             EquipmentController.GetApercuArmure(formulaireApercuEquipement, linkLabel.Text);
             formulaireApercuEquipement.Show();
@@ -110,7 +108,6 @@ namespace maFichePersonnageJDR.Formulaires
         {
             FormulaireApercuEquipement formulaireApercuEquipement = new FormulaireApercuEquipement();
             LinkLabel linkLabel = sender as LinkLabel;
-            TabPage tabPage = linkLabel.Parent as TabPage;
 
             EquipmentController.GetApercuObjet(formulaireApercuEquipement, linkLabel.Text);
             formulaireApercuEquipement.Show();

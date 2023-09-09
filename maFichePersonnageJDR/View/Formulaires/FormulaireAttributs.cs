@@ -42,5 +42,14 @@ namespace maFichePersonnageJDR.View.Formulaires
 
             Console.WriteLine("########### FIN Méthode GetAttributs ###########");
         }
+
+        public void linkLabelAttribut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormulaireApercuAttributs formulaireApercuAttributs = new FormulaireApercuAttributs();
+            LinkLabel linkLabel = sender as LinkLabel;
+
+            AttributsController.GetApercuAttribut(formulaireApercuAttributs, linkLabel.Text);
+            formulaireApercuAttributs.Show();
+        }
     }
 }

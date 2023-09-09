@@ -25,6 +25,10 @@ namespace maFichePersonnageJDR.Model
         public string TypeAttribut { get => typeAttribut; set => typeAttribut = value; }
         public string NoteAttribut { get => noteAttribut; set => noteAttribut = value; }
 
+        /// <summary>
+        /// Obtient la liste de tous les attributs
+        /// </summary>
+        /// <returns></returns>
         public List<AttributsModel> GetListAttributs()
         {
             #region Initialisation des variables
@@ -54,6 +58,46 @@ namespace maFichePersonnageJDR.Model
                 }
 
                 return attributsModels;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Permet de récupérer les informations de l'attribut sélectionné
+        /// pour en avoir l'aperçu
+        /// </summary>
+        /// <param name="nomAttribut">Le nom de l'attribut sélectionné</param>
+        /// <returns></returns>
+        public AttributsModel GetAttributByName(string nomAttribut)
+        {
+            AttributsModel attributsModel = new AttributsModel();
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM ATTRIBUTS WHERE nom_attribut = @nomAttribut", connection);
+                command.Parameters.AddWithValue("@nomAttribut", nomAttribut);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        AttributsModel attributs = new AttributsModel();
+
+                        attributs.IdAttribut = reader.GetInt32(0);
+                        attributs.NomAttribut = reader.GetString(1);                        
+                        attributs.DescriptionAttribut = reader.GetString(2);
+                        attributs.TypeAttribut = reader.GetString(3);
+                        attributs.NoteAttribut = reader.GetString(4);
+
+                        attributsModel = attributs;
+                    }
+                }
+
+                return attributsModel;
             }
             catch (Exception e)
             {
