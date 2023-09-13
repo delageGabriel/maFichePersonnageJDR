@@ -182,6 +182,12 @@
     <Compile Include="View\Formulaires\FormulaireAttributs.Designer.cs">
       <DependentUpon>FormulaireAttributs.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Formulaires\FormulaireCompetencesCaracteristiques.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Formulaires\FormulaireCompetencesCaracteristiques.Designer.cs">
+      <DependentUpon>FormulaireCompetencesCaracteristiques.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Formulaires\FormulaireCompetencesEtCaracteristiques.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -240,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Formulaires\FormulaireAttributs.resx">
       <DependentUpon>FormulaireAttributs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Formulaires\FormulaireCompetencesCaracteristiques.resx">
+      <DependentUpon>FormulaireCompetencesCaracteristiques.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Formulaires\FormulaireCompetencesEtCaracteristiques.resx">
       <DependentUpon>FormulaireCompetencesEtCaracteristiques.cs</DependentUpon>
