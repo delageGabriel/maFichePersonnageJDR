@@ -62,6 +62,12 @@ namespace maFichePersonnageJDR.Controller
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nomPersonnage"></param>
+        /// <param name="prenomPersonnage"></param>
+        /// <returns></returns>
         public static int GetIdPersonnageByNameAndSurname(string nomPersonnage, string prenomPersonnage)
         {
             Console.WriteLine(string.Format("########### Méthode GetIdPersonnageByNameAndSurname — Personnage recherchée : Prénom : {0}; Nom : {1} ###########", prenomPersonnage, nomPersonnage));
@@ -79,6 +85,27 @@ namespace maFichePersonnageJDR.Controller
             }
         }
 
-        public static int CheckPersonnageExist()
+        /// <summary>
+        /// On vérifie en base si le personnage existe déjà
+        /// </summary>
+        /// <param name="nomPersonnage"></param>
+        /// <param name="prenomPersonnage"></param>
+        /// <returns></returns>
+        public static bool CheckPersonnageExist(string nomPersonnage, string prenomPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode CheckPersonnageExist — Personnage recherchée : Prénom : {0}; Nom : {1} ###########", prenomPersonnage, nomPersonnage));
+
+            PersonnageModel personnageToCheck = new PersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return personnageToCheck.CheckIfPersonnageExist(nomPersonnage, prenomPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

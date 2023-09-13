@@ -132,6 +132,15 @@ namespace maFichePersonnageJDR.Formulaires
                     return;
                 }
 
+                /**
+                 * Test PERSONNAGE EXISTE DEJA
+                 */
+                if(!Controller.PersonnageController.CheckPersonnageExist(NomPersonnage, PrenomPersonnage))
+                {
+                    MessageBox.Show("Le personnage existe déjà en base !");
+                    return;
+                }
+
                 // Si tout est bon, on sauvegarde les informations et on créait le personnage
                 Controller.PersonnageController.SaveInformationsPersonnage(PrenomPersonnage, NomPersonnage, RacePersonnage, NiveauPersonnage,
                     sexe, ExperiencePersonnage, LanguesPersonnage, AvatarPersonnage, HistoirePersonnage);

@@ -4,18 +4,20 @@ using maFichePersonnageJDR.View.Formulaires;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
 
 namespace maFichePersonnageJDR.Controller
 {
     class AttributsController
     {
-        public static void GetAttributs(TabControl controlParent, TabPage page)
+        public static FormulaireAttributs GetAttributs(TabControl controlParent, TabPage page)
         {
             Console.WriteLine("########### Méthode GetAttributs — ###########");
 
             FormulaireAttributs formulaireAttributs = new FormulaireAttributs();
             AttributsModel attributsModel = new AttributsModel();
+            List<CheckBox> checkBoxes = new List<CheckBox>();
 
             try
             {
@@ -25,7 +27,7 @@ namespace maFichePersonnageJDR.Controller
                 {
                     // Coordonnées qui gèrent la localisation
                     int x = 10;
-                    int y = 20;
+                    int y = 5;
                     int indexOfTabPage = controlParent.TabPages.IndexOfKey(page.Name);
 
                     // NOM
@@ -40,12 +42,8 @@ namespace maFichePersonnageJDR.Controller
                     y += 30;
 
                     // On ajoute tous les attributs dans la groupBox
-                    foreach(AttributsModel attributs in attributsList)
+                    foreach (AttributsModel attributs in attributsList)
                     {
-                        CheckBox checkBox = new CheckBox();
-                        checkBox.Location = new Point(1, y - 5);
-                        checkBox.Name = ("chck" + attributs.NomAttribut).Trim();
-
                         LinkLabel linkLabel = new LinkLabel();
                         linkLabel.Text = attributs.NomAttribut;
                         linkLabel.Name = ("lnkLbl" + attributs.NomAttribut).Trim();
@@ -54,11 +52,12 @@ namespace maFichePersonnageJDR.Controller
                         linkLabel.LinkClicked += formulaireAttributs.linkLabelAttribut_LinkClicked;
 
                         controlParent.TabPages[indexOfTabPage].Controls.Add(linkLabel);
-                        controlParent.TabPages[indexOfTabPage].Controls.Add(checkBox);
 
                         y += 25;
                     }
                 }
+
+                return formulaireAttributs;
             }
             catch (Exception e)
             {
@@ -86,6 +85,29 @@ namespace maFichePersonnageJDR.Controller
                 formulaire.TextLblType = attributToGet.TypeAttribut;
                 formulaire.TextLblDescription = attributToGet.DescriptionAttribut;
                 formulaire.TextLblNote = attributToGet.NoteAttribut;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Méthode qui permet d'avoir toutes les informations d'un attribut par
+        /// rapport à son nom
+        /// </summary>
+        /// <param name="nomAttribut"></param>
+        /// <returns></returns>
+        public static string GetAttributByName(string nomAttribut)
+        {
+            #region Initialisation des variables
+            AttributsModel attributsModel = new AttributsModel();
+            #endregion
+
+            try
+            {
+                AttributsModel attributsToGet = attributsModel.GetAttributByName(nomAttribut);
+                return "Nom: " + attributsToGet.NomAttribut + ", " + "Description: " + attributsToGet.DescriptionAttribut + ", " + "Type: " + attributsToGet.TypeAttribut + ", " + "Notes: " + attributsToGet.NoteAttribut;
             }
             catch (Exception e)
             {

@@ -29,19 +29,11 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// </summary>
         private void InitializeComponent()
         {
-            this.rTxtBxAttributsPersonnage = new System.Windows.Forms.RichTextBox();
             this.tbControlAttributs = new System.Windows.Forms.TabControl();
             this.tbPgeAttributs = new System.Windows.Forms.TabPage();
+            this.rtbAttributs = new System.Windows.Forms.RichTextBox();
             this.tbControlAttributs.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // rTxtBxAttributsPersonnage
-            // 
-            this.rTxtBxAttributsPersonnage.Location = new System.Drawing.Point(198, 34);
-            this.rTxtBxAttributsPersonnage.Name = "rTxtBxAttributsPersonnage";
-            this.rTxtBxAttributsPersonnage.Size = new System.Drawing.Size(330, 181);
-            this.rTxtBxAttributsPersonnage.TabIndex = 1;
-            this.rTxtBxAttributsPersonnage.Text = "";
             // 
             // tbControlAttributs
             // 
@@ -63,13 +55,21 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.tbPgeAttributs.Text = "Attributs";
             this.tbPgeAttributs.UseVisualStyleBackColor = true;
             // 
+            // rtbAttributs
+            // 
+            this.rtbAttributs.Location = new System.Drawing.Point(198, 34);
+            this.rtbAttributs.Name = "rtbAttributs";
+            this.rtbAttributs.Size = new System.Drawing.Size(333, 96);
+            this.rtbAttributs.TabIndex = 3;
+            this.rtbAttributs.Text = "";
+            // 
             // FormulaireAttributs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(543, 450);
+            this.Controls.Add(this.rtbAttributs);
             this.Controls.Add(this.tbControlAttributs);
-            this.Controls.Add(this.rTxtBxAttributsPersonnage);
             this.Name = "FormulaireAttributs";
             this.Text = "Attributs";
             this.Load += new System.EventHandler(this.FormulaireAttributs_Load);
@@ -79,8 +79,8 @@ namespace maFichePersonnageJDR.View.Formulaires
         }
 
         #endregion
-        private System.Windows.Forms.RichTextBox rTxtBxAttributsPersonnage;
         private System.Windows.Forms.TabControl tbControlAttributs;
         private System.Windows.Forms.TabPage tbPgeAttributs;
+        private System.Windows.Forms.RichTextBox rtbAttributs;
     }
 }

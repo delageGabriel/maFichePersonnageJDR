@@ -65,7 +65,7 @@ namespace maFichePersonnageJDR
             this.pbEtatFiche.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pbEtatFiche.Location = new System.Drawing.Point(33, 161);
-            this.pbEtatFiche.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbEtatFiche.Margin = new System.Windows.Forms.Padding(2);
             this.pbEtatFiche.Name = "pbEtatFiche";
             this.pbEtatFiche.Size = new System.Drawing.Size(178, 22);
             this.pbEtatFiche.TabIndex = 4;
@@ -90,7 +90,7 @@ namespace maFichePersonnageJDR
             this.Controls.Add(this.btnSoumettreFiche);
             this.Controls.Add(this.btnFormCompAttri);
             this.Name = "FrmPrincipal";
-            this.Text = "Formulaire Principal";
+            this.Text = "Menu";
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.ResumeLayout(false);
 

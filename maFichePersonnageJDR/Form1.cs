@@ -613,7 +613,7 @@ namespace maFichePersonnageJDR
 
         private void btnCreerPersonnage_Click(object sender, EventArgs e)
         {
-            FormulaireMenu formulaireMenu = new FormulaireMenu();
+            FormulaireInfosGenerales formulaireMenu = new FormulaireInfosGenerales();
             formulaireMenu.Show();
         }
     }

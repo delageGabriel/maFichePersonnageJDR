@@ -99,5 +99,44 @@ namespace maFichePersonnageJDR.Model
                 throw e;
             }
         }
+
+        /// <summary>
+        /// On vérifie en base si le personnage existe déjà
+        /// </summary>
+        /// <param name="nomPersonnage"></param>
+        /// <param name="prenomPersonnage"></param>
+        /// <returns></returns>
+        public bool CheckIfPersonnageExist(string nomPersonnage, string prenomPersonnage)
+        {
+            #region Initialisation des variables
+            bool personnageExiste = false;
+            #endregion
+
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT COUNT(*) FROM PERSONNAGE WHERE nom_personnage = @nomPersonnage AND prenom_personnage = @prenomPersonnage", connection);
+                command.Parameters.AddWithValue("@prenomPersonnage", prenomPersonnage);
+                command.Parameters.AddWithValue("@nomPersonnage", nomPersonnage);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        PersonnageModel personnageModel = new PersonnageModel();
+
+                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
+                        personnageExiste = reader.GetInt32(0) <= 0;
+                    }
+                }
+
+                return personnageExiste;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }
