@@ -104,5 +104,41 @@ namespace maFichePersonnageJDR.Model
                 throw e;
             }
         }
+
+        /// <summary>
+        /// Permet de récupérer les informations de l'attribut sélectionné
+        /// pour en avoir l'aperçu
+        /// </summary>
+        /// <param name="nomAttribut">Le nom de l'attribut sélectionné</param>
+        /// <returns></returns>
+        public int GetAttributsIdByName(string nomAttribut)
+        {
+            AttributsModel attributsModel = new AttributsModel();
+            int idAttribut = 0;
+
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM ATTRIBUTS WHERE nom_attribut = @nomAttribut", connection);
+                command.Parameters.AddWithValue("@nomAttribut", nomAttribut);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        AttributsModel attributs = new AttributsModel();
+
+                        idAttribut = reader.GetInt32(0);
+                    }
+                }
+
+                return idAttribut;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

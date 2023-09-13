@@ -92,6 +92,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             }
         }
 
+        /// <summary>
+        /// Créez les checkbox associées aux attributs
+        /// </summary>
         public void CreateCheckBoxAttribut()
         {
             int y = 30;
@@ -110,6 +113,37 @@ namespace maFichePersonnageJDR.View.Formulaires
                     tbPgeAttributs.Controls.Add(checkBox);
                     y += 25;
                 }
+            }
+        }
+
+        private void btnSauvegarder_Click(object sender, EventArgs e)
+        {
+            #region Initialisation des variables
+            List<int> listeIdAttributs = new List<int>();
+            #endregion
+
+            try
+            {
+                // On commence par récupérer l'id de l'attribut
+                foreach (string line in rtbAttributs.Lines)
+                {
+                    string[] substring = line.Split(',');
+
+                    if (substring.Length > 1)
+                    {
+                        listeIdAttributs.Add(Controller.AttributsController.GetIdAttributByName(substring[0].Substring(5)));
+                    }
+
+                }
+
+                foreach (int idAttribut in listeIdAttributs)
+                {
+                    Controller.AttributsController.AddNewAttributToPersonnage(idAttribut, IdDuPersonnage);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

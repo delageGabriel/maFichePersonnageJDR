@@ -153,6 +153,7 @@
     <Compile Include="Model\ArmesModel.cs" />
     <Compile Include="Model\ArmuresModel.cs" />
     <Compile Include="Model\AttributsModel.cs" />
+    <Compile Include="Model\AttributsPersonnageModel.cs" />
     <Compile Include="Model\CreationPersonnageModel.cs" />
     <Compile Include="Model\MagieModel.cs" />
     <Compile Include="Model\ObjetsModel.cs" />

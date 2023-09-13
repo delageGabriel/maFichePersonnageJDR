@@ -114,5 +114,43 @@ namespace maFichePersonnageJDR.Controller
                 throw e;
             }
         }
+    
+        /// <summary>
+        /// Permet d'ajouter un nouvelle attribut à un personnage
+        /// </summary>
+        /// <param name="idAttribut"></param>
+        /// <param name="idPersonnage"></param>
+        public static void AddNewAttributToPersonnage(int idAttribut, int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode AddNewAttributToPersonnage — Attribut ajouté au personnage : ID ATTRIBUT : {0}, " +
+                "ID PERSONNAGE : {1} ###########", idAttribut.ToString(), idPersonnage.ToString()));
+
+            AttributsPersonnageModel attributsPersonnageModel = new AttributsPersonnageModel();
+
+            try
+            {
+                attributsPersonnageModel.AddAttributToPersonnage(idAttribut, idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+    
+        public static int GetIdAttributByName(string nomAttribut)
+        {
+            #region Initialisation des variables
+            AttributsModel attributsModel = new AttributsModel();
+            #endregion
+
+            try
+            {
+                return attributsModel.GetAttributsIdByName(nomAttribut);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

@@ -32,6 +32,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.tbControlAttributs = new System.Windows.Forms.TabControl();
             this.tbPgeAttributs = new System.Windows.Forms.TabPage();
             this.rtbAttributs = new System.Windows.Forms.RichTextBox();
+            this.btnSauvegarder = new System.Windows.Forms.Button();
             this.tbControlAttributs.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,15 +60,26 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.rtbAttributs.Location = new System.Drawing.Point(198, 34);
             this.rtbAttributs.Name = "rtbAttributs";
-            this.rtbAttributs.Size = new System.Drawing.Size(333, 96);
+            this.rtbAttributs.Size = new System.Drawing.Size(333, 122);
             this.rtbAttributs.TabIndex = 3;
             this.rtbAttributs.Text = "";
+            // 
+            // btnSauvegarder
+            // 
+            this.btnSauvegarder.Location = new System.Drawing.Point(318, 162);
+            this.btnSauvegarder.Name = "btnSauvegarder";
+            this.btnSauvegarder.Size = new System.Drawing.Size(75, 23);
+            this.btnSauvegarder.TabIndex = 4;
+            this.btnSauvegarder.Text = "Sauvegarder";
+            this.btnSauvegarder.UseVisualStyleBackColor = true;
+            this.btnSauvegarder.Click += new System.EventHandler(this.btnSauvegarder_Click);
             // 
             // FormulaireAttributs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(543, 450);
+            this.Controls.Add(this.btnSauvegarder);
             this.Controls.Add(this.rtbAttributs);
             this.Controls.Add(this.tbControlAttributs);
             this.Name = "FormulaireAttributs";
@@ -82,5 +94,6 @@ namespace maFichePersonnageJDR.View.Formulaires
         private System.Windows.Forms.TabControl tbControlAttributs;
         private System.Windows.Forms.TabPage tbPgeAttributs;
         private System.Windows.Forms.RichTextBox rtbAttributs;
+        private System.Windows.Forms.Button btnSauvegarder;
     }
 }
