@@ -154,10 +154,15 @@
     <Compile Include="Model\ArmuresModel.cs" />
     <Compile Include="Model\AttributsModel.cs" />
     <Compile Include="Model\AttributsPersonnageModel.cs" />
+    <Compile Include="Model\CompetenceMentalPersonnageModel.cs" />
+    <Compile Include="Model\CompetencePhysiquePersonnageModel.cs" />
+    <Compile Include="Model\CompetenceSocialPersonnageModel.cs" />
     <Compile Include="Model\CreationPersonnageModel.cs" />
     <Compile Include="Model\MagieModel.cs" />
     <Compile Include="Model\ObjetsModel.cs" />
     <Compile Include="Model\PersonnageModel.cs" />
+    <Compile Include="Model\PointsCaracteristiquesPersonnageModel.cs" />
+    <Compile Include="Model\PointsPVEnergiePersonnageModel.cs" />
     <Compile Include="View\Formulaires\FormulaireApercuAttributs.cs">
       <SubType>Form</SubType>
     </Compile>
