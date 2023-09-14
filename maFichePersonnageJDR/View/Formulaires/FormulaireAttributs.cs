@@ -120,6 +120,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         {
             #region Initialisation des variables
             List<int> listeIdAttributs = new List<int>();
+            FormulaireCompetencesCaracteristiques formulaireCompetencesCaracteristiques = new FormulaireCompetencesCaracteristiques();
             #endregion
 
             try
@@ -140,6 +141,12 @@ namespace maFichePersonnageJDR.View.Formulaires
                 {
                     Controller.AttributsController.AddNewAttributToPersonnage(idAttribut, IdDuPersonnage);
                 }
+
+                formulaireCompetencesCaracteristiques.IdDuPersonnage = IdDuPersonnage;
+                MessageBox.Show("Attributs sauvegardés");
+
+                formulaireCompetencesCaracteristiques.Show();
+                this.Close();
             }
             catch (Exception ex)
             {

@@ -43,7 +43,7 @@ namespace maFichePersonnageJDR.Model
                 // Commande
                 SQLiteCommand command = new SQLiteCommand(string.Format("INSERT INTO POINTS_CARACTERISTIQUES_PERSONNAGE (id_personnage, nombre_physique, nombre_mental, " +
                     "nombre_social) " +
-                    "VALUES ({0}, {1}, {2}, {3}, {4})", idPersonnage, nombrePhysique, nombreMental, nombreSocial), connection);
+                    "VALUES ({0}, {1}, {2}, {3})", idPersonnage, nombrePhysique, nombreMental, nombreSocial), connection);
 
                 int rowsAffected = command.ExecuteNonQuery();
             }

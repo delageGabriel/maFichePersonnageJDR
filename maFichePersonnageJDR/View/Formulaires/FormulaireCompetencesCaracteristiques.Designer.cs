@@ -202,7 +202,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // lblPV
             // 
             this.lblPV.AutoSize = true;
-            this.lblPV.Location = new System.Drawing.Point(397, 9);
+            this.lblPV.Location = new System.Drawing.Point(404, 9);
             this.lblPV.Name = "lblPV";
             this.lblPV.Size = new System.Drawing.Size(68, 13);
             this.lblPV.TabIndex = 30;
@@ -1097,7 +1097,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.gbSocial.Controls.Add(this.lblBtinage);
             this.gbSocial.Location = new System.Drawing.Point(715, 158);
             this.gbSocial.Name = "gbSocial";
-            this.gbSocial.Size = new System.Drawing.Size(186, 280);
+            this.gbSocial.Size = new System.Drawing.Size(189, 280);
             this.gbSocial.TabIndex = 46;
             this.gbSocial.TabStop = false;
             this.gbSocial.Text = "Social";
@@ -1278,7 +1278,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudProvocation
             // 
-            this.nudProvocation.Location = new System.Drawing.Point(84, 226);
+            this.nudProvocation.Location = new System.Drawing.Point(89, 226);
             this.nudProvocation.Maximum = new decimal(new int[] {
             15,
             0,
@@ -1305,7 +1305,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudPrestance
             // 
-            this.nudPrestance.Location = new System.Drawing.Point(84, 201);
+            this.nudPrestance.Location = new System.Drawing.Point(89, 201);
             this.nudPrestance.Maximum = new decimal(new int[] {
             15,
             0,
@@ -1356,6 +1356,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.btnSauvegarder.TabIndex = 47;
             this.btnSauvegarder.Text = "Sauvegarder";
             this.btnSauvegarder.UseVisualStyleBackColor = true;
+            this.btnSauvegarder.Click += new System.EventHandler(this.btnSauvegarder_Click);
             // 
             // FormulaireCompetencesCaracteristiques
             // 

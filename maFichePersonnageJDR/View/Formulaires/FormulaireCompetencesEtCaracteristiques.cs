@@ -54,48 +54,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// </summary>
         public void GetSettings()
         {
-            rchTbAttributs.Text = Properties.Settings.Default.Attributs;
-            nudPV.Value = Properties.Settings.Default.PV;
-            nudEnergie.Value = Properties.Settings.Default.Energie;
-            nudPhysique.Value = Properties.Settings.Default.Physique;
-            nudMental.Value = Properties.Settings.Default.Mental;
-            nudSocial.Value = Properties.Settings.Default.Social;
-            nudAgilite.Value = Properties.Settings.Default.Agilité;
-            nudArtisanat.Value = Properties.Settings.Default.Artisanat;
-            nudBtinage.Value = Properties.Settings.Default.Baratinage;
-            nudCharme.Value = Properties.Settings.Default.Charme;
-            nudCmedie.Value = Properties.Settings.Default.Comédie;
-            nudCncention.Value = Properties.Settings.Default.Concentration;
-            nudConnGeographiques.Value = Properties.Settings.Default.ConnGeographiques;
-            nudConnHistoriques.Value = Properties.Settings.Default.ConnHistoriques;
-            nudMagiques.Value = Properties.Settings.Default.ConnMagiques;
-            nudConnNatures.Value = Properties.Settings.Default.ConnNature;
-            nudConnReligieuses.Value = Properties.Settings.Default.ConnReligieuses;
-            nudCrochetage.Value = Properties.Settings.Default.Crochetage;
-            nudDexterite.Value = Properties.Settings.Default.Dexterite;
-            nudDiplomatie.Value = Properties.Settings.Default.Diplomatie;
-            nudDiscretion.Value = Properties.Settings.Default.Discretion;
-            nudDressage.Value = Properties.Settings.Default.Dressage;
-            nudEqlibre.Value = Properties.Settings.Default.Equilibre;
-            nudEscalade.Value = Properties.Settings.Default.Escalade;
-            nudEscamotage.Value = Properties.Settings.Default.Escamotage;
-            nudExplosifs.Value = Properties.Settings.Default.Explosifs;
-            nudForce.Value = Properties.Settings.Default.Force;
-            nudIntimidation.Value = Properties.Settings.Default.Intimidation;
-            nudDecryptage.Value = Properties.Settings.Default.Decryptage;
-            nudMarchandage.Value = Properties.Settings.Default.Marchandage;
-            nudMecanique.Value = Properties.Settings.Default.Mecanique;
-            nudMedecine.Value = Properties.Settings.Default.Medecine;
-            nudMemoire.Value = Properties.Settings.Default.Memoire;
-            nudNatation.Value = Properties.Settings.Default.Natation;
-            nudPerception.Value = Properties.Settings.Default.Perception;
-            nudPerspicacite.Value = Properties.Settings.Default.Perspicacité;
-            nudPrestance.Value = Properties.Settings.Default.Prestance;
-            nudProvocation.Value = Properties.Settings.Default.Provocation;
-            nudEsprit.Value = Properties.Settings.Default.Esprit;
-            nudReflexes.Value = Properties.Settings.Default.Reflexes;
-            nudVigueur.Value = Properties.Settings.Default.Vigueur;
-            nudVolonte.Value = Properties.Settings.Default.Volonte;
+            
         }
 
         public void GetAttributJoueurOuMJ()
@@ -185,45 +144,6 @@ namespace maFichePersonnageJDR.Formulaires
             });
 #endif
         }
-        /// <summary>
-        /// Rempli la richtextbox en fonction des attributs cochés
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SetAttribut(object sender, ItemCheckEventArgs e)
-        {
-            string strTemp;
-            if (chckLstAttributs.SelectedItem != null)
-            {
-                strTemp = (string)chckLstAttributs.SelectedItem;
-                if (rchTbAttributs.Text.Contains(strTemp))
-                {
-                    if (rchTbAttributs.Text.IndexOf(strTemp) == 0 && rchTbAttributs.Text.Contains(strTemp + ", "))
-                    {
-                        strTemp = (string)chckLstAttributs.SelectedItem + ", ";
-                        rchTbAttributs.Text = rchTbAttributs.Text.Remove(rchTbAttributs.Text.IndexOf(strTemp), strTemp.Length);
-                    }
-                    else if (rchTbAttributs.Text.Contains(", " + strTemp))
-                    {
-                        strTemp = ", " + (string)chckLstAttributs.SelectedItem;
-                        rchTbAttributs.Text = rchTbAttributs.Text.Remove(rchTbAttributs.Text.IndexOf(strTemp), strTemp.Length);
-                    }
-                    else
-                    {
-                        rchTbAttributs.Text = rchTbAttributs.Text.Remove(rchTbAttributs.Text.IndexOf(strTemp), strTemp.Length);
-                    }
-                }
-                else
-                {
-                    if (!String.IsNullOrEmpty(rchTbAttributs.Text))
-                    {
-                        rchTbAttributs.Text += ", ";
-                    }
-                    rchTbAttributs.Text += chckLstAttributs.SelectedItem;
-                }
-
-            }
-        }
 
         /// <summary>
         /// Génère le contenu du formulaire en appelant les deux méthodes
@@ -246,50 +166,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void btnSauvegarder_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.Attributs = rchTbAttributs.Text;
-            Properties.Settings.Default.PV = Convert.ToInt32(nudPV.Value);
-            Properties.Settings.Default.Energie = Convert.ToInt32(nudEnergie.Value);
-            Properties.Settings.Default.Physique = Convert.ToInt32(nudPhysique.Value);
-            Properties.Settings.Default.Mental = Convert.ToInt32(nudMental.Value);
-            Properties.Settings.Default.Social = Convert.ToInt32(nudSocial.Value);
-            Properties.Settings.Default.Dexterite = Convert.ToInt32(nudDexterite.Value);
-            Properties.Settings.Default.Agilité = Convert.ToInt32(nudAgilite.Value);
-            Properties.Settings.Default.Artisanat = Convert.ToInt32(nudArtisanat.Value);
-            Properties.Settings.Default.Baratinage = Convert.ToInt32(nudBtinage.Value);
-            Properties.Settings.Default.Charme = Convert.ToInt32(nudCharme.Value);
-            Properties.Settings.Default.Comédie = Convert.ToInt32(nudCmedie.Value);
-            Properties.Settings.Default.Concentration = Convert.ToInt32(nudCncention.Value);
-            Properties.Settings.Default.ConnNature = Convert.ToInt32(nudConnNatures.Value);
-            Properties.Settings.Default.ConnGeographiques = Convert.ToInt32(nudConnGeographiques.Value);
-            Properties.Settings.Default.ConnHistoriques = Convert.ToInt32(nudConnHistoriques.Value);
-            Properties.Settings.Default.ConnMagiques = Convert.ToInt32(nudMagiques.Value);
-            Properties.Settings.Default.ConnReligieuses = Convert.ToInt32(nudConnReligieuses.Value);
-            Properties.Settings.Default.Crochetage = Convert.ToInt32(nudCrochetage.Value);
-            Properties.Settings.Default.Diplomatie = Convert.ToInt32(nudDiplomatie.Value);
-            Properties.Settings.Default.Discretion = Convert.ToInt32(nudDiscretion.Value);
-            Properties.Settings.Default.Dressage = Convert.ToInt32(nudDressage.Value);
-            Properties.Settings.Default.Equilibre = Convert.ToInt32(nudEqlibre.Value);
-            Properties.Settings.Default.Escalade = Convert.ToInt32(nudEscalade.Value);
-            Properties.Settings.Default.Escamotage = Convert.ToInt32(nudEscamotage.Value);
-            Properties.Settings.Default.Explosifs = Convert.ToInt32(nudExplosifs.Value);
-            Properties.Settings.Default.Force = Convert.ToInt32(nudForce.Value);
-            Properties.Settings.Default.Intimidation = Convert.ToInt32(nudIntimidation.Value);
-            Properties.Settings.Default.Decryptage = Convert.ToInt32(nudDecryptage.Value);
-            Properties.Settings.Default.Marchandage = Convert.ToInt32(nudMarchandage.Value);
-            Properties.Settings.Default.Mecanique = Convert.ToInt32(nudMecanique.Value);
-            Properties.Settings.Default.Medecine = Convert.ToInt32(nudMedecine.Value);
-            Properties.Settings.Default.Memoire = Convert.ToInt32(nudMemoire.Value);
-            Properties.Settings.Default.Natation = Convert.ToInt32(nudNatation.Value);
-            Properties.Settings.Default.Perception = Convert.ToInt32(nudPerception.Value);
-            Properties.Settings.Default.Perspicacité = Convert.ToInt32(nudPerspicacite.Value);
-            Properties.Settings.Default.Prestance = Convert.ToInt32(nudPrestance.Value);
-            Properties.Settings.Default.Provocation = Convert.ToInt32(nudProvocation.Value);
-            Properties.Settings.Default.Esprit = Convert.ToInt32(nudEsprit.Value);
-            Properties.Settings.Default.Reflexes = Convert.ToInt32(nudReflexes.Value);
-            Properties.Settings.Default.Vigueur = Convert.ToInt32(nudVigueur.Value);
-            Properties.Settings.Default.Volonte = Convert.ToInt32(nudVolonte.Value);
-            Properties.Settings.Default.Save();
-            MessageBox.Show("Formulaire sauvegardé !");
+            
         }
 
         /// <summary>
@@ -298,32 +175,11 @@ namespace maFichePersonnageJDR.Formulaires
         /// </summary>
         public void GetAttributCheckbox()
         {
-            List<int> tableau = new List<int>();
-            foreach (string checkItems in chckLstAttributs.Items)
-            {
-                if (rchTbAttributs.Text.Contains(checkItems))
-                {
-                    tableau.Add(chckLstAttributs.Items.IndexOf(checkItems));
-                }
-            }
-            foreach (int index in tableau)
-            {
-                chckLstAttributs.SetItemChecked(index, true);
-            }
+            
         }
 
         private void btnViderRchTbAttributs_Click(object sender, EventArgs e)
         {
-            List<int> tableauIndex = new List<int>();
-            foreach (string chkItems in chckLstAttributs.Items)
-            {
-                tableauIndex.Add(chckLstAttributs.Items.IndexOf(chkItems));
-            }
-            foreach (int index in tableauIndex)
-            {
-                chckLstAttributs.SetItemChecked(index, false);
-            }
-            rchTbAttributs.Text = rchTbAttributs.Text.Remove(0, rchTbAttributs.TextLength);
         }
 
         /// <summary>
@@ -623,7 +479,6 @@ namespace maFichePersonnageJDR.Formulaires
         private void rchTbAttributs_TextChanged(object sender, EventArgs e)
         {
 
-            string[] subs = rchTbAttributs.Text.Split(',');
 #if JOUEUR
             if (Properties.Settings.Default.Niveau == 1)
             {

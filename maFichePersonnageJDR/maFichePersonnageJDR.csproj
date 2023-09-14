@@ -137,6 +137,7 @@
     <Compile Include="Classe\Utils.cs" />
     <Compile Include="Controller\AptitudesController.cs" />
     <Compile Include="Controller\AttributsController.cs" />
+    <Compile Include="Controller\CompetencesCaracteristiquesController.cs" />
     <Compile Include="Controller\EquipmentController.cs" />
     <Compile Include="Controller\FicheSortieController.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

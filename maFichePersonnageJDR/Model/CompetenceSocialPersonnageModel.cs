@@ -62,7 +62,7 @@ namespace maFichePersonnageJDR.Model
                 // Commande
                 SQLiteCommand command = new SQLiteCommand(string.Format("INSERT INTO COMPETENCE_SOCIAL_PERSONNAGE (id_personnage, baratinage, charme, " +
                     "comedie, diplomatie, dressage, intimidation, marchandage, prestance, provocation) " +
-                    "VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})", idPersonnage, baratinage, charme, comedie,
+                    "VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", idPersonnage, baratinage, charme, comedie,
                     diplomatie, dressage, intimidation, marchandage, prestance, provocation), connection);
 
                 int rowsAffected = command.ExecuteNonQuery();
