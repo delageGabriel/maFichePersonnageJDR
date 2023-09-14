@@ -29,23 +29,10 @@ namespace maFichePersonnageJDR
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnFormCompAttri = new System.Windows.Forms.Button();
             this.btnSoumettreFiche = new System.Windows.Forms.Button();
             this.pbEtatFiche = new System.Windows.Forms.ProgressBar();
             this.btnCreerPersonnage = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // btnFormCompAttri
-            // 
-            this.btnFormCompAttri.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFormCompAttri.Location = new System.Drawing.Point(33, 99);
-            this.btnFormCompAttri.Name = "btnFormCompAttri";
-            this.btnFormCompAttri.Size = new System.Drawing.Size(178, 23);
-            this.btnFormCompAttri.TabIndex = 0;
-            this.btnFormCompAttri.Text = "Compétences et Attributs";
-            this.btnFormCompAttri.UseVisualStyleBackColor = true;
-            this.btnFormCompAttri.Click += new System.EventHandler(this.btnFormCompAttri_Click);
             // 
             // btnSoumettreFiche
             // 
@@ -88,7 +75,6 @@ namespace maFichePersonnageJDR
             this.Controls.Add(this.btnCreerPersonnage);
             this.Controls.Add(this.pbEtatFiche);
             this.Controls.Add(this.btnSoumettreFiche);
-            this.Controls.Add(this.btnFormCompAttri);
             this.Name = "FrmPrincipal";
             this.Text = "Menu";
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
@@ -97,8 +83,6 @@ namespace maFichePersonnageJDR
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnFormCompAttri;
         private System.Windows.Forms.Button btnSoumettreFiche;
         private System.Windows.Forms.ProgressBar pbEtatFiche;
         private System.Windows.Forms.Button btnCreerPersonnage;

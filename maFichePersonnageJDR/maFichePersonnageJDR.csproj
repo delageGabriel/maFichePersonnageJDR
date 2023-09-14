@@ -107,14 +107,14 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.SQLite, Version=1.0.117.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    <Reference Include="System.Data.SQLite, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\lib\net46\System.Data.SQLite.dll</HintPath>
     </Reference>
-    <Reference Include="System.Data.SQLite.EF6, Version=1.0.117.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.117.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.118.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
     </Reference>
-    <Reference Include="System.Data.SQLite.Linq, Version=1.0.117.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.117.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.118.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -158,7 +158,6 @@
     <Compile Include="Model\CompetenceMentalPersonnageModel.cs" />
     <Compile Include="Model\CompetencePhysiquePersonnageModel.cs" />
     <Compile Include="Model\CompetenceSocialPersonnageModel.cs" />
-    <Compile Include="Model\CreationPersonnageModel.cs" />
     <Compile Include="Model\InventaireArmesPersonnagesModel.cs" />
     <Compile Include="Model\InventaireArmuresPersonnageModel.cs" />
     <Compile Include="Model\InventaireObjetsPersonnagesModel.cs" />
@@ -197,14 +196,6 @@
     <Compile Include="View\Formulaires\FormulaireCompetencesCaracteristiques.Designer.cs">
       <DependentUpon>FormulaireCompetencesCaracteristiques.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Formulaires\FormulaireCompetencesEtCaracteristiques.cs">
-      <SubType>Form</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="View\Formulaires\FormulaireCompetencesEtCaracteristiques.Designer.cs">
-      <DependentUpon>FormulaireCompetencesEtCaracteristiques.cs</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Compile>
     <Compile Include="View\Formulaires\FormulaireEquipments.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,12 +207,6 @@
     </Compile>
     <Compile Include="View\Formulaires\FormulaireMagieEtAptitudes.Designer.cs">
       <DependentUpon>FormulaireMagieEtAptitudes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Formulaires\FormulaireMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Formulaires\FormulaireMenu.Designer.cs">
-      <DependentUpon>FormulaireMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Formulaires\FormulaireTalentsEtObjets.cs">
       <SubType>Form</SubType>
@@ -259,10 +244,6 @@
     <EmbeddedResource Include="View\Formulaires\FormulaireCompetencesCaracteristiques.resx">
       <DependentUpon>FormulaireCompetencesCaracteristiques.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Formulaires\FormulaireCompetencesEtCaracteristiques.resx">
-      <DependentUpon>FormulaireCompetencesEtCaracteristiques.cs</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\Formulaires\FormulaireEquipments.resx">
       <DependentUpon>FormulaireEquipments.cs</DependentUpon>
     </EmbeddedResource>
@@ -272,9 +253,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Formulaires\FormulaireMagieEtAptitudes.resx">
       <DependentUpon>FormulaireMagieEtAptitudes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Formulaires\FormulaireMenu.resx">
-      <DependentUpon>FormulaireMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Formulaires\FormulaireTalentsEtObjets.resx">
       <DependentUpon>FormulaireTalentsEtObjets.cs</DependentUpon>
@@ -333,8 +311,8 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
-    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
   </Target>
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
-  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
 </Project>

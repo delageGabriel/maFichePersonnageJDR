@@ -33,11 +33,10 @@ namespace maFichePersonnageJDR.Model
         {
             try
             {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
                 SQLiteCommand command = new SQLiteCommand(string.Format("INSERT INTO ATTRIBUTS_PERSONNAGE " +
                     "(id_attribut, id_personnage) " +
-                    "VALUES ('{0}','{1}')", idAttribut, idPersonnage), connection);
+                    "VALUES ('{0}','{1}')", idAttribut, idPersonnage), DatabaseConnection.Instance.GetConnection());
 
                 int rowsAffected = command.ExecuteNonQuery();
             }

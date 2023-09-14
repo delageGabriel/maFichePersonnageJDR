@@ -50,9 +50,8 @@ namespace maFichePersonnageJDR.Model
 
             try
             {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT * FROM ARMES WHERE type_arme = @typeArme", connection);
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM ARMES WHERE type_arme = @typeArme", DatabaseConnection.Instance.GetConnection());
                 command.Parameters.AddWithValue("@typeArme", typeArme);
 
                 using (SQLiteDataReader reader = command.ExecuteReader())
@@ -95,9 +94,8 @@ namespace maFichePersonnageJDR.Model
             ArmesModel armeModel = new ArmesModel();
             try
             {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT * FROM ARMES WHERE nom_arme = @nomArme", connection);
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM ARMES WHERE nom_arme = @nomArme", DatabaseConnection.Instance.GetConnection());
                 command.Parameters.AddWithValue("@nomArme", nomArme);
 
                 using (SQLiteDataReader reader = command.ExecuteReader())
@@ -123,6 +121,34 @@ namespace maFichePersonnageJDR.Model
                 }
 
                 return armeModel;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public int GetArmesIdByName(string nomArme)
+        {
+            int idArme = 0;
+
+            try
+            {
+                // Commande
+                SQLiteCommand command = new SQLiteCommand(string.Format("SELECT id_armes FROM ARMES WHERE nom_arme = '{0}'", nomArme), DatabaseConnection.Instance.GetConnection());
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ArmesModel armes = new ArmesModel();
+
+                        idArme = reader.GetInt32(0);
+                    }
+
+                }
+
+                return idArme;
             }
             catch (Exception e)
             {

@@ -49,13 +49,11 @@ namespace maFichePersonnageJDR.Model
         {
             try
             {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
-
                 // Commande
                 SQLiteCommand command = new SQLiteCommand(string.Format("INSERT INTO COMPETENCE_PHYSIQUE_PERSONNAGE (id_personnage, agilite, artisanat, " +
                     "crochetage, discretion, equilibre, escalade, escamotage, force, natation, reflexes, vigueur) " +
                     "VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11})", idPersonnage, agilite, artisanat, crochetage,
-                    discretion, equilibre, escalade, escamotage, force, natation, reflexes, vigueur), connection);
+                    discretion, equilibre, escalade, escamotage, force, natation, reflexes, vigueur), DatabaseConnection.Instance.GetConnection());
 
                 int rowsAffected = command.ExecuteNonQuery();
             }

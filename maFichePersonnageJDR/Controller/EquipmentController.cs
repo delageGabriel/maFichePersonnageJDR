@@ -411,5 +411,95 @@ namespace maFichePersonnageJDR.Controller
                 throw e;
             }
         }
+    
+        /// <summary>
+        /// Ajoute une nouvelle arme à un personnage
+        /// </summary>
+        /// <param name="idArme"></param>
+        /// <param name="idPersonnage"></param>
+        /// <param name="quantite"></param>
+        public static void AddNewArmeToPersonnage(int idArme, int idPersonnage, int quantite)
+        {
+            Console.WriteLine(string.Format("########### Méthode AddNewArmeToPersonnage — Arme ajouté au personnage : ID ARME : {0}, " +
+                "ID PERSONNAGE : {1} ###########", idArme.ToString(), idPersonnage.ToString()));
+
+            InventaireArmesPersonnagesModel armesPersonnagesModel = new InventaireArmesPersonnagesModel();
+
+            try
+            {
+                armesPersonnagesModel.SaveInventaireArmesPersonnage(idArme, idPersonnage, quantite);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idArme"></param>
+        /// <param name="idPersonnage"></param>
+        /// <param name="quantite"></param>
+        public static void AddNewArmureToPersonnage(int idArmure, int idPersonnage, int quantite)
+        {
+            Console.WriteLine(string.Format("########### Méthode AddNewArmeToPersonnage — Armure ajouté au personnage : ID ARMURE : {0}, " +
+                "ID PERSONNAGE : {1} ###########", idArmure.ToString(), idPersonnage.ToString()));
+
+            InventaireArmuresPersonnageModel armuresPersonnageModel = new InventaireArmuresPersonnageModel();
+
+            try
+            {
+                armuresPersonnageModel.SaveInventaireArmuresPersonnage(idArmure, idPersonnage, quantite);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idObjet"></param>
+        /// <param name="idPersonnage"></param>
+        /// <param name="quantite"></param>
+        public static void AddNewObjetToPersonnage(int idObjet, int idPersonnage, int quantite)
+        {
+            Console.WriteLine(string.Format("########### Méthode AddNewArmeToPersonnage — Armure ajouté au personnage : ID OBJET : {0}, " +
+                "ID PERSONNAGE : {1} ###########", idObjet.ToString(), idPersonnage.ToString()));
+
+            InventaireObjetsPersonnagesModel inventaireObjetsPersonnages = new InventaireObjetsPersonnagesModel();
+
+            try
+            {
+                inventaireObjetsPersonnages.SaveInventaireObjetsPersonnage(idObjet, idPersonnage, quantite);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nomArme"></param>
+        /// <returns></returns>
+        public static int GetIdArmeByName(string nomArme)
+        {
+            #region Initialisation des variables
+            ArmesModel armesModel = new ArmesModel();
+            #endregion
+
+            try
+            {
+                return armesModel.GetArmesIdByName(nomArme);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

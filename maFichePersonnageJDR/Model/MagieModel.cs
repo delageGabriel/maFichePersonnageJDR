@@ -41,9 +41,8 @@ namespace maFichePersonnageJDR.Model
 
             try
             {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT * FROM MAGIE WHERE type_magie = @typeMagie", connection);
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM MAGIE WHERE type_magie = @typeMagie", DatabaseConnection.Instance.GetConnection());
                 command.Parameters.AddWithValue("@typeMagie", typeMagie);
 
                 using (SQLiteDataReader reader = command.ExecuteReader())
@@ -82,9 +81,8 @@ namespace maFichePersonnageJDR.Model
 
             try
             {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT * FROM MAGIE WHERE nom_magie = @nomMagie", connection);
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM MAGIE WHERE nom_magie = @nomMagie", DatabaseConnection.Instance.GetConnection());
                 command.Parameters.AddWithValue("@nomMagie", nomMagie);
 
                 using (SQLiteDataReader reader = command.ExecuteReader())

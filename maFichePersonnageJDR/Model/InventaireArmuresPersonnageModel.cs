@@ -36,10 +36,9 @@ namespace maFichePersonnageJDR.Model
         {
             try
             {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
                 SQLiteCommand command = new SQLiteCommand(string.Format("INSERT INTO INVENTAIRE_ARMURES_PERSONNAGES (id_armure, id_personnage, quantite) " +
-                    "VALUES ({0}, {1}, {2})", idArmure, idPersonnage, quantite), connection);
+                    "VALUES ({0}, {1}, {2})", idArmure, idPersonnage, quantite), DatabaseConnection.Instance.GetConnection());
 
                 int rowsAffected = command.ExecuteNonQuery();
             }

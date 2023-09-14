@@ -44,9 +44,8 @@ namespace maFichePersonnageJDR.Model
 
             try
             {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT * FROM ARMURES WHERE type_armure = @typeArmure ORDER BY nom_armure ASC", connection);
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM ARMURES WHERE type_armure = @typeArmure ORDER BY nom_armure ASC", DatabaseConnection.Instance.GetConnection());
                 command.Parameters.AddWithValue("@typeArmure", typeArmure);
 
                 using (SQLiteDataReader reader = command.ExecuteReader())
@@ -87,9 +86,8 @@ namespace maFichePersonnageJDR.Model
             ArmuresModel armureModel = new ArmuresModel();
             try
             {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT * FROM ARMURES WHERE nom_armure = @nomArmure", connection);
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM ARMURES WHERE nom_armure = @nomArmure", DatabaseConnection.Instance.GetConnection());
                 command.Parameters.AddWithValue("@nomArmure", nomArmure);
 
                 using (SQLiteDataReader reader = command.ExecuteReader())

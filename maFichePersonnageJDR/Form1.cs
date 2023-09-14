@@ -162,11 +162,6 @@ namespace maFichePersonnageJDR
             }
             return retour;
         }
-        private void btnFormCompAttri_Click(object sender, EventArgs e)
-        {
-            FormulaireCompAttri frmCA = new FormulaireCompAttri();
-            frmCA.Show();
-        }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {

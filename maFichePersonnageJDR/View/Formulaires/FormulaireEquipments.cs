@@ -325,7 +325,29 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void btnSuivant_Click(object sender, EventArgs e)
         {
+            #region Initialisation des variables
+            FormulaireMagieEtAptitudes formulaireMagieEtAptitudes = new FormulaireMagieEtAptitudes();
+            List<int> listeIdArmes = new List<int>();
+            List<int> listeIdArmures = new List<int>();
+            List<int> listeIdObjets = new List<int>();
+            #endregion
 
+            try
+            {
+                foreach(string line in rTxtBxArmes.Lines)
+                {
+                    string[] substring = line.Split(',');
+
+                    if (substring.Length > 1)
+                    {
+                        listeIdArmes.Add(Controller.EquipmentController.GetIdArmeByName(substring[1].Substring(6).Trim()));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

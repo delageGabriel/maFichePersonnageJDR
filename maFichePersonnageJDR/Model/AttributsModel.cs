@@ -37,9 +37,7 @@ namespace maFichePersonnageJDR.Model
 
             try
             {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
-
-                SQLiteCommand command = new SQLiteCommand("SELECT * FROM ATTRIBUTS", connection);
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM ATTRIBUTS", DatabaseConnection.Instance.GetConnection());
 
                 using (SQLiteDataReader reader = command.ExecuteReader())
                 {
@@ -76,9 +74,8 @@ namespace maFichePersonnageJDR.Model
             AttributsModel attributsModel = new AttributsModel();
             try
             {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT * FROM ATTRIBUTS WHERE nom_attribut = @nomAttribut", connection);
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM ATTRIBUTS WHERE nom_attribut = @nomAttribut", DatabaseConnection.Instance.GetConnection());
                 command.Parameters.AddWithValue("@nomAttribut", nomAttribut);
 
                 using (SQLiteDataReader reader = command.ExecuteReader())
@@ -113,14 +110,12 @@ namespace maFichePersonnageJDR.Model
         /// <returns></returns>
         public int GetAttributsIdByName(string nomAttribut)
         {
-            AttributsModel attributsModel = new AttributsModel();
             int idAttribut = 0;
 
             try
             {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT * FROM ATTRIBUTS WHERE nom_attribut = @nomAttribut", connection);
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM ATTRIBUTS WHERE nom_attribut = @nomAttribut", DatabaseConnection.Instance.GetConnection());
                 command.Parameters.AddWithValue("@nomAttribut", nomAttribut);
 
                 using (SQLiteDataReader reader = command.ExecuteReader())

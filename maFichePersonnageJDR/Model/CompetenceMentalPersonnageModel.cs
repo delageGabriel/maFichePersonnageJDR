@@ -76,13 +76,12 @@ namespace maFichePersonnageJDR.Model
         {
             try
             {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
                 SQLiteCommand command = new SQLiteCommand(string.Format("INSERT INTO COMPETENCE_MENTAL_PERSONNAGE (id_personnage, concentration, connaissance_geographiques, " +
                     "connaissance_historiques, connaissance_magiques, connaissance_natures, connaissance_religieuses, decryptage, esprit, explosifs, mecanique, medecine, " +
                     "memoire, perception, perspicacite, volonte) " +
                     "VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13}, {14}, {15})", idPersonnage, concentration, connGeo, connHis,
-                    connMag, connNat, connRel, decryptage, esprit, explosifs, mecanique, medecine, memoire, perception, perspicacite, volonte), connection);
+                    connMag, connNat, connRel, decryptage, esprit, explosifs, mecanique, medecine, memoire, perception, perspicacite, volonte), DatabaseConnection.Instance.GetConnection());
 
                 int rowsAffected = command.ExecuteNonQuery();
             }
