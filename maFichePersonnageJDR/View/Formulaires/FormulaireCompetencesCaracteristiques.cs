@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using maFichePersonnageJDR.Formulaires;
 
 namespace maFichePersonnageJDR.View.Formulaires
 {
@@ -22,6 +23,8 @@ namespace maFichePersonnageJDR.View.Formulaires
 
         private void btnSauvegarder_Click(object sender, EventArgs e)
         {
+            FormulaireEquipments formulaireEquipments = new FormulaireEquipments();
+
             // Ajout des PV et Energie
             Controller.CompetencesCaracteristiquesController.SavePVAndEnergie(IdDuPersonnage, Convert.ToInt32(nudPV.Value), Convert.ToInt32(nudEnergie.Value));
             
@@ -46,6 +49,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             Controller.CompetencesCaracteristiquesController.SaveCompetenceSocialPersonnage(idDuPersonnage, Convert.ToInt32(nudBaratinage.Value), Convert.ToInt32(nudCharme.Value),
                 Convert.ToInt32(nudCmedie.Value), Convert.ToInt32(nudDiplomatie.Value), Convert.ToInt32(nudDressage.Value), Convert.ToInt32(nudIntimidation.Value),
                 Convert.ToInt32(nudMarchandage.Value), Convert.ToInt32(nudPrestance.Value), Convert.ToInt32(nudProvocation.Value));
+
+            formulaireEquipments.IdPersonnage = IdDuPersonnage;
+            MessageBox.Show("Compétences et caractéristiques sauvegardées");
+
+            formulaireEquipments.Show();
+            this.Close();
         }
     }
 }

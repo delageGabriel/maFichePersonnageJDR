@@ -32,20 +32,20 @@ namespace maFichePersonnageJDR.Controller
                     /// Les coordonnées qui gèrent tout les localisation
                     /// Et l'index de la tabpage
                     int y = 10;
-                    int x = 20;
+                    int x = 10;
                     int indexOfTabPage = controlParent.TabPages.IndexOfKey(tabPage.Name);
 
                     // Label nom
                     Label lblNom = new Label();
                     lblNom.Name = "lblNom" + tabPage.Text;
-                    lblNom.Location = new Point(x, y);
+                    lblNom.Location = new Point(x + 25, y);
                     lblNom.Text = "Nom";
                     lblNom.Font = new Font(lblNom.Font, FontStyle.Underline);
 
                     // Label Quantité
                     Label lblQte = new Label();
                     lblQte.Name = "lblQte" + tabPage.Text;
-                    lblQte.Location = new Point(x + (lblNom.Width + 10), y);
+                    lblQte.Location = new Point(x + (lblNom.Width + 25), y);
                     lblQte.Text = "Quantité";
                     lblQte.Font = new Font(lblNom.Font, FontStyle.Underline);
 
@@ -57,25 +57,20 @@ namespace maFichePersonnageJDR.Controller
                     /// Pour chaque type d'arme on les ajoute dans les tabpages
                     foreach (ArmesModel armes in armesModels)
                     {
-                        CheckBox checkBox = new CheckBox();
-                        checkBox.Location = new Point(1, y - 5);
-                        checkBox.Name = ("chck" + armes.NomArme).Trim();
-
                         LinkLabel linkLabel = new LinkLabel();
                         linkLabel.Text = armes.NomArme;
                         linkLabel.Name = ("lnkLbl" + armes.NomArme).Trim();
-                        linkLabel.Location = new Point(x, y);
+                        linkLabel.Location = new Point(x + 25, y);
                         linkLabel.AutoSize = true;
                         linkLabel.LinkClicked += formulaireEquipments.linkLabelArme_LinkClicked;
 
                         NumericUpDown numericUpDown = new NumericUpDown();
-                        numericUpDown.Location = new Point(x + (linkLabel.Width + 10), y - 3);
+                        numericUpDown.Location = new Point(x + (linkLabel.Width + 25), y - 3);
                         numericUpDown.Maximum = 99;
                         numericUpDown.Minimum = 0;
                         numericUpDown.Width = 40;
 
                         controlParent.TabPages[indexOfTabPage].Controls.Add(linkLabel);
-                        controlParent.TabPages[indexOfTabPage].Controls.Add(checkBox);
                         controlParent.TabPages[indexOfTabPage].Controls.Add(numericUpDown);
 
                         y += 25;
@@ -111,13 +106,13 @@ namespace maFichePersonnageJDR.Controller
                     /// Les coordonnées qui gèrent tout les localisation
                     /// Et l'index de la tabpage
                     int y = 10;
-                    int x = 20;
+                    int x = 10;
                     int indexOfTabPage = controlParent.TabPages.IndexOfKey(tabPage.Name);
 
                     // Label nom
                     Label lblNom = new Label();
                     lblNom.Name = "lblNom" + tabPage.Text;
-                    lblNom.Location = new Point(x, y);
+                    lblNom.Location = new Point(x + 25, y);
                     lblNom.Text = "Nom";
                     lblNom.Font = new Font(lblNom.Font, FontStyle.Underline);
 
@@ -136,25 +131,20 @@ namespace maFichePersonnageJDR.Controller
                     /// Pour chaque type d'arme on les ajoute dans les tabpages
                     foreach (ArmuresModel armure in armuresModels)
                     {
-                        CheckBox checkBox = new CheckBox();
-                        checkBox.Location = new Point(1, y - 5);
-                        checkBox.Name = ("chck" + armure.NomArmure).Trim();
-
                         LinkLabel linkLabel = new LinkLabel();
                         linkLabel.Text = armure.NomArmure;
                         linkLabel.Name = ("lnkLbl" + armure.NomArmure).Trim();
-                        linkLabel.Location = new Point(x, y);
+                        linkLabel.Location = new Point(x + 25, y);
                         linkLabel.AutoSize = true;
                         linkLabel.LinkClicked += formulaireEquipments.linkLabelArmure_LinkClicked;
 
                         NumericUpDown numericUpDown = new NumericUpDown();
-                        numericUpDown.Location = new Point(x + (linkLabel.Width + 30), y - 3);
+                        numericUpDown.Location = new Point(x + (linkLabel.Width + 25), y - 3);
                         numericUpDown.Maximum = 99;
                         numericUpDown.Minimum = 0;
                         numericUpDown.Width = 40;
 
                         controlParent.TabPages[indexOfTabPage].Controls.Add(linkLabel);
-                        controlParent.TabPages[indexOfTabPage].Controls.Add(checkBox);
                         controlParent.TabPages[indexOfTabPage].Controls.Add(numericUpDown);
 
                         y += 25;
@@ -167,6 +157,12 @@ namespace maFichePersonnageJDR.Controller
             }
         }
 
+        /// <summary>
+        /// Méthode pour obtenir un objet par son type
+        /// </summary>
+        /// <param name="typeObjet"></param>
+        /// <param name="controlParent"></param>
+        /// <param name="tabPage"></param>
         public static void GetObjetsByType(string typeObjet, TabControl controlParent, TabPage tabPage)
         {
             Console.WriteLine(string.Format("########### Méthode GetObjetsByType — Type d'objet : {0} ###########", typeObjet));
@@ -183,20 +179,20 @@ namespace maFichePersonnageJDR.Controller
                     /// Les coordonnées qui gèrent tout les localisation
                     /// Et l'index de la tabpage
                     int y = 10;
-                    int x = 20;
+                    int x = 10;
                     int indexOfTabPage = controlParent.TabPages.IndexOfKey(tabPage.Name);
 
                     // Label nom
                     Label lblNom = new Label();
                     lblNom.Name = "lblNom" + tabPage.Text;
-                    lblNom.Location = new Point(x, y);
+                    lblNom.Location = new Point(x + 25, y);
                     lblNom.Text = "Nom";
                     lblNom.Font = new Font(lblNom.Font, FontStyle.Underline);
 
                     // Label Quantité
                     Label lblQte = new Label();
                     lblQte.Name = "lblQte" + tabPage.Text;
-                    lblQte.Location = new Point(x + (lblNom.Width + 10), y);
+                    lblQte.Location = new Point(x + (lblNom.Width + 30), y);
                     lblQte.Text = "Quantité";
                     lblQte.Font = new Font(lblNom.Font, FontStyle.Underline);
 
@@ -208,25 +204,20 @@ namespace maFichePersonnageJDR.Controller
                     /// Pour chaque type d'arme on les ajoute dans les tabpages
                     foreach (ObjetsModel objet in objetsModels)
                     {
-                        CheckBox checkBox = new CheckBox();
-                        checkBox.Location = new Point(1, y - 5);
-                        checkBox.Name = ("chck" + objet.NomObjet).Trim();
-
                         LinkLabel linkLabel = new LinkLabel();
                         linkLabel.Text = objet.NomObjet;
                         linkLabel.Name = ("lnkLbl" + objet.NomObjet).Trim();
-                        linkLabel.Location = new Point(x, y);
+                        linkLabel.Location = new Point(x + 25, y);
                         linkLabel.AutoSize = true;
                         linkLabel.LinkClicked += formulaireEquipments.linkLabelObjet_LinkClicked;
 
                         NumericUpDown numericUpDown = new NumericUpDown();
-                        numericUpDown.Location = new Point(x + (linkLabel.Width + 10), y - 3);
+                        numericUpDown.Location = new Point(x + (linkLabel.Width + 25), y - 3);
                         numericUpDown.Maximum = 99;
                         numericUpDown.Minimum = 0;
                         numericUpDown.Width = 40;
 
                         controlParent.TabPages[indexOfTabPage].Controls.Add(linkLabel);
-                        controlParent.TabPages[indexOfTabPage].Controls.Add(checkBox);
                         controlParent.TabPages[indexOfTabPage].Controls.Add(numericUpDown);
 
                         y += 25;
@@ -344,6 +335,76 @@ namespace maFichePersonnageJDR.Controller
                 formulaire.TextLblDescription = objetToGet.DescriptionObjet;
                 formulaire.TextLblConsommable.Text = objetToGet.ConsommationObjet;
                 formulaire.TextLblSpecial = objetToGet.SpecialObjet;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Obtenir toute les infos d'une arme par son nom
+        /// </summary>
+        /// <param name="nomArme"></param>
+        /// <returns></returns>
+        public static string GetArmeByName(string nomArme)
+        {
+            #region Initialisation des variables
+            ArmesModel armesModel = new ArmesModel();
+            #endregion
+
+            try
+            {
+                ArmesModel armes = armesModel.GetArmeByName(nomArme);
+                return "Type: " + armes.TypeArme + ", " + " Nom: " + armes.NomArme + ", " + " Poids: " + armes.PoidsArmes.ToString() + ", " + " Allonge: " + armes.AllongeArmes + ", " + " Main(s): " +
+                    armes.MainArmes + ", " + " Type de dégâts: " + armes.TypeDegatsArmes + ", " + " Dégâts arme: " + armes.DegatsArmes + ", " + " Valeur: " + armes.ValeurArme + ", " +
+                    " Description: " + armes.DescriptionArme + ", " + " Spécial: " + armes.SpecialArme;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Obtenir toutes les infos d'une armure par son nom
+        /// </summary>
+        /// <param name="nomArmure"></param>
+        /// <returns></returns>
+        public static string GetArmureByName(string nomArmure)
+        {
+            #region Initialisation des variables
+            ArmuresModel armuresModel = new ArmuresModel();
+            #endregion
+
+            try
+            {
+                ArmuresModel armures = armuresModel.GetArmureByName(nomArmure);
+                return "Type: " + armures.TypeArmure + ", " + " Nom: " + armures.NomArmure + ", " + " Poids: " + armures.PoidsArmure.ToString() + ", " + " Valeur: " + armures.ValeurArmure + ", " + " Protection: " +
+                    armures.ProtectionArmure + ", " + " Bonus: " + armures.BonusArmure + ", " + " Description: " + armures.DescriptionArmure + ", " + " Spécial: " + armures.SpecialArmure;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Obtenir toutes les infos d'un objet par son nom
+        /// </summary>
+        /// <param name="nomObjet"></param>
+        /// <returns></returns>
+        public static string GetObjetByName(string nomObjet)
+        {
+            #region Initialisation des variables
+            ObjetsModel objetsModel = new ObjetsModel();
+            #endregion
+
+            try
+            {
+                ObjetsModel objets = objetsModel.GetObjetByName(nomObjet);
+                return "Type: " + objets.TypeObjet + ", " + " Nom: " + objets.NomObjet + ", " + " Poids: " + objets.PoidsObjet.ToString() + ", " + " Valeur: " + objets.ValeurObjet + ", " + " Description: " +
+                    objets.DescriptionObjet + ", " + " Consommable: " + objets.ConsommationObjet + ", " + " Spécial: " + objets.SpecialObjet;
             }
             catch (Exception e)
             {
