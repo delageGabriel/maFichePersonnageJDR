@@ -63,12 +63,14 @@ namespace maFichePersonnageJDR.Controller
                         linkLabel.Location = new Point(x + 25, y);
                         linkLabel.AutoSize = true;
                         linkLabel.LinkClicked += formulaireEquipments.linkLabelArme_LinkClicked;
+                        linkLabel.Tag = armes.NomArme;
 
                         NumericUpDown numericUpDown = new NumericUpDown();
                         numericUpDown.Location = new Point(x + (linkLabel.Width + 25), y - 3);
                         numericUpDown.Maximum = 99;
                         numericUpDown.Minimum = 0;
                         numericUpDown.Width = 40;
+                        numericUpDown.Tag = armes.NomArme;
 
                         controlParent.TabPages[indexOfTabPage].Controls.Add(linkLabel);
                         controlParent.TabPages[indexOfTabPage].Controls.Add(numericUpDown);
@@ -495,6 +497,48 @@ namespace maFichePersonnageJDR.Controller
             try
             {
                 return armesModel.GetArmesIdByName(nomArme);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nomArmure"></param>
+        /// <returns></returns>
+        public static int GetIdArmureByName(string nomArmure)
+        {
+            #region Initialisation des variables
+            ArmuresModel armuresModel = new ArmuresModel();
+            #endregion
+
+            try
+            {
+                return armuresModel.GetArmuresIdByName(nomArmure);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nomObjet"></param>
+        /// <returns></returns>
+        public static int GetIdObjetByName(string nomObjet)
+        {
+            #region Initialisation des variables
+            ObjetsModel objetsModel = new ObjetsModel();
+            #endregion
+
+            try
+            {
+                return objetsModel.GetObjetIdByName(nomObjet);
             }
             catch (Exception e)
             {

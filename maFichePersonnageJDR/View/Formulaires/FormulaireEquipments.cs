@@ -213,10 +213,6 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else
             {
-                // FR : Récupération de l'index de la ligne à supprimer
-                // EN : Retrieve the index of the line to be deleted
-                int indexToDelete = Utils.GetLineNumberToDelete(objet, rTxtBxObjets);
-
                 // FR : On récupère toutes les lignes sous la forme d'une liste
                 // EN : All rows are retrieved in the form of a list
                 List<string> lines = new List<string>(rTxtBxObjets.Lines);
@@ -321,6 +317,41 @@ namespace maFichePersonnageJDR.Formulaires
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="tagControl">le tag qui permet d'identifier</param>
+        /// <param name="page"></param>
+        /// <returns></returns>
+        public int QuantityToReturn(string tagControl, TabPage page)
+        {
+            // Variable quantité à retourner
+            int value = 1;
+
+            try
+            {
+                
+                foreach (object control in page.Controls)
+                {
+                    if (control is NumericUpDown)
+                    {
+                        NumericUpDown nudToCheck = control as NumericUpDown;
+
+                        if ((string)nudToCheck.Tag == tagControl)
+                        {
+                            value = Convert.ToInt32(nudToCheck.Value);
+                        }
+                    }
+                }
+
+                return value;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnSuivant_Click(object sender, EventArgs e)
@@ -334,15 +365,14 @@ namespace maFichePersonnageJDR.Formulaires
 
             try
             {
-                foreach(string line in rTxtBxArmes.Lines)
-                {
-                    string[] substring = line.Split(',');
+                // ARMES
+                listeIdArmes = Utils.AddIdInList(rTxtBxArmes, listeIdArmes, 1, 6, "ARMES");
+                EquipmentController.AddNewArmeToPersonnage(EquipmentController.GetIdArmeByName(substring[1].Substring(6).Trim()),
+                    IdPersonnage);
 
-                    if (substring.Length > 1)
-                    {
-                        listeIdArmes.Add(Controller.EquipmentController.GetIdArmeByName(substring[1].Substring(6).Trim()));
-                    }
-                }
+                // ARMURES
+
+                // OBJETS
             }
             catch (Exception ex)
             {
