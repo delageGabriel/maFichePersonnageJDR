@@ -367,8 +367,8 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 // ARMES
                 listeIdArmes = Utils.AddIdInList(rTxtBxArmes, listeIdArmes, 1, 6, "ARMES");
-                EquipmentController.AddNewArmeToPersonnage(EquipmentController.GetIdArmeByName(substring[1].Substring(6).Trim()),
-                    IdPersonnage);
+                //EquipmentController.AddNewArmeToPersonnage(EquipmentController.GetIdArmeByName(substring[1].Substring(6).Trim()),
+                //    IdPersonnage);
 
                 // ARMURES
 
