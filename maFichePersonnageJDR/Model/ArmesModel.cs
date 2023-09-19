@@ -128,6 +128,11 @@ namespace maFichePersonnageJDR.Model
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nomArme"></param>
+        /// <returns></returns>
         public int GetArmesIdByName(string nomArme)
         {
             int idArme = 0;

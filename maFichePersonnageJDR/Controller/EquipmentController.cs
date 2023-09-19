@@ -359,8 +359,7 @@ namespace maFichePersonnageJDR.Controller
             {
                 ArmesModel armes = armesModel.GetArmeByName(nomArme);
                 return "Type: " + armes.TypeArme + ", " + " Nom: " + armes.NomArme + ", " + " Poids: " + armes.PoidsArmes.ToString() + ", " + " Allonge: " + armes.AllongeArmes + ", " + " Main(s): " +
-                    armes.MainArmes + ", " + " Type de dégâts: " + armes.TypeDegatsArmes + ", " + " Dégâts arme: " + armes.DegatsArmes + ", " + " Valeur: " + armes.ValeurArme + ", " +
-                    " Description: " + armes.DescriptionArme + ", " + " Spécial: " + armes.SpecialArme;
+                    armes.MainArmes + ", " + " Type de dégâts: " + armes.TypeDegatsArmes + ", " + " Dégâts arme: " + armes.DegatsArmes + ", " + " Valeur: " + armes.ValeurArme;
             }
             catch (Exception e)
             {

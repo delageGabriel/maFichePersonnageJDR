@@ -133,6 +133,10 @@ namespace maFichePersonnageJDR.Formulaires
             CheckBox checkBox = sender as CheckBox;
             string arme = EquipmentController.GetArmeByName(checkBox.Name.Substring(4));
 
+            int qteReturn = QuantityToReturn(checkBox.Name.Substring(4), (TabPage)checkBox.Parent);
+
+            arme += ", Quantité: " + qteReturn.ToString();
+
             if (checkBox.Checked)
             {
                 // FR : Devrait ajouter le texte
@@ -204,7 +208,7 @@ namespace maFichePersonnageJDR.Formulaires
         {
             CheckBox checkBox = sender as CheckBox;
             string objet = EquipmentController.GetObjetByName(checkBox.Name.Substring(4));
-
+        
             if (checkBox.Checked)
             {
                 // FR : Devrait ajouter le texte
