@@ -65,6 +65,10 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblNomArme = new System.Windows.Forms.Label();
             this.lblNomArmures = new System.Windows.Forms.Label();
             this.lblNomObjets = new System.Windows.Forms.Label();
+            this.lblTotalArmes = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblTotalDepenseArmes = new System.Windows.Forms.Label();
+            this.lblPoidsEnPlusArmes = new System.Windows.Forms.Label();
             this.tbCntlArmes.SuspendLayout();
             this.tbCntlArmures.SuspendLayout();
             this.tbCntlObjets.SuspendLayout();
@@ -84,7 +88,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbCntlArmes.Controls.Add(this.tbPgeChaines);
             this.tbCntlArmes.Controls.Add(this.tbPgeBaton);
             this.tbCntlArmes.Location = new System.Drawing.Point(16, 20);
-            this.tbCntlArmes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCntlArmes.Margin = new System.Windows.Forms.Padding(4);
             this.tbCntlArmes.Name = "tbCntlArmes";
             this.tbCntlArmes.SelectedIndex = 0;
             this.tbCntlArmes.Size = new System.Drawing.Size(373, 207);
@@ -94,9 +98,9 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgeEpee.AutoScroll = true;
             this.tbPgeEpee.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeEpee.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeEpee.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeEpee.Name = "tbPgeEpee";
-            this.tbPgeEpee.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeEpee.Padding = new System.Windows.Forms.Padding(4);
             this.tbPgeEpee.Size = new System.Drawing.Size(365, 178);
             this.tbPgeEpee.TabIndex = 0;
             this.tbPgeEpee.Text = "Épées";
@@ -106,9 +110,9 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgeLance.AutoScroll = true;
             this.tbPgeLance.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeLance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeLance.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeLance.Name = "tbPgeLance";
-            this.tbPgeLance.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeLance.Padding = new System.Windows.Forms.Padding(4);
             this.tbPgeLance.Size = new System.Drawing.Size(365, 178);
             this.tbPgeLance.TabIndex = 1;
             this.tbPgeLance.Text = "Lances";
@@ -118,7 +122,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgePoignard.AutoScroll = true;
             this.tbPgePoignard.Location = new System.Drawing.Point(4, 25);
-            this.tbPgePoignard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgePoignard.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgePoignard.Name = "tbPgePoignard";
             this.tbPgePoignard.Size = new System.Drawing.Size(365, 178);
             this.tbPgePoignard.TabIndex = 2;
@@ -129,7 +133,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgeHache.AutoScroll = true;
             this.tbPgeHache.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeHache.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeHache.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeHache.Name = "tbPgeHache";
             this.tbPgeHache.Size = new System.Drawing.Size(365, 178);
             this.tbPgeHache.TabIndex = 3;
@@ -140,7 +144,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgeMasse.AutoScroll = true;
             this.tbPgeMasse.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeMasse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeMasse.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeMasse.Name = "tbPgeMasse";
             this.tbPgeMasse.Size = new System.Drawing.Size(365, 178);
             this.tbPgeMasse.TabIndex = 4;
@@ -151,7 +155,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgeArmTrt.AutoScroll = true;
             this.tbPgeArmTrt.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeArmTrt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeArmTrt.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeArmTrt.Name = "tbPgeArmTrt";
             this.tbPgeArmTrt.Size = new System.Drawing.Size(365, 178);
             this.tbPgeArmTrt.TabIndex = 5;
@@ -162,7 +166,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgeChaines.AutoScroll = true;
             this.tbPgeChaines.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeChaines.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeChaines.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeChaines.Name = "tbPgeChaines";
             this.tbPgeChaines.Size = new System.Drawing.Size(365, 178);
             this.tbPgeChaines.TabIndex = 6;
@@ -173,7 +177,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgeBaton.AutoScroll = true;
             this.tbPgeBaton.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeBaton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeBaton.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeBaton.Name = "tbPgeBaton";
             this.tbPgeBaton.Size = new System.Drawing.Size(365, 178);
             this.tbPgeBaton.TabIndex = 7;
@@ -189,7 +193,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbCntlArmures.Controls.Add(this.tbPgeChaussure);
             this.tbCntlArmures.Controls.Add(this.tbPgeBouclier);
             this.tbCntlArmures.Location = new System.Drawing.Point(16, 247);
-            this.tbCntlArmures.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCntlArmures.Margin = new System.Windows.Forms.Padding(4);
             this.tbCntlArmures.Name = "tbCntlArmures";
             this.tbCntlArmures.SelectedIndex = 0;
             this.tbCntlArmures.Size = new System.Drawing.Size(373, 207);
@@ -199,9 +203,9 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgeCasque.AutoScroll = true;
             this.tbPgeCasque.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeCasque.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeCasque.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeCasque.Name = "tbPgeCasque";
-            this.tbPgeCasque.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeCasque.Padding = new System.Windows.Forms.Padding(4);
             this.tbPgeCasque.Size = new System.Drawing.Size(365, 178);
             this.tbPgeCasque.TabIndex = 0;
             this.tbPgeCasque.Text = "Casques";
@@ -211,9 +215,9 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgeBustes.AutoScroll = true;
             this.tbPgeBustes.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeBustes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeBustes.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeBustes.Name = "tbPgeBustes";
-            this.tbPgeBustes.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeBustes.Padding = new System.Windows.Forms.Padding(4);
             this.tbPgeBustes.Size = new System.Drawing.Size(365, 178);
             this.tbPgeBustes.TabIndex = 1;
             this.tbPgeBustes.Text = "Bustes";
@@ -223,7 +227,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgeGants.AutoScroll = true;
             this.tbPgeGants.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeGants.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeGants.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeGants.Name = "tbPgeGants";
             this.tbPgeGants.Size = new System.Drawing.Size(365, 178);
             this.tbPgeGants.TabIndex = 2;
@@ -234,7 +238,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgeGenouilleres.AutoScroll = true;
             this.tbPgeGenouilleres.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeGenouilleres.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeGenouilleres.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeGenouilleres.Name = "tbPgeGenouilleres";
             this.tbPgeGenouilleres.Size = new System.Drawing.Size(365, 178);
             this.tbPgeGenouilleres.TabIndex = 3;
@@ -245,7 +249,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgeChaussure.AutoScroll = true;
             this.tbPgeChaussure.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeChaussure.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeChaussure.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeChaussure.Name = "tbPgeChaussure";
             this.tbPgeChaussure.Size = new System.Drawing.Size(365, 178);
             this.tbPgeChaussure.TabIndex = 4;
@@ -256,7 +260,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgeBouclier.AutoScroll = true;
             this.tbPgeBouclier.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeBouclier.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeBouclier.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeBouclier.Name = "tbPgeBouclier";
             this.tbPgeBouclier.Size = new System.Drawing.Size(365, 178);
             this.tbPgeBouclier.TabIndex = 5;
@@ -269,7 +273,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbCntlObjets.Controls.Add(this.tbPgeObjRares);
             this.tbCntlObjets.Controls.Add(this.tbPgeObjMunition);
             this.tbCntlObjets.Location = new System.Drawing.Point(16, 476);
-            this.tbCntlObjets.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCntlObjets.Margin = new System.Windows.Forms.Padding(4);
             this.tbCntlObjets.Name = "tbCntlObjets";
             this.tbCntlObjets.SelectedIndex = 0;
             this.tbCntlObjets.Size = new System.Drawing.Size(373, 207);
@@ -279,9 +283,9 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgeObjNormaux.AutoScroll = true;
             this.tbPgeObjNormaux.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeObjNormaux.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeObjNormaux.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeObjNormaux.Name = "tbPgeObjNormaux";
-            this.tbPgeObjNormaux.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeObjNormaux.Padding = new System.Windows.Forms.Padding(4);
             this.tbPgeObjNormaux.Size = new System.Drawing.Size(365, 178);
             this.tbPgeObjNormaux.TabIndex = 0;
             this.tbPgeObjNormaux.Text = "Normal";
@@ -291,9 +295,9 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.tbPgeObjRares.AutoScroll = true;
             this.tbPgeObjRares.Location = new System.Drawing.Point(4, 25);
-            this.tbPgeObjRares.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeObjRares.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeObjRares.Name = "tbPgeObjRares";
-            this.tbPgeObjRares.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPgeObjRares.Padding = new System.Windows.Forms.Padding(4);
             this.tbPgeObjRares.Size = new System.Drawing.Size(365, 178);
             this.tbPgeObjRares.TabIndex = 1;
             this.tbPgeObjRares.Text = "Rare";
@@ -313,7 +317,7 @@ namespace maFichePersonnageJDR.Formulaires
             // rTxtBxArmes
             // 
             this.rTxtBxArmes.Location = new System.Drawing.Point(1066, 22);
-            this.rTxtBxArmes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rTxtBxArmes.Margin = new System.Windows.Forms.Padding(4);
             this.rTxtBxArmes.Name = "rTxtBxArmes";
             this.rTxtBxArmes.Size = new System.Drawing.Size(137, 106);
             this.rTxtBxArmes.TabIndex = 3;
@@ -323,7 +327,7 @@ namespace maFichePersonnageJDR.Formulaires
             // rTxtBxArmures
             // 
             this.rTxtBxArmures.Location = new System.Drawing.Point(424, 274);
-            this.rTxtBxArmures.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rTxtBxArmures.Margin = new System.Windows.Forms.Padding(4);
             this.rTxtBxArmures.Name = "rTxtBxArmures";
             this.rTxtBxArmures.Size = new System.Drawing.Size(779, 174);
             this.rTxtBxArmures.TabIndex = 4;
@@ -332,7 +336,7 @@ namespace maFichePersonnageJDR.Formulaires
             // rTxtBxObjets
             // 
             this.rTxtBxObjets.Location = new System.Drawing.Point(424, 503);
-            this.rTxtBxObjets.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rTxtBxObjets.Margin = new System.Windows.Forms.Padding(4);
             this.rTxtBxObjets.Name = "rTxtBxObjets";
             this.rTxtBxObjets.Size = new System.Drawing.Size(779, 174);
             this.rTxtBxObjets.TabIndex = 5;
@@ -341,7 +345,7 @@ namespace maFichePersonnageJDR.Formulaires
             // nudPo
             // 
             this.nudPo.Location = new System.Drawing.Point(472, 807);
-            this.nudPo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nudPo.Margin = new System.Windows.Forms.Padding(4);
             this.nudPo.Name = "nudPo";
             this.nudPo.Size = new System.Drawing.Size(59, 22);
             this.nudPo.TabIndex = 6;
@@ -349,7 +353,7 @@ namespace maFichePersonnageJDR.Formulaires
             // nudPa
             // 
             this.nudPa.Location = new System.Drawing.Point(589, 807);
-            this.nudPa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nudPa.Margin = new System.Windows.Forms.Padding(4);
             this.nudPa.Name = "nudPa";
             this.nudPa.Size = new System.Drawing.Size(59, 22);
             this.nudPa.TabIndex = 7;
@@ -357,7 +361,7 @@ namespace maFichePersonnageJDR.Formulaires
             // nudPc
             // 
             this.nudPc.Location = new System.Drawing.Point(705, 807);
-            this.nudPc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nudPc.Margin = new System.Windows.Forms.Padding(4);
             this.nudPc.Name = "nudPc";
             this.nudPc.Size = new System.Drawing.Size(59, 22);
             this.nudPc.TabIndex = 8;
@@ -427,7 +431,7 @@ namespace maFichePersonnageJDR.Formulaires
             // btnSuivant
             // 
             this.btnSuivant.Location = new System.Drawing.Point(561, 857);
-            this.btnSuivant.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSuivant.Margin = new System.Windows.Forms.Padding(4);
             this.btnSuivant.Name = "btnSuivant";
             this.btnSuivant.Size = new System.Drawing.Size(100, 28);
             this.btnSuivant.TabIndex = 15;
@@ -468,12 +472,54 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblNomObjets.TabIndex = 18;
             this.lblNomObjets.Text = "Objets";
             // 
+            // lblTotalArmes
+            // 
+            this.lblTotalArmes.AutoSize = true;
+            this.lblTotalArmes.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalArmes.Location = new System.Drawing.Point(419, 45);
+            this.lblTotalArmes.Name = "lblTotalArmes";
+            this.lblTotalArmes.Size = new System.Drawing.Size(119, 19);
+            this.lblTotalArmes.TabIndex = 19;
+            this.lblTotalArmes.Text = "Total à dépenser";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(558, 45);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 19);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Poids total";
+            // 
+            // lblTotalDepenseArmes
+            // 
+            this.lblTotalDepenseArmes.AutoSize = true;
+            this.lblTotalDepenseArmes.Location = new System.Drawing.Point(422, 77);
+            this.lblTotalDepenseArmes.Name = "lblTotalDepenseArmes";
+            this.lblTotalDepenseArmes.Size = new System.Drawing.Size(16, 17);
+            this.lblTotalDepenseArmes.TabIndex = 21;
+            this.lblTotalDepenseArmes.Text = "0";
+            // 
+            // lblPoidsEnPlusArmes
+            // 
+            this.lblPoidsEnPlusArmes.AutoSize = true;
+            this.lblPoidsEnPlusArmes.Location = new System.Drawing.Point(559, 77);
+            this.lblPoidsEnPlusArmes.Name = "lblPoidsEnPlusArmes";
+            this.lblPoidsEnPlusArmes.Size = new System.Drawing.Size(16, 17);
+            this.lblPoidsEnPlusArmes.TabIndex = 22;
+            this.lblPoidsEnPlusArmes.Text = "0";
+            // 
             // FormulaireEquipments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1260, 923);
+            this.Controls.Add(this.lblPoidsEnPlusArmes);
+            this.Controls.Add(this.lblTotalDepenseArmes);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblTotalArmes);
             this.Controls.Add(this.lblNomObjets);
             this.Controls.Add(this.lblNomArmures);
             this.Controls.Add(this.lblNomArme);
@@ -493,7 +539,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.Controls.Add(this.tbCntlObjets);
             this.Controls.Add(this.tbCntlArmures);
             this.Controls.Add(this.tbCntlArmes);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormulaireEquipments";
             this.Text = " Équipements";
             this.Load += new System.EventHandler(this.FormulaireEquipments_Load);
@@ -546,5 +592,9 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblNomArme;
         private System.Windows.Forms.Label lblNomArmures;
         private System.Windows.Forms.Label lblNomObjets;
+        private System.Windows.Forms.Label lblTotalArmes;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblTotalDepenseArmes;
+        private System.Windows.Forms.Label lblPoidsEnPlusArmes;
     }
 }

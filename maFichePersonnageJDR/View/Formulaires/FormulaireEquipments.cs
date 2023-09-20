@@ -132,9 +132,9 @@ namespace maFichePersonnageJDR.Formulaires
         public void checkBoxArme_Click(object sender, EventArgs e)
         {
             CheckBox checkBox = sender as CheckBox;
-            string arme = EquipmentController.GetArmeByName(checkBox.Name.Substring(4));
-
-            int qteReturn = QuantityToReturn(checkBox.Name.Substring(4), (TabPage)checkBox.Parent);
+            string nomArme = checkBox.Name.Substring(4);
+            string arme = EquipmentController.GetArmeByName(nomArme);
+            int qteReturn = QuantityToReturn(nomArme, (TabPage)checkBox.Parent);
 
             arme += qteReturn.ToString();
 
@@ -143,13 +143,13 @@ namespace maFichePersonnageJDR.Formulaires
                 // FR : Devrait ajouter le texte
                 // EN : Should append text
                 rTxtBxArmes.AppendText(arme + Environment.NewLine);
+                int valeur = int.Parse(lblTotalDepenseArmes.Text) + (EquipmentController.GetArmeValueByName(nomArme) * qteReturn);
+                double poids = double.Parse(lblPoidsEnPlusArmes.Text) + (EquipmentController.GetArmeWeightByName(nomArme) * qteReturn);
+                lblTotalDepenseArmes.Text = valeur.ToString();
+                lblPoidsEnPlusArmes.Text = poids.ToString();
             }
             else
             {
-                // FR : Récupération de l'index de la ligne à supprimer
-                // EN : Retrieve the index of the line to be deleted
-                int indexToDelete = Utils.GetLineNumberToDelete(arme, rTxtBxArmes);
-
                 // FR : On récupère toutes les lignes sous la forme d'une liste
                 // EN : All rows are retrieved in the form of a list
                 List<string> lines = new List<string>(rTxtBxArmes.Lines);

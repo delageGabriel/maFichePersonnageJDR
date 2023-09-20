@@ -60,9 +60,12 @@ namespace maFichePersonnageJDR.Model
 
                 int rowsAffected = command.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch (SQLiteException ex)
             {
-                throw e;
+                // Gérez ici les exceptions liées à SQLite
+                // Affichez ou enregistrez le message d'erreur pour le débogage
+                Console.WriteLine("Erreur SQLite : " + ex.Message);
+                throw; // Vous pouvez choisir de relancer l'exception ou de la gérer ici selon vos besoins
             }
         }
 
@@ -95,9 +98,12 @@ namespace maFichePersonnageJDR.Model
 
                 return idDuPersonnage;
             }
-            catch (Exception e)
+            catch (SQLiteException ex)
             {
-                throw e;
+                // Gérez ici les exceptions liées à SQLite
+                // Affichez ou enregistrez le message d'erreur pour le débogage
+                Console.WriteLine("Erreur SQLite : " + ex.Message);
+                throw; // Vous pouvez choisir de relancer l'exception ou de la gérer ici selon vos besoins
             }
         }
 

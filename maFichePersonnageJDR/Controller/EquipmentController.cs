@@ -543,5 +543,49 @@ namespace maFichePersonnageJDR.Controller
                 throw e;
             }
         }
+
+        /// <summary>
+        /// Pour avoir le prix d'une arme
+        /// </summary>
+        /// <param name="nomObjet"></param>
+        /// <returns></returns>
+        public static int GetArmeValueByName(string NomArme)
+        {
+            #region Initialisation des variables
+            ArmesModel armesModel = new ArmesModel();
+            #endregion
+
+            try
+            {
+                ArmesModel armes = armesModel.GetArmeByName(NomArme);
+                return armes.ValeurArme;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Pour avoir le poids d'une arme
+        /// </summary>
+        /// <param name="nomObjet"></param>
+        /// <returns></returns>
+        public static double GetArmeWeightByName(string NomArme)
+        {
+            #region Initialisation des variables
+            ArmesModel armesModel = new ArmesModel();
+            #endregion
+
+            try
+            {
+                ArmesModel armes = armesModel.GetArmeByName(NomArme);
+                return armes.PoidsArmes;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }
