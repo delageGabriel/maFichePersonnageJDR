@@ -1,4 +1,5 @@
-﻿using maFichePersonnageJDR.Classe;
+﻿
+using maFichePersonnageJDR.Classe;
 using maFichePersonnageJDR.Controller;
 using maFichePersonnageJDR.View.Formulaires;
 using System;
@@ -135,7 +136,7 @@ namespace maFichePersonnageJDR.Formulaires
 
             int qteReturn = QuantityToReturn(checkBox.Name.Substring(4), (TabPage)checkBox.Parent);
 
-            arme += ", Quantité: " + qteReturn.ToString();
+            arme += qteReturn.ToString();
 
             if (checkBox.Checked)
             {
@@ -362,7 +363,6 @@ namespace maFichePersonnageJDR.Formulaires
         {
             #region Initialisation des variables
             FormulaireMagieEtAptitudes formulaireMagieEtAptitudes = new FormulaireMagieEtAptitudes();
-            List<int> listeIdArmes = new List<int>();
             List<int> listeIdArmures = new List<int>();
             List<int> listeIdObjets = new List<int>();
             #endregion
@@ -370,9 +370,12 @@ namespace maFichePersonnageJDR.Formulaires
             try
             {
                 // ARMES
-                listeIdArmes = Utils.AddIdInList(rTxtBxArmes, listeIdArmes, 1, 6, "ARMES");
-                //EquipmentController.AddNewArmeToPersonnage(EquipmentController.GetIdArmeByName(substring[1].Substring(6).Trim()),
-                //    IdPersonnage);
+                foreach(string line in rTxtBxArmes.Lines)
+                {
+                    string[] substring = line.Split(';');
+                    EquipmentController.AddNewArmeToPersonnage(Convert.ToInt32(substring[0]),
+                    IdPersonnage, Convert.ToInt32(substring[1]));
+                }
 
                 // ARMURES
 

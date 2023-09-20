@@ -74,9 +74,10 @@ namespace maFichePersonnageJDR.Model
 
             try
             {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
                 SQLiteCommand command = new SQLiteCommand("SELECT id_personnage FROM PERSONNAGE WHERE nom_personnage = @nomPersonnage AND " +
-                    "prenom_personnage = @prenomPersonnage", DatabaseConnection.Instance.GetConnection());
+                    "prenom_personnage = @prenomPersonnage", connection);
                 command.Parameters.AddWithValue("@prenomPersonnage", prenomPersonnage);
                 command.Parameters.AddWithValue("@nomPersonnage", nomPersonnage);
 

@@ -146,7 +146,8 @@ namespace maFichePersonnageJDR.Formulaires
                     sexe, ExperiencePersonnage, LanguesPersonnage, AvatarPersonnage, HistoirePersonnage);
 
                 // On récupère l'id du personnage créé
-                formulaireAttributs.IdDuPersonnage = Controller.PersonnageController.GetIdPersonnageByNameAndSurname(NomPersonnage, PrenomPersonnage);
+                formulaireAttributs.IdDuPersonnage = Controller.PersonnageController.GetIdPersonnageByNameAndSurname(NomPersonnage, 
+                    PrenomPersonnage);
                 MessageBox.Show("Formulaire sauvegardé !");
 
                 formulaireAttributs.Show();

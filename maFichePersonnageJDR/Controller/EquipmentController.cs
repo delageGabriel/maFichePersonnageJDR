@@ -358,8 +358,7 @@ namespace maFichePersonnageJDR.Controller
             try
             {
                 ArmesModel armes = armesModel.GetArmeByName(nomArme);
-                return "Type: " + armes.TypeArme + ", " + " Nom: " + armes.NomArme + ", " + " Poids: " + armes.PoidsArmes.ToString() + ", " + " Allonge: " + armes.AllongeArmes + ", " + " Main(s): " +
-                    armes.MainArmes + ", " + " Type de dégâts: " + armes.TypeDegatsArmes + ", " + " Dégâts arme: " + armes.DegatsArmes + ", " + " Valeur: " + armes.ValeurArme;
+                return armes.IdArme.ToString() + ";";
             }
             catch (Exception e)
             {
@@ -412,7 +411,7 @@ namespace maFichePersonnageJDR.Controller
                 throw e;
             }
         }
-    
+
         /// <summary>
         /// Ajoute une nouvelle arme à un personnage
         /// </summary>
