@@ -172,13 +172,21 @@ namespace maFichePersonnageJDR.Formulaires
         public void checkBoxArmure_Click(object sender, EventArgs e)
         {
             CheckBox checkBox = sender as CheckBox;
-            string armure = EquipmentController.GetArmureByName(checkBox.Name.Substring(4));
+            string nomArmure = checkBox.Name.Substring(4);
+            string armure = EquipmentController.GetArmureByName(nomArmure);
+            int qteReturn = QuantityToReturn(nomArmure, (TabPage)checkBox.Parent);
+
+            armure += qteReturn.ToString();
 
             if (checkBox.Checked)
             {
                 // FR : Devrait ajouter le texte
                 // EN : Should append text
-                rTxtBxArmures.AppendText(armure + Environment.NewLine);
+                rTxtBxArmes.AppendText(armure + Environment.NewLine);
+                int valeur = int.Parse(lblTotalDepenseArmures.Text) + (EquipmentController.GetArmureValueByName(nomArmure) * qteReturn);
+                double poids = double.Parse(lblPoidsEnPlusArmures.Text) + (EquipmentController.GetArmureWeightByName(nomArmure) * qteReturn);
+                lblTotalDepenseArmures.Text = valeur.ToString();
+                lblPoidsEnPlusArmures.Text = poids.ToString();
             }
             else
             {
@@ -208,13 +216,21 @@ namespace maFichePersonnageJDR.Formulaires
         public void checkBoxObjet_Click(object sender, EventArgs e)
         {
             CheckBox checkBox = sender as CheckBox;
-            string objet = EquipmentController.GetObjetByName(checkBox.Name.Substring(4));
-        
+            string nomObjet = checkBox.Name.Substring(4);
+            string objet = EquipmentController.GetObjetByName(nomObjet);
+            int qteReturn = QuantityToReturn(nomObjet, (TabPage)checkBox.Parent);
+
+            objet += qteReturn.ToString();
+
             if (checkBox.Checked)
             {
                 // FR : Devrait ajouter le texte
                 // EN : Should append text
-                rTxtBxObjets.AppendText(objet + Environment.NewLine);
+                rTxtBxArmes.AppendText(objet + Environment.NewLine);
+                int valeur = int.Parse(lblTotalDepenseObjets.Text) + (EquipmentController.GetObjetValueByName(nomObjet) * qteReturn);
+                double poids = double.Parse(lblPoidsEnPlusObjets.Text) + (EquipmentController.GetObjetWeightByName(nomObjet) * qteReturn);
+                lblTotalDepenseObjets.Text = valeur.ToString();
+                lblPoidsEnPlusObjets.Text = poids.ToString();
             }
             else
             {
@@ -332,7 +348,7 @@ namespace maFichePersonnageJDR.Formulaires
 
             try
             {
-                
+
                 foreach (object control in page.Controls)
                 {
                     if (control is NumericUpDown)
@@ -363,23 +379,48 @@ namespace maFichePersonnageJDR.Formulaires
         {
             #region Initialisation des variables
             FormulaireMagieEtAptitudes formulaireMagieEtAptitudes = new FormulaireMagieEtAptitudes();
-            List<int> listeIdArmures = new List<int>();
-            List<int> listeIdObjets = new List<int>();
             #endregion
 
             try
             {
                 // ARMES
-                foreach(string line in rTxtBxArmes.Lines)
+                foreach (string line in rTxtBxArmes.Lines)
                 {
-                    string[] substring = line.Split(';');
-                    EquipmentController.AddNewArmeToPersonnage(Convert.ToInt32(substring[0]),
-                    IdPersonnage, Convert.ToInt32(substring[1]));
+                    if (!String.IsNullOrEmpty(line))
+                    {
+                        string[] substring = line.Split(';');
+                        EquipmentController.AddNewArmeToPersonnage(Convert.ToInt32(substring[0]),
+                        IdPersonnage, Convert.ToInt32(substring[1]));
+                    }
                 }
 
                 // ARMURES
+                foreach (string line in rTxtBxArmures.Lines)
+                {
+                    if (!String.IsNullOrEmpty(line))
+                    {
+                        string[] substring = line.Split(';');
+                        EquipmentController.AddNewArmureToPersonnage(Convert.ToInt32(substring[0]),
+                        IdPersonnage, Convert.ToInt32(substring[1]));
+                    }
+
+                }
 
                 // OBJETS
+                foreach (string line in rTxtBxObjets.Lines)
+                {
+                    if (!String.IsNullOrEmpty(line))
+                    {
+                        string[] substring = line.Split(';');
+                        EquipmentController.AddNewObjetToPersonnage(Convert.ToInt32(substring[0]),
+                        IdPersonnage, Convert.ToInt32(substring[1]));
+                    }
+                }
+
+                formulaireMagieEtAptitudes.IdPersonnage = IdPersonnage;
+                MessageBox.Show("Équipement sauvegardé !");
+                formulaireMagieEtAptitudes.Show();
+                this.Close();
             }
             catch (Exception ex)
             {

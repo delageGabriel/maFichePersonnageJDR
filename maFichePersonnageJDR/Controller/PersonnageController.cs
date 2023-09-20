@@ -57,7 +57,7 @@ namespace maFichePersonnageJDR.Controller
             try
             {
                 // On envoie les informations du personnage à sauvegarder
-                return personnageToSave.GetIdByNameAndSurname(prenomPersonnage, nomPersonnage);               
+                return personnageToSave.GetIdByNameAndSurname(nomPersonnage, prenomPersonnage);               
             }
             catch (Exception e)
             {

@@ -16,7 +16,7 @@ namespace maFichePersonnageJDR.Model
         private int idObjet;
         private string nomObjet;
         private double poidsObjet;
-        private string valeurObjet;
+        private int valeurObjet;
         private string descriptionObjet;
         private string typeObjet;
         private string consommableObjet;
@@ -28,7 +28,7 @@ namespace maFichePersonnageJDR.Model
         public int IdObjet { get => idObjet; set => idObjet = value; }
         public string NomObjet { get => nomObjet; set => nomObjet = value; }
         public double PoidsObjet { get => poidsObjet; set => poidsObjet = value; }
-        public string ValeurObjet { get => valeurObjet; set => valeurObjet = value; }
+        public int ValeurObjet { get => valeurObjet; set => valeurObjet = value; }
         public string DescriptionObjet { get => descriptionObjet; set => descriptionObjet = value; }
         public string TypeObjet { get => typeObjet; set => typeObjet = value; }
         public string ConsommationObjet { get => consommableObjet; set => consommableObjet = value; }
@@ -54,7 +54,7 @@ namespace maFichePersonnageJDR.Model
                         objetsModel.IdObjet = reader.GetInt32(0);
                         objetsModel.NomObjet = reader.GetString(1);
                         objetsModel.PoidsObjet = reader.GetDouble(2);
-                        objetsModel.ValeurObjet = reader.GetString(3);
+                        objetsModel.ValeurObjet = reader.GetInt32(3);
                         objetsModel.DescriptionObjet = reader.GetString(4);
                         objetsModel.TypeObjet = reader.GetString(5);
                         objetsModel.ConsommationObjet = reader.GetString(6);
@@ -95,7 +95,7 @@ namespace maFichePersonnageJDR.Model
                         objet.IdObjet = reader.GetInt32(0);
                         objet.NomObjet = reader.GetString(1);
                         objet.PoidsObjet = reader.GetDouble(2);
-                        objet.ValeurObjet = reader.GetString(3);
+                        objet.ValeurObjet = reader.GetInt32(3);
                         objet.DescriptionObjet = reader.GetString(4);
                         objet.TypeObjet = reader.GetString(5);
                         objet.ConsommationObjet = reader.GetString(6);

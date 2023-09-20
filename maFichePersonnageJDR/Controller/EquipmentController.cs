@@ -549,7 +549,7 @@ namespace maFichePersonnageJDR.Controller
         /// </summary>
         /// <param name="nomObjet"></param>
         /// <returns></returns>
-        public static int GetArmeValueByName(string NomArme)
+        public static int GetArmeValueByName(string nomArme)
         {
             #region Initialisation des variables
             ArmesModel armesModel = new ArmesModel();
@@ -557,8 +557,52 @@ namespace maFichePersonnageJDR.Controller
 
             try
             {
-                ArmesModel armes = armesModel.GetArmeByName(NomArme);
+                ArmesModel armes = armesModel.GetArmeByName(nomArme);
                 return armes.ValeurArme;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Pour avoir le prix d'une arme
+        /// </summary>
+        /// <param name="nomArmure"></param>
+        /// <returns></returns>
+        public static int GetArmureValueByName(string nomArmure)
+        {
+            #region Initialisation des variables
+            ArmuresModel armuresModel = new ArmuresModel();
+            #endregion
+
+            try
+            {
+                ArmuresModel armures = armuresModel.GetArmureByName(nomArmure);
+                return armures.ValeurArmure;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Pour avoir le prix d'une arme
+        /// </summary>
+        /// <param name="nomArmure"></param>
+        /// <returns></returns>
+        public static int GetObjetValueByName(string nomObjet)
+        {
+            #region Initialisation des variables
+            ObjetsModel objetsModel = new ObjetsModel();
+            #endregion
+
+            try
+            {
+                ObjetsModel objets = objetsModel.GetObjetByName(nomObjet);
+                return objets.ValeurObjet;
             }
             catch (Exception e)
             {
@@ -571,7 +615,7 @@ namespace maFichePersonnageJDR.Controller
         /// </summary>
         /// <param name="nomObjet"></param>
         /// <returns></returns>
-        public static double GetArmeWeightByName(string NomArme)
+        public static double GetArmeWeightByName(string nomArme)
         {
             #region Initialisation des variables
             ArmesModel armesModel = new ArmesModel();
@@ -579,8 +623,52 @@ namespace maFichePersonnageJDR.Controller
 
             try
             {
-                ArmesModel armes = armesModel.GetArmeByName(NomArme);
+                ArmesModel armes = armesModel.GetArmeByName(nomArme);
                 return armes.PoidsArmes;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Pour avoir le poids d'une arme
+        /// </summary>
+        /// <param name="nomObjet"></param>
+        /// <returns></returns>
+        public static double GetArmureWeightByName(string nomArmure)
+        {
+            #region Initialisation des variables
+            ArmuresModel armuresModel = new ArmuresModel();
+            #endregion
+
+            try
+            {
+                ArmuresModel armures = armuresModel.GetArmureByName(nomArmure);
+                return armures.PoidsArmure;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Pour avoir le poids d'une arme
+        /// </summary>
+        /// <param name="nomObjet"></param>
+        /// <returns></returns>
+        public static double GetObjetWeightByName(string nomObjet)
+        {
+            #region Initialisation des variables
+            ObjetsModel objetsModel = new ObjetsModel();
+            #endregion
+
+            try
+            {
+                ObjetsModel objets = objetsModel.GetObjetByName(nomObjet);
+                return objets.PoidsObjet;
             }
             catch (Exception e)
             {

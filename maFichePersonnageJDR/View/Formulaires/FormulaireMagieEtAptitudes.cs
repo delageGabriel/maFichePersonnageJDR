@@ -8,6 +8,9 @@ namespace maFichePersonnageJDR.Formulaires
 {
     public partial class FormulaireMagieEtAptitudes : Form
     {
+        private int idPersonnage;
+
+        public int IdPersonnage { get => idPersonnage; set => idPersonnage = value; }
         public FormulaireMagieEtAptitudes()
         {
             InitializeComponent();

@@ -16,7 +16,7 @@ namespace maFichePersonnageJDR.Model
         private int idArmure;
         private string nomArmure;
         private double poidsArmure;
-        private string valeurArmure;
+        private int valeurArmure;
         private string protectionArmure;
         private string bonusArmure;
         private string typeArmure;
@@ -29,7 +29,7 @@ namespace maFichePersonnageJDR.Model
         public int IdArmure { get => idArmure; set => idArmure = value; }
         public string NomArmure { get => nomArmure; set => nomArmure = value; }
         public double PoidsArmure { get => poidsArmure; set => poidsArmure = value; }
-        public string ValeurArmure { get => valeurArmure; set => valeurArmure = value; }
+        public int ValeurArmure { get => valeurArmure; set => valeurArmure = value; }
         public string ProtectionArmure { get => protectionArmure; set => protectionArmure = value; }
         public string BonusArmure { get => bonusArmure; set => bonusArmure = value; }
         public string TypeArmure { get => typeArmure; set => typeArmure = value; }
@@ -58,7 +58,7 @@ namespace maFichePersonnageJDR.Model
                         armureModel.TypeArmure = reader.GetString(1);
                         armureModel.NomArmure = reader.GetString(2);
                         armureModel.PoidsArmure = reader.GetDouble(3);
-                        armureModel.ValeurArmure = reader.GetString(4);
+                        armureModel.ValeurArmure = reader.GetInt32(4);
                         armureModel.ProtectionArmure = reader.GetString(5);
                         armureModel.BonusArmure = reader.GetString(6);
                         armureModel.DescriptionArmure = reader.GetString(7);
@@ -100,7 +100,7 @@ namespace maFichePersonnageJDR.Model
                         armure.TypeArmure = reader.GetString(1);
                         armure.NomArmure = reader.GetString(2);
                         armure.PoidsArmure = reader.GetDouble(3);
-                        armure.ValeurArmure = reader.GetString(4);
+                        armure.ValeurArmure = reader.GetInt32(4);
                         armure.ProtectionArmure = reader.GetString(5);
                         armure.BonusArmure = reader.GetString(6);
                         armure.DescriptionArmure = reader.GetString(7);
