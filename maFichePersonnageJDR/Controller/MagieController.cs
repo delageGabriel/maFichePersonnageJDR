@@ -50,10 +50,6 @@ namespace maFichePersonnageJDR.Controller
                     /// Pour chaque type d'arme on les ajoute dans les tabpages
                     foreach (MagieModel magie in magieList)
                     {
-                        CheckBox checkBox = new CheckBox();
-                        checkBox.Location = new Point(1, y - 5);
-                        checkBox.Name = ("chck" + magie.NomMagie).Trim();
-
                         LinkLabel linkLabel = new LinkLabel();
                         linkLabel.Text = magie.NomMagie;
                         linkLabel.Name = ("lnkLbl" + magie.NomMagie).Trim();
@@ -62,7 +58,6 @@ namespace maFichePersonnageJDR.Controller
                         linkLabel.LinkClicked += formulaireMagieEtAptitudes.linkLabelMagie_LinkClicked;
 
                         controlParent.TabPages[indexOfTabPage].Controls.Add(linkLabel);
-                        controlParent.TabPages[indexOfTabPage].Controls.Add(checkBox);
 
                         y += 25;
                     }
@@ -96,6 +91,51 @@ namespace maFichePersonnageJDR.Controller
                 formulaire.TextLblCoutMagieAptitude = magieToGet.CoutMagie.ToString();
                 formulaire.TextLblNiveauMagieAptitude = magieToGet.NiveauMagie.ToString();
                 formulaire.RchTextBxDescrMagieEtAptitude.Text = magieToGet.DescriptionMagie;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Obtenir toute les infos d'une arme par son nom
+        /// </summary>
+        /// <param name="nomArme"></param>
+        /// <returns></returns>
+        public static string GetIdMagieByName(string nomMagie)
+        {
+            #region Initialisation des variables
+            MagieModel magieModel = new MagieModel();
+            #endregion
+
+            try
+            {
+                MagieModel magie = magieModel.GetMagieByName(nomMagie);
+                return magie.IdMagie.ToString() + ";";
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Ajoute une nouvelle arme à un personnage
+        /// </summary>
+        /// <param name="idArme"></param>
+        /// <param name="idPersonnage"></param>
+        /// <param name="quantite"></param>
+        public static void AddNewMagieToPersonnage(int idMagie, int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode AddNewArmeToPersonnage — Arme ajouté au personnage : ID ARME : {0}, " +
+                "ID PERSONNAGE : {1} ###########", idMagie.ToString(), idPersonnage.ToString()));
+
+            MagiePersonnageModel magiePersonnageModel = new MagiePersonnageModel();
+
+            try
+            {
+                magiePersonnageModel.SaveMagiePersonnage(idMagie, idPersonnage);
             }
             catch (Exception e)
             {

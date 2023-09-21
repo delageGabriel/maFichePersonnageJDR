@@ -50,10 +50,6 @@ namespace maFichePersonnageJDR.Controller
                     /// Pour chaque type d'arme on les ajoute dans les tabpages
                     foreach (AptitudesModel aptitude in aptitudesList)
                     {
-                        CheckBox checkBox = new CheckBox();
-                        checkBox.Location = new Point(1, y - 5);
-                        checkBox.Name = ("chck" + aptitude.NomAptitude).Trim();
-
                         LinkLabel linkLabel = new LinkLabel();
                         linkLabel.Text = aptitude.NomAptitude;
                         linkLabel.Name = ("lnkLbl" + aptitude.NomAptitude).Trim();
@@ -62,7 +58,6 @@ namespace maFichePersonnageJDR.Controller
                         linkLabel.LinkClicked += formulaireMagieEtAptitudes.linkLabelAptitude_LinkClicked;
 
                         controlParent.TabPages[indexOfTabPage].Controls.Add(linkLabel);
-                        controlParent.TabPages[indexOfTabPage].Controls.Add(checkBox);
 
                         y += 25;
                     }
@@ -96,6 +91,51 @@ namespace maFichePersonnageJDR.Controller
                 formulaire.TextLblCoutMagieAptitude = aptitudeToGet.CoutAptitude.ToString();
                 formulaire.TextLblNiveauMagieAptitude = aptitudeToGet.NiveauAptitude.ToString();
                 formulaire.RchTextBxDescrMagieEtAptitude.Text = aptitudeToGet.DescriptionAptitude;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Obtenir toute les infos d'une arme par son nom
+        /// </summary>
+        /// <param name="nomArme"></param>
+        /// <returns></returns>
+        public static string GetIdAptitudeByName(string nomAptitude)
+        {
+            #region Initialisation des variables
+            AptitudesModel aptitudesModel = new AptitudesModel();
+            #endregion
+
+            try
+            {
+                AptitudesModel aptitudes = aptitudesModel.GetAptitudesByName(nomAptitude);
+                return aptitudes.IdAptitude.ToString() + ";";
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Ajoute une nouvelle arme à un personnage
+        /// </summary>
+        /// <param name="idArme"></param>
+        /// <param name="idPersonnage"></param>
+        /// <param name="quantite"></param>
+        public static void AddNewAptitudeToPersonnage(int idAptitude, int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode AddNewArmeToPersonnage — Arme ajouté au personnage : ID ARME : {0}, " +
+                "ID PERSONNAGE : {1} ###########", idAptitude.ToString(), idPersonnage.ToString()));
+
+            AptitudesPersonnageModel aptitudesPersonnageModel = new AptitudesPersonnageModel();
+
+            try
+            {
+                aptitudesPersonnageModel.SaveAptitudePersonnage(idAptitude, idPersonnage);
             }
             catch (Exception e)
             {

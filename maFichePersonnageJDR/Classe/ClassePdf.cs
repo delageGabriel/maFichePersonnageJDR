@@ -12,6 +12,10 @@ namespace maFichePersonnageJDR.Classe
 {
     class ClassePdf
     {
+        private int idPersonnage;
+
+        public int IdPersonnage { get => idPersonnage; set => idPersonnage = value; }
+
         public void CreatePersonnagePdf()
         {
             // Créez un document PDF

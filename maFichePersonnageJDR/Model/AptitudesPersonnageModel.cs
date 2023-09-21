@@ -29,7 +29,7 @@ namespace maFichePersonnageJDR.Model
         /// </summary>
         /// <param name="idAptitude"></param>
         /// <param name="idPersonnage"></param>
-        public void SaveMagiePersonnage(int idAptitude, int idPersonnage)
+        public void SaveAptitudePersonnage(int idAptitude, int idPersonnage)
         {
             try
             {
