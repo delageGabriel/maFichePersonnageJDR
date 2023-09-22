@@ -98,6 +98,8 @@ namespace maFichePersonnageJDR.Classe
             AddFormField(document, writer, "Équipements", 200f);
 
             AddArmesTable(document, IdPersonnage);
+
+            AddArmuresTable(document, IdPersonnage);
             // Fermez le document
             document.Close();
             Console.WriteLine("Fiche de personnage créée avec succès !");
@@ -313,7 +315,7 @@ namespace maFichePersonnageJDR.Classe
             List<string> specialsArmes = Controller.EquipmentController.GetListSpecialArmes(idPersonnage);
             #endregion
 
-            PdfPTable armesTable = new PdfPTable(4);
+            PdfPTable armesTable = new PdfPTable(9);
             armesTable.WidthPercentage = 100;
             armesTable.HorizontalAlignment = 0;
             armesTable.SpacingBefore = 10f;
@@ -327,7 +329,6 @@ namespace maFichePersonnageJDR.Classe
             armesTable.AddCell("Type(s) de dégâts");
             armesTable.AddCell("Dégâts");
             armesTable.AddCell("Valeur");
-            armesTable.AddCell("Description");
             armesTable.AddCell("Spécial");
 
             for (int i = 0; i < typesArmes.Count; i++)
@@ -340,11 +341,50 @@ namespace maFichePersonnageJDR.Classe
                 armesTable.AddCell(typesDegatsArmes[i]);
                 armesTable.AddCell(degatsArmes[i]);
                 armesTable.AddCell(valeurArmes[i]);
-                armesTable.AddCell(descriptionsArmes[i]);
                 armesTable.AddCell(specialsArmes[i]);
             }
 
             document.Add(armesTable);
+        }
+
+        static void AddArmuresTable(Document document, int idPersonnage)
+        {
+            #region Initialisation des variables
+            List<string> typesArmures = Controller.EquipmentController.GetListTypeArmures(idPersonnage);
+            List<string> nomArmures = Controller.EquipmentController.GetListNomArmures(idPersonnage);
+            List<double> poidsArmures = Controller.EquipmentController.GetListPoidsArmures(idPersonnage);
+            List<string> valeurArmures = Controller.EquipmentController.GetListValeurArmures(idPersonnage);
+            List<string> protectionsArmures = Controller.EquipmentController.GetListProtectionArmures(idPersonnage);
+            List<string> bonusArmures = Controller.EquipmentController.GetListBonusArmures(idPersonnage);
+            List<string> specialsArmures = Controller.EquipmentController.GetListSpecialArmures(idPersonnage);
+            #endregion
+
+            PdfPTable armuresTable = new PdfPTable(7);
+            armuresTable.WidthPercentage = 100;
+            armuresTable.HorizontalAlignment = 0;
+            armuresTable.SpacingBefore = 10f;
+            armuresTable.SpacingAfter = 10f;
+
+            armuresTable.AddCell("Type");
+            armuresTable.AddCell("Nom");
+            armuresTable.AddCell("Poids");
+            armuresTable.AddCell("Valeur");
+            armuresTable.AddCell("Protection");
+            armuresTable.AddCell("Bonus");
+            armuresTable.AddCell("Spécial");
+
+            for (int i = 0; i < typesArmures.Count; i++)
+            {
+                armuresTable.AddCell(typesArmures[i]);
+                armuresTable.AddCell(nomArmures[i]);
+                armuresTable.AddCell(poidsArmures[i].ToString());
+                armuresTable.AddCell(valeurArmures[i]);
+                armuresTable.AddCell(protectionsArmures[i]);
+                armuresTable.AddCell(bonusArmures[i]);
+                armuresTable.AddCell(specialsArmures[i]);
+            }
+
+            document.Add(armuresTable);
         }
     }
 }

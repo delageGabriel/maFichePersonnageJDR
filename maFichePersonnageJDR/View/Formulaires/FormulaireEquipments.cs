@@ -150,17 +150,7 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else
             {
-                // FR : On récupère toutes les lignes sous la forme d'une liste
-                // EN : All rows are retrieved in the form of a list
-                List<string> lines = new List<string>(rTxtBxArmes.Lines);
 
-                // FR : On supprime la ligne où l'on a trouvé le texte correspondant
-                // EN : On supprime la ligne où l'on a trouvé le texte correspondan
-                lines.Remove(arme);
-
-                // FR : On réattribue les nouvelles lignes à celles de la RichTextBox
-                // EN : Reassign the new lines to those in the RichTextBox
-                rTxtBxArmes.Lines = lines.ToArray();
             }
         }
 
@@ -182,7 +172,7 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 // FR : Devrait ajouter le texte
                 // EN : Should append text
-                rTxtBxArmes.AppendText(armure + Environment.NewLine);
+                rTxtBxArmures.AppendText(armure + Environment.NewLine);
                 int valeur = int.Parse(lblTotalDepenseArmures.Text) + (EquipmentController.GetArmureValueByName(nomArmure) * qteReturn);
                 double poids = double.Parse(lblPoidsEnPlusArmures.Text) + (EquipmentController.GetArmureWeightByName(nomArmure) * qteReturn);
                 lblTotalDepenseArmures.Text = valeur.ToString();
@@ -226,7 +216,7 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 // FR : Devrait ajouter le texte
                 // EN : Should append text
-                rTxtBxArmes.AppendText(objet + Environment.NewLine);
+                rTxtBxObjets.AppendText(objet + Environment.NewLine);
                 int valeur = int.Parse(lblTotalDepenseObjets.Text) + (EquipmentController.GetObjetValueByName(nomObjet) * qteReturn);
                 double poids = double.Parse(lblPoidsEnPlusObjets.Text) + (EquipmentController.GetObjetWeightByName(nomObjet) * qteReturn);
                 lblTotalDepenseObjets.Text = valeur.ToString();

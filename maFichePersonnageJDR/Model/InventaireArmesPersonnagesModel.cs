@@ -145,11 +145,8 @@ namespace maFichePersonnageJDR.Model
             {
                 SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT ARMES.poids_arme * INVENTAIRE_ARMES_PERSONNAGES.quantite AS resultat" +
-                    "FROM ARMES " +
-                    "INNER JOIN INVENTAIRE_ARMES_PERSONNAGES ON ARMES.id_armes = INVENTAIRE_ARMES_PERSONNAGES.id_arme " +
-                    "WHERE INVENTAIRE_ARMES_PERSONNAGES.id_personnage = @id_personnage", connection);
-                command.Parameters.AddWithValue("@id_personnage", idPersonnage);
+                SQLiteCommand command = new SQLiteCommand("SELECT ARMES.poids_arme * INVENTAIRE_ARMES_PERSONNAGES.quantite AS resultat FROM ARMES INNER JOIN INVENTAIRE_ARMES_PERSONNAGES ON ARMES.id_armes = INVENTAIRE_ARMES_PERSONNAGES.id_arme WHERE INVENTAIRE_ARMES_PERSONNAGES.id_personnage = @idPersonnage", connection);
+                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
 
                 using (SQLiteDataReader reader = command.ExecuteReader())
                 {
