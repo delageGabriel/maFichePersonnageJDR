@@ -3,6 +3,7 @@ using maFichePersonnageJDR.Model;
 using maFichePersonnageJDR.View.Formulaires;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -669,6 +670,226 @@ namespace maFichePersonnageJDR.Controller
             {
                 ObjetsModel objets = objetsModel.GetObjetByName(nomObjet);
                 return objets.PoidsObjet;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static List<string> GetListNomArmes(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListNomArmes — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return inventaireArmesPersonnages.GetListNomArmes(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static List<string> GetListTypeArmes(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListTypeArmes — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return inventaireArmesPersonnages.GetListTypeArmes(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static List<double> GetListPoidsArmes(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListPoidsArmes — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return inventaireArmesPersonnages.GetListPoidsArmes(idPersonnage);
+            }
+            catch (SQLiteException e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static List<string> GetListAllongeArmes(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListAllongeArmes — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return inventaireArmesPersonnages.GetListAllongeArmes(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static List<string> GetListMainsArmes(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListMainsArmes — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return inventaireArmesPersonnages.GetListMainsArmes(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static List<string> GetListTypeDegatsArmes(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListTypeDegatsArmes — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return inventaireArmesPersonnages.GetListTypeDegatsArmes(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static List<string> GetListDegatsArmes(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListDegatsArmes — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return inventaireArmesPersonnages.GetListDegatsArmes(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static List<string> GetListValeurArmes(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListValeurArmes — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return inventaireArmesPersonnages.GetListValeurArmes(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static List<string> GetListDescriptionArmes(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListDescriptionArmes — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return inventaireArmesPersonnages.GetListDescriptionArmes(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static List<string> GetListSpecialArmes(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListSpecialArmes — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return inventaireArmesPersonnages.GetListSpecialArmes(idPersonnage);
             }
             catch (Exception e)
             {

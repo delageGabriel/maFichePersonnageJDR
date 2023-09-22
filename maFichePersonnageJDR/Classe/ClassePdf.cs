@@ -95,6 +95,9 @@ namespace maFichePersonnageJDR.Classe
 
             AddCompSocialTable(document, IdPersonnage);
 
+            AddFormField(document, writer, "Équipements", 200f);
+
+            AddArmesTable(document, IdPersonnage);
             // Fermez le document
             document.Close();
             Console.WriteLine("Fiche de personnage créée avec succès !");
@@ -293,6 +296,55 @@ namespace maFichePersonnageJDR.Classe
             }
 
             document.Add(compSocTable);
+        }
+
+        static void AddArmesTable(Document document, int idPersonnage)
+        {
+            #region Initialisation des variables
+            List<string> typesArmes = Controller.EquipmentController.GetListTypeArmes(idPersonnage);
+            List<string> nomArmes = Controller.EquipmentController.GetListNomArmes(idPersonnage);
+            List<double> poidsArmes = Controller.EquipmentController.GetListPoidsArmes(idPersonnage);
+            List<string> allongeArmes = Controller.EquipmentController.GetListAllongeArmes(idPersonnage);
+            List<string> mainsArmes = Controller.EquipmentController.GetListMainsArmes(idPersonnage);
+            List<string> typesDegatsArmes = Controller.EquipmentController.GetListTypeDegatsArmes(idPersonnage);
+            List<string> degatsArmes = Controller.EquipmentController.GetListDegatsArmes(idPersonnage);
+            List<string> valeurArmes = Controller.EquipmentController.GetListValeurArmes(idPersonnage);
+            List<string> descriptionsArmes = Controller.EquipmentController.GetListDescriptionArmes(idPersonnage);
+            List<string> specialsArmes = Controller.EquipmentController.GetListSpecialArmes(idPersonnage);
+            #endregion
+
+            PdfPTable armesTable = new PdfPTable(4);
+            armesTable.WidthPercentage = 100;
+            armesTable.HorizontalAlignment = 0;
+            armesTable.SpacingBefore = 10f;
+            armesTable.SpacingAfter = 10f;
+
+            armesTable.AddCell("Type");
+            armesTable.AddCell("Nom");
+            armesTable.AddCell("Poids");
+            armesTable.AddCell("Allonge");
+            armesTable.AddCell("Main(s)");
+            armesTable.AddCell("Type(s) de dégâts");
+            armesTable.AddCell("Dégâts");
+            armesTable.AddCell("Valeur");
+            armesTable.AddCell("Description");
+            armesTable.AddCell("Spécial");
+
+            for (int i = 0; i < typesArmes.Count; i++)
+            {
+                armesTable.AddCell(typesArmes[i]);
+                armesTable.AddCell(nomArmes[i]);
+                armesTable.AddCell(poidsArmes[i].ToString());
+                armesTable.AddCell(allongeArmes[i]);
+                armesTable.AddCell(mainsArmes[i]);
+                armesTable.AddCell(typesDegatsArmes[i]);
+                armesTable.AddCell(degatsArmes[i]);
+                armesTable.AddCell(valeurArmes[i]);
+                armesTable.AddCell(descriptionsArmes[i]);
+                armesTable.AddCell(specialsArmes[i]);
+            }
+
+            document.Add(armesTable);
         }
     }
 }

@@ -89,6 +89,11 @@ namespace maFichePersonnageJDR.Model
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
         public CompetenceMentalPersonnageModel GetBaseMentalPersonnage(int idPersonnage)
         {
             #region Initialisation des variables

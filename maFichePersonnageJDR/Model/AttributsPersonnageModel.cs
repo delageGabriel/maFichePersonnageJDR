@@ -62,7 +62,7 @@ namespace maFichePersonnageJDR.Model
                 SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
                 SQLiteCommand command = new SQLiteCommand("SELECT nom_attribut FROM ATTRIBUTS " +
-                    "INNER JOIN ATTRIBUTS_PERSONNAGE ON ATTRIBUTS.id_attribut = ATTRIBUTS_PERSONNAGE.id_attribut_personnage " +
+                    "INNER JOIN ATTRIBUTS_PERSONNAGE ON ATTRIBUTS.id_attribut = ATTRIBUTS_PERSONNAGE.id_attribut " +
                     "WHERE ATTRIBUTS_PERSONNAGE.id_personnage = @id_personnage", connection);
                 command.Parameters.AddWithValue("@id_personnage", idPersonnage);
 
@@ -102,7 +102,7 @@ namespace maFichePersonnageJDR.Model
                 SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
                 SQLiteCommand command = new SQLiteCommand("SELECT description_attribut FROM ATTRIBUTS " +
-                    "INNER JOIN ATTRIBUTS_PERSONNAGE ON ATTRIBUTS.id_attribut = ATTRIBUTS_PERSONNAGE.id_attribut_personnage " +
+                    "INNER JOIN ATTRIBUTS_PERSONNAGE ON ATTRIBUTS.id_attribut = ATTRIBUTS_PERSONNAGE.id_attribut " +
                     "WHERE ATTRIBUTS_PERSONNAGE.id_personnage = @id_personnage", connection);
                 command.Parameters.AddWithValue("@id_personnage", idPersonnage);
 
@@ -142,7 +142,7 @@ namespace maFichePersonnageJDR.Model
                 SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
                 SQLiteCommand command = new SQLiteCommand("SELECT type_attribut FROM ATTRIBUTS " +
-                    "INNER JOIN ATTRIBUTS_PERSONNAGE ON ATTRIBUTS.id_attribut = ATTRIBUTS_PERSONNAGE.id_attribut_personnage " +
+                    "INNER JOIN ATTRIBUTS_PERSONNAGE ON ATTRIBUTS.id_attribut = ATTRIBUTS_PERSONNAGE.id_attribut " +
                     "WHERE ATTRIBUTS_PERSONNAGE.id_personnage = @id_personnage", connection);
                 command.Parameters.AddWithValue("@id_personnage", idPersonnage);
 
@@ -182,7 +182,7 @@ namespace maFichePersonnageJDR.Model
                 SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
                 SQLiteCommand command = new SQLiteCommand("SELECT note_attribut FROM ATTRIBUTS " +
-                    "INNER JOIN ATTRIBUTS_PERSONNAGE ON ATTRIBUTS.id_attribut = ATTRIBUTS_PERSONNAGE.id_attribut_personnage " +
+                    "INNER JOIN ATTRIBUTS_PERSONNAGE ON ATTRIBUTS.id_attribut = ATTRIBUTS_PERSONNAGE.id_attribut " +
                     "WHERE ATTRIBUTS_PERSONNAGE.id_personnage = @id_personnage", connection);
                 command.Parameters.AddWithValue("@id_personnage", idPersonnage);
 
