@@ -220,6 +220,11 @@ namespace maFichePersonnageJDR.Controller
             }
         }
 
+        /// <summary>
+        /// Permet d'obtenir les compétences de base du personnage
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
         public static int[] GetBaseCompetencePhysique(int idPersonnage)
         {
             #region Initialisation des variables
@@ -243,5 +248,63 @@ namespace maFichePersonnageJDR.Controller
                 throw e;
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static int[] GetBaseCompetenceMental(int idPersonnage)
+        {
+            #region Initialisation des variables
+            CompetenceMentalPersonnageModel competenceMentalPersonnageModel = new CompetenceMentalPersonnageModel();
+            #endregion
+
+            Console.WriteLine(string.Format("########### Méthode GetBaseCompetenceMental — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            try
+            {
+                competenceMentalPersonnageModel = competenceMentalPersonnageModel.GetBaseMentalPersonnage(idPersonnage);
+                int[] listBaseCompMen = {competenceMentalPersonnageModel.Concentration, competenceMentalPersonnageModel.ConnaissanceGeographiques, competenceMentalPersonnageModel.ConnaissanceHistoriques,
+                competenceMentalPersonnageModel.ConnaissanceMagiques, competenceMentalPersonnageModel.ConnaissanceNatures, competenceMentalPersonnageModel.ConnaissanceReligieuses, competenceMentalPersonnageModel.Decryptage,
+                competenceMentalPersonnageModel.Esprit, competenceMentalPersonnageModel.Explosifs, competenceMentalPersonnageModel.Mecanique, competenceMentalPersonnageModel.Medecine,
+                competenceMentalPersonnageModel.Memoire, competenceMentalPersonnageModel.Perception, competenceMentalPersonnageModel.Volonte};
+
+                return listBaseCompMen;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static int[] GetBaseCompetenceSocial(int idPersonnage)
+        {
+            #region Initialisation des variables
+            CompetenceSocialPersonnageModel competenceSocialPersonnageModel = new CompetenceSocialPersonnageModel();
+            #endregion
+
+            Console.WriteLine(string.Format("########### Méthode GetBaseCompetenceSocial — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            try
+            {
+                competenceSocialPersonnageModel = competenceSocialPersonnageModel.GetBaseSocialPersonnage(idPersonnage);
+                int[] listBaseCompSoc = {competenceSocialPersonnageModel.Baratinage, competenceSocialPersonnageModel.Charme,
+                competenceSocialPersonnageModel.Comedie, competenceSocialPersonnageModel.Diplomatie, competenceSocialPersonnageModel.Dressage,
+                competenceSocialPersonnageModel.Intimidation, competenceSocialPersonnageModel.Marchandage, competenceSocialPersonnageModel.Prestance,
+                competenceSocialPersonnageModel.Provocation};
+
+                return listBaseCompSoc;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
     }
 }

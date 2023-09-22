@@ -71,5 +71,54 @@ namespace maFichePersonnageJDR.Model
                 throw e;
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public CompetenceSocialPersonnageModel GetBaseSocialPersonnage(int idPersonnage)
+        {
+            #region Initialisation des variables
+            CompetenceSocialPersonnageModel competenceSocialPersonnage = new CompetenceSocialPersonnageModel();
+            #endregion
+
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM COMPETENCE_SOCIAL_PERSONNAGE " +
+                    "WHERE id_personnage = @id_personnage", connection);
+                command.Parameters.AddWithValue("@id_personnage", idPersonnage);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        CompetenceSocialPersonnageModel competenceSocial = new CompetenceSocialPersonnageModel();
+
+                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
+                        competenceSocial.IdCompetenceSocial = reader.GetInt32(0);
+                        competenceSocial.Baratinage = reader.GetInt32(1);
+                        competenceSocial.Charme = reader.GetInt32(2);
+                        competenceSocial.Comedie = reader.GetInt32(3);
+                        competenceSocial.Diplomatie = reader.GetInt32(4);
+                        competenceSocial.Dressage = reader.GetInt32(5);
+                        competenceSocial.Intimidation = reader.GetInt32(6);
+                        competenceSocial.Marchandage = reader.GetInt32(7);
+                        competenceSocial.Prestance = reader.GetInt32(8);
+                        competenceSocial.Provocation = reader.GetInt32(9);
+
+                        competenceSocialPersonnage = competenceSocial;
+                    }
+                }
+
+                return competenceSocialPersonnage;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

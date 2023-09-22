@@ -83,9 +83,17 @@ namespace maFichePersonnageJDR.Classe
             // Ajoutez les attributs
             AddAttributesTable(document, IdPersonnage);
 
-            AddFormField(document, writer, "Compétences physique", 200f);
+            AddFormField(document, writer, "Compétences physiques", 200f);
 
             AddCompPhysiqueTable(document, IdPersonnage);
+
+            AddFormField(document, writer, "Compétences mentales", 200f);
+
+            AddCompMentalTable(document, IdPersonnage);
+
+            AddFormField(document, writer, "Compétences sociales", 200f);
+
+            AddCompSocialTable(document, IdPersonnage);
 
             // Fermez le document
             document.Close();
@@ -213,6 +221,78 @@ namespace maFichePersonnageJDR.Classe
             }
 
             document.Add(compPhyTable);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="document"></param>
+        /// <param name="idPersonnage"></param>
+        static void AddCompMentalTable(Document document, int idPersonnage)
+        {
+            #region Initialisation des variables
+            int[] baseCompMen = Controller.CompetencesCaracteristiquesController.GetBaseCompetenceMental(idPersonnage);
+            string[] listeCompMen = { "Concentration", "Connaissance géographiques", "Connaissance historiques", "Connaissance magiques", 
+                "Connaissance natures", "Connaissance religieuses", "Décryptage", "Esprit", "Explosifs", "Mécanique", "Médecine", "Mémoire", "Perception", "Volonté" };
+
+            #endregion
+
+            PdfPTable compMenTable = new PdfPTable(4);
+            compMenTable.WidthPercentage = 100;
+            compMenTable.HorizontalAlignment = 0;
+            compMenTable.SpacingBefore = 10f;
+            compMenTable.SpacingAfter = 10f;
+
+            compMenTable.AddCell("Nom");
+            compMenTable.AddCell("Base");
+            compMenTable.AddCell("Temporaire");
+            compMenTable.AddCell("Total");
+
+            for (int i = 0; i < listeCompMen.Length; i++)
+            {
+                compMenTable.AddCell(listeCompMen[i]);
+                compMenTable.AddCell(baseCompMen[i].ToString());
+                compMenTable.AddCell("");
+                compMenTable.AddCell(baseCompMen[i].ToString());
+            }
+
+            document.Add(compMenTable);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="document"></param>
+        /// <param name="idPersonnage"></param>
+        static void AddCompSocialTable(Document document, int idPersonnage)
+        {
+            #region Initialisation des variables
+            int[] baseCompSoc = Controller.CompetencesCaracteristiquesController.GetBaseCompetenceSocial(idPersonnage);
+            string[] listeCompSoc = { "Baratinage", "Charme", "Comédie", "Diplomatie", "Dressage", "Intimidation", "Marchandage", 
+                "Prestance", "Provocation"};
+
+            #endregion
+
+            PdfPTable compSocTable = new PdfPTable(4);
+            compSocTable.WidthPercentage = 100;
+            compSocTable.HorizontalAlignment = 0;
+            compSocTable.SpacingBefore = 10f;
+            compSocTable.SpacingAfter = 10f;
+
+            compSocTable.AddCell("Nom");
+            compSocTable.AddCell("Base");
+            compSocTable.AddCell("Temporaire");
+            compSocTable.AddCell("Total");
+
+            for (int i = 0; i < listeCompSoc.Length; i++)
+            {
+                compSocTable.AddCell(listeCompSoc[i]);
+                compSocTable.AddCell(baseCompSoc[i].ToString());
+                compSocTable.AddCell("");
+                compSocTable.AddCell(baseCompSoc[i].ToString());
+            }
+
+            document.Add(compSocTable);
         }
     }
 }

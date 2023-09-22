@@ -170,10 +170,6 @@ namespace maFichePersonnageJDR
             frmIG.Show();
         }
 
-        private void btnTalentEtEquipement_Click(object sender, EventArgs e)
-        {
-        }
-
         private void btnSoumettreFiche_Click(object sender, EventArgs e)
         {
 

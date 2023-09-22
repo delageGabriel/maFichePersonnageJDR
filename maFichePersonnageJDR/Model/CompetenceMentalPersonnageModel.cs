@@ -88,5 +88,54 @@ namespace maFichePersonnageJDR.Model
                 throw e;
             }
         }
+
+        public CompetenceMentalPersonnageModel GetBaseMentalPersonnage(int idPersonnage)
+        {
+            #region Initialisation des variables
+            CompetenceMentalPersonnageModel competenceMentalPersonnage = new CompetenceMentalPersonnageModel();
+            #endregion
+
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM COMPETENCE_MENTAL_PERSONNAGE " +
+                    "WHERE id_personnage = @id_personnage", connection);
+                command.Parameters.AddWithValue("@id_personnage", idPersonnage);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        CompetenceMentalPersonnageModel competenceMental = new CompetenceMentalPersonnageModel();
+
+                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
+                        competenceMental.IdCompetenceMental = reader.GetInt32(0);
+                        competenceMental.Concentration = reader.GetInt32(1);
+                        competenceMental.ConnaissanceGeographiques = reader.GetInt32(2);
+                        competenceMental.ConnaissanceHistoriques = reader.GetInt32(3);
+                        competenceMental.ConnaissanceMagiques = reader.GetInt32(4);
+                        competenceMental.ConnaissanceNatures = reader.GetInt32(5);
+                        competenceMental.ConnaissanceReligieuses = reader.GetInt32(6);
+                        competenceMental.Decryptage = reader.GetInt32(7);
+                        competenceMental.Esprit = reader.GetInt32(8);
+                        competenceMental.Explosifs = reader.GetInt32(9);
+                        competenceMental.Mecanique = reader.GetInt32(10);
+                        competenceMental.Medecine = reader.GetInt32(11);
+                        competenceMental.Memoire = reader.GetInt32(12);
+                        competenceMental.Perception = reader.GetInt32(12);
+                        competenceMental.Volonte = reader.GetInt32(12);
+
+                        competenceMentalPersonnage = competenceMental;
+                    }
+                }
+
+                return competenceMentalPersonnage;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }
