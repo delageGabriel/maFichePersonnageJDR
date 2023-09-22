@@ -28,7 +28,6 @@ namespace maFichePersonnageJDR.Model
         private int medecine;
         private int memoire;
         private int perception;
-        private int perspicacite;
         private int volonte;
 
         /// <summary>
@@ -49,7 +48,6 @@ namespace maFichePersonnageJDR.Model
         public int Medecine { get => medecine; set => medecine = value; }
         public int Memoire { get => memoire; set => memoire = value; }
         public int Perception { get => perception; set => perception = value; }
-        public int Perspicacite { get => perspicacite; set => perspicacite = value; }
         public int Volonte { get => volonte; set => volonte = value; }
 
         /// <summary>
@@ -72,16 +70,16 @@ namespace maFichePersonnageJDR.Model
         /// <param name="perspicacite"></param>
         /// <param name="volonte"></param>
         public void SaveCompetenceMentalPersonnage(int idPersonnage, int concentration, int connGeo, int connHis, int connMag, int connNat, int connRel, int decryptage,
-            int esprit, int explosifs, int mecanique, int medecine, int memoire, int perception, int perspicacite, int volonte)
+            int esprit, int explosifs, int mecanique, int medecine, int memoire, int perception, int volonte)
         {
             try
             {
                 // Commande
                 SQLiteCommand command = new SQLiteCommand(string.Format("INSERT INTO COMPETENCE_MENTAL_PERSONNAGE (id_personnage, concentration, connaissance_geographiques, " +
                     "connaissance_historiques, connaissance_magiques, connaissance_natures, connaissance_religieuses, decryptage, esprit, explosifs, mecanique, medecine, " +
-                    "memoire, perception, perspicacite, volonte) " +
-                    "VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13}, {14}, {15})", idPersonnage, concentration, connGeo, connHis,
-                    connMag, connNat, connRel, decryptage, esprit, explosifs, mecanique, medecine, memoire, perception, perspicacite, volonte), DatabaseConnection.Instance.GetConnection());
+                    "memoire, perception, volonte) " +
+                    "VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13}, {14})", idPersonnage, concentration, connGeo, connHis,
+                    connMag, connNat, connRel, decryptage, esprit, explosifs, mecanique, medecine, memoire, perception, volonte), DatabaseConnection.Instance.GetConnection());
 
                 int rowsAffected = command.ExecuteNonQuery();
             }

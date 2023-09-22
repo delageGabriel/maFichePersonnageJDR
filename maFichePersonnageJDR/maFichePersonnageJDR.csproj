@@ -102,14 +102,6 @@
     <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
     </Reference>
-    <Reference Include="Spire.Doc, Version=10.6.2.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>SpireDLL\Spire.Doc.dll</HintPath>
-    </Reference>
-    <Reference Include="Spire.Pdf, Version=8.6.14.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>SpireDLL\Spire.Pdf.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -217,14 +209,6 @@
     <Compile Include="View\Formulaires\FormulaireMagieEtAptitudes.Designer.cs">
       <DependentUpon>FormulaireMagieEtAptitudes.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Formulaires\FormulaireTalentsEtObjets.cs">
-      <SubType>Form</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="View\Formulaires\FormulaireTalentsEtObjets.Designer.cs">
-      <DependentUpon>FormulaireTalentsEtObjets.cs</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Compile>
     <Compile Include="View\Formulaires\FormulaireInformationsGenerales.cs">
       <SubType>Form</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -262,10 +246,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Formulaires\FormulaireMagieEtAptitudes.resx">
       <DependentUpon>FormulaireMagieEtAptitudes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Formulaires\FormulaireTalentsEtObjets.resx">
-      <DependentUpon>FormulaireTalentsEtObjets.cs</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

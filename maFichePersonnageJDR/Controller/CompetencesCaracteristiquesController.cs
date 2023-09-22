@@ -29,7 +29,7 @@ namespace maFichePersonnageJDR.Controller
         /// <param name="perspicacite"></param>
         /// <param name="volonte"></param>
         public static void SaveCompetenceMentalPersonnage(int idPersonnage, int concentration, int connGeo, int connHis, int connMag, int connNat, int connRel, int decryptage,
-            int esprit, int explosifs, int mecanique, int medecine, int memoire, int perception, int perspicacite, int volonte)
+            int esprit, int explosifs, int mecanique, int medecine, int memoire, int perception, int volonte)
         {
             Console.WriteLine(string.Format("########### Méthode SaveCompetenceMentalPersonnage — Personnage créé : idPersonnage : {0} ###########", idPersonnage.ToString()));
 
@@ -39,7 +39,7 @@ namespace maFichePersonnageJDR.Controller
             {
                 // On envoie les informations du personnage à sauvegarder
                 competenceMental.SaveCompetenceMentalPersonnage(idPersonnage, concentration, connGeo, connHis, connMag, connNat, connRel, decryptage, esprit, explosifs, mecanique,
-                    medecine, memoire, perception, perspicacite, volonte);
+                    medecine, memoire, perception, volonte);
             }
             catch (Exception e)
             {
@@ -63,7 +63,7 @@ namespace maFichePersonnageJDR.Controller
         /// <param name="reflexes"></param>
         /// <param name="vigueur"></param>
         public static void SaveCompetencePhysiquePersonnage(int idPersonnage, int agilite, int artisanat, int crochetage, int discretion, int equilibre, int escalade, 
-            int escamotage, int force, int natation, int reflexes, int vigueur)
+            int escamotage, int force, int fouille, int natation, int reflexes, int vigueur)
         {
             Console.WriteLine(string.Format("########### Méthode SaveCompetencePhysiquePersonnage — Personnage créé : idPersonnage : {0} ###########", idPersonnage.ToString()));
 
@@ -71,8 +71,8 @@ namespace maFichePersonnageJDR.Controller
 
             try
             {
-                competencePhysique.SaveCompetencePhysiquePersonnage(idPersonnage, agilite, artisanat, crochetage, discretion, equilibre, escalade, escamotage, force, natation,
-                    reflexes, vigueur);
+                competencePhysique.SaveCompetencePhysiquePersonnage(idPersonnage, agilite, artisanat, crochetage, discretion, equilibre, 
+                    escalade, escamotage, force, fouille, natation, reflexes, vigueur);
             }
             catch (Exception e)
             {
@@ -215,6 +215,30 @@ namespace maFichePersonnageJDR.Controller
                 return pointsCaracteristiquesPersonnage.GetBaseCaracteristiques(idPersonnage).NombreSocial;
             }
             catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static int[] GetBaseCompetencePhysique(int idPersonnage)
+        {
+            #region Initialisation des variables
+            CompetencePhysiquePersonnageModel competencePhysiquePersonnageModel = new CompetencePhysiquePersonnageModel();
+            #endregion
+
+            Console.WriteLine(string.Format("########### Méthode GetBaseCompetencePhysique — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            try
+            {
+                competencePhysiquePersonnageModel = competencePhysiquePersonnageModel.GetBasePhysiquePersonnage(idPersonnage);
+                int[] listBaseCompPhy = {competencePhysiquePersonnageModel.Agilite, competencePhysiquePersonnageModel.Artisanat, competencePhysiquePersonnageModel.Crochetage,
+                competencePhysiquePersonnageModel.Discretion, competencePhysiquePersonnageModel.Equilibre, competencePhysiquePersonnageModel.Escalade, competencePhysiquePersonnageModel.Escamotage,
+                competencePhysiquePersonnageModel.Force, competencePhysiquePersonnageModel.Fouille, competencePhysiquePersonnageModel.Natation, competencePhysiquePersonnageModel.Reflexes,
+                competencePhysiquePersonnageModel.Vigueur};
+
+                return listBaseCompPhy;
+            }
+            catch(Exception e)
             {
                 throw e;
             }

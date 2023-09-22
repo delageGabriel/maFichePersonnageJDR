@@ -26,7 +26,7 @@ namespace maFichePersonnageJDR.Classe
             string sexePersonnage = Controller.PersonnageController.GetSexePersonnage(IdPersonnage);
             int experiencePersonnage = Controller.PersonnageController.GetExperiencePersonnage(IdPersonnage);
             string histoirePersonnage = Controller.PersonnageController.GetHistoirePersonnage(IdPersonnage);
-            
+
             #endregion
 
             // Créez un document PDF
@@ -46,7 +46,7 @@ namespace maFichePersonnageJDR.Classe
             AddFormField(document, writer, "Nom :" + nomPersonnage, 200f);
             AddFormField(document, writer, "Race :" + racePersonnage, 200f);
             AddFormField(document, writer, "Niveau :" + niveauPersonnage, 200f);
-            AddFormField(document, writer, "Sexe :" + sexePersonnage , 200f);
+            AddFormField(document, writer, "Sexe :" + sexePersonnage, 200f);
 
             // Ajoutez les points d'expérience
             AddFormField(document, writer, "Points acquis :" + experiencePersonnage, 200f);
@@ -74,12 +74,18 @@ namespace maFichePersonnageJDR.Classe
 
             document.Add(moneyTable);
 
-            AddFormField(document, writer, "Caractéristiques et compétences", 2000f);
+            AddFormField(document, writer, "Caractéristiques et compétences", 200f);
 
             AddCaracteristiquesTable(document, IdPersonnage);
 
+            AddFormField(document, writer, "Attributs du personnages", 200f);
+
             // Ajoutez les attributs
             AddAttributesTable(document, IdPersonnage);
+
+            AddFormField(document, writer, "Compétences physique", 200f);
+
+            AddCompPhysiqueTable(document, IdPersonnage);
 
             // Fermez le document
             document.Close();
@@ -168,7 +174,7 @@ namespace maFichePersonnageJDR.Classe
             attributesTable.AddCell("Type");
             attributesTable.AddCell("Note");
 
-            for(int i = 0; i < nomsAttribut.Count; i++)
+            for (int i = 0; i < nomsAttribut.Count; i++)
             {
                 attributesTable.AddCell(nomsAttribut[i]);
                 attributesTable.AddCell(descriptionsAttribut[i]);
@@ -177,6 +183,36 @@ namespace maFichePersonnageJDR.Classe
             }
 
             document.Add(attributesTable);
+        }
+
+        static void AddCompPhysiqueTable(Document document, int idPersonnage)
+        {
+            #region Initialisation des variables
+            int[] baseCompPhys = Controller.CompetencesCaracteristiquesController.GetBaseCompetencePhysique(idPersonnage);
+            string[] listeCompPhy = { "Agilité", "Artisanat", "Crochetage", "Discrétion", "Équilibre", "Escalade", "Escamotage", "Force", "Fouille", "Natation", "Réflexes", "Vigueur" };
+
+            #endregion
+
+            PdfPTable compPhyTable = new PdfPTable(4);
+            compPhyTable.WidthPercentage = 100;
+            compPhyTable.HorizontalAlignment = 0;
+            compPhyTable.SpacingBefore = 10f;
+            compPhyTable.SpacingAfter = 10f;
+
+            compPhyTable.AddCell("Nom");
+            compPhyTable.AddCell("Base");
+            compPhyTable.AddCell("Temporaire");
+            compPhyTable.AddCell("Total");
+
+            for (int i = 0; i < listeCompPhy.Length; i++)
+            {
+                compPhyTable.AddCell(listeCompPhy[i]);
+                compPhyTable.AddCell(baseCompPhys[i].ToString());
+                compPhyTable.AddCell("");
+                compPhyTable.AddCell(baseCompPhys[i].ToString());
+            }
+
+            document.Add(compPhyTable);
         }
     }
 }
