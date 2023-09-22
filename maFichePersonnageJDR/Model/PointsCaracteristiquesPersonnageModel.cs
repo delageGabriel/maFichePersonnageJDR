@@ -51,5 +51,43 @@ namespace maFichePersonnageJDR.Model
                 throw e;
             }
         }
+
+        public PointsCaracteristiquesPersonnageModel GetBaseCaracteristiques(int idPersonnage)
+        {
+            #region Initialisation des variables
+            PointsCaracteristiquesPersonnageModel physiqueToReturn = new PointsCaracteristiquesPersonnageModel();
+            #endregion
+
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM POINTS_CARACTERISTIQUES_PERSONNAGE WHERE id_personnage = @id_personnage", connection);
+                command.Parameters.AddWithValue("@id_personnage", idPersonnage);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        PointsCaracteristiquesPersonnageModel physiquePersonnageModel = new PointsCaracteristiquesPersonnageModel();
+
+                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
+                        physiquePersonnageModel.IdPointsCaracteristiquesPersonnage = reader.GetInt32(0);
+                        physiquePersonnageModel.IdPersonnage = reader.GetInt32(1);
+                        physiquePersonnageModel.NombrePhysique = reader.GetInt32(2);
+                        physiquePersonnageModel.NombreMental = reader.GetInt32(3);
+                        physiquePersonnageModel.NombreSocial = reader.GetInt32(4);
+
+                        physiqueToReturn = physiquePersonnageModel;
+                    }
+                }
+
+                return physiqueToReturn;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

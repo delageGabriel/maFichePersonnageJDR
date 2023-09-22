@@ -145,5 +145,53 @@ namespace maFichePersonnageJDR.Model
                 throw e;
             }
         }
+
+        /// <summary>
+        /// Retourne un personnage par son ID
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public PersonnageModel GetPersonnage(int idPersonnage)
+        {
+            #region Initialisation des variables
+            PersonnageModel personnageToReturn = new PersonnageModel();
+            #endregion
+
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM PERSONNAGE WHERE id_personnage = @id_personnage", connection);
+                command.Parameters.AddWithValue("@id_personnage", idPersonnage);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        PersonnageModel personnageModel = new PersonnageModel();
+
+                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
+                        personnageModel.IdPersonnage = reader.GetInt32(0);
+                        personnageModel.PrenomPersonnage = reader.GetString(1);
+                        personnageModel.NomPersonnage = reader.GetString(2);
+                        personnageModel.RacePersonnage = reader.GetString(3);
+                        personnageModel.NiveauPersonnage = reader.GetInt32(4);
+                        personnageModel.SexePersonnage = reader.GetString(5);
+                        personnageModel.ExperiencePersonnage = reader.GetInt32(6);
+                        personnageModel.LanguesPersonnages = reader.GetString(7);
+                        personnageModel.AvatarPersonnage = reader.GetString(8);
+                        personnageModel.HistoirePersonnage = reader.GetString(9);
+
+                        personnageToReturn = personnageModel;
+                    }
+                }
+
+                return personnageToReturn;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

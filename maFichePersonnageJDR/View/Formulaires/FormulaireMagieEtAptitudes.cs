@@ -237,6 +237,7 @@ namespace maFichePersonnageJDR.Formulaires
             }
 
             classePdf.IdPersonnage = IdPersonnage;
+            classePdf.CreatePersonnagePdf();
         }
     }
 }

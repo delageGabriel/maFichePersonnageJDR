@@ -44,6 +44,21 @@ namespace maFichePersonnageJDR.Model
         public int Reflexes { get => reflexes; set => reflexes = value; }
         public int Vigueur { get => vigueur; set => vigueur = value; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <param name="agilite"></param>
+        /// <param name="artisanat"></param>
+        /// <param name="crochetage"></param>
+        /// <param name="discretion"></param>
+        /// <param name="equilibre"></param>
+        /// <param name="escalade"></param>
+        /// <param name="escamotage"></param>
+        /// <param name="force"></param>
+        /// <param name="natation"></param>
+        /// <param name="reflexes"></param>
+        /// <param name="vigueur"></param>
         public void SaveCompetencePhysiquePersonnage(int idPersonnage, int agilite, int artisanat, int crochetage, int discretion, int equilibre, int escalade, int escamotage,
             int force, int natation, int reflexes, int vigueur)
         {
@@ -62,5 +77,7 @@ namespace maFichePersonnageJDR.Model
                 throw e;
             }
         }
+
+        
     }
 }

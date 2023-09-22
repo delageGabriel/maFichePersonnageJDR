@@ -18,28 +18,42 @@ namespace maFichePersonnageJDR.Classe
 
         public void CreatePersonnagePdf()
         {
+            #region Initialisation des variables
+            string prenomPersonnage = Controller.PersonnageController.GetPrenomPersonnage(IdPersonnage);
+            string nomPersonnage = Controller.PersonnageController.GetNomPersonnage(IdPersonnage);
+            string racePersonnage = Controller.PersonnageController.GetRacePersonnage(IdPersonnage);
+            int niveauPersonnage = Controller.PersonnageController.GetNiveauPersonnage(IdPersonnage);
+            string sexePersonnage = Controller.PersonnageController.GetSexePersonnage(IdPersonnage);
+            int experiencePersonnage = Controller.PersonnageController.GetExperiencePersonnage(IdPersonnage);
+            string histoirePersonnage = Controller.PersonnageController.GetHistoirePersonnage(IdPersonnage);
+            
+            #endregion
+
             // Créez un document PDF
             Document document = new Document();
             PdfWriter writer = PdfWriter.GetInstance(document, new FileStream("fiche_personnage.pdf", FileMode.Create));
 
             document.Open();
 
-            // Ajoutez une image du personnage
-            Image image = Image.GetInstance("image_personnage.png"); // Remplacez "image_personnage.png" par le chemin de votre image
-            image.ScaleToFit(100f, 100f);
-            image.Alignment = Image.ALIGN_TOP;
-            document.Add(image);
+            //// Ajoutez une image du personnage
+            //Image image = Image.GetInstance("image_personnage.png"); // Remplacez "image_personnage.png" par le chemin de votre image
+            //image.ScaleToFit(100f, 100f);
+            //image.Alignment = Image.ALIGN_TOP;
+            //document.Add(image);
 
             // Ajoutez les informations de base (prénom, nom, race, niveau, sexe)
-            AddFormField(document, writer, "Prénom :", 200f);
-            AddFormField(document, writer, "Nom :", 200f);
-            AddFormField(document, writer, "Race :", 200f);
-            AddFormField(document, writer, "Niveau :", 200f);
-            AddFormField(document, writer, "Sexe :", 200f);
+            AddFormField(document, writer, "Prénom :" + prenomPersonnage, 200f);
+            AddFormField(document, writer, "Nom :" + nomPersonnage, 200f);
+            AddFormField(document, writer, "Race :" + racePersonnage, 200f);
+            AddFormField(document, writer, "Niveau :" + niveauPersonnage, 200f);
+            AddFormField(document, writer, "Sexe :" + sexePersonnage , 200f);
 
             // Ajoutez les points d'expérience
-            AddFormField(document, writer, "Points acquis :", 200f);
+            AddFormField(document, writer, "Points acquis :" + experiencePersonnage, 200f);
             AddFormField(document, writer, "Points à acquérir :", 200f);
+
+            // Ajoutez l'histoire du personnage
+            AddFormField(document, writer, "Histoire :" + histoirePersonnage, 400f);
 
             // Ajoutez la monnaie dans un tableau
             PdfPTable moneyTable = new PdfPTable(3);
@@ -60,11 +74,12 @@ namespace maFichePersonnageJDR.Classe
 
             document.Add(moneyTable);
 
-            // Ajoutez l'histoire du personnage
-            AddFormField(document, writer, "Histoire :", 400f);
+            AddFormField(document, writer, "Caractéristiques et compétences", 2000f);
+
+            AddCaracteristiquesTable(document, IdPersonnage);
 
             // Ajoutez les attributs
-            AddAttributesTable(document);
+            AddAttributesTable(document, IdPersonnage);
 
             // Fermez le document
             document.Close();
@@ -81,27 +96,84 @@ namespace maFichePersonnageJDR.Classe
             writer.AddAnnotation(field.GetTextField());
         }
 
-        static void AddAttributesTable(Document document)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="document"></param>
+        /// <param name="idPersonnage"></param>
+        static void AddCaracteristiquesTable(Document document, int idPersonnage)
         {
+            #region Initialisation des variables
+            int basePhysiquePersonnage = Controller.CompetencesCaracteristiquesController.GetPhysiquePersonnage(idPersonnage);
+            int baseMentalPersonnage = Controller.CompetencesCaracteristiquesController.GetMentalPersonnage(idPersonnage);
+            int baseSocialPersonnage = Controller.CompetencesCaracteristiquesController.GetSocialPersonnage(idPersonnage);
+            #endregion
+
+            // Ajoutez la monnaie dans un tableau
+            PdfPTable caracteristiquesTable = new PdfPTable(4);
+            caracteristiquesTable.WidthPercentage = 50;
+            caracteristiquesTable.HorizontalAlignment = 0;
+            caracteristiquesTable.SpacingBefore = 10f;
+            caracteristiquesTable.SpacingAfter = 10f;
+
+            // Ajoutez les en-têtes du tableau de caractéristiques
+            caracteristiquesTable.AddCell("Type");
+            caracteristiquesTable.AddCell("Base");
+            caracteristiquesTable.AddCell("Temporaire");
+            caracteristiquesTable.AddCell("Total");
+
+            // Ajout Physique
+            caracteristiquesTable.AddCell("Physique");
+            caracteristiquesTable.AddCell(basePhysiquePersonnage.ToString());
+            caracteristiquesTable.AddCell("");
+            caracteristiquesTable.AddCell(basePhysiquePersonnage.ToString());
+
+            // Ajout Mental
+            caracteristiquesTable.AddCell("Mental");
+            caracteristiquesTable.AddCell(baseMentalPersonnage.ToString());
+            caracteristiquesTable.AddCell("");
+            caracteristiquesTable.AddCell(baseMentalPersonnage.ToString());
+
+            // Ajout Social
+            caracteristiquesTable.AddCell("Social");
+            caracteristiquesTable.AddCell(baseSocialPersonnage.ToString());
+            caracteristiquesTable.AddCell("");
+            caracteristiquesTable.AddCell(baseSocialPersonnage.ToString());
+
+            document.Add(caracteristiquesTable);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="document"></param>
+        /// <param name="idPersonnage"></param>
+        static void AddAttributesTable(Document document, int idPersonnage)
+        {
+            #region Initialisation des variables
+            List<string> nomsAttribut = Controller.AttributsController.GetListNomAttributs(idPersonnage);
+            List<string> descriptionsAttribut = Controller.AttributsController.GetListDescriptionAttributs(idPersonnage);
+            List<string> typesAttribut = Controller.AttributsController.GetListTypeAttributs(idPersonnage);
+            List<string> notesAttributs = Controller.AttributsController.GetListNoteAttributs(idPersonnage);
+            #endregion
+
             PdfPTable attributesTable = new PdfPTable(4);
             attributesTable.WidthPercentage = 100;
             attributesTable.HorizontalAlignment = 0;
             attributesTable.SpacingBefore = 10f;
             attributesTable.SpacingAfter = 10f;
 
-            string[] attributes = { "Force", "Intelligence", "Charisme" };
-
             attributesTable.AddCell("Nom");
             attributesTable.AddCell("Description");
             attributesTable.AddCell("Type");
             attributesTable.AddCell("Note");
 
-            foreach (var attribute in attributes)
+            for(int i = 0; i < nomsAttribut.Count; i++)
             {
-                attributesTable.AddCell(attribute);
-                attributesTable.AddCell("Description " + attribute);
-                attributesTable.AddCell("Type " + attribute);
-                attributesTable.AddCell("Note " + attribute);
+                attributesTable.AddCell(nomsAttribut[i]);
+                attributesTable.AddCell(descriptionsAttribut[i]);
+                attributesTable.AddCell(typesAttribut[i]);
+                attributesTable.AddCell(notesAttributs[i]);
             }
 
             document.Add(attributesTable);

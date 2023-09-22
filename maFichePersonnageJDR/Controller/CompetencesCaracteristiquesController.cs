@@ -153,5 +153,71 @@ namespace maFichePersonnageJDR.Controller
                 throw e;
             }
         }
+
+        /// <summary>
+        /// Retourne les points en physique du personnage
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static int GetPhysiquePersonnage(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetPhysiquePersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            PointsCaracteristiquesPersonnageModel pointsCaracteristiquesPersonnage = new PointsCaracteristiquesPersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return pointsCaracteristiquesPersonnage.GetBaseCaracteristiques(idPersonnage).NombrePhysique;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Retourne les points en mental du personnage
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static int GetMentalPersonnage(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetMentalPersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            PointsCaracteristiquesPersonnageModel pointsCaracteristiquesPersonnage = new PointsCaracteristiquesPersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return pointsCaracteristiquesPersonnage.GetBaseCaracteristiques(idPersonnage).NombreMental;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Retourne les points en mental du personnage
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static int GetSocialPersonnage(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetSocialPersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            PointsCaracteristiquesPersonnageModel pointsCaracteristiquesPersonnage = new PointsCaracteristiquesPersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return pointsCaracteristiquesPersonnage.GetBaseCaracteristiques(idPersonnage).NombreSocial;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

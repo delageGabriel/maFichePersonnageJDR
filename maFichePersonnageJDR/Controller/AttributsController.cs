@@ -137,6 +137,11 @@ namespace maFichePersonnageJDR.Controller
             }
         }
     
+        /// <summary>
+        /// Permet d'obtenir l'id d'un attribut par rapport à son nom
+        /// </summary>
+        /// <param name="nomAttribut"></param>
+        /// <returns></returns>
         public static int GetIdAttributByName(string nomAttribut)
         {
             #region Initialisation des variables
@@ -146,6 +151,79 @@ namespace maFichePersonnageJDR.Controller
             try
             {
                 return attributsModel.GetAttributsIdByName(nomAttribut);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static List<string> GetListNomAttributs(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListNomAttributs — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            AttributsPersonnageModel attributsPersonnageModel = new AttributsPersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return attributsPersonnageModel.GetListeNomAttributsPersonnage(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static List<string> GetListDescriptionAttributs(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListDescriptionAttributs — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            AttributsPersonnageModel attributsPersonnageModel = new AttributsPersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return attributsPersonnageModel.GetListeDescriptionAttributsPersonnage(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static List<string> GetListTypeAttributs(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListTypeAttributs — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            AttributsPersonnageModel attributsPersonnageModel = new AttributsPersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return attributsPersonnageModel.GetListeTypeAttributsPersonnage(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static List<string> GetListNoteAttributs(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListNoteAttributs — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            AttributsPersonnageModel attributsPersonnageModel = new AttributsPersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return attributsPersonnageModel.GetListeNotesAttributsPersonnage(idPersonnage);
             }
             catch (Exception e)
             {

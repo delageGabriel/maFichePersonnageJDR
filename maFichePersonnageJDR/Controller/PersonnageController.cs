@@ -87,5 +87,181 @@ namespace maFichePersonnageJDR.Controller
                 throw e;
             }
         }
+
+        /// <summary>
+        /// Retourne le prénom du personnage
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static string GetPrenomPersonnage(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetPrenomPersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            PersonnageModel personnagePrenom = new PersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return personnagePrenom.GetPersonnage(idPersonnage).PrenomPersonnage;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Retourne le nom du personnage
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static string GetNomPersonnage(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetNomPersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            PersonnageModel personnagePrenom = new PersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return personnagePrenom.GetPersonnage(idPersonnage).NomPersonnage;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Retourne la race du personnage
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static string GetRacePersonnage(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetRacePersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            PersonnageModel personnagePrenom = new PersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return personnagePrenom.GetPersonnage(idPersonnage).RacePersonnage;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Retourne le niveau du personnage
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static int GetNiveauPersonnage(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetNiveauPersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            PersonnageModel personnagePrenom = new PersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return personnagePrenom.GetPersonnage(idPersonnage).NiveauPersonnage;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Retourne le sexe du personnage
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static string GetSexePersonnage(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetSexePersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            PersonnageModel personnagePrenom = new PersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return personnagePrenom.GetPersonnage(idPersonnage).SexePersonnage;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Retourne le sexe du personnage
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static int GetExperiencePersonnage(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetExperiencePersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            PersonnageModel personnagePrenom = new PersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return personnagePrenom.GetPersonnage(idPersonnage).ExperiencePersonnage;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Retourne les langues du personnage
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static string GetLanguesPersonnage(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetLanguesPersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            PersonnageModel personnagePrenom = new PersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return personnagePrenom.GetPersonnage(idPersonnage).LanguesPersonnages;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Retourne l'histoire du personnage
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static string GetHistoirePersonnage(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetHistoirePersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            PersonnageModel personnagePrenom = new PersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return personnagePrenom.GetPersonnage(idPersonnage).HistoirePersonnage;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

@@ -45,5 +45,165 @@ namespace maFichePersonnageJDR.Model
                 throw e;
             }
         }
+
+        /// <summary>
+        /// Retourne un personnage par son ID
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public List<string> GetListeNomAttributsPersonnage(int idPersonnage)
+        {
+            #region Initialisation des variables
+            List<string> listeNomAttributsPersonnage = new List<string>();
+            #endregion
+
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT nom_attribut FROM ATTRIBUTS " +
+                    "INNER JOIN ATTRIBUTS_PERSONNAGE ON ATTRIBUTS.id_attribut = ATTRIBUTS_PERSONNAGE.id_attribut_personnage " +
+                    "WHERE ATTRIBUTS_PERSONNAGE.id_personnage = @id_personnage", connection);
+                command.Parameters.AddWithValue("@id_personnage", idPersonnage);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        AttributsPersonnageModel attributsPersonnageModel = new AttributsPersonnageModel();
+
+                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
+                        string value = reader["nom_attribut"].ToString();
+                        listeNomAttributsPersonnage.Add(value);
+                    }
+                }
+
+                return listeNomAttributsPersonnage;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Retourne un personnage par son ID
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public List<string> GetListeDescriptionAttributsPersonnage(int idPersonnage)
+        {
+            #region Initialisation des variables
+            List<string> listeDescriptionAttributsPersonnage = new List<string>();
+            #endregion
+
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT description_attribut FROM ATTRIBUTS " +
+                    "INNER JOIN ATTRIBUTS_PERSONNAGE ON ATTRIBUTS.id_attribut = ATTRIBUTS_PERSONNAGE.id_attribut_personnage " +
+                    "WHERE ATTRIBUTS_PERSONNAGE.id_personnage = @id_personnage", connection);
+                command.Parameters.AddWithValue("@id_personnage", idPersonnage);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        AttributsPersonnageModel attributsPersonnageModel = new AttributsPersonnageModel();
+
+                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
+                        string value = reader["description_attribut"].ToString();
+                        listeDescriptionAttributsPersonnage.Add(value);
+                    }
+                }
+
+                return listeDescriptionAttributsPersonnage;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Retourne un personnage par son ID
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public List<string> GetListeTypeAttributsPersonnage(int idPersonnage)
+        {
+            #region Initialisation des variables
+            List<string> listeTypeAttributsPersonnage = new List<string>();
+            #endregion
+
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT type_attribut FROM ATTRIBUTS " +
+                    "INNER JOIN ATTRIBUTS_PERSONNAGE ON ATTRIBUTS.id_attribut = ATTRIBUTS_PERSONNAGE.id_attribut_personnage " +
+                    "WHERE ATTRIBUTS_PERSONNAGE.id_personnage = @id_personnage", connection);
+                command.Parameters.AddWithValue("@id_personnage", idPersonnage);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        AttributsPersonnageModel attributsPersonnageModel = new AttributsPersonnageModel();
+
+                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
+                        string value = reader["type_attribut"].ToString();
+                        listeTypeAttributsPersonnage.Add(value);
+                    }
+                }
+
+                return listeTypeAttributsPersonnage;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Retourne un personnage par son ID
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public List<string> GetListeNotesAttributsPersonnage(int idPersonnage)
+        {
+            #region Initialisation des variables
+            List<string> listeTypeAttributsPersonnage = new List<string>();
+            #endregion
+
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT note_attribut FROM ATTRIBUTS " +
+                    "INNER JOIN ATTRIBUTS_PERSONNAGE ON ATTRIBUTS.id_attribut = ATTRIBUTS_PERSONNAGE.id_attribut_personnage " +
+                    "WHERE ATTRIBUTS_PERSONNAGE.id_personnage = @id_personnage", connection);
+                command.Parameters.AddWithValue("@id_personnage", idPersonnage);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        AttributsPersonnageModel attributsPersonnageModel = new AttributsPersonnageModel();
+
+                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
+                        string value = reader["note_attribut"].ToString();
+                        listeTypeAttributsPersonnage.Add(value);
+                    }
+                }
+
+                return listeTypeAttributsPersonnage;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }
