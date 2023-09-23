@@ -99,15 +99,16 @@ namespace maFichePersonnageJDR.Model
 
                         // On vérifie si une ligne existe déjà avec le nom prénom du personnage
                         competenceSocial.IdCompetenceSocial = reader.GetInt32(0);
-                        competenceSocial.Baratinage = reader.GetInt32(1);
-                        competenceSocial.Charme = reader.GetInt32(2);
-                        competenceSocial.Comedie = reader.GetInt32(3);
-                        competenceSocial.Diplomatie = reader.GetInt32(4);
-                        competenceSocial.Dressage = reader.GetInt32(5);
-                        competenceSocial.Intimidation = reader.GetInt32(6);
-                        competenceSocial.Marchandage = reader.GetInt32(7);
-                        competenceSocial.Prestance = reader.GetInt32(8);
-                        competenceSocial.Provocation = reader.GetInt32(9);
+                        competenceSocial.IdPersonnage = reader.GetInt32(1);
+                        competenceSocial.Baratinage = reader.GetInt32(2);
+                        competenceSocial.Charme = reader.GetInt32(3);
+                        competenceSocial.Comedie = reader.GetInt32(4);
+                        competenceSocial.Diplomatie = reader.GetInt32(5);
+                        competenceSocial.Dressage = reader.GetInt32(6);
+                        competenceSocial.Intimidation = reader.GetInt32(7);
+                        competenceSocial.Marchandage = reader.GetInt32(8);
+                        competenceSocial.Prestance = reader.GetInt32(9);
+                        competenceSocial.Provocation = reader.GetInt32(10);
 
                         competenceSocialPersonnage = competenceSocial;
                     }

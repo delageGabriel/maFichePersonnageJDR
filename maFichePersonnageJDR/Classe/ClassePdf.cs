@@ -31,7 +31,7 @@ namespace maFichePersonnageJDR.Classe
 
             // Créez un document PDF
             Document document = new Document();
-            PdfWriter writer = PdfWriter.GetInstance(document, new FileStream("fiche_personnage.pdf", FileMode.Create));
+            PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(string.Format(@"Templates\{0}_{1}.pdf", prenomPersonnage, nomPersonnage), FileMode.Create));
 
             document.Open();
 
@@ -100,6 +100,13 @@ namespace maFichePersonnageJDR.Classe
             AddArmesTable(document, IdPersonnage);
 
             AddArmuresTable(document, IdPersonnage);
+
+            AddObjetsTable(document, IdPersonnage);
+
+            AddMagiesTable(document, IdPersonnage);
+
+            AddAptitudesTable(document, IdPersonnage);
+
             // Fermez le document
             document.Close();
             Console.WriteLine("Fiche de personnage créée avec succès !");
@@ -311,11 +318,10 @@ namespace maFichePersonnageJDR.Classe
             List<string> typesDegatsArmes = Controller.EquipmentController.GetListTypeDegatsArmes(idPersonnage);
             List<string> degatsArmes = Controller.EquipmentController.GetListDegatsArmes(idPersonnage);
             List<string> valeurArmes = Controller.EquipmentController.GetListValeurArmes(idPersonnage);
-            List<string> descriptionsArmes = Controller.EquipmentController.GetListDescriptionArmes(idPersonnage);
             List<string> specialsArmes = Controller.EquipmentController.GetListSpecialArmes(idPersonnage);
             #endregion
 
-            PdfPTable armesTable = new PdfPTable(9);
+            PdfPTable armesTable = new PdfPTable(8);
             armesTable.WidthPercentage = 100;
             armesTable.HorizontalAlignment = 0;
             armesTable.SpacingBefore = 10f;
@@ -329,19 +335,17 @@ namespace maFichePersonnageJDR.Classe
             armesTable.AddCell("Type(s) de dégâts");
             armesTable.AddCell("Dégâts");
             armesTable.AddCell("Valeur");
-            armesTable.AddCell("Spécial");
 
             for (int i = 0; i < typesArmes.Count; i++)
             {
                 armesTable.AddCell(typesArmes[i]);
                 armesTable.AddCell(nomArmes[i]);
-                armesTable.AddCell(poidsArmes[i].ToString());
+                armesTable.AddCell(poidsArmes[i].ToString() + " kg");
                 armesTable.AddCell(allongeArmes[i]);
                 armesTable.AddCell(mainsArmes[i]);
                 armesTable.AddCell(typesDegatsArmes[i]);
                 armesTable.AddCell(degatsArmes[i]);
                 armesTable.AddCell(valeurArmes[i]);
-                armesTable.AddCell(specialsArmes[i]);
             }
 
             document.Add(armesTable);
@@ -359,7 +363,7 @@ namespace maFichePersonnageJDR.Classe
             List<string> specialsArmures = Controller.EquipmentController.GetListSpecialArmures(idPersonnage);
             #endregion
 
-            PdfPTable armuresTable = new PdfPTable(7);
+            PdfPTable armuresTable = new PdfPTable(6);
             armuresTable.WidthPercentage = 100;
             armuresTable.HorizontalAlignment = 0;
             armuresTable.SpacingBefore = 10f;
@@ -371,20 +375,109 @@ namespace maFichePersonnageJDR.Classe
             armuresTable.AddCell("Valeur");
             armuresTable.AddCell("Protection");
             armuresTable.AddCell("Bonus");
-            armuresTable.AddCell("Spécial");
 
             for (int i = 0; i < typesArmures.Count; i++)
             {
                 armuresTable.AddCell(typesArmures[i]);
                 armuresTable.AddCell(nomArmures[i]);
-                armuresTable.AddCell(poidsArmures[i].ToString());
+                armuresTable.AddCell(poidsArmures[i].ToString() + " kg");
                 armuresTable.AddCell(valeurArmures[i]);
                 armuresTable.AddCell(protectionsArmures[i]);
                 armuresTable.AddCell(bonusArmures[i]);
-                armuresTable.AddCell(specialsArmures[i]);
             }
 
             document.Add(armuresTable);
+        }
+
+        static void AddObjetsTable(Document document, int idPersonnage)
+        {
+            #region Initialisation des variables
+            List<string> typesObjets = Controller.EquipmentController.GetListTypeObjets(idPersonnage);
+            List<string> nomsObjets = Controller.EquipmentController.GetListNomObjets(idPersonnage);
+            List<double> poidsObjets = Controller.EquipmentController.GetListPoidsObjets(idPersonnage);
+            List<string> valeursObjets = Controller.EquipmentController.GetListValeurObjets(idPersonnage);
+            List<string> consommablesObjets = Controller.EquipmentController.GetListConsommableObjets(idPersonnage);
+            List<string> specialsObjets = Controller.EquipmentController.GetListSpecialObjets(idPersonnage);
+            #endregion
+
+            PdfPTable objetsTable = new PdfPTable(5);
+            objetsTable.WidthPercentage = 100;
+            objetsTable.HorizontalAlignment = 0;
+            objetsTable.SpacingBefore = 10f;
+            objetsTable.SpacingAfter = 10f;
+
+            objetsTable.AddCell("Type");
+            objetsTable.AddCell("Nom");
+            objetsTable.AddCell("Poids");
+            objetsTable.AddCell("Valeur");
+            objetsTable.AddCell("Consommable");
+
+            for (int i = 0; i < typesObjets.Count; i++)
+            {
+                objetsTable.AddCell(typesObjets[i]);
+                objetsTable.AddCell(nomsObjets[i]);
+                objetsTable.AddCell(poidsObjets[i].ToString());
+                objetsTable.AddCell(valeursObjets[i]);
+                objetsTable.AddCell(consommablesObjets[i]);
+            }
+
+            document.Add(objetsTable);
+        }
+
+        static void AddMagiesTable(Document document, int idPersonnage)
+        {
+            #region Initialisation des variables
+            List<string> typesMagies = Controller.MagieController.GetListNomMagie(idPersonnage);
+            List<string> nomsMagies = Controller.MagieController.GetListTypeMagie(idPersonnage);
+            List<int> coutsMagies = Controller.MagieController.GetListCoutMagie(idPersonnage);
+            #endregion
+
+            PdfPTable magiesTable = new PdfPTable(3);
+            magiesTable.WidthPercentage = 100;
+            magiesTable.HorizontalAlignment = 0;
+            magiesTable.SpacingBefore = 10f;
+            magiesTable.SpacingAfter = 10f;
+
+            magiesTable.AddCell("Nom");
+            magiesTable.AddCell("Type");
+            magiesTable.AddCell("Coût");
+
+            for (int i = 0; i < typesMagies.Count; i++)
+            {
+                magiesTable.AddCell(nomsMagies[i]);
+                magiesTable.AddCell(typesMagies[i]);
+                magiesTable.AddCell(coutsMagies[i].ToString());
+            }
+
+            document.Add(magiesTable);
+        }
+
+        static void AddAptitudesTable(Document document, int idPersonnage)
+        {
+            #region Initialisation des variables
+            List<string> typesAptitudes = Controller.AptitudesController.GetListTypeAptitude(idPersonnage);
+            List<string> nomsAptitudes = Controller.AptitudesController.GetListNomAptitude(idPersonnage);
+            List<int> coutsAptitudes = Controller.AptitudesController.GetListCoutAptitude(idPersonnage);
+            #endregion
+
+            PdfPTable aptitudesTables = new PdfPTable(3);
+            aptitudesTables.WidthPercentage = 100;
+            aptitudesTables.HorizontalAlignment = 0;
+            aptitudesTables.SpacingBefore = 10f;
+            aptitudesTables.SpacingAfter = 10f;
+
+            aptitudesTables.AddCell("Nom");
+            aptitudesTables.AddCell("Type");
+            aptitudesTables.AddCell("Coût");
+
+            for (int i = 0; i < typesAptitudes.Count; i++)
+            {
+                aptitudesTables.AddCell(nomsAptitudes[i]);
+                aptitudesTables.AddCell(typesAptitudes[i]);
+                aptitudesTables.AddCell(coutsAptitudes[i].ToString());
+            }
+
+            document.Add(aptitudesTables);
         }
     }
 }

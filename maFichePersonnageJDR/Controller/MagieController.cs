@@ -142,5 +142,71 @@ namespace maFichePersonnageJDR.Controller
                 throw e;
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static List<string> GetListNomMagie(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListNomMagie — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            MagiePersonnageModel magiePersonnage = new MagiePersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return magiePersonnage.GetListNomMagie(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static List<string> GetListTypeMagie(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListTypeMagie — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            MagiePersonnageModel magiePersonnage = new MagiePersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return magiePersonnage.GetListTypeMagie(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static List<int> GetListCoutMagie(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListCoutMagie — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            MagiePersonnageModel magiePersonnage = new MagiePersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return magiePersonnage.GetListCoutMagie(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

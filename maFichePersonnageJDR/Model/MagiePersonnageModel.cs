@@ -44,5 +44,128 @@ namespace maFichePersonnageJDR.Model
                 throw e;
             }
         }
+
+        /// <summary>
+        /// Retourne un personnage par son ID
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public List<string> GetListNomMagie(int idPersonnage)
+        {
+            #region Initialisation des variables
+            List<string> listNomMagie = new List<string>();
+            #endregion
+
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT nom_magie " +
+                    "FROM MAGIE " +
+                    "INNER JOIN MAGIE_PERSONNAGE ON MAGIE.id_magie = MAGIE_PERSONNAGE.id_magie " +
+                    "WHERE MAGIE_PERSONNAGE.id_personnage = @idPersonnage", connection);
+                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
+
+                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
+                        string value = reader["nom_magie"].ToString();
+                        listNomMagie.Add(value);
+                    }
+                }
+
+                return listNomMagie;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Retourne un personnage par son ID
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public List<string> GetListTypeMagie(int idPersonnage)
+        {
+            #region Initialisation des variables
+            List<string> listTypeMagie = new List<string>();
+            #endregion
+
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT type_magie " +
+                    "FROM MAGIE " +
+                    "INNER JOIN MAGIE_PERSONNAGE ON MAGIE.id_magie = MAGIE_PERSONNAGE.id_magie " +
+                    "WHERE MAGIE_PERSONNAGE.id_personnage = @idPersonnage", connection);
+                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
+
+                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
+                        string value = reader["type_magie"].ToString();
+                        listTypeMagie.Add(value);
+                    }
+                }
+
+                return listTypeMagie;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Retourne un personnage par son ID
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public List<int> GetListCoutMagie(int idPersonnage)
+        {
+            #region Initialisation des variables
+            List<int> listCoutMagie = new List<int>();
+            #endregion
+
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT cout_magie " +
+                    "FROM MAGIE " +
+                    "INNER JOIN MAGIE_PERSONNAGE ON MAGIE.id_magie = MAGIE_PERSONNAGE.id_magie " +
+                    "WHERE MAGIE_PERSONNAGE.id_personnage = @idPersonnage", connection);
+                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
+
+                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
+                        int value = Convert.ToInt32(reader["cout_magie"]);
+                        listCoutMagie.Add(value);
+                    }
+                }
+
+                return listCoutMagie;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

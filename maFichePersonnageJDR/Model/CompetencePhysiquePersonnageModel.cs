@@ -41,7 +41,7 @@ namespace maFichePersonnageJDR.Model
         public int Escalade { get => escalade; set => escalade = value; }
         public int Escamotage { get => escamotage; set => escamotage = value; }
         public int Force { get => force; set => force = value; }
-        public int Fouille { get => force; set => force = value; }
+        public int Fouille { get => fouille; set => fouille = value; }
         public int Natation { get => natation; set => natation = value; }
         public int Reflexes { get => reflexes; set => reflexes = value; }
         public int Vigueur { get => vigueur; set => vigueur = value; }
@@ -102,18 +102,19 @@ namespace maFichePersonnageJDR.Model
 
                         // On vérifie si une ligne existe déjà avec le nom prénom du personnage
                         competencePhysique.IdCompetencePhysique = reader.GetInt32(0);
-                        competencePhysique.Agilite = reader.GetInt32(1);
-                        competencePhysique.Artisanat = reader.GetInt32(2);
-                        competencePhysique.Crochetage = reader.GetInt32(3);
-                        competencePhysique.Discretion = reader.GetInt32(4);
-                        competencePhysique.Equilibre = reader.GetInt32(5);
-                        competencePhysique.Escalade = reader.GetInt32(6);
-                        competencePhysique.Escamotage = reader.GetInt32(7);
-                        competencePhysique.Force = reader.GetInt32(8);
-                        competencePhysique.Fouille = reader.GetInt32(9);
-                        competencePhysique.Natation = reader.GetInt32(10);
-                        competencePhysique.Reflexes = reader.GetInt32(11);
-                        competencePhysique.Vigueur = reader.GetInt32(12);
+                        competencePhysique.IdPersonnage = reader.GetInt32(1);
+                        competencePhysique.Agilite = reader.GetInt32(2);
+                        competencePhysique.Artisanat = reader.GetInt32(3);
+                        competencePhysique.Crochetage = reader.GetInt32(4);
+                        competencePhysique.Discretion = reader.GetInt32(5);
+                        competencePhysique.Equilibre = reader.GetInt32(6);
+                        competencePhysique.Escalade = reader.GetInt32(7);
+                        competencePhysique.Escamotage = reader.GetInt32(8);
+                        competencePhysique.Force = reader.GetInt32(9);
+                        competencePhysique.Fouille = reader.GetInt32(10);
+                        competencePhysique.Natation = reader.GetInt32(11);
+                        competencePhysique.Reflexes = reader.GetInt32(12);
+                        competencePhysique.Vigueur = reader.GetInt32(13);
 
                         competencePhysiquePersonnage = competencePhysique;
                     }

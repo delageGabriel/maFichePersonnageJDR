@@ -142,5 +142,71 @@ namespace maFichePersonnageJDR.Controller
                 throw e;
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static List<string> GetListNomAptitude(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListNomAptitude — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            AptitudesPersonnageModel aptitudesPersonnage = new AptitudesPersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return aptitudesPersonnage.GetListNomAptitude(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static List<string> GetListTypeAptitude(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListTypeAptitude — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            AptitudesPersonnageModel aptitudesPersonnage = new AptitudesPersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return aptitudesPersonnage.GetListTypeAptitude(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static List<int> GetListCoutAptitude(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListCoutAptitude — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            AptitudesPersonnageModel aptitudesPersonnage = new AptitudesPersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return aptitudesPersonnage.GetListCoutAptitude(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

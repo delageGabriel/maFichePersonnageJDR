@@ -429,7 +429,7 @@ namespace maFichePersonnageJDR.Model
             {
                 SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT description_arme " +
+                SQLiteCommand command = new SQLiteCommand("SELECT special_arme " +
                     "FROM ARMES " +
                     "INNER JOIN INVENTAIRE_ARMES_PERSONNAGES ON ARMES.id_armes = INVENTAIRE_ARMES_PERSONNAGES.id_arme " +
                     "WHERE INVENTAIRE_ARMES_PERSONNAGES.id_personnage = @id_personnage", connection);
@@ -442,7 +442,7 @@ namespace maFichePersonnageJDR.Model
                         InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
 
                         // On vérifie si une ligne existe déjà avec le nom prénom du personnage
-                        string value = reader["description_arme"].ToString();
+                        string value = reader["special_arme"].ToString();
                         listSpecialArmes.Add(value);
                     }
                 }
