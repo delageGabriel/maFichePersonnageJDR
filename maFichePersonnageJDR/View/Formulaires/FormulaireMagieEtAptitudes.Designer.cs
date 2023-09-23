@@ -47,6 +47,9 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbPgeAptArmTrt = new System.Windows.Forms.TabPage();
             this.tbPgeAptChaine = new System.Windows.Forms.TabPage();
             this.tbPgeAptSpecial = new System.Windows.Forms.TabPage();
+            this.rtbMagies = new System.Windows.Forms.RichTextBox();
+            this.rtbAptitudes = new System.Windows.Forms.RichTextBox();
+            this.btnFinaliserFiche = new System.Windows.Forms.Button();
             this.tbCntlMagie.SuspendLayout();
             this.tbCntlAptitudes.SuspendLayout();
             this.SuspendLayout();
@@ -61,19 +64,21 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbCntlMagie.Controls.Add(this.tbPgeCorrompue);
             this.tbCntlMagie.Controls.Add(this.tbPgeDivine);
             this.tbCntlMagie.Controls.Add(this.tbPgeNeutre);
-            this.tbCntlMagie.Location = new System.Drawing.Point(12, 12);
+            this.tbCntlMagie.Location = new System.Drawing.Point(16, 15);
+            this.tbCntlMagie.Margin = new System.Windows.Forms.Padding(4);
             this.tbCntlMagie.Name = "tbCntlMagie";
             this.tbCntlMagie.SelectedIndex = 0;
-            this.tbCntlMagie.Size = new System.Drawing.Size(284, 154);
+            this.tbCntlMagie.Size = new System.Drawing.Size(379, 190);
             this.tbCntlMagie.TabIndex = 0;
             // 
             // tbPgeAquatique
             // 
             this.tbPgeAquatique.AutoScroll = true;
-            this.tbPgeAquatique.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeAquatique.Location = new System.Drawing.Point(4, 25);
+            this.tbPgeAquatique.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeAquatique.Name = "tbPgeAquatique";
-            this.tbPgeAquatique.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tbPgeAquatique.Size = new System.Drawing.Size(276, 128);
+            this.tbPgeAquatique.Padding = new System.Windows.Forms.Padding(4);
+            this.tbPgeAquatique.Size = new System.Drawing.Size(371, 161);
             this.tbPgeAquatique.TabIndex = 0;
             this.tbPgeAquatique.Text = "Aquatique";
             this.tbPgeAquatique.UseVisualStyleBackColor = true;
@@ -81,10 +86,11 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeIgnis
             // 
             this.tbPgeIgnis.AutoScroll = true;
-            this.tbPgeIgnis.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeIgnis.Location = new System.Drawing.Point(4, 25);
+            this.tbPgeIgnis.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeIgnis.Name = "tbPgeIgnis";
-            this.tbPgeIgnis.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tbPgeIgnis.Size = new System.Drawing.Size(276, 128);
+            this.tbPgeIgnis.Padding = new System.Windows.Forms.Padding(4);
+            this.tbPgeIgnis.Size = new System.Drawing.Size(371, 161);
             this.tbPgeIgnis.TabIndex = 1;
             this.tbPgeIgnis.Text = "Ignis";
             this.tbPgeIgnis.UseVisualStyleBackColor = true;
@@ -92,9 +98,10 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeCeleste
             // 
             this.tbPgeCeleste.AutoScroll = true;
-            this.tbPgeCeleste.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeCeleste.Location = new System.Drawing.Point(4, 25);
+            this.tbPgeCeleste.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeCeleste.Name = "tbPgeCeleste";
-            this.tbPgeCeleste.Size = new System.Drawing.Size(276, 128);
+            this.tbPgeCeleste.Size = new System.Drawing.Size(371, 161);
             this.tbPgeCeleste.TabIndex = 2;
             this.tbPgeCeleste.Text = "Céleste";
             this.tbPgeCeleste.UseVisualStyleBackColor = true;
@@ -102,9 +109,10 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeTerrestre
             // 
             this.tbPgeTerrestre.AutoScroll = true;
-            this.tbPgeTerrestre.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeTerrestre.Location = new System.Drawing.Point(4, 25);
+            this.tbPgeTerrestre.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeTerrestre.Name = "tbPgeTerrestre";
-            this.tbPgeTerrestre.Size = new System.Drawing.Size(276, 128);
+            this.tbPgeTerrestre.Size = new System.Drawing.Size(371, 161);
             this.tbPgeTerrestre.TabIndex = 3;
             this.tbPgeTerrestre.Text = "Terrestre";
             this.tbPgeTerrestre.UseVisualStyleBackColor = true;
@@ -112,9 +120,10 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeNature
             // 
             this.tbPgeNature.AutoScroll = true;
-            this.tbPgeNature.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeNature.Location = new System.Drawing.Point(4, 25);
+            this.tbPgeNature.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeNature.Name = "tbPgeNature";
-            this.tbPgeNature.Size = new System.Drawing.Size(276, 128);
+            this.tbPgeNature.Size = new System.Drawing.Size(371, 161);
             this.tbPgeNature.TabIndex = 4;
             this.tbPgeNature.Text = "Nature";
             this.tbPgeNature.UseVisualStyleBackColor = true;
@@ -122,9 +131,10 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeCorrompue
             // 
             this.tbPgeCorrompue.AutoScroll = true;
-            this.tbPgeCorrompue.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeCorrompue.Location = new System.Drawing.Point(4, 25);
+            this.tbPgeCorrompue.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeCorrompue.Name = "tbPgeCorrompue";
-            this.tbPgeCorrompue.Size = new System.Drawing.Size(276, 128);
+            this.tbPgeCorrompue.Size = new System.Drawing.Size(371, 161);
             this.tbPgeCorrompue.TabIndex = 5;
             this.tbPgeCorrompue.Text = "Corrompue";
             this.tbPgeCorrompue.UseVisualStyleBackColor = true;
@@ -132,9 +142,10 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeDivine
             // 
             this.tbPgeDivine.AutoScroll = true;
-            this.tbPgeDivine.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeDivine.Location = new System.Drawing.Point(4, 25);
+            this.tbPgeDivine.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeDivine.Name = "tbPgeDivine";
-            this.tbPgeDivine.Size = new System.Drawing.Size(276, 128);
+            this.tbPgeDivine.Size = new System.Drawing.Size(371, 161);
             this.tbPgeDivine.TabIndex = 6;
             this.tbPgeDivine.Text = "Divine";
             this.tbPgeDivine.UseVisualStyleBackColor = true;
@@ -142,9 +153,10 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeNeutre
             // 
             this.tbPgeNeutre.AutoScroll = true;
-            this.tbPgeNeutre.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeNeutre.Location = new System.Drawing.Point(4, 25);
+            this.tbPgeNeutre.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeNeutre.Name = "tbPgeNeutre";
-            this.tbPgeNeutre.Size = new System.Drawing.Size(276, 128);
+            this.tbPgeNeutre.Size = new System.Drawing.Size(371, 161);
             this.tbPgeNeutre.TabIndex = 7;
             this.tbPgeNeutre.Text = "Neutre";
             this.tbPgeNeutre.UseVisualStyleBackColor = true;
@@ -159,19 +171,21 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbCntlAptitudes.Controls.Add(this.tbPgeAptArmTrt);
             this.tbCntlAptitudes.Controls.Add(this.tbPgeAptChaine);
             this.tbCntlAptitudes.Controls.Add(this.tbPgeAptSpecial);
-            this.tbCntlAptitudes.Location = new System.Drawing.Point(322, 12);
+            this.tbCntlAptitudes.Location = new System.Drawing.Point(429, 15);
+            this.tbCntlAptitudes.Margin = new System.Windows.Forms.Padding(4);
             this.tbCntlAptitudes.Name = "tbCntlAptitudes";
             this.tbCntlAptitudes.SelectedIndex = 0;
-            this.tbCntlAptitudes.Size = new System.Drawing.Size(254, 150);
+            this.tbCntlAptitudes.Size = new System.Drawing.Size(339, 190);
             this.tbCntlAptitudes.TabIndex = 1;
             // 
             // tbPgeAptEpee
             // 
             this.tbPgeAptEpee.AutoScroll = true;
-            this.tbPgeAptEpee.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeAptEpee.Location = new System.Drawing.Point(4, 25);
+            this.tbPgeAptEpee.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeAptEpee.Name = "tbPgeAptEpee";
-            this.tbPgeAptEpee.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tbPgeAptEpee.Size = new System.Drawing.Size(246, 124);
+            this.tbPgeAptEpee.Padding = new System.Windows.Forms.Padding(4);
+            this.tbPgeAptEpee.Size = new System.Drawing.Size(331, 161);
             this.tbPgeAptEpee.TabIndex = 0;
             this.tbPgeAptEpee.Text = "Épées";
             this.tbPgeAptEpee.UseVisualStyleBackColor = true;
@@ -179,10 +193,11 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeAptLance
             // 
             this.tbPgeAptLance.AutoScroll = true;
-            this.tbPgeAptLance.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeAptLance.Location = new System.Drawing.Point(4, 25);
+            this.tbPgeAptLance.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeAptLance.Name = "tbPgeAptLance";
-            this.tbPgeAptLance.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tbPgeAptLance.Size = new System.Drawing.Size(246, 124);
+            this.tbPgeAptLance.Padding = new System.Windows.Forms.Padding(4);
+            this.tbPgeAptLance.Size = new System.Drawing.Size(331, 161);
             this.tbPgeAptLance.TabIndex = 1;
             this.tbPgeAptLance.Text = "Lances";
             this.tbPgeAptLance.UseVisualStyleBackColor = true;
@@ -190,9 +205,10 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeAptPoignard
             // 
             this.tbPgeAptPoignard.AutoScroll = true;
-            this.tbPgeAptPoignard.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeAptPoignard.Location = new System.Drawing.Point(4, 25);
+            this.tbPgeAptPoignard.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeAptPoignard.Name = "tbPgeAptPoignard";
-            this.tbPgeAptPoignard.Size = new System.Drawing.Size(246, 124);
+            this.tbPgeAptPoignard.Size = new System.Drawing.Size(331, 161);
             this.tbPgeAptPoignard.TabIndex = 2;
             this.tbPgeAptPoignard.Text = "Poignards";
             this.tbPgeAptPoignard.UseVisualStyleBackColor = true;
@@ -200,9 +216,10 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeAptHaches
             // 
             this.tbPgeAptHaches.AutoScroll = true;
-            this.tbPgeAptHaches.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeAptHaches.Location = new System.Drawing.Point(4, 25);
+            this.tbPgeAptHaches.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeAptHaches.Name = "tbPgeAptHaches";
-            this.tbPgeAptHaches.Size = new System.Drawing.Size(246, 124);
+            this.tbPgeAptHaches.Size = new System.Drawing.Size(331, 161);
             this.tbPgeAptHaches.TabIndex = 3;
             this.tbPgeAptHaches.Text = "Haches";
             this.tbPgeAptHaches.UseVisualStyleBackColor = true;
@@ -210,9 +227,10 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeAptMasse
             // 
             this.tbPgeAptMasse.AutoScroll = true;
-            this.tbPgeAptMasse.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeAptMasse.Location = new System.Drawing.Point(4, 25);
+            this.tbPgeAptMasse.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeAptMasse.Name = "tbPgeAptMasse";
-            this.tbPgeAptMasse.Size = new System.Drawing.Size(246, 124);
+            this.tbPgeAptMasse.Size = new System.Drawing.Size(331, 161);
             this.tbPgeAptMasse.TabIndex = 4;
             this.tbPgeAptMasse.Text = "Masses";
             this.tbPgeAptMasse.UseVisualStyleBackColor = true;
@@ -220,9 +238,10 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeAptArmTrt
             // 
             this.tbPgeAptArmTrt.AutoScroll = true;
-            this.tbPgeAptArmTrt.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeAptArmTrt.Location = new System.Drawing.Point(4, 25);
+            this.tbPgeAptArmTrt.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeAptArmTrt.Name = "tbPgeAptArmTrt";
-            this.tbPgeAptArmTrt.Size = new System.Drawing.Size(246, 124);
+            this.tbPgeAptArmTrt.Size = new System.Drawing.Size(331, 161);
             this.tbPgeAptArmTrt.TabIndex = 5;
             this.tbPgeAptArmTrt.Text = "Armes de trait";
             this.tbPgeAptArmTrt.UseVisualStyleBackColor = true;
@@ -230,9 +249,10 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeAptChaine
             // 
             this.tbPgeAptChaine.AutoScroll = true;
-            this.tbPgeAptChaine.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeAptChaine.Location = new System.Drawing.Point(4, 25);
+            this.tbPgeAptChaine.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeAptChaine.Name = "tbPgeAptChaine";
-            this.tbPgeAptChaine.Size = new System.Drawing.Size(246, 124);
+            this.tbPgeAptChaine.Size = new System.Drawing.Size(331, 161);
             this.tbPgeAptChaine.TabIndex = 6;
             this.tbPgeAptChaine.Text = "Chaînes";
             this.tbPgeAptChaine.UseVisualStyleBackColor = true;
@@ -240,20 +260,51 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeAptSpecial
             // 
             this.tbPgeAptSpecial.AutoScroll = true;
-            this.tbPgeAptSpecial.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeAptSpecial.Location = new System.Drawing.Point(4, 25);
+            this.tbPgeAptSpecial.Margin = new System.Windows.Forms.Padding(4);
             this.tbPgeAptSpecial.Name = "tbPgeAptSpecial";
-            this.tbPgeAptSpecial.Size = new System.Drawing.Size(246, 124);
+            this.tbPgeAptSpecial.Size = new System.Drawing.Size(331, 161);
             this.tbPgeAptSpecial.TabIndex = 7;
             this.tbPgeAptSpecial.Text = "Spécial";
             this.tbPgeAptSpecial.UseVisualStyleBackColor = true;
             // 
+            // rtbMagies
+            // 
+            this.rtbMagies.Location = new System.Drawing.Point(20, 225);
+            this.rtbMagies.Name = "rtbMagies";
+            this.rtbMagies.Size = new System.Drawing.Size(375, 182);
+            this.rtbMagies.TabIndex = 2;
+            this.rtbMagies.Text = "";
+            // 
+            // rtbAptitudes
+            // 
+            this.rtbAptitudes.Location = new System.Drawing.Point(433, 225);
+            this.rtbAptitudes.Name = "rtbAptitudes";
+            this.rtbAptitudes.Size = new System.Drawing.Size(335, 182);
+            this.rtbAptitudes.TabIndex = 3;
+            this.rtbAptitudes.Text = "";
+            // 
+            // btnFinaliserFiche
+            // 
+            this.btnFinaliserFiche.Location = new System.Drawing.Point(372, 455);
+            this.btnFinaliserFiche.Name = "btnFinaliserFiche";
+            this.btnFinaliserFiche.Size = new System.Drawing.Size(75, 23);
+            this.btnFinaliserFiche.TabIndex = 4;
+            this.btnFinaliserFiche.Text = "Finaliser";
+            this.btnFinaliserFiche.UseVisualStyleBackColor = true;
+            this.btnFinaliserFiche.Click += new System.EventHandler(this.btnFinaliserFiche_Click);
+            // 
             // FormulaireMagieEtAptitudes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(596, 450);
+            this.ClientSize = new System.Drawing.Size(795, 490);
+            this.Controls.Add(this.btnFinaliserFiche);
+            this.Controls.Add(this.rtbAptitudes);
+            this.Controls.Add(this.rtbMagies);
             this.Controls.Add(this.tbCntlAptitudes);
             this.Controls.Add(this.tbCntlMagie);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormulaireMagieEtAptitudes";
             this.Text = "Magies & Aptitudes";
             this.Load += new System.EventHandler(this.FormulaireMagieEtAptitudes_Load);
@@ -283,5 +334,8 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.TabPage tbPgeAptArmTrt;
         private System.Windows.Forms.TabPage tbPgeAptChaine;
         private System.Windows.Forms.TabPage tbPgeAptSpecial;
+        private System.Windows.Forms.RichTextBox rtbMagies;
+        private System.Windows.Forms.RichTextBox rtbAptitudes;
+        private System.Windows.Forms.Button btnFinaliserFiche;
     }
 }

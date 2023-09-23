@@ -45,26 +45,13 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblHistoire = new System.Windows.Forms.Label();
             this.lblLangages = new System.Windows.Forms.Label();
             this.btnSaveInfos = new System.Windows.Forms.Button();
-            this.lblMonnaie = new System.Windows.Forms.Label();
             this.btnAjouterImage = new System.Windows.Forms.Button();
             this.btnViderHistoire = new System.Windows.Forms.Button();
-            this.btnViderLangues = new System.Windows.Forms.Button();
-            this.lblOr = new System.Windows.Forms.Label();
-            this.lblArgent = new System.Windows.Forms.Label();
-            this.lblCuivre = new System.Windows.Forms.Label();
-            this.nudOr = new System.Windows.Forms.NumericUpDown();
-            this.nudArgent = new System.Windows.Forms.NumericUpDown();
-            this.nudCuivre = new System.Windows.Forms.NumericUpDown();
             this.nudNiveau = new System.Windows.Forms.NumericUpDown();
             this.lblPointsRestants = new System.Windows.Forms.Label();
             this.txtPointsXp = new System.Windows.Forms.TextBox();
             this.lblPtsXpTotal = new System.Windows.Forms.Label();
-            this.txtVitesseDeplacement = new System.Windows.Forms.TextBox();
-            this.lblVitesseDeplacement = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudOr)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudArgent)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCuivre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNiveau)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,6 +90,7 @@ namespace maFichePersonnageJDR.Formulaires
             // ptbAvatar
             // 
             this.ptbAvatar.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.ptbAvatar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ptbAvatar.Location = new System.Drawing.Point(502, 13);
             this.ptbAvatar.Name = "ptbAvatar";
             this.ptbAvatar.Size = new System.Drawing.Size(256, 256);
@@ -205,23 +193,13 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // btnSaveInfos
             // 
-            this.btnSaveInfos.Location = new System.Drawing.Point(502, 346);
+            this.btnSaveInfos.Location = new System.Drawing.Point(255, 342);
             this.btnSaveInfos.Name = "btnSaveInfos";
             this.btnSaveInfos.Size = new System.Drawing.Size(256, 96);
             this.btnSaveInfos.TabIndex = 24;
-            this.btnSaveInfos.Text = "Sauvegarde";
+            this.btnSaveInfos.Text = "Suivant";
             this.btnSaveInfos.UseVisualStyleBackColor = true;
             this.btnSaveInfos.Click += new System.EventHandler(this.btnSaveInfos_Click);
-            // 
-            // lblMonnaie
-            // 
-            this.lblMonnaie.AutoSize = true;
-            this.lblMonnaie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMonnaie.Location = new System.Drawing.Point(36, 358);
-            this.lblMonnaie.Name = "lblMonnaie";
-            this.lblMonnaie.Size = new System.Drawing.Size(82, 20);
-            this.lblMonnaie.TabIndex = 25;
-            this.lblMonnaie.Text = "Monnaie:";
             // 
             // btnAjouterImage
             // 
@@ -242,64 +220,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnViderHistoire.Text = "Vider";
             this.btnViderHistoire.UseVisualStyleBackColor = true;
             this.btnViderHistoire.Click += new System.EventHandler(this.btnViderHistoire_Click);
-            // 
-            // btnViderLangues
-            // 
-            this.btnViderLangues.Location = new System.Drawing.Point(177, 304);
-            this.btnViderLangues.Name = "btnViderLangues";
-            this.btnViderLangues.Size = new System.Drawing.Size(109, 23);
-            this.btnViderLangues.TabIndex = 31;
-            this.btnViderLangues.Text = "Vider";
-            this.btnViderLangues.UseVisualStyleBackColor = true;
-            this.btnViderLangues.Click += new System.EventHandler(this.btnViderLangues_Click);
-            // 
-            // lblOr
-            // 
-            this.lblOr.AutoSize = true;
-            this.lblOr.Location = new System.Drawing.Point(167, 345);
-            this.lblOr.Name = "lblOr";
-            this.lblOr.Size = new System.Drawing.Size(18, 13);
-            this.lblOr.TabIndex = 34;
-            this.lblOr.Text = "Or";
-            // 
-            // lblArgent
-            // 
-            this.lblArgent.AutoSize = true;
-            this.lblArgent.Location = new System.Drawing.Point(220, 345);
-            this.lblArgent.Name = "lblArgent";
-            this.lblArgent.Size = new System.Drawing.Size(38, 13);
-            this.lblArgent.TabIndex = 35;
-            this.lblArgent.Text = "Argent";
-            // 
-            // lblCuivre
-            // 
-            this.lblCuivre.AutoSize = true;
-            this.lblCuivre.Location = new System.Drawing.Point(280, 345);
-            this.lblCuivre.Name = "lblCuivre";
-            this.lblCuivre.Size = new System.Drawing.Size(37, 13);
-            this.lblCuivre.TabIndex = 36;
-            this.lblCuivre.Text = "Cuivre";
-            // 
-            // nudOr
-            // 
-            this.nudOr.Location = new System.Drawing.Point(155, 361);
-            this.nudOr.Name = "nudOr";
-            this.nudOr.Size = new System.Drawing.Size(43, 20);
-            this.nudOr.TabIndex = 37;
-            // 
-            // nudArgent
-            // 
-            this.nudArgent.Location = new System.Drawing.Point(217, 361);
-            this.nudArgent.Name = "nudArgent";
-            this.nudArgent.Size = new System.Drawing.Size(43, 20);
-            this.nudArgent.TabIndex = 38;
-            // 
-            // nudCuivre
-            // 
-            this.nudCuivre.Location = new System.Drawing.Point(274, 361);
-            this.nudCuivre.Name = "nudCuivre";
-            this.nudCuivre.Size = new System.Drawing.Size(43, 20);
-            this.nudCuivre.TabIndex = 39;
             // 
             // nudNiveau
             // 
@@ -351,46 +271,17 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblPtsXpTotal.TabIndex = 43;
             this.lblPtsXpTotal.Text = "Points d\'expérience :";
             // 
-            // txtVitesseDeplacement
-            // 
-            this.txtVitesseDeplacement.Enabled = false;
-            this.txtVitesseDeplacement.Location = new System.Drawing.Point(202, 421);
-            this.txtVitesseDeplacement.Name = "txtVitesseDeplacement";
-            this.txtVitesseDeplacement.Size = new System.Drawing.Size(64, 20);
-            this.txtVitesseDeplacement.TabIndex = 49;
-            this.txtVitesseDeplacement.Text = "9 m";
-            // 
-            // lblVitesseDeplacement
-            // 
-            this.lblVitesseDeplacement.AutoSize = true;
-            this.lblVitesseDeplacement.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVitesseDeplacement.Location = new System.Drawing.Point(152, 403);
-            this.lblVitesseDeplacement.Name = "lblVitesseDeplacement";
-            this.lblVitesseDeplacement.Size = new System.Drawing.Size(176, 13);
-            this.lblVitesseDeplacement.TabIndex = 48;
-            this.lblVitesseDeplacement.Text = "Vitesse de déplacement en combat:";
-            // 
             // FormulaireInfosGenerales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.txtVitesseDeplacement);
-            this.Controls.Add(this.lblVitesseDeplacement);
             this.Controls.Add(this.lblPtsXpTotal);
             this.Controls.Add(this.txtPointsXp);
             this.Controls.Add(this.lblPointsRestants);
             this.Controls.Add(this.nudNiveau);
-            this.Controls.Add(this.nudCuivre);
-            this.Controls.Add(this.nudArgent);
-            this.Controls.Add(this.nudOr);
-            this.Controls.Add(this.lblCuivre);
-            this.Controls.Add(this.lblArgent);
-            this.Controls.Add(this.lblOr);
-            this.Controls.Add(this.btnViderLangues);
             this.Controls.Add(this.btnViderHistoire);
             this.Controls.Add(this.btnAjouterImage);
-            this.Controls.Add(this.lblMonnaie);
             this.Controls.Add(this.btnSaveInfos);
             this.Controls.Add(this.lblLangages);
             this.Controls.Add(this.lblHistoire);
@@ -411,9 +302,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.Text = "FormulaireInfosGenerales";
             this.Load += new System.EventHandler(this.FormulaireInfosGenerales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudOr)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudArgent)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCuivre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNiveau)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -438,21 +326,11 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblHistoire;
         private System.Windows.Forms.Label lblLangages;
         private System.Windows.Forms.Button btnSaveInfos;
-        private System.Windows.Forms.Label lblMonnaie;
         private System.Windows.Forms.Button btnAjouterImage;
         private System.Windows.Forms.Button btnViderHistoire;
-        private System.Windows.Forms.Button btnViderLangues;
-        private System.Windows.Forms.Label lblOr;
-        private System.Windows.Forms.Label lblArgent;
-        private System.Windows.Forms.Label lblCuivre;
-        private System.Windows.Forms.NumericUpDown nudOr;
-        private System.Windows.Forms.NumericUpDown nudArgent;
-        private System.Windows.Forms.NumericUpDown nudCuivre;
         private System.Windows.Forms.NumericUpDown nudNiveau;
         private System.Windows.Forms.Label lblPointsRestants;
         private System.Windows.Forms.TextBox txtPointsXp;
         private System.Windows.Forms.Label lblPtsXpTotal;
-        private System.Windows.Forms.TextBox txtVitesseDeplacement;
-        private System.Windows.Forms.Label lblVitesseDeplacement;
     }
 }

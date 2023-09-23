@@ -43,7 +43,7 @@ namespace maFichePersonnageJDR.Model
             {
                 SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT * FROM APTITUDES WHERE type_aptitude LIKE @typeAptitudes", connection);
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM APTITUDES WHERE type_aptitude LIKE @typeAptitudes", DatabaseConnection.Instance.GetConnection());
                 command.Parameters.AddWithValue("@typeAptitudes", typeAptitudes);
 
                 using (SQLiteDataReader reader = command.ExecuteReader())
@@ -84,7 +84,7 @@ namespace maFichePersonnageJDR.Model
             {
                 SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT * FROM APTITUDES WHERE nom_aptitude = @nomAptitude", connection);
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM APTITUDES WHERE nom_aptitude = @nomAptitude", DatabaseConnection.Instance.GetConnection());
                 command.Parameters.AddWithValue("@nomAptitude", nomAptitude);
 
                 using (SQLiteDataReader reader = command.ExecuteReader())
@@ -102,7 +102,6 @@ namespace maFichePersonnageJDR.Model
                         aptitudesModel = aptitude;
                     }
                 }
-
                 return aptitudesModel;
             }
             catch (Exception e)
