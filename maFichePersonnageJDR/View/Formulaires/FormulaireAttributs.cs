@@ -71,6 +71,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                 // FR : Devrait ajouter le texte
                 // EN : Should append text
                 rtbAttributs.AppendText(attribut + Environment.NewLine);
+                DisableOrCheckBox(tbPgeAttributs);
             }
             else
             {
@@ -89,6 +90,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                 // FR : On réattribue les nouvelles lignes à celles de la RichTextBox
                 // EN : Reassign the new lines to those in the RichTextBox
                 rtbAttributs.Lines = lines.ToArray();
+                DisableOrCheckBox(tbPgeAttributs);
             }
         }
 
@@ -116,6 +118,72 @@ namespace maFichePersonnageJDR.View.Formulaires
             }
         }
 
+        public int AttributsLimitations(int idPersonnage)
+        {
+            int nbAttributes = 0;
+            int niveauPersonnage = PersonnageController.GetNiveauPersonnage(idPersonnage);
+
+            if (niveauPersonnage <= 3)
+                nbAttributes = 2;
+            else if (niveauPersonnage > 3 && niveauPersonnage < 6)
+                nbAttributes = 3;
+            else if (niveauPersonnage > 5 && niveauPersonnage < 7)
+                nbAttributes = 4;
+            else if (niveauPersonnage > 7 && niveauPersonnage < 9)
+                nbAttributes = 6;
+            else if (niveauPersonnage > 8 && niveauPersonnage < 13)
+                nbAttributes = 7;
+            else if (niveauPersonnage > 12 && niveauPersonnage < 14)
+                nbAttributes = 8;
+            else if (niveauPersonnage > 13 && niveauPersonnage < 15)
+                nbAttributes = 9;
+            else if (niveauPersonnage > 14 && niveauPersonnage < 17)
+                nbAttributes = 11;
+            else if (niveauPersonnage > 16 && niveauPersonnage < 18)
+                nbAttributes = 12;
+            else if (niveauPersonnage > 19)
+                nbAttributes = 13;
+
+            return nbAttributes;
+        }
+
+        public void DisableOrCheckBox(TabPage page)
+        {
+            int nbCheckBoxChecked = 0;
+            int nbAttributParNiveau = AttributsLimitations(IdDuPersonnage);
+
+            foreach (object controls in page.Controls)
+            {
+                if (controls is CheckBox)
+                {
+                    CheckBox checkBox = controls as CheckBox;
+                    nbCheckBoxChecked += checkBox.Checked ? 1 : 0;
+                }
+            }
+
+            if (nbCheckBoxChecked == nbAttributParNiveau)
+            {
+                foreach (object controls in page.Controls)
+                {
+                    if (controls is CheckBox)
+                    {
+                        CheckBox checkBox = controls as CheckBox;
+                        checkBox.Enabled = checkBox.Checked ? true : false;
+                    }
+                }
+            }
+            else
+            {
+                foreach (object controls in page.Controls)
+                {
+                    if (controls is CheckBox)
+                    {
+                        CheckBox checkBox = controls as CheckBox;
+                        checkBox.Enabled = true;
+                    }
+                }
+            }
+        }
         private void btnSauvegarder_Click(object sender, EventArgs e)
         {
             #region Initialisation des variables
