@@ -107,7 +107,7 @@ namespace maFichePersonnageJDR.Controller
             try
             {
                 AttributsModel attributsToGet = attributsModel.GetAttributByName(nomAttribut);
-                return "Nom: " + attributsToGet.NomAttribut + ", " + "Description: " + attributsToGet.DescriptionAttribut + ", " + "Type: " + attributsToGet.TypeAttribut + ", " + "Notes: " + attributsToGet.NoteAttribut;
+                return attributsToGet.NomAttribut;
             }
             catch (Exception e)
             {

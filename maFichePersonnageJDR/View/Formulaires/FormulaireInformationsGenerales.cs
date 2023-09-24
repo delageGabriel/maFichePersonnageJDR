@@ -192,8 +192,6 @@ namespace maFichePersonnageJDR.Formulaires
                 if (!String.IsNullOrEmpty(opf.FileName))
                 {
                     cheminImage = opf.FileName;
-                    Properties.Settings.Default.CheminImage = cheminImage;
-                    Properties.Settings.Default.Save();
                 }
                 else
                 {
