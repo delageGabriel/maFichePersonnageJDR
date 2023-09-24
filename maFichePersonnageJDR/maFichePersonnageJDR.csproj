@@ -127,9 +127,6 @@
   <ItemGroup>
     <Compile Include="Classe\ClassePdf.cs" />
     <Compile Include="Classe\DatabaseConnection.cs" />
-    <Compile Include="Classe\GlobalesVariable.cs">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Compile>
     <Compile Include="Classe\ClasseImage.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>

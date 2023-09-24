@@ -180,10 +180,11 @@ namespace maFichePersonnageJDR.Formulaires
                 // FR : Devrait ajouter le texte
                 // EN : Should append text
                 rtbMagies.AppendText(magie + Environment.NewLine);
+                DisableOrCheckBox(tbCntlAptitudes, tbCntlMagie);
             }
             else
             {
-
+                DisableOrCheckBox(tbCntlAptitudes, tbCntlMagie);
             }
         }
 
@@ -203,10 +204,142 @@ namespace maFichePersonnageJDR.Formulaires
                 // FR : Devrait ajouter le texte
                 // EN : Should append text
                 rtbAptitudes.AppendText(aptitude + Environment.NewLine);
+                DisableOrCheckBox(tbCntlAptitudes, tbCntlMagie);
             }
             else
             {
+                DisableOrCheckBox(tbCntlAptitudes, tbCntlMagie);
+            }
+        }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public int MagiesEtAptitudesLimitations(int idPersonnage)
+        {
+            int nbMagieAptitude = 0;
+            int niveauPersonnage = PersonnageController.GetNiveauPersonnage(idPersonnage);
+
+            if (niveauPersonnage <= 3)
+                nbMagieAptitude = 2;
+            else if (niveauPersonnage > 2 && niveauPersonnage < 4)
+                nbMagieAptitude = 3;
+            else if (niveauPersonnage > 3 && niveauPersonnage < 5)
+                nbMagieAptitude = 4;
+            else if (niveauPersonnage > 4 && niveauPersonnage < 6)
+                nbMagieAptitude = 6;
+            else if (niveauPersonnage > 5 && niveauPersonnage < 7)
+                nbMagieAptitude = 8;
+            else if (niveauPersonnage > 6 && niveauPersonnage < 9)
+                nbMagieAptitude = 9;
+            else if (niveauPersonnage > 8 && niveauPersonnage < 10)
+                nbMagieAptitude = 10;
+            else if (niveauPersonnage > 9 && niveauPersonnage < 12)
+                nbMagieAptitude = 12;
+            else if (niveauPersonnage > 11 && niveauPersonnage < 14)
+                nbMagieAptitude = 13;
+            else if (niveauPersonnage > 13 && niveauPersonnage < 15)
+                nbMagieAptitude = 14;
+            else if (niveauPersonnage > 14 && niveauPersonnage < 17)
+                nbMagieAptitude = 16;
+            else if (niveauPersonnage > 16 && niveauPersonnage < 19)
+                nbMagieAptitude = 17;
+            else if (niveauPersonnage > 18 && niveauPersonnage < 20)
+                nbMagieAptitude = 18;
+            else if (niveauPersonnage > 19)
+                nbMagieAptitude = 20;
+
+                return nbMagieAptitude;
+        }
+
+        public void DisableOrCheckBox(TabControl tbControlAptitudes, TabControl tbControlMagies)
+        {
+            int nbCheckBoxChecked = 0;
+            int nbAttributParNiveau = MagiesEtAptitudesLimitations(IdPersonnage);
+
+            /// Parcours des aptitudes
+            foreach (TabPage page in tbControlAptitudes.TabPages)
+            {                
+                foreach (object controls in page.Controls)
+                {
+                    if (controls is CheckBox)
+                    {
+                        CheckBox checkBox = controls as CheckBox;
+                        nbCheckBoxChecked += checkBox.Checked ? 1 : 0;
+                    }
+                }
+            }
+
+            /// Parcours des magies
+            foreach (TabPage page in tbControlMagies.TabPages)
+            {
+                foreach (object controls in page.Controls)
+                {
+                    if (controls is CheckBox)
+                    {
+                        CheckBox checkBox = controls as CheckBox;
+                        nbCheckBoxChecked += checkBox.Checked ? 1 : 0;
+                    }
+                }
+            }
+
+            if (nbCheckBoxChecked == nbAttributParNiveau)
+            {
+                /// Parcours des aptitudes
+                foreach (TabPage page in tbControlAptitudes.TabPages)
+                {
+                    foreach (object controls in page.Controls)
+                    {
+                        if (controls is CheckBox)
+                        {
+                            CheckBox checkBox = controls as CheckBox;
+                            checkBox.Enabled = checkBox.Checked ? true : false;
+                        }
+                    }
+                }
+
+                /// Parcours des magies
+                foreach (TabPage page in tbControlMagies.TabPages)
+                {
+                    foreach (object controls in page.Controls)
+                    {
+                        if (controls is CheckBox)
+                        {
+                            CheckBox checkBox = controls as CheckBox;
+                            checkBox.Enabled = checkBox.Checked ? true : false;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                /// Parcours des aptitudes
+                foreach (TabPage page in tbControlAptitudes.TabPages)
+                {
+                    foreach (object controls in page.Controls)
+                    {
+                        if (controls is CheckBox)
+                        {
+                            CheckBox checkBox = controls as CheckBox;
+                            checkBox.Enabled = true;
+                        }
+                    }
+                }
+
+                /// Parcours des magies
+                foreach (TabPage page in tbControlMagies.TabPages)
+                {
+                    foreach (object controls in page.Controls)
+                    {
+                        if (controls is CheckBox)
+                        {
+                            CheckBox checkBox = controls as CheckBox;
+                            checkBox.Enabled = true;
+                        }
+                    }
+                }
             }
         }
 
