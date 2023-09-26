@@ -177,9 +177,10 @@ namespace maFichePersonnageJDR.Formulaires
                     rTxtBxArmes.AppendText(idArme + Environment.NewLine);
 
                     lblTotalDepenseArmes.Text = Utils.ConvertMoneyWithValue(valeur);
-                    lblPoidsEnPlusArmes.Text = poids.ToString() + " kg";
+                    lblPoidsEnPlusArmes.Text = poids.ToString();
 
                     rtbAcheterArmes.AppendText(nomArme + ", Quantité:" + qteReturn + Environment.NewLine);
+                    NumericToReturn(nomArme, (TabPage)checkBox.Parent).Enabled = false;
                 }
                 catch (System.FormatException ex)
                 {
@@ -189,7 +190,7 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else
             {
-                int valeur = int.Parse(lblTotalDepenseArmes.Text) - (EquipmentController.GetArmeValueByName(nomArme) * qteReturn);
+                int valeur = Utils.DeleteMoneyValue(lblTotalDepenseArmes.Text) - (EquipmentController.GetArmeValueByName(nomArme) * qteReturn);
                 double poids = double.Parse(lblPoidsEnPlusArmes.Text) - (EquipmentController.GetArmeWeightByName(nomArme) * qteReturn);
 
                 lblTotalDepenseArmes.Text = Utils.ConvertMoneyWithValue(valeur);
@@ -214,6 +215,7 @@ namespace maFichePersonnageJDR.Formulaires
                 // EN : Reassign the new lines to those in the RichTextBox
                 rTxtBxArmes.Lines = lines.ToArray();
                 rtbAcheterArmes.Lines = linesApercuArmes.ToArray();
+                NumericToReturn(nomArme, (TabPage)checkBox.Parent).Enabled = true;
             }
         }
 
@@ -403,7 +405,6 @@ namespace maFichePersonnageJDR.Formulaires
 
             try
             {
-
                 foreach (object control in page.Controls)
                 {
                     if (control is NumericUpDown)
@@ -425,6 +426,32 @@ namespace maFichePersonnageJDR.Formulaires
             }
         }
 
+        public NumericUpDown NumericToReturn(string tagControl, TabPage page)
+        {
+            NumericUpDown numericUpDown = new NumericUpDown();
+
+            try
+            {
+                foreach (object control in page.Controls)
+                {
+                    if (control is NumericUpDown)
+                    {
+                        NumericUpDown nudToCheck = control as NumericUpDown;
+
+                        if ((string)nudToCheck.Tag == tagControl)
+                        {
+                            numericUpDown = nudToCheck;
+                        }
+                    }
+                }
+
+                return numericUpDown;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -438,17 +465,6 @@ namespace maFichePersonnageJDR.Formulaires
 
             try
             {
-                // ARMES
-                foreach (string line in rTxtBxArmes.Lines)
-                {
-                    if (!String.IsNullOrEmpty(line))
-                    {
-                        string[] substring = line.Split(';');
-                        EquipmentController.AddNewArmeToPersonnage(Convert.ToInt32(substring[0]),
-                        IdPersonnage, Convert.ToInt32(substring[1]));
-                    }
-                }
-
                 // ARMURES
                 foreach (string line in rTxtBxArmures.Lines)
                 {
@@ -498,12 +514,32 @@ namespace maFichePersonnageJDR.Formulaires
             QuantiteCuivre = nudPc.Value;
         }
 
+        /// <summary>
+        /// Met à jour le poids total de pièces transportées par le personnage 
+        /// </summary>
         private void MettreAJourPoidsTotal()
         {
             decimal poidsTotal = (QuantiteOr * 0.115m) + (QuantiteArgent * 0.0783m) + (QuantiteCuivre * 0.0402m);
             lblChrgPrtePersonnage.Text = poidsTotal.ToString("0.##") + " kg";
         }
 
+        /// <summary>
+        /// Met à jour le poids total transporté par le personnage après achat
+        /// </summary>
+        /// <param name="poidsAjouter"></param>
+        public void MettreAJourPoidsTotal(decimal poidsAjouter)
+        {
+            string[] characters = { " ", "k", "g" };
+            decimal poidsTotal = decimal.Parse(Utils.DeleteCharacterFromString(lblChrgPrtePersonnage.Text, characters)) + poidsAjouter;
+            lblChrgPrtePersonnage.Text = poidsTotal.ToString("0.##") + " kg";
+        }
+
+        /// <summary>
+        /// Méthode pour vérfier s'il y a des armes à acheter et active ou
+        /// désactive le bouton acheter en conséquence
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rtbAcheterArmes_TextChanged(object sender, EventArgs e)
         {
             RichTextBox richTextBox = sender as RichTextBox;
@@ -516,6 +552,54 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 btnAcheterArmes.Enabled = false;
             }
+        }
+
+        /// <summary>
+        /// Bouton qui permet d'acheter toutes les armes sélectionnées
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAcheterArmes_Click(object sender, EventArgs e)
+        {
+            /// On commence par faire la différence et voir si le personnage
+            /// a assez d'argent
+            int achatArme = Utils.DeleteMoneyValue(lblTotalDepenseArmes.Text);
+            int monnaiePersonnage = int.Parse(string.Format("{0}{1}{2}", nudPo.Value.ToString(), nudPa.Value.ToString(), nudPc.Value.ToString()));
+            int differenceAchat = monnaiePersonnage - achatArme;            
+
+            // Si c'est pas le cas, on lui dit et on sort de la méthode
+            if (differenceAchat < 0)
+            {
+                MessageBox.Show("Pas assez de monnaie !");
+                return;
+            }
+
+            // Ensuite on parcourt la liste des armes achetées
+            // pour les ajouter à l'inventaire d'armes du personnage
+            foreach (string line in rTxtBxArmes.Lines)
+            {
+                if (!String.IsNullOrEmpty(line))
+                {
+                    string[] substring = line.Split(';');
+                    EquipmentController.AddNewArmeToPersonnage(Convert.ToInt32(substring[0]),
+                    IdPersonnage, Convert.ToInt32(substring[1]));
+                }
+            }
+
+            MettreAJourPoidsTotal(decimal.Parse(lblPoidsEnPlusArmes.Text));
+            /// Enfin, on met tous les champs textuels à jour
+
+            // La RichTextBox d'armes
+            rtbAcheterArmes.Text = string.Empty;
+
+            // La RichTextBox qui contient les ID à rajouter en base
+            rTxtBxArmes.Text = string.Empty;
+
+            // Les labels poids et dépenses monnétaire
+            lblTotalDepenseArmes.Text = "0";
+            lblPoidsEnPlusArmes.Text = "0";
+
+
         }
     }
 }

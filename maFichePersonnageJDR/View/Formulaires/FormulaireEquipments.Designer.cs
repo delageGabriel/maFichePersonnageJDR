@@ -612,6 +612,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnAcheterArmes.TabIndex = 31;
             this.btnAcheterArmes.Text = "Acheter";
             this.btnAcheterArmes.UseVisualStyleBackColor = true;
+            this.btnAcheterArmes.Click += new System.EventHandler(this.btnAcheterArmes_Click);
             // 
             // btnVendreArmes
             // 
