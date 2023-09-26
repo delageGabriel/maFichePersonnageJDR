@@ -346,11 +346,11 @@ namespace maFichePersonnageJDR.Controller
         }
 
         /// <summary>
-        /// Obtenir toute les infos d'une arme par son nom
+        /// Obtenir l'id d'une arme par son nom
         /// </summary>
         /// <param name="nomArme"></param>
         /// <returns></returns>
-        public static string GetArmeByName(string nomArme)
+        public static string GetArmeIdByName(string nomArme)
         {
             #region Initialisation des variables
             ArmesModel armesModel = new ArmesModel();
@@ -368,7 +368,7 @@ namespace maFichePersonnageJDR.Controller
         }
 
         /// <summary>
-        /// Obtenir toutes les infos d'une armure par son nom
+        /// Obtenir l'id d'une armure par son nom
         /// </summary>
         /// <param name="nomArmure"></param>
         /// <returns></returns>
@@ -390,7 +390,7 @@ namespace maFichePersonnageJDR.Controller
         }
 
         /// <summary>
-        /// Obtenir toutes les infos d'un objet par son nom
+        /// Obtenir l'id d'un objet par son nom
         /// </summary>
         /// <param name="nomObjet"></param>
         /// <returns></returns>

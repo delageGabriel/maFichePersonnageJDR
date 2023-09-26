@@ -12,8 +12,38 @@ namespace maFichePersonnageJDR.Formulaires
     public partial class FormulaireEquipments : Form
     {
         private int idPersonnage;
+        private decimal quantiteOr;
+        private decimal quantiteArgent;
+        private decimal quantiteCuivre;
 
         public int IdPersonnage { get => idPersonnage; set => idPersonnage = value; }
+        public decimal QuantiteOr
+        {
+            get => quantiteOr;
+            set
+            {
+                quantiteOr = value;
+                MettreAJourPoidsTotal();
+            }
+        }
+        public decimal QuantiteArgent
+        {
+            get => quantiteArgent;
+            set
+            {
+                quantiteArgent = value;
+                MettreAJourPoidsTotal();
+            }
+        }
+        public decimal QuantiteCuivre
+        {
+            get => quantiteCuivre;
+            set
+            {
+                quantiteCuivre = value;
+                MettreAJourPoidsTotal();
+            }
+        }
 
         public FormulaireEquipments()
         {
@@ -133,24 +163,50 @@ namespace maFichePersonnageJDR.Formulaires
         {
             CheckBox checkBox = sender as CheckBox;
             string nomArme = checkBox.Name.Substring(4);
-            string arme = EquipmentController.GetArmeByName(nomArme);
+            string idArme = EquipmentController.GetArmeIdByName(nomArme);
             int qteReturn = QuantityToReturn(nomArme, (TabPage)checkBox.Parent);
 
-            arme += qteReturn.ToString();
+            idArme += qteReturn.ToString();
 
             if (checkBox.Checked)
             {
-                // FR : Devrait ajouter le texte
-                // EN : Should append text
-                rTxtBxArmes.AppendText(arme + Environment.NewLine);
                 int valeur = int.Parse(lblTotalDepenseArmes.Text) + (EquipmentController.GetArmeValueByName(nomArme) * qteReturn);
                 double poids = double.Parse(lblPoidsEnPlusArmes.Text) + (EquipmentController.GetArmeWeightByName(nomArme) * qteReturn);
+
+                rTxtBxArmes.AppendText(idArme + Environment.NewLine);
+
                 lblTotalDepenseArmes.Text = valeur.ToString();
                 lblPoidsEnPlusArmes.Text = poids.ToString();
+
+                rtbApercuArmes.AppendText(nomArme + ", Quantité:" + qteReturn + Environment.NewLine);
             }
             else
             {
+                int valeur = int.Parse(lblTotalDepenseArmes.Text) - (EquipmentController.GetArmeValueByName(nomArme) * qteReturn);
+                double poids = double.Parse(lblPoidsEnPlusArmes.Text) - (EquipmentController.GetArmeWeightByName(nomArme) * qteReturn);
 
+                lblTotalDepenseArmes.Text = valeur.ToString();
+                lblPoidsEnPlusArmes.Text = poids.ToString();
+
+                // FR : Récupération de l'index de la ligne à supprimer
+                // EN : Retrieve the index of the line to be deleted
+                int indexToDelete = Utils.GetLineNumberToDelete(idArme, rTxtBxArmes);
+                int indexToDeleteApercuArme = Utils.GetLineNumberToDelete(nomArme, rtbApercuArmes);
+
+                // FR : On récupère toutes les lignes sous la forme d'une liste
+                // EN : All rows are retrieved in the form of a list
+                List<string> lines = new List<string>(rTxtBxArmes.Lines);
+                List<string> linesApercuArmes = new List<string>(rtbApercuArmes.Lines);
+
+                // FR : On supprime la ligne où l'on a trouvé le texte correspondant
+                // EN : On supprime la ligne où l'on a trouvé le texte correspondan
+                lines.RemoveAt(indexToDelete);
+                linesApercuArmes.RemoveAt(indexToDeleteApercuArme);
+
+                // FR : On réattribue les nouvelles lignes à celles de la RichTextBox
+                // EN : Reassign the new lines to those in the RichTextBox
+                rTxtBxArmes.Lines = lines.ToArray();
+                rtbApercuArmes.Lines = linesApercuArmes.ToArray();
             }
         }
 
@@ -417,5 +473,27 @@ namespace maFichePersonnageJDR.Formulaires
                 throw ex;
             }
         }
+
+        private void nudPo_ValueChanged(object sender, EventArgs e)
+        {
+            QuantiteOr = nudPo.Value;
+        }
+
+        private void nudPa_ValueChanged(object sender, EventArgs e)
+        {
+            QuantiteArgent = nudPa.Value;
+        }
+
+        private void nudPc_ValueChanged(object sender, EventArgs e)
+        {
+            QuantiteCuivre = nudPc.Value;
+        }
+
+        private void MettreAJourPoidsTotal()
+        {
+            decimal poidsTotal = (QuantiteOr * 0.115m) + (QuantiteArgent * 0.0783m) + (QuantiteCuivre * 0.0402m);
+            lblChrgPrtePersonnage.Text = poidsTotal.ToString("0.##") + " kg";
+        }
+
     }
 }
