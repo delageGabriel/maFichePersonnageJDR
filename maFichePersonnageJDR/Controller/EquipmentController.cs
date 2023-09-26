@@ -1,4 +1,5 @@
-﻿using maFichePersonnageJDR.Formulaires;
+﻿using maFichePersonnageJDR.Classe;
+using maFichePersonnageJDR.Formulaires;
 using maFichePersonnageJDR.Model;
 using maFichePersonnageJDR.View.Formulaires;
 using System;
@@ -69,7 +70,7 @@ namespace maFichePersonnageJDR.Controller
                         NumericUpDown numericUpDown = new NumericUpDown();
                         numericUpDown.Location = new Point(x + (linkLabel.Width + 25), y - 3);
                         numericUpDown.Maximum = 99;
-                        numericUpDown.Minimum = 0;
+                        numericUpDown.Minimum = 1;
                         numericUpDown.Width = 40;
                         numericUpDown.Tag = armes.NomArme;
 
@@ -144,7 +145,7 @@ namespace maFichePersonnageJDR.Controller
                         NumericUpDown numericUpDown = new NumericUpDown();
                         numericUpDown.Location = new Point(x + (linkLabel.Width + 25), y - 3);
                         numericUpDown.Maximum = 99;
-                        numericUpDown.Minimum = 0;
+                        numericUpDown.Minimum = 1;
                         numericUpDown.Width = 40;
 
                         controlParent.TabPages[indexOfTabPage].Controls.Add(linkLabel);
@@ -217,7 +218,7 @@ namespace maFichePersonnageJDR.Controller
                         NumericUpDown numericUpDown = new NumericUpDown();
                         numericUpDown.Location = new Point(x + (linkLabel.Width + 25), y - 3);
                         numericUpDown.Maximum = 99;
-                        numericUpDown.Minimum = 0;
+                        numericUpDown.Minimum = 1;
                         numericUpDown.Width = 40;
 
                         controlParent.TabPages[indexOfTabPage].Controls.Add(linkLabel);
@@ -260,7 +261,7 @@ namespace maFichePersonnageJDR.Controller
                 formulaire.TextLblNom = armeToGet.NomArme;
                 formulaire.TextLblType = armeToGet.TypeArme;
                 formulaire.TextLblPoids = armeToGet.PoidsArmes.ToString() + " kg";
-                formulaire.TextLblValeur = armeToGet.ValeurArme.ToString();
+                formulaire.TextLblValeur = Utils.ConvertMoneyWithValue(armeToGet.ValeurArme);
                 formulaire.TextLblDescription = armeToGet.DescriptionArme;
                 formulaire.TextLblAllonge.Text = armeToGet.AllongeArmes;
                 formulaire.TextLblMains.Text = armeToGet.MainArmes;
@@ -298,7 +299,7 @@ namespace maFichePersonnageJDR.Controller
                 formulaire.TextLblNom = armureToGet.NomArmure;
                 formulaire.TextLblType = armureToGet.TypeArmure;
                 formulaire.TextLblPoids = armureToGet.PoidsArmure.ToString() + " kg";
-                formulaire.TextLblValeur = armureToGet.ValeurArmure.ToString();
+                formulaire.TextLblValeur = Utils.ConvertMoneyWithValue(armureToGet.ValeurArmure);
                 formulaire.TextLblDescription = armureToGet.DescriptionArmure;
                 formulaire.TextLblProtection.Text = armureToGet.ProtectionArmure;
                 formulaire.TextLblBonus.Text = armureToGet.BonusArmure.ToString();
@@ -334,7 +335,7 @@ namespace maFichePersonnageJDR.Controller
                 formulaire.TextLblNom = objetToGet.NomObjet;
                 formulaire.TextLblType = objetToGet.TypeObjet;
                 formulaire.TextLblPoids = objetToGet.PoidsObjet.ToString() + " kg";
-                formulaire.TextLblValeur = objetToGet.ValeurObjet.ToString();
+                formulaire.TextLblValeur = Utils.ConvertMoneyWithValue(objetToGet.ValeurObjet);
                 formulaire.TextLblDescription = objetToGet.DescriptionObjet;
                 formulaire.TextLblConsommable.Text = objetToGet.ConsommationObjet;
                 formulaire.TextLblSpecial = objetToGet.SpecialObjet;

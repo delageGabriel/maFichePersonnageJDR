@@ -65,11 +65,11 @@ namespace maFichePersonnageJDR.Classe
                     {
                         ListOfId.Add(Controller.EquipmentController.GetIdArmeByName(substring[indexToSubstring].Substring(numberCharToSubstring).Trim()));
                     }
-                    else if(TableNameToExtract == "ARMURES")
+                    else if (TableNameToExtract == "ARMURES")
                     {
                         ListOfId.Add(Controller.EquipmentController.GetIdArmureByName(substring[indexToSubstring].Substring(numberCharToSubstring).Trim()));
                     }
-                    else if(TableNameToExtract == "OBJETS")
+                    else if (TableNameToExtract == "OBJETS")
                     {
                         ListOfId.Add(Controller.EquipmentController.GetIdObjetByName(substring[indexToSubstring].Substring(numberCharToSubstring).Trim()));
                     }
@@ -77,6 +77,87 @@ namespace maFichePersonnageJDR.Classe
             }
 
             return ListOfId;
+        }
+
+        /// <summary>
+        /// Méthode qui permet d'ajouter les valeurs monétaires
+        /// </summary>
+        /// <param name="valueToConvert"></param>
+        /// <returns></returns>
+        public static string ConvertMoneyWithValue(int valueToConvert)
+        {
+            string valueToReturn = string.Empty;
+
+            if (valueToConvert >= 100)
+            {
+                if (valueToConvert > 99999)
+                {
+                    int valueOrCentaineMillier = (valueToConvert / 100000) % 10;
+                    int valueOrDizaineMillier = (valueToConvert / 10000) % 10;
+                    int valueOrMillier = (valueToConvert / 1000) % 10;
+                    int valueOrCentaine = (valueToConvert / 100) % 10;
+                    int valueArgent = (valueToConvert / 10) % 10;
+                    int valueCuivre = valueToConvert % 10;
+                    valueToReturn += valueOrCentaineMillier.ToString() + valueOrDizaineMillier.ToString() + valueOrMillier.ToString() + valueOrCentaine.ToString() + " PO, "
+                        + valueArgent.ToString() + " PA, " + valueCuivre.ToString() + " PC";
+                }
+                else if( valueToConvert > 9999)
+                {
+                    int valueOrDizaineMillier = (valueToConvert / 10000) % 10;
+                    int valueOrMillier = (valueToConvert / 1000) % 10;
+                    int valueOrCentaine = (valueToConvert / 100) % 10;
+                    int valueArgent = (valueToConvert / 10) % 10;
+                    int valueCuivre = valueToConvert % 10;
+                    valueToReturn += valueOrDizaineMillier.ToString() + valueOrMillier.ToString() + valueOrCentaine.ToString() + " PO, " 
+                        + valueArgent.ToString() + " PA, " + valueCuivre.ToString() + " PC";
+                }
+                else if (valueToConvert > 999)
+                {
+                    int valueOrMillier = (valueToConvert / 1000) % 10;
+                    int valueOrCentaine = (valueToConvert / 100) % 10;
+                    int valueArgent = (valueToConvert / 10) % 10;
+                    int valueCuivre = valueToConvert % 10;
+                    valueToReturn += valueOrMillier.ToString() + valueOrCentaine.ToString() + " PO, " + valueArgent.ToString() + " PA, " 
+                        + valueCuivre.ToString() + " PC";
+                }
+                else
+                {
+                    int valueOrCentaine = (valueToConvert / 100) % 10;
+                    int valueArgent = (valueToConvert / 10) % 10;
+                    int valueCuivre = valueToConvert % 10;
+                    valueToReturn += valueOrCentaine.ToString() + " PO, " + valueArgent.ToString() + " PA, "
+                        + valueCuivre.ToString() + " PC";
+                }
+
+            }
+            else if (valueToConvert >= 10)
+            {
+                int valueArgent = (valueToConvert / 10) % 10;
+                int valueCuivre = valueToConvert % 10;
+                valueToReturn += valueArgent.ToString() + " PA, " + valueCuivre.ToString() + " PC";
+            }
+            else
+            {
+                int valueCuivre = valueToConvert % 10;
+                valueToReturn = valueCuivre.ToString() + " PC";
+            }
+
+            return valueToReturn;
+        }
+
+        public static int DeleteMoneyValue(string price)
+        {
+            // Supprimez tous les caractères non numériques de la chaîne
+            string cleanedPrice = new string(price.Where(char.IsDigit).ToArray());
+
+            // Essayez de convertir la chaîne nettoyée en entier
+            if (int.TryParse(cleanedPrice, out int priceInInteger))
+            {
+                return priceInInteger;
+            }
+
+            // Si la conversion échoue, vous pouvez gérer l'erreur ici ou renvoyer une valeur par défaut
+            return 0; // Ou une autre valeur par défaut selon votre besoin
         }
     }
 }

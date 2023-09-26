@@ -170,33 +170,40 @@ namespace maFichePersonnageJDR.Formulaires
 
             if (checkBox.Checked)
             {
-                int valeur = int.Parse(lblTotalDepenseArmes.Text) + (EquipmentController.GetArmeValueByName(nomArme) * qteReturn);
-                double poids = double.Parse(lblPoidsEnPlusArmes.Text) + (EquipmentController.GetArmeWeightByName(nomArme) * qteReturn);
+                try
+                {
+                    int valeur = Utils.DeleteMoneyValue(lblTotalDepenseArmes.Text) + (EquipmentController.GetArmeValueByName(nomArme) * qteReturn);
+                    double poids = double.Parse(lblPoidsEnPlusArmes.Text) + (EquipmentController.GetArmeWeightByName(nomArme) * qteReturn);
+                    rTxtBxArmes.AppendText(idArme + Environment.NewLine);
 
-                rTxtBxArmes.AppendText(idArme + Environment.NewLine);
+                    lblTotalDepenseArmes.Text = Utils.ConvertMoneyWithValue(valeur);
+                    lblPoidsEnPlusArmes.Text = poids.ToString() + " kg";
 
-                lblTotalDepenseArmes.Text = valeur.ToString();
-                lblPoidsEnPlusArmes.Text = poids.ToString();
-
-                rtbApercuArmes.AppendText(nomArme + ", Quantité:" + qteReturn + Environment.NewLine);
+                    rtbAcheterArmes.AppendText(nomArme + ", Quantité:" + qteReturn + Environment.NewLine);
+                }
+                catch (System.FormatException ex)
+                {
+                    // Gérez l'exception ici (par exemple, en l'enregistrant dans un journal)
+                    Console.WriteLine("Erreur de format : " + ex.Message);
+                }
             }
             else
             {
                 int valeur = int.Parse(lblTotalDepenseArmes.Text) - (EquipmentController.GetArmeValueByName(nomArme) * qteReturn);
                 double poids = double.Parse(lblPoidsEnPlusArmes.Text) - (EquipmentController.GetArmeWeightByName(nomArme) * qteReturn);
 
-                lblTotalDepenseArmes.Text = valeur.ToString();
+                lblTotalDepenseArmes.Text = Utils.ConvertMoneyWithValue(valeur);
                 lblPoidsEnPlusArmes.Text = poids.ToString();
 
                 // FR : Récupération de l'index de la ligne à supprimer
                 // EN : Retrieve the index of the line to be deleted
                 int indexToDelete = Utils.GetLineNumberToDelete(idArme, rTxtBxArmes);
-                int indexToDeleteApercuArme = Utils.GetLineNumberToDelete(nomArme, rtbApercuArmes);
+                int indexToDeleteApercuArme = Utils.GetLineNumberToDelete(nomArme, rtbAcheterArmes);
 
                 // FR : On récupère toutes les lignes sous la forme d'une liste
                 // EN : All rows are retrieved in the form of a list
                 List<string> lines = new List<string>(rTxtBxArmes.Lines);
-                List<string> linesApercuArmes = new List<string>(rtbApercuArmes.Lines);
+                List<string> linesApercuArmes = new List<string>(rtbAcheterArmes.Lines);
 
                 // FR : On supprime la ligne où l'on a trouvé le texte correspondant
                 // EN : On supprime la ligne où l'on a trouvé le texte correspondan
@@ -206,7 +213,7 @@ namespace maFichePersonnageJDR.Formulaires
                 // FR : On réattribue les nouvelles lignes à celles de la RichTextBox
                 // EN : Reassign the new lines to those in the RichTextBox
                 rTxtBxArmes.Lines = lines.ToArray();
-                rtbApercuArmes.Lines = linesApercuArmes.ToArray();
+                rtbAcheterArmes.Lines = linesApercuArmes.ToArray();
             }
         }
 
@@ -231,7 +238,8 @@ namespace maFichePersonnageJDR.Formulaires
                 rTxtBxArmures.AppendText(armure + Environment.NewLine);
                 int valeur = int.Parse(lblTotalDepenseArmures.Text) + (EquipmentController.GetArmureValueByName(nomArmure) * qteReturn);
                 double poids = double.Parse(lblPoidsEnPlusArmures.Text) + (EquipmentController.GetArmureWeightByName(nomArmure) * qteReturn);
-                lblTotalDepenseArmures.Text = valeur.ToString();
+
+                lblTotalDepenseArmures.Text = Utils.ConvertMoneyWithValue(valeur);
                 lblPoidsEnPlusArmures.Text = poids.ToString();
             }
             else
@@ -275,7 +283,8 @@ namespace maFichePersonnageJDR.Formulaires
                 rTxtBxObjets.AppendText(objet + Environment.NewLine);
                 int valeur = int.Parse(lblTotalDepenseObjets.Text) + (EquipmentController.GetObjetValueByName(nomObjet) * qteReturn);
                 double poids = double.Parse(lblPoidsEnPlusObjets.Text) + (EquipmentController.GetObjetWeightByName(nomObjet) * qteReturn);
-                lblTotalDepenseObjets.Text = valeur.ToString();
+
+                lblTotalDepenseObjets.Text = Utils.ConvertMoneyWithValue(valeur);
                 lblPoidsEnPlusObjets.Text = poids.ToString();
             }
             else
@@ -495,5 +504,18 @@ namespace maFichePersonnageJDR.Formulaires
             lblChrgPrtePersonnage.Text = poidsTotal.ToString("0.##") + " kg";
         }
 
+        private void rtbAcheterArmes_TextChanged(object sender, EventArgs e)
+        {
+            RichTextBox richTextBox = sender as RichTextBox;
+
+            if (richTextBox.Lines.Length > 0)
+            {
+                btnAcheterArmes.Enabled = true;
+            }
+            else
+            {
+                btnAcheterArmes.Enabled = false;
+            }
+        }
     }
 }

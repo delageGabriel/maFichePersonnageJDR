@@ -85,9 +85,10 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnAcheterObjets = new System.Windows.Forms.Button();
             this.lblChrgPrtePersonnage = new System.Windows.Forms.Label();
             this.lblChrgeMxm = new System.Windows.Forms.Label();
-            this.rtbApercuArmes = new System.Windows.Forms.RichTextBox();
+            this.rtbAcheterArmes = new System.Windows.Forms.RichTextBox();
             this.rtbApercuArmures = new System.Windows.Forms.RichTextBox();
             this.rtbApercuObjets = new System.Windows.Forms.RichTextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tbCntlArmes.SuspendLayout();
             this.tbCntlArmures.SuspendLayout();
             this.tbCntlObjets.SuspendLayout();
@@ -479,7 +480,7 @@ namespace maFichePersonnageJDR.Formulaires
             // lblTotalArmes
             // 
             this.lblTotalArmes.AutoSize = true;
-            this.lblTotalArmes.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalArmes.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalArmes.Location = new System.Drawing.Point(53, 210);
             this.lblTotalArmes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalArmes.Name = "lblTotalArmes";
@@ -490,7 +491,7 @@ namespace maFichePersonnageJDR.Formulaires
             // lblPoidsTotalArmes
             // 
             this.lblPoidsTotalArmes.AutoSize = true;
-            this.lblPoidsTotalArmes.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPoidsTotalArmes.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPoidsTotalArmes.Location = new System.Drawing.Point(157, 210);
             this.lblPoidsTotalArmes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPoidsTotalArmes.Name = "lblPoidsTotalArmes";
@@ -541,7 +542,7 @@ namespace maFichePersonnageJDR.Formulaires
             // lblPoidsTotalArmures
             // 
             this.lblPoidsTotalArmures.AutoSize = true;
-            this.lblPoidsTotalArmures.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPoidsTotalArmures.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPoidsTotalArmures.Location = new System.Drawing.Point(455, 210);
             this.lblPoidsTotalArmures.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPoidsTotalArmures.Name = "lblPoidsTotalArmures";
@@ -552,7 +553,7 @@ namespace maFichePersonnageJDR.Formulaires
             // lblTotalArmures
             // 
             this.lblTotalArmures.AutoSize = true;
-            this.lblTotalArmures.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalArmures.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalArmures.Location = new System.Drawing.Point(351, 210);
             this.lblTotalArmures.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalArmures.Name = "lblTotalArmures";
@@ -583,7 +584,7 @@ namespace maFichePersonnageJDR.Formulaires
             // lblPoidsTotalObjets
             // 
             this.lblPoidsTotalObjets.AutoSize = true;
-            this.lblPoidsTotalObjets.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPoidsTotalObjets.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPoidsTotalObjets.Location = new System.Drawing.Point(732, 212);
             this.lblPoidsTotalObjets.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPoidsTotalObjets.Name = "lblPoidsTotalObjets";
@@ -594,7 +595,7 @@ namespace maFichePersonnageJDR.Formulaires
             // lblTotalObjets
             // 
             this.lblTotalObjets.AutoSize = true;
-            this.lblTotalObjets.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalObjets.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalObjets.Location = new System.Drawing.Point(628, 212);
             this.lblTotalObjets.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalObjets.Name = "lblTotalObjets";
@@ -605,7 +606,7 @@ namespace maFichePersonnageJDR.Formulaires
             // btnAcheterArmes
             // 
             this.btnAcheterArmes.Enabled = false;
-            this.btnAcheterArmes.Location = new System.Drawing.Point(56, 257);
+            this.btnAcheterArmes.Location = new System.Drawing.Point(38, 257);
             this.btnAcheterArmes.Name = "btnAcheterArmes";
             this.btnAcheterArmes.Size = new System.Drawing.Size(75, 23);
             this.btnAcheterArmes.TabIndex = 31;
@@ -615,7 +616,7 @@ namespace maFichePersonnageJDR.Formulaires
             // btnVendreArmes
             // 
             this.btnVendreArmes.Enabled = false;
-            this.btnVendreArmes.Location = new System.Drawing.Point(149, 257);
+            this.btnVendreArmes.Location = new System.Drawing.Point(168, 257);
             this.btnVendreArmes.Name = "btnVendreArmes";
             this.btnVendreArmes.Size = new System.Drawing.Size(75, 23);
             this.btnVendreArmes.TabIndex = 32;
@@ -680,13 +681,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblChrgeMxm.TabIndex = 38;
             this.lblChrgeMxm.Text = "0";
             // 
-            // rtbApercuArmes
+            // rtbAcheterArmes
             // 
-            this.rtbApercuArmes.Location = new System.Drawing.Point(56, 286);
-            this.rtbApercuArmes.Name = "rtbApercuArmes";
-            this.rtbApercuArmes.Size = new System.Drawing.Size(168, 96);
-            this.rtbApercuArmes.TabIndex = 39;
-            this.rtbApercuArmes.Text = "";
+            this.rtbAcheterArmes.Location = new System.Drawing.Point(23, 286);
+            this.rtbAcheterArmes.Name = "rtbAcheterArmes";
+            this.rtbAcheterArmes.Size = new System.Drawing.Size(100, 96);
+            this.rtbAcheterArmes.TabIndex = 39;
+            this.rtbAcheterArmes.Text = "";
+            this.rtbAcheterArmes.TextChanged += new System.EventHandler(this.rtbAcheterArmes_TextChanged);
             // 
             // rtbApercuArmures
             // 
@@ -704,15 +706,24 @@ namespace maFichePersonnageJDR.Formulaires
             this.rtbApercuObjets.TabIndex = 41;
             this.rtbApercuObjets.Text = "";
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(151, 286);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(106, 96);
+            this.richTextBox1.TabIndex = 42;
+            this.richTextBox1.Text = "";
+            // 
             // FormulaireEquipments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(875, 572);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.rtbApercuObjets);
             this.Controls.Add(this.rtbApercuArmures);
-            this.Controls.Add(this.rtbApercuArmes);
+            this.Controls.Add(this.rtbAcheterArmes);
             this.Controls.Add(this.lblChrgeMxm);
             this.Controls.Add(this.lblChrgPrtePersonnage);
             this.Controls.Add(this.btnVendreObjets);
@@ -824,8 +835,9 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Button btnAcheterObjets;
         private System.Windows.Forms.Label lblChrgPrtePersonnage;
         private System.Windows.Forms.Label lblChrgeMxm;
-        private System.Windows.Forms.RichTextBox rtbApercuArmes;
+        private System.Windows.Forms.RichTextBox rtbAcheterArmes;
         private System.Windows.Forms.RichTextBox rtbApercuArmures;
         private System.Windows.Forms.RichTextBox rtbApercuObjets;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
