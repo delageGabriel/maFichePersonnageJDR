@@ -426,6 +426,12 @@ namespace maFichePersonnageJDR.Formulaires
             }
         }
 
+        /// <summary>
+        /// Retourne un numericUpDown recherché
+        /// </summary>
+        /// <param name="tagControl">Le tag du numeric à chercher</param>
+        /// <param name="page">la page dans laquelle il se trouve</param>
+        /// <returns></returns>
         public NumericUpDown NumericToReturn(string tagControl, TabPage page)
         {
             NumericUpDown numericUpDown = new NumericUpDown();
@@ -565,7 +571,7 @@ namespace maFichePersonnageJDR.Formulaires
             /// a assez d'argent
             int achatArme = Utils.DeleteMoneyValue(lblTotalDepenseArmes.Text);
             int monnaiePersonnage = int.Parse(string.Format("{0}{1}{2}", nudPo.Value.ToString(), nudPa.Value.ToString(), nudPc.Value.ToString()));
-            int differenceAchat = monnaiePersonnage - achatArme;            
+            int differenceAchat = monnaiePersonnage - achatArme;
 
             // Si c'est pas le cas, on lui dit et on sort de la méthode
             if (differenceAchat < 0)
@@ -586,9 +592,11 @@ namespace maFichePersonnageJDR.Formulaires
                 }
             }
 
+            // On met à jour le poids porté par le personnage et son argent
+            RepartitionMoneyAfterSell(achatArme, monnaiePersonnage);
             MettreAJourPoidsTotal(decimal.Parse(lblPoidsEnPlusArmes.Text));
-            /// Enfin, on met tous les champs textuels à jour
 
+            /// Enfin, on met tous les champs textuels à jour
             // La RichTextBox d'armes
             rtbAcheterArmes.Text = string.Empty;
 
@@ -599,7 +607,128 @@ namespace maFichePersonnageJDR.Formulaires
             lblTotalDepenseArmes.Text = "0";
             lblPoidsEnPlusArmes.Text = "0";
 
+            ResetTabControl(tbCntlArmes);
+        }
 
+        /// <summary>
+        /// Répartit la différence entre l'achat et la monnaie que le joueur possédait
+        /// </summary>
+        /// <param name="priceToPay">le prix à payer</param>
+        /// <param name="moneyPersonnage">l'argent qu'il détenait</param>
+        public void RepartitionMoneyAfterSell(int priceToPay, int moneyPersonnage)
+        {
+            int moneyToGet = moneyPersonnage - priceToPay;
+
+            if (moneyToGet >= 100)
+            {
+                /*
+                 * PLUSIEURS CAS POSSIBLES :
+                 * 100.000 PO
+                 * 10.000 PO
+                 * 1.000 PO
+                 * 100 PO
+                 */
+                if (moneyToGet > 99999)
+                {
+                    // Décorticage de l'or
+                    int valueOrCentaineMillier = (moneyToGet / 100000) % 10;
+                    int valueOrDizaineMillier = (moneyToGet / 10000) % 10;
+                    int valueOrMillier = (moneyToGet / 1000) % 10;
+                    int valueOrCentaine = (moneyToGet / 100) % 10;
+
+                    // Rajout des pièces d'argent et de cuivre
+                    int valueArgent = (moneyToGet / 10) % 10;
+                    int valueCuivre = moneyToGet % 10;
+
+                    string valueOr = string.Format("{0}{1}{2}{3}", valueOrCentaineMillier, valueOrDizaineMillier, valueOrMillier, valueOrCentaine);
+
+                    nudPo.Value = int.Parse(valueOr);
+                    nudPa.Value = valueArgent;
+                    nudPc.Value = valueCuivre;
+                }
+                else if (moneyToGet > 9999)
+                {
+                    // Décorticage de l'or
+                    int valueOrDizaineMillier = (moneyToGet / 10000) % 10;
+                    int valueOrMillier = (moneyToGet / 1000) % 10;
+                    int valueOrCentaine = (moneyToGet / 100) % 10;
+
+                    // Rajout des pièces d'argent et de cuivre
+                    int valueArgent = (moneyToGet / 10) % 10;
+                    int valueCuivre = moneyToGet % 10;
+
+                    string valueOr = string.Format("{0}{1}{2}", valueOrDizaineMillier, valueOrMillier, valueOrCentaine);
+
+                    nudPo.Value = int.Parse(valueOr);
+                    nudPa.Value = valueArgent;
+                    nudPc.Value = valueCuivre;
+                }
+                else if (moneyToGet > 999)
+                {
+                    // Décorticage de l'or
+                    int valueOrMillier = (moneyToGet / 1000) % 10;
+                    int valueOrCentaine = (moneyToGet / 100) % 10;
+
+                    // Rajout des pièces d'argent et de cuivre
+                    int valueArgent = (moneyToGet / 10) % 10;
+                    int valueCuivre = moneyToGet % 10;
+
+                    string valueOr = string.Format("{0}{1}", valueOrMillier, valueOrCentaine);
+
+                    nudPo.Value = int.Parse(valueOr);
+                    nudPa.Value = valueArgent;
+                    nudPc.Value = valueCuivre;
+                }
+                else
+                {
+                    // Décorticage de l'or
+                    int valueOrCentaine = (moneyToGet / 100) % 10;
+
+                    // Rajout des pièces d'argent et de cuivre
+                    int valueArgent = (moneyToGet / 10) % 10;
+                    int valueCuivre = moneyToGet % 10;
+
+                    nudPo.Value = valueOrCentaine;
+                    nudPa.Value = valueArgent;
+                    nudPc.Value = valueCuivre;
+                }
+
+            }
+            else if (moneyToGet >= 10)
+            {
+                int valueArgent = (moneyToGet / 10) % 10;
+                int valueCuivre = moneyToGet % 10;
+
+                nudPa.Value = valueArgent;
+                nudPc.Value = valueCuivre;
+            }
+            else
+            {
+                int valueCuivre = moneyToGet % 10;
+
+                nudPc.Value = valueCuivre;
+            }
+        }
+
+        public void ResetTabControl(TabControl controlToReset)
+        {
+            foreach (TabPage page in controlToReset.TabPages)
+            {
+                foreach (object controls in page.Controls)
+                {
+                    if (controls is CheckBox)
+                    {
+                        CheckBox checkBox = controls as CheckBox;
+                        checkBox.Checked = false;
+                    }
+                    else if(controls is NumericUpDown)
+                    {
+                        NumericUpDown numericUpDown = controls as NumericUpDown;
+                        numericUpDown.Value = 1;
+                        numericUpDown.Enabled = true;
+                    }
+                }
+            }
         }
     }
 }
