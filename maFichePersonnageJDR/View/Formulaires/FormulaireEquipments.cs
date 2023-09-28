@@ -922,23 +922,26 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void btnVendreArmes_Click(object sender, EventArgs e)
         {
-            /// On commence par faire la différence et voir si le personnage
-            /// a assez d'argent
+            #region Initialisation des variables
             int achatArme = Utils.DeleteMoneyValue(lblTotalDepenseArmes.Text);
             int monnaiePersonnage = int.Parse(string.Format("{0}{1}{2}", nudPo.Value.ToString(), nudPa.Value.ToString(), nudPc.Value.ToString()));
+            List<Control> controlsToDelete = new List<Control>();
+            #endregion
 
-            foreach (object controls in pnlVendreArme.Controls)
+            foreach (Control controls in pnlVendreArme.Controls)
             {
-                if (controls is NumericUpDown)
+                if (controls is NumericUpDown && (controls as NumericUpDown).Value >= 1)
                 {
                     NumericUpDown numericUpDown = controls as NumericUpDown;
-
-                    if (numericUpDown.Value >= 1)
-                    {
-                        EquipmentController.SellArmes(EquipmentController.GetIdArmeByName(numericUpDown.Tag.ToString()), IdPersonnage);
-                        Utils.DeleteControlsFromPanelByTag(numericUpDown.Tag.ToString(), pnlVendreArme);
-                    }
+                    EquipmentController.SellArmes(EquipmentController.GetIdArmeByName(numericUpDown.Tag.ToString()), IdPersonnage);
+                    controlsToDelete.Add(numericUpDown);
                 }
+            }
+
+            // Supprimer les contrôles après l'itération principale
+            foreach (Control control in controlsToDelete)
+            {
+                Utils.DeleteControlsFromPanelByTag(control.Tag?.ToString(), pnlVendreArme);
             }
 
             // On met à jour le poids porté par le personnage et son argent

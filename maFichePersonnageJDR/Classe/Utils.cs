@@ -213,12 +213,21 @@ namespace maFichePersonnageJDR.Classe
         /// <param name="panel"></param>
         public static void DeleteControlsFromPanelByTag(string tagControl, Panel panel)
         {
-            foreach (Control controls in panel.Controls)
+            List<Control> controlsToRemove = new List<Control>();
+
+            foreach (Control control in panel.Controls)
             {
-                if((string)controls.Tag == tagControl)
+                if (control.Tag != null && control.Tag.ToString() == tagControl)
                 {
-                    panel.Controls.Remove(controls);
+                    controlsToRemove.Add(control);
                 }
+            }
+
+            // Retirer les contrôles du Panel après l'itération
+            foreach (Control control in controlsToRemove)
+            {
+                panel.Controls.Remove(control);
+                control.Dispose();
             }
         }
     }
