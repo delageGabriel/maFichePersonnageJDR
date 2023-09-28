@@ -331,5 +331,110 @@ namespace maFichePersonnageJDR.Model
             }
         }
 
+        /// <summary>
+        /// Supprime une arme de l'inventaire du personnage
+        /// </summary>
+        /// <param name="idArme"></param>
+        public void DeleteFromInventairePersonnage(int idArmure, int idPersonnage)
+        {
+            try
+            {
+                // Commande
+                SQLiteCommand command = new SQLiteCommand(string.Format("DELETE FROM INVENTAIRE_ARMURES_PERSONNAGES WHERE id_armure = {0} AND id_personnage = {1}",
+                    idArmure, idPersonnage), DatabaseConnection.Instance.GetConnection());
+
+                int rowsAffected = command.ExecuteNonQuery();
+            }
+            catch (SQLiteException e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public List<string> GetArmuresNameQuantityValueInInventaire(int idPersonnage)
+        {
+            List<string> nomArmures = new List<string>();
+            List<string> valeurArmures = new List<string>();
+            List<string> quantiteArmures = new List<string>();
+            List<string> listToReturn = new List<string>();
+
+            try
+            {
+                // Commande
+                SQLiteCommand command = new SQLiteCommand(string.Format("SELECT ARMURES.nom_armure, INVENTAIRE_ARMURES_PERSONNAGES.quantite, ARMURES.valeur_armure " +
+                    "FROM ARMURES " +
+                    "INNER JOIN INVENTAIRE_ARMURES_PERSONNAGES ON ARMURES.id_armure = INVENTAIRE_ARMURES_PERSONNAGES.id_armure " +
+                    "WHERE INVENTAIRE_ARMURES_PERSONNAGES.id_personnage = @idPersonnage"), DatabaseConnection.Instance.GetConnection());
+                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
+
+                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
+                        string name = reader["nom_armure"].ToString();
+                        string quantite = reader["quantite"].ToString();
+                        string valeur = reader["valeur_armure"].ToString();
+
+                        nomArmures.Add(name);
+                        quantiteArmures.Add(quantite);
+                        valeurArmures.Add(valeur);
+                    }
+                }
+
+                for (int i = 0; i < nomArmures.Count; i++)
+                {
+                    listToReturn.Add(nomArmures[i] + ", " + quantiteArmures[i] + ", " + valeurArmures[i]);
+                }
+
+                return listToReturn;
+            }
+            catch (SQLiteException e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public decimal GetPoidsTotalArmure(int idPersonnage)
+        {
+            decimal poidsTotal = 0;
+
+            try
+            {
+                // Commande
+                SQLiteCommand command = new SQLiteCommand(string.Format("SELECT SUM(ARMURES.poids_armure * INVENTAIRE_ARMURES_PERSONNAGES.quantite) as poids_total " +
+                    "FROM ARMURES " +
+                    "INNER JOIN INVENTAIRE_ARMURES_PERSONNAGES ON ARMURES.id_armure = INVENTAIRE_ARMURES_PERSONNAGES.id_armure " +
+                    "WHERE INVENTAIRE_ARMURES_PERSONNAGES.id_personnage = @idPersonnage"), DatabaseConnection.Instance.GetConnection());
+                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        // Supposons que reader est votre objet SqlDataReader
+                        poidsTotal = Convert.ToDecimal(reader["poids_total"] is DBNull ? 0 : reader["poids_total"]);
+                    }
+                }
+
+                return poidsTotal;
+            }
+            catch (SQLiteException e)
+            {
+                throw e;
+            }
+        }
     }
 }

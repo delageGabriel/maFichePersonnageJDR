@@ -295,26 +295,113 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         public void checkBoxArmure_Click(object sender, EventArgs e)
         {
+            #region Initialisation des variables
             CheckBox checkBox = sender as CheckBox;
             string nomArmure = checkBox.Name.Substring(4);
             string armure = EquipmentController.GetArmureByName(nomArmure);
-            int qteReturn = QuantityToReturn(nomArmure, (TabPage)checkBox.Parent);
+
+            int qteReturn = QuantityToReturn(nomArmure, checkBox.Parent);
+            #endregion
 
             armure += qteReturn.ToString();
 
             if (checkBox.Checked)
             {
-                // FR : Devrait ajouter le texte
-                // EN : Should append text
-                rTxtBxArmures.AppendText(armure + Environment.NewLine);
-                int valeur = int.Parse(lblTotalDepenseArmures.Text) + (EquipmentController.GetArmureValueByName(nomArmure) * qteReturn);
-                double poids = double.Parse(lblPoidsEnPlusArmures.Text) + (EquipmentController.GetArmureWeightByName(nomArmure) * qteReturn);
+                try
+                {
 
-                lblTotalDepenseArmures.Text = Utils.ConvertMoneyWithValue(valeur);
-                lblPoidsEnPlusArmures.Text = poids.ToString();
+                    int valeur = Utils.DeleteMoneyValue(lblTotalDepenseArmures.Text) + (EquipmentController.GetArmureValueByName(nomArmure) * qteReturn);
+                    double poids = double.Parse(lblPoidsEnPlusArmures.Text) + (EquipmentController.GetArmureWeightByName(nomArmure) * qteReturn);
+                    rTxtBxArmures.AppendText(armure + Environment.NewLine);
+
+                    lblTotalDepenseArmures.Text = Utils.ConvertMoneyWithValue(valeur);
+                    lblPoidsEnPlusArmures.Text = poids.ToString();
+
+                    rtbAcheterArmures.AppendText(nomArmure + ",  Quantité:" + qteReturn + Environment.NewLine);
+                    NumericToReturn(nomArmure, checkBox.Parent).Enabled = false;
+                }
+                catch (System.FormatException ex)
+                {
+                    // Gérez l'exception ici (par exemple, en l'enregistrant dans un journal)
+                    Console.WriteLine("Erreur de format : " + ex.Message);
+                }
             }
             else
             {
+                int valeur = Utils.DeleteMoneyValue(lblTotalDepenseArmures.Text) - (EquipmentController.GetArmureValueByName(nomArmure) * qteReturn);
+                decimal poids = decimal.Parse(lblPoidsEnPlusArmures.Text) - Convert.ToDecimal(EquipmentController.GetArmureWeightByName(nomArmure) * qteReturn);
+
+                lblTotalDepenseArmures.Text = Utils.ConvertMoneyWithValue(valeur);
+                lblPoidsEnPlusArmures.Text = poids.ToString();
+
+                // FR : Récupération de l'index de la ligne à supprimer
+                // EN : Retrieve the index of the line to be deleted
+                int indexToDelete = Utils.GetLineNumberToDelete(armure, rTxtBxArmures);
+                int indexToDeleteApercuArme = Utils.GetLineNumberToDelete(nomArmure, rtbAcheterArmures);
+
+                // FR : On récupère toutes les lignes sous la forme d'une liste
+                // EN : All rows are retrieved in the form of a list
+                List<string> lines = new List<string>(rTxtBxArmures.Lines);
+                List<string> linesApercuArmures = new List<string>(rtbAcheterArmures.Lines);
+
+                // FR : On supprime la ligne où l'on a trouvé le texte correspondant
+                // EN : On supprime la ligne où l'on a trouvé le texte correspondan
+                lines.RemoveAt(indexToDelete);
+                linesApercuArmures.RemoveAt(indexToDeleteApercuArme);
+
+                // FR : On réattribue les nouvelles lignes à celles de la RichTextBox
+                // EN : Reassign the new lines to those in the RichTextBox
+                rTxtBxArmures.Lines = lines.ToArray();
+                rtbAcheterArmures.Lines = linesApercuArmures.ToArray();
+                NumericToReturn(nomArmure, checkBox.Parent).Enabled = true;
+            }
+        }
+
+        /// <summary>
+        /// Checkbox pour ajouter ou retirer une arme
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void checkBoxVendreArmure_Click(object sender, EventArgs e)
+        {
+            #region Initialisation des variables
+            CheckBox checkBox = sender as CheckBox;
+            string nomArmure = checkBox.Name.Substring(4);
+            string armure = EquipmentController.GetArmureByName(nomArmure);
+
+            int qteReturn = QuantityToReturn(nomArmure, checkBox.Parent);
+            #endregion
+
+            armure += qteReturn.ToString();
+
+            if (checkBox.Checked)
+            {
+                try
+                {
+
+                    int valeur = Utils.DeleteMoneyValue(lblTotalDepenseArmures.Text) + (EquipmentController.GetArmureValueByName(nomArmure) * qteReturn);
+                    double poids = double.Parse(lblPoidsEnPlusArmures.Text) + (EquipmentController.GetArmureWeightByName(nomArmure) * qteReturn);
+                    rTxtBxArmures.AppendText(armure + Environment.NewLine);
+
+                    lblTotalDepenseArmures.Text = Utils.ConvertMoneyWithValue(valeur);
+                    lblPoidsEnPlusArmures.Text = poids.ToString();
+
+                    NumericToReturn(nomArmure, checkBox.Parent).Enabled = false;
+                }
+                catch (System.FormatException ex)
+                {
+                    // Gérez l'exception ici (par exemple, en l'enregistrant dans un journal)
+                    Console.WriteLine("Erreur de format : " + ex.Message);
+                }
+            }
+            else
+            {
+                int valeur = Utils.DeleteMoneyValue(lblTotalDepenseArmures.Text) - (EquipmentController.GetArmureValueByName(nomArmure) * qteReturn);
+                double poids = double.Parse(lblPoidsEnPlusArmures.Text) - (EquipmentController.GetArmureWeightByName(nomArmure) * qteReturn);
+
+                lblTotalDepenseArmures.Text = Utils.ConvertMoneyWithValue(valeur);
+                lblPoidsEnPlusArmures.Text = poids.ToString();
+
                 // FR : Récupération de l'index de la ligne à supprimer
                 // EN : Retrieve the index of the line to be deleted
                 int indexToDelete = Utils.GetLineNumberToDelete(armure, rTxtBxArmures);
@@ -330,6 +417,7 @@ namespace maFichePersonnageJDR.Formulaires
                 // FR : On réattribue les nouvelles lignes à celles de la RichTextBox
                 // EN : Reassign the new lines to those in the RichTextBox
                 rTxtBxArmures.Lines = lines.ToArray();
+                NumericToReturn(nomArmure, checkBox.Parent).Enabled = true;
             }
         }
 
@@ -426,6 +514,7 @@ namespace maFichePersonnageJDR.Formulaires
             }
         }
 
+        
         /// <summary>
         /// 
         /// </summary>
@@ -451,6 +540,29 @@ namespace maFichePersonnageJDR.Formulaires
                         page.Controls.Add(checkBox);
                         y += 25;
                     }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Créez les checkbox associées aux attributs
+        /// </summary>
+        public void CreateCheckBoxVendreArmures()
+        {
+            // A chaque linklabel on ajoute une checkbox
+            foreach (object controls in pnlVendreArmure.Controls)
+            {
+                if (controls is Label)
+                {
+                    Label label = controls as Label;
+
+                    CheckBox checkBox = new CheckBox();
+                    checkBox.Location = new Point(5 + pnlVendreArmure.AutoScrollPosition.X, label.Location.Y + pnlVendreArmure.AutoScrollPosition.Y);
+                    checkBox.Name = ("chck" + label.Tag.ToString());
+                    checkBox.Click += checkBoxVendreArmure_Click;
+                    checkBox.Tag = label.Tag.ToString();
+
+                    pnlVendreArmure.Controls.Add(checkBox);
                 }
             }
         }
@@ -669,7 +781,7 @@ namespace maFichePersonnageJDR.Formulaires
         private void MettreAJourPoidsTotal()
         {
             decimal poidsTotal = (QuantiteOr * 0.115m) + (QuantiteArgent * 0.0783m) + (QuantiteCuivre * 0.0402m);
-            poidsTotal += Controller.EquipmentController.GetPoidsTotalArmeTransportees(IdPersonnage);
+            poidsTotal += Controller.EquipmentController.GetPoidsTotalArmeTransportees(IdPersonnage) + EquipmentController.GetPoidsTotalArmureTransportees(IdPersonnage);
             lblChrgPrtePersonnage.Text = poidsTotal.ToString("0.##") + " kg";
         }
 
@@ -779,7 +891,6 @@ namespace maFichePersonnageJDR.Formulaires
             else
                 moneyToGet = moneyPersonnage + price;
 
-
             if (moneyToGet >= 100)
             {
                 /*
@@ -869,10 +980,6 @@ namespace maFichePersonnageJDR.Formulaires
 
                 nudPc.Value = valueCuivre;
             }
-
-            nudPo_ValueChanged(nudPo, EventArgs.Empty);
-            nudPa_ValueChanged(nudPa, EventArgs.Empty);
-            nudPc_ValueChanged(nudPc, EventArgs.Empty);
         }
 
         public void ResetTabControl(TabControl controlToReset)
@@ -916,7 +1023,7 @@ namespace maFichePersonnageJDR.Formulaires
         }
 
         /// <summary>
-        /// 
+        /// Vendre une arme
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -953,6 +1060,120 @@ namespace maFichePersonnageJDR.Formulaires
             // Les labels poids et dépenses monnétaire
             lblTotalDepenseArmes.Text = "0";
             lblPoidsEnPlusArmes.Text = "0";
+        }
+
+        private void rtbApercuArmures_TextChanged(object sender, EventArgs e)
+        {
+            RichTextBox richTextBox = sender as RichTextBox;
+
+            if (richTextBox.Lines.Length > 0)
+            {
+                btnAcheterArmures.Enabled = true;
+            }
+            else
+            {
+                btnAcheterArmures.Enabled = false;
+            }
+        }
+
+        private void btnAcheterArmures_Click(object sender, EventArgs e)
+        {
+            /// On commence par faire la différence et voir si le personnage
+            /// a assez d'argent
+            int achatArmure = Utils.DeleteMoneyValue(lblTotalDepenseArmures.Text);
+            int monnaiePersonnage = int.Parse(string.Format("{0}{1}{2}", nudPo.Value.ToString(), nudPa.Value.ToString(), nudPc.Value.ToString()));
+            int differenceAchat = monnaiePersonnage - achatArmure;
+
+            // Si c'est pas le cas, on lui dit et on sort de la méthode
+            if (differenceAchat < 0)
+            {
+                MessageBox.Show("Pas assez de monnaie !");
+                return;
+            }
+
+            // Ensuite on parcourt la liste des armes achetées
+            // pour les ajouter à l'inventaire d'armes du personnage
+            foreach (string line in rTxtBxArmures.Lines)
+            {
+                if (!String.IsNullOrEmpty(line))
+                {
+                    string[] substring = line.Split(';');
+                    EquipmentController.AddNewArmureToPersonnage(Convert.ToInt32(substring[0]),
+                    IdPersonnage, Convert.ToInt32(substring[1]));
+                }
+            }
+
+            // On met à jour le poids porté par le personnage et son argent
+            RepartitionMoneyAfterBuyOrSell(achatArmure, monnaiePersonnage, "Buy");
+
+            /// Enfin, on met tous les champs textuels à jour
+            // La RichTextBox d'armes
+            rtbAcheterArmures.Text = string.Empty;
+
+            // La RichTextBox qui contient les ID à rajouter en base
+            rTxtBxArmures.Text = string.Empty;
+
+            // Les labels poids et dépenses monnétaire
+            lblTotalDepenseArmures.Text = "0";
+            lblPoidsEnPlusArmures.Text = "0";
+
+            ResetTabControl(tbCntlArmures);
+            Controller.EquipmentController.GetArmuresInInventairePersonnage(pnlVendreArmure, IdPersonnage);
+            CreateCheckBoxVendreArmures();
+        }
+
+        private void pnlVendreArmure_ControlAdded(object sender, ControlEventArgs e)
+        {
+            Panel panel = sender as Panel;
+
+            if (panel.Controls.Count > 0)
+            {
+                btnVendreArmures.Enabled = true;
+            }
+            else
+            {
+                btnVendreArmures.Enabled = false;
+            }
+        }
+
+        /// <summary>
+        /// Vendre une armure
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnVendreArmures_Click(object sender, EventArgs e)
+        {
+            #region Initialisation des variables
+            int achatArmure = Utils.DeleteMoneyValue(lblTotalDepenseArmures.Text);
+            int monnaiePersonnage = int.Parse(string.Format("{0}{1}{2}", nudPo.Value.ToString(), nudPa.Value.ToString(), nudPc.Value.ToString()));
+            List<Control> controlsToDelete = new List<Control>();
+            #endregion
+
+            foreach (Control controls in pnlVendreArmure.Controls)
+            {
+                if (controls is NumericUpDown && (controls as NumericUpDown).Value >= 1)
+                {
+                    NumericUpDown numericUpDown = controls as NumericUpDown;
+                    EquipmentController.SellArmures(EquipmentController.GetIdArmureByName(numericUpDown.Tag.ToString()), IdPersonnage);
+                    controlsToDelete.Add(numericUpDown);
+                }
+            }
+
+            // Supprimer les contrôles après l'itération principale
+            foreach (Control control in controlsToDelete)
+            {
+                Utils.DeleteControlsFromPanelByTag(control.Tag?.ToString(), pnlVendreArmure);
+            }
+
+            // On met à jour le poids porté par le personnage et son argent
+            RepartitionMoneyAfterBuyOrSell(achatArmure, monnaiePersonnage, "Sell");
+
+            // La RichTextBox qui contient les ID à rajouter en base
+            rTxtBxArmures.Text = string.Empty;
+
+            // Les labels poids et dépenses monnétaire
+            lblTotalDepenseArmures.Text = "0";
+            lblPoidsEnPlusArmures.Text = "0";
         }
     }
 }

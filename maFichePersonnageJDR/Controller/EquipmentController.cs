@@ -87,10 +87,14 @@ namespace maFichePersonnageJDR.Controller
             }
         }
 
+        /// <summary>
+        /// Permet d'avoir la liste des armes que le personnage possède dans son inventaire
+        /// </summary>
+        /// <param name="panel"></param>
+        /// <param name="idPersonnage"></param>
         public static void GetArmesInInventairePersonnage(Panel panel, int idPersonnage)
         {
             Console.WriteLine(string.Format("########### Méthode GetArmesInInventairePersonnage — Personnage : {0} ###########", idPersonnage.ToString()));
-            FormulaireEquipments formulaireEquipments = new FormulaireEquipments();
             InventaireArmesPersonnagesModel armesModel = new InventaireArmesPersonnagesModel();
 
             try
@@ -186,15 +190,66 @@ namespace maFichePersonnageJDR.Controller
                         linkLabel.Location = new Point(x + 25, y);
                         linkLabel.AutoSize = true;
                         linkLabel.LinkClicked += formulaireEquipments.linkLabelArmure_LinkClicked;
+                        linkLabel.Tag = armure.NomArmure;
 
                         NumericUpDown numericUpDown = new NumericUpDown();
                         numericUpDown.Location = new Point(x + (linkLabel.Width + 25), y - 3);
                         numericUpDown.Maximum = 99;
                         numericUpDown.Minimum = 1;
                         numericUpDown.Width = 40;
+                        numericUpDown.Tag = armure.NomArmure;
 
                         controlParent.TabPages[indexOfTabPage].Controls.Add(linkLabel);
                         controlParent.TabPages[indexOfTabPage].Controls.Add(numericUpDown);
+
+                        y += 25;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Permet d'avoir la liste des armes que le personnage possède dans son inventaire
+        /// </summary>
+        /// <param name="panel"></param>
+        /// <param name="idPersonnage"></param>
+        public static void GetArmuresInInventairePersonnage(Panel panel, int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetArmuresInInventairePersonnage — Personnage : {0} ###########", idPersonnage.ToString()));
+            InventaireArmuresPersonnageModel armuresModel = new InventaireArmuresPersonnageModel();
+
+            try
+            {
+                List<string> armuresAVendre = armuresModel.GetArmuresNameQuantityValueInInventaire(idPersonnage);
+
+                if (armuresAVendre != null)
+                {
+                    int y = 10;
+
+                    foreach (string armure in armuresAVendre)
+                    {
+                        string[] substring = armure.Split(',');
+
+                        Label name = new Label();
+                        name.Name = "lbl" + substring[0];
+                        name.Text = substring[0];
+                        name.Location = new Point(30 + panel.AutoScrollPosition.X, y + panel.AutoScrollPosition.Y);
+                        name.Tag = substring[0];
+
+                        NumericUpDown numeric = new NumericUpDown();
+                        numeric.Name = "nud" + substring[0];
+                        numeric.Minimum = 0;
+                        numeric.Maximum = int.Parse(substring[1]);
+                        numeric.Location = new Point(30 + name.Width + panel.AutoScrollPosition.X, y + panel.AutoScrollPosition.Y);
+                        numeric.Width = 40;
+                        numeric.Tag = substring[0];
+
+                        panel.Controls.Add(name);
+                        panel.Controls.Add(numeric);
 
                         y += 25;
                     }
@@ -1248,6 +1303,32 @@ namespace maFichePersonnageJDR.Controller
             }
         }
 
+        /// <summary>
+        /// Méthode qui permet de supprimer une armure de l'inventaire du personnage
+        /// </summary>
+        /// <param name="idArme"></param>
+        public static void SellArmures(int idArmure, int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode SellArmures — Armure supprimée : ID : {0} ###########", idArmure));
+
+            InventaireArmuresPersonnageModel inventaireArmuresPersonnage = new InventaireArmuresPersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                inventaireArmuresPersonnage.DeleteFromInventairePersonnage(idArmure, idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Méthode qui renvoie le poids total d'armes que le personnage porte sur lui
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
         public static decimal GetPoidsTotalArmeTransportees(int idPersonnage)
         {
             Console.WriteLine(string.Format("########### Méthode GetPoidsTotalArmeTransportees — Personnage id : ID : {0} ###########", idPersonnage));
@@ -1258,6 +1339,28 @@ namespace maFichePersonnageJDR.Controller
             {
                 // On envoie les informations du personnage à sauvegarder
                 return inventaireArmesPersonnages.GetPoidsTotalArme(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Méthode qui renvoie le poids total d'armes que le personnage porte sur lui
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static decimal GetPoidsTotalArmureTransportees(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetPoidsTotalArmureTransportees — Personnage id : ID : {0} ###########", idPersonnage));
+
+            InventaireArmuresPersonnageModel inventaireArmuresPersonnage = new InventaireArmuresPersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return inventaireArmuresPersonnage.GetPoidsTotalArmure(idPersonnage);
             }
             catch (Exception e)
             {
