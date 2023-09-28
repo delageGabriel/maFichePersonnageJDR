@@ -87,6 +87,51 @@ namespace maFichePersonnageJDR.Controller
             }
         }
 
+        public static void GetArmesInInventairePersonnage(Panel panel, int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetArmesInInventairePersonnage — Personnage : {0} ###########", idPersonnage.ToString()));
+            FormulaireEquipments formulaireEquipments = new FormulaireEquipments();
+            InventaireArmesPersonnagesModel armesModel = new InventaireArmesPersonnagesModel();
+
+            try
+            {
+                List<string> armesAVendre = armesModel.GetArmesNameQuantityValueInInventaire(idPersonnage);
+
+                if (armesAVendre != null)
+                {
+                    int y = 10;
+
+                    foreach (string arme in armesAVendre)
+                    {
+                        string[] substring = arme.Split(',');
+
+                        Label name = new Label();
+                        name.Name = "lbl" + substring[0];
+                        name.Text = substring[0];
+                        name.Location = new Point(30 + panel.AutoScrollPosition.X, y + panel.AutoScrollPosition.Y);
+                        name.Tag = substring[0];
+
+                        NumericUpDown numeric = new NumericUpDown();
+                        numeric.Name = "nud" + substring[0];
+                        numeric.Minimum = 0;
+                        numeric.Maximum = int.Parse(substring[1]);
+                        numeric.Location = new Point(30 + name.Width + panel.AutoScrollPosition.X, y + panel.AutoScrollPosition.Y);
+                        numeric.Width = 40;
+                        numeric.Tag = substring[0];
+
+                        panel.Controls.Add(name);
+                        panel.Controls.Add(numeric);
+
+                        y += 25;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         /// <summary>
         /// Méthode qui se connecte à la base de données pour trouver toutes les armures et les ajouter
         /// à chaque pages du TabControl parent en fonction du type de l'armure
@@ -1175,6 +1220,44 @@ namespace maFichePersonnageJDR.Controller
             {
                 // On envoie les informations du personnage à sauvegarder
                 return inventaireObjetsPersonnages.GetListSpecialObjets(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Méthode qui permet de supprimer une arme de l'inventaire du personnage
+        /// </summary>
+        /// <param name="idArme"></param>
+        public static void SellArmes(int idArme, int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode SellArmes — Arme supprimée : ID : {0} ###########", idArme));
+
+            InventaireArmesPersonnagesModel inventaireObjetsPersonnages = new InventaireArmesPersonnagesModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                inventaireObjetsPersonnages.DeleteFromInventairePersonnage(idArme, idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static decimal GetPoidsTotalArmeTransportees(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetPoidsTotalArmeTransportees — Personnage id : ID : {0} ###########", idPersonnage));
+
+            InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return inventaireArmesPersonnages.GetPoidsTotalArme(idPersonnage);
             }
             catch (Exception e)
             {

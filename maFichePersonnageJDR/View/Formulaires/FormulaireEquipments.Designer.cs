@@ -88,7 +88,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.rtbAcheterArmes = new System.Windows.Forms.RichTextBox();
             this.rtbApercuArmures = new System.Windows.Forms.RichTextBox();
             this.rtbApercuObjets = new System.Windows.Forms.RichTextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.pnlVendreArme = new System.Windows.Forms.Panel();
             this.tbCntlArmes.SuspendLayout();
             this.tbCntlArmures.SuspendLayout();
             this.tbCntlObjets.SuspendLayout();
@@ -484,9 +484,9 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblTotalArmes.Location = new System.Drawing.Point(53, 210);
             this.lblTotalArmes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalArmes.Name = "lblTotalArmes";
-            this.lblTotalArmes.Size = new System.Drawing.Size(100, 16);
+            this.lblTotalArmes.Size = new System.Drawing.Size(36, 16);
             this.lblTotalArmes.TabIndex = 19;
-            this.lblTotalArmes.Text = "Total à dépenser";
+            this.lblTotalArmes.Text = "Total";
             // 
             // lblPoidsTotalArmes
             // 
@@ -495,9 +495,9 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblPoidsTotalArmes.Location = new System.Drawing.Point(157, 210);
             this.lblPoidsTotalArmes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPoidsTotalArmes.Name = "lblPoidsTotalArmes";
-            this.lblPoidsTotalArmes.Size = new System.Drawing.Size(67, 16);
+            this.lblPoidsTotalArmes.Size = new System.Drawing.Size(166, 16);
             this.lblPoidsTotalArmes.TabIndex = 20;
-            this.lblPoidsTotalArmes.Text = "Poids total";
+            this.lblPoidsTotalArmes.Text = "Poids (en plus ou en moins)";
             // 
             // lblTotalDepenseArmes
             // 
@@ -606,7 +606,7 @@ namespace maFichePersonnageJDR.Formulaires
             // btnAcheterArmes
             // 
             this.btnAcheterArmes.Enabled = false;
-            this.btnAcheterArmes.Location = new System.Drawing.Point(38, 257);
+            this.btnAcheterArmes.Location = new System.Drawing.Point(50, 394);
             this.btnAcheterArmes.Name = "btnAcheterArmes";
             this.btnAcheterArmes.Size = new System.Drawing.Size(75, 23);
             this.btnAcheterArmes.TabIndex = 31;
@@ -617,12 +617,13 @@ namespace maFichePersonnageJDR.Formulaires
             // btnVendreArmes
             // 
             this.btnVendreArmes.Enabled = false;
-            this.btnVendreArmes.Location = new System.Drawing.Point(168, 257);
+            this.btnVendreArmes.Location = new System.Drawing.Point(192, 394);
             this.btnVendreArmes.Name = "btnVendreArmes";
             this.btnVendreArmes.Size = new System.Drawing.Size(75, 23);
             this.btnVendreArmes.TabIndex = 32;
             this.btnVendreArmes.Text = "Vendre";
             this.btnVendreArmes.UseVisualStyleBackColor = true;
+            this.btnVendreArmes.Click += new System.EventHandler(this.btnVendreArmes_Click);
             // 
             // btnVendreArmures
             // 
@@ -684,9 +685,9 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // rtbAcheterArmes
             // 
-            this.rtbAcheterArmes.Location = new System.Drawing.Point(23, 286);
+            this.rtbAcheterArmes.Location = new System.Drawing.Point(16, 264);
             this.rtbAcheterArmes.Name = "rtbAcheterArmes";
-            this.rtbAcheterArmes.Size = new System.Drawing.Size(100, 96);
+            this.rtbAcheterArmes.Size = new System.Drawing.Size(109, 118);
             this.rtbAcheterArmes.TabIndex = 39;
             this.rtbAcheterArmes.Text = "";
             this.rtbAcheterArmes.TextChanged += new System.EventHandler(this.rtbAcheterArmes_TextChanged);
@@ -707,13 +708,16 @@ namespace maFichePersonnageJDR.Formulaires
             this.rtbApercuObjets.TabIndex = 41;
             this.rtbApercuObjets.Text = "";
             // 
-            // richTextBox1
+            // pnlVendreArme
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(151, 286);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(106, 96);
-            this.richTextBox1.TabIndex = 42;
-            this.richTextBox1.Text = "";
+            this.pnlVendreArme.AutoScroll = true;
+            this.pnlVendreArme.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pnlVendreArme.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlVendreArme.Location = new System.Drawing.Point(140, 264);
+            this.pnlVendreArme.Name = "pnlVendreArme";
+            this.pnlVendreArme.Size = new System.Drawing.Size(183, 118);
+            this.pnlVendreArme.TabIndex = 42;
+            this.pnlVendreArme.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnlVendreArme_ControlAdded);
             // 
             // FormulaireEquipments
             // 
@@ -721,7 +725,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(875, 572);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.pnlVendreArme);
             this.Controls.Add(this.rtbApercuObjets);
             this.Controls.Add(this.rtbApercuArmures);
             this.Controls.Add(this.rtbAcheterArmes);
@@ -839,6 +843,6 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.RichTextBox rtbAcheterArmes;
         private System.Windows.Forms.RichTextBox rtbApercuArmures;
         private System.Windows.Forms.RichTextBox rtbApercuObjets;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Panel pnlVendreArme;
     }
 }

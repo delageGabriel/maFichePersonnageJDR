@@ -161,11 +161,15 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         public void checkBoxArme_Click(object sender, EventArgs e)
         {
+            #region Initialisation des variables
             CheckBox checkBox = sender as CheckBox;
             string nomArme = checkBox.Name.Substring(4);
             string idArme = EquipmentController.GetArmeIdByName(nomArme);
-            int qteReturn = QuantityToReturn(nomArme, (TabPage)checkBox.Parent);
 
+            int qteReturn = QuantityToReturn(nomArme, checkBox.Parent);
+            #endregion
+
+            // On rajoute la quantité à passer dans l'inventaire
             idArme += qteReturn.ToString();
 
             if (checkBox.Checked)
@@ -180,7 +184,7 @@ namespace maFichePersonnageJDR.Formulaires
                     lblPoidsEnPlusArmes.Text = poids.ToString();
 
                     rtbAcheterArmes.AppendText(nomArme + ", Quantité:" + qteReturn + Environment.NewLine);
-                    NumericToReturn(nomArme, (TabPage)checkBox.Parent).Enabled = false;
+                    NumericToReturn(nomArme, checkBox.Parent).Enabled = false;
                 }
                 catch (System.FormatException ex)
                 {
@@ -215,7 +219,72 @@ namespace maFichePersonnageJDR.Formulaires
                 // EN : Reassign the new lines to those in the RichTextBox
                 rTxtBxArmes.Lines = lines.ToArray();
                 rtbAcheterArmes.Lines = linesApercuArmes.ToArray();
-                NumericToReturn(nomArme, (TabPage)checkBox.Parent).Enabled = true;
+                NumericToReturn(nomArme, checkBox.Parent).Enabled = true;
+            }
+        }
+
+        /// <summary>
+        /// Checkbox pour ajouter ou retirer une arme
+        /// à vendre
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void checkBoxVendreArme_Click(object sender, EventArgs e)
+        {
+            #region Initialisation des variables
+            CheckBox checkBox = sender as CheckBox;
+            string nomArme = checkBox.Name.Substring(4);
+            string idArme = EquipmentController.GetArmeIdByName(nomArme);
+
+            int qteReturn = QuantityToReturn(nomArme, checkBox.Parent);
+            #endregion
+
+            // On rajoute la quantité à passer dans l'inventaire
+            idArme += qteReturn.ToString();
+
+            if (checkBox.Checked)
+            {
+                try
+                {
+                    int valeur = Utils.DeleteMoneyValue(lblTotalDepenseArmes.Text) + (EquipmentController.GetArmeValueByName(nomArme) * qteReturn);
+                    double poids = double.Parse(lblPoidsEnPlusArmes.Text) + (EquipmentController.GetArmeWeightByName(nomArme) * qteReturn);
+                    rTxtBxArmes.AppendText(idArme + Environment.NewLine);
+
+                    lblTotalDepenseArmes.Text = Utils.ConvertMoneyWithValue(valeur);
+                    lblPoidsEnPlusArmes.Text = poids.ToString();
+
+                    NumericToReturn(nomArme, checkBox.Parent).Enabled = false;
+                }
+                catch (System.FormatException ex)
+                {
+                    // Gérez l'exception ici (par exemple, en l'enregistrant dans un journal)
+                    Console.WriteLine("Erreur de format : " + ex.Message);
+                }
+            }
+            else
+            {
+                int valeur = Utils.DeleteMoneyValue(lblTotalDepenseArmes.Text) - (EquipmentController.GetArmeValueByName(nomArme) * qteReturn);
+                double poids = double.Parse(lblPoidsEnPlusArmes.Text) - (EquipmentController.GetArmeWeightByName(nomArme) * qteReturn);
+
+                lblTotalDepenseArmes.Text = Utils.ConvertMoneyWithValue(valeur);
+                lblPoidsEnPlusArmes.Text = poids.ToString();
+
+                // FR : Récupération de l'index de la ligne à supprimer
+                // EN : Retrieve the index of the line to be deleted
+                int indexToDelete = Utils.GetLineNumberToDelete(idArme, rTxtBxArmes);
+
+                // FR : On récupère toutes les lignes sous la forme d'une liste
+                // EN : All rows are retrieved in the form of a list
+                List<string> lines = new List<string>(rTxtBxArmes.Lines);
+
+                // FR : On supprime la ligne où l'on a trouvé le texte correspondant
+                // EN : On supprime la ligne où l'on a trouvé le texte correspondan
+                lines.RemoveAt(indexToDelete);
+
+                // FR : On réattribue les nouvelles lignes à celles de la RichTextBox
+                // EN : Reassign the new lines to those in the RichTextBox
+                rTxtBxArmes.Lines = lines.ToArray();
+                NumericToReturn(nomArme, checkBox.Parent).Enabled = true;
             }
         }
 
@@ -335,6 +404,29 @@ namespace maFichePersonnageJDR.Formulaires
         }
 
         /// <summary>
+        /// Créez les checkbox associées aux attributs
+        /// </summary>
+        public void CreateCheckBoxVendreArmes()
+        {
+            // A chaque linklabel on ajoute une checkbox
+            foreach (object controls in pnlVendreArme.Controls)
+            {
+                if (controls is Label)
+                {
+                    Label label = controls as Label;
+
+                    CheckBox checkBox = new CheckBox();
+                    checkBox.Location = new Point(5 + pnlVendreArme.AutoScrollPosition.X, label.Location.Y + pnlVendreArme.AutoScrollPosition.Y);
+                    checkBox.Name = ("chck" + label.Tag.ToString());
+                    checkBox.Click += checkBoxVendreArme_Click;
+                    checkBox.Tag = label.Tag.ToString();
+
+                    pnlVendreArme.Controls.Add(checkBox);
+                }
+            }
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         public void CreateCheckBoxArmures()
@@ -398,22 +490,45 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="tagControl">le tag qui permet d'identifier</param>
         /// <param name="page"></param>
         /// <returns></returns>
-        public int QuantityToReturn(string tagControl, TabPage page)
+        public int QuantityToReturn(string tagControl, object parent)
         {
             // Variable quantité à retourner
             int value = 1;
 
             try
             {
-                foreach (object control in page.Controls)
+                if (parent is TabPage)
                 {
-                    if (control is NumericUpDown)
+                    TabPage page = parent as TabPage;
+                    // CAS TabPage
+                    foreach (object control in page.Controls)
                     {
-                        NumericUpDown nudToCheck = control as NumericUpDown;
-
-                        if ((string)nudToCheck.Tag == tagControl)
+                        if (control is NumericUpDown)
                         {
-                            value = Convert.ToInt32(nudToCheck.Value);
+                            NumericUpDown nudToCheck = control as NumericUpDown;
+
+                            if ((string)nudToCheck.Tag == tagControl)
+                            {
+                                value = Convert.ToInt32(nudToCheck.Value);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    Panel panel = parent as Panel;
+                    // CAS Panel
+
+                    foreach (object control in panel.Controls)
+                    {
+                        if (control is NumericUpDown)
+                        {
+                            NumericUpDown nudToCheck = control as NumericUpDown;
+
+                            if ((string)nudToCheck.Tag == tagControl)
+                            {
+                                value = Convert.ToInt32(nudToCheck.Value);
+                            }
                         }
                     }
                 }
@@ -432,21 +547,49 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="tagControl">Le tag du numeric à chercher</param>
         /// <param name="page">la page dans laquelle il se trouve</param>
         /// <returns></returns>
-        public NumericUpDown NumericToReturn(string tagControl, TabPage page)
+        public NumericUpDown NumericToReturn(string tagControl, object parent)
         {
             NumericUpDown numericUpDown = new NumericUpDown();
 
             try
             {
-                foreach (object control in page.Controls)
+                /*
+                 * CAS TabPage
+                 */
+                if (parent is TabPage)
                 {
-                    if (control is NumericUpDown)
-                    {
-                        NumericUpDown nudToCheck = control as NumericUpDown;
+                    TabPage page = parent as TabPage;
 
-                        if ((string)nudToCheck.Tag == tagControl)
+                    foreach (object control in page.Controls)
+                    {
+                        if (control is NumericUpDown)
                         {
-                            numericUpDown = nudToCheck;
+                            NumericUpDown nudToCheck = control as NumericUpDown;
+
+                            if ((string)nudToCheck.Tag == tagControl)
+                            {
+                                numericUpDown = nudToCheck;
+                            }
+                        }
+                    }
+                }
+                /*
+                 * CAS Panel
+                 */
+                else
+                {
+                    Panel panel = new Panel();
+
+                    foreach (object control in panel.Controls)
+                    {
+                        if (control is NumericUpDown)
+                        {
+                            NumericUpDown nudToCheck = control as NumericUpDown;
+
+                            if ((string)nudToCheck.Tag == tagControl)
+                            {
+                                numericUpDown = nudToCheck;
+                            }
                         }
                     }
                 }
@@ -526,6 +669,7 @@ namespace maFichePersonnageJDR.Formulaires
         private void MettreAJourPoidsTotal()
         {
             decimal poidsTotal = (QuantiteOr * 0.115m) + (QuantiteArgent * 0.0783m) + (QuantiteCuivre * 0.0402m);
+            poidsTotal += Controller.EquipmentController.GetPoidsTotalArmeTransportees(IdPersonnage);
             lblChrgPrtePersonnage.Text = poidsTotal.ToString("0.##") + " kg";
         }
 
@@ -533,10 +677,20 @@ namespace maFichePersonnageJDR.Formulaires
         /// Met à jour le poids total transporté par le personnage après achat
         /// </summary>
         /// <param name="poidsAjouter"></param>
-        public void MettreAJourPoidsTotal(decimal poidsAjouter)
+        public void MettreAJourPoidsTotal(decimal poidsAjouter, string buyOrSell)
         {
             string[] characters = { " ", "k", "g" };
-            decimal poidsTotal = decimal.Parse(Utils.DeleteCharacterFromString(lblChrgPrtePersonnage.Text, characters)) + poidsAjouter;
+            decimal poidsTotal = 0;
+
+            if (buyOrSell == "Buy")
+            {
+                poidsTotal = decimal.Parse(Utils.DeleteCharacterFromString(lblChrgPrtePersonnage.Text, characters)) + poidsAjouter;
+            }
+            else
+            {
+                poidsTotal = decimal.Parse(Utils.DeleteCharacterFromString(lblChrgPrtePersonnage.Text, characters)) - poidsAjouter;
+            }
+
             lblChrgPrtePersonnage.Text = poidsTotal.ToString("0.##") + " kg";
         }
 
@@ -593,8 +747,7 @@ namespace maFichePersonnageJDR.Formulaires
             }
 
             // On met à jour le poids porté par le personnage et son argent
-            RepartitionMoneyAfterSell(achatArme, monnaiePersonnage);
-            MettreAJourPoidsTotal(decimal.Parse(lblPoidsEnPlusArmes.Text));
+            RepartitionMoneyAfterBuyOrSell(achatArme, monnaiePersonnage, "Buy");
 
             /// Enfin, on met tous les champs textuels à jour
             // La RichTextBox d'armes
@@ -608,16 +761,24 @@ namespace maFichePersonnageJDR.Formulaires
             lblPoidsEnPlusArmes.Text = "0";
 
             ResetTabControl(tbCntlArmes);
+            Controller.EquipmentController.GetArmesInInventairePersonnage(pnlVendreArme, IdPersonnage);
+            CreateCheckBoxVendreArmes();
         }
 
         /// <summary>
         /// Répartit la différence entre l'achat et la monnaie que le joueur possédait
         /// </summary>
-        /// <param name="priceToPay">le prix à payer</param>
+        /// <param name="price">le prix à payer</param>
         /// <param name="moneyPersonnage">l'argent qu'il détenait</param>
-        public void RepartitionMoneyAfterSell(int priceToPay, int moneyPersonnage)
+        public void RepartitionMoneyAfterBuyOrSell(int price, int moneyPersonnage, string buyOrSell)
         {
-            int moneyToGet = moneyPersonnage - priceToPay;
+            int moneyToGet = 0;
+
+            if (buyOrSell == "Buy")
+                moneyToGet = moneyPersonnage - price;
+            else
+                moneyToGet = moneyPersonnage + price;
+
 
             if (moneyToGet >= 100)
             {
@@ -708,6 +869,10 @@ namespace maFichePersonnageJDR.Formulaires
 
                 nudPc.Value = valueCuivre;
             }
+
+            nudPo_ValueChanged(nudPo, EventArgs.Empty);
+            nudPa_ValueChanged(nudPa, EventArgs.Empty);
+            nudPc_ValueChanged(nudPc, EventArgs.Empty);
         }
 
         public void ResetTabControl(TabControl controlToReset)
@@ -721,7 +886,7 @@ namespace maFichePersonnageJDR.Formulaires
                         CheckBox checkBox = controls as CheckBox;
                         checkBox.Checked = false;
                     }
-                    else if(controls is NumericUpDown)
+                    else if (controls is NumericUpDown)
                     {
                         NumericUpDown numericUpDown = controls as NumericUpDown;
                         numericUpDown.Value = 1;
@@ -729,6 +894,62 @@ namespace maFichePersonnageJDR.Formulaires
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pnlVendreArme_ControlAdded(object sender, ControlEventArgs e)
+        {
+            Panel panel = sender as Panel;
+
+            if (panel.Controls.Count > 0)
+            {
+                btnVendreArmes.Enabled = true;
+            }
+            else
+            {
+                btnVendreArmes.Enabled = false;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnVendreArmes_Click(object sender, EventArgs e)
+        {
+            /// On commence par faire la différence et voir si le personnage
+            /// a assez d'argent
+            int achatArme = Utils.DeleteMoneyValue(lblTotalDepenseArmes.Text);
+            int monnaiePersonnage = int.Parse(string.Format("{0}{1}{2}", nudPo.Value.ToString(), nudPa.Value.ToString(), nudPc.Value.ToString()));
+
+            foreach (object controls in pnlVendreArme.Controls)
+            {
+                if (controls is NumericUpDown)
+                {
+                    NumericUpDown numericUpDown = controls as NumericUpDown;
+
+                    if (numericUpDown.Value >= 1)
+                    {
+                        EquipmentController.SellArmes(EquipmentController.GetIdArmeByName(numericUpDown.Tag.ToString()), IdPersonnage);
+                        Utils.DeleteControlsFromPanelByTag(numericUpDown.Tag.ToString(), pnlVendreArme);
+                    }
+                }
+            }
+
+            // On met à jour le poids porté par le personnage et son argent
+            RepartitionMoneyAfterBuyOrSell(achatArme, monnaiePersonnage, "Sell");
+
+            // La RichTextBox qui contient les ID à rajouter en base
+            rTxtBxArmes.Text = string.Empty;
+
+            // Les labels poids et dépenses monnétaire
+            lblTotalDepenseArmes.Text = "0";
+            lblPoidsEnPlusArmes.Text = "0";
         }
     }
 }

@@ -114,7 +114,7 @@ namespace maFichePersonnageJDR.Classe
                     valueToReturn += valueOrCentaineMillier.ToString() + valueOrDizaineMillier.ToString() + valueOrMillier.ToString() + valueOrCentaine.ToString() + " PO, "
                         + valueArgent.ToString() + " PA, " + valueCuivre.ToString() + " PC";
                 }
-                else if( valueToConvert > 9999)
+                else if (valueToConvert > 9999)
                 {
                     // Décorticage de l'or
                     int valueOrDizaineMillier = (valueToConvert / 10000) % 10;
@@ -124,7 +124,7 @@ namespace maFichePersonnageJDR.Classe
                     // Rajout des pièces d'argent et de cuivre
                     int valueArgent = (valueToConvert / 10) % 10;
                     int valueCuivre = valueToConvert % 10;
-                    valueToReturn += valueOrDizaineMillier.ToString() + valueOrMillier.ToString() + valueOrCentaine.ToString() + " PO, " 
+                    valueToReturn += valueOrDizaineMillier.ToString() + valueOrMillier.ToString() + valueOrCentaine.ToString() + " PO, "
                         + valueArgent.ToString() + " PA, " + valueCuivre.ToString() + " PC";
                 }
                 else if (valueToConvert > 999)
@@ -136,7 +136,7 @@ namespace maFichePersonnageJDR.Classe
                     // Rajout des pièces d'argent et de cuivre
                     int valueArgent = (valueToConvert / 10) % 10;
                     int valueCuivre = valueToConvert % 10;
-                    valueToReturn += valueOrMillier.ToString() + valueOrCentaine.ToString() + " PO, " + valueArgent.ToString() + " PA, " 
+                    valueToReturn += valueOrMillier.ToString() + valueOrCentaine.ToString() + " PO, " + valueArgent.ToString() + " PA, "
                         + valueCuivre.ToString() + " PC";
                 }
                 else
@@ -198,12 +198,28 @@ namespace maFichePersonnageJDR.Classe
         /// <returns></returns>
         public static string DeleteCharacterFromString(string stringToClean, string[] arraysCharToDelete)
         {
-            foreach(string character in arraysCharToDelete)
+            foreach (string character in arraysCharToDelete)
             {
                 stringToClean = stringToClean.Replace(character, "");
             }
 
             return stringToClean;
+        }
+
+        /// <summary>
+        /// Retire d'un panel les contrôles qui portent un tag donné
+        /// </summary>
+        /// <param name="tagControl"></param>
+        /// <param name="panel"></param>
+        public static void DeleteControlsFromPanelByTag(string tagControl, Panel panel)
+        {
+            foreach (Control controls in panel.Controls)
+            {
+                if((string)controls.Tag == tagControl)
+                {
+                    panel.Controls.Remove(controls);
+                }
+            }
         }
     }
 }
