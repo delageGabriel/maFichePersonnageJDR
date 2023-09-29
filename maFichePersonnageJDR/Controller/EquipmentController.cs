@@ -1,4 +1,5 @@
-﻿using maFichePersonnageJDR.Formulaires;
+﻿using maFichePersonnageJDR.Classe;
+using maFichePersonnageJDR.Formulaires;
 using maFichePersonnageJDR.Model;
 using maFichePersonnageJDR.View.Formulaires;
 using System;
@@ -69,12 +70,61 @@ namespace maFichePersonnageJDR.Controller
                         NumericUpDown numericUpDown = new NumericUpDown();
                         numericUpDown.Location = new Point(x + (linkLabel.Width + 25), y - 3);
                         numericUpDown.Maximum = 99;
-                        numericUpDown.Minimum = 0;
+                        numericUpDown.Minimum = 1;
                         numericUpDown.Width = 40;
                         numericUpDown.Tag = armes.NomArme;
 
                         controlParent.TabPages[indexOfTabPage].Controls.Add(linkLabel);
                         controlParent.TabPages[indexOfTabPage].Controls.Add(numericUpDown);
+
+                        y += 25;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Permet d'avoir la liste des armes que le personnage possède dans son inventaire
+        /// </summary>
+        /// <param name="panel"></param>
+        /// <param name="idPersonnage"></param>
+        public static void GetArmesInInventairePersonnage(Panel panel, int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetArmesInInventairePersonnage — Personnage : {0} ###########", idPersonnage.ToString()));
+            InventaireArmesPersonnagesModel armesModel = new InventaireArmesPersonnagesModel();
+
+            try
+            {
+                List<string> armesAVendre = armesModel.GetArmesNameQuantityValueInInventaire(idPersonnage);
+
+                if (armesAVendre != null)
+                {
+                    int y = 10;
+
+                    foreach (string arme in armesAVendre)
+                    {
+                        string[] substring = arme.Split(',');
+
+                        Label name = new Label();
+                        name.Name = "lbl" + substring[0];
+                        name.Text = substring[0];
+                        name.Location = new Point(30 + panel.AutoScrollPosition.X, y + panel.AutoScrollPosition.Y);
+                        name.Tag = substring[0];
+
+                        NumericUpDown numeric = new NumericUpDown();
+                        numeric.Name = "nud" + substring[0];
+                        numeric.Minimum = 0;
+                        numeric.Maximum = int.Parse(substring[1]);
+                        numeric.Location = new Point(30 + name.Width + panel.AutoScrollPosition.X, y + panel.AutoScrollPosition.Y);
+                        numeric.Width = 40;
+                        numeric.Tag = substring[0];
+
+                        panel.Controls.Add(name);
+                        panel.Controls.Add(numeric);
 
                         y += 25;
                     }
@@ -140,15 +190,66 @@ namespace maFichePersonnageJDR.Controller
                         linkLabel.Location = new Point(x + 25, y);
                         linkLabel.AutoSize = true;
                         linkLabel.LinkClicked += formulaireEquipments.linkLabelArmure_LinkClicked;
+                        linkLabel.Tag = armure.NomArmure;
 
                         NumericUpDown numericUpDown = new NumericUpDown();
                         numericUpDown.Location = new Point(x + (linkLabel.Width + 25), y - 3);
                         numericUpDown.Maximum = 99;
-                        numericUpDown.Minimum = 0;
+                        numericUpDown.Minimum = 1;
                         numericUpDown.Width = 40;
+                        numericUpDown.Tag = armure.NomArmure;
 
                         controlParent.TabPages[indexOfTabPage].Controls.Add(linkLabel);
                         controlParent.TabPages[indexOfTabPage].Controls.Add(numericUpDown);
+
+                        y += 25;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Permet d'avoir la liste des armes que le personnage possède dans son inventaire
+        /// </summary>
+        /// <param name="panel"></param>
+        /// <param name="idPersonnage"></param>
+        public static void GetArmuresInInventairePersonnage(Panel panel, int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetArmuresInInventairePersonnage — Personnage : {0} ###########", idPersonnage.ToString()));
+            InventaireArmuresPersonnageModel armuresModel = new InventaireArmuresPersonnageModel();
+
+            try
+            {
+                List<string> armuresAVendre = armuresModel.GetArmuresNameQuantityValueInInventaire(idPersonnage);
+
+                if (armuresAVendre != null)
+                {
+                    int y = 10;
+
+                    foreach (string armure in armuresAVendre)
+                    {
+                        string[] substring = armure.Split(',');
+
+                        Label name = new Label();
+                        name.Name = "lbl" + substring[0];
+                        name.Text = substring[0];
+                        name.Location = new Point(30 + panel.AutoScrollPosition.X, y + panel.AutoScrollPosition.Y);
+                        name.Tag = substring[0];
+
+                        NumericUpDown numeric = new NumericUpDown();
+                        numeric.Name = "nud" + substring[0];
+                        numeric.Minimum = 0;
+                        numeric.Maximum = int.Parse(substring[1]);
+                        numeric.Location = new Point(30 + name.Width + panel.AutoScrollPosition.X, y + panel.AutoScrollPosition.Y);
+                        numeric.Width = 40;
+                        numeric.Tag = substring[0];
+
+                        panel.Controls.Add(name);
+                        panel.Controls.Add(numeric);
 
                         y += 25;
                     }
@@ -213,12 +314,14 @@ namespace maFichePersonnageJDR.Controller
                         linkLabel.Location = new Point(x + 25, y);
                         linkLabel.AutoSize = true;
                         linkLabel.LinkClicked += formulaireEquipments.linkLabelObjet_LinkClicked;
+                        linkLabel.Tag = objet.NomObjet;
 
                         NumericUpDown numericUpDown = new NumericUpDown();
                         numericUpDown.Location = new Point(x + (linkLabel.Width + 25), y - 3);
                         numericUpDown.Maximum = 99;
-                        numericUpDown.Minimum = 0;
+                        numericUpDown.Minimum = 1;
                         numericUpDown.Width = 40;
+                        numericUpDown.Tag = objet.NomObjet;
 
                         controlParent.TabPages[indexOfTabPage].Controls.Add(linkLabel);
                         controlParent.TabPages[indexOfTabPage].Controls.Add(numericUpDown);
@@ -233,6 +336,49 @@ namespace maFichePersonnageJDR.Controller
             }
         }
 
+        public static void GetObjetsInInventairePersonnage(Panel panel, int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetObjetsInInventairePersonnage — Personnage : {0} ###########", idPersonnage.ToString()));
+            InventaireObjetsPersonnagesModel inventaireObjetsPersonnages = new InventaireObjetsPersonnagesModel();
+
+            try
+            {
+                List<string> objetsAVendre = inventaireObjetsPersonnages.GetObjetsNameQuantityValueInInventaire(idPersonnage);
+
+                if (inventaireObjetsPersonnages != null)
+                {
+                    int y = 10;
+
+                    foreach (string objet in objetsAVendre)
+                    {
+                        string[] substring = objet.Split(',');
+
+                        Label name = new Label();
+                        name.Name = "lbl" + substring[0];
+                        name.Text = substring[0];
+                        name.Location = new Point(30 + panel.AutoScrollPosition.X, y + panel.AutoScrollPosition.Y);
+                        name.Tag = substring[0];
+
+                        NumericUpDown numeric = new NumericUpDown();
+                        numeric.Name = "nud" + substring[0];
+                        numeric.Minimum = 0;
+                        numeric.Maximum = int.Parse(substring[1]);
+                        numeric.Location = new Point(30 + name.Width + panel.AutoScrollPosition.X, y + panel.AutoScrollPosition.Y);
+                        numeric.Width = 40;
+                        numeric.Tag = substring[0];
+
+                        panel.Controls.Add(name);
+                        panel.Controls.Add(numeric);
+
+                        y += 25;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
         /// <summary>
         /// Va chercher en base les informations par rapport au nom d'une arme
         /// et les affiche dans un formulaire
@@ -260,7 +406,7 @@ namespace maFichePersonnageJDR.Controller
                 formulaire.TextLblNom = armeToGet.NomArme;
                 formulaire.TextLblType = armeToGet.TypeArme;
                 formulaire.TextLblPoids = armeToGet.PoidsArmes.ToString() + " kg";
-                formulaire.TextLblValeur = armeToGet.ValeurArme.ToString();
+                formulaire.TextLblValeur = Utils.ConvertMoneyWithValue(armeToGet.ValeurArme);
                 formulaire.TextLblDescription = armeToGet.DescriptionArme;
                 formulaire.TextLblAllonge.Text = armeToGet.AllongeArmes;
                 formulaire.TextLblMains.Text = armeToGet.MainArmes;
@@ -298,7 +444,7 @@ namespace maFichePersonnageJDR.Controller
                 formulaire.TextLblNom = armureToGet.NomArmure;
                 formulaire.TextLblType = armureToGet.TypeArmure;
                 formulaire.TextLblPoids = armureToGet.PoidsArmure.ToString() + " kg";
-                formulaire.TextLblValeur = armureToGet.ValeurArmure.ToString();
+                formulaire.TextLblValeur = Utils.ConvertMoneyWithValue(armureToGet.ValeurArmure);
                 formulaire.TextLblDescription = armureToGet.DescriptionArmure;
                 formulaire.TextLblProtection.Text = armureToGet.ProtectionArmure;
                 formulaire.TextLblBonus.Text = armureToGet.BonusArmure.ToString();
@@ -334,7 +480,7 @@ namespace maFichePersonnageJDR.Controller
                 formulaire.TextLblNom = objetToGet.NomObjet;
                 formulaire.TextLblType = objetToGet.TypeObjet;
                 formulaire.TextLblPoids = objetToGet.PoidsObjet.ToString() + " kg";
-                formulaire.TextLblValeur = objetToGet.ValeurObjet.ToString();
+                formulaire.TextLblValeur = Utils.ConvertMoneyWithValue(objetToGet.ValeurObjet);
                 formulaire.TextLblDescription = objetToGet.DescriptionObjet;
                 formulaire.TextLblConsommable.Text = objetToGet.ConsommationObjet;
                 formulaire.TextLblSpecial = objetToGet.SpecialObjet;
@@ -346,11 +492,11 @@ namespace maFichePersonnageJDR.Controller
         }
 
         /// <summary>
-        /// Obtenir toute les infos d'une arme par son nom
+        /// Obtenir l'id d'une arme par son nom
         /// </summary>
         /// <param name="nomArme"></param>
         /// <returns></returns>
-        public static string GetArmeByName(string nomArme)
+        public static string GetArmeIdByName(string nomArme)
         {
             #region Initialisation des variables
             ArmesModel armesModel = new ArmesModel();
@@ -368,7 +514,7 @@ namespace maFichePersonnageJDR.Controller
         }
 
         /// <summary>
-        /// Obtenir toutes les infos d'une armure par son nom
+        /// Obtenir l'id d'une armure par son nom
         /// </summary>
         /// <param name="nomArmure"></param>
         /// <returns></returns>
@@ -390,7 +536,7 @@ namespace maFichePersonnageJDR.Controller
         }
 
         /// <summary>
-        /// Obtenir toutes les infos d'un objet par son nom
+        /// Obtenir l'id d'un objet par son nom
         /// </summary>
         /// <param name="nomObjet"></param>
         /// <returns></returns>
@@ -1174,6 +1320,135 @@ namespace maFichePersonnageJDR.Controller
             {
                 // On envoie les informations du personnage à sauvegarder
                 return inventaireObjetsPersonnages.GetListSpecialObjets(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Méthode qui permet de supprimer une arme de l'inventaire du personnage
+        /// </summary>
+        /// <param name="idArme"></param>
+        public static void SellArmes(int idArme, int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode SellArmes — Arme supprimée : ID : {0} ###########", idArme));
+
+            InventaireArmesPersonnagesModel inventaireObjetsPersonnages = new InventaireArmesPersonnagesModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                inventaireObjetsPersonnages.DeleteFromInventairePersonnage(idArme, idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Méthode qui permet de supprimer une armure de l'inventaire du personnage
+        /// </summary>
+        /// <param name="idArme"></param>
+        public static void SellArmures(int idArmure, int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode SellArmures — Armure supprimée : ID : {0} ###########", idArmure));
+
+            InventaireArmuresPersonnageModel inventaireArmuresPersonnage = new InventaireArmuresPersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                inventaireArmuresPersonnage.DeleteFromInventairePersonnage(idArmure, idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Méthode qui permet de supprimer une armure de l'inventaire du personnage
+        /// </summary>
+        /// <param name="idObjet"></param>
+        public static void SellObjets(int idObjet, int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode SellObjets — Objet supprimé : ID : {0} ###########", idObjet));
+
+            InventaireObjetsPersonnagesModel inventaireObjets = new InventaireObjetsPersonnagesModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                inventaireObjets.DeleteFromInventairePersonnage(idObjet, idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Méthode qui renvoie le poids total d'armes que le personnage porte sur lui
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static decimal GetPoidsTotalArmeTransportees(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetPoidsTotalArmeTransportees — Personnage id : ID : {0} ###########", idPersonnage));
+
+            InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return inventaireArmesPersonnages.GetPoidsTotalArme(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Méthode qui renvoie le poids total d'armes que le personnage porte sur lui
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static decimal GetPoidsTotalArmureTransportees(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetPoidsTotalArmureTransportees — Personnage id : ID : {0} ###########", idPersonnage));
+
+            InventaireArmuresPersonnageModel inventaireArmuresPersonnage = new InventaireArmuresPersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return inventaireArmuresPersonnage.GetPoidsTotalArmure(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Méthode qui renvoie le poids total d'armes que le personnage porte sur lui
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static decimal GetPoidsTotalObjetTransportees(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetPoidsTotalObjetTransportees — Personnage id : ID : {0} ###########", idPersonnage));
+
+            InventaireObjetsPersonnagesModel inventaireObjetsPersonnages = new InventaireObjetsPersonnagesModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return inventaireObjetsPersonnages.GetPoidsTotalObjets(idPersonnage);
             }
             catch (Exception e)
             {
