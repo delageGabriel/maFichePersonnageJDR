@@ -177,7 +177,7 @@ namespace maFichePersonnageJDR.Formulaires
                 try
                 {
                     int valeur = Utils.DeleteMoneyValue(lblTotalDepenseArmes.Text) + (EquipmentController.GetArmeValueByName(nomArme) * qteReturn);
-                    double poids = double.Parse(lblPoidsEnPlusArmes.Text) + (EquipmentController.GetArmeWeightByName(nomArme) * qteReturn);
+                    decimal poids = decimal.Parse(lblPoidsEnPlusArmes.Text) + Convert.ToDecimal(EquipmentController.GetArmeWeightByName(nomArme) * qteReturn);
                     rTxtBxArmes.AppendText(idArme + Environment.NewLine);
 
                     lblTotalDepenseArmes.Text = Utils.ConvertMoneyWithValue(valeur);
@@ -195,7 +195,7 @@ namespace maFichePersonnageJDR.Formulaires
             else
             {
                 int valeur = Utils.DeleteMoneyValue(lblTotalDepenseArmes.Text) - (EquipmentController.GetArmeValueByName(nomArme) * qteReturn);
-                double poids = double.Parse(lblPoidsEnPlusArmes.Text) - (EquipmentController.GetArmeWeightByName(nomArme) * qteReturn);
+                decimal poids = decimal.Parse(lblPoidsEnPlusArmes.Text) - Convert.ToDecimal(EquipmentController.GetArmeWeightByName(nomArme) * qteReturn);
 
                 lblTotalDepenseArmes.Text = Utils.ConvertMoneyWithValue(valeur);
                 lblPoidsEnPlusArmes.Text = poids.ToString();
@@ -264,7 +264,7 @@ namespace maFichePersonnageJDR.Formulaires
             else
             {
                 int valeur = Utils.DeleteMoneyValue(lblTotalDepenseArmes.Text) - (EquipmentController.GetArmeValueByName(nomArme) * qteReturn);
-                double poids = double.Parse(lblPoidsEnPlusArmes.Text) - (EquipmentController.GetArmeWeightByName(nomArme) * qteReturn);
+                decimal poids = decimal.Parse(lblPoidsEnPlusArmes.Text) - Convert.ToDecimal(EquipmentController.GetArmeWeightByName(nomArme) * qteReturn);
 
                 lblTotalDepenseArmes.Text = Utils.ConvertMoneyWithValue(valeur);
                 lblPoidsEnPlusArmes.Text = poids.ToString();
@@ -311,7 +311,7 @@ namespace maFichePersonnageJDR.Formulaires
                 {
 
                     int valeur = Utils.DeleteMoneyValue(lblTotalDepenseArmures.Text) + (EquipmentController.GetArmureValueByName(nomArmure) * qteReturn);
-                    double poids = double.Parse(lblPoidsEnPlusArmures.Text) + (EquipmentController.GetArmureWeightByName(nomArmure) * qteReturn);
+                    decimal poids = decimal.Parse(lblPoidsEnPlusArmures.Text) + Convert.ToDecimal((EquipmentController.GetArmureWeightByName(nomArmure) * qteReturn));
                     rTxtBxArmures.AppendText(armure + Environment.NewLine);
 
                     lblTotalDepenseArmures.Text = Utils.ConvertMoneyWithValue(valeur);
@@ -380,7 +380,7 @@ namespace maFichePersonnageJDR.Formulaires
                 {
 
                     int valeur = Utils.DeleteMoneyValue(lblTotalDepenseArmures.Text) + (EquipmentController.GetArmureValueByName(nomArmure) * qteReturn);
-                    double poids = double.Parse(lblPoidsEnPlusArmures.Text) + (EquipmentController.GetArmureWeightByName(nomArmure) * qteReturn);
+                    decimal poids = decimal.Parse(lblPoidsEnPlusArmures.Text) + Convert.ToDecimal((EquipmentController.GetArmureWeightByName(nomArmure) * qteReturn));
                     rTxtBxArmures.AppendText(armure + Environment.NewLine);
 
                     lblTotalDepenseArmures.Text = Utils.ConvertMoneyWithValue(valeur);
@@ -397,7 +397,7 @@ namespace maFichePersonnageJDR.Formulaires
             else
             {
                 int valeur = Utils.DeleteMoneyValue(lblTotalDepenseArmures.Text) - (EquipmentController.GetArmureValueByName(nomArmure) * qteReturn);
-                double poids = double.Parse(lblPoidsEnPlusArmures.Text) - (EquipmentController.GetArmureWeightByName(nomArmure) * qteReturn);
+                decimal poids = decimal.Parse(lblPoidsEnPlusArmures.Text) - Convert.ToDecimal((EquipmentController.GetArmureWeightByName(nomArmure) * qteReturn));
 
                 lblTotalDepenseArmures.Text = Utils.ConvertMoneyWithValue(valeur);
                 lblPoidsEnPlusArmures.Text = poids.ToString();
@@ -514,7 +514,7 @@ namespace maFichePersonnageJDR.Formulaires
             }
         }
 
-        
+
         /// <summary>
         /// 
         /// </summary>
