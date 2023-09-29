@@ -125,7 +125,7 @@ namespace maFichePersonnageJDR.Model
             try
             {
                 // Commande
-                SQLiteCommand command = new SQLiteCommand(string.Format("SELECT id_objets FROM ARMES WHERE nom_objet = '{0}'", nomObjet), DatabaseConnection.Instance.GetConnection());
+                SQLiteCommand command = new SQLiteCommand(string.Format("SELECT id_objets FROM OBJETS WHERE nom_objet = '{0}'", nomObjet), DatabaseConnection.Instance.GetConnection());
 
                 using (SQLiteDataReader reader = command.ExecuteReader())
                 {

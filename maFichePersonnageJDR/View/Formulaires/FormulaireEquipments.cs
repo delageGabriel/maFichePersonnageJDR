@@ -412,7 +412,7 @@ namespace maFichePersonnageJDR.Formulaires
 
                 // FR : On supprime la ligne où l'on a trouvé le texte correspondant
                 // EN : On supprime la ligne où l'on a trouvé le texte correspondan
-                lines.Remove(armure);
+                lines.RemoveAt(indexToDelete);
 
                 // FR : On réattribue les nouvelles lignes à celles de la RichTextBox
                 // EN : Reassign the new lines to those in the RichTextBox
@@ -428,37 +428,107 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         public void checkBoxObjet_Click(object sender, EventArgs e)
         {
+            #region Initialisation des variables
             CheckBox checkBox = sender as CheckBox;
             string nomObjet = checkBox.Name.Substring(4);
-            string objet = EquipmentController.GetObjetByName(nomObjet);
-            int qteReturn = QuantityToReturn(nomObjet, (TabPage)checkBox.Parent);
+            string idObjet = EquipmentController.GetObjetByName(nomObjet);
 
-            objet += qteReturn.ToString();
+            int qteReturn = QuantityToReturn(nomObjet, (TabPage)checkBox.Parent);
+            #endregion
+
+            idObjet += qteReturn.ToString();
 
             if (checkBox.Checked)
             {
-                // FR : Devrait ajouter le texte
-                // EN : Should append text
-                rTxtBxObjets.AppendText(objet + Environment.NewLine);
-                int valeur = int.Parse(lblTotalDepenseObjets.Text) + (EquipmentController.GetObjetValueByName(nomObjet) * qteReturn);
-                double poids = double.Parse(lblPoidsEnPlusObjets.Text) + (EquipmentController.GetObjetWeightByName(nomObjet) * qteReturn);
+                int valeur = Utils.DeleteMoneyValue(lblTotalDepenseObjets.Text) + (EquipmentController.GetObjetValueByName(nomObjet) * qteReturn);
+                decimal poids = decimal.Parse(lblPoidsEnPlusObjets.Text) + Convert.ToDecimal(EquipmentController.GetObjetWeightByName(nomObjet) * qteReturn);
+                rTxtBxObjets.AppendText(idObjet + Environment.NewLine);
 
                 lblTotalDepenseObjets.Text = Utils.ConvertMoneyWithValue(valeur);
                 lblPoidsEnPlusObjets.Text = poids.ToString();
+
+                rtbAcheterObjets.AppendText(nomObjet + ", Quantité:" + qteReturn + Environment.NewLine);
+                NumericToReturn(nomObjet, checkBox.Parent).Enabled = false;
             }
             else
             {
+                int valeur = Utils.DeleteMoneyValue(lblTotalDepenseObjets.Text) - (EquipmentController.GetObjetValueByName(nomObjet) * qteReturn);
+                decimal poids = decimal.Parse(lblPoidsEnPlusObjets.Text) - Convert.ToDecimal(EquipmentController.GetObjetWeightByName(nomObjet) * qteReturn);
+
+                lblTotalDepenseObjets.Text = Utils.ConvertMoneyWithValue(valeur);
+                lblPoidsEnPlusObjets.Text = poids.ToString();
+
+                int indexToDelete = Utils.GetLineNumberToDelete(idObjet, rTxtBxObjets);
+                int indexToDeleteApercuObjet = Utils.GetLineNumberToDelete(nomObjet, rTxtBxObjets);
+
+                // FR : On récupère toutes les lignes sous la forme d'une liste
+                // EN : All rows are retrieved in the form of a list
+                List<string> lines = new List<string>(rTxtBxObjets.Lines);
+                List<string> linesApercuObjets = new List<string>(rtbAcheterObjets.Lines);
+
+                // FR : On supprime la ligne où l'on a trouvé le texte correspondant
+                // EN : On supprime la ligne où l'on a trouvé le texte correspondan
+                lines.RemoveAt(indexToDelete);
+                linesApercuObjets.RemoveAt(indexToDeleteApercuObjet);
+
+                // FR : On réattribue les nouvelles lignes à celles de la RichTextBox
+                // EN : Reassign the new lines to those in the RichTextBox
+                rTxtBxObjets.Lines = lines.ToArray();
+                rtbAcheterObjets.Lines = linesApercuObjets.ToArray();
+                NumericToReturn(nomObjet, checkBox.Parent).Enabled = true;
+            }
+        }
+
+        /// <summary>
+        /// Checkbox pour ajouter ou retirer une arme
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void checkBoxVendreObjet_Click(object sender, EventArgs e)
+        {
+            #region Initialisation des variables
+            CheckBox checkBox = sender as CheckBox;
+            string nomObjet = checkBox.Name.Substring(4);
+            string idObjet = EquipmentController.GetObjetByName(nomObjet);
+
+            int qteReturn = QuantityToReturn(nomObjet, checkBox.Parent);
+            #endregion
+
+            idObjet += qteReturn.ToString();
+
+            if (checkBox.Checked)
+            {
+                int valeur = Utils.DeleteMoneyValue(lblTotalDepenseObjets.Text) + (EquipmentController.GetObjetValueByName(nomObjet) * qteReturn);
+                decimal poids = decimal.Parse(lblPoidsEnPlusObjets.Text) + Convert.ToDecimal(EquipmentController.GetObjetWeightByName(nomObjet) * qteReturn);
+                rTxtBxObjets.AppendText(idObjet + Environment.NewLine);
+
+                lblTotalDepenseObjets.Text = Utils.ConvertMoneyWithValue(valeur);
+                lblPoidsEnPlusObjets.Text = poids.ToString();
+
+                NumericToReturn(nomObjet, checkBox.Parent).Enabled = false;
+            }
+            else
+            {
+                int valeur = Utils.DeleteMoneyValue(lblTotalDepenseObjets.Text) - (EquipmentController.GetObjetValueByName(nomObjet) * qteReturn);
+                decimal poids = decimal.Parse(lblPoidsEnPlusObjets.Text) - Convert.ToDecimal(EquipmentController.GetObjetWeightByName(nomObjet) * qteReturn);
+
+                lblTotalDepenseObjets.Text = Utils.ConvertMoneyWithValue(valeur);
+                lblPoidsEnPlusObjets.Text = poids.ToString();
+
+                int indexToDelete = Utils.GetLineNumberToDelete(idObjet, rTxtBxObjets);
+
                 // FR : On récupère toutes les lignes sous la forme d'une liste
                 // EN : All rows are retrieved in the form of a list
                 List<string> lines = new List<string>(rTxtBxObjets.Lines);
 
                 // FR : On supprime la ligne où l'on a trouvé le texte correspondant
                 // EN : On supprime la ligne où l'on a trouvé le texte correspondan
-                lines.Remove(objet);
+                lines.RemoveAt(indexToDelete);
 
                 // FR : On réattribue les nouvelles lignes à celles de la RichTextBox
                 // EN : Reassign the new lines to those in the RichTextBox
                 rTxtBxObjets.Lines = lines.ToArray();
+                NumericToReturn(nomObjet, checkBox.Parent).Enabled = true;
             }
         }
 
@@ -592,6 +662,28 @@ namespace maFichePersonnageJDR.Formulaires
                         page.Controls.Add(checkBox);
                         y += 25;
                     }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Créez les checkbox pour vendre les objets
+        /// </summary>
+        public void CreateCheckBoxVendreObjets()
+        {
+            foreach (object controls in pnlVendreObjet.Controls)
+            {
+                if (controls is Label)
+                {
+                    Label label = controls as Label;
+
+                    CheckBox checkBox = new CheckBox();
+                    checkBox.Location = new Point(5 + pnlVendreObjet.AutoScrollPosition.X, label.Location.Y + pnlVendreObjet.AutoScrollPosition.Y);
+                    checkBox.Name = ("chck" + label.Tag.ToString());
+                    checkBox.Click += checkBoxVendreObjet_Click;
+                    checkBox.Tag = label.Tag.ToString();
+
+                    pnlVendreObjet.Controls.Add(checkBox);
                 }
             }
         }
@@ -781,7 +873,8 @@ namespace maFichePersonnageJDR.Formulaires
         private void MettreAJourPoidsTotal()
         {
             decimal poidsTotal = (QuantiteOr * 0.115m) + (QuantiteArgent * 0.0783m) + (QuantiteCuivre * 0.0402m);
-            poidsTotal += Controller.EquipmentController.GetPoidsTotalArmeTransportees(IdPersonnage) + EquipmentController.GetPoidsTotalArmureTransportees(IdPersonnage);
+            poidsTotal += Controller.EquipmentController.GetPoidsTotalArmeTransportees(IdPersonnage) + 
+                EquipmentController.GetPoidsTotalArmureTransportees(IdPersonnage) + EquipmentController.GetPoidsTotalObjetTransportees(IdPersonnage);
             lblChrgPrtePersonnage.Text = poidsTotal.ToString("0.##") + " kg";
         }
 
@@ -1174,6 +1267,104 @@ namespace maFichePersonnageJDR.Formulaires
             // Les labels poids et dépenses monnétaire
             lblTotalDepenseArmures.Text = "0";
             lblPoidsEnPlusArmures.Text = "0";
+        }
+
+        private void rtbAcheterObjets_TextChanged(object sender, EventArgs e)
+        {
+            RichTextBox richTextBox = sender as RichTextBox;
+
+            if (richTextBox.Lines.Length > 0)
+            {
+                btnAcheterObjets.Enabled = true;
+            }
+            else
+            {
+                btnAcheterObjets.Enabled = false;
+            }
+        }
+
+        private void pnlVendreObjet_ControlAdded(object sender, ControlEventArgs e)
+        {
+            Panel panel = sender as Panel;
+
+            if (panel.Controls.Count > 0)
+            {
+                btnVendreObjets.Enabled = true;
+            }
+            else
+            {
+                btnVendreObjets.Enabled = false;
+            }
+        }
+
+        private void btnAcheterObjets_Click(object sender, EventArgs e)
+        {
+            int achatObjet = Utils.DeleteMoneyValue(lblTotalDepenseObjets.Text);
+            int monnaiePersonnage = int.Parse(string.Format("{0}{1}{2}", nudPo.Value.ToString(), nudPa.Value.ToString(), nudPc.Value.ToString()));
+            int differenceAchat = monnaiePersonnage - achatObjet;
+
+            if (differenceAchat < 0)
+            {
+                MessageBox.Show("Pas assez de monnaie !");
+                return;
+            }
+
+            foreach (string line in rTxtBxObjets.Lines)
+            {
+                if (!String.IsNullOrEmpty(line))
+                {
+                    string[] substring = line.Split(';');
+                    EquipmentController.AddNewObjetToPersonnage(Convert.ToInt32(substring[0]), IdPersonnage, Convert.ToInt32(substring[1]));
+                }
+            }
+
+            RepartitionMoneyAfterBuyOrSell(achatObjet, monnaiePersonnage, "Buy");
+
+            rtbAcheterObjets.Text = string.Empty;
+
+            rTxtBxObjets.Text = string.Empty;
+
+            lblTotalDepenseObjets.Text = "0";
+            lblPoidsEnPlusObjets.Text = "0";
+
+            ResetTabControl(tbCntlObjets);
+            Controller.EquipmentController.GetObjetsInInventairePersonnage(pnlVendreObjet, IdPersonnage);
+            CreateCheckBoxVendreObjets();
+        }
+
+        private void btnVendreObjets_Click(object sender, EventArgs e)
+        {
+            #region Initialisation des variables
+            int achatObjet = Utils.DeleteMoneyValue(lblTotalDepenseObjets.Text);
+            int monnaiePersonnage = int.Parse(string.Format("{0}{1}{2}", nudPo.Value.ToString(), nudPa.Value.ToString(), nudPc.Value.ToString()));
+            List<Control> controlsToDelete = new List<Control>();
+            #endregion
+
+            foreach (Control controls in pnlVendreObjet.Controls)
+            {
+                if (controls is NumericUpDown && (controls as NumericUpDown).Value >= 1)
+                {
+                    NumericUpDown numericUpDown = controls as NumericUpDown;
+                    EquipmentController.SellObjets(EquipmentController.GetIdObjetByName(numericUpDown.Tag.ToString()), IdPersonnage);
+                    controlsToDelete.Add(numericUpDown);
+                }
+            }
+
+            // Supprimer les contrôles après l'itération principale
+            foreach (Control control in controlsToDelete)
+            {
+                Utils.DeleteControlsFromPanelByTag(control.Tag?.ToString(), pnlVendreObjet);
+            }
+
+            // On met à jour le poids porté par le personnage et son argent
+            RepartitionMoneyAfterBuyOrSell(achatObjet, monnaiePersonnage, "Sell");
+
+            // La RichTextBox qui contient les ID à rajouter en base
+            rTxtBxObjets.Text = string.Empty;
+
+            // Les labels poids et dépenses monnétaire
+            lblTotalDepenseObjets.Text = "0";
+            lblPoidsEnPlusObjets.Text = "0";
         }
     }
 }
