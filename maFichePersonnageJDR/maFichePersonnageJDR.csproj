@@ -162,6 +162,7 @@
     <Compile Include="Model\MagiePersonnageModel.cs" />
     <Compile Include="Model\ObjetsModel.cs" />
     <Compile Include="Model\PersonnageModel.cs" />
+    <Compile Include="Model\PointsCaracteristiquesModel.cs" />
     <Compile Include="Model\PointsCaracteristiquesPersonnageModel.cs" />
     <Compile Include="Model\PointsPVEnergieModel.cs" />
     <Compile Include="Model\PointsPVEnergiePersonnageModel.cs" />

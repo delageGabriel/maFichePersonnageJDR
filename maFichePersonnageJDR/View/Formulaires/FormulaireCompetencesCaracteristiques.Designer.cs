@@ -215,6 +215,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudSocial.Size = new System.Drawing.Size(54, 20);
             this.nudSocial.TabIndex = 43;
             this.nudSocial.Tag = "Social";
+            this.nudSocial.ValueChanged += new System.EventHandler(this.nudPhyMenSoc_ValueChanged);
             // 
             // nudMental
             // 
@@ -223,6 +224,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudMental.Size = new System.Drawing.Size(54, 20);
             this.nudMental.TabIndex = 42;
             this.nudMental.Tag = "Mental";
+            this.nudMental.ValueChanged += new System.EventHandler(this.nudPhyMenSoc_ValueChanged);
             // 
             // nudPhysique
             // 
@@ -231,6 +233,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudPhysique.Size = new System.Drawing.Size(54, 20);
             this.nudPhysique.TabIndex = 41;
             this.nudPhysique.Tag = "Physique";
+            this.nudPhysique.ValueChanged += new System.EventHandler(this.nudPhyMenSoc_ValueChanged);
             // 
             // txtPntsPVEnergie
             // 

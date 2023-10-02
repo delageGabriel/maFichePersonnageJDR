@@ -14,8 +14,6 @@ namespace maFichePersonnageJDR.View.Formulaires
     public partial class FormulaireCompetencesCaracteristiques : Form
     {
         private int idDuPersonnage;
-        private decimal quantitePv;
-        private decimal quantiteEnergie;
 
         public int IdDuPersonnage { get => idDuPersonnage; set => idDuPersonnage = value; }
         
@@ -59,14 +57,27 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.Close();
         }
 
+        /// <summary>
+        /// Permet d'obtenir le nombre de points à répartir entre les pv et l'énergie
+        /// </summary>
         public void GetPointsToRepartPvEnergieByNiveau()
         {
             txtPntsPVEnergie.Text = Controller.CompetencesCaracteristiquesController.GetPointPvEnergieRepartition(Controller.PersonnageController.GetNiveauPersonnage(IdDuPersonnage)).ToString();
         }
 
+        /// <summary>
+        /// Permet d'obtenir le nombre de points à répartir entre les trois
+        /// caractéristiques
+        /// </summary>
+        public void GetPointsToRepartCaracteristiquesByNiveau()
+        {
+            txtPntsCaracteristiques.Text = Controller.CompetencesCaracteristiquesController.GetPointCaracteristiquesRepartition(Controller.PersonnageController.GetNiveauPersonnage(IdDuPersonnage)).ToString();
+        }
+
         private void FormulaireCompetencesCaracteristiques_Load(object sender, EventArgs e)
         {
             GetPointsToRepartPvEnergieByNiveau();
+            GetPointsToRepartCaracteristiquesByNiveau();
         }
 
         /// <summary>
@@ -95,14 +106,29 @@ namespace maFichePersonnageJDR.View.Formulaires
             txtPntsPVEnergie.Text = (totalPoints - ((int)nudPV.Value + (int)nudEnergie.Value)).ToString();
         }
 
-        private void nudPV_ValueChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Événement qui permet de gérer le nombre de points à répartir dans les Numeric
+        /// caractéristiques ainsi que le maximum pouvant être attribué
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void nudPhyMenSoc_ValueChanged(object sender, EventArgs e)
         {
+            int pointsPhy = (int)nudPhysique.Value;
+            int pointsMen = (int)nudMental.Value;
+            int pointsSoc = (int)nudSocial.Value;
 
-        }
+            int totalPoints = Controller.CompetencesCaracteristiquesController.GetPointCaracteristiquesRepartition(Controller.PersonnageController.GetNiveauPersonnage(IdDuPersonnage));
 
-        private void nudEnergie_ValueChanged(object sender, EventArgs e)
-        {
+            int pointsRestantsPhy = totalPoints - (pointsMen + pointsSoc);
+            int pointsRestantsMen = totalPoints - (pointsPhy + pointsSoc);
+            int pointsRestantsSoc = totalPoints - (pointsMen + pointsPhy);
 
+            nudPhysique.Maximum = pointsRestantsPhy;
+            nudMental.Maximum = pointsRestantsMen;
+            nudSocial.Maximum = pointsRestantsSoc;
+
+            txtPntsCaracteristiques.Text = (totalPoints - ((int)nudPhysique.Value + (int)nudMental.Value + (int)nudSocial.Value)).ToString();
         }
     }
 }

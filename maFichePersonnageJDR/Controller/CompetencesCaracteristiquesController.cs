@@ -326,5 +326,26 @@ namespace maFichePersonnageJDR.Controller
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// Permet de savoir combien de points le personnage a à répartir grâce à son niveau
+        /// </summary>
+        /// <param name="niveauPersonnage"></param>
+        /// <returns></returns>
+        public static int GetPointCaracteristiquesRepartition(int niveauPersonnage)
+        {
+            PointsCaracteristiquesModel pointsCaracteristiques = new PointsCaracteristiquesModel();
+
+            Console.WriteLine(string.Format("########### Méthode GetPointCaracteristiquesRepartition — Personnage recherchée : niveau : {0} ###########", niveauPersonnage));
+
+            try
+            {
+                return pointsCaracteristiques.GetPointsCaracteristiquesByNiveau(niveauPersonnage);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
