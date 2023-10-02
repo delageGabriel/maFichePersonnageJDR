@@ -171,10 +171,10 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudEnergie.Name = "nudEnergie";
-            this.nudEnergie.ReadOnly = true;
             this.nudEnergie.Size = new System.Drawing.Size(54, 20);
             this.nudEnergie.TabIndex = 33;
             this.nudEnergie.Tag = "Energie";
+            this.nudEnergie.ValueChanged += new System.EventHandler(this.nudPVEnergie_ValueChanged);
             // 
             // nudPV
             // 
@@ -185,10 +185,10 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudPV.Name = "nudPV";
-            this.nudPV.ReadOnly = true;
             this.nudPV.Size = new System.Drawing.Size(54, 20);
             this.nudPV.TabIndex = 32;
             this.nudPV.Tag = "PV";
+            this.nudPV.ValueChanged += new System.EventHandler(this.nudPVEnergie_ValueChanged);
             // 
             // lblEnergie
             // 
@@ -1380,6 +1380,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.Controls.Add(this.lblPV);
             this.Name = "FormulaireCompetencesCaracteristiques";
             this.Text = "Caractéristiques et Compétences";
+            this.Load += new System.EventHandler(this.FormulaireCompetencesCaracteristiques_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudEnergie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSocial)).EndInit();

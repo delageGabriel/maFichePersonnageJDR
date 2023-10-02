@@ -306,5 +306,25 @@ namespace maFichePersonnageJDR.Controller
             }
         }
 
+        /// <summary>
+        /// Permet de savoir combien de points le personnage a à répartir grâce à son niveau
+        /// </summary>
+        /// <param name="niveauPersonnage"></param>
+        /// <returns></returns>
+        public static int GetPointPvEnergieRepartition(int niveauPersonnage)
+        {
+            PointsPVEnergieModel pointsPVEnergie = new PointsPVEnergieModel();
+
+            Console.WriteLine(string.Format("########### Méthode GetPointPvEnergieRepartition — Personnage recherchée : niveau : {0} ###########", niveauPersonnage));
+
+            try
+            {
+                return pointsPVEnergie.GetPointsByNiveau(niveauPersonnage);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -299,7 +299,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.Controls.Add(this.txtBoxPrenom);
             this.Controls.Add(this.lblPrenom);
             this.Name = "FormulaireInfosGenerales";
-            this.Text = "FormulaireInfosGenerales";
+            this.Text = "Informations générales";
             this.Load += new System.EventHandler(this.FormulaireInfosGenerales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNiveau)).EndInit();

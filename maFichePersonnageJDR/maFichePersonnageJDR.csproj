@@ -163,6 +163,7 @@
     <Compile Include="Model\ObjetsModel.cs" />
     <Compile Include="Model\PersonnageModel.cs" />
     <Compile Include="Model\PointsCaracteristiquesPersonnageModel.cs" />
+    <Compile Include="Model\PointsPVEnergieModel.cs" />
     <Compile Include="Model\PointsPVEnergiePersonnageModel.cs" />
     <Compile Include="View\Formulaires\FormulaireApercuAttributs.cs">
       <SubType>Form</SubType>

@@ -14,8 +14,11 @@ namespace maFichePersonnageJDR.View.Formulaires
     public partial class FormulaireCompetencesCaracteristiques : Form
     {
         private int idDuPersonnage;
-        public int IdDuPersonnage { get => idDuPersonnage; set => idDuPersonnage = value; }
+        private decimal quantitePv;
+        private decimal quantiteEnergie;
 
+        public int IdDuPersonnage { get => idDuPersonnage; set => idDuPersonnage = value; }
+        
         public FormulaireCompetencesCaracteristiques()
         {
             InitializeComponent();
@@ -27,11 +30,11 @@ namespace maFichePersonnageJDR.View.Formulaires
 
             // Ajout des PV et Energie
             Controller.CompetencesCaracteristiquesController.SavePVAndEnergie(IdDuPersonnage, Convert.ToInt32(nudPV.Value), Convert.ToInt32(nudEnergie.Value));
-            
+
             // Ajout des caractéristiques
-            Controller.CompetencesCaracteristiquesController.SaveCaracteristiques(IdDuPersonnage, Convert.ToInt32(nudPhysique.Value), Convert.ToInt32(nudMental.Value), 
+            Controller.CompetencesCaracteristiquesController.SaveCaracteristiques(IdDuPersonnage, Convert.ToInt32(nudPhysique.Value), Convert.ToInt32(nudMental.Value),
                 Convert.ToInt32(nudSocial.Value));
-            
+
             // Ajout des compétences mentales
             Controller.CompetencesCaracteristiquesController.SaveCompetenceMentalPersonnage(idDuPersonnage, Convert.ToInt32(nudCncention.Value), Convert.ToInt32(nudConnGeographiques.Value),
                 Convert.ToInt32(nudConnHistoriques.Value), Convert.ToInt32(nudMagiques.Value), Convert.ToInt32(nudConnNatures.Value), Convert.ToInt32(nudConnReligieuses.Value),
@@ -39,9 +42,9 @@ namespace maFichePersonnageJDR.View.Formulaires
                 Convert.ToInt32(nudMedecine.Value), Convert.ToInt32(nudMemoire.Value), Convert.ToInt32(nudPerception.Value), Convert.ToInt32(nudVolonte.Value));
 
             // Ajout des compétences physiques
-            Controller.CompetencesCaracteristiquesController.SaveCompetencePhysiquePersonnage(idDuPersonnage, Convert.ToInt32(nudAgilite.Value), Convert.ToInt32(nudArtisanat.Value), 
-                Convert.ToInt32(nudCrochetage.Value), Convert.ToInt32(nudDiscretion.Value), Convert.ToInt32(nudEqlibre.Value), Convert.ToInt32(nudEscalade.Value), 
-                Convert.ToInt32(nudEscamotage.Value), Convert.ToInt32(nudForce.Value), Convert.ToInt32(nudFouille.Value), Convert.ToInt32(nudNatation.Value), Convert.ToInt32(nudReflexes.Value), 
+            Controller.CompetencesCaracteristiquesController.SaveCompetencePhysiquePersonnage(idDuPersonnage, Convert.ToInt32(nudAgilite.Value), Convert.ToInt32(nudArtisanat.Value),
+                Convert.ToInt32(nudCrochetage.Value), Convert.ToInt32(nudDiscretion.Value), Convert.ToInt32(nudEqlibre.Value), Convert.ToInt32(nudEscalade.Value),
+                Convert.ToInt32(nudEscamotage.Value), Convert.ToInt32(nudForce.Value), Convert.ToInt32(nudFouille.Value), Convert.ToInt32(nudNatation.Value), Convert.ToInt32(nudReflexes.Value),
                 Convert.ToInt32(nudVigueur.Value));
 
             // Ajout des compétences sociales
@@ -54,6 +57,52 @@ namespace maFichePersonnageJDR.View.Formulaires
 
             formulaireEquipments.Show();
             this.Close();
+        }
+
+        public void GetPointsToRepartPvEnergieByNiveau()
+        {
+            txtPntsPVEnergie.Text = Controller.CompetencesCaracteristiquesController.GetPointPvEnergieRepartition(Controller.PersonnageController.GetNiveauPersonnage(IdDuPersonnage)).ToString();
+        }
+
+        private void FormulaireCompetencesCaracteristiques_Load(object sender, EventArgs e)
+        {
+            GetPointsToRepartPvEnergieByNiveau();
+        }
+
+        /// <summary>
+        /// Événement qui permet de gérer le nombre de points à répartir dans les Numeric
+        /// PV et Énergie ainsi que le maximum pouvant être attribué
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void nudPVEnergie_ValueChanged(object sender, EventArgs e)
+        {
+            // Récupérer la valeur actuelle des points de vie et d'énergie
+            int pointsPV = (int)nudPV.Value;
+            int pointsEnergie = (int)nudEnergie.Value;
+
+            // Calculer le total des points disponibles
+            int totalPoints = Controller.CompetencesCaracteristiquesController.GetPointPvEnergieRepartition(Controller.PersonnageController.GetNiveauPersonnage(IdDuPersonnage));
+
+            // Calculer le nombre de points disponibles pour l'autre attribut
+            int pointsRestantsPV = totalPoints - pointsEnergie;
+            int pointsRestantsEnergie = totalPoints - pointsPV;
+
+            // Mettre à jour la valeur maximale des deux contrôles NumericUpDown
+            nudPV.Maximum = pointsRestantsPV;
+            nudEnergie.Maximum = pointsRestantsEnergie;
+
+            txtPntsPVEnergie.Text = (totalPoints - ((int)nudPV.Value + (int)nudEnergie.Value)).ToString();
+        }
+
+        private void nudPV_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nudEnergie_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
