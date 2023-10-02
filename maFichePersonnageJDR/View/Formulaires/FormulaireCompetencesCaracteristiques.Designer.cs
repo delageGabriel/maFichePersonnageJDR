@@ -1350,7 +1350,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // btnSauvegarder
             // 
-            this.btnSauvegarder.Location = new System.Drawing.Point(426, 449);
+            this.btnSauvegarder.Location = new System.Drawing.Point(436, 499);
             this.btnSauvegarder.Name = "btnSauvegarder";
             this.btnSauvegarder.Size = new System.Drawing.Size(92, 23);
             this.btnSauvegarder.TabIndex = 47;
@@ -1362,7 +1362,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(916, 484);
+            this.ClientSize = new System.Drawing.Size(916, 534);
             this.Controls.Add(this.btnSauvegarder);
             this.Controls.Add(this.gbSocial);
             this.Controls.Add(this.gbMental);
