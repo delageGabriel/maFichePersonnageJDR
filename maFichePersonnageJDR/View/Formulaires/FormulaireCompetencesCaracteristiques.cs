@@ -14,14 +14,36 @@ namespace maFichePersonnageJDR.View.Formulaires
     public partial class FormulaireCompetencesCaracteristiques : Form
     {
         private int idDuPersonnage;
-        private int compPhysique = 36;
-        private int compMentale = 42;
-        private int compSociale = 22;
+        private int compPhysique;
+        private int compMentale;
+        private int compSociale;
+        private bool enTrainDeMettreAJour = false;
 
         public int IdDuPersonnage { get => idDuPersonnage; set => idDuPersonnage = value; }
-        public int CompPhysique { get => compPhysique; set => compPhysique = value; }
-        public int CompMentale { get => compMentale; set => compMentale = value; }
-        public int CompSociale { get => compSociale; set => compSociale = value; }
+        public int CompPhysique
+        {
+            get => compPhysique;
+            set
+            {
+                compPhysique = value;
+                MettreAJourPointsTotal();
+            }
+        }
+        public int CompMentale
+        {
+            get => compMentale;
+            set
+            {
+                compMentale = value;
+                MettreAJourPointsTotal();
+            }
+        }
+        public int CompSociale { get => compSociale; set 
+            { 
+                compSociale = value;
+                MettreAJourPointsTotal();
+            } 
+        }
 
         public FormulaireCompetencesCaracteristiques()
         {
@@ -84,9 +106,6 @@ namespace maFichePersonnageJDR.View.Formulaires
         {
             GetPointsToRepartPvEnergieByNiveau();
             GetPointsToRepartCaracteristiquesByNiveau();
-            txtBxCompPhy.Text = CompPhysique.ToString();
-            txtBxCompMen.Text = CompMentale.ToString();
-            txtBxComSoc.Text = CompSociale.ToString();
         }
 
         /// <summary>
@@ -138,6 +157,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             nudSocial.Maximum = pointsRestantsSoc;
 
             txtPntsCaracteristiques.Text = (totalPoints - ((int)nudPhysique.Value + (int)nudMental.Value + (int)nudSocial.Value)).ToString();
+
+            MettreAJourPointsTotal();
         }
 
         /// <summary>
@@ -292,6 +313,46 @@ namespace maFichePersonnageJDR.View.Formulaires
             }
 
             txtBxComSoc.Text = pointsRestants.ToString();
+        }
+
+        private void MettreAJourPointsTotal()
+        {
+            if (enTrainDeMettreAJour)
+            {
+                return; // Sortir si déjà en cours de mise à jour
+            }
+
+            enTrainDeMettreAJour = true;
+
+            try
+            {
+                int valeurPhysique = (int)nudPhysique.Value;
+                int valeurMental = (int)nudMental.Value;
+                int valeurSocial = (int)nudSocial.Value;
+
+                if (valeurPhysique >= 10 && valeurMental >= 10 && valeurSocial >= 10)
+                {
+                    int dizainePhys = valeurPhysique / 10; // Récupérer la dizaine
+                    int dizaineMent = valeurMental / 10;
+                    int dizaineSoc = valeurSocial / 10;
+
+                    int pointsPhys = dizainePhys + 36; // Ajouter la dizaine aux points correspondants
+                    int pointsMent = dizaineMent + 42;
+                    int pointsSoc = dizaineSoc + 22;
+
+                    CompPhysique = pointsPhys;
+                    CompMentale = pointsMent;
+                    CompSociale = pointsSoc;
+
+                    txtBxCompPhy.Text = CompPhysique.ToString();
+                    txtBxCompMen.Text = CompMentale.ToString();
+                    txtBxComSoc.Text = CompSociale.ToString();
+                }
+            }
+            finally
+            {
+                enTrainDeMettreAJour = false;
+            }
         }
     }
 }
