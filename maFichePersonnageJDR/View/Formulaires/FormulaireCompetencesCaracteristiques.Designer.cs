@@ -117,6 +117,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.lblCharme = new System.Windows.Forms.Label();
             this.lblBtinage = new System.Windows.Forms.Label();
             this.btnSauvegarder = new System.Windows.Forms.Button();
+            this.txtBxCompPhy = new System.Windows.Forms.TextBox();
+            this.txtBxCompMen = new System.Windows.Forms.TextBox();
+            this.txtBxComSoc = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudEnergie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSocial)).BeginInit();
@@ -343,7 +346,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudFouille.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -351,6 +354,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudFouille.Size = new System.Drawing.Size(41, 20);
             this.nudFouille.TabIndex = 85;
             this.nudFouille.Tag = "Physique";
+            this.nudFouille.ValueChanged += new System.EventHandler(this.nudCompPhy_ValueChanged);
             // 
             // lblFouille
             // 
@@ -370,7 +374,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudVigueur.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -378,6 +382,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudVigueur.Size = new System.Drawing.Size(41, 20);
             this.nudVigueur.TabIndex = 83;
             this.nudVigueur.Tag = "Physique";
+            this.nudVigueur.ValueChanged += new System.EventHandler(this.nudCompPhy_ValueChanged);
             // 
             // lblVigueur
             // 
@@ -397,7 +402,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudReflexes.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -405,6 +410,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudReflexes.Size = new System.Drawing.Size(41, 20);
             this.nudReflexes.TabIndex = 81;
             this.nudReflexes.Tag = "Physique";
+            this.nudReflexes.ValueChanged += new System.EventHandler(this.nudCompPhy_ValueChanged);
             // 
             // lblReflexes
             // 
@@ -424,7 +430,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudNatation.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -432,6 +438,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudNatation.Size = new System.Drawing.Size(41, 20);
             this.nudNatation.TabIndex = 79;
             this.nudNatation.Tag = "Physique";
+            this.nudNatation.ValueChanged += new System.EventHandler(this.nudCompPhy_ValueChanged);
             // 
             // lblNatation
             // 
@@ -451,7 +458,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudForce.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -459,6 +466,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudForce.Size = new System.Drawing.Size(41, 20);
             this.nudForce.TabIndex = 77;
             this.nudForce.Tag = "Physique";
+            this.nudForce.ValueChanged += new System.EventHandler(this.nudCompPhy_ValueChanged);
             // 
             // lblForce
             // 
@@ -478,7 +486,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudEscamotage.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -486,6 +494,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudEscamotage.Size = new System.Drawing.Size(41, 20);
             this.nudEscamotage.TabIndex = 74;
             this.nudEscamotage.Tag = "Physique";
+            this.nudEscamotage.ValueChanged += new System.EventHandler(this.nudCompPhy_ValueChanged);
             // 
             // lblEscamotage
             // 
@@ -505,7 +514,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudEscalade.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -513,6 +522,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudEscalade.Size = new System.Drawing.Size(41, 20);
             this.nudEscalade.TabIndex = 73;
             this.nudEscalade.Tag = "Physique";
+            this.nudEscalade.ValueChanged += new System.EventHandler(this.nudCompPhy_ValueChanged);
             // 
             // lblEscalade
             // 
@@ -532,7 +542,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudEqlibre.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -540,6 +550,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudEqlibre.Size = new System.Drawing.Size(41, 20);
             this.nudEqlibre.TabIndex = 71;
             this.nudEqlibre.Tag = "Physique";
+            this.nudEqlibre.ValueChanged += new System.EventHandler(this.nudCompPhy_ValueChanged);
             // 
             // lblEqlibre
             // 
@@ -559,7 +570,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudDiscretion.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -567,6 +578,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudDiscretion.Size = new System.Drawing.Size(41, 20);
             this.nudDiscretion.TabIndex = 21;
             this.nudDiscretion.Tag = "Physique";
+            this.nudDiscretion.ValueChanged += new System.EventHandler(this.nudCompPhy_ValueChanged);
             // 
             // lblDiscretion
             // 
@@ -586,7 +598,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudCrochetage.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -594,6 +606,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudCrochetage.Size = new System.Drawing.Size(41, 20);
             this.nudCrochetage.TabIndex = 17;
             this.nudCrochetage.Tag = "Physique";
+            this.nudCrochetage.ValueChanged += new System.EventHandler(this.nudCompPhy_ValueChanged);
             // 
             // lblCrochetage
             // 
@@ -613,7 +626,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudArtisanat.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -621,6 +634,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudArtisanat.Size = new System.Drawing.Size(41, 20);
             this.nudArtisanat.TabIndex = 5;
             this.nudArtisanat.Tag = "Physique";
+            this.nudArtisanat.ValueChanged += new System.EventHandler(this.nudCompPhy_ValueChanged);
             // 
             // lblArtisanat
             // 
@@ -640,7 +654,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudAgilite.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -648,6 +662,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudAgilite.Size = new System.Drawing.Size(41, 20);
             this.nudAgilite.TabIndex = 4;
             this.nudAgilite.Tag = "Physique";
+            this.nudAgilite.ValueChanged += new System.EventHandler(this.nudCompPhy_ValueChanged);
             // 
             // lblAgilite
             // 
@@ -691,7 +706,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.gbMental.Controls.Add(this.lblConnNatures);
             this.gbMental.Location = new System.Drawing.Point(297, 158);
             this.gbMental.Name = "gbMental";
-            this.gbMental.Size = new System.Drawing.Size(412, 280);
+            this.gbMental.Size = new System.Drawing.Size(359, 280);
             this.gbMental.TabIndex = 45;
             this.gbMental.TabStop = false;
             this.gbMental.Text = "Mental";
@@ -705,7 +720,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudVolonte.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -713,6 +728,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudVolonte.Size = new System.Drawing.Size(41, 20);
             this.nudVolonte.TabIndex = 93;
             this.nudVolonte.Tag = "Mental";
+            this.nudVolonte.ValueChanged += new System.EventHandler(this.nudCompMen_ValueChanged);
             // 
             // lblVolonte
             // 
@@ -732,7 +748,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudPerception.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -740,6 +756,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudPerception.Size = new System.Drawing.Size(41, 20);
             this.nudPerception.TabIndex = 89;
             this.nudPerception.Tag = "Mental";
+            this.nudPerception.ValueChanged += new System.EventHandler(this.nudCompMen_ValueChanged);
             // 
             // lblPerception
             // 
@@ -759,7 +776,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudMemoire.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -767,6 +784,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudMemoire.Size = new System.Drawing.Size(41, 20);
             this.nudMemoire.TabIndex = 86;
             this.nudMemoire.Tag = "Mental";
+            this.nudMemoire.ValueChanged += new System.EventHandler(this.nudCompMen_ValueChanged);
             // 
             // lblMemoire
             // 
@@ -786,7 +804,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudMedecine.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -794,6 +812,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudMedecine.Size = new System.Drawing.Size(41, 20);
             this.nudMedecine.TabIndex = 85;
             this.nudMedecine.Tag = "Mental";
+            this.nudMedecine.ValueChanged += new System.EventHandler(this.nudCompMen_ValueChanged);
             // 
             // lblMedecine
             // 
@@ -813,7 +832,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudMecanique.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -821,6 +840,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudMecanique.Size = new System.Drawing.Size(41, 20);
             this.nudMecanique.TabIndex = 83;
             this.nudMecanique.Tag = "Mental";
+            this.nudMecanique.ValueChanged += new System.EventHandler(this.nudCompMen_ValueChanged);
             // 
             // lblMecanique
             // 
@@ -840,7 +860,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudExplosifs.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -848,6 +868,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudExplosifs.Size = new System.Drawing.Size(41, 20);
             this.nudExplosifs.TabIndex = 81;
             this.nudExplosifs.Tag = "Mental";
+            this.nudExplosifs.ValueChanged += new System.EventHandler(this.nudCompMen_ValueChanged);
             // 
             // lblExplosifs
             // 
@@ -867,7 +888,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudEsprit.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -875,6 +896,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudEsprit.Size = new System.Drawing.Size(41, 20);
             this.nudEsprit.TabIndex = 79;
             this.nudEsprit.Tag = "Mental";
+            this.nudEsprit.ValueChanged += new System.EventHandler(this.nudCompMen_ValueChanged);
             // 
             // lblEsprit
             // 
@@ -894,7 +916,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudCncention.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -902,6 +924,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudCncention.Size = new System.Drawing.Size(41, 20);
             this.nudCncention.TabIndex = 65;
             this.nudCncention.Tag = "Mental";
+            this.nudCncention.ValueChanged += new System.EventHandler(this.nudCompMen_ValueChanged);
             // 
             // lblCncention
             // 
@@ -921,7 +944,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudDecryptage.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -929,6 +952,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudDecryptage.Size = new System.Drawing.Size(41, 20);
             this.nudDecryptage.TabIndex = 75;
             this.nudDecryptage.Tag = "Mental";
+            this.nudDecryptage.ValueChanged += new System.EventHandler(this.nudCompMen_ValueChanged);
             // 
             // lblDecryptage
             // 
@@ -948,7 +972,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudConnReligieuses.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -956,6 +980,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudConnReligieuses.Size = new System.Drawing.Size(41, 20);
             this.nudConnReligieuses.TabIndex = 73;
             this.nudConnReligieuses.Tag = "Mental";
+            this.nudConnReligieuses.ValueChanged += new System.EventHandler(this.nudCompMen_ValueChanged);
             // 
             // lblConnReligieuses
             // 
@@ -975,7 +1000,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudMagiques.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -983,6 +1008,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudMagiques.Size = new System.Drawing.Size(41, 20);
             this.nudMagiques.TabIndex = 70;
             this.nudMagiques.Tag = "Mental";
+            this.nudMagiques.ValueChanged += new System.EventHandler(this.nudCompMen_ValueChanged);
             // 
             // lblConnMagiques
             // 
@@ -1002,7 +1028,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudConnHistoriques.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -1010,6 +1036,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudConnHistoriques.Size = new System.Drawing.Size(41, 20);
             this.nudConnHistoriques.TabIndex = 68;
             this.nudConnHistoriques.Tag = "Mental";
+            this.nudConnHistoriques.ValueChanged += new System.EventHandler(this.nudCompMen_ValueChanged);
             // 
             // lblConnHistoriques
             // 
@@ -1029,7 +1056,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudConnGeographiques.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -1037,6 +1064,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudConnGeographiques.Size = new System.Drawing.Size(41, 20);
             this.nudConnGeographiques.TabIndex = 67;
             this.nudConnGeographiques.Tag = "Mental";
+            this.nudConnGeographiques.ValueChanged += new System.EventHandler(this.nudCompMen_ValueChanged);
             // 
             // lblConnGeographique
             // 
@@ -1056,7 +1084,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudConnNatures.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -1064,6 +1092,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudConnNatures.Size = new System.Drawing.Size(41, 20);
             this.nudConnNatures.TabIndex = 72;
             this.nudConnNatures.Tag = "Mental";
+            this.nudConnNatures.ValueChanged += new System.EventHandler(this.nudCompMen_ValueChanged);
             // 
             // lblConnNatures
             // 
@@ -1095,9 +1124,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.gbSocial.Controls.Add(this.nudCharme);
             this.gbSocial.Controls.Add(this.lblCharme);
             this.gbSocial.Controls.Add(this.lblBtinage);
-            this.gbSocial.Location = new System.Drawing.Point(715, 158);
+            this.gbSocial.Location = new System.Drawing.Point(674, 158);
             this.gbSocial.Name = "gbSocial";
-            this.gbSocial.Size = new System.Drawing.Size(189, 280);
+            this.gbSocial.Size = new System.Drawing.Size(230, 280);
             this.gbSocial.TabIndex = 46;
             this.gbSocial.TabStop = false;
             this.gbSocial.Text = "Social";
@@ -1111,7 +1140,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudBaratinage.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -1119,6 +1148,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudBaratinage.Size = new System.Drawing.Size(41, 20);
             this.nudBaratinage.TabIndex = 85;
             this.nudBaratinage.Tag = "Social";
+            this.nudBaratinage.ValueChanged += new System.EventHandler(this.nudCompSoc_ValueChanged);
             // 
             // nudProvocation
             // 
@@ -1129,7 +1159,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudProvocation.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -1137,11 +1167,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudProvocation.Size = new System.Drawing.Size(41, 20);
             this.nudProvocation.TabIndex = 82;
             this.nudProvocation.Tag = "Social";
+            this.nudProvocation.ValueChanged += new System.EventHandler(this.nudCompSoc_ValueChanged);
             // 
             // lblProvocation
             // 
             this.lblProvocation.AutoSize = true;
-            this.lblProvocation.Location = new System.Drawing.Point(10, 228);
+            this.lblProvocation.Location = new System.Drawing.Point(7, 228);
             this.lblProvocation.Name = "lblProvocation";
             this.lblProvocation.Size = new System.Drawing.Size(64, 13);
             this.lblProvocation.TabIndex = 84;
@@ -1149,14 +1180,14 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudPrestance
             // 
-            this.nudPrestance.Location = new System.Drawing.Point(89, 201);
+            this.nudPrestance.Location = new System.Drawing.Point(88, 201);
             this.nudPrestance.Maximum = new decimal(new int[] {
             15,
             0,
             0,
             0});
             this.nudPrestance.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -1164,11 +1195,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudPrestance.Size = new System.Drawing.Size(41, 20);
             this.nudPrestance.TabIndex = 81;
             this.nudPrestance.Tag = "Social";
+            this.nudPrestance.ValueChanged += new System.EventHandler(this.nudCompSoc_ValueChanged);
             // 
             // lblPrestance
             // 
             this.lblPrestance.AutoSize = true;
-            this.lblPrestance.Location = new System.Drawing.Point(10, 203);
+            this.lblPrestance.Location = new System.Drawing.Point(7, 203);
             this.lblPrestance.Name = "lblPrestance";
             this.lblPrestance.Size = new System.Drawing.Size(55, 13);
             this.lblPrestance.TabIndex = 83;
@@ -1183,7 +1215,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudMarchandage.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -1191,11 +1223,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudMarchandage.Size = new System.Drawing.Size(41, 20);
             this.nudMarchandage.TabIndex = 78;
             this.nudMarchandage.Tag = "Social";
+            this.nudMarchandage.ValueChanged += new System.EventHandler(this.nudCompSoc_ValueChanged);
             // 
             // lblMarchandage
             // 
             this.lblMarchandage.AutoSize = true;
-            this.lblMarchandage.Location = new System.Drawing.Point(10, 174);
+            this.lblMarchandage.Location = new System.Drawing.Point(6, 176);
             this.lblMarchandage.Name = "lblMarchandage";
             this.lblMarchandage.Size = new System.Drawing.Size(73, 13);
             this.lblMarchandage.TabIndex = 80;
@@ -1210,7 +1243,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudIntimidation.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -1218,11 +1251,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudIntimidation.Size = new System.Drawing.Size(41, 20);
             this.nudIntimidation.TabIndex = 77;
             this.nudIntimidation.Tag = "Social";
+            this.nudIntimidation.ValueChanged += new System.EventHandler(this.nudCompSoc_ValueChanged);
             // 
             // lblIntimidation
             // 
             this.lblIntimidation.AutoSize = true;
-            this.lblIntimidation.Location = new System.Drawing.Point(10, 149);
+            this.lblIntimidation.Location = new System.Drawing.Point(7, 149);
             this.lblIntimidation.Name = "lblIntimidation";
             this.lblIntimidation.Size = new System.Drawing.Size(60, 13);
             this.lblIntimidation.TabIndex = 79;
@@ -1237,7 +1271,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudDressage.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -1245,11 +1279,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudDressage.Size = new System.Drawing.Size(41, 20);
             this.nudDressage.TabIndex = 74;
             this.nudDressage.Tag = "Social";
+            this.nudDressage.ValueChanged += new System.EventHandler(this.nudCompSoc_ValueChanged);
             // 
             // lblDressage
             // 
             this.lblDressage.AutoSize = true;
-            this.lblDressage.Location = new System.Drawing.Point(10, 119);
+            this.lblDressage.Location = new System.Drawing.Point(6, 122);
             this.lblDressage.Name = "lblDressage";
             this.lblDressage.Size = new System.Drawing.Size(52, 13);
             this.lblDressage.TabIndex = 76;
@@ -1264,7 +1299,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudDiplomatie.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -1272,6 +1307,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudDiplomatie.Size = new System.Drawing.Size(41, 20);
             this.nudDiplomatie.TabIndex = 73;
             this.nudDiplomatie.Tag = "Social";
+            this.nudDiplomatie.ValueChanged += new System.EventHandler(this.nudCompSoc_ValueChanged);
             // 
             // lblDiplomatie
             // 
@@ -1291,7 +1327,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudCmedie.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -1299,6 +1335,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudCmedie.Size = new System.Drawing.Size(41, 20);
             this.nudCmedie.TabIndex = 71;
             this.nudCmedie.Tag = "Social";
+            this.nudCmedie.ValueChanged += new System.EventHandler(this.nudCompSoc_ValueChanged);
             // 
             // lblCmedie
             // 
@@ -1319,7 +1356,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             0,
             0});
             this.nudCharme.Minimum = new decimal(new int[] {
-            5,
+            20,
             0,
             0,
             -2147483648});
@@ -1327,6 +1364,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudCharme.Size = new System.Drawing.Size(41, 20);
             this.nudCharme.TabIndex = 69;
             this.nudCharme.Tag = "Social";
+            this.nudCharme.ValueChanged += new System.EventHandler(this.nudCompSoc_ValueChanged);
             // 
             // lblCharme
             // 
@@ -1358,11 +1396,38 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.btnSauvegarder.UseVisualStyleBackColor = true;
             this.btnSauvegarder.Click += new System.EventHandler(this.btnSauvegarder_Click);
             // 
+            // txtBxCompPhy
+            // 
+            this.txtBxCompPhy.Enabled = false;
+            this.txtBxCompPhy.Location = new System.Drawing.Point(118, 444);
+            this.txtBxCompPhy.Name = "txtBxCompPhy";
+            this.txtBxCompPhy.Size = new System.Drawing.Size(49, 20);
+            this.txtBxCompPhy.TabIndex = 48;
+            // 
+            // txtBxCompMen
+            // 
+            this.txtBxCompMen.Enabled = false;
+            this.txtBxCompMen.Location = new System.Drawing.Point(453, 444);
+            this.txtBxCompMen.Name = "txtBxCompMen";
+            this.txtBxCompMen.Size = new System.Drawing.Size(49, 20);
+            this.txtBxCompMen.TabIndex = 49;
+            // 
+            // txtBxComSoc
+            // 
+            this.txtBxComSoc.Enabled = false;
+            this.txtBxComSoc.Location = new System.Drawing.Point(762, 444);
+            this.txtBxComSoc.Name = "txtBxComSoc";
+            this.txtBxComSoc.Size = new System.Drawing.Size(49, 20);
+            this.txtBxComSoc.TabIndex = 50;
+            // 
             // FormulaireCompetencesCaracteristiques
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(916, 534);
+            this.Controls.Add(this.txtBxComSoc);
+            this.Controls.Add(this.txtBxCompMen);
+            this.Controls.Add(this.txtBxCompPhy);
             this.Controls.Add(this.btnSauvegarder);
             this.Controls.Add(this.gbSocial);
             this.Controls.Add(this.gbMental);
@@ -1525,5 +1590,8 @@ namespace maFichePersonnageJDR.View.Formulaires
         private System.Windows.Forms.Button btnSauvegarder;
         private System.Windows.Forms.NumericUpDown nudFouille;
         private System.Windows.Forms.Label lblFouille;
+        private System.Windows.Forms.TextBox txtBxCompPhy;
+        private System.Windows.Forms.TextBox txtBxCompMen;
+        private System.Windows.Forms.TextBox txtBxComSoc;
     }
 }

@@ -14,9 +14,15 @@ namespace maFichePersonnageJDR.View.Formulaires
     public partial class FormulaireCompetencesCaracteristiques : Form
     {
         private int idDuPersonnage;
+        private int compPhysique = 36;
+        private int compMentale = 42;
+        private int compSociale = 22;
 
         public int IdDuPersonnage { get => idDuPersonnage; set => idDuPersonnage = value; }
-        
+        public int CompPhysique { get => compPhysique; set => compPhysique = value; }
+        public int CompMentale { get => compMentale; set => compMentale = value; }
+        public int CompSociale { get => compSociale; set => compSociale = value; }
+
         public FormulaireCompetencesCaracteristiques()
         {
             InitializeComponent();
@@ -78,6 +84,9 @@ namespace maFichePersonnageJDR.View.Formulaires
         {
             GetPointsToRepartPvEnergieByNiveau();
             GetPointsToRepartCaracteristiquesByNiveau();
+            txtBxCompPhy.Text = CompPhysique.ToString();
+            txtBxCompMen.Text = CompMentale.ToString();
+            txtBxComSoc.Text = CompSociale.ToString();
         }
 
         /// <summary>
@@ -129,6 +138,160 @@ namespace maFichePersonnageJDR.View.Formulaires
             nudSocial.Maximum = pointsRestantsSoc;
 
             txtPntsCaracteristiques.Text = (totalPoints - ((int)nudPhysique.Value + (int)nudMental.Value + (int)nudSocial.Value)).ToString();
+        }
+
+        /// <summary>
+        /// Événement qui gère la répartition des points de compétences physique à répartir ainsi que leur maximum
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void nudCompPhy_ValueChanged(object sender, EventArgs e)
+        {
+            /// On commence par récupérer les valeurs de chaque NumericUpDown
+            int agilite = (int)nudAgilite.Value;
+            int artisanat = (int)nudArtisanat.Value;
+            int crochetage = (int)nudCrochetage.Value;
+            int discretion = (int)nudDiscretion.Value;
+            int equilibre = (int)nudEqlibre.Value;
+            int escalade = (int)nudEscalade.Value;
+            int escamotage = (int)nudEscamotage.Value;
+            int force = (int)nudForce.Value;
+            int fouille = (int)nudFouille.Value;
+            int natation = (int)nudNatation.Value;
+            int reflexes = (int)nudReflexes.Value;
+            int vigueur = (int)nudVigueur.Value;
+
+            // Le nombre de point total à répartir
+            int totalPoints = CompPhysique;
+
+            // Les points qu'il reste à répartir
+            int pointsRestants = totalPoints - (agilite + artisanat + crochetage + discretion + equilibre + escalade + escamotage + force + fouille + natation +
+                reflexes + vigueur);
+
+            /// On vérifie s'il reste des points à attribuer, si ce n'est pas le cas
+            /// on pose le maximum de chaque NumericUpDown par rapport à sa valeur
+            /// Sinon le maximum = 15
+            if (pointsRestants == 0)
+            {
+                foreach (Control control in gbPhysique.Controls)
+                {
+                    if (control is NumericUpDown)
+                    {
+                        NumericUpDown numeric = control as NumericUpDown;
+                        numeric.Maximum = numeric.Value;
+                    }
+                }
+            }
+            else
+            {
+                foreach (Control control in gbPhysique.Controls)
+                {
+                    if (control is NumericUpDown)
+                    {
+                        NumericUpDown numeric = control as NumericUpDown;
+                        numeric.Maximum = 15;
+                    }
+                }
+            }
+
+            // Et ensuite on met à jour la TextBox des points à répartir
+            txtBxCompPhy.Text = pointsRestants.ToString();
+        }
+
+        private void nudCompMen_ValueChanged(object sender, EventArgs e)
+        {
+            int concentration = (int)nudCncention.Value;
+            int connGeo = (int)nudConnGeographiques.Value;
+            int connHis = (int)nudConnHistoriques.Value;
+            int connMag = (int)nudMagiques.Value;
+            int connNat = (int)nudConnNatures.Value;
+            int connRel = (int)nudConnReligieuses.Value;
+            int decryptage = (int)nudDecryptage.Value;
+            int esprit = (int)nudEsprit.Value;
+            int explosifs = (int)nudExplosifs.Value;
+            int mecanique = (int)nudMecanique.Value;
+            int medecine = (int)nudMedecine.Value;
+            int memoire = (int)nudMemoire.Value;
+            int perception = (int)nudPerception.Value;
+            int volonte = (int)nudVolonte.Value;
+
+            int totalPoints = CompMentale;
+
+            int pointsRestants = totalPoints - (concentration + connGeo + connHis + connMag + connNat + connRel + decryptage + esprit + explosifs + mecanique +
+                medecine + memoire + perception + volonte);
+
+            /// On vérifie s'il reste des points à attribuer, si ce n'est pas le cas
+            /// on pose le maximum de chaque NumericUpDown par rapport à sa valeur
+            /// Sinon le maximum = 15
+            if (pointsRestants == 0)
+            {
+                foreach (Control control in gbMental.Controls)
+                {
+                    if (control is NumericUpDown)
+                    {
+                        NumericUpDown numeric = control as NumericUpDown;
+                        numeric.Maximum = numeric.Value;
+                    }
+                }
+            }
+            else
+            {
+                foreach (Control control in gbMental.Controls)
+                {
+                    if (control is NumericUpDown)
+                    {
+                        NumericUpDown numeric = control as NumericUpDown;
+                        numeric.Maximum = 15;
+                    }
+                }
+            }
+
+            txtBxCompMen.Text = pointsRestants.ToString();
+        }
+
+        private void nudCompSoc_ValueChanged(object sender, EventArgs e)
+        {
+            int baratinage = (int)nudBaratinage.Value;
+            int charme = (int)nudCharme.Value;
+            int comedie = (int)nudCmedie.Value;
+            int diplomatie = (int)nudDiplomatie.Value;
+            int dressage = (int)nudDressage.Value;
+            int intimidation = (int)nudIntimidation.Value;
+            int marchandage = (int)nudMarchandage.Value;
+            int prestance = (int)nudPrestance.Value;
+            int provocation = (int)nudProvocation.Value;
+
+            int totalPoints = CompSociale;
+
+            int pointsRestants = totalPoints - (baratinage + charme + comedie + diplomatie + dressage + intimidation + marchandage + prestance + provocation);
+
+            /// On vérifie s'il reste des points à attribuer, si ce n'est pas le cas
+            /// on pose le maximum de chaque NumericUpDown par rapport à sa valeur
+            /// Sinon le maximum = 15
+            if (pointsRestants == 0)
+            {
+                foreach (Control control in gbSocial.Controls)
+                {
+                    if (control is NumericUpDown)
+                    {
+                        NumericUpDown numeric = control as NumericUpDown;
+                        numeric.Maximum = numeric.Value;
+                    }
+                }
+            }
+            else
+            {
+                foreach (Control control in gbSocial.Controls)
+                {
+                    if (control is NumericUpDown)
+                    {
+                        NumericUpDown numeric = control as NumericUpDown;
+                        numeric.Maximum = 15;
+                    }
+                }
+            }
+
+            txtBxComSoc.Text = pointsRestants.ToString();
         }
     }
 }
