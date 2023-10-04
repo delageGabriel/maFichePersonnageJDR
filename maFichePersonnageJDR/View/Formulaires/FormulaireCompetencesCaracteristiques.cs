@@ -13,12 +13,18 @@ namespace maFichePersonnageJDR.View.Formulaires
 {
     public partial class FormulaireCompetencesCaracteristiques : Form
     {
+        /// <summary>
+        /// Champs
+        /// </summary>
         private int idDuPersonnage;
         private int compPhysique;
         private int compMentale;
         private int compSociale;
-        private bool enTrainDeMettreAJour = false;
+        private string nbFoisPointsMiseAJour;
 
+        /// <summary>
+        /// Accesseurs et Mutateurs
+        /// </summary>
         public int IdDuPersonnage { get => idDuPersonnage; set => idDuPersonnage = value; }
         public int CompPhysique
         {
@@ -26,7 +32,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             set
             {
                 compPhysique = value;
-                MettreAJourPointsTotal();
             }
         }
         public int CompMentale
@@ -35,16 +40,32 @@ namespace maFichePersonnageJDR.View.Formulaires
             set
             {
                 compMentale = value;
-                MettreAJourPointsTotal();
             }
         }
-        public int CompSociale { get => compSociale; set 
-            { 
+        public int CompSociale
+        {
+            get => compSociale; set
+            {
                 compSociale = value;
-                MettreAJourPointsTotal();
-            } 
+            }
         }
 
+        public string NbFoisPointsMiseAJour
+        {
+            get => nbFoisPointsMiseAJour;
+            set
+            {
+                if (nbFoisPointsMiseAJour != value)
+                {
+                    nbFoisPointsMiseAJour = value;
+                }
+
+            }
+        }
+
+        /// <summary>
+        /// Méthodes
+        /// </summary>
         public FormulaireCompetencesCaracteristiques()
         {
             InitializeComponent();
@@ -158,7 +179,34 @@ namespace maFichePersonnageJDR.View.Formulaires
 
             txtPntsCaracteristiques.Text = (totalPoints - ((int)nudPhysique.Value + (int)nudMental.Value + (int)nudSocial.Value)).ToString();
 
-            MettreAJourPointsTotal();
+            if (nudPhysique.Value == nudPhysique.Maximum && nudMental.Value == nudMental.Maximum && nudSocial.Value == nudSocial.Maximum)
+            {
+                int dizainePhys = pointsPhy / 10; // Récupérer la dizaine
+                int dizaineMent = pointsMen / 10;
+                int dizaineSoc = pointsSoc / 10;
+
+                int pointsPhys = dizainePhys + 36; // Ajouter la dizaine aux points correspondants
+                int pointsMent = dizaineMent + 42;
+                int pointsSoci = dizaineSoc + 22;
+
+                /// On attribue aux propriétés leurs nouveaux points
+                CompPhysique = pointsPhys;
+                CompMentale = pointsMent;
+                CompSociale = pointsSoci;
+
+                /// Puis on met à jour les différentes textbox
+                txtBxCompPhy.Text = CompPhysique.ToString();
+                txtBxCompMen.Text = CompMentale.ToString();
+                txtBxComSoc.Text = CompSociale.ToString();
+
+                // On en profite pour afficher les control liés à la répartition des points de
+                // compétences si le niveau du personnage est supérieur à 1
+                if (Controller.PersonnageController.GetNiveauPersonnage(IdDuPersonnage) > 1)
+                {
+                    GetNbFoisPointsRepartitions();
+                    EnableOrDisableTextBoxButtonRepartitionPoints(true);
+                }
+            }
         }
 
         /// <summary>
@@ -315,43 +363,109 @@ namespace maFichePersonnageJDR.View.Formulaires
             txtBxComSoc.Text = pointsRestants.ToString();
         }
 
-        private void MettreAJourPointsTotal()
+        /// <summary>
+        /// Événement qui permet de mettre à jour chaque TextBox affiliée aux compétences
+        /// </summary>
+        /// <param name="nbPointsAAjouter"></param>
+        /// <param name="compAAjouter"></param>
+        private void MettreAJourPointsTotal(int nbPointsAAjouter, string compAAjouter)
         {
-            if (enTrainDeMettreAJour)
+            /// Si nos paramètres ne sont pas vide, on cherche à rajouter les points de compétences supplémentaires
+            if (nbPointsAAjouter > 0 && !String.IsNullOrEmpty(compAAjouter))
             {
-                return; // Sortir si déjà en cours de mise à jour
-            }
-
-            enTrainDeMettreAJour = true;
-
-            try
-            {
-                int valeurPhysique = (int)nudPhysique.Value;
-                int valeurMental = (int)nudMental.Value;
-                int valeurSocial = (int)nudSocial.Value;
-
-                if (valeurPhysique >= 10 && valeurMental >= 10 && valeurSocial >= 10)
+                switch (compAAjouter)
                 {
-                    int dizainePhys = valeurPhysique / 10; // Récupérer la dizaine
-                    int dizaineMent = valeurMental / 10;
-                    int dizaineSoc = valeurSocial / 10;
-
-                    int pointsPhys = dizainePhys + 36; // Ajouter la dizaine aux points correspondants
-                    int pointsMent = dizaineMent + 42;
-                    int pointsSoc = dizaineSoc + 22;
-
-                    CompPhysique = pointsPhys;
-                    CompMentale = pointsMent;
-                    CompSociale = pointsSoc;
-
-                    txtBxCompPhy.Text = CompPhysique.ToString();
-                    txtBxCompMen.Text = CompMentale.ToString();
-                    txtBxComSoc.Text = CompSociale.ToString();
+                    case "Physique":
+                        CompPhysique += nbPointsAAjouter;
+                        txtBxCompPhy.Text = CompPhysique.ToString();
+                        break;
+                    case "Mental":
+                        CompMentale += nbPointsAAjouter;
+                        txtBxCompMen.Text = CompMentale.ToString();
+                        break;
+                    case "Social":
+                        CompSociale += nbPointsAAjouter;
+                        txtBxComSoc.Text = CompSociale.ToString();
+                        break;
+                    default:
+                        Console.WriteLine("Aucune des trois propositions");
+                        break;
                 }
             }
-            finally
+        }
+
+        /// <summary>
+        /// Permet d'indiquer combien de fois encore le personnage peut ajouter des points de compétences dans
+        /// une de ces trois compétences majeures
+        /// </summary>
+        private void GetNbFoisPointsRepartitions(bool retirePoint = false)
+        {
+            // On récupère le nombre de fois à répartir
+            string[] subsplit = lblNbRepartitionComp.Text.Split(':');
+
+            if (retirePoint)
             {
-                enTrainDeMettreAJour = false;
+                int nbMoinsUn = int.Parse(subsplit[1]);
+                NbFoisPointsMiseAJour = subsplit[0] + ": " + (nbMoinsUn - 1).ToString();
+
+                if (nbMoinsUn - 1 == 0)
+                {
+                    EnableOrDisableTextBoxButtonRepartitionPoints(false);
+                }
+            }
+            else
+            {
+                NbFoisPointsMiseAJour = subsplit[0] + ": " + (Controller.PersonnageController.GetNiveauPersonnage(IdDuPersonnage) - 1).ToString();
+            }
+
+            lblNbRepartitionComp.Text = NbFoisPointsMiseAJour;
+        }
+
+        private void btnAddPtsPhy_Click(object sender, EventArgs e)
+        {
+            MettreAJourPointsTotal(4, "Physique");
+            GetNbFoisPointsRepartitions(true);
+        }
+
+        private void btnAddPtsMen_Click(object sender, EventArgs e)
+        {
+            MettreAJourPointsTotal(6, "Mental");
+            GetNbFoisPointsRepartitions(true);
+        }
+
+        private void btnAddPtsSoc_Click(object sender, EventArgs e)
+        {
+            MettreAJourPointsTotal(3, "Social");
+            GetNbFoisPointsRepartitions(true);
+        }
+
+        private void EnableOrDisableTextBoxButtonRepartitionPoints(bool isEnable)
+        {
+            if (isEnable)
+            {
+                btnAddPtsPhy.Visible = true;
+                btnAddPtsPhy.Enabled = true;
+
+                btnAddPtsMen.Visible = true;
+                btnAddPtsMen.Enabled = true;
+
+                btnAddPtsSoc.Visible = true;
+                btnAddPtsSoc.Enabled = true;
+
+                lblNbRepartitionComp.Visible = true;
+            }
+            else
+            {
+                btnAddPtsPhy.Visible = false;
+                btnAddPtsPhy.Enabled = false;
+
+                btnAddPtsMen.Visible = false;
+                btnAddPtsMen.Enabled = false;
+
+                btnAddPtsSoc.Visible = false;
+                btnAddPtsSoc.Enabled = false;
+
+                lblNbRepartitionComp.Visible = false;
             }
         }
     }

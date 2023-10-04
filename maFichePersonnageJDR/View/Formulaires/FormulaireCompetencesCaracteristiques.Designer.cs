@@ -120,6 +120,10 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxCompPhy = new System.Windows.Forms.TextBox();
             this.txtBxCompMen = new System.Windows.Forms.TextBox();
             this.txtBxComSoc = new System.Windows.Forms.TextBox();
+            this.btnAddPtsPhy = new System.Windows.Forms.Button();
+            this.btnAddPtsMen = new System.Windows.Forms.Button();
+            this.btnAddPtsSoc = new System.Windows.Forms.Button();
+            this.lblNbRepartitionComp = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudEnergie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSocial)).BeginInit();
@@ -1399,7 +1403,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // txtBxCompPhy
             // 
             this.txtBxCompPhy.Enabled = false;
-            this.txtBxCompPhy.Location = new System.Drawing.Point(118, 444);
+            this.txtBxCompPhy.Location = new System.Drawing.Point(81, 444);
             this.txtBxCompPhy.Name = "txtBxCompPhy";
             this.txtBxCompPhy.Size = new System.Drawing.Size(49, 20);
             this.txtBxCompPhy.TabIndex = 48;
@@ -1407,7 +1411,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // txtBxCompMen
             // 
             this.txtBxCompMen.Enabled = false;
-            this.txtBxCompMen.Location = new System.Drawing.Point(453, 444);
+            this.txtBxCompMen.Location = new System.Drawing.Point(405, 445);
             this.txtBxCompMen.Name = "txtBxCompMen";
             this.txtBxCompMen.Size = new System.Drawing.Size(49, 20);
             this.txtBxCompMen.TabIndex = 49;
@@ -1415,16 +1419,64 @@ namespace maFichePersonnageJDR.View.Formulaires
             // txtBxComSoc
             // 
             this.txtBxComSoc.Enabled = false;
-            this.txtBxComSoc.Location = new System.Drawing.Point(762, 444);
+            this.txtBxComSoc.Location = new System.Drawing.Point(722, 445);
             this.txtBxComSoc.Name = "txtBxComSoc";
             this.txtBxComSoc.Size = new System.Drawing.Size(49, 20);
             this.txtBxComSoc.TabIndex = 50;
+            // 
+            // btnAddPtsPhy
+            // 
+            this.btnAddPtsPhy.Location = new System.Drawing.Point(141, 442);
+            this.btnAddPtsPhy.Name = "btnAddPtsPhy";
+            this.btnAddPtsPhy.Size = new System.Drawing.Size(90, 23);
+            this.btnAddPtsPhy.TabIndex = 51;
+            this.btnAddPtsPhy.Text = "Ajouter 4 points";
+            this.btnAddPtsPhy.UseVisualStyleBackColor = true;
+            this.btnAddPtsPhy.Visible = false;
+            this.btnAddPtsPhy.Click += new System.EventHandler(this.btnAddPtsPhy_Click);
+            // 
+            // btnAddPtsMen
+            // 
+            this.btnAddPtsMen.Location = new System.Drawing.Point(461, 442);
+            this.btnAddPtsMen.Name = "btnAddPtsMen";
+            this.btnAddPtsMen.Size = new System.Drawing.Size(103, 23);
+            this.btnAddPtsMen.TabIndex = 52;
+            this.btnAddPtsMen.Text = "Ajouter 6 points";
+            this.btnAddPtsMen.UseVisualStyleBackColor = true;
+            this.btnAddPtsMen.Visible = false;
+            this.btnAddPtsMen.Click += new System.EventHandler(this.btnAddPtsMen_Click);
+            // 
+            // btnAddPtsSoc
+            // 
+            this.btnAddPtsSoc.Location = new System.Drawing.Point(788, 443);
+            this.btnAddPtsSoc.Name = "btnAddPtsSoc";
+            this.btnAddPtsSoc.Size = new System.Drawing.Size(97, 23);
+            this.btnAddPtsSoc.TabIndex = 53;
+            this.btnAddPtsSoc.Text = "Ajouter 3 points";
+            this.btnAddPtsSoc.UseVisualStyleBackColor = true;
+            this.btnAddPtsSoc.Visible = false;
+            this.btnAddPtsSoc.Click += new System.EventHandler(this.btnAddPtsSoc_Click);
+            // 
+            // lblNbRepartitionComp
+            // 
+            this.lblNbRepartitionComp.AutoSize = true;
+            this.lblNbRepartitionComp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNbRepartitionComp.Location = new System.Drawing.Point(288, 473);
+            this.lblNbRepartitionComp.Name = "lblNbRepartitionComp";
+            this.lblNbRepartitionComp.Size = new System.Drawing.Size(388, 17);
+            this.lblNbRepartitionComp.TabIndex = 54;
+            this.lblNbRepartitionComp.Text = "Nombre de fois où vous pouvez ajouter des points : ";
+            this.lblNbRepartitionComp.Visible = false;
             // 
             // FormulaireCompetencesCaracteristiques
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(916, 534);
+            this.Controls.Add(this.lblNbRepartitionComp);
+            this.Controls.Add(this.btnAddPtsSoc);
+            this.Controls.Add(this.btnAddPtsMen);
+            this.Controls.Add(this.btnAddPtsPhy);
             this.Controls.Add(this.txtBxComSoc);
             this.Controls.Add(this.txtBxCompMen);
             this.Controls.Add(this.txtBxCompPhy);
@@ -1593,5 +1645,9 @@ namespace maFichePersonnageJDR.View.Formulaires
         private System.Windows.Forms.TextBox txtBxCompPhy;
         private System.Windows.Forms.TextBox txtBxCompMen;
         private System.Windows.Forms.TextBox txtBxComSoc;
+        private System.Windows.Forms.Button btnAddPtsPhy;
+        private System.Windows.Forms.Button btnAddPtsMen;
+        private System.Windows.Forms.Button btnAddPtsSoc;
+        private System.Windows.Forms.Label lblNbRepartitionComp;
     }
 }
