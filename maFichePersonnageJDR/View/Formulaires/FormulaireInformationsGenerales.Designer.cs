@@ -49,10 +49,11 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnViderHistoire = new System.Windows.Forms.Button();
             this.nudNiveau = new System.Windows.Forms.NumericUpDown();
             this.lblPointsRestants = new System.Windows.Forms.Label();
-            this.txtPointsXp = new System.Windows.Forms.TextBox();
             this.lblPtsXpTotal = new System.Windows.Forms.Label();
+            this.nudExpériencePersonnage = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNiveau)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudExpériencePersonnage)).BeginInit();
             this.SuspendLayout();
             // 
             // lblPrenom
@@ -138,7 +139,7 @@ namespace maFichePersonnageJDR.Formulaires
             // lblNiveau
             // 
             this.lblNiveau.AutoSize = true;
-            this.lblNiveau.Location = new System.Drawing.Point(305, 13);
+            this.lblNiveau.Location = new System.Drawing.Point(318, 13);
             this.lblNiveau.Name = "lblNiveau";
             this.lblNiveau.Size = new System.Drawing.Size(41, 13);
             this.lblNiveau.TabIndex = 9;
@@ -169,7 +170,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.rtbLangues.Location = new System.Drawing.Point(12, 272);
             this.rtbLangues.Name = "rtbLangues";
-            this.rtbLangues.Size = new System.Drawing.Size(445, 26);
+            this.rtbLangues.Size = new System.Drawing.Size(445, 81);
             this.rtbLangues.TabIndex = 17;
             this.rtbLangues.Text = "";
             // 
@@ -193,9 +194,9 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // btnSaveInfos
             // 
-            this.btnSaveInfos.Location = new System.Drawing.Point(255, 342);
+            this.btnSaveInfos.Location = new System.Drawing.Point(502, 313);
             this.btnSaveInfos.Name = "btnSaveInfos";
-            this.btnSaveInfos.Size = new System.Drawing.Size(256, 96);
+            this.btnSaveInfos.Size = new System.Drawing.Size(256, 40);
             this.btnSaveInfos.TabIndex = 24;
             this.btnSaveInfos.Text = "Suivant";
             this.btnSaveInfos.UseVisualStyleBackColor = true;
@@ -223,7 +224,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // nudNiveau
             // 
-            this.nudNiveau.Location = new System.Drawing.Point(303, 29);
+            this.nudNiveau.Location = new System.Drawing.Point(316, 29);
             this.nudNiveau.Maximum = new decimal(new int[] {
             20,
             0,
@@ -254,13 +255,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblPointsRestants.TabIndex = 41;
             this.lblPointsRestants.Text = "/XXXX";
             // 
-            // txtPointsXp
-            // 
-            this.txtPointsXp.Location = new System.Drawing.Point(148, 76);
-            this.txtPointsXp.Name = "txtPointsXp";
-            this.txtPointsXp.Size = new System.Drawing.Size(68, 20);
-            this.txtPointsXp.TabIndex = 42;
-            // 
             // lblPtsXpTotal
             // 
             this.lblPtsXpTotal.AutoSize = true;
@@ -271,13 +265,20 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblPtsXpTotal.TabIndex = 43;
             this.lblPtsXpTotal.Text = "Points d\'expérience :";
             // 
+            // nudExpériencePersonnage
+            // 
+            this.nudExpériencePersonnage.Location = new System.Drawing.Point(151, 78);
+            this.nudExpériencePersonnage.Name = "nudExpériencePersonnage";
+            this.nudExpériencePersonnage.Size = new System.Drawing.Size(65, 20);
+            this.nudExpériencePersonnage.TabIndex = 44;
+            // 
             // FormulaireInfosGenerales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(771, 367);
+            this.Controls.Add(this.nudExpériencePersonnage);
             this.Controls.Add(this.lblPtsXpTotal);
-            this.Controls.Add(this.txtPointsXp);
             this.Controls.Add(this.lblPointsRestants);
             this.Controls.Add(this.nudNiveau);
             this.Controls.Add(this.btnViderHistoire);
@@ -303,6 +304,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.Load += new System.EventHandler(this.FormulaireInfosGenerales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNiveau)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudExpériencePersonnage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -330,7 +332,7 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Button btnViderHistoire;
         private System.Windows.Forms.NumericUpDown nudNiveau;
         private System.Windows.Forms.Label lblPointsRestants;
-        private System.Windows.Forms.TextBox txtPointsXp;
         private System.Windows.Forms.Label lblPtsXpTotal;
+        private System.Windows.Forms.NumericUpDown nudExpériencePersonnage;
     }
 }

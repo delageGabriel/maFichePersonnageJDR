@@ -19,7 +19,7 @@ namespace maFichePersonnageJDR.Formulaires
         public string HommePersonnage { get => rdbHomme.Text; set => rdbHomme.Text = value; }
         public string FemmePersonnage { get => rdbFemme.Text; set => rdbFemme.Text = value; }
         public string AutrePersonnage { get => rdbAutre.Text; set => rdbAutre.Text = value; }
-        public int ExperiencePersonnage { get => int.Parse(txtPointsXp.Text); set => txtPointsXp.Text = value.ToString(); }
+        public int ExperiencePersonnage { get => Convert.ToInt32(nudExpériencePersonnage.Value); set => nudExpériencePersonnage.Value = value; }
         public string AvatarPersonnage { get => ptbAvatar.ImageLocation; set => ptbAvatar.ImageLocation = value; }
         public string LanguesPersonnage { get => rtbLangues.Text; set => rtbLangues.Text = value; }
         public string HistoirePersonnage { get => rtbHistoire.Text; set => rtbHistoire.Text = value; }

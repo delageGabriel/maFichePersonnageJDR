@@ -572,9 +572,11 @@ namespace maFichePersonnageJDR.Formulaires
                 if (controls is Label)
                 {
                     Label label = controls as Label;
+                    int hauteurTexteLabel = TextRenderer.MeasureText(label.Text, label.Font).Height;
 
                     CheckBox checkBox = new CheckBox();
-                    checkBox.Location = new Point(5 + pnlVendreArme.AutoScrollPosition.X, label.Location.Y + pnlVendreArme.AutoScrollPosition.Y);
+                    checkBox.Top = label.Top + (hauteurTexteLabel - checkBox.Height) / 2;
+                    checkBox.Left = 5;
                     checkBox.Name = ("chck" + label.Tag.ToString());
                     checkBox.Click += checkBoxVendreArme_Click;
                     checkBox.Tag = label.Tag.ToString();
@@ -625,9 +627,11 @@ namespace maFichePersonnageJDR.Formulaires
                 if (controls is Label)
                 {
                     Label label = controls as Label;
+                    int hauteurTexteLabel = TextRenderer.MeasureText(label.Text, label.Font).Height;
 
                     CheckBox checkBox = new CheckBox();
-                    checkBox.Location = new Point(5 + pnlVendreArmure.AutoScrollPosition.X, label.Location.Y + pnlVendreArmure.AutoScrollPosition.Y);
+                    checkBox.Top = label.Top + (hauteurTexteLabel - checkBox.Height) / 2;
+                    checkBox.Left = 5;
                     checkBox.Name = ("chck" + label.Tag.ToString());
                     checkBox.Click += checkBoxVendreArmure_Click;
                     checkBox.Tag = label.Tag.ToString();
@@ -676,9 +680,11 @@ namespace maFichePersonnageJDR.Formulaires
                 if (controls is Label)
                 {
                     Label label = controls as Label;
+                    int hauteurTexteLabel = TextRenderer.MeasureText(label.Text, label.Font).Height;
 
                     CheckBox checkBox = new CheckBox();
-                    checkBox.Location = new Point(5 + pnlVendreObjet.AutoScrollPosition.X, label.Location.Y + pnlVendreObjet.AutoScrollPosition.Y);
+                    checkBox.Top = label.Top + (hauteurTexteLabel - checkBox.Height) / 2;
+                    checkBox.Left = 5;
                     checkBox.Name = ("chck" + label.Tag.ToString());
                     checkBox.Click += checkBoxVendreObjet_Click;
                     checkBox.Tag = label.Tag.ToString();

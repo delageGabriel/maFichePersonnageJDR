@@ -124,6 +124,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.btnAddPtsMen = new System.Windows.Forms.Button();
             this.btnAddPtsSoc = new System.Windows.Forms.Button();
             this.lblNbRepartitionComp = new System.Windows.Forms.Label();
+            this.pnlPvEnergie = new System.Windows.Forms.Panel();
+            this.pnlCaracteristiques = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.nudEnergie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSocial)).BeginInit();
@@ -167,11 +169,13 @@ namespace maFichePersonnageJDR.View.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.nudDiplomatie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCmedie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCharme)).BeginInit();
+            this.pnlPvEnergie.SuspendLayout();
+            this.pnlCaracteristiques.SuspendLayout();
             this.SuspendLayout();
             // 
             // nudEnergie
             // 
-            this.nudEnergie.Location = new System.Drawing.Point(488, 29);
+            this.nudEnergie.Location = new System.Drawing.Point(143, 20);
             this.nudEnergie.Maximum = new decimal(new int[] {
             12,
             0,
@@ -185,7 +189,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudPV
             // 
-            this.nudPV.Location = new System.Drawing.Point(407, 29);
+            this.nudPV.Location = new System.Drawing.Point(17, 20);
             this.nudPV.Maximum = new decimal(new int[] {
             12,
             0,
@@ -200,7 +204,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // lblEnergie
             // 
             this.lblEnergie.AutoSize = true;
-            this.lblEnergie.Location = new System.Drawing.Point(492, 9);
+            this.lblEnergie.Location = new System.Drawing.Point(140, 4);
             this.lblEnergie.Name = "lblEnergie";
             this.lblEnergie.Size = new System.Drawing.Size(43, 13);
             this.lblEnergie.TabIndex = 31;
@@ -209,7 +213,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // lblPV
             // 
             this.lblPV.AutoSize = true;
-            this.lblPV.Location = new System.Drawing.Point(404, 9);
+            this.lblPV.Location = new System.Drawing.Point(14, 4);
             this.lblPV.Name = "lblPV";
             this.lblPV.Size = new System.Drawing.Size(68, 13);
             this.lblPV.TabIndex = 30;
@@ -217,7 +221,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudSocial
             // 
-            this.nudSocial.Location = new System.Drawing.Point(521, 105);
+            this.nudSocial.Location = new System.Drawing.Point(135, 20);
             this.nudSocial.Name = "nudSocial";
             this.nudSocial.Size = new System.Drawing.Size(54, 20);
             this.nudSocial.TabIndex = 43;
@@ -226,7 +230,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudMental
             // 
-            this.nudMental.Location = new System.Drawing.Point(464, 105);
+            this.nudMental.Location = new System.Drawing.Point(75, 20);
             this.nudMental.Name = "nudMental";
             this.nudMental.Size = new System.Drawing.Size(54, 20);
             this.nudMental.TabIndex = 42;
@@ -235,7 +239,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudPhysique
             // 
-            this.nudPhysique.Location = new System.Drawing.Point(407, 105);
+            this.nudPhysique.Location = new System.Drawing.Point(4, 20);
             this.nudPhysique.Name = "nudPhysique";
             this.nudPhysique.Size = new System.Drawing.Size(54, 20);
             this.nudPhysique.TabIndex = 41;
@@ -245,7 +249,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // txtPntsPVEnergie
             // 
             this.txtPntsPVEnergie.Enabled = false;
-            this.txtPntsPVEnergie.Location = new System.Drawing.Point(495, 55);
+            this.txtPntsPVEnergie.Location = new System.Drawing.Point(124, 48);
             this.txtPntsPVEnergie.Name = "txtPntsPVEnergie";
             this.txtPntsPVEnergie.Size = new System.Drawing.Size(33, 20);
             this.txtPntsPVEnergie.TabIndex = 40;
@@ -254,7 +258,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblPntsRepartitionPVEnergie.AutoSize = true;
             this.lblPntsRepartitionPVEnergie.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPntsRepartitionPVEnergie.Location = new System.Drawing.Point(404, 58);
+            this.lblPntsRepartitionPVEnergie.Location = new System.Drawing.Point(38, 51);
             this.lblPntsRepartitionPVEnergie.Name = "lblPntsRepartitionPVEnergie";
             this.lblPntsRepartitionPVEnergie.Size = new System.Drawing.Size(80, 13);
             this.lblPntsRepartitionPVEnergie.TabIndex = 39;
@@ -264,7 +268,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // txtPntsCaracteristiques
             // 
             this.txtPntsCaracteristiques.Enabled = false;
-            this.txtPntsCaracteristiques.Location = new System.Drawing.Point(495, 132);
+            this.txtPntsCaracteristiques.Location = new System.Drawing.Point(118, 46);
             this.txtPntsCaracteristiques.Name = "txtPntsCaracteristiques";
             this.txtPntsCaracteristiques.Size = new System.Drawing.Size(33, 20);
             this.txtPntsCaracteristiques.TabIndex = 38;
@@ -273,7 +277,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblPntsRepartitionCaracteristiques.AutoSize = true;
             this.lblPntsRepartitionCaracteristiques.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPntsRepartitionCaracteristiques.Location = new System.Drawing.Point(404, 135);
+            this.lblPntsRepartitionCaracteristiques.Location = new System.Drawing.Point(27, 49);
             this.lblPntsRepartitionCaracteristiques.Name = "lblPntsRepartitionCaracteristiques";
             this.lblPntsRepartitionCaracteristiques.Size = new System.Drawing.Size(80, 13);
             this.lblPntsRepartitionCaracteristiques.TabIndex = 37;
@@ -283,7 +287,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             // lblSocial
             // 
             this.lblSocial.AutoSize = true;
-            this.lblSocial.Location = new System.Drawing.Point(532, 89);
+            this.lblSocial.ForeColor = System.Drawing.Color.Green;
+            this.lblSocial.Location = new System.Drawing.Point(140, 4);
             this.lblSocial.Name = "lblSocial";
             this.lblSocial.Size = new System.Drawing.Size(36, 13);
             this.lblSocial.TabIndex = 36;
@@ -292,7 +297,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             // lblMental
             // 
             this.lblMental.AutoSize = true;
-            this.lblMental.Location = new System.Drawing.Point(468, 89);
+            this.lblMental.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.lblMental.Location = new System.Drawing.Point(81, 4);
             this.lblMental.Name = "lblMental";
             this.lblMental.Size = new System.Drawing.Size(39, 13);
             this.lblMental.TabIndex = 35;
@@ -301,7 +307,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             // lblPhysique
             // 
             this.lblPhysique.AutoSize = true;
-            this.lblPhysique.Location = new System.Drawing.Point(404, 89);
+            this.lblPhysique.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblPhysique.Location = new System.Drawing.Point(5, 4);
             this.lblPhysique.Name = "lblPhysique";
             this.lblPhysique.Size = new System.Drawing.Size(50, 13);
             this.lblPhysique.TabIndex = 34;
@@ -309,7 +316,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // gbPhysique
             // 
-            this.gbPhysique.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.gbPhysique.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.gbPhysique.Controls.Add(this.nudFouille);
             this.gbPhysique.Controls.Add(this.lblFouille);
             this.gbPhysique.Controls.Add(this.nudVigueur);
@@ -334,7 +341,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.gbPhysique.Controls.Add(this.lblArtisanat);
             this.gbPhysique.Controls.Add(this.nudAgilite);
             this.gbPhysique.Controls.Add(this.lblAgilite);
-            this.gbPhysique.Location = new System.Drawing.Point(12, 158);
+            this.gbPhysique.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.gbPhysique.Location = new System.Drawing.Point(13, 95);
             this.gbPhysique.Name = "gbPhysique";
             this.gbPhysique.Size = new System.Drawing.Size(269, 280);
             this.gbPhysique.TabIndex = 44;
@@ -679,7 +687,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // gbMental
             // 
-            this.gbMental.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.gbMental.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.gbMental.Controls.Add(this.nudVolonte);
             this.gbMental.Controls.Add(this.lblVolonte);
             this.gbMental.Controls.Add(this.nudPerception);
@@ -708,7 +716,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.gbMental.Controls.Add(this.lblConnGeographique);
             this.gbMental.Controls.Add(this.nudConnNatures);
             this.gbMental.Controls.Add(this.lblConnNatures);
-            this.gbMental.Location = new System.Drawing.Point(297, 158);
+            this.gbMental.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.gbMental.Location = new System.Drawing.Point(298, 95);
             this.gbMental.Name = "gbMental";
             this.gbMental.Size = new System.Drawing.Size(359, 280);
             this.gbMental.TabIndex = 45;
@@ -1109,7 +1118,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // gbSocial
             // 
-            this.gbSocial.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.gbSocial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.gbSocial.Controls.Add(this.nudBaratinage);
             this.gbSocial.Controls.Add(this.nudProvocation);
             this.gbSocial.Controls.Add(this.lblProvocation);
@@ -1128,7 +1137,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.gbSocial.Controls.Add(this.nudCharme);
             this.gbSocial.Controls.Add(this.lblCharme);
             this.gbSocial.Controls.Add(this.lblBtinage);
-            this.gbSocial.Location = new System.Drawing.Point(674, 158);
+            this.gbSocial.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.gbSocial.Location = new System.Drawing.Point(675, 95);
             this.gbSocial.Name = "gbSocial";
             this.gbSocial.Size = new System.Drawing.Size(230, 280);
             this.gbSocial.TabIndex = 46;
@@ -1392,18 +1402,18 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // btnSauvegarder
             // 
-            this.btnSauvegarder.Location = new System.Drawing.Point(436, 499);
+            this.btnSauvegarder.Location = new System.Drawing.Point(429, 435);
             this.btnSauvegarder.Name = "btnSauvegarder";
-            this.btnSauvegarder.Size = new System.Drawing.Size(92, 23);
+            this.btnSauvegarder.Size = new System.Drawing.Size(115, 33);
             this.btnSauvegarder.TabIndex = 47;
-            this.btnSauvegarder.Text = "Sauvegarder";
+            this.btnSauvegarder.Text = "Suivant";
             this.btnSauvegarder.UseVisualStyleBackColor = true;
             this.btnSauvegarder.Click += new System.EventHandler(this.btnSauvegarder_Click);
             // 
             // txtBxCompPhy
             // 
             this.txtBxCompPhy.Enabled = false;
-            this.txtBxCompPhy.Location = new System.Drawing.Point(81, 444);
+            this.txtBxCompPhy.Location = new System.Drawing.Point(82, 381);
             this.txtBxCompPhy.Name = "txtBxCompPhy";
             this.txtBxCompPhy.Size = new System.Drawing.Size(49, 20);
             this.txtBxCompPhy.TabIndex = 48;
@@ -1411,7 +1421,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // txtBxCompMen
             // 
             this.txtBxCompMen.Enabled = false;
-            this.txtBxCompMen.Location = new System.Drawing.Point(405, 445);
+            this.txtBxCompMen.Location = new System.Drawing.Point(406, 382);
             this.txtBxCompMen.Name = "txtBxCompMen";
             this.txtBxCompMen.Size = new System.Drawing.Size(49, 20);
             this.txtBxCompMen.TabIndex = 49;
@@ -1419,14 +1429,14 @@ namespace maFichePersonnageJDR.View.Formulaires
             // txtBxComSoc
             // 
             this.txtBxComSoc.Enabled = false;
-            this.txtBxComSoc.Location = new System.Drawing.Point(722, 445);
+            this.txtBxComSoc.Location = new System.Drawing.Point(723, 382);
             this.txtBxComSoc.Name = "txtBxComSoc";
             this.txtBxComSoc.Size = new System.Drawing.Size(49, 20);
             this.txtBxComSoc.TabIndex = 50;
             // 
             // btnAddPtsPhy
             // 
-            this.btnAddPtsPhy.Location = new System.Drawing.Point(141, 442);
+            this.btnAddPtsPhy.Location = new System.Drawing.Point(142, 379);
             this.btnAddPtsPhy.Name = "btnAddPtsPhy";
             this.btnAddPtsPhy.Size = new System.Drawing.Size(90, 23);
             this.btnAddPtsPhy.TabIndex = 51;
@@ -1437,7 +1447,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // btnAddPtsMen
             // 
-            this.btnAddPtsMen.Location = new System.Drawing.Point(461, 442);
+            this.btnAddPtsMen.Location = new System.Drawing.Point(462, 379);
             this.btnAddPtsMen.Name = "btnAddPtsMen";
             this.btnAddPtsMen.Size = new System.Drawing.Size(103, 23);
             this.btnAddPtsMen.TabIndex = 52;
@@ -1448,7 +1458,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // btnAddPtsSoc
             // 
-            this.btnAddPtsSoc.Location = new System.Drawing.Point(788, 443);
+            this.btnAddPtsSoc.Location = new System.Drawing.Point(789, 380);
             this.btnAddPtsSoc.Name = "btnAddPtsSoc";
             this.btnAddPtsSoc.Size = new System.Drawing.Size(97, 23);
             this.btnAddPtsSoc.TabIndex = 53;
@@ -1461,18 +1471,50 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblNbRepartitionComp.AutoSize = true;
             this.lblNbRepartitionComp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNbRepartitionComp.Location = new System.Drawing.Point(288, 473);
+            this.lblNbRepartitionComp.Location = new System.Drawing.Point(269, 406);
             this.lblNbRepartitionComp.Name = "lblNbRepartitionComp";
             this.lblNbRepartitionComp.Size = new System.Drawing.Size(388, 17);
             this.lblNbRepartitionComp.TabIndex = 54;
             this.lblNbRepartitionComp.Text = "Nombre de fois où vous pouvez ajouter des points : ";
             this.lblNbRepartitionComp.Visible = false;
             // 
+            // pnlPvEnergie
+            // 
+            this.pnlPvEnergie.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlPvEnergie.Controls.Add(this.lblPV);
+            this.pnlPvEnergie.Controls.Add(this.nudPV);
+            this.pnlPvEnergie.Controls.Add(this.lblEnergie);
+            this.pnlPvEnergie.Controls.Add(this.nudEnergie);
+            this.pnlPvEnergie.Controls.Add(this.lblPntsRepartitionPVEnergie);
+            this.pnlPvEnergie.Controls.Add(this.txtPntsPVEnergie);
+            this.pnlPvEnergie.Location = new System.Drawing.Point(117, 5);
+            this.pnlPvEnergie.Name = "pnlPvEnergie";
+            this.pnlPvEnergie.Size = new System.Drawing.Size(234, 73);
+            this.pnlPvEnergie.TabIndex = 55;
+            // 
+            // pnlCaracteristiques
+            // 
+            this.pnlCaracteristiques.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlCaracteristiques.Controls.Add(this.nudPhysique);
+            this.pnlCaracteristiques.Controls.Add(this.lblPhysique);
+            this.pnlCaracteristiques.Controls.Add(this.nudMental);
+            this.pnlCaracteristiques.Controls.Add(this.lblMental);
+            this.pnlCaracteristiques.Controls.Add(this.nudSocial);
+            this.pnlCaracteristiques.Controls.Add(this.lblSocial);
+            this.pnlCaracteristiques.Controls.Add(this.txtPntsCaracteristiques);
+            this.pnlCaracteristiques.Controls.Add(this.lblPntsRepartitionCaracteristiques);
+            this.pnlCaracteristiques.Location = new System.Drawing.Point(572, 5);
+            this.pnlCaracteristiques.Name = "pnlCaracteristiques";
+            this.pnlCaracteristiques.Size = new System.Drawing.Size(200, 73);
+            this.pnlCaracteristiques.TabIndex = 56;
+            // 
             // FormulaireCompetencesCaracteristiques
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(916, 534);
+            this.ClientSize = new System.Drawing.Size(916, 480);
+            this.Controls.Add(this.pnlCaracteristiques);
+            this.Controls.Add(this.pnlPvEnergie);
             this.Controls.Add(this.lblNbRepartitionComp);
             this.Controls.Add(this.btnAddPtsSoc);
             this.Controls.Add(this.btnAddPtsMen);
@@ -1484,20 +1526,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.Controls.Add(this.gbSocial);
             this.Controls.Add(this.gbMental);
             this.Controls.Add(this.gbPhysique);
-            this.Controls.Add(this.nudSocial);
-            this.Controls.Add(this.nudMental);
-            this.Controls.Add(this.nudPhysique);
-            this.Controls.Add(this.txtPntsPVEnergie);
-            this.Controls.Add(this.lblPntsRepartitionPVEnergie);
-            this.Controls.Add(this.txtPntsCaracteristiques);
-            this.Controls.Add(this.lblPntsRepartitionCaracteristiques);
-            this.Controls.Add(this.lblSocial);
-            this.Controls.Add(this.lblMental);
-            this.Controls.Add(this.lblPhysique);
-            this.Controls.Add(this.nudEnergie);
-            this.Controls.Add(this.nudPV);
-            this.Controls.Add(this.lblEnergie);
-            this.Controls.Add(this.lblPV);
             this.Name = "FormulaireCompetencesCaracteristiques";
             this.Text = "Caractéristiques et Compétences";
             this.Load += new System.EventHandler(this.FormulaireCompetencesCaracteristiques_Load);
@@ -1547,6 +1575,10 @@ namespace maFichePersonnageJDR.View.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.nudDiplomatie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCmedie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCharme)).EndInit();
+            this.pnlPvEnergie.ResumeLayout(false);
+            this.pnlPvEnergie.PerformLayout();
+            this.pnlCaracteristiques.ResumeLayout(false);
+            this.pnlCaracteristiques.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1649,5 +1681,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         private System.Windows.Forms.Button btnAddPtsMen;
         private System.Windows.Forms.Button btnAddPtsSoc;
         private System.Windows.Forms.Label lblNbRepartitionComp;
+        private System.Windows.Forms.Panel pnlPvEnergie;
+        private System.Windows.Forms.Panel pnlCaracteristiques;
     }
 }

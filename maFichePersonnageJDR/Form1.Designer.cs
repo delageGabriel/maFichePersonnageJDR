@@ -34,7 +34,7 @@ namespace maFichePersonnageJDR
             // 
             // btnCreerPersonnage
             // 
-            this.btnCreerPersonnage.Location = new System.Drawing.Point(69, 12);
+            this.btnCreerPersonnage.Location = new System.Drawing.Point(48, 12);
             this.btnCreerPersonnage.Name = "btnCreerPersonnage";
             this.btnCreerPersonnage.Size = new System.Drawing.Size(104, 37);
             this.btnCreerPersonnage.TabIndex = 5;
@@ -46,7 +46,7 @@ namespace maFichePersonnageJDR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(241, 200);
+            this.ClientSize = new System.Drawing.Size(217, 200);
             this.Controls.Add(this.btnCreerPersonnage);
             this.Name = "FrmPrincipal";
             this.Text = "Menu";
