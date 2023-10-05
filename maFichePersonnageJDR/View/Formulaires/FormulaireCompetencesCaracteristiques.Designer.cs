@@ -351,6 +351,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudFouille
             // 
+            this.nudFouille.Enabled = false;
             this.nudFouille.Location = new System.Drawing.Point(78, 247);
             this.nudFouille.Maximum = new decimal(new int[] {
             15,
@@ -379,6 +380,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudVigueur
             // 
+            this.nudVigueur.Enabled = false;
             this.nudVigueur.Location = new System.Drawing.Point(178, 74);
             this.nudVigueur.Maximum = new decimal(new int[] {
             15,
@@ -407,6 +409,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudReflexes
             // 
+            this.nudReflexes.Enabled = false;
             this.nudReflexes.Location = new System.Drawing.Point(178, 50);
             this.nudReflexes.Maximum = new decimal(new int[] {
             15,
@@ -435,6 +438,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudNatation
             // 
+            this.nudNatation.Enabled = false;
             this.nudNatation.Location = new System.Drawing.Point(178, 24);
             this.nudNatation.Maximum = new decimal(new int[] {
             15,
@@ -463,6 +467,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudForce
             // 
+            this.nudForce.Enabled = false;
             this.nudForce.Location = new System.Drawing.Point(77, 221);
             this.nudForce.Maximum = new decimal(new int[] {
             15,
@@ -491,6 +496,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudEscamotage
             // 
+            this.nudEscamotage.Enabled = false;
             this.nudEscamotage.Location = new System.Drawing.Point(77, 193);
             this.nudEscamotage.Maximum = new decimal(new int[] {
             15,
@@ -519,6 +525,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudEscalade
             // 
+            this.nudEscalade.Enabled = false;
             this.nudEscalade.Location = new System.Drawing.Point(77, 161);
             this.nudEscalade.Maximum = new decimal(new int[] {
             15,
@@ -547,6 +554,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudEqlibre
             // 
+            this.nudEqlibre.Enabled = false;
             this.nudEqlibre.Location = new System.Drawing.Point(77, 131);
             this.nudEqlibre.Maximum = new decimal(new int[] {
             15,
@@ -575,6 +583,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudDiscretion
             // 
+            this.nudDiscretion.Enabled = false;
             this.nudDiscretion.Location = new System.Drawing.Point(77, 102);
             this.nudDiscretion.Maximum = new decimal(new int[] {
             15,
@@ -603,6 +612,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudCrochetage
             // 
+            this.nudCrochetage.Enabled = false;
             this.nudCrochetage.Location = new System.Drawing.Point(77, 76);
             this.nudCrochetage.Maximum = new decimal(new int[] {
             15,
@@ -631,6 +641,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudArtisanat
             // 
+            this.nudArtisanat.Enabled = false;
             this.nudArtisanat.Location = new System.Drawing.Point(77, 49);
             this.nudArtisanat.Maximum = new decimal(new int[] {
             15,
@@ -659,6 +670,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudAgilite
             // 
+            this.nudAgilite.Enabled = false;
             this.nudAgilite.Location = new System.Drawing.Point(77, 24);
             this.nudAgilite.Maximum = new decimal(new int[] {
             15,
@@ -726,6 +738,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudVolonte
             // 
+            this.nudVolonte.Enabled = false;
             this.nudVolonte.Location = new System.Drawing.Point(287, 93);
             this.nudVolonte.Maximum = new decimal(new int[] {
             15,
@@ -754,6 +767,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudPerception
             // 
+            this.nudPerception.Enabled = false;
             this.nudPerception.Location = new System.Drawing.Point(287, 67);
             this.nudPerception.Maximum = new decimal(new int[] {
             15,
@@ -782,6 +796,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudMemoire
             // 
+            this.nudMemoire.Enabled = false;
             this.nudMemoire.Location = new System.Drawing.Point(287, 43);
             this.nudMemoire.Maximum = new decimal(new int[] {
             15,
@@ -810,6 +825,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudMedecine
             // 
+            this.nudMedecine.Enabled = false;
             this.nudMedecine.Location = new System.Drawing.Point(287, 20);
             this.nudMedecine.Maximum = new decimal(new int[] {
             15,
@@ -838,6 +854,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudMecanique
             // 
+            this.nudMecanique.Enabled = false;
             this.nudMecanique.Location = new System.Drawing.Point(164, 249);
             this.nudMecanique.Maximum = new decimal(new int[] {
             15,
@@ -866,6 +883,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudExplosifs
             // 
+            this.nudExplosifs.Enabled = false;
             this.nudExplosifs.Location = new System.Drawing.Point(164, 221);
             this.nudExplosifs.Maximum = new decimal(new int[] {
             15,
@@ -894,6 +912,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudEsprit
             // 
+            this.nudEsprit.Enabled = false;
             this.nudEsprit.Location = new System.Drawing.Point(164, 193);
             this.nudEsprit.Maximum = new decimal(new int[] {
             15,
@@ -922,6 +941,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudCncention
             // 
+            this.nudCncention.Enabled = false;
             this.nudCncention.Location = new System.Drawing.Point(164, 20);
             this.nudCncention.Maximum = new decimal(new int[] {
             15,
@@ -950,6 +970,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudDecryptage
             // 
+            this.nudDecryptage.Enabled = false;
             this.nudDecryptage.Location = new System.Drawing.Point(164, 166);
             this.nudDecryptage.Maximum = new decimal(new int[] {
             15,
@@ -978,6 +999,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudConnReligieuses
             // 
+            this.nudConnReligieuses.Enabled = false;
             this.nudConnReligieuses.Location = new System.Drawing.Point(164, 142);
             this.nudConnReligieuses.Maximum = new decimal(new int[] {
             15,
@@ -1006,6 +1028,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudMagiques
             // 
+            this.nudMagiques.Enabled = false;
             this.nudMagiques.Location = new System.Drawing.Point(164, 92);
             this.nudMagiques.Maximum = new decimal(new int[] {
             15,
@@ -1034,6 +1057,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudConnHistoriques
             // 
+            this.nudConnHistoriques.Enabled = false;
             this.nudConnHistoriques.Location = new System.Drawing.Point(164, 67);
             this.nudConnHistoriques.Maximum = new decimal(new int[] {
             15,
@@ -1062,6 +1086,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudConnGeographiques
             // 
+            this.nudConnGeographiques.Enabled = false;
             this.nudConnGeographiques.Location = new System.Drawing.Point(164, 43);
             this.nudConnGeographiques.Maximum = new decimal(new int[] {
             15,
@@ -1090,6 +1115,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudConnNatures
             // 
+            this.nudConnNatures.Enabled = false;
             this.nudConnNatures.Location = new System.Drawing.Point(164, 117);
             this.nudConnNatures.Maximum = new decimal(new int[] {
             15,
@@ -1147,6 +1173,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudBaratinage
             // 
+            this.nudBaratinage.Enabled = false;
             this.nudBaratinage.Location = new System.Drawing.Point(88, 19);
             this.nudBaratinage.Maximum = new decimal(new int[] {
             15,
@@ -1166,6 +1193,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudProvocation
             // 
+            this.nudProvocation.Enabled = false;
             this.nudProvocation.Location = new System.Drawing.Point(89, 226);
             this.nudProvocation.Maximum = new decimal(new int[] {
             15,
@@ -1194,6 +1222,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudPrestance
             // 
+            this.nudPrestance.Enabled = false;
             this.nudPrestance.Location = new System.Drawing.Point(88, 201);
             this.nudPrestance.Maximum = new decimal(new int[] {
             15,
@@ -1222,6 +1251,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudMarchandage
             // 
+            this.nudMarchandage.Enabled = false;
             this.nudMarchandage.Location = new System.Drawing.Point(89, 174);
             this.nudMarchandage.Maximum = new decimal(new int[] {
             15,
@@ -1250,6 +1280,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudIntimidation
             // 
+            this.nudIntimidation.Enabled = false;
             this.nudIntimidation.Location = new System.Drawing.Point(88, 147);
             this.nudIntimidation.Maximum = new decimal(new int[] {
             15,
@@ -1278,6 +1309,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudDressage
             // 
+            this.nudDressage.Enabled = false;
             this.nudDressage.Location = new System.Drawing.Point(88, 120);
             this.nudDressage.Maximum = new decimal(new int[] {
             15,
@@ -1306,6 +1338,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudDiplomatie
             // 
+            this.nudDiplomatie.Enabled = false;
             this.nudDiplomatie.Location = new System.Drawing.Point(88, 92);
             this.nudDiplomatie.Maximum = new decimal(new int[] {
             15,
@@ -1334,6 +1367,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudCmedie
             // 
+            this.nudCmedie.Enabled = false;
             this.nudCmedie.Location = new System.Drawing.Point(88, 66);
             this.nudCmedie.Maximum = new decimal(new int[] {
             15,
@@ -1363,6 +1397,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudCharme
             // 
+            this.nudCharme.Enabled = false;
             this.nudCharme.Location = new System.Drawing.Point(88, 43);
             this.nudCharme.Maximum = new decimal(new int[] {
             15,
@@ -1451,7 +1486,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.btnAddPtsMen.Name = "btnAddPtsMen";
             this.btnAddPtsMen.Size = new System.Drawing.Size(103, 23);
             this.btnAddPtsMen.TabIndex = 52;
-            this.btnAddPtsMen.Text = "Ajouter 6 points";
+            this.btnAddPtsMen.Text = "Ajouter 5 points";
             this.btnAddPtsMen.UseVisualStyleBackColor = true;
             this.btnAddPtsMen.Visible = false;
             this.btnAddPtsMen.Click += new System.EventHandler(this.btnAddPtsMen_Click);

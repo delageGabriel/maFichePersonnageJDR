@@ -443,7 +443,7 @@ namespace maFichePersonnageJDR.View.Formulaires
 
         private void btnAddPtsMen_Click(object sender, EventArgs e)
         {
-            MettreAJourPointsTotal(6, "Mental");
+            MettreAJourPointsTotal(5, "Mental");
             GetNbFoisPointsRepartitions(true);
         }
 
