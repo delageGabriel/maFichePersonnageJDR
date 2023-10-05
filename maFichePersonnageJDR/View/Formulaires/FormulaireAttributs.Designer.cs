@@ -42,7 +42,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.tbControlAttributs.Location = new System.Drawing.Point(12, 12);
             this.tbControlAttributs.Name = "tbControlAttributs";
             this.tbControlAttributs.SelectedIndex = 0;
-            this.tbControlAttributs.Size = new System.Drawing.Size(180, 426);
+            this.tbControlAttributs.Size = new System.Drawing.Size(314, 226);
             this.tbControlAttributs.TabIndex = 2;
             // 
             // tbPgeAttributs
@@ -51,26 +51,26 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.tbPgeAttributs.Location = new System.Drawing.Point(4, 22);
             this.tbPgeAttributs.Name = "tbPgeAttributs";
             this.tbPgeAttributs.Padding = new System.Windows.Forms.Padding(3);
-            this.tbPgeAttributs.Size = new System.Drawing.Size(172, 400);
+            this.tbPgeAttributs.Size = new System.Drawing.Size(306, 200);
             this.tbPgeAttributs.TabIndex = 0;
             this.tbPgeAttributs.Text = "Attributs";
             this.tbPgeAttributs.UseVisualStyleBackColor = true;
             // 
             // rtbAttributs
             // 
-            this.rtbAttributs.Location = new System.Drawing.Point(198, 34);
+            this.rtbAttributs.Location = new System.Drawing.Point(12, 259);
             this.rtbAttributs.Name = "rtbAttributs";
-            this.rtbAttributs.Size = new System.Drawing.Size(333, 122);
+            this.rtbAttributs.Size = new System.Drawing.Size(310, 122);
             this.rtbAttributs.TabIndex = 3;
             this.rtbAttributs.Text = "";
             // 
             // btnSauvegarder
             // 
-            this.btnSauvegarder.Location = new System.Drawing.Point(318, 162);
+            this.btnSauvegarder.Location = new System.Drawing.Point(105, 386);
             this.btnSauvegarder.Name = "btnSauvegarder";
-            this.btnSauvegarder.Size = new System.Drawing.Size(75, 23);
+            this.btnSauvegarder.Size = new System.Drawing.Size(112, 33);
             this.btnSauvegarder.TabIndex = 4;
-            this.btnSauvegarder.Text = "Sauvegarder";
+            this.btnSauvegarder.Text = "Suivant";
             this.btnSauvegarder.UseVisualStyleBackColor = true;
             this.btnSauvegarder.Click += new System.EventHandler(this.btnSauvegarder_Click);
             // 
@@ -78,7 +78,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(543, 450);
+            this.ClientSize = new System.Drawing.Size(342, 431);
             this.Controls.Add(this.btnSauvegarder);
             this.Controls.Add(this.rtbAttributs);
             this.Controls.Add(this.tbControlAttributs);

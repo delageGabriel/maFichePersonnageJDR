@@ -67,8 +67,9 @@ namespace maFichePersonnageJDR.Controller
                         linkLabel.LinkClicked += formulaireEquipments.linkLabelArme_LinkClicked;
                         linkLabel.Tag = armes.NomArme;
 
+                        int largeurLinkLabel = TextRenderer.MeasureText(linkLabel.Text, linkLabel.Font).Width;
                         NumericUpDown numericUpDown = new NumericUpDown();
-                        numericUpDown.Location = new Point(x + (linkLabel.Width + 25), y - 3);
+                        numericUpDown.Location = new Point(x + (largeurLinkLabel + 50), y - 3);
                         numericUpDown.Maximum = 99;
                         numericUpDown.Minimum = 1;
                         numericUpDown.Width = 40;
@@ -192,8 +193,9 @@ namespace maFichePersonnageJDR.Controller
                         linkLabel.LinkClicked += formulaireEquipments.linkLabelArmure_LinkClicked;
                         linkLabel.Tag = armure.NomArmure;
 
+                        int largeurLinkLabel = TextRenderer.MeasureText(linkLabel.Text, linkLabel.Font).Width;
                         NumericUpDown numericUpDown = new NumericUpDown();
-                        numericUpDown.Location = new Point(x + (linkLabel.Width + 25), y - 3);
+                        numericUpDown.Location = new Point(x + (largeurLinkLabel + 50), y - 3);
                         numericUpDown.Maximum = 99;
                         numericUpDown.Minimum = 1;
                         numericUpDown.Width = 40;
@@ -316,8 +318,9 @@ namespace maFichePersonnageJDR.Controller
                         linkLabel.LinkClicked += formulaireEquipments.linkLabelObjet_LinkClicked;
                         linkLabel.Tag = objet.NomObjet;
 
+                        int largeurLinkLabel = TextRenderer.MeasureText(linkLabel.Text, linkLabel.Font).Width;
                         NumericUpDown numericUpDown = new NumericUpDown();
-                        numericUpDown.Location = new Point(x + (linkLabel.Width + 25), y - 3);
+                        numericUpDown.Location = new Point(x + (largeurLinkLabel + 50), y - 3);
                         numericUpDown.Maximum = 99;
                         numericUpDown.Minimum = 1;
                         numericUpDown.Width = 40;
