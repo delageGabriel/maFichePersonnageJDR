@@ -21,6 +21,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         private int compMentale;
         private int compSociale;
         private string nbFoisPointsMiseAJour;
+        private int maximumCaracteristiquesDefaut;
 
         /// <summary>
         /// Accesseurs et Mutateurs
@@ -63,6 +64,17 @@ namespace maFichePersonnageJDR.View.Formulaires
             }
         }
 
+        public int MaximumCaracteristiquesDefaut
+        {
+            get => maximumCaracteristiquesDefaut;
+            set
+            {
+                if (maximumCaracteristiquesDefaut != value)
+                {
+                    maximumCaracteristiquesDefaut = value;
+                }
+            }
+        }
         /// <summary>
         /// Méthodes
         /// </summary>
@@ -127,6 +139,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         {
             GetPointsToRepartPvEnergieByNiveau();
             GetPointsToRepartCaracteristiquesByNiveau();
+            GetMaximumForCaracteristiques();
         }
 
         /// <summary>
@@ -173,12 +186,13 @@ namespace maFichePersonnageJDR.View.Formulaires
             int pointsRestantsMen = totalPoints - (pointsPhy + pointsSoc);
             int pointsRestantsSoc = totalPoints - (pointsMen + pointsPhy);
 
-            nudPhysique.Maximum = pointsRestantsPhy;
-            nudMental.Maximum = pointsRestantsMen;
-            nudSocial.Maximum = pointsRestantsSoc;
+            nudPhysique.Maximum = totalPoints - ((int)nudPhysique.Value + (int)nudMental.Value + (int)nudSocial.Value) > 0 ? MaximumCaracteristiquesDefaut : pointsRestantsPhy;
+            nudMental.Maximum = totalPoints - ((int)nudPhysique.Value + (int)nudMental.Value + (int)nudSocial.Value) > 0 ? MaximumCaracteristiquesDefaut : pointsRestantsMen;
+            nudSocial.Maximum = totalPoints - ((int)nudPhysique.Value + (int)nudMental.Value + (int)nudSocial.Value) > 0 ? MaximumCaracteristiquesDefaut : pointsRestantsSoc;
 
             txtPntsCaracteristiques.Text = (totalPoints - ((int)nudPhysique.Value + (int)nudMental.Value + (int)nudSocial.Value)).ToString();
 
+            /// Une fois qu'on a réparti tous les points on affiche les points pour les différentes compétences
             if (nudPhysique.Value == nudPhysique.Maximum && nudMental.Value == nudMental.Maximum && nudSocial.Value == nudSocial.Maximum)
             {
                 int dizainePhys = pointsPhy / 10; // Récupérer la dizaine
@@ -439,6 +453,11 @@ namespace maFichePersonnageJDR.View.Formulaires
             GetNbFoisPointsRepartitions(true);
         }
 
+        /// <summary>
+        /// Permet de savoir si on affiche ou cache les contrôles pour modifier le nombre de points de compétences
+        /// maximales
+        /// </summary>
+        /// <param name="isEnable"></param>
         private void EnableOrDisableTextBoxButtonRepartitionPoints(bool isEnable)
         {
             if (isEnable)
@@ -466,6 +485,32 @@ namespace maFichePersonnageJDR.View.Formulaires
                 btnAddPtsSoc.Enabled = false;
 
                 lblNbRepartitionComp.Visible = false;
+            }
+        }
+
+        private void GetMaximumForCaracteristiques()
+        {
+            int niveauDuPersonnage = Controller.PersonnageController.GetNiveauPersonnage(IdDuPersonnage);
+
+            if (niveauDuPersonnage < 3)
+            {
+                MaximumCaracteristiquesDefaut = 55;
+            }
+            else if (niveauDuPersonnage > 3 && niveauDuPersonnage < 9)
+            {
+                MaximumCaracteristiquesDefaut = 60;
+            }
+            else if (niveauDuPersonnage > 9 && niveauDuPersonnage < 12)
+            {
+                MaximumCaracteristiquesDefaut = 65;
+            }
+            else if (niveauDuPersonnage > 12 && niveauDuPersonnage < 18)
+            {
+                MaximumCaracteristiquesDefaut = 70;
+            }
+            else
+            {
+                MaximumCaracteristiquesDefaut = 75;
             }
         }
     }
