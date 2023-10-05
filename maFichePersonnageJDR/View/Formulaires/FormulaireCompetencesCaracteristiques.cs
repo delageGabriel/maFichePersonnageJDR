@@ -13,10 +13,71 @@ namespace maFichePersonnageJDR.View.Formulaires
 {
     public partial class FormulaireCompetencesCaracteristiques : Form
     {
+        /// <summary>
+        /// Champs
+        /// </summary>
         private int idDuPersonnage;
+        private int compPhysique;
+        private int compMentale;
+        private int compSociale;
+        private string nbFoisPointsMiseAJour;
+        private int maximumCaracteristiquesDefaut;
 
+        /// <summary>
+        /// Accesseurs et Mutateurs
+        /// </summary>
         public int IdDuPersonnage { get => idDuPersonnage; set => idDuPersonnage = value; }
-        
+        public int CompPhysique
+        {
+            get => compPhysique;
+            set
+            {
+                compPhysique = value;
+            }
+        }
+        public int CompMentale
+        {
+            get => compMentale;
+            set
+            {
+                compMentale = value;
+            }
+        }
+        public int CompSociale
+        {
+            get => compSociale; set
+            {
+                compSociale = value;
+            }
+        }
+
+        public string NbFoisPointsMiseAJour
+        {
+            get => nbFoisPointsMiseAJour;
+            set
+            {
+                if (nbFoisPointsMiseAJour != value)
+                {
+                    nbFoisPointsMiseAJour = value;
+                }
+
+            }
+        }
+
+        public int MaximumCaracteristiquesDefaut
+        {
+            get => maximumCaracteristiquesDefaut;
+            set
+            {
+                if (maximumCaracteristiquesDefaut != value)
+                {
+                    maximumCaracteristiquesDefaut = value;
+                }
+            }
+        }
+        /// <summary>
+        /// Méthodes
+        /// </summary>
         public FormulaireCompetencesCaracteristiques()
         {
             InitializeComponent();
@@ -78,6 +139,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         {
             GetPointsToRepartPvEnergieByNiveau();
             GetPointsToRepartCaracteristiquesByNiveau();
+            GetMaximumForCaracteristiques();
         }
 
         /// <summary>
@@ -124,11 +186,332 @@ namespace maFichePersonnageJDR.View.Formulaires
             int pointsRestantsMen = totalPoints - (pointsPhy + pointsSoc);
             int pointsRestantsSoc = totalPoints - (pointsMen + pointsPhy);
 
-            nudPhysique.Maximum = pointsRestantsPhy;
-            nudMental.Maximum = pointsRestantsMen;
-            nudSocial.Maximum = pointsRestantsSoc;
+            nudPhysique.Maximum = totalPoints - ((int)nudPhysique.Value + (int)nudMental.Value + (int)nudSocial.Value) > 0 ? MaximumCaracteristiquesDefaut : pointsRestantsPhy;
+            nudMental.Maximum = totalPoints - ((int)nudPhysique.Value + (int)nudMental.Value + (int)nudSocial.Value) > 0 ? MaximumCaracteristiquesDefaut : pointsRestantsMen;
+            nudSocial.Maximum = totalPoints - ((int)nudPhysique.Value + (int)nudMental.Value + (int)nudSocial.Value) > 0 ? MaximumCaracteristiquesDefaut : pointsRestantsSoc;
 
             txtPntsCaracteristiques.Text = (totalPoints - ((int)nudPhysique.Value + (int)nudMental.Value + (int)nudSocial.Value)).ToString();
+
+            /// Une fois qu'on a réparti tous les points on affiche les points pour les différentes compétences
+            if (nudPhysique.Value == nudPhysique.Maximum && nudMental.Value == nudMental.Maximum && nudSocial.Value == nudSocial.Maximum)
+            {
+                int dizainePhys = pointsPhy / 10; // Récupérer la dizaine
+                int dizaineMent = pointsMen / 10;
+                int dizaineSoc = pointsSoc / 10;
+
+                int pointsPhys = dizainePhys + 36; // Ajouter la dizaine aux points correspondants
+                int pointsMent = dizaineMent + 42;
+                int pointsSoci = dizaineSoc + 22;
+
+                /// On attribue aux propriétés leurs nouveaux points
+                CompPhysique = pointsPhys;
+                CompMentale = pointsMent;
+                CompSociale = pointsSoci;
+
+                /// Puis on met à jour les différentes textbox
+                txtBxCompPhy.Text = CompPhysique.ToString();
+                txtBxCompMen.Text = CompMentale.ToString();
+                txtBxComSoc.Text = CompSociale.ToString();
+
+                // On en profite pour afficher les control liés à la répartition des points de
+                // compétences si le niveau du personnage est supérieur à 1
+                if (Controller.PersonnageController.GetNiveauPersonnage(IdDuPersonnage) > 1)
+                {
+                    GetNbFoisPointsRepartitions();
+                    EnableOrDisableTextBoxButtonRepartitionPoints(true);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Événement qui gère la répartition des points de compétences physique à répartir ainsi que leur maximum
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void nudCompPhy_ValueChanged(object sender, EventArgs e)
+        {
+            /// On commence par récupérer les valeurs de chaque NumericUpDown
+            int agilite = (int)nudAgilite.Value;
+            int artisanat = (int)nudArtisanat.Value;
+            int crochetage = (int)nudCrochetage.Value;
+            int discretion = (int)nudDiscretion.Value;
+            int equilibre = (int)nudEqlibre.Value;
+            int escalade = (int)nudEscalade.Value;
+            int escamotage = (int)nudEscamotage.Value;
+            int force = (int)nudForce.Value;
+            int fouille = (int)nudFouille.Value;
+            int natation = (int)nudNatation.Value;
+            int reflexes = (int)nudReflexes.Value;
+            int vigueur = (int)nudVigueur.Value;
+
+            // Le nombre de point total à répartir
+            int totalPoints = CompPhysique;
+
+            // Les points qu'il reste à répartir
+            int pointsRestants = totalPoints - (agilite + artisanat + crochetage + discretion + equilibre + escalade + escamotage + force + fouille + natation +
+                reflexes + vigueur);
+
+            /// On vérifie s'il reste des points à attribuer, si ce n'est pas le cas
+            /// on pose le maximum de chaque NumericUpDown par rapport à sa valeur
+            /// Sinon le maximum = 15
+            if (pointsRestants == 0)
+            {
+                foreach (Control control in gbPhysique.Controls)
+                {
+                    if (control is NumericUpDown)
+                    {
+                        NumericUpDown numeric = control as NumericUpDown;
+                        numeric.Maximum = numeric.Value;
+                    }
+                }
+            }
+            else
+            {
+                foreach (Control control in gbPhysique.Controls)
+                {
+                    if (control is NumericUpDown)
+                    {
+                        NumericUpDown numeric = control as NumericUpDown;
+                        numeric.Maximum = 15;
+                    }
+                }
+            }
+
+            // Et ensuite on met à jour la TextBox des points à répartir
+            txtBxCompPhy.Text = pointsRestants.ToString();
+        }
+
+        private void nudCompMen_ValueChanged(object sender, EventArgs e)
+        {
+            int concentration = (int)nudCncention.Value;
+            int connGeo = (int)nudConnGeographiques.Value;
+            int connHis = (int)nudConnHistoriques.Value;
+            int connMag = (int)nudMagiques.Value;
+            int connNat = (int)nudConnNatures.Value;
+            int connRel = (int)nudConnReligieuses.Value;
+            int decryptage = (int)nudDecryptage.Value;
+            int esprit = (int)nudEsprit.Value;
+            int explosifs = (int)nudExplosifs.Value;
+            int mecanique = (int)nudMecanique.Value;
+            int medecine = (int)nudMedecine.Value;
+            int memoire = (int)nudMemoire.Value;
+            int perception = (int)nudPerception.Value;
+            int volonte = (int)nudVolonte.Value;
+
+            int totalPoints = CompMentale;
+
+            int pointsRestants = totalPoints - (concentration + connGeo + connHis + connMag + connNat + connRel + decryptage + esprit + explosifs + mecanique +
+                medecine + memoire + perception + volonte);
+
+            /// On vérifie s'il reste des points à attribuer, si ce n'est pas le cas
+            /// on pose le maximum de chaque NumericUpDown par rapport à sa valeur
+            /// Sinon le maximum = 15
+            if (pointsRestants == 0)
+            {
+                foreach (Control control in gbMental.Controls)
+                {
+                    if (control is NumericUpDown)
+                    {
+                        NumericUpDown numeric = control as NumericUpDown;
+                        numeric.Maximum = numeric.Value;
+                    }
+                }
+            }
+            else
+            {
+                foreach (Control control in gbMental.Controls)
+                {
+                    if (control is NumericUpDown)
+                    {
+                        NumericUpDown numeric = control as NumericUpDown;
+                        numeric.Maximum = 15;
+                    }
+                }
+            }
+
+            txtBxCompMen.Text = pointsRestants.ToString();
+        }
+
+        private void nudCompSoc_ValueChanged(object sender, EventArgs e)
+        {
+            int baratinage = (int)nudBaratinage.Value;
+            int charme = (int)nudCharme.Value;
+            int comedie = (int)nudCmedie.Value;
+            int diplomatie = (int)nudDiplomatie.Value;
+            int dressage = (int)nudDressage.Value;
+            int intimidation = (int)nudIntimidation.Value;
+            int marchandage = (int)nudMarchandage.Value;
+            int prestance = (int)nudPrestance.Value;
+            int provocation = (int)nudProvocation.Value;
+
+            int totalPoints = CompSociale;
+
+            int pointsRestants = totalPoints - (baratinage + charme + comedie + diplomatie + dressage + intimidation + marchandage + prestance + provocation);
+
+            /// On vérifie s'il reste des points à attribuer, si ce n'est pas le cas
+            /// on pose le maximum de chaque NumericUpDown par rapport à sa valeur
+            /// Sinon le maximum = 15
+            if (pointsRestants == 0)
+            {
+                foreach (Control control in gbSocial.Controls)
+                {
+                    if (control is NumericUpDown)
+                    {
+                        NumericUpDown numeric = control as NumericUpDown;
+                        numeric.Maximum = numeric.Value;
+                    }
+                }
+            }
+            else
+            {
+                foreach (Control control in gbSocial.Controls)
+                {
+                    if (control is NumericUpDown)
+                    {
+                        NumericUpDown numeric = control as NumericUpDown;
+                        numeric.Maximum = 15;
+                    }
+                }
+            }
+
+            txtBxComSoc.Text = pointsRestants.ToString();
+        }
+
+        /// <summary>
+        /// Événement qui permet de mettre à jour chaque TextBox affiliée aux compétences
+        /// </summary>
+        /// <param name="nbPointsAAjouter"></param>
+        /// <param name="compAAjouter"></param>
+        private void MettreAJourPointsTotal(int nbPointsAAjouter, string compAAjouter)
+        {
+            /// Si nos paramètres ne sont pas vide, on cherche à rajouter les points de compétences supplémentaires
+            if (nbPointsAAjouter > 0 && !String.IsNullOrEmpty(compAAjouter))
+            {
+                switch (compAAjouter)
+                {
+                    case "Physique":
+                        CompPhysique += nbPointsAAjouter;
+                        txtBxCompPhy.Text = CompPhysique.ToString();
+                        break;
+                    case "Mental":
+                        CompMentale += nbPointsAAjouter;
+                        txtBxCompMen.Text = CompMentale.ToString();
+                        break;
+                    case "Social":
+                        CompSociale += nbPointsAAjouter;
+                        txtBxComSoc.Text = CompSociale.ToString();
+                        break;
+                    default:
+                        Console.WriteLine("Aucune des trois propositions");
+                        break;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Permet d'indiquer combien de fois encore le personnage peut ajouter des points de compétences dans
+        /// une de ces trois compétences majeures
+        /// </summary>
+        private void GetNbFoisPointsRepartitions(bool retirePoint = false)
+        {
+            // On récupère le nombre de fois à répartir
+            string[] subsplit = lblNbRepartitionComp.Text.Split(':');
+
+            if (retirePoint)
+            {
+                int nbMoinsUn = int.Parse(subsplit[1]);
+                NbFoisPointsMiseAJour = subsplit[0] + ": " + (nbMoinsUn - 1).ToString();
+
+                if (nbMoinsUn - 1 == 0)
+                {
+                    EnableOrDisableTextBoxButtonRepartitionPoints(false);
+                }
+            }
+            else
+            {
+                NbFoisPointsMiseAJour = subsplit[0] + ": " + (Controller.PersonnageController.GetNiveauPersonnage(IdDuPersonnage) - 1).ToString();
+            }
+
+            lblNbRepartitionComp.Text = NbFoisPointsMiseAJour;
+        }
+
+        private void btnAddPtsPhy_Click(object sender, EventArgs e)
+        {
+            MettreAJourPointsTotal(4, "Physique");
+            GetNbFoisPointsRepartitions(true);
+        }
+
+        private void btnAddPtsMen_Click(object sender, EventArgs e)
+        {
+            MettreAJourPointsTotal(6, "Mental");
+            GetNbFoisPointsRepartitions(true);
+        }
+
+        private void btnAddPtsSoc_Click(object sender, EventArgs e)
+        {
+            MettreAJourPointsTotal(3, "Social");
+            GetNbFoisPointsRepartitions(true);
+        }
+
+        /// <summary>
+        /// Permet de savoir si on affiche ou cache les contrôles pour modifier le nombre de points de compétences
+        /// maximales
+        /// </summary>
+        /// <param name="isEnable"></param>
+        private void EnableOrDisableTextBoxButtonRepartitionPoints(bool isEnable)
+        {
+            if (isEnable)
+            {
+                btnAddPtsPhy.Visible = true;
+                btnAddPtsPhy.Enabled = true;
+
+                btnAddPtsMen.Visible = true;
+                btnAddPtsMen.Enabled = true;
+
+                btnAddPtsSoc.Visible = true;
+                btnAddPtsSoc.Enabled = true;
+
+                lblNbRepartitionComp.Visible = true;
+            }
+            else
+            {
+                btnAddPtsPhy.Visible = false;
+                btnAddPtsPhy.Enabled = false;
+
+                btnAddPtsMen.Visible = false;
+                btnAddPtsMen.Enabled = false;
+
+                btnAddPtsSoc.Visible = false;
+                btnAddPtsSoc.Enabled = false;
+
+                lblNbRepartitionComp.Visible = false;
+            }
+        }
+
+        private void GetMaximumForCaracteristiques()
+        {
+            int niveauDuPersonnage = Controller.PersonnageController.GetNiveauPersonnage(IdDuPersonnage);
+
+            if (niveauDuPersonnage < 3)
+            {
+                MaximumCaracteristiquesDefaut = 55;
+            }
+            else if (niveauDuPersonnage > 3 && niveauDuPersonnage < 9)
+            {
+                MaximumCaracteristiquesDefaut = 60;
+            }
+            else if (niveauDuPersonnage > 9 && niveauDuPersonnage < 12)
+            {
+                MaximumCaracteristiquesDefaut = 65;
+            }
+            else if (niveauDuPersonnage > 12 && niveauDuPersonnage < 18)
+            {
+                MaximumCaracteristiquesDefaut = 70;
+            }
+            else
+            {
+                MaximumCaracteristiquesDefaut = 75;
+            }
         }
     }
 }
