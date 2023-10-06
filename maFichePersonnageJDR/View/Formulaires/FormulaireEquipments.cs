@@ -1309,7 +1309,9 @@ namespace maFichePersonnageJDR.Formulaires
                     else
                     {
                         int nouvelleQteMax = Convert.ToInt32(numericUpDown.Maximum - numericUpDown.Value);
-                        EquipmentController.UpdateArmesQuantity(idArmure, IdPersonnage, nouvelleQteMax);
+                        EquipmentController.UpdateArmuresQuantity(idArmure, IdPersonnage, nouvelleQteMax);
+
+                        ResetControlParent(pnlVendreArmure);
                         numericUpDown.Maximum = nouvelleQteMax;
                     }
                 }
