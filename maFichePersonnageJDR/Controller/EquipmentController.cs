@@ -1458,5 +1458,27 @@ namespace maFichePersonnageJDR.Controller
                 throw e;
             }
         }
+
+        /// <summary>
+        /// Mise à jour de la quantité d'une arme dans l'inventaire du personnage
+        /// </summary>
+        /// <param name="idArmes"></param>
+        /// <param name="idPersonnage"></param>
+        /// <param name="nouvelleQuantity"></param>
+        public static void UpdateArmesQuantity(int idArmes, int idPersonnage, int nouvelleQuantity)
+        {
+            Console.WriteLine(string.Format("########### Méthode UpdateArmesQuantity — Personnage id : ID : {0} ###########", idPersonnage));
+
+            InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
+
+            try
+            {
+                inventaireArmesPersonnages.UpdateQuantityArmes(idArmes, idPersonnage, nouvelleQuantity);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

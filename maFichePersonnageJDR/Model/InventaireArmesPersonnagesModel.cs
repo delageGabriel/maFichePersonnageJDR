@@ -1,6 +1,7 @@
 ﻿using maFichePersonnageJDR.Classe;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
@@ -34,17 +35,43 @@ namespace maFichePersonnageJDR.Model
         /// <param name="quantite"></param>
         public void SaveInventaireArmesPersonnage(int idArme, int idPersonnage, int quantite)
         {
+            SQLiteTransaction transaction = DatabaseConnection.Instance.GetConnection().BeginTransaction();
+
             try
             {
-                // Commande
-                SQLiteCommand command = new SQLiteCommand(string.Format("INSERT INTO INVENTAIRE_ARMES_PERSONNAGES (id_arme, id_personnage, quantite) " +
-                    "VALUES ({0}, {1}, {2})", idArme, idPersonnage, quantite), DatabaseConnection.Instance.GetConnection());
+                
+
+                SQLiteCommand command = new SQLiteCommand("INSERT INTO INVENTAIRE_ARMES_PERSONNAGES (id_arme, id_personnage, quantite) " +
+                "VALUES (@idArme, @idPersonnage, @quantite)", DatabaseConnection.Instance.GetConnection());
+
+                command.Parameters.AddWithValue("@idArme", idArme);
+                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
+                command.Parameters.AddWithValue("@quantite", quantite);
 
                 int rowsAffected = command.ExecuteNonQuery();
+
+                // Vérification du nombre de lignes affectées
+                if (rowsAffected > 0)
+                {
+                    Console.WriteLine("Insertion réussie. Nombre de lignes affectées : " + rowsAffected);
+
+                    // Commit de la transaction si l'insertion s'est bien déroulée
+                    transaction.Commit();
+                }
+                else
+                {
+                    Console.WriteLine("Aucune insertion effectuée. Aucune ligne n'a été affectée.");
+                    // Vous pouvez lever une exception ou gérer le cas d'échec selon vos besoins.
+                }
             }
             catch (Exception e)
             {
                 throw e;
+            }
+            finally
+            {
+                // Assurez-vous de libérer les ressources même en cas d'exception
+                transaction?.Dispose();
             }
         }
 
@@ -461,17 +488,81 @@ namespace maFichePersonnageJDR.Model
         /// <param name="idArme"></param>
         public void DeleteFromInventairePersonnage(int idArme, int idPersonnage)
         {
+            SQLiteTransaction transaction = DatabaseConnection.Instance.GetConnection().BeginTransaction();
+
             try
             {
-                // Commande
-                SQLiteCommand command = new SQLiteCommand(string.Format("DELETE FROM INVENTAIRE_ARMES_PERSONNAGES WHERE id_arme = {0} AND id_personnage = {1}", 
-                    idArme, idPersonnage), DatabaseConnection.Instance.GetConnection());
+                SQLiteCommand command = new SQLiteCommand("DELETE FROM INVENTAIRE_ARMES_PERSONNAGES " +
+                    "WHERE id_arme = @idArme AND id_personnage = @idPersonnage", DatabaseConnection.Instance.GetConnection());
+                command.Parameters.AddWithValue("@idArme", idArme);
+                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
 
                 int rowsAffected = command.ExecuteNonQuery();
+
+                // Vérification du nombre de lignes affectées
+                if (rowsAffected > 0)
+                {
+                    Console.WriteLine("Suppression réussie. Nombre de lignes affectées : " + rowsAffected);
+
+                    // Commit de la transaction si la suppression s'est bien déroulée
+                    transaction.Commit();
+                }
+                else
+                {
+                    Console.WriteLine("Aucune suppression effectuée. Aucune ligne n'a été affectée.");
+                    // Vous pouvez lever une exception ou gérer le cas d'échec selon vos besoins.
+                }
             }
-            catch (SQLiteException e)
+            catch (SQLiteException ex)
             {
-                throw e;
+                // En cas d'erreur, annulez la transaction
+                transaction.Rollback();
+                // Vous pouvez ajouter des journaux ou des messages de débogage ici pour diagnostiquer les erreurs.
+                Console.WriteLine("Erreur lors de la suppression : " + ex.Message);
+                throw ex; // Vous pouvez choisir de lever ou non l'exception après avoir traité les erreurs.
+            }
+            finally
+            {
+                // Assurez-vous de libérer les ressources même en cas d'exception
+                transaction?.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// Permet de mettre à jour la quantité d'une arme que le personnage possède déjà
+        /// </summary>
+        /// <param name="idArme"></param>
+        /// <param name="idPersonnage"></param>
+        /// <param name="nouvelleQte"></param>
+        public void UpdateQuantityArmes(int idArme, int idPersonnage, int nouvelleQte)
+        {
+            try
+            {
+                SQLiteCommand command = new SQLiteCommand("UPDATE INVENTAIRE_ARMES_PERSONNAGES " +
+                    "SET quantite = @nouvelleQuantite " +
+                    "WHERE id_arme = @idArme AND id_personnage = @idPersonnage", DatabaseConnection.Instance.GetConnection());
+                command.Parameters.AddWithValue("@idArme", idArme);
+                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
+                command.Parameters.AddWithValue("@nouvelleQuantite", nouvelleQte);
+
+                Console.WriteLine("Requête SQL : " + command.CommandText);
+                int rowsAffected = command.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    Console.WriteLine("Mise à jour réussie. Nombre de lignes affectées : " + rowsAffected);
+                }
+                else
+                {
+                    Console.WriteLine("Aucune mise à jour effectuée. Aucune ligne n'a été affectée.");
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                Console.WriteLine("Erreur lors de la mise à jour : " + ex.Message);
+                // Vous pouvez également imprimer la stack trace pour obtenir plus d'informations.
+                Console.WriteLine("StackTrace : " + ex.StackTrace);
+                throw ex;
             }
         }
 

@@ -757,6 +757,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // pnlArmesAchatVentePoids
             // 
+            this.pnlArmesAchatVentePoids.BackColor = System.Drawing.Color.White;
             this.pnlArmesAchatVentePoids.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlArmesAchatVentePoids.Controls.Add(this.lblNomArme);
             this.pnlArmesAchatVentePoids.Controls.Add(this.lblTotalArmes);
@@ -770,6 +771,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // pnlArmuresAchatVentePoids
             // 
+            this.pnlArmuresAchatVentePoids.BackColor = System.Drawing.Color.White;
             this.pnlArmuresAchatVentePoids.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlArmuresAchatVentePoids.Controls.Add(this.lblNomArmures);
             this.pnlArmuresAchatVentePoids.Controls.Add(this.lblTotalArmures);
@@ -783,6 +785,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // pnlObjetsAchatVentePoids
             // 
+            this.pnlObjetsAchatVentePoids.BackColor = System.Drawing.Color.White;
             this.pnlObjetsAchatVentePoids.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlObjetsAchatVentePoids.Controls.Add(this.lblTotalObjets);
             this.pnlObjetsAchatVentePoids.Controls.Add(this.lblNomObjets);

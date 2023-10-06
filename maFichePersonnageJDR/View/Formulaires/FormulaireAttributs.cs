@@ -118,6 +118,11 @@ namespace maFichePersonnageJDR.View.Formulaires
             }
         }
 
+        /// <summary>
+        /// Obtient le nombre d'attributs qu'un personnage peut gagner par niveau
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
         public int AttributsLimitations(int idPersonnage)
         {
             int nbAttributes = 0;
@@ -147,6 +152,10 @@ namespace maFichePersonnageJDR.View.Formulaires
             return nbAttributes;
         }
 
+        /// <summary>
+        /// Permet d'activer ou désactiver les CheckBox attributs
+        /// </summary>
+        /// <param name="page"></param>
         public void DisableOrCheckBox(TabPage page)
         {
             int nbCheckBoxChecked = 0;
@@ -189,10 +198,30 @@ namespace maFichePersonnageJDR.View.Formulaires
             #region Initialisation des variables
             List<int> listeIdAttributs = new List<int>();
             FormulaireCompetencesCaracteristiques formulaireCompetencesCaracteristiques = new FormulaireCompetencesCaracteristiques();
+            int nbCaseCocher = 0;
             #endregion
 
             try
             {
+                /// On récupère le nombre de CheckBox cochées
+                foreach (Control control in tbPgeAttributs.Controls)
+                {
+                    if (control is CheckBox)
+                    {
+                        CheckBox checkBox = control as CheckBox;
+                        nbCaseCocher += checkBox.Checked ? 1 : 0;
+                    }
+                }
+
+                /**
+                 * Test BON NOMBRE ATTRIBUTS
+                 */
+                if (nbCaseCocher < AttributsLimitations(IdDuPersonnage))
+                {
+                    MessageBox.Show("Il vous reste des attributs à donner à votre personnage");
+                    return;
+                }
+
                 // On commence par récupérer l'id de l'attribut
                 foreach (string line in rtbAttributs.Lines)
                 {

@@ -85,6 +85,51 @@ namespace maFichePersonnageJDR.View.Formulaires
 
         private void btnSauvegarder_Click(object sender, EventArgs e)
         {
+            /**
+             * Test PV&Energie
+             */
+            if (int.Parse(txtPntsPVEnergie.Text) > 0)
+            {
+                MessageBox.Show("Il vous reste des points à répartir dans vos PV ou votre énergie");
+                return;
+            }
+
+            /**
+             * Test CARACTERISTIQUES
+             */
+            if (int.Parse(txtPntsCaracteristiques.Text) > 0)
+            {
+                MessageBox.Show("Il vous reste des points à répartir dans vos caractéristiques");
+                return;
+            }
+
+            /**
+             * Test COMP&PHY
+             */
+            if (int.Parse(txtBxCompPhy.Text) > 0)
+            {
+                MessageBox.Show("Il vous reste des points à répartir dans vos compétences physiques");
+                return;
+            }
+
+            /**
+             * Test COMP&MEN
+             */
+            if (int.Parse(txtBxCompMen.Text) > 0)
+            {
+                MessageBox.Show("Il vous reste des points à répartir dans vos compétences mentales");
+                return;
+            }
+
+            /**
+             * Test COMP&SOC
+             */
+            if (int.Parse(txtBxComSoc.Text) > 0)
+            {
+                MessageBox.Show("Il vous reste des points à répartir dans vos compétences sociales");
+                return;
+            }
+
             FormulaireEquipments formulaireEquipments = new FormulaireEquipments();
 
             // Ajout des PV et Energie
@@ -123,7 +168,10 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// </summary>
         public void GetPointsToRepartPvEnergieByNiveau()
         {
-            txtPntsPVEnergie.Text = Controller.CompetencesCaracteristiquesController.GetPointPvEnergieRepartition(Controller.PersonnageController.GetNiveauPersonnage(IdDuPersonnage)).ToString();
+            int maximum = Controller.CompetencesCaracteristiquesController.GetPointPvEnergieRepartition(Controller.PersonnageController.GetNiveauPersonnage(IdDuPersonnage));
+            txtPntsPVEnergie.Text = maximum.ToString();
+            nudPV.Maximum = maximum;
+            nudEnergie.Maximum = maximum;
         }
 
         /// <summary>
@@ -220,6 +268,8 @@ namespace maFichePersonnageJDR.View.Formulaires
                     GetNbFoisPointsRepartitions();
                     EnableOrDisableTextBoxButtonRepartitionPoints(true);
                 }
+
+                EnableNumericUpDownInGroupBox();
             }
         }
 
@@ -281,6 +331,11 @@ namespace maFichePersonnageJDR.View.Formulaires
             txtBxCompPhy.Text = pointsRestants.ToString();
         }
 
+        /// <summary>
+        /// Événement qui gère la répartition des points de compétences mentale à répartir ainsi que leur maximum
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void nudCompMen_ValueChanged(object sender, EventArgs e)
         {
             int concentration = (int)nudCncention.Value;
@@ -332,6 +387,11 @@ namespace maFichePersonnageJDR.View.Formulaires
             txtBxCompMen.Text = pointsRestants.ToString();
         }
 
+        /// <summary>
+        /// Événement qui gère la répartition des points de compétences sociale à répartir ainsi que leur maximum
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void nudCompSoc_ValueChanged(object sender, EventArgs e)
         {
             int baratinage = (int)nudBaratinage.Value;
@@ -435,15 +495,27 @@ namespace maFichePersonnageJDR.View.Formulaires
             lblNbRepartitionComp.Text = NbFoisPointsMiseAJour;
         }
 
+        /// <summary>
+        /// Événément qui permet d'ajouter des points dans le total de points
+        /// de compétences physique à répartir
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddPtsPhy_Click(object sender, EventArgs e)
         {
             MettreAJourPointsTotal(4, "Physique");
             GetNbFoisPointsRepartitions(true);
         }
 
+        /// <summary>
+        /// Événément qui permet d'ajouter des points dans le total de points
+        /// de compétences mentale à répartir
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddPtsMen_Click(object sender, EventArgs e)
         {
-            MettreAJourPointsTotal(6, "Mental");
+            MettreAJourPointsTotal(5, "Mental");
             GetNbFoisPointsRepartitions(true);
         }
 
@@ -488,6 +560,10 @@ namespace maFichePersonnageJDR.View.Formulaires
             }
         }
 
+        /// <summary>
+        /// Obtient le maximum à mettre dans trois caractéristiques en fonction
+        /// du niveau
+        /// </summary>
         private void GetMaximumForCaracteristiques()
         {
             int niveauDuPersonnage = Controller.PersonnageController.GetNiveauPersonnage(IdDuPersonnage);
@@ -511,6 +587,36 @@ namespace maFichePersonnageJDR.View.Formulaires
             else
             {
                 MaximumCaracteristiquesDefaut = 75;
+            }
+        }
+
+        private void EnableNumericUpDownInGroupBox()
+        {
+            foreach (Control control in gbPhysique.Controls)
+            {
+                if (control is NumericUpDown)
+                {
+                    NumericUpDown numeric = control as NumericUpDown;
+                    numeric.Enabled = true;
+                }
+            }
+
+            foreach (Control control in gbMental.Controls)
+            {
+                if (control is NumericUpDown)
+                {
+                    NumericUpDown numeric = control as NumericUpDown;
+                    numeric.Enabled = true;
+                }
+            }
+
+            foreach (Control control in gbSocial.Controls)
+            {
+                if (control is NumericUpDown)
+                {
+                    NumericUpDown numeric = control as NumericUpDown;
+                    numeric.Enabled = true;
+                }
             }
         }
     }

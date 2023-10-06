@@ -788,7 +788,7 @@ namespace maFichePersonnageJDR.Formulaires
                  */
                 else
                 {
-                    Panel panel = new Panel();
+                    Panel panel = parent as Panel;
 
                     foreach (object control in panel.Controls)
                     {
@@ -879,7 +879,7 @@ namespace maFichePersonnageJDR.Formulaires
         private void MettreAJourPoidsTotal()
         {
             decimal poidsTotal = (QuantiteOr * 0.115m) + (QuantiteArgent * 0.0783m) + (QuantiteCuivre * 0.0402m);
-            poidsTotal += Controller.EquipmentController.GetPoidsTotalArmeTransportees(IdPersonnage) + 
+            poidsTotal += Controller.EquipmentController.GetPoidsTotalArmeTransportees(IdPersonnage) +
                 EquipmentController.GetPoidsTotalArmureTransportees(IdPersonnage) + EquipmentController.GetPoidsTotalObjetTransportees(IdPersonnage);
             lblChrgPrtePersonnage.Text = poidsTotal.ToString("0.##") + " kg";
         }
@@ -971,7 +971,7 @@ namespace maFichePersonnageJDR.Formulaires
             lblTotalDepenseArmes.Text = "0";
             lblPoidsEnPlusArmes.Text = "0";
 
-            ResetTabControl(tbCntlArmes);
+            ResetControlParent(tbCntlArmes);
             Controller.EquipmentController.GetArmesInInventairePersonnage(pnlVendreArme, IdPersonnage);
             CreateCheckBoxVendreArmes();
         }
@@ -1081,21 +1081,54 @@ namespace maFichePersonnageJDR.Formulaires
             }
         }
 
-        public void ResetTabControl(TabControl controlToReset)
+        /// <summary>
+        /// Méthode pour réinitialiser les CheckBox et les NumericUpDown
+        /// De tous les TabControl pour avoir leur valeur par défaut
+        /// Après l'achat
+        /// </summary>
+        /// <param name="controlToReset"></param>
+        public void ResetControlParent(object controlToReset)
         {
-            foreach (TabPage page in controlToReset.TabPages)
+            /**
+             * Cas Acheter (dans un TabControl)
+             */
+            if (controlToReset is TabControl)
             {
-                foreach (object controls in page.Controls)
+                TabControl tabControl = controlToReset as TabControl;
+
+                foreach (TabPage page in tabControl.TabPages)
                 {
-                    if (controls is CheckBox)
+                    foreach (object controls in page.Controls)
                     {
-                        CheckBox checkBox = controls as CheckBox;
+                        if (controls is CheckBox)
+                        {
+                            CheckBox checkBox = controls as CheckBox;
+                            checkBox.Checked = false;
+                        }
+                        else if (controls is NumericUpDown)
+                        {
+                            NumericUpDown numericUpDown = controls as NumericUpDown;
+                            numericUpDown.Value = 1;
+                            numericUpDown.Enabled = true;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                Panel panel = controlToReset as Panel;
+
+                foreach (Control control in panel.Controls)
+                {
+                    if (control is CheckBox && (control as CheckBox).Checked)
+                    {
+                        CheckBox checkBox = control as CheckBox;
                         checkBox.Checked = false;
                     }
-                    else if (controls is NumericUpDown)
+                    else if (control is NumericUpDown && (control as NumericUpDown).Value > 0)
                     {
-                        NumericUpDown numericUpDown = controls as NumericUpDown;
-                        numericUpDown.Value = 1;
+                        NumericUpDown numericUpDown = control as NumericUpDown;
+                        numericUpDown.Value = 0;
                         numericUpDown.Enabled = true;
                     }
                 }
@@ -1139,8 +1172,21 @@ namespace maFichePersonnageJDR.Formulaires
                 if (controls is NumericUpDown && (controls as NumericUpDown).Value >= 1)
                 {
                     NumericUpDown numericUpDown = controls as NumericUpDown;
-                    EquipmentController.SellArmes(EquipmentController.GetIdArmeByName(numericUpDown.Tag.ToString()), IdPersonnage);
-                    controlsToDelete.Add(numericUpDown);
+                    int idArme = EquipmentController.GetIdArmeByName(numericUpDown.Tag.ToString());
+
+                    if (numericUpDown.Value == numericUpDown.Maximum)
+                    {
+                        EquipmentController.SellArmes(idArme, IdPersonnage);
+                        controlsToDelete.Add(numericUpDown);
+                    }
+                    else
+                    {
+                        int nouvelleQteMax = Convert.ToInt32(numericUpDown.Maximum - numericUpDown.Value);
+                        EquipmentController.UpdateArmesQuantity(idArme, IdPersonnage, nouvelleQteMax);
+
+                        ResetControlParent(pnlVendreArme);
+                        numericUpDown.Maximum = nouvelleQteMax;
+                    }
                 }
             }
 
@@ -1216,7 +1262,7 @@ namespace maFichePersonnageJDR.Formulaires
             lblTotalDepenseArmures.Text = "0";
             lblPoidsEnPlusArmures.Text = "0";
 
-            ResetTabControl(tbCntlArmures);
+            ResetControlParent(tbCntlArmures);
             Controller.EquipmentController.GetArmuresInInventairePersonnage(pnlVendreArmure, IdPersonnage);
             CreateCheckBoxVendreArmures();
         }
@@ -1253,8 +1299,19 @@ namespace maFichePersonnageJDR.Formulaires
                 if (controls is NumericUpDown && (controls as NumericUpDown).Value >= 1)
                 {
                     NumericUpDown numericUpDown = controls as NumericUpDown;
-                    EquipmentController.SellArmures(EquipmentController.GetIdArmureByName(numericUpDown.Tag.ToString()), IdPersonnage);
-                    controlsToDelete.Add(numericUpDown);
+                    int idArmure = EquipmentController.GetIdArmureByName(numericUpDown.Tag.ToString());
+
+                    if (numericUpDown.Value == numericUpDown.Maximum)
+                    {
+                        EquipmentController.SellArmures(idArmure, IdPersonnage);
+                        controlsToDelete.Add(numericUpDown);
+                    }
+                    else
+                    {
+                        int nouvelleQteMax = Convert.ToInt32(numericUpDown.Maximum - numericUpDown.Value);
+                        EquipmentController.UpdateArmesQuantity(idArmure, IdPersonnage, nouvelleQteMax);
+                        numericUpDown.Maximum = nouvelleQteMax;
+                    }
                 }
             }
 
@@ -1333,7 +1390,7 @@ namespace maFichePersonnageJDR.Formulaires
             lblTotalDepenseObjets.Text = "0";
             lblPoidsEnPlusObjets.Text = "0";
 
-            ResetTabControl(tbCntlObjets);
+            ResetControlParent(tbCntlObjets);
             Controller.EquipmentController.GetObjetsInInventairePersonnage(pnlVendreObjet, IdPersonnage);
             CreateCheckBoxVendreObjets();
         }
