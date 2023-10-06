@@ -312,6 +312,31 @@ namespace maFichePersonnageJDR.Model
         }
 
         /// <summary>
+        /// Met à jour la quantité d'un objet transporté par un personnage
+        /// </summary>
+        /// <param name="idObjet"></param>
+        /// <param name="idPersonnage"></param>
+        /// <param name="nouvelleQte"></param>
+        public void UpdateQuantityItems(int idObjet, int idPersonnage, int nouvelleQte)
+        {
+            try
+            {
+                SQLiteCommand command = new SQLiteCommand("UPDATE INVENTAIRE_OBJETS_PERSONNAGES " +
+                    "SET quantite = @nouvelleQuantite " +
+                    "WHERE id_objets = @idObjet AND id_personnage = @idPersonnage", DatabaseConnection.Instance.GetConnection());
+                command.Parameters.AddWithValue("@idObjet", idObjet);
+                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
+                command.Parameters.AddWithValue("@nouvelleQuantite", nouvelleQte);
+
+                int rowsAffected = command.ExecuteNonQuery();
+            }
+            catch (SQLiteException ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
         /// Permet de retourner la liste des objets que le personnage porte dans son inventaire
         /// </summary>
         /// <param name="idPersonnage"></param>

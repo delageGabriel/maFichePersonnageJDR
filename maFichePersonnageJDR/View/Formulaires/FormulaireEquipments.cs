@@ -1410,8 +1410,21 @@ namespace maFichePersonnageJDR.Formulaires
                 if (controls is NumericUpDown && (controls as NumericUpDown).Value >= 1)
                 {
                     NumericUpDown numericUpDown = controls as NumericUpDown;
-                    EquipmentController.SellObjets(EquipmentController.GetIdObjetByName(numericUpDown.Tag.ToString()), IdPersonnage);
-                    controlsToDelete.Add(numericUpDown);
+                    int idObjet = EquipmentController.GetIdObjetByName(numericUpDown.Tag.ToString());
+
+                    if (numericUpDown.Value == numericUpDown.Maximum)
+                    {
+                        EquipmentController.SellObjets(idObjet, IdPersonnage);
+                        controlsToDelete.Add(numericUpDown);
+                    }
+                    else
+                    {
+                        int nouvelleQteMax = Convert.ToInt32(numericUpDown.Maximum - numericUpDown.Value);
+                        EquipmentController.UpdateObjetsQuantity(idObjet, IdPersonnage, nouvelleQteMax);
+
+                        ResetControlParent(pnlVendreObjet);
+                        numericUpDown.Maximum = nouvelleQteMax;
+                    }
                 }
             }
 
