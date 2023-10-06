@@ -1,4 +1,4 @@
-﻿
+﻿using System.Linq;
 using maFichePersonnageJDR.Classe;
 using maFichePersonnageJDR.Controller;
 using maFichePersonnageJDR.View.Formulaires;
@@ -164,7 +164,7 @@ namespace maFichePersonnageJDR.Formulaires
             #region Initialisation des variables
             CheckBox checkBox = sender as CheckBox;
             string nomArme = checkBox.Name.Substring(4);
-            string idArme = EquipmentController.GetArmeIdByName(nomArme);
+            string idArme = EquipmentController.GetArmeIdToSaveInInventaire(nomArme);
 
             int qteReturn = QuantityToReturn(nomArme, checkBox.Parent);
             #endregion
@@ -234,7 +234,7 @@ namespace maFichePersonnageJDR.Formulaires
             #region Initialisation des variables
             CheckBox checkBox = sender as CheckBox;
             string nomArme = checkBox.Name.Substring(4);
-            string idArme = EquipmentController.GetArmeIdByName(nomArme);
+            string idArme = EquipmentController.GetArmeIdToSaveInInventaire(nomArme);
 
             int qteReturn = QuantityToReturn(nomArme, checkBox.Parent);
             #endregion
@@ -298,7 +298,7 @@ namespace maFichePersonnageJDR.Formulaires
             #region Initialisation des variables
             CheckBox checkBox = sender as CheckBox;
             string nomArmure = checkBox.Name.Substring(4);
-            string armure = EquipmentController.GetArmureByName(nomArmure);
+            string armure = EquipmentController.GetArmureToSaveInInventaire(nomArmure);
 
             int qteReturn = QuantityToReturn(nomArmure, checkBox.Parent);
             #endregion
@@ -367,7 +367,7 @@ namespace maFichePersonnageJDR.Formulaires
             #region Initialisation des variables
             CheckBox checkBox = sender as CheckBox;
             string nomArmure = checkBox.Name.Substring(4);
-            string armure = EquipmentController.GetArmureByName(nomArmure);
+            string armure = EquipmentController.GetArmureToSaveInInventaire(nomArmure);
 
             int qteReturn = QuantityToReturn(nomArmure, checkBox.Parent);
             #endregion
@@ -431,7 +431,7 @@ namespace maFichePersonnageJDR.Formulaires
             #region Initialisation des variables
             CheckBox checkBox = sender as CheckBox;
             string nomObjet = checkBox.Name.Substring(4);
-            string idObjet = EquipmentController.GetObjetByName(nomObjet);
+            string idObjet = EquipmentController.GetObjetToSaveInInventaire(nomObjet);
 
             int qteReturn = QuantityToReturn(nomObjet, (TabPage)checkBox.Parent);
             #endregion
@@ -489,7 +489,7 @@ namespace maFichePersonnageJDR.Formulaires
             #region Initialisation des variables
             CheckBox checkBox = sender as CheckBox;
             string nomObjet = checkBox.Name.Substring(4);
-            string idObjet = EquipmentController.GetObjetByName(nomObjet);
+            string idObjet = EquipmentController.GetObjetToSaveInInventaire(nomObjet);
 
             int qteReturn = QuantityToReturn(nomObjet, checkBox.Parent);
             #endregion
@@ -937,6 +937,11 @@ namespace maFichePersonnageJDR.Formulaires
             int achatArme = Utils.DeleteMoneyValue(lblTotalDepenseArmes.Text);
             int monnaiePersonnage = int.Parse(string.Format("{0}{1}{2}", nudPo.Value.ToString(), nudPa.Value.ToString(), nudPc.Value.ToString()));
             int differenceAchat = monnaiePersonnage - achatArme;
+            List<string> listeArmesPersonnage = EquipmentController.GetArmesInInventairePersonnage(IdPersonnage);
+
+            // On nettoie toute la liste des control s'il y en a dans le Panel Vendre arme
+            if(pnlVendreArme.Controls.Count > 0)
+                pnlVendreArme.Controls.Clear();
 
             // Si c'est pas le cas, on lui dit et on sort de la méthode
             if (differenceAchat < 0)
@@ -952,8 +957,34 @@ namespace maFichePersonnageJDR.Formulaires
                 if (!String.IsNullOrEmpty(line))
                 {
                     string[] substring = line.Split(';');
-                    EquipmentController.AddNewArmeToPersonnage(Convert.ToInt32(substring[0]),
-                    IdPersonnage, Convert.ToInt32(substring[1]));
+                    int idArme = int.Parse(substring[0]);
+                    string nomArme = EquipmentController.GetArmeNameById(idArme);
+
+                    /// Si le personnage a déjà cette arme dans son inventaire, on préférera incrémenter la quantité
+                    /// plutôt que de rajouter la même arme
+                    if (listeArmesPersonnage != null && listeArmesPersonnage.Any(arme => arme.Contains(nomArme)))
+                    {
+                        int nouvelleQte = EquipmentController.GetQuantityArme(idArme, IdPersonnage);
+
+                        foreach (TabPage page in tbCntlArmes.TabPages)
+                        {
+                            foreach (Control control in page.Controls)
+                            {
+                                if ((string)control.Tag == nomArme && control is NumericUpDown)
+                                {
+                                    nouvelleQte += Convert.ToInt32((control as NumericUpDown).Value);
+                                    goto SortieDesBoucles; // Utilisation de goto pour sortir des deux boucles
+                                }
+                            }
+                        }
+
+                        SortieDesBoucles: // On sort de la boucle directement après avoir trouvé le bon numericUpDown
+                        EquipmentController.UpdateArmesQuantity(idArme, IdPersonnage, nouvelleQte);
+                    }
+                    else
+                    {
+                        EquipmentController.AddNewArmeToPersonnage(idArme, IdPersonnage, Convert.ToInt32(substring[1]));
+                    }
                 }
             }
 
@@ -972,7 +1003,7 @@ namespace maFichePersonnageJDR.Formulaires
             lblPoidsEnPlusArmes.Text = "0";
 
             ResetControlParent(tbCntlArmes);
-            Controller.EquipmentController.GetArmesInInventairePersonnage(pnlVendreArme, IdPersonnage);
+            EquipmentController.GetArmesInInventairePersonnageToCreateControl(pnlVendreArme, IdPersonnage);
             CreateCheckBoxVendreArmes();
         }
 
@@ -1263,7 +1294,7 @@ namespace maFichePersonnageJDR.Formulaires
             lblPoidsEnPlusArmures.Text = "0";
 
             ResetControlParent(tbCntlArmures);
-            Controller.EquipmentController.GetArmuresInInventairePersonnage(pnlVendreArmure, IdPersonnage);
+            Controller.EquipmentController.GetArmuresInInventairePersonnageToCreateControl(pnlVendreArmure, IdPersonnage);
             CreateCheckBoxVendreArmures();
         }
 
@@ -1393,7 +1424,7 @@ namespace maFichePersonnageJDR.Formulaires
             lblPoidsEnPlusObjets.Text = "0";
 
             ResetControlParent(tbCntlObjets);
-            Controller.EquipmentController.GetObjetsInInventairePersonnage(pnlVendreObjet, IdPersonnage);
+            Controller.EquipmentController.GetObjetsInInventairePersonnageToCreateControls(pnlVendreObjet, IdPersonnage);
             CreateCheckBoxVendreObjets();
         }
 

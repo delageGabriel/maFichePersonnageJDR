@@ -13,6 +13,27 @@ namespace maFichePersonnageJDR.Controller
     class EquipmentController
     {
         #region ARMES
+
+        /// <summary>
+        /// Retourne le nom d'une arme par son id
+        /// </summary>
+        /// <param name="idArme"></param>
+        /// <returns></returns>
+        public static string GetArmeNameById(int idArme)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetArmeNameById — ID arme : {0} ###########", idArme));
+            ArmesModel armesModel = new ArmesModel();
+
+            try
+            {
+                return armesModel.GetArmeNameById(idArme);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
         /// <summary>
         /// Méthode qui se connecte à la base de données pour trouver toutes les armes et les ajouter
         /// à chaque pages du TabControl parent en fonction du type de l'arme
@@ -607,7 +628,7 @@ namespace maFichePersonnageJDR.Controller
 
             try
             {
-                return inventaireArmesPersonnages.GetQuantityArmesById(idArme, idPersonnage);
+                return inventaireArmesPersonnages.GetQuantityArmesById(idPersonnage, idArme);
             }
             catch (Exception e)
             {
