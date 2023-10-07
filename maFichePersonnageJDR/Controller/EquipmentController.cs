@@ -34,6 +34,7 @@ namespace maFichePersonnageJDR.Controller
                 throw ex;
             }
         }
+
         /// <summary>
         /// Méthode qui se connecte à la base de données pour trouver toutes les armes et les ajouter
         /// à chaque pages du TabControl parent en fonction du type de l'arme
@@ -638,6 +639,28 @@ namespace maFichePersonnageJDR.Controller
         #endregion
 
         #region ARMURES
+
+        /// <summary>
+        /// Retourne le nom d'une arme par son id
+        /// </summary>
+        /// <param name="idArmure"></param>
+        /// <returns></returns>
+        public static string GetArmureNameById(int idArmure)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetArmureNameById — ID armure : {0} ###########", idArmure));
+            ArmuresModel armuresModel = new ArmuresModel();
+
+            try
+            {
+                return armuresModel.GetArmureNameById(idArmure);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         /// <summary>
         /// Méthode qui se connecte à la base de données pour trouver toutes les armures et les ajouter
         /// à chaque pages du TabControl parent en fonction du type de l'armure
@@ -757,6 +780,26 @@ namespace maFichePersonnageJDR.Controller
                         y += 25;
                     }
                 }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Permet d'avoir la liste des armes que le personnage possède dans son inventaire
+        /// </summary>
+        /// <param name="panel"></param>
+        /// <param name="idPersonnage"></param>
+        public static List<string> GetArmuresInInventairePersonnage(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetArmuresInInventairePersonnageToCreateControl — Personnage : {0} ###########", idPersonnage.ToString()));
+            InventaireArmuresPersonnageModel armuresModel = new InventaireArmuresPersonnageModel();
+
+            try
+            {
+                return armuresModel.GetArmuresNameQuantityValueInInventaire(idPersonnage);
             }
             catch (Exception e)
             {
@@ -1123,6 +1166,28 @@ namespace maFichePersonnageJDR.Controller
             try
             {
                 inventaireArmuresPersonnage.UpdateQuantityArmor(idArmures, idPersonnage, nouvelleQuantity);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Obtient la quantité d'une arme que le personnage porte
+        /// </summary>
+        /// <param name="idArmure"></param>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static int GetQuantityArmure(int idArmure, int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetQuantityArmure — Personnage id : ID : {0} ###########", idPersonnage));
+
+            InventaireArmuresPersonnageModel inventaireArmuresPersonnage = new InventaireArmuresPersonnageModel();
+
+            try
+            {
+                return inventaireArmuresPersonnage.GetQuantityArmuresById(idPersonnage, idArmure);
             }
             catch (Exception e)
             {

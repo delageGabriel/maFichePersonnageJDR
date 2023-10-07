@@ -940,7 +940,7 @@ namespace maFichePersonnageJDR.Formulaires
             List<string> listeArmesPersonnage = EquipmentController.GetArmesInInventairePersonnage(IdPersonnage);
 
             // On nettoie toute la liste des control s'il y en a dans le Panel Vendre arme
-            if(pnlVendreArme.Controls.Count > 0)
+            if (pnlVendreArme.Controls.Count > 0)
                 pnlVendreArme.Controls.Clear();
 
             // Si c'est pas le cas, on lui dit et on sort de la méthode
@@ -978,7 +978,7 @@ namespace maFichePersonnageJDR.Formulaires
                             }
                         }
 
-                        SortieDesBoucles: // On sort de la boucle directement après avoir trouvé le bon numericUpDown
+                    SortieDesBoucles: // On sort de la boucle directement après avoir trouvé le bon numericUpDown
                         EquipmentController.UpdateArmesQuantity(idArme, IdPersonnage, nouvelleQte);
                     }
                     else
@@ -1014,102 +1014,11 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="moneyPersonnage">l'argent qu'il détenait</param>
         public void RepartitionMoneyAfterBuyOrSell(int price, int moneyPersonnage, string buyOrSell)
         {
-            int moneyToGet = 0;
+            int moneyToGet = (buyOrSell == "Buy") ? (moneyPersonnage - price) : (moneyPersonnage + price);
 
-            if (buyOrSell == "Buy")
-                moneyToGet = moneyPersonnage - price;
-            else
-                moneyToGet = moneyPersonnage + price;
-
-            if (moneyToGet >= 100)
-            {
-                /*
-                 * PLUSIEURS CAS POSSIBLES :
-                 * 100.000 PO
-                 * 10.000 PO
-                 * 1.000 PO
-                 * 100 PO
-                 */
-                if (moneyToGet > 99999)
-                {
-                    // Décorticage de l'or
-                    int valueOrCentaineMillier = (moneyToGet / 100000) % 10;
-                    int valueOrDizaineMillier = (moneyToGet / 10000) % 10;
-                    int valueOrMillier = (moneyToGet / 1000) % 10;
-                    int valueOrCentaine = (moneyToGet / 100) % 10;
-
-                    // Rajout des pièces d'argent et de cuivre
-                    int valueArgent = (moneyToGet / 10) % 10;
-                    int valueCuivre = moneyToGet % 10;
-
-                    string valueOr = string.Format("{0}{1}{2}{3}", valueOrCentaineMillier, valueOrDizaineMillier, valueOrMillier, valueOrCentaine);
-
-                    nudPo.Value = int.Parse(valueOr);
-                    nudPa.Value = valueArgent;
-                    nudPc.Value = valueCuivre;
-                }
-                else if (moneyToGet > 9999)
-                {
-                    // Décorticage de l'or
-                    int valueOrDizaineMillier = (moneyToGet / 10000) % 10;
-                    int valueOrMillier = (moneyToGet / 1000) % 10;
-                    int valueOrCentaine = (moneyToGet / 100) % 10;
-
-                    // Rajout des pièces d'argent et de cuivre
-                    int valueArgent = (moneyToGet / 10) % 10;
-                    int valueCuivre = moneyToGet % 10;
-
-                    string valueOr = string.Format("{0}{1}{2}", valueOrDizaineMillier, valueOrMillier, valueOrCentaine);
-
-                    nudPo.Value = int.Parse(valueOr);
-                    nudPa.Value = valueArgent;
-                    nudPc.Value = valueCuivre;
-                }
-                else if (moneyToGet > 999)
-                {
-                    // Décorticage de l'or
-                    int valueOrMillier = (moneyToGet / 1000) % 10;
-                    int valueOrCentaine = (moneyToGet / 100) % 10;
-
-                    // Rajout des pièces d'argent et de cuivre
-                    int valueArgent = (moneyToGet / 10) % 10;
-                    int valueCuivre = moneyToGet % 10;
-
-                    string valueOr = string.Format("{0}{1}", valueOrMillier, valueOrCentaine);
-
-                    nudPo.Value = int.Parse(valueOr);
-                    nudPa.Value = valueArgent;
-                    nudPc.Value = valueCuivre;
-                }
-                else
-                {
-                    // Décorticage de l'or
-                    int valueOrCentaine = (moneyToGet / 100) % 10;
-
-                    // Rajout des pièces d'argent et de cuivre
-                    int valueArgent = (moneyToGet / 10) % 10;
-                    int valueCuivre = moneyToGet % 10;
-
-                    nudPo.Value = valueOrCentaine;
-                    nudPa.Value = valueArgent;
-                    nudPc.Value = valueCuivre;
-                }
-
-            }
-            else if (moneyToGet >= 10)
-            {
-                int valueArgent = (moneyToGet / 10) % 10;
-                int valueCuivre = moneyToGet % 10;
-
-                nudPa.Value = valueArgent;
-                nudPc.Value = valueCuivre;
-            }
-            else
-            {
-                int valueCuivre = moneyToGet % 10;
-
-                nudPc.Value = valueCuivre;
-            }
+            nudPo.Value = moneyToGet / 100;
+            nudPa.Value = (moneyToGet % 100) / 10;
+            nudPc.Value = moneyToGet % 10;
         }
 
         /// <summary>
@@ -1259,6 +1168,11 @@ namespace maFichePersonnageJDR.Formulaires
             int achatArmure = Utils.DeleteMoneyValue(lblTotalDepenseArmures.Text);
             int monnaiePersonnage = int.Parse(string.Format("{0}{1}{2}", nudPo.Value.ToString(), nudPa.Value.ToString(), nudPc.Value.ToString()));
             int differenceAchat = monnaiePersonnage - achatArmure;
+            List<string> listeArmuresPersonnage = EquipmentController.GetArmuresInInventairePersonnage(IdPersonnage);
+
+            // On nettoie toute la liste des control s'il y en a dans le Panel Vendre armure
+            if (pnlVendreArmure.Controls.Count > 0)
+                pnlVendreArmure.Controls.Clear();
 
             // Si c'est pas le cas, on lui dit et on sort de la méthode
             if (differenceAchat < 0)
@@ -1274,8 +1188,35 @@ namespace maFichePersonnageJDR.Formulaires
                 if (!String.IsNullOrEmpty(line))
                 {
                     string[] substring = line.Split(';');
-                    EquipmentController.AddNewArmureToPersonnage(Convert.ToInt32(substring[0]),
-                    IdPersonnage, Convert.ToInt32(substring[1]));
+                    int idArmure = int.Parse(substring[0]);
+                    string nomArmure = EquipmentController.GetArmureNameById(idArmure);
+
+                    /// Si le personnage a déjà cette armure dans son inventaire, on préférera incrémenter la quantité
+                    /// plutôt que de rajouter la même armure
+                    if (listeArmuresPersonnage != null && listeArmuresPersonnage.Any(armure => armure.Contains(nomArmure)))
+                    {
+                        int nouvelleQte = EquipmentController.GetQuantityArmure(idArmure, IdPersonnage);
+
+                        foreach (TabPage page in tbCntlArmures.TabPages)
+                        {
+                            foreach (Control control in page.Controls)
+                            {
+                                if ((string)control.Tag == nomArmure && control is NumericUpDown)
+                                {
+                                    nouvelleQte += Convert.ToInt32((control as NumericUpDown).Value);
+                                    goto SortieDesBoucles;
+                                }
+                            }
+                        }
+
+                        SortieDesBoucles:
+                        EquipmentController.UpdateArmuresQuantity(idArmure, IdPersonnage, nouvelleQte);
+                    }
+                    else
+                    {
+                        EquipmentController.AddNewArmureToPersonnage(idArmure, IdPersonnage, Convert.ToInt32(substring[1]));
+                    }
+                    
                 }
             }
 

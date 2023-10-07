@@ -147,5 +147,39 @@ namespace maFichePersonnageJDR.Model
                 throw e;
             }
         }
+
+        /// <summary>
+        /// Retourne le nom de l'arme par son id
+        /// </summary>
+        /// <param name="idArme"></param>
+        /// <returns></returns>
+        public string GetArmureNameById(int idArmure)
+        {
+            string nomArmure = string.Empty;
+
+            try
+            {
+                SQLiteCommand command = new SQLiteCommand("SELECT nom_armure " +
+                    "FROM ARMURES " +
+                    "WHERE id_armure = @idArmure", DatabaseConnection.Instance.GetConnection());
+                command.Parameters.AddWithValue("@idArmure", idArmure);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ArmuresModel armure = new ArmuresModel();
+
+                        nomArmure = reader.GetString(0);
+                    }
+                }
+
+                return nomArmure;
+            }
+            catch (SQLiteException ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
