@@ -618,9 +618,10 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnAcheterArmes.Name = "btnAcheterArmes";
             this.btnAcheterArmes.Size = new System.Drawing.Size(75, 23);
             this.btnAcheterArmes.TabIndex = 31;
+            this.btnAcheterArmes.Tag = "Armes";
             this.btnAcheterArmes.Text = "Acheter";
             this.btnAcheterArmes.UseVisualStyleBackColor = true;
-            this.btnAcheterArmes.Click += new System.EventHandler(this.btnAcheterArmes_Click);
+            this.btnAcheterArmes.Click += new System.EventHandler(this.btnAcheter_Click);
             // 
             // btnVendreArmes
             // 
@@ -651,9 +652,10 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnAcheterArmures.Name = "btnAcheterArmures";
             this.btnAcheterArmures.Size = new System.Drawing.Size(75, 23);
             this.btnAcheterArmures.TabIndex = 33;
+            this.btnAcheterArmures.Tag = "Armures";
             this.btnAcheterArmures.Text = "Acheter";
             this.btnAcheterArmures.UseVisualStyleBackColor = true;
-            this.btnAcheterArmures.Click += new System.EventHandler(this.btnAcheterArmures_Click);
+            this.btnAcheterArmures.Click += new System.EventHandler(this.btnAcheter_Click);
             // 
             // btnVendreObjets
             // 
@@ -673,9 +675,10 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnAcheterObjets.Name = "btnAcheterObjets";
             this.btnAcheterObjets.Size = new System.Drawing.Size(75, 23);
             this.btnAcheterObjets.TabIndex = 35;
+            this.btnAcheterObjets.Tag = "Objets";
             this.btnAcheterObjets.Text = "Acheter";
             this.btnAcheterObjets.UseVisualStyleBackColor = true;
-            this.btnAcheterObjets.Click += new System.EventHandler(this.btnAcheterObjets_Click);
+            this.btnAcheterObjets.Click += new System.EventHandler(this.btnAcheter_Click);
             // 
             // lblChrgPrtePersonnage
             // 
