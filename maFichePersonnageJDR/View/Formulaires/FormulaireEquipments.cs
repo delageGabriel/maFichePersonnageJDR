@@ -1209,14 +1209,14 @@ namespace maFichePersonnageJDR.Formulaires
                             }
                         }
 
-                        SortieDesBoucles:
+                    SortieDesBoucles:
                         EquipmentController.UpdateArmuresQuantity(idArmure, IdPersonnage, nouvelleQte);
                     }
                     else
                     {
                         EquipmentController.AddNewArmureToPersonnage(idArmure, IdPersonnage, Convert.ToInt32(substring[1]));
                     }
-                    
+
                 }
             }
 
@@ -1339,6 +1339,10 @@ namespace maFichePersonnageJDR.Formulaires
             int achatObjet = Utils.DeleteMoneyValue(lblTotalDepenseObjets.Text);
             int monnaiePersonnage = int.Parse(string.Format("{0}{1}{2}", nudPo.Value.ToString(), nudPa.Value.ToString(), nudPc.Value.ToString()));
             int differenceAchat = monnaiePersonnage - achatObjet;
+            List<string> listeObjetPersonnage = EquipmentController.GetObjetsInInventairePersonnage(IdPersonnage);
+
+            if (pnlVendreObjet.Controls.Count > 0)
+                pnlVendreObjet.Controls.Clear();
 
             if (differenceAchat < 0)
             {
@@ -1351,7 +1355,32 @@ namespace maFichePersonnageJDR.Formulaires
                 if (!String.IsNullOrEmpty(line))
                 {
                     string[] substring = line.Split(';');
-                    EquipmentController.AddNewObjetToPersonnage(Convert.ToInt32(substring[0]), IdPersonnage, Convert.ToInt32(substring[1]));
+                    int idObjet = int.Parse(substring[0]);
+                    string nomObjet = EquipmentController.GetObjetNameById(idObjet);
+
+                    if (listeObjetPersonnage != null && listeObjetPersonnage.Any(objet => objet.Contains(nomObjet)))
+                    {
+                        int nouvelleQte = EquipmentController.GetQuantityObjet(idObjet, IdPersonnage);
+
+                        foreach (TabPage page in tbCntlObjets.TabPages)
+                        {
+                            foreach (Control control in page.Controls)
+                            {
+                                if ((string)control.Tag == nomObjet && control is NumericUpDown)
+                                {
+                                    nouvelleQte += Convert.ToInt32((control as NumericUpDown).Value);
+                                    goto SortieDesBoucles;
+                                }
+                            }
+                        }
+
+                        SortieDesBoucles:
+                        EquipmentController.UpdateObjetsQuantity(idObjet, IdPersonnage, nouvelleQte);
+                    }
+                    else
+                    {
+                        EquipmentController.AddNewObjetToPersonnage(Convert.ToInt32(substring[0]), IdPersonnage, Convert.ToInt32(substring[1]));
+                    }
                 }
             }
 

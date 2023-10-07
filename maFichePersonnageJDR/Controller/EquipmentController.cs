@@ -1198,6 +1198,27 @@ namespace maFichePersonnageJDR.Controller
 
         #region OBJETS
         /// <summary>
+        /// Retourne le nom d'une arme par son id
+        /// </summary>
+        /// <param name="idObjet"></param>
+        /// <returns></returns>
+        public static string GetObjetNameById(int idObjet)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetObjetNameById — ID objet : {0} ###########", idObjet));
+            ObjetsModel objetsModel = new ObjetsModel();
+
+            try
+            {
+                return objetsModel.GetObjetNameById(idObjet);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        /// <summary>
         /// Méthode pour obtenir un objet par son type
         /// </summary>
         /// <param name="typeObjet"></param>
@@ -1310,6 +1331,21 @@ namespace maFichePersonnageJDR.Controller
                         y += 25;
                     }
                 }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static List<string> GetObjetsInInventairePersonnage(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetObjetsInInventairePersonnage — Personnage : {0} ###########", idPersonnage.ToString()));
+            InventaireObjetsPersonnagesModel inventaireObjetsPersonnages = new InventaireObjetsPersonnagesModel();
+
+            try
+            {
+                return inventaireObjetsPersonnages.GetObjetsNameQuantityValueInInventaire(idPersonnage);
             }
             catch (Exception e)
             {
@@ -1651,6 +1687,28 @@ namespace maFichePersonnageJDR.Controller
             try
             {
                 inventaireObjetsPersonnages.UpdateQuantityItems(idObjet, idPersonnage, nouvelleQuantity);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Obtient la quantité d'une arme que le personnage porte
+        /// </summary>
+        /// <param name="idArmure"></param>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static int GetQuantityObjet(int idObjet, int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetQuantityObjet — Personnage id : ID : {0} ###########", idPersonnage));
+
+            InventaireObjetsPersonnagesModel inventaireObjetsPersonnages = new InventaireObjetsPersonnagesModel();
+
+            try
+            {
+                return inventaireObjetsPersonnages.GetQuantityObjetsById(idPersonnage, idObjet);
             }
             catch (Exception e)
             {

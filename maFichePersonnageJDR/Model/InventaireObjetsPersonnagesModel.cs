@@ -417,5 +417,33 @@ namespace maFichePersonnageJDR.Model
                 throw ex;
             }
         }
+
+        public int GetQuantityObjetsById(int idPersonnage, int idObjet)
+        {
+            int quantity = 1;
+
+            try
+            {
+                SQLiteCommand command = new SQLiteCommand("SELECT quantite " +
+                    "FROM INVENTAIRE_OBJETS_PERSONNAGES " +
+                    "WHERE id_objets = @idObjet AND id_personnage = @idPersonnage", DatabaseConnection.Instance.GetConnection());
+                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
+                command.Parameters.AddWithValue("@idObjet", idObjet);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        quantity = Convert.ToInt32(reader["quantite"] is DBNull ? 0 : reader["quantite"]);
+                    }
+                }
+
+                return quantity;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
