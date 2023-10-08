@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
+using System.Data;
 
 namespace maFichePersonnageJDR.Classe
 {
@@ -15,14 +16,13 @@ namespace maFichePersonnageJDR.Classe
         private DatabaseConnection()
         {
             connection = new SQLiteConnection(@"Data Source =BDD\20221227_base_fiche_perso.db; Version = 3;");
-            connection.Open();
         }
 
         public static DatabaseConnection Instance
         {
             get
             {
-                if(instance == null)
+                if (instance == null)
                 {
                     instance = new DatabaseConnection();
                 }
@@ -33,14 +33,20 @@ namespace maFichePersonnageJDR.Classe
 
         public SQLiteConnection GetConnection()
         {
+            if (connection.State == ConnectionState.Closed)
+            {
+                connection.Open();
+            }
+
             return connection;
         }
 
         public void CloseConnection()
         {
-            connection.Close();
-            connection = null;
-            instance = null;
+            if (connection != null && connection.State == ConnectionState.Open)
+            {
+                connection.Close();
+            }
         }
     }
 }

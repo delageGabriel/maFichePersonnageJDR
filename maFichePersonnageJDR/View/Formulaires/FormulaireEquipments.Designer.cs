@@ -618,9 +618,10 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnAcheterArmes.Name = "btnAcheterArmes";
             this.btnAcheterArmes.Size = new System.Drawing.Size(75, 23);
             this.btnAcheterArmes.TabIndex = 31;
+            this.btnAcheterArmes.Tag = "Armes";
             this.btnAcheterArmes.Text = "Acheter";
             this.btnAcheterArmes.UseVisualStyleBackColor = true;
-            this.btnAcheterArmes.Click += new System.EventHandler(this.btnAcheterArmes_Click);
+            this.btnAcheterArmes.Click += new System.EventHandler(this.btnAcheter_Click);
             // 
             // btnVendreArmes
             // 
@@ -629,9 +630,10 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnVendreArmes.Name = "btnVendreArmes";
             this.btnVendreArmes.Size = new System.Drawing.Size(75, 23);
             this.btnVendreArmes.TabIndex = 32;
+            this.btnVendreArmes.Tag = "Armes";
             this.btnVendreArmes.Text = "Vendre";
             this.btnVendreArmes.UseVisualStyleBackColor = true;
-            this.btnVendreArmes.Click += new System.EventHandler(this.btnVendreArmes_Click);
+            this.btnVendreArmes.Click += new System.EventHandler(this.btnVendre_Click);
             // 
             // btnVendreArmures
             // 
@@ -640,9 +642,10 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnVendreArmures.Name = "btnVendreArmures";
             this.btnVendreArmures.Size = new System.Drawing.Size(75, 23);
             this.btnVendreArmures.TabIndex = 34;
+            this.btnVendreArmures.Tag = "Armures";
             this.btnVendreArmures.Text = "Vendre";
             this.btnVendreArmures.UseVisualStyleBackColor = true;
-            this.btnVendreArmures.Click += new System.EventHandler(this.btnVendreArmures_Click);
+            this.btnVendreArmures.Click += new System.EventHandler(this.btnVendre_Click);
             // 
             // btnAcheterArmures
             // 
@@ -651,9 +654,10 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnAcheterArmures.Name = "btnAcheterArmures";
             this.btnAcheterArmures.Size = new System.Drawing.Size(75, 23);
             this.btnAcheterArmures.TabIndex = 33;
+            this.btnAcheterArmures.Tag = "Armures";
             this.btnAcheterArmures.Text = "Acheter";
             this.btnAcheterArmures.UseVisualStyleBackColor = true;
-            this.btnAcheterArmures.Click += new System.EventHandler(this.btnAcheterArmures_Click);
+            this.btnAcheterArmures.Click += new System.EventHandler(this.btnAcheter_Click);
             // 
             // btnVendreObjets
             // 
@@ -662,9 +666,10 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnVendreObjets.Name = "btnVendreObjets";
             this.btnVendreObjets.Size = new System.Drawing.Size(75, 23);
             this.btnVendreObjets.TabIndex = 36;
+            this.btnVendreObjets.Tag = "Objets";
             this.btnVendreObjets.Text = "Vendre";
             this.btnVendreObjets.UseVisualStyleBackColor = true;
-            this.btnVendreObjets.Click += new System.EventHandler(this.btnVendreObjets_Click);
+            this.btnVendreObjets.Click += new System.EventHandler(this.btnVendre_Click);
             // 
             // btnAcheterObjets
             // 
@@ -673,9 +678,10 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnAcheterObjets.Name = "btnAcheterObjets";
             this.btnAcheterObjets.Size = new System.Drawing.Size(75, 23);
             this.btnAcheterObjets.TabIndex = 35;
+            this.btnAcheterObjets.Tag = "Objets";
             this.btnAcheterObjets.Text = "Acheter";
             this.btnAcheterObjets.UseVisualStyleBackColor = true;
-            this.btnAcheterObjets.Click += new System.EventHandler(this.btnAcheterObjets_Click);
+            this.btnAcheterObjets.Click += new System.EventHandler(this.btnAcheter_Click);
             // 
             // lblChrgPrtePersonnage
             // 
@@ -701,8 +707,9 @@ namespace maFichePersonnageJDR.Formulaires
             this.rtbAcheterArmes.Name = "rtbAcheterArmes";
             this.rtbAcheterArmes.Size = new System.Drawing.Size(109, 118);
             this.rtbAcheterArmes.TabIndex = 39;
+            this.rtbAcheterArmes.Tag = "Armes";
             this.rtbAcheterArmes.Text = "";
-            this.rtbAcheterArmes.TextChanged += new System.EventHandler(this.rtbAcheterArmes_TextChanged);
+            this.rtbAcheterArmes.TextChanged += new System.EventHandler(this.rtbAcheterEquipement_TextChanged);
             // 
             // rtbAcheterArmures
             // 
@@ -710,8 +717,9 @@ namespace maFichePersonnageJDR.Formulaires
             this.rtbAcheterArmures.Name = "rtbAcheterArmures";
             this.rtbAcheterArmures.Size = new System.Drawing.Size(109, 118);
             this.rtbAcheterArmures.TabIndex = 40;
+            this.rtbAcheterArmures.Tag = "Armures";
             this.rtbAcheterArmures.Text = "";
-            this.rtbAcheterArmures.TextChanged += new System.EventHandler(this.rtbApercuArmures_TextChanged);
+            this.rtbAcheterArmures.TextChanged += new System.EventHandler(this.rtbAcheterEquipement_TextChanged);
             // 
             // rtbAcheterObjets
             // 
@@ -719,8 +727,9 @@ namespace maFichePersonnageJDR.Formulaires
             this.rtbAcheterObjets.Name = "rtbAcheterObjets";
             this.rtbAcheterObjets.Size = new System.Drawing.Size(108, 118);
             this.rtbAcheterObjets.TabIndex = 41;
+            this.rtbAcheterObjets.Tag = "Objets";
             this.rtbAcheterObjets.Text = "";
-            this.rtbAcheterObjets.TextChanged += new System.EventHandler(this.rtbAcheterObjets_TextChanged);
+            this.rtbAcheterObjets.TextChanged += new System.EventHandler(this.rtbAcheterEquipement_TextChanged);
             // 
             // pnlVendreArme
             // 
@@ -731,7 +740,8 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlVendreArme.Name = "pnlVendreArme";
             this.pnlVendreArme.Size = new System.Drawing.Size(183, 118);
             this.pnlVendreArme.TabIndex = 42;
-            this.pnlVendreArme.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnlVendreArme_ControlAdded);
+            this.pnlVendreArme.Tag = "Armes";
+            this.pnlVendreArme.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnlVendreEquipment_ControlAdded);
             // 
             // pnlVendreArmure
             // 
@@ -742,7 +752,8 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlVendreArmure.Name = "pnlVendreArmure";
             this.pnlVendreArmure.Size = new System.Drawing.Size(183, 118);
             this.pnlVendreArmure.TabIndex = 43;
-            this.pnlVendreArmure.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnlVendreArmure_ControlAdded);
+            this.pnlVendreArmure.Tag = "Armures";
+            this.pnlVendreArmure.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnlVendreEquipment_ControlAdded);
             // 
             // pnlVendreObjet
             // 
@@ -753,10 +764,12 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlVendreObjet.Name = "pnlVendreObjet";
             this.pnlVendreObjet.Size = new System.Drawing.Size(183, 118);
             this.pnlVendreObjet.TabIndex = 44;
-            this.pnlVendreObjet.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnlVendreObjet_ControlAdded);
+            this.pnlVendreObjet.Tag = "Objets";
+            this.pnlVendreObjet.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnlVendreEquipment_ControlAdded);
             // 
             // pnlArmesAchatVentePoids
             // 
+            this.pnlArmesAchatVentePoids.BackColor = System.Drawing.Color.White;
             this.pnlArmesAchatVentePoids.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlArmesAchatVentePoids.Controls.Add(this.lblNomArme);
             this.pnlArmesAchatVentePoids.Controls.Add(this.lblTotalArmes);
@@ -770,6 +783,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // pnlArmuresAchatVentePoids
             // 
+            this.pnlArmuresAchatVentePoids.BackColor = System.Drawing.Color.White;
             this.pnlArmuresAchatVentePoids.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlArmuresAchatVentePoids.Controls.Add(this.lblNomArmures);
             this.pnlArmuresAchatVentePoids.Controls.Add(this.lblTotalArmures);
@@ -783,6 +797,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // pnlObjetsAchatVentePoids
             // 
+            this.pnlObjetsAchatVentePoids.BackColor = System.Drawing.Color.White;
             this.pnlObjetsAchatVentePoids.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlObjetsAchatVentePoids.Controls.Add(this.lblTotalObjets);
             this.pnlObjetsAchatVentePoids.Controls.Add(this.lblNomObjets);

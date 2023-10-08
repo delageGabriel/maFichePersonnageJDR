@@ -312,6 +312,31 @@ namespace maFichePersonnageJDR.Model
         }
 
         /// <summary>
+        /// Met à jour la quantité d'un objet transporté par un personnage
+        /// </summary>
+        /// <param name="idObjet"></param>
+        /// <param name="idPersonnage"></param>
+        /// <param name="nouvelleQte"></param>
+        public void UpdateQuantityItems(int idObjet, int idPersonnage, int nouvelleQte)
+        {
+            try
+            {
+                SQLiteCommand command = new SQLiteCommand("UPDATE INVENTAIRE_OBJETS_PERSONNAGES " +
+                    "SET quantite = @nouvelleQuantite " +
+                    "WHERE id_objets = @idObjet AND id_personnage = @idPersonnage", DatabaseConnection.Instance.GetConnection());
+                command.Parameters.AddWithValue("@idObjet", idObjet);
+                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
+                command.Parameters.AddWithValue("@nouvelleQuantite", nouvelleQte);
+
+                int rowsAffected = command.ExecuteNonQuery();
+            }
+            catch (SQLiteException ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
         /// Permet de retourner la liste des objets que le personnage porte dans son inventaire
         /// </summary>
         /// <param name="idPersonnage"></param>
@@ -388,6 +413,34 @@ namespace maFichePersonnageJDR.Model
                 return poidsTotal;
             }
             catch (SQLiteException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int GetQuantityObjetsById(int idPersonnage, int idObjet)
+        {
+            int quantity = 1;
+
+            try
+            {
+                SQLiteCommand command = new SQLiteCommand("SELECT quantite " +
+                    "FROM INVENTAIRE_OBJETS_PERSONNAGES " +
+                    "WHERE id_objets = @idObjet AND id_personnage = @idPersonnage", DatabaseConnection.Instance.GetConnection());
+                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
+                command.Parameters.AddWithValue("@idObjet", idObjet);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        quantity = Convert.ToInt32(reader["quantite"] is DBNull ? 0 : reader["quantite"]);
+                    }
+                }
+
+                return quantity;
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

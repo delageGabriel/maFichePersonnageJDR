@@ -351,6 +351,25 @@ namespace maFichePersonnageJDR.Model
             }
         }
 
+        public void UpdateQuantityArmor(int idArmure, int idPersonnage, int nouvelleQte)
+        {
+            try
+            {
+                SQLiteCommand command = new SQLiteCommand("UPDATE INVENTAIRE_ARMURES_PERSONNAGES " +
+                    "SET quantite = @nouvelleQuantite " +
+                    "WHERE id_armure = @idArmure AND id_personnage = @idPersonnage", DatabaseConnection.Instance.GetConnection());
+                command.Parameters.AddWithValue("@idArmure", idArmure);
+                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
+                command.Parameters.AddWithValue("@nouvelleQuantite", nouvelleQte);
+
+                int rowsAffected = command.ExecuteNonQuery();
+            }
+            catch(SQLiteException ex)
+            {
+                throw ex;
+            }
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -434,6 +453,34 @@ namespace maFichePersonnageJDR.Model
             catch (SQLiteException e)
             {
                 throw e;
+            }
+        }
+
+        public int GetQuantityArmuresById(int idPersonnage, int idArmure)
+        {
+            int quantity = 1;
+
+            try
+            {
+                SQLiteCommand command = new SQLiteCommand("SELECT quantite " +
+                    "FROM INVENTAIRE_ARMURES_PERSONNAGES " +
+                    "WHERE id_armure = @idArmure AND id_personnage = @idPersonnage", DatabaseConnection.Instance.GetConnection());
+                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
+                command.Parameters.AddWithValue("@idArmure", idArmure);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        quantity = Convert.ToInt32(reader["quantite"] is DBNull ? 0 : reader["quantite"]);
+                    }
+                }
+
+                return quantity;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }
