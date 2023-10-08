@@ -42,6 +42,22 @@ namespace maFichePersonnageJDR.Controller
             }
         }
 
+        public static void SaveBoursePersonnage(int idPersonnage, int pieceOr, int pieceArgent, int pieceCuivre)
+        {
+            Console.WriteLine(string.Format("########### Méthode SaveBoursePersonnage — ID Personnage : {0} ###########", idPersonnage));
+
+            BoursePersonnageModel boursePersonnage = new BoursePersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                boursePersonnage.SaveMonnaiePersonnage(idPersonnage, pieceOr, pieceArgent, pieceCuivre);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
         /// <summary>
         /// 
         /// </summary>

@@ -3,6 +3,7 @@ using maFichePersonnageJDR.View.Formulaires;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace maFichePersonnageJDR.Formulaires
@@ -251,7 +252,7 @@ namespace maFichePersonnageJDR.Formulaires
             else if (niveauPersonnage > 19)
                 nbMagieAptitude = 20;
 
-                return nbMagieAptitude;
+            return nbMagieAptitude;
         }
 
         public void DisableOrCheckBox(TabControl tbControlAptitudes, TabControl tbControlMagies)
@@ -261,7 +262,7 @@ namespace maFichePersonnageJDR.Formulaires
 
             /// Parcours des aptitudes
             foreach (TabPage page in tbControlAptitudes.TabPages)
-            {                
+            {
                 foreach (object controls in page.Controls)
                 {
                     if (controls is CheckBox)
@@ -343,9 +344,76 @@ namespace maFichePersonnageJDR.Formulaires
             }
         }
 
+        /// <summary>
+        /// Permet de savoir combien d'aptitude et/ou de magie
+        /// le personnage peut encore répartir
+        /// </summary>
+        /// <param name="niveauPersonnage"></param>
+        /// <returns></returns>
+        private int MagieAptitudesLimitationByLevel(int niveauPersonnage)
+        {
+            int nbMagieAptitude = 0;
+
+            if (niveauPersonnage < 3)
+                nbMagieAptitude = 2;
+            else if (niveauPersonnage > 3 && niveauPersonnage < 4)
+                nbMagieAptitude = 3;
+            else if (niveauPersonnage > 4 && niveauPersonnage < 5)
+                nbMagieAptitude = 4;
+            else if (niveauPersonnage > 4 && niveauPersonnage < 6)
+                nbMagieAptitude = 6;
+            else if (niveauPersonnage > 5 && niveauPersonnage < 7)
+                nbMagieAptitude = 8;
+            else if (niveauPersonnage > 6 && niveauPersonnage < 9)
+                nbMagieAptitude = 9;
+            else if (niveauPersonnage > 8 && niveauPersonnage < 10)
+                nbMagieAptitude = 10;
+            else if (niveauPersonnage > 9 && niveauPersonnage < 12)
+                nbMagieAptitude = 12;
+            else if (niveauPersonnage > 11 && niveauPersonnage < 14)
+                nbMagieAptitude = 13;
+            else if (niveauPersonnage > 13 && niveauPersonnage < 15)
+                nbMagieAptitude = 14;
+            else if (niveauPersonnage > 14 && niveauPersonnage < 17)
+                nbMagieAptitude = 16;
+            else if (niveauPersonnage > 16 && niveauPersonnage < 19)
+                nbMagieAptitude = 17;
+            else if (niveauPersonnage > 18 && niveauPersonnage < 20)
+                nbMagieAptitude = 18;
+            else
+                nbMagieAptitude = 20;
+
+            return nbMagieAptitude;
+        }
+
         private void btnFinaliserFiche_Click(object sender, EventArgs e)
         {
             Classe.ClassePdf classePdf = new Classe.ClassePdf();
+            int nbCheckBoxCochee = 0;
+
+            foreach (TabPage pageMagie in tbCntlMagie.TabPages)
+            {
+                foreach (Control controls in pageMagie.Controls)
+                {
+                    if (controls is CheckBox && (controls as CheckBox).Checked)
+                        nbCheckBoxCochee += 1;
+                }
+            }
+
+            foreach (TabPage pageAptitude in tbCntlAptitudes.TabPages)
+            {
+                foreach (Control control in pageAptitude.Controls)
+                {
+                    if (control is CheckBox && (control as CheckBox).Checked)
+                        nbCheckBoxCochee += 1;
+                }
+            }
+
+            if (nbCheckBoxCochee < MagieAptitudesLimitationByLevel(PersonnageController.GetNiveauPersonnage(IdPersonnage)))
+            {
+                MessageBox.Show(string.Format("Il vous reste {0} à attribuer au personnage !", MagieAptitudesLimitationByLevel(PersonnageController.GetNiveauPersonnage(IdPersonnage) - nbCheckBoxCochee)));
+                return;
+            }
 
             // MAGIE
             foreach (string line in rtbMagies.Lines)

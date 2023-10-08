@@ -152,6 +152,7 @@
     <Compile Include="Model\ArmuresModel.cs" />
     <Compile Include="Model\AttributsModel.cs" />
     <Compile Include="Model\AttributsPersonnageModel.cs" />
+    <Compile Include="Model\BoursePersonnageModel.cs" />
     <Compile Include="Model\CompetenceMentalPersonnageModel.cs" />
     <Compile Include="Model\CompetencePhysiquePersonnageModel.cs" />
     <Compile Include="Model\CompetenceSocialPersonnageModel.cs" />

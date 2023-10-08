@@ -218,7 +218,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                  */
                 if (nbCaseCocher < AttributsLimitations(IdDuPersonnage))
                 {
-                    MessageBox.Show("Il vous reste des attributs à donner à votre personnage");
+                    MessageBox.Show(string.Format("Il vous reste {0} à donner à votre personnage", AttributsLimitations(IdDuPersonnage) - nbCaseCocher));
                     return;
                 }
 

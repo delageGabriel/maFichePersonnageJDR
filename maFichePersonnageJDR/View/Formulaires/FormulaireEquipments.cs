@@ -824,28 +824,7 @@ namespace maFichePersonnageJDR.Formulaires
 
             try
             {
-                // ARMURES
-                foreach (string line in rTxtBxArmures.Lines)
-                {
-                    if (!String.IsNullOrEmpty(line))
-                    {
-                        string[] substring = line.Split(';');
-                        EquipmentController.AddNewArmureToPersonnage(Convert.ToInt32(substring[0]),
-                        IdPersonnage, Convert.ToInt32(substring[1]));
-                    }
-
-                }
-
-                // OBJETS
-                foreach (string line in rTxtBxObjets.Lines)
-                {
-                    if (!String.IsNullOrEmpty(line))
-                    {
-                        string[] substring = line.Split(';');
-                        EquipmentController.AddNewObjetToPersonnage(Convert.ToInt32(substring[0]),
-                        IdPersonnage, Convert.ToInt32(substring[1]));
-                    }
-                }
+                PersonnageController.SaveBoursePersonnage(IdPersonnage, Convert.ToInt32(nudPo.Value), Convert.ToInt32(nudPa.Value), Convert.ToInt32(nudPc.Value));
 
                 formulaireMagieEtAptitudes.IdPersonnage = IdPersonnage;
                 MessageBox.Show("Équipement sauvegardé !");
