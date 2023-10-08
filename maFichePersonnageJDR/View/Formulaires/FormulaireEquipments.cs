@@ -905,6 +905,11 @@ namespace maFichePersonnageJDR.Formulaires
             lblChrgPrtePersonnage.Text = poidsTotal.ToString("0.##") + " kg";
         }
 
+        /// <summary>
+        /// Événement pour vérifier si les trois RichTextBox pour activer ou désactiver les boutons acheter
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rtbAcheterEquipement_TextChanged(object sender, EventArgs e)
         {
             string tagControl = (sender as RichTextBox).Tag as string;
@@ -1032,6 +1037,21 @@ namespace maFichePersonnageJDR.Formulaires
             if (differenceAchat < 0)
             {
                 MessageBox.Show("Pas assez de monnaie !");
+
+                if (GetEquipmentsInInventairePersonnageToCreateControl != null)
+                {
+                    GetEquipmentsInInventairePersonnageToCreateControl(panelVendreEquipement, IdPersonnage);
+                }
+                else
+                {
+                    throw new Exception("GetEquipmentsInInventairePersonnageToCreateControl est null");
+                }
+
+                if (CreateCheckBoxVendre != null)
+                {
+                    CreateCheckBoxVendre();
+                }
+
                 return;
             }
 
@@ -1201,13 +1221,18 @@ namespace maFichePersonnageJDR.Formulaires
                     else if (control is NumericUpDown && (control as NumericUpDown).Value > 0)
                     {
                         NumericUpDown numericUpDown = control as NumericUpDown;
-                        numericUpDown.Value = 0;
+                        numericUpDown.Value = 1;
                         numericUpDown.Enabled = true;
                     }
                 }
             }
         }
 
+        /// <summary>
+        /// Événement pour vérifier si les trois Panel pour activer ou désactiver les boutons vendre
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pnlVendreEquipment_ControlAdded(object sender, ControlEventArgs e)
         {
             string tagControl = (sender as Panel).Tag as string;
@@ -1303,7 +1328,7 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 // on cherche les NumericUpDown associés à cet équipement et on vérifie qu'on vend bien
                 // un équipement
-                if (controls is NumericUpDown && (controls as NumericUpDown).Value >= 1)
+                if (controls is NumericUpDown)
                 {
                     NumericUpDown numericUpDown = controls as NumericUpDown;
 
@@ -1316,7 +1341,10 @@ namespace maFichePersonnageJDR.Formulaires
                         throw new Exception("GetIdEquipmentByName a été null !");
                     }
 
-                    if (numericUpDown.Value == numericUpDown.Maximum)
+                    // Retrouve la CheckBox associé au tag pour s'assurer qu'elle soit cochée
+                    CheckBox checkBox = FindCheckBoxInControlByTag(panelTemplate, numericUpDown.Tag.ToString());
+
+                    if (numericUpDown.Value == numericUpDown.Maximum && checkBox.Checked)
                     {
                         if (SellEquipment != null)
                         {
@@ -1328,7 +1356,7 @@ namespace maFichePersonnageJDR.Formulaires
                             throw new Exception("SellEquipment a été null !");
                         }
                     }
-                    else
+                    else if (numericUpDown.Value < numericUpDown.Maximum && checkBox.Checked)
                     {
                         int nouvelleQteMax = Convert.ToInt32(numericUpDown.Maximum - numericUpDown.Value);
 
@@ -1362,6 +1390,18 @@ namespace maFichePersonnageJDR.Formulaires
             // Les labels poids et dépenses monnétaire
             lblTotalDepenseEquipment.Text = "0";
             lblTotalPoidsEnPlusEquipment.Text = "0";
+        }
+
+        private CheckBox FindCheckBoxInControlByTag(object controlParent, string tag)
+        {
+            CheckBox checkBox = new CheckBox();
+
+            if (controlParent is Panel)
+            {
+                checkBox = (controlParent as Panel).Controls.OfType<CheckBox>().Where(check => check.Tag as string == tag).FirstOrDefault();
+            }
+
+            return checkBox;
         }
     }
 }
