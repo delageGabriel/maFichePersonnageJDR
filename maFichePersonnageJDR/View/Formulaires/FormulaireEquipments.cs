@@ -927,229 +927,153 @@ namespace maFichePersonnageJDR.Formulaires
 
         private void btnAcheter_Click(object sender, EventArgs e)
         {
-            Button button = sender as Button;
-            string tagButton = (string)button.Tag;
+            #region Initialisation des variables
+            // PRIMITIFS
+            string tagButton = (sender as Button).Tag as string;
             int achat = 0;
             int monnaiePersonnage = int.Parse(string.Format("{0}{1}{2}", nudPo.Value.ToString(), nudPa.Value.ToString(), nudPc.Value.ToString()));
-            List<string> listeEquipementPersonnage = new List<string>();
 
+            // COMPLEXES
+            List<string> listeEquipementPersonnage = new List<string>();
+            Func<int, List<string>> GetEquipmentInInventairePersonnage = null;
+            Func<int, string> GetEquipementNameById = null;
+            Func<int, int, int> GetQuantityEquipment = null;
+            Action<int, int, int> UpdateEquipmentQuantity = null;
+            Action<int, int, int> AddNewEquipmentToInventairePersonnage = null;
+            Action<Panel, int> GetEquipmentsInInventairePersonnageToCreateControl = null;
+            Action CreateCheckBoxVendre = null;
+            RichTextBox rTxtBxEquipments = new RichTextBox();
+            RichTextBox rtbAcheterEquipement = new RichTextBox();
+            Panel panelVendreEquipement = new Panel();
+            Label lblTotalDepenseEquipement = new Label();
+            Label lblPoidsEnPlusEquipment = new Label();
+            TabControl tabControlEquipment = new TabControl();
+            #endregion
+            
             /**
              * #### ~ ARMES ~ ####
              */
             if (tagButton == "Armes")
             {
-                achat = Utils.DeleteMoneyValue(lblTotalDepenseArmes.Text);
-                int differenceAchat = monnaiePersonnage - achat;
-                listeEquipementPersonnage = EquipmentController.GetArmesInInventairePersonnage(IdPersonnage);
-
-                if (pnlVendreArme.Controls.Count > 0)
-                    pnlVendreArme.Controls.Clear();
-
-                // Si c'est pas le cas, on lui dit et on sort de la méthode
-                if (differenceAchat < 0)
-                {
-                    MessageBox.Show("Pas assez de monnaie !");
-                    return;
-                }
-
-                // Ensuite on parcourt la liste des armes achetées
-                // pour les ajouter à l'inventaire d'armes du personnage
-                foreach (string line in rTxtBxArmes.Lines)
-                {
-                    if (!String.IsNullOrEmpty(line))
-                    {
-                        string[] substring = line.Split(';');
-                        int idArme = int.Parse(substring[0]);
-                        string nomArme = EquipmentController.GetArmeNameById(idArme);
-
-                        /// Si le personnage a déjà cette arme dans son inventaire, on préférera incrémenter la quantité
-                        /// plutôt que de rajouter la même arme
-                        if (listeEquipementPersonnage != null && listeEquipementPersonnage.Any(arme => arme.Contains(nomArme)))
-                        {
-                            int nouvelleQte = EquipmentController.GetQuantityArme(idArme, IdPersonnage);
-
-                            foreach (TabPage page in tbCntlArmes.TabPages)
-                            {
-                                foreach (Control control in page.Controls)
-                                {
-                                    if ((string)control.Tag == nomArme && control is NumericUpDown)
-                                    {
-                                        nouvelleQte += Convert.ToInt32((control as NumericUpDown).Value);
-                                        goto SortieDesBoucles; // Utilisation de goto pour sortir des deux boucles
-                                    }
-                                }
-                            }
-
-                        SortieDesBoucles: // On sort de la boucle directement après avoir trouvé le bon numericUpDown
-                            EquipmentController.UpdateArmesQuantity(idArme, IdPersonnage, nouvelleQte);
-                        }
-                        else
-                        {
-                            EquipmentController.AddNewArmeToPersonnage(idArme, IdPersonnage, Convert.ToInt32(substring[1]));
-                        }
-                    }
-                }
-
-                /// Enfin, on met tous les champs textuels à jour
-                // La RichTextBox d'armes
-                rtbAcheterArmes.Text = string.Empty;
-
-                // La RichTextBox qui contient les ID à rajouter en base
-                rTxtBxArmes.Text = string.Empty;
-
-                // Les labels poids et dépenses monnétaire
-                lblTotalDepenseArmes.Text = "0";
-                lblPoidsEnPlusArmes.Text = "0";
-
-                ResetControlParent(tbCntlArmes);
-                EquipmentController.GetArmesInInventairePersonnageToCreateControl(pnlVendreArme, IdPersonnage);
-                CreateCheckBoxVendreArmes();
+                lblTotalDepenseEquipement = lblTotalDepenseArmes;
+                lblPoidsEnPlusEquipment = lblPoidsEnPlusArmes;
+                panelVendreEquipement = pnlVendreArme;
+                rTxtBxEquipments = rTxtBxArmes;
+                rtbAcheterEquipement = rtbAcheterArmes;
+                tabControlEquipment = tbCntlArmes;
+                GetEquipmentInInventairePersonnage = EquipmentController.GetArmesInInventairePersonnage;
+                GetEquipementNameById = EquipmentController.GetArmeNameById;
+                GetQuantityEquipment = EquipmentController.GetQuantityArme;
+                UpdateEquipmentQuantity = EquipmentController.UpdateArmesQuantity;
+                AddNewEquipmentToInventairePersonnage = EquipmentController.AddNewArmeToPersonnage;
+                GetEquipmentsInInventairePersonnageToCreateControl = EquipmentController.GetArmesInInventairePersonnageToCreateControl;
+                CreateCheckBoxVendre = CreateCheckBoxVendreArmes;
             }
             /**
              * #### ~ ARMURES ~ ####
              */
             else if (tagButton == "Armures")
             {
-                achat = Utils.DeleteMoneyValue(lblTotalDepenseArmures.Text);
-                int differenceAchat = monnaiePersonnage - achat;
-                listeEquipementPersonnage = EquipmentController.GetArmuresInInventairePersonnage(IdPersonnage);
-
-                if (pnlVendreArmure.Controls.Count > 0)
-                    pnlVendreArmure.Controls.Clear();
-
-                // Si c'est pas le cas, on lui dit et on sort de la méthode
-                if (differenceAchat < 0)
-                {
-                    MessageBox.Show("Pas assez de monnaie !");
-                    return;
-                }
-
-                // Ensuite on parcourt la liste des armes achetées
-                // pour les ajouter à l'inventaire d'armes du personnage
-                foreach (string line in rTxtBxArmures.Lines)
-                {
-                    if (!String.IsNullOrEmpty(line))
-                    {
-                        string[] substring = line.Split(';');
-                        int idArmure = int.Parse(substring[0]);
-                        string nomArmure = EquipmentController.GetArmureNameById(idArmure);
-
-                        /// Si le personnage a déjà cette arme dans son inventaire, on préférera incrémenter la quantité
-                        /// plutôt que de rajouter la même arme
-                        if (listeEquipementPersonnage != null && listeEquipementPersonnage.Any(arme => arme.Contains(nomArmure)))
-                        {
-                            int nouvelleQte = EquipmentController.GetQuantityArmure(idArmure, IdPersonnage);
-
-                            foreach (TabPage page in tbCntlArmures.TabPages)
-                            {
-                                foreach (Control control in page.Controls)
-                                {
-                                    if ((string)control.Tag == nomArmure && control is NumericUpDown)
-                                    {
-                                        nouvelleQte += Convert.ToInt32((control as NumericUpDown).Value);
-                                        goto SortieDesBoucles; // Utilisation de goto pour sortir des deux boucles
-                                    }
-                                }
-                            }
-
-                        SortieDesBoucles: // On sort de la boucle directement après avoir trouvé le bon numericUpDown
-                            EquipmentController.UpdateArmuresQuantity(idArmure, IdPersonnage, nouvelleQte);
-                        }
-                        else
-                        {
-                            EquipmentController.AddNewArmureToPersonnage(idArmure, IdPersonnage, Convert.ToInt32(substring[1]));
-                        }
-                    }
-                }
-
-                /// Enfin, on met tous les champs textuels à jour
-                // La RichTextBox d'armes
-                rtbAcheterArmures.Text = string.Empty;
-
-                // La RichTextBox qui contient les ID à rajouter en base
-                rTxtBxArmures.Text = string.Empty;
-
-                // Les labels poids et dépenses monnétaire
-                lblTotalDepenseArmures.Text = "0";
-                lblPoidsEnPlusArmures.Text = "0";
-
-                ResetControlParent(tbCntlArmures);
-                EquipmentController.GetArmuresInInventairePersonnageToCreateControl(pnlVendreArmure, IdPersonnage);
-                CreateCheckBoxVendreArmures();
+                lblTotalDepenseEquipement = lblTotalDepenseArmures;
+                lblPoidsEnPlusEquipment = lblPoidsEnPlusArmures;
+                panelVendreEquipement = pnlVendreArmure;
+                rTxtBxEquipments = rTxtBxArmures;
+                rtbAcheterEquipement = rtbAcheterArmures;
+                tabControlEquipment = tbCntlArmures;
+                GetEquipmentInInventairePersonnage = EquipmentController.GetArmuresInInventairePersonnage;
+                GetEquipementNameById = EquipmentController.GetArmureNameById;
+                GetQuantityEquipment = EquipmentController.GetQuantityArmure;
+                UpdateEquipmentQuantity = EquipmentController.UpdateArmuresQuantity;
+                AddNewEquipmentToInventairePersonnage = EquipmentController.AddNewArmureToPersonnage;
+                GetEquipmentsInInventairePersonnageToCreateControl = EquipmentController.GetArmuresInInventairePersonnageToCreateControl;
+                CreateCheckBoxVendre = CreateCheckBoxVendreArmures;
             }
             /**
              * #### ~ OBJETS ~ ####
              */
             else if (tagButton == "Objets")
             {
-                achat = Utils.DeleteMoneyValue(lblTotalDepenseObjets.Text);
-                int differenceAchat = monnaiePersonnage - achat;
-                listeEquipementPersonnage = EquipmentController.GetObjetsInInventairePersonnage(IdPersonnage);
-
-                if (pnlVendreObjet.Controls.Count > 0)
-                    pnlVendreObjet.Controls.Clear();
-
-                // Si c'est pas le cas, on lui dit et on sort de la méthode
-                if (differenceAchat < 0)
-                {
-                    MessageBox.Show("Pas assez de monnaie !");
-                    return;
-                }
-
-                // Ensuite on parcourt la liste des armes achetées
-                // pour les ajouter à l'inventaire d'armes du personnage
-                foreach (string line in rTxtBxObjets.Lines)
-                {
-                    if (!String.IsNullOrEmpty(line))
-                    {
-                        string[] substring = line.Split(';');
-                        int idObjet = int.Parse(substring[0]);
-                        string nomObjet = EquipmentController.GetObjetNameById(idObjet);
-
-                        /// Si le personnage a déjà cette arme dans son inventaire, on préférera incrémenter la quantité
-                        /// plutôt que de rajouter la même arme
-                        if (listeEquipementPersonnage != null && listeEquipementPersonnage.Any(arme => arme.Contains(nomObjet)))
-                        {
-                            int nouvelleQte = EquipmentController.GetQuantityArmure(idObjet, IdPersonnage);
-
-                            foreach (TabPage page in tbCntlObjets.TabPages)
-                            {
-                                foreach (Control control in page.Controls)
-                                {
-                                    if ((string)control.Tag == nomObjet && control is NumericUpDown)
-                                    {
-                                        nouvelleQte += Convert.ToInt32((control as NumericUpDown).Value);
-                                        goto SortieDesBoucles; // Utilisation de goto pour sortir des deux boucles
-                                    }
-                                }
-                            }
-
-                        SortieDesBoucles: // On sort de la boucle directement après avoir trouvé le bon numericUpDown
-                            EquipmentController.UpdateObjetsQuantity(idObjet, IdPersonnage, nouvelleQte);
-                        }
-                        else
-                        {
-                            EquipmentController.AddNewObjetToPersonnage(idObjet, IdPersonnage, Convert.ToInt32(substring[1]));
-                        }
-                    }
-                }
-
-                /// Enfin, on met tous les champs textuels à jour
-                // La RichTextBox d'armes
-                rtbAcheterObjets.Text = string.Empty;
-
-                // La RichTextBox qui contient les ID à rajouter en base
-                rTxtBxObjets.Text = string.Empty;
-
-                // Les labels poids et dépenses monnétaire
-                lblTotalDepenseObjets.Text = "0";
-                lblPoidsEnPlusObjets.Text = "0";
-
-                ResetControlParent(tbCntlObjets);
-                EquipmentController.GetObjetsInInventairePersonnageToCreateControls(pnlVendreObjet, IdPersonnage);
-                CreateCheckBoxVendreObjets();
+                lblTotalDepenseEquipement = lblTotalDepenseObjets;
+                lblPoidsEnPlusEquipment = lblPoidsEnPlusObjets;
+                panelVendreEquipement = pnlVendreObjet;
+                rTxtBxEquipments = rTxtBxObjets;
+                rtbAcheterEquipement = rtbAcheterObjets;
+                tabControlEquipment = tbCntlObjets;
+                GetEquipmentInInventairePersonnage = EquipmentController.GetObjetsInInventairePersonnage;
+                GetEquipementNameById = EquipmentController.GetObjetNameById;
+                GetQuantityEquipment = EquipmentController.GetQuantityObjet;
+                UpdateEquipmentQuantity = EquipmentController.UpdateObjetsQuantity;
+                AddNewEquipmentToInventairePersonnage = EquipmentController.AddNewObjetToPersonnage;
+                GetEquipmentsInInventairePersonnageToCreateControl = EquipmentController.GetObjetsInInventairePersonnageToCreateControls;
+                CreateCheckBoxVendre = CreateCheckBoxVendreObjets;
             }
 
+            achat = Utils.DeleteMoneyValue(lblTotalDepenseEquipement.Text);
+            int differenceAchat = monnaiePersonnage - achat;
+            listeEquipementPersonnage = GetEquipmentInInventairePersonnage(IdPersonnage);
+
+            if (panelVendreEquipement.Controls.Count > 0)
+                panelVendreEquipement.Controls.Clear();
+
+            // Si c'est pas le cas, on lui dit et on sort de la méthode
+            if (differenceAchat < 0)
+            {
+                MessageBox.Show("Pas assez de monnaie !");
+                return;
+            }
+
+            // Ensuite on parcourt la liste des armes achetées
+            // pour les ajouter à l'inventaire d'armes du personnage
+            foreach (string line in rTxtBxEquipments.Lines)
+            {
+                if (!String.IsNullOrEmpty(line))
+                {
+                    string[] substring = line.Split(';');
+                    int idArme = int.Parse(substring[0]);
+                    string nomArme = GetEquipementNameById(idArme);
+
+                    /// Si le personnage a déjà cette arme dans son inventaire, on préférera incrémenter la quantité
+                    /// plutôt que de rajouter la même arme
+                    if (listeEquipementPersonnage != null && listeEquipementPersonnage.Any(arme => arme.Contains(nomArme)))
+                    {
+                        int nouvelleQte = GetQuantityEquipment(idArme, IdPersonnage);
+
+                        foreach (TabPage page in tabControlEquipment.TabPages)
+                        {
+                            foreach (Control control in page.Controls)
+                            {
+                                if ((string)control.Tag == nomArme && control is NumericUpDown)
+                                {
+                                    nouvelleQte += Convert.ToInt32((control as NumericUpDown).Value);
+                                    goto SortieDesBoucles; // Utilisation de goto pour sortir des deux boucles
+                                }
+                            }
+                        }
+
+                    SortieDesBoucles: // On sort de la boucle directement après avoir trouvé le bon numericUpDown
+                        UpdateEquipmentQuantity(idArme, IdPersonnage, nouvelleQte);
+                    }
+                    else
+                    {
+                        AddNewEquipmentToInventairePersonnage(idArme, IdPersonnage, Convert.ToInt32(substring[1]));
+                    }
+                }
+            }
+
+            /// Enfin, on met tous les champs textuels à jour
+            // La RichTextBox d'armes
+            rtbAcheterEquipement.Text = string.Empty;
+
+            // La RichTextBox qui contient les ID à rajouter en base
+            rTxtBxEquipments.Text = string.Empty;
+
+            // Les labels poids et dépenses monnétaire
+            lblTotalDepenseEquipement.Text = "0";
+            lblPoidsEnPlusEquipment.Text = "0";
+
+            ResetControlParent(tabControlEquipment);
+            GetEquipmentsInInventairePersonnageToCreateControl(panelVendreEquipement, IdPersonnage);
+            CreateCheckBoxVendre();
             // On met à jour le poids porté par le personnage et son argent
             RepartitionMoneyAfterBuyOrSell(achat, monnaiePersonnage, "Buy");
         }
@@ -1241,59 +1165,6 @@ namespace maFichePersonnageJDR.Formulaires
             }
         }
 
-        /// <summary>
-        /// Vendre une arme
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        //private void btnVendreArmes_Click(object sender, EventArgs e)
-        //{
-        //    #region Initialisation des variables
-        //    int achatArme = Utils.DeleteMoneyValue(lblTotalDepenseArmes.Text);
-        //    int monnaiePersonnage = int.Parse(string.Format("{0}{1}{2}", nudPo.Value.ToString(), nudPa.Value.ToString(), nudPc.Value.ToString()));
-        //    List<Control> controlsToDelete = new List<Control>();
-        //    #endregion
-
-        //    foreach (Control controls in pnlVendreArme.Controls)
-        //    {
-        //        if (controls is NumericUpDown && (controls as NumericUpDown).Value >= 1)
-        //        {
-        //            NumericUpDown numericUpDown = controls as NumericUpDown;
-        //            int idArme = EquipmentController.GetIdArmeByName(numericUpDown.Tag.ToString());
-
-        //            if (numericUpDown.Value == numericUpDown.Maximum)
-        //            {
-        //                EquipmentController.SellArmes(idArme, IdPersonnage);
-        //                controlsToDelete.Add(numericUpDown);
-        //            }
-        //            else
-        //            {
-        //                int nouvelleQteMax = Convert.ToInt32(numericUpDown.Maximum - numericUpDown.Value);
-        //                EquipmentController.UpdateArmesQuantity(idArme, IdPersonnage, nouvelleQteMax);
-
-        //                ResetControlParent(pnlVendreArme);
-        //                numericUpDown.Maximum = nouvelleQteMax;
-        //            }
-        //        }
-        //    }
-
-        //    // Supprimer les contrôles après l'itération principale
-        //    foreach (Control control in controlsToDelete)
-        //    {
-        //        Utils.DeleteControlsFromPanelByTag(control.Tag?.ToString(), pnlVendreArme);
-        //    }
-
-        //    // On met à jour le poids porté par le personnage et son argent
-        //    RepartitionMoneyAfterBuyOrSell(achatArme, monnaiePersonnage, "Sell");
-
-        //    // La RichTextBox qui contient les ID à rajouter en base
-        //    rTxtBxArmes.Text = string.Empty;
-
-        //    // Les labels poids et dépenses monnétaire
-        //    lblTotalDepenseArmes.Text = "0";
-        //    lblPoidsEnPlusArmes.Text = "0";
-        //}
-
         private void btnVendre_Click(object sender, EventArgs e)
         {
             #region Initialisation des variables
@@ -1319,6 +1190,7 @@ namespace maFichePersonnageJDR.Formulaires
              */
             if (tagButton == "Armes")
             {
+                // Toutes les variables prennent les informations pour les armes
                 achat = Utils.DeleteMoneyValue(lblTotalDepenseArmes.Text);
                 panelTemplate = pnlVendreArme;
                 SellEquipment = EquipmentController.SellArmes;
@@ -1333,6 +1205,7 @@ namespace maFichePersonnageJDR.Formulaires
              */
             else if (tagButton == "Armures")
             {
+                // Toutes les variables prennent les informations pour les armures
                 achat = Utils.DeleteMoneyValue(lblTotalDepenseArmures.Text);
                 panelTemplate = pnlVendreArmure;
                 SellEquipment = EquipmentController.SellArmures;
@@ -1347,6 +1220,7 @@ namespace maFichePersonnageJDR.Formulaires
              */
             else if (tagButton == "Objets")
             {
+                // Toutes les variables prennent les informations pour les objets
                 achat = Utils.DeleteMoneyValue(lblTotalDepenseObjets.Text);
                 panelTemplate = pnlVendreObjet;
                 SellEquipment = EquipmentController.SellObjets;
@@ -1359,6 +1233,8 @@ namespace maFichePersonnageJDR.Formulaires
 
             foreach (Control controls in panelTemplate.Controls)
             {
+                // on cherche les NumericUpDown associés à cet équipement et on vérifie qu'on vend bien
+                // un équipement
                 if (controls is NumericUpDown && (controls as NumericUpDown).Value >= 1)
                 {
                     NumericUpDown numericUpDown = controls as NumericUpDown;
@@ -1448,59 +1324,6 @@ namespace maFichePersonnageJDR.Formulaires
             }
         }
 
-        /// <summary>
-        /// Vendre une armure
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        //private void btnVendreArmures_Click(object sender, EventArgs e)
-        //{
-        //    #region Initialisation des variables
-        //    int achatArmure = Utils.DeleteMoneyValue(lblTotalDepenseArmures.Text);
-        //    int monnaiePersonnage = int.Parse(string.Format("{0}{1}{2}", nudPo.Value.ToString(), nudPa.Value.ToString(), nudPc.Value.ToString()));
-        //    List<Control> controlsToDelete = new List<Control>();
-        //    #endregion
-
-        //    foreach (Control controls in pnlVendreArmure.Controls)
-        //    {
-        //        if (controls is NumericUpDown && (controls as NumericUpDown).Value >= 1)
-        //        {
-        //            NumericUpDown numericUpDown = controls as NumericUpDown;
-        //            int idArmure = EquipmentController.GetIdArmureByName(numericUpDown.Tag.ToString());
-
-        //            if (numericUpDown.Value == numericUpDown.Maximum)
-        //            {
-        //                EquipmentController.SellArmures(idArmure, IdPersonnage);
-        //                controlsToDelete.Add(numericUpDown);
-        //            }
-        //            else
-        //            {
-        //                int nouvelleQteMax = Convert.ToInt32(numericUpDown.Maximum - numericUpDown.Value);
-        //                EquipmentController.UpdateArmuresQuantity(idArmure, IdPersonnage, nouvelleQteMax);
-
-        //                ResetControlParent(pnlVendreArmure);
-        //                numericUpDown.Maximum = nouvelleQteMax;
-        //            }
-        //        }
-        //    }
-
-        //    // Supprimer les contrôles après l'itération principale
-        //    foreach (Control control in controlsToDelete)
-        //    {
-        //        Utils.DeleteControlsFromPanelByTag(control.Tag?.ToString(), pnlVendreArmure);
-        //    }
-
-        //    // On met à jour le poids porté par le personnage et son argent
-        //    RepartitionMoneyAfterBuyOrSell(achatArmure, monnaiePersonnage, "Sell");
-
-        //    // La RichTextBox qui contient les ID à rajouter en base
-        //    rTxtBxArmures.Text = string.Empty;
-
-        //    // Les labels poids et dépenses monnétaire
-        //    lblTotalDepenseArmures.Text = "0";
-        //    lblPoidsEnPlusArmures.Text = "0";
-        //}
-
         private void rtbAcheterObjets_TextChanged(object sender, EventArgs e)
         {
             RichTextBox richTextBox = sender as RichTextBox;
@@ -1528,53 +1351,5 @@ namespace maFichePersonnageJDR.Formulaires
                 btnVendreObjets.Enabled = false;
             }
         }
-
-        //private void btnVendreObjets_Click(object sender, EventArgs e)
-        //{
-        //    #region Initialisation des variables
-        //    int achatObjet = Utils.DeleteMoneyValue(lblTotalDepenseObjets.Text);
-        //    int monnaiePersonnage = int.Parse(string.Format("{0}{1}{2}", nudPo.Value.ToString(), nudPa.Value.ToString(), nudPc.Value.ToString()));
-        //    List<Control> controlsToDelete = new List<Control>();
-        //    #endregion
-
-        //    foreach (Control controls in pnlVendreObjet.Controls)
-        //    {
-        //        if (controls is NumericUpDown && (controls as NumericUpDown).Value >= 1)
-        //        {
-        //            NumericUpDown numericUpDown = controls as NumericUpDown;
-        //            int idObjet = EquipmentController.GetIdObjetByName(numericUpDown.Tag.ToString());
-
-        //            if (numericUpDown.Value == numericUpDown.Maximum)
-        //            {
-        //                EquipmentController.SellObjets(idObjet, IdPersonnage);
-        //                controlsToDelete.Add(numericUpDown);
-        //            }
-        //            else
-        //            {
-        //                int nouvelleQteMax = Convert.ToInt32(numericUpDown.Maximum - numericUpDown.Value);
-        //                EquipmentController.UpdateObjetsQuantity(idObjet, IdPersonnage, nouvelleQteMax);
-
-        //                ResetControlParent(pnlVendreObjet);
-        //                numericUpDown.Maximum = nouvelleQteMax;
-        //            }
-        //        }
-        //    }
-
-        //    // Supprimer les contrôles après l'itération principale
-        //    foreach (Control control in controlsToDelete)
-        //    {
-        //        Utils.DeleteControlsFromPanelByTag(control.Tag?.ToString(), pnlVendreObjet);
-        //    }
-
-        //    // On met à jour le poids porté par le personnage et son argent
-        //    RepartitionMoneyAfterBuyOrSell(achatObjet, monnaiePersonnage, "Sell");
-
-        //    // La RichTextBox qui contient les ID à rajouter en base
-        //    rTxtBxObjets.Text = string.Empty;
-
-        //    // Les labels poids et dépenses monnétaire
-        //    lblTotalDepenseObjets.Text = "0";
-        //    lblPoidsEnPlusObjets.Text = "0";
-        //}
     }
 }
