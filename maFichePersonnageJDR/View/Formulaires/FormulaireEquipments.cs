@@ -905,26 +905,32 @@ namespace maFichePersonnageJDR.Formulaires
             lblChrgPrtePersonnage.Text = poidsTotal.ToString("0.##") + " kg";
         }
 
+        private void rtbAcheterEquipement_TextChanged(object sender, EventArgs e)
+        {
+            string tagControl = (sender as RichTextBox).Tag as string;
+            Button boutonAcheterActiver = new Button();
+
+            if (tagControl == "Armes")
+            {
+                boutonAcheterActiver = btnAcheterArmes;
+            }
+            else if (tagControl == "Armures")
+            {
+                boutonAcheterActiver = btnAcheterArmures;
+            }
+            else if (tagControl == "Objets")
+            {
+                boutonAcheterActiver = btnAcheterObjets;
+            }
+
+            boutonAcheterActiver.Enabled = (sender as RichTextBox).Lines.Length > 0 ? true : false;
+        }
+
         /// <summary>
-        /// Méthode pour vérfier s'il y a des armes à acheter et active ou
-        /// désactive le bouton acheter en conséquence
+        /// Événement qui gère l'achat d'équipement
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void rtbAcheterArmes_TextChanged(object sender, EventArgs e)
-        {
-            RichTextBox richTextBox = sender as RichTextBox;
-
-            if (richTextBox.Lines.Length > 0)
-            {
-                btnAcheterArmes.Enabled = true;
-            }
-            else
-            {
-                btnAcheterArmes.Enabled = false;
-            }
-        }
-
         private void btnAcheter_Click(object sender, EventArgs e)
         {
             #region Initialisation des variables
@@ -949,7 +955,7 @@ namespace maFichePersonnageJDR.Formulaires
             Label lblPoidsEnPlusEquipment = new Label();
             TabControl tabControlEquipment = new TabControl();
             #endregion
-            
+
             /**
              * #### ~ ARMES ~ ####
              */
@@ -1010,7 +1016,14 @@ namespace maFichePersonnageJDR.Formulaires
 
             achat = Utils.DeleteMoneyValue(lblTotalDepenseEquipement.Text);
             int differenceAchat = monnaiePersonnage - achat;
-            listeEquipementPersonnage = GetEquipmentInInventairePersonnage(IdPersonnage);
+            if (GetEquipmentInInventairePersonnage != null)
+            {
+                listeEquipementPersonnage = GetEquipmentInInventairePersonnage(IdPersonnage);
+            }
+            else
+            {
+                throw new Exception("GetEquipmentInInventairePersonnage a été null");
+            }
 
             if (panelVendreEquipement.Controls.Count > 0)
                 panelVendreEquipement.Controls.Clear();
@@ -1030,13 +1043,31 @@ namespace maFichePersonnageJDR.Formulaires
                 {
                     string[] substring = line.Split(';');
                     int idArme = int.Parse(substring[0]);
-                    string nomArme = GetEquipementNameById(idArme);
+                    string nomArme = string.Empty;
+
+                    if (GetEquipementNameById != null)
+                    {
+                        nomArme = GetEquipementNameById(idArme);
+                    }
+                    else
+                    {
+                        throw new Exception("GetEquipementNameById est null");
+                    }
 
                     /// Si le personnage a déjà cette arme dans son inventaire, on préférera incrémenter la quantité
                     /// plutôt que de rajouter la même arme
                     if (listeEquipementPersonnage != null && listeEquipementPersonnage.Any(arme => arme.Contains(nomArme)))
                     {
-                        int nouvelleQte = GetQuantityEquipment(idArme, IdPersonnage);
+                        int nouvelleQte = 0;
+
+                        if (GetQuantityEquipment != null)
+                        {
+                            nouvelleQte = GetQuantityEquipment(idArme, IdPersonnage);
+                        }
+                        else
+                        {
+                            throw new Exception("GetQuantityEquipment est null");
+                        }
 
                         foreach (TabPage page in tabControlEquipment.TabPages)
                         {
@@ -1051,11 +1082,26 @@ namespace maFichePersonnageJDR.Formulaires
                         }
 
                     SortieDesBoucles: // On sort de la boucle directement après avoir trouvé le bon numericUpDown
-                        UpdateEquipmentQuantity(idArme, IdPersonnage, nouvelleQte);
+
+                        if (UpdateEquipmentQuantity != null)
+                        {
+                            UpdateEquipmentQuantity(idArme, IdPersonnage, nouvelleQte);
+                        }
+                        else
+                        {
+                            throw new Exception("UpdateEquipmentQuantity est null");
+                        }
                     }
                     else
                     {
-                        AddNewEquipmentToInventairePersonnage(idArme, IdPersonnage, Convert.ToInt32(substring[1]));
+                        if (AddNewEquipmentToInventairePersonnage != null)
+                        {
+                            AddNewEquipmentToInventairePersonnage(idArme, IdPersonnage, Convert.ToInt32(substring[1]));
+                        }
+                        else
+                        {
+                            throw new Exception("AddNewEquipmentToInventairePersonnage est null");
+                        }
                     }
                 }
             }
@@ -1072,8 +1118,24 @@ namespace maFichePersonnageJDR.Formulaires
             lblPoidsEnPlusEquipment.Text = "0";
 
             ResetControlParent(tabControlEquipment);
-            GetEquipmentsInInventairePersonnageToCreateControl(panelVendreEquipement, IdPersonnage);
-            CreateCheckBoxVendre();
+
+            if (GetEquipmentsInInventairePersonnageToCreateControl != null)
+            {
+                GetEquipmentsInInventairePersonnageToCreateControl(panelVendreEquipement, IdPersonnage);
+            }
+            else
+            {
+                throw new Exception("GetEquipmentsInInventairePersonnageToCreateControl est null");
+            }
+
+            if (CreateCheckBoxVendre != null)
+            {
+                CreateCheckBoxVendre();
+            }
+            else
+            {
+                throw new Exception("CreateCheckBoxVendre est null");
+            }
             // On met à jour le poids porté par le personnage et son argent
             RepartitionMoneyAfterBuyOrSell(achat, monnaiePersonnage, "Buy");
         }
@@ -1146,25 +1208,31 @@ namespace maFichePersonnageJDR.Formulaires
             }
         }
 
+        private void pnlVendreEquipment_ControlAdded(object sender, ControlEventArgs e)
+        {
+            string tagControl = (sender as Panel).Tag as string;
+            Button boutonVendreActiver = new Button();
+
+            if (tagControl == "Armes")
+            {
+                boutonVendreActiver = btnVendreArmes;
+            }
+            else if (tagControl == "Armures")
+            {
+                boutonVendreActiver = btnVendreArmures;
+            }
+            else if (tagControl == "Objets")
+            {
+                boutonVendreActiver = btnVendreObjets;
+            }
+
+            boutonVendreActiver.Enabled = (sender as Panel).Controls.Count > 0 ? true : false;
+        }
         /// <summary>
-        /// 
+        /// Événement qui gère la vente d'équipement
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void pnlVendreArme_ControlAdded(object sender, ControlEventArgs e)
-        {
-            Panel panel = sender as Panel;
-
-            if (panel.Controls.Count > 0)
-            {
-                btnVendreArmes.Enabled = true;
-            }
-            else
-            {
-                btnVendreArmes.Enabled = false;
-            }
-        }
-
         private void btnVendre_Click(object sender, EventArgs e)
         {
             #region Initialisation des variables
@@ -1294,62 +1362,6 @@ namespace maFichePersonnageJDR.Formulaires
             // Les labels poids et dépenses monnétaire
             lblTotalDepenseEquipment.Text = "0";
             lblTotalPoidsEnPlusEquipment.Text = "0";
-        }
-
-        private void rtbApercuArmures_TextChanged(object sender, EventArgs e)
-        {
-            RichTextBox richTextBox = sender as RichTextBox;
-
-            if (richTextBox.Lines.Length > 0)
-            {
-                btnAcheterArmures.Enabled = true;
-            }
-            else
-            {
-                btnAcheterArmures.Enabled = false;
-            }
-        }
-
-        private void pnlVendreArmure_ControlAdded(object sender, ControlEventArgs e)
-        {
-            Panel panel = sender as Panel;
-
-            if (panel.Controls.Count > 0)
-            {
-                btnVendreArmures.Enabled = true;
-            }
-            else
-            {
-                btnVendreArmures.Enabled = false;
-            }
-        }
-
-        private void rtbAcheterObjets_TextChanged(object sender, EventArgs e)
-        {
-            RichTextBox richTextBox = sender as RichTextBox;
-
-            if (richTextBox.Lines.Length > 0)
-            {
-                btnAcheterObjets.Enabled = true;
-            }
-            else
-            {
-                btnAcheterObjets.Enabled = false;
-            }
-        }
-
-        private void pnlVendreObjet_ControlAdded(object sender, ControlEventArgs e)
-        {
-            Panel panel = sender as Panel;
-
-            if (panel.Controls.Count > 0)
-            {
-                btnVendreObjets.Enabled = true;
-            }
-            else
-            {
-                btnVendreObjets.Enabled = false;
-            }
         }
     }
 }

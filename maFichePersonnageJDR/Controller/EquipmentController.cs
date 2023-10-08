@@ -141,7 +141,7 @@ namespace maFichePersonnageJDR.Controller
 
                         NumericUpDown numeric = new NumericUpDown();
                         numeric.Name = "nud" + substring[0];
-                        numeric.Minimum = 0;
+                        numeric.Minimum = 1;
                         numeric.Maximum = int.Parse(substring[1]);
                         numeric.Location = new Point(30 + name.Width + panel.AutoScrollPosition.X, y + panel.AutoScrollPosition.Y);
                         numeric.Width = 40;
@@ -768,7 +768,7 @@ namespace maFichePersonnageJDR.Controller
 
                         NumericUpDown numeric = new NumericUpDown();
                         numeric.Name = "nud" + substring[0];
-                        numeric.Minimum = 0;
+                        numeric.Minimum = 1;
                         numeric.Maximum = int.Parse(substring[1]);
                         numeric.Location = new Point(30 + name.Width + panel.AutoScrollPosition.X, y + panel.AutoScrollPosition.Y);
                         numeric.Width = 40;
@@ -1319,7 +1319,7 @@ namespace maFichePersonnageJDR.Controller
 
                         NumericUpDown numeric = new NumericUpDown();
                         numeric.Name = "nud" + substring[0];
-                        numeric.Minimum = 0;
+                        numeric.Minimum = 1;
                         numeric.Maximum = int.Parse(substring[1]);
                         numeric.Location = new Point(30 + name.Width + panel.AutoScrollPosition.X, y + panel.AutoScrollPosition.Y);
                         numeric.Width = 40;

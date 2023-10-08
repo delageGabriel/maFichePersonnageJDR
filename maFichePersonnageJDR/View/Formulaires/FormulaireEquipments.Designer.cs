@@ -707,8 +707,9 @@ namespace maFichePersonnageJDR.Formulaires
             this.rtbAcheterArmes.Name = "rtbAcheterArmes";
             this.rtbAcheterArmes.Size = new System.Drawing.Size(109, 118);
             this.rtbAcheterArmes.TabIndex = 39;
+            this.rtbAcheterArmes.Tag = "Armes";
             this.rtbAcheterArmes.Text = "";
-            this.rtbAcheterArmes.TextChanged += new System.EventHandler(this.rtbAcheterArmes_TextChanged);
+            this.rtbAcheterArmes.TextChanged += new System.EventHandler(this.rtbAcheterEquipement_TextChanged);
             // 
             // rtbAcheterArmures
             // 
@@ -716,8 +717,9 @@ namespace maFichePersonnageJDR.Formulaires
             this.rtbAcheterArmures.Name = "rtbAcheterArmures";
             this.rtbAcheterArmures.Size = new System.Drawing.Size(109, 118);
             this.rtbAcheterArmures.TabIndex = 40;
+            this.rtbAcheterArmures.Tag = "Armures";
             this.rtbAcheterArmures.Text = "";
-            this.rtbAcheterArmures.TextChanged += new System.EventHandler(this.rtbApercuArmures_TextChanged);
+            this.rtbAcheterArmures.TextChanged += new System.EventHandler(this.rtbAcheterEquipement_TextChanged);
             // 
             // rtbAcheterObjets
             // 
@@ -725,8 +727,9 @@ namespace maFichePersonnageJDR.Formulaires
             this.rtbAcheterObjets.Name = "rtbAcheterObjets";
             this.rtbAcheterObjets.Size = new System.Drawing.Size(108, 118);
             this.rtbAcheterObjets.TabIndex = 41;
+            this.rtbAcheterObjets.Tag = "Objets";
             this.rtbAcheterObjets.Text = "";
-            this.rtbAcheterObjets.TextChanged += new System.EventHandler(this.rtbAcheterObjets_TextChanged);
+            this.rtbAcheterObjets.TextChanged += new System.EventHandler(this.rtbAcheterEquipement_TextChanged);
             // 
             // pnlVendreArme
             // 
@@ -737,7 +740,8 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlVendreArme.Name = "pnlVendreArme";
             this.pnlVendreArme.Size = new System.Drawing.Size(183, 118);
             this.pnlVendreArme.TabIndex = 42;
-            this.pnlVendreArme.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnlVendreArme_ControlAdded);
+            this.pnlVendreArme.Tag = "Armes";
+            this.pnlVendreArme.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnlVendreEquipment_ControlAdded);
             // 
             // pnlVendreArmure
             // 
@@ -748,7 +752,8 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlVendreArmure.Name = "pnlVendreArmure";
             this.pnlVendreArmure.Size = new System.Drawing.Size(183, 118);
             this.pnlVendreArmure.TabIndex = 43;
-            this.pnlVendreArmure.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnlVendreArmure_ControlAdded);
+            this.pnlVendreArmure.Tag = "Armures";
+            this.pnlVendreArmure.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnlVendreEquipment_ControlAdded);
             // 
             // pnlVendreObjet
             // 
@@ -759,7 +764,8 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlVendreObjet.Name = "pnlVendreObjet";
             this.pnlVendreObjet.Size = new System.Drawing.Size(183, 118);
             this.pnlVendreObjet.TabIndex = 44;
-            this.pnlVendreObjet.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnlVendreObjet_ControlAdded);
+            this.pnlVendreObjet.Tag = "Objets";
+            this.pnlVendreObjet.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnlVendreEquipment_ControlAdded);
             // 
             // pnlArmesAchatVentePoids
             // 
