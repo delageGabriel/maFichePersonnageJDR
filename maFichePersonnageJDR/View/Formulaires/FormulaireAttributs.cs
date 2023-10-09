@@ -14,6 +14,7 @@ namespace maFichePersonnageJDR.View.Formulaires
     public partial class FormulaireAttributs : Form
     {
         private int idDuPersonnage;
+        private string[] lstAttributsCheck = { "Alifère", "Armure naturelle", "Avantage du terrain", "Canaliseur", "Frigifugé", "Gigantisme", "Ignifugé", "Magicien" };
         public int IdDuPersonnage { get => idDuPersonnage; set => idDuPersonnage = value; }
         public FormulaireAttributs()
         {
@@ -68,6 +69,10 @@ namespace maFichePersonnageJDR.View.Formulaires
 
             if (checkBox.Checked)
             {
+                if (lstAttributsCheck.Contains(attribut))
+                {
+                    attribut += AttributesSpecifications(attribut);
+                }
                 // FR : Devrait ajouter le texte
                 // EN : Should append text
                 rtbAttributs.AppendText(attribut + Environment.NewLine);
@@ -196,9 +201,11 @@ namespace maFichePersonnageJDR.View.Formulaires
         private void btnSauvegarder_Click(object sender, EventArgs e)
         {
             #region Initialisation des variables
+            Dictionary<int, string> dictionnaireIdSpecificationsAttribut = new Dictionary<int, string>();
             List<int> listeIdAttributs = new List<int>();
             FormulaireCompetencesCaracteristiques formulaireCompetencesCaracteristiques = new FormulaireCompetencesCaracteristiques();
             int nbCaseCocher = 0;
+            string specifications = string.Empty;
             #endregion
 
             try
@@ -225,18 +232,29 @@ namespace maFichePersonnageJDR.View.Formulaires
                 // On commence par récupérer l'id de l'attribut
                 foreach (string line in rtbAttributs.Lines)
                 {
-                    string[] substring = line.Split(',');
+                    string[] substring = line.Split(';');
 
                     if (substring.Length > 1)
                     {
-                        listeIdAttributs.Add(Controller.AttributsController.GetIdAttributByName(substring[0].Substring(5)));
-                    }
+                        int idAttribut = AttributsController.GetIdAttributByName(substring[0]);
+                        string nomAttribut = substring[1];
 
+                        dictionnaireIdSpecificationsAttribut.Add(idAttribut, nomAttribut);
+                    }
+                    else
+                    {
+                        if (!String.IsNullOrEmpty(substring[0]))
+                        {
+                            AttributsController.AddNewAttributToPersonnage(AttributsController.GetIdAttributByName(substring[0]), IdDuPersonnage, "Aucunes");
+                        }
+                    }
                 }
 
-                foreach (int idAttribut in listeIdAttributs)
+                foreach (var keyValue in dictionnaireIdSpecificationsAttribut)
                 {
-                    Controller.AttributsController.AddNewAttributToPersonnage(idAttribut, IdDuPersonnage);
+                    int idAttribut = keyValue.Key;
+                    string specificationsAttr = keyValue.Value;
+                    AttributsController.AddNewAttributToPersonnage(idAttribut, IdDuPersonnage, specificationsAttr);
                 }
 
                 formulaireCompetencesCaracteristiques.IdDuPersonnage = IdDuPersonnage;
@@ -249,6 +267,23 @@ namespace maFichePersonnageJDR.View.Formulaires
             {
                 throw ex;
             }
+        }
+
+        private string AttributesSpecifications(string nameAttribut)
+        {
+            using (FormSpecificationAttributs formSpecification = new FormSpecificationAttributs())
+            {
+                if (nameAttribut == "Magicien")
+                {
+                    formSpecification.TextInput.Enabled = false;
+                    if (formSpecification.ShowDialog() == DialogResult.OK)
+                    {
+                        return "; " + formSpecification.UserInput;
+                    }
+                }
+            }
+
+            return string.Empty;
         }
     }
 }

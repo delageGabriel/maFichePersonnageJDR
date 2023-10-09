@@ -347,5 +347,21 @@ namespace maFichePersonnageJDR.Controller
                 throw ex;
             }
         }
+
+        public static int GetForcePersonnage(int idPersonnage)
+        {
+            CompetencePhysiquePersonnageModel competencePhysiquePersonnage = new CompetencePhysiquePersonnageModel();
+
+            Console.WriteLine(string.Format("########### Méthode GetForcePersonnage — Personnage recherchée : niveau : {0} ###########", idPersonnage));
+
+            try
+            {
+                return competencePhysiquePersonnage.GetForcePersonnage(idPersonnage);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

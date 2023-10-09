@@ -16,6 +16,7 @@ namespace maFichePersonnageJDR.Model
         private int idAttributsPersonnage;
         private int idAttribut;
         private int idPersonnage;
+        private string specifications;
 
         /// <summary>
         /// accesseurs et mutateurs
@@ -23,20 +24,23 @@ namespace maFichePersonnageJDR.Model
         public int IdAttributsPersonnage { get => idAttributsPersonnage; set => idAttributsPersonnage = value; }
         public int IdAttribut { get => idAttribut; set => idAttribut = value; }
         public int IdPersonnage { get => idPersonnage; set => idPersonnage = value; }
-
+        public string Specifications { get => specifications; set => specifications = value; }
         /// <summary>
         /// Ajouter un nouvel attribut au personnage
         /// </summary>
         /// <param name="idAttribut">l'id de l'attribut à ajouter</param>
         /// <param name="idPersonnage">l'id du personnage à qui on ajoute l'attribut</param>
-        public void AddAttributToPersonnage(int idAttribut, int idPersonnage)
+        public void AddAttributToPersonnage(int idAttribut, int idPersonnage, string specifications)
         {
             try
             {
                 // Commande
-                SQLiteCommand command = new SQLiteCommand(string.Format("INSERT INTO ATTRIBUTS_PERSONNAGE " +
-                    "(id_attribut, id_personnage) " +
-                    "VALUES ('{0}','{1}')", idAttribut, idPersonnage), DatabaseConnection.Instance.GetConnection());
+                SQLiteCommand command = new SQLiteCommand("INSERT INTO ATTRIBUTS_PERSONNAGE (id_attribut, id_personnage, specifications) " +
+                    "VALUES (@idAttribut, @idPersonnage, @specifications)", 
+                    DatabaseConnection.Instance.GetConnection());
+                command.Parameters.AddWithValue("@idAttribut", idAttribut);
+                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
+                command.Parameters.AddWithValue("@specifications", specifications);
 
                 int rowsAffected = command.ExecuteNonQuery();
             }

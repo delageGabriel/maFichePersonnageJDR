@@ -118,7 +118,7 @@ namespace maFichePersonnageJDR.Formulaires
             // rdbHomme
             // 
             this.rdbHomme.AutoSize = true;
-            this.rdbHomme.Location = new System.Drawing.Point(396, 29);
+            this.rdbHomme.Location = new System.Drawing.Point(416, 29);
             this.rdbHomme.Name = "rdbHomme";
             this.rdbHomme.Size = new System.Drawing.Size(67, 17);
             this.rdbHomme.TabIndex = 7;
@@ -129,7 +129,7 @@ namespace maFichePersonnageJDR.Formulaires
             // rdbFemme
             // 
             this.rdbFemme.AutoSize = true;
-            this.rdbFemme.Location = new System.Drawing.Point(396, 53);
+            this.rdbFemme.Location = new System.Drawing.Point(416, 53);
             this.rdbFemme.Name = "rdbFemme";
             this.rdbFemme.Size = new System.Drawing.Size(61, 17);
             this.rdbFemme.TabIndex = 8;
@@ -149,7 +149,7 @@ namespace maFichePersonnageJDR.Formulaires
             // rdbAutre
             // 
             this.rdbAutre.AutoSize = true;
-            this.rdbAutre.Location = new System.Drawing.Point(396, 77);
+            this.rdbAutre.Location = new System.Drawing.Point(416, 77);
             this.rdbAutre.Name = "rdbAutre";
             this.rdbAutre.Size = new System.Drawing.Size(50, 17);
             this.rdbAutre.TabIndex = 15;

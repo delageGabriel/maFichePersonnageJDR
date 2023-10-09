@@ -80,6 +80,30 @@ namespace maFichePersonnageJDR.Model
             }
         }
 
+        public int GetForcePersonnage(int idPersonnage)
+        {
+            try
+            {
+                SQLiteCommand command = new SQLiteCommand("SELECT force " +
+                    "FROM COMPETENCE_PHYSIQUE_PERSONNAGE " +
+                    "WHERE id_personnage = @idPersonnage", DatabaseConnection.Instance.GetConnection());
+                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        return reader.GetInt32(0); 
+                    }
+                }
+
+                return 0;
+            }
+            catch(SQLiteException ex)
+            {
+                throw ex;
+            }
+        }
         public CompetencePhysiquePersonnageModel GetBasePhysiquePersonnage(int idPersonnage)
         {
             #region Initialisation des variables

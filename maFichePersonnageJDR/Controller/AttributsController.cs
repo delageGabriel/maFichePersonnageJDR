@@ -120,7 +120,7 @@ namespace maFichePersonnageJDR.Controller
         /// </summary>
         /// <param name="idAttribut"></param>
         /// <param name="idPersonnage"></param>
-        public static void AddNewAttributToPersonnage(int idAttribut, int idPersonnage)
+        public static void AddNewAttributToPersonnage(int idAttribut, int idPersonnage, string specifications)
         {
             Console.WriteLine(string.Format("########### Méthode AddNewAttributToPersonnage — Attribut ajouté au personnage : ID ATTRIBUT : {0}, " +
                 "ID PERSONNAGE : {1} ###########", idAttribut.ToString(), idPersonnage.ToString()));
@@ -129,7 +129,7 @@ namespace maFichePersonnageJDR.Controller
 
             try
             {
-                attributsPersonnageModel.AddAttributToPersonnage(idAttribut, idPersonnage);
+                attributsPersonnageModel.AddAttributToPersonnage(idAttribut, idPersonnage, specifications);
             }
             catch (Exception e)
             {

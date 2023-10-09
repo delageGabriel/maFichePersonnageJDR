@@ -124,6 +124,7 @@ namespace maFichePersonnageJDR.Formulaires
             CreateCheckBoxArmes();
             CreateCheckBoxArmures();
             CreateCheckBoxObjet();
+            CalculChargeMaxPortable();
         }
 
         public void linkLabelArme_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -1381,6 +1382,16 @@ namespace maFichePersonnageJDR.Formulaires
             }
 
             return checkBox;
+        }
+
+        private void CalculChargeMaxPortable()
+        {
+            int baseCalcul = 75;
+            int baseCalculForceSurhumaine = 100;
+            int forcePersonnage = CompetencesCaracteristiquesController.GetForcePersonnage(IdPersonnage);
+
+            lblChrgeMxm.Text = (baseCalcul * (1 + forcePersonnage)).ToString() + " kg";
+
         }
     }
 }
