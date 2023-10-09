@@ -51,6 +51,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblPointsRestants = new System.Windows.Forms.Label();
             this.lblPtsXpTotal = new System.Windows.Forms.Label();
             this.nudExpériencePersonnage = new System.Windows.Forms.NumericUpDown();
+            this.cbbProgressionXp = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNiveau)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudExpériencePersonnage)).BeginInit();
@@ -249,11 +250,11 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lblPointsRestants.AutoSize = true;
             this.lblPointsRestants.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPointsRestants.Location = new System.Drawing.Point(222, 78);
+            this.lblPointsRestants.Location = new System.Drawing.Point(221, 79);
             this.lblPointsRestants.Name = "lblPointsRestants";
-            this.lblPointsRestants.Size = new System.Drawing.Size(48, 17);
+            this.lblPointsRestants.Size = new System.Drawing.Size(20, 17);
             this.lblPointsRestants.TabIndex = 41;
-            this.lblPointsRestants.Text = "/XXXX";
+            this.lblPointsRestants.Text = "/0";
             // 
             // lblPtsXpTotal
             // 
@@ -272,11 +273,26 @@ namespace maFichePersonnageJDR.Formulaires
             this.nudExpériencePersonnage.Size = new System.Drawing.Size(65, 20);
             this.nudExpériencePersonnage.TabIndex = 44;
             // 
+            // cbbProgressionXp
+            // 
+            this.cbbProgressionXp.FormattingEnabled = true;
+            this.cbbProgressionXp.Items.AddRange(new object[] {
+            "Rapide",
+            "Normale",
+            "Lente"});
+            this.cbbProgressionXp.Location = new System.Drawing.Point(293, 78);
+            this.cbbProgressionXp.Name = "cbbProgressionXp";
+            this.cbbProgressionXp.Size = new System.Drawing.Size(86, 21);
+            this.cbbProgressionXp.TabIndex = 46;
+            this.cbbProgressionXp.Text = "Progression";
+            this.cbbProgressionXp.SelectedIndexChanged += new System.EventHandler(this.cbbProgressionXp_SelectedIndexChanged);
+            // 
             // FormulaireInfosGenerales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(771, 367);
+            this.Controls.Add(this.cbbProgressionXp);
             this.Controls.Add(this.nudExpériencePersonnage);
             this.Controls.Add(this.lblPtsXpTotal);
             this.Controls.Add(this.lblPointsRestants);
@@ -334,5 +350,6 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblPointsRestants;
         private System.Windows.Forms.Label lblPtsXpTotal;
         private System.Windows.Forms.NumericUpDown nudExpériencePersonnage;
+        private System.Windows.Forms.ComboBox cbbProgressionXp;
     }
 }

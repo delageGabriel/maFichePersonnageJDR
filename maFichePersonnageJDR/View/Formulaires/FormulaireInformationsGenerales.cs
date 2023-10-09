@@ -24,7 +24,32 @@ namespace maFichePersonnageJDR.Formulaires
         public string LanguesPersonnage { get => rtbLangues.Text; set => rtbLangues.Text = value; }
         public string HistoirePersonnage { get => rtbHistoire.Text; set => rtbHistoire.Text = value; }
 
-        int[] tableauBaseNormaleExp =
+        private int[] tableauBaseRapideExp =
+        {
+            0,
+            2000,
+            5325,
+            9745,
+            15625,
+            23450,
+            33855,
+            47690,
+            66095,
+            90570,
+            123125,
+            166420,
+            224005,
+            300595,
+            402455,
+            537930,
+            718115,
+            957760,
+            1276485,
+            1700390,
+            0,
+        };
+
+        private int[] tableauBaseNormaleExp =
         {
             0,
             3000,
@@ -48,6 +73,32 @@ namespace maFichePersonnageJDR.Formulaires
             3399785,
             0
         };
+
+        private int[] tableauBaseLenteExp =
+        {
+            0,
+            4000,
+            13975,
+            27240,
+            44885,
+            68350,
+            99565,
+            141075,
+            196285,
+            269715,
+            367380,
+            497270,
+            670025,
+            899785,
+            1205370,
+            1611800,
+            2152350,
+            2871285,
+            3827460,
+            5099180,
+            0
+        };
+
         public FormulaireInfosGenerales()
         {
             InitializeComponent();
@@ -135,7 +186,7 @@ namespace maFichePersonnageJDR.Formulaires
                 /**
                  * Test PERSONNAGE EXISTE DEJA
                  */
-                if(!Controller.PersonnageController.CheckPersonnageExist(NomPersonnage, PrenomPersonnage))
+                if (!Controller.PersonnageController.CheckPersonnageExist(NomPersonnage, PrenomPersonnage))
                 {
                     MessageBox.Show("Le personnage existe déjà en base !");
                     return;
@@ -146,13 +197,13 @@ namespace maFichePersonnageJDR.Formulaires
                     sexe, ExperiencePersonnage, LanguesPersonnage, AvatarPersonnage, HistoirePersonnage);
 
                 // On récupère l'id du personnage créé
-                formulaireAttributs.IdDuPersonnage = Controller.PersonnageController.GetIdPersonnageByNameAndSurname(NomPersonnage, 
+                formulaireAttributs.IdDuPersonnage = Controller.PersonnageController.GetIdPersonnageByNameAndSurname(NomPersonnage,
                     PrenomPersonnage);
                 MessageBox.Show("Formulaire sauvegardé !");
 
                 formulaireAttributs.Show();
                 this.Close();
-                
+
             }
             catch (Exception exception)
             {
@@ -173,7 +224,7 @@ namespace maFichePersonnageJDR.Formulaires
         {
             string cheminImageARecuperer = !String.IsNullOrEmpty(cheminDeLImage) ? cheminDeLImage : Path.GetFullPath(@"Images\roto.png");
             Bitmap uneImage = new Bitmap(cheminImageARecuperer);
-            Bitmap imageRedimensionner = new Bitmap(uneImage, new Size(256, 256));
+            Bitmap imageRedimensionner = new Bitmap(uneImage, new Size(256, 6));
             uneImage = imageRedimensionner;
 
             return uneImage;
@@ -217,8 +268,34 @@ namespace maFichePersonnageJDR.Formulaires
 
         private void nudNiveau_ValueChanged(object sender, EventArgs e)
         {
-            lblPointsRestants.Text = "/" + tableauBaseNormaleExp[Convert.ToInt32(nudNiveau.Value)];
+            if (cbbProgressionXp.SelectedItem as string == "Rapide")
+            {
+                lblPointsRestants.Text = "/" + tableauBaseRapideExp[Convert.ToInt32((sender as NumericUpDown).Value)].ToString();
+            }
+            else if (cbbProgressionXp.SelectedItem as string == "Normale")
+            {
+                lblPointsRestants.Text = "/" + tableauBaseNormaleExp[Convert.ToInt32((sender as NumericUpDown).Value)].ToString();
+            }
+            else if (cbbProgressionXp.SelectedItem as string == "Lente")
+            {
+                lblPointsRestants.Text = "/" + tableauBaseLenteExp[Convert.ToInt32((sender as NumericUpDown).Value)].ToString();
+            }
+        }
 
+        private void cbbProgressionXp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ((sender as ComboBox).SelectedItem as string == "Rapide")
+            {
+                lblPointsRestants.Text = "/" + tableauBaseRapideExp[Convert.ToInt32(nudNiveau.Value)].ToString();
+            }
+            else if ((sender as ComboBox).SelectedItem as string == "Normale")
+            {
+                lblPointsRestants.Text = "/" + tableauBaseNormaleExp[Convert.ToInt32(nudNiveau.Value)].ToString();
+            }
+            else if ((sender as ComboBox).SelectedItem as string == "Lente")
+            {
+                lblPointsRestants.Text = "/" + tableauBaseLenteExp[Convert.ToInt32(nudNiveau.Value)].ToString();
+            }
         }
     }
 }
