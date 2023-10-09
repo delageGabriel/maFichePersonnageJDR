@@ -36,7 +36,7 @@ namespace maFichePersonnageJDR.Model
             {
                 // Commande
                 SQLiteCommand command = new SQLiteCommand("INSERT INTO ATTRIBUTS_PERSONNAGE (id_attribut, id_personnage, specifications) " +
-                    "VALUES (@idAttribut, @idPersonnage, @specifications)", 
+                    "VALUES (@idAttribut, @idPersonnage, @specifications)",
                     DatabaseConnection.Instance.GetConnection());
                 command.Parameters.AddWithValue("@idAttribut", idAttribut);
                 command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
@@ -205,6 +205,62 @@ namespace maFichePersonnageJDR.Model
                 return listeTypeAttributsPersonnage;
             }
             catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public string GetPourcentagePorteurChargerLourde(int idPersonnage)
+        {
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT specifications " +
+                    "FROM ATTRIBUTS_PERSONNAGE " +
+                    "WHERE ATTRIBUTS_PERSONNAGE.id_personnage = @idPersonnage " +
+                    "AND id_attribut = 18", connection);
+                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        return reader.GetString(0);
+                    }
+                }
+
+                return null;
+            }
+            catch (SQLiteException e)
+            {
+                throw e;
+            }
+        }
+
+        public bool CheckIfPersonnageHaveAttribut(int idPersonnage, int idAttribut)
+        {
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT COUNT(@idAttribut) " +
+                    "FROM ATTRIBUTS_PERSONNAGE " +
+                    "WHERE ATTRIBUTS_PERSONNAGE.id_personnage = @idPersonnage", connection);
+                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
+                command.Parameters.AddWithValue("@idAttribut", idAttribut);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        return reader.GetInt32(0) > 0;
+                    }
+                }
+
+                return false;
+            }
+            catch (SQLiteException e)
             {
                 throw e;
             }

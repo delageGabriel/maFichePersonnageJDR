@@ -14,7 +14,17 @@ namespace maFichePersonnageJDR.View.Formulaires
     public partial class FormulaireAttributs : Form
     {
         private int idDuPersonnage;
-        private string[] lstAttributsCheck = { "Alifère", "Armure naturelle", "Avantage du terrain", "Canaliseur", "Frigifugé", "Gigantisme", "Ignifugé", "Magicien" };
+        private string[] lstAttributsCheck = { 
+            "Alifère", 
+            "Armure naturelle", 
+            "Avantage du terrain", 
+            "Canaliseur", 
+            "Frigifugé", 
+            "Gigantisme", 
+            "Ignifugé", 
+            "Magicien",
+            "Porteur de charges lourdes"
+        };
         public int IdDuPersonnage { get => idDuPersonnage; set => idDuPersonnage = value; }
         public FormulaireAttributs()
         {
@@ -273,13 +283,29 @@ namespace maFichePersonnageJDR.View.Formulaires
         {
             using (FormSpecificationAttributs formSpecification = new FormSpecificationAttributs())
             {
+
+                formSpecification.PanelAvantageTerrains.Enabled = false;
+                formSpecification.PanelMagies.Enabled = false;
+                formSpecification.NumericUpDownPourcentage.Enabled = false;
+
                 if (nameAttribut == "Magicien")
                 {
                     formSpecification.TextInput.Enabled = false;
-                    if (formSpecification.ShowDialog() == DialogResult.OK)
-                    {
-                        return "; " + formSpecification.UserInput;
-                    }
+                    formSpecification.PanelMagies.Enabled = true;
+                }
+                else if (nameAttribut == "Avantage du terrain")
+                {
+                    formSpecification.TextInput.Enabled = false;
+                    formSpecification.PanelAvantageTerrains.Enabled = true;
+                }
+                else if (nameAttribut == "Porteur de charges lourdes")
+                {
+                    formSpecification.TextInput.Enabled = false;
+                    formSpecification.NumericUpDownPourcentage.Enabled = true;
+                }
+                if (formSpecification.ShowDialog() == DialogResult.OK)
+                {
+                    return "; " + formSpecification.UserInput;
                 }
             }
 

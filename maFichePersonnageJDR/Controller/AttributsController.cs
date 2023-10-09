@@ -230,5 +230,39 @@ namespace maFichePersonnageJDR.Controller
                 throw e;
             }
         }
+
+        public static string GetPourcentagePorteurChargesLourdes(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListNoteAttributs — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            AttributsPersonnageModel attributsPersonnageModel = new AttributsPersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return attributsPersonnageModel.GetPourcentagePorteurChargerLourde(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static bool CheckIfPersonnageHaveAttribut(int idPersonnage, int idAttribut)
+        {
+            Console.WriteLine(string.Format("########### Méthode CheckIfPersonnageHaveAttribut — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            AttributsPersonnageModel attributsPersonnageModel = new AttributsPersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return attributsPersonnageModel.CheckIfPersonnageHaveAttribut(idPersonnage, idAttribut);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

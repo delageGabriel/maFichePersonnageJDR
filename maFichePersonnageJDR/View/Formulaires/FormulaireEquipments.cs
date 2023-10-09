@@ -1386,12 +1386,23 @@ namespace maFichePersonnageJDR.Formulaires
 
         private void CalculChargeMaxPortable()
         {
-            int baseCalcul = 75;
-            int baseCalculForceSurhumaine = 100;
+            bool checkForce = AttributsController.CheckIfPersonnageHaveAttribut(IdPersonnage, AttributsController.GetIdAttributByName("Force surhumaine"));
+            int baseCalcul = checkForce ? 110 : 75;
             int forcePersonnage = CompetencesCaracteristiquesController.GetForcePersonnage(IdPersonnage);
 
-            lblChrgeMxm.Text = (baseCalcul * (1 + forcePersonnage)).ToString() + " kg";
+            if (!String.IsNullOrEmpty(AttributsController.GetPourcentagePorteurChargesLourdes(IdPersonnage)))
+            {
+                int poidsTotal = baseCalcul * (1 + forcePersonnage / 10);
+                int pourcentage = int.Parse(AttributsController.GetPourcentagePorteurChargesLourdes(IdPersonnage));
+                decimal pourcentageString = pourcentage / 100.0m;
+                decimal calcul = (poidsTotal * (1 + pourcentageString));
 
+                lblChrgeMxm.Text = calcul.ToString() + " kg";
+            }
+            else
+            {
+                lblChrgeMxm.Text = (baseCalcul * (1 + forcePersonnage)).ToString() + " kg";
+            }
         }
     }
 }

@@ -26,7 +26,7 @@ namespace maFichePersonnageJDR.Classe
                 // EN : Go through the list until you find the line
                 for (int i = 0; i < richTextBox.Lines.Length; i++)
                 {
-                    if (richTextBox.Lines[i] == textToRemove)
+                    if (richTextBox.Lines[i].Contains(textToRemove))
                     {
                         indexLineToRemove = i;
                     }
