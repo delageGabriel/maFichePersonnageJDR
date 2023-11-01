@@ -59,7 +59,6 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // lblPrenom
             // 
-            this.lblPrenom.AutoSize = true;
             this.lblPrenom.Location = new System.Drawing.Point(37, 13);
             this.lblPrenom.Name = "lblPrenom";
             this.lblPrenom.Size = new System.Drawing.Size(43, 13);
@@ -82,7 +81,6 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // lblNom
             // 
-            this.lblNom.AutoSize = true;
             this.lblNom.Location = new System.Drawing.Point(134, 13);
             this.lblNom.Name = "lblNom";
             this.lblNom.Size = new System.Drawing.Size(29, 13);
@@ -108,7 +106,6 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // lblRace
             // 
-            this.lblRace.AutoSize = true;
             this.lblRace.Location = new System.Drawing.Point(227, 13);
             this.lblRace.Name = "lblRace";
             this.lblRace.Size = new System.Drawing.Size(33, 13);
@@ -139,7 +136,6 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // lblNiveau
             // 
-            this.lblNiveau.AutoSize = true;
             this.lblNiveau.Location = new System.Drawing.Point(318, 13);
             this.lblNiveau.Name = "lblNiveau";
             this.lblNiveau.Size = new System.Drawing.Size(41, 13);
@@ -318,6 +314,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.Name = "FormulaireInfosGenerales";
             this.Text = "Informations générales";
             this.Load += new System.EventHandler(this.FormulaireInfosGenerales_Load);
+            this.Resize += new System.EventHandler(this.FormulaireInfosGenerales_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNiveau)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudExpériencePersonnage)).EndInit();

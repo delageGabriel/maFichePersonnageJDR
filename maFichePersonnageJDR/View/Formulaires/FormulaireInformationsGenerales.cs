@@ -99,6 +99,7 @@ namespace maFichePersonnageJDR.Formulaires
             0
         };
 
+        private System.Collections.Generic.Dictionary<Control, Rectangle> dictionaryControlOriginalSize = new System.Collections.Generic.Dictionary<Control, Rectangle>();
         public FormulaireInfosGenerales()
         {
             InitializeComponent();
@@ -106,7 +107,30 @@ namespace maFichePersonnageJDR.Formulaires
 
         private void FormulaireInfosGenerales_Load(object sender, EventArgs e)
         {
-
+            dictionaryControlOriginalSize.Add(this, new Rectangle(this.Location, this.Size));
+            dictionaryControlOriginalSize.Add(lblPrenom, new Rectangle(lblPrenom.Location, lblPrenom.Size));
+            dictionaryControlOriginalSize.Add(txtBoxPrenom, new Rectangle(txtBoxPrenom.Location, txtBoxPrenom.Size));
+            dictionaryControlOriginalSize.Add(lblNom, new Rectangle(lblNom.Location, lblNom.Size));
+            dictionaryControlOriginalSize.Add(txtBoxNom, new Rectangle(txtBoxNom.Location, txtBoxNom.Size));
+            dictionaryControlOriginalSize.Add(lblRace, new Rectangle(lblRace.Location, lblRace.Size));
+            dictionaryControlOriginalSize.Add(TxtBoxRace, new Rectangle(TxtBoxRace.Location, TxtBoxRace.Size));
+            dictionaryControlOriginalSize.Add(lblNiveau, new Rectangle(lblNiveau.Location, lblNiveau.Size));
+            dictionaryControlOriginalSize.Add(nudNiveau, new Rectangle(nudNiveau.Location, nudNiveau.Size));
+            dictionaryControlOriginalSize.Add(rdbHomme, new Rectangle(rdbHomme.Location, rdbHomme.Size));
+            dictionaryControlOriginalSize.Add(rdbFemme, new Rectangle(rdbFemme.Location, rdbFemme.Size));
+            dictionaryControlOriginalSize.Add(rdbAutre, new Rectangle(rdbAutre.Location, rdbAutre.Size));
+            dictionaryControlOriginalSize.Add(lblPtsXpTotal, new Rectangle(lblPtsXpTotal.Location, lblPtsXpTotal.Size));
+            dictionaryControlOriginalSize.Add(nudExpériencePersonnage, new Rectangle(nudExpériencePersonnage.Location, nudExpériencePersonnage.Size));
+            dictionaryControlOriginalSize.Add(lblPointsRestants, new Rectangle(lblPointsRestants.Location, lblPointsRestants.Size));
+            dictionaryControlOriginalSize.Add(cbbProgressionXp, new Rectangle(cbbProgressionXp.Location, cbbProgressionXp.Size));
+            dictionaryControlOriginalSize.Add(lblHistoire, new Rectangle(lblHistoire.Location, lblHistoire.Size));
+            dictionaryControlOriginalSize.Add(rtbHistoire, new Rectangle(rtbHistoire.Location, rtbHistoire.Size));
+            dictionaryControlOriginalSize.Add(btnViderHistoire, new Rectangle(btnViderHistoire.Location, btnViderHistoire.Size));
+            dictionaryControlOriginalSize.Add(rtbLangues, new Rectangle(rtbLangues.Location, rtbLangues.Size));
+            dictionaryControlOriginalSize.Add(lblLangages, new Rectangle(lblLangages.Location, lblLangages.Size));
+            dictionaryControlOriginalSize.Add(ptbAvatar, new Rectangle(ptbAvatar.Location, ptbAvatar.Size));
+            dictionaryControlOriginalSize.Add(btnAjouterImage, new Rectangle(btnAjouterImage.Location, btnAjouterImage.Size));
+            dictionaryControlOriginalSize.Add(btnSaveInfos, new Rectangle(btnSaveInfos.Location, btnSaveInfos.Size));
         }
 
         /// <summary>
@@ -296,6 +320,28 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 lblPointsRestants.Text = "/" + tableauBaseLenteExp[Convert.ToInt32(nudNiveau.Value)].ToString();
             }
+        }
+
+        private void FormulaireInfosGenerales_Resize(object sender, EventArgs e)
+        {
+            float xRatio = (float)this.Width / dictionaryControlOriginalSize[this].Width;
+            float yRatio = (float)this.Height / dictionaryControlOriginalSize[this].Height;
+
+            foreach (System.Collections.Generic.KeyValuePair<Control, Rectangle> entry in dictionaryControlOriginalSize)
+            {
+                AdjustControlSizeAndPosition(entry.Key, entry.Value, xRatio, yRatio);
+            }
+
+        }
+
+        private void AdjustControlSizeAndPosition(Control control, Rectangle originalSize, float xRatio, float yRatio)
+        {
+            control.Width = (int)(originalSize.Width * xRatio);
+            control.Height = (int)(originalSize.Height * yRatio);
+
+            // Utilisation des coordonnées originales pour l'ajustement
+            control.Left = (int)(originalSize.X * xRatio);
+            control.Top = (int)(originalSize.Y * yRatio);
         }
     }
 }

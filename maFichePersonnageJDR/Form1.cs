@@ -47,9 +47,6 @@ namespace maFichePersonnageJDR
 
         private void btnCreerPersonnage_Click(object sender, EventArgs e)
         {
-            //int testCentaine = (2078 / 100) % 100;
-            //int testdizaine = (2078 / 10) % 10;
-            //int testUnite = 2078 % 10;
             FormulaireInfosGenerales formulaireMenu = new FormulaireInfosGenerales();
             formulaireMenu.Show();
         }
