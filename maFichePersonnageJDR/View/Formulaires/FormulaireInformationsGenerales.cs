@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using maFichePersonnageJDR.Classe;
 using maFichePersonnageJDR.View.Formulaires;
 
 namespace maFichePersonnageJDR.Formulaires
@@ -329,19 +330,9 @@ namespace maFichePersonnageJDR.Formulaires
 
             foreach (System.Collections.Generic.KeyValuePair<Control, Rectangle> entry in dictionaryControlOriginalSize)
             {
-                AdjustControlSizeAndPosition(entry.Key, entry.Value, xRatio, yRatio);
+                Utils.AdjustControlSizeAndPosition(entry.Key, entry.Value, xRatio, yRatio);
             }
 
-        }
-
-        private void AdjustControlSizeAndPosition(Control control, Rectangle originalSize, float xRatio, float yRatio)
-        {
-            control.Width = (int)(originalSize.Width * xRatio);
-            control.Height = (int)(originalSize.Height * yRatio);
-
-            // Utilisation des coordonnées originales pour l'ajustement
-            control.Left = (int)(originalSize.X * xRatio);
-            control.Top = (int)(originalSize.Y * yRatio);
         }
     }
 }
