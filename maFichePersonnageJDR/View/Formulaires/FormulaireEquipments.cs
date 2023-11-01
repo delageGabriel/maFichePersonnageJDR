@@ -15,6 +15,10 @@ namespace maFichePersonnageJDR.Formulaires
         private decimal quantiteOr;
         private decimal quantiteArgent;
         private decimal quantiteCuivre;
+        private const decimal poidsOr = 0.115m;
+        private const decimal poidsArgent = 0.0783m;
+        private const decimal poidsCuivre = 0.0402m;
+        private bool isUpdatingFromCode = false;
 
         public int IdPersonnage { get => idPersonnage; set => idPersonnage = value; }
         public decimal QuantiteOr
@@ -923,7 +927,7 @@ namespace maFichePersonnageJDR.Formulaires
             string tagButton = (sender as Button).Tag as string;
             int achat = 0;
             int monnaiePersonnage = int.Parse(string.Format("{0}{1}{2}", nudPo.Value.ToString(), nudPa.Value.ToString(), nudPc.Value.ToString()));
-
+            string[] characterToDelete = { " ", "k", "g" };
             // COMPLEXES
             List<string> listeEquipementPersonnage = new List<string>();
             Func<int, List<string>> GetEquipmentInInventairePersonnage = null;
@@ -1035,6 +1039,11 @@ namespace maFichePersonnageJDR.Formulaires
                 return;
             }
 
+            if (!CheckIfCharacterCanBuyAnEquipment(lblChrgPrtePersonnage.Text, lblPoidsEnPlusEquipment.Text))
+            {
+                MessageBox.Show("Vous ne pouvez plus transporter d'équipement !");
+                return;
+            }
             // Ensuite on parcourt la liste des armes achetées
             // pour les ajouter à l'inventaire d'armes du personnage
             foreach (string line in rTxtBxEquipments.Lines)
@@ -1403,6 +1412,16 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 lblChrgeMxm.Text = (baseCalcul * (1 + forcePersonnage)).ToString() + " kg";
             }
+        }
+
+        private bool CheckIfCharacterCanBuyAnEquipment(string montantInitial, string valeurAjoutee)
+        {
+            string[] characterDelete = { " ", "k", "g" };
+            decimal montantInitialDecimal = Convert.ToDecimal(Utils.DeleteCharacterFromString(montantInitial, characterDelete));
+            decimal valeurAjouterDecimal = Convert.ToDecimal(valeurAjoutee);
+            decimal chargeMaximalePersonnage = Convert.ToDecimal(Utils.DeleteCharacterFromString(lblChrgeMxm.Text, characterDelete));
+
+            return chargeMaximalePersonnage > (montantInitialDecimal + valeurAjouterDecimal);
         }
     }
 }
