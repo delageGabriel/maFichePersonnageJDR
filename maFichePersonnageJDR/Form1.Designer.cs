@@ -51,6 +51,7 @@ namespace maFichePersonnageJDR
             this.Name = "FrmPrincipal";
             this.Text = "Menu";
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
+            this.Resize += new System.EventHandler(this.FrmPrincipal_Resize);
             this.ResumeLayout(false);
 
         }
