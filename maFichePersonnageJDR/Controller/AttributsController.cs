@@ -120,7 +120,7 @@ namespace maFichePersonnageJDR.Controller
         /// </summary>
         /// <param name="idAttribut"></param>
         /// <param name="idPersonnage"></param>
-        public static void AddNewAttributToPersonnage(int idAttribut, int idPersonnage)
+        public static void AddNewAttributToPersonnage(int idAttribut, int idPersonnage, string specifications)
         {
             Console.WriteLine(string.Format("########### Méthode AddNewAttributToPersonnage — Attribut ajouté au personnage : ID ATTRIBUT : {0}, " +
                 "ID PERSONNAGE : {1} ###########", idAttribut.ToString(), idPersonnage.ToString()));
@@ -129,7 +129,7 @@ namespace maFichePersonnageJDR.Controller
 
             try
             {
-                attributsPersonnageModel.AddAttributToPersonnage(idAttribut, idPersonnage);
+                attributsPersonnageModel.AddAttributToPersonnage(idAttribut, idPersonnage, specifications);
             }
             catch (Exception e)
             {
@@ -224,6 +224,40 @@ namespace maFichePersonnageJDR.Controller
             {
                 // On envoie les informations du personnage à sauvegarder
                 return attributsPersonnageModel.GetListeNotesAttributsPersonnage(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static string GetPourcentagePorteurChargesLourdes(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListNoteAttributs — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            AttributsPersonnageModel attributsPersonnageModel = new AttributsPersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return attributsPersonnageModel.GetPourcentagePorteurChargerLourde(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static bool CheckIfPersonnageHaveAttribut(int idPersonnage, int idAttribut)
+        {
+            Console.WriteLine(string.Format("########### Méthode CheckIfPersonnageHaveAttribut — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            AttributsPersonnageModel attributsPersonnageModel = new AttributsPersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return attributsPersonnageModel.CheckIfPersonnageHaveAttribut(idPersonnage, idAttribut);
             }
             catch (Exception e)
             {
