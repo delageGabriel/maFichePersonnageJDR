@@ -1,4 +1,5 @@
-﻿using maFichePersonnageJDR.Controller;
+﻿using maFichePersonnageJDR.Classe;
+using maFichePersonnageJDR.Controller;
 using maFichePersonnageJDR.View.Formulaires;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,8 @@ namespace maFichePersonnageJDR.Formulaires
     {
         private int idPersonnage;
 
+        private Dictionary<Control, Rectangle> dictionaryControlOriginalSize = new Dictionary<Control, Rectangle>();
+        private Dictionary<Label, Tuple<Rectangle, float>> dictionaryLabelOriginalSize = new Dictionary<Label, Tuple<Rectangle, float>>();
         public int IdPersonnage { get => idPersonnage; set => idPersonnage = value; }
         public FormulaireMagieEtAptitudes()
         {
@@ -105,6 +108,55 @@ namespace maFichePersonnageJDR.Formulaires
             GetAptitudes();
             CreateCheckBoxMagie();
             CreateCheckBoxAptitudes();
+
+            dictionaryControlOriginalSize.Add(this, new Rectangle(this.Location, this.Size));
+
+            /// Chaque control en dehors des panel et TabControl
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is Label)
+                {
+                    dictionaryLabelOriginalSize.Add(ctrl as Label, new Tuple<Rectangle, float>(new Rectangle(ctrl.Location, ctrl.Size), (ctrl as Label).Font.Size));
+                }
+                else
+                {
+                    dictionaryControlOriginalSize.Add(ctrl, new Rectangle(ctrl.Location, ctrl.Size));
+                }
+            }
+
+            /// TabControl Aptitudes
+            foreach (TabPage tabPage in tbCntlAptitudes.TabPages)
+            {
+                foreach (Control control in tabPage.Controls)
+                {
+                    if (control is Label)
+                    {
+                        dictionaryLabelOriginalSize.Add(control as Label, new Tuple<Rectangle, float>(new Rectangle(control.Location, control.Size),
+                            (control as Label).Font.Size));
+                    }
+                    else
+                    {
+                        dictionaryControlOriginalSize.Add(control, new Rectangle(control.Location, control.Size));
+                    }
+                }
+            }
+
+            /// TabControl Magies
+            foreach (TabPage tabPage in tbCntlMagie.TabPages)
+            {
+                foreach (Control control in tabPage.Controls)
+                {
+                    if (control is Label)
+                    {
+                        dictionaryLabelOriginalSize.Add(control as Label, new Tuple<Rectangle, float>(new Rectangle(control.Location, control.Size),
+                            (control as Label).Font.Size));
+                    }
+                    else
+                    {
+                        dictionaryControlOriginalSize.Add(control, new Rectangle(control.Location, control.Size));
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -439,6 +491,23 @@ namespace maFichePersonnageJDR.Formulaires
 
             classePdf.IdPersonnage = IdPersonnage;
             classePdf.CreatePersonnagePdf();
+        }
+
+        private void FormulaireMagieEtAptitudes_Resize(object sender, EventArgs e)
+        {
+            float xRatio = (float)this.Width / dictionaryControlOriginalSize[this].Width;
+            float yRatio = (float)this.Height / dictionaryControlOriginalSize[this].Height;
+
+            foreach (KeyValuePair<Label, Tuple<Rectangle, float>> entry in dictionaryLabelOriginalSize)
+            {
+                Utils.AdjustLabelSizeAndPosition(entry.Key, entry.Value.Item1, entry.Value.Item2, xRatio, yRatio);
+            }
+            foreach (KeyValuePair<Control, Rectangle> entry in dictionaryControlOriginalSize)
+            {
+                Utils.AdjustControlSizeAndPosition(entry.Key, entry.Value, xRatio, yRatio);
+            }
+
+            this.Refresh();
         }
     }
 }

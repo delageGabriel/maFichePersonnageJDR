@@ -47,10 +47,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.lblTemplateNomMagieAptitude.AutoSize = true;
             this.lblTemplateNomMagieAptitude.BackColor = System.Drawing.SystemColors.Control;
             this.lblTemplateNomMagieAptitude.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTemplateNomMagieAptitude.Location = new System.Drawing.Point(14, 52);
-            this.lblTemplateNomMagieAptitude.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTemplateNomMagieAptitude.Location = new System.Drawing.Point(10, 42);
             this.lblTemplateNomMagieAptitude.Name = "lblTemplateNomMagieAptitude";
-            this.lblTemplateNomMagieAptitude.Size = new System.Drawing.Size(37, 22);
+            this.lblTemplateNomMagieAptitude.Size = new System.Drawing.Size(30, 19);
             this.lblTemplateNomMagieAptitude.TabIndex = 5;
             this.lblTemplateNomMagieAptitude.Text = "xxx";
             // 
@@ -58,10 +57,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblNomMagieAptitude.AutoSize = true;
             this.lblNomMagieAptitude.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomMagieAptitude.Location = new System.Drawing.Point(13, 9);
-            this.lblNomMagieAptitude.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNomMagieAptitude.Location = new System.Drawing.Point(10, 7);
             this.lblNomMagieAptitude.Name = "lblNomMagieAptitude";
-            this.lblNomMagieAptitude.Size = new System.Drawing.Size(71, 27);
+            this.lblNomMagieAptitude.Size = new System.Drawing.Size(56, 21);
             this.lblNomMagieAptitude.TabIndex = 4;
             this.lblNomMagieAptitude.Text = "Nom :";
             // 
@@ -69,10 +67,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblTemplateTypeMagieAptitude.AutoSize = true;
             this.lblTemplateTypeMagieAptitude.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTemplateTypeMagieAptitude.Location = new System.Drawing.Point(358, 52);
-            this.lblTemplateTypeMagieAptitude.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTemplateTypeMagieAptitude.Location = new System.Drawing.Point(268, 42);
             this.lblTemplateTypeMagieAptitude.Name = "lblTemplateTypeMagieAptitude";
-            this.lblTemplateTypeMagieAptitude.Size = new System.Drawing.Size(37, 22);
+            this.lblTemplateTypeMagieAptitude.Size = new System.Drawing.Size(30, 19);
             this.lblTemplateTypeMagieAptitude.TabIndex = 7;
             this.lblTemplateTypeMagieAptitude.Text = "xxx\r\n";
             // 
@@ -80,10 +77,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblTypeMagieAptitude.AutoSize = true;
             this.lblTypeMagieAptitude.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTypeMagieAptitude.Location = new System.Drawing.Point(356, 9);
-            this.lblTypeMagieAptitude.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTypeMagieAptitude.Location = new System.Drawing.Point(267, 7);
             this.lblTypeMagieAptitude.Name = "lblTypeMagieAptitude";
-            this.lblTypeMagieAptitude.Size = new System.Drawing.Size(71, 27);
+            this.lblTypeMagieAptitude.Size = new System.Drawing.Size(57, 21);
             this.lblTypeMagieAptitude.TabIndex = 6;
             this.lblTypeMagieAptitude.Text = "Type :";
             // 
@@ -91,10 +87,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblTemplateCoutMagieAptitude.AutoSize = true;
             this.lblTemplateCoutMagieAptitude.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTemplateCoutMagieAptitude.Location = new System.Drawing.Point(479, 52);
-            this.lblTemplateCoutMagieAptitude.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTemplateCoutMagieAptitude.Location = new System.Drawing.Point(359, 42);
             this.lblTemplateCoutMagieAptitude.Name = "lblTemplateCoutMagieAptitude";
-            this.lblTemplateCoutMagieAptitude.Size = new System.Drawing.Size(37, 22);
+            this.lblTemplateCoutMagieAptitude.Size = new System.Drawing.Size(30, 19);
             this.lblTemplateCoutMagieAptitude.TabIndex = 9;
             this.lblTemplateCoutMagieAptitude.Text = "xxx\r\n";
             // 
@@ -102,10 +97,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblCoutMagieAptitude.AutoSize = true;
             this.lblCoutMagieAptitude.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCoutMagieAptitude.Location = new System.Drawing.Point(477, 9);
-            this.lblCoutMagieAptitude.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCoutMagieAptitude.Location = new System.Drawing.Point(358, 7);
             this.lblCoutMagieAptitude.Name = "lblCoutMagieAptitude";
-            this.lblCoutMagieAptitude.Size = new System.Drawing.Size(152, 27);
+            this.lblCoutMagieAptitude.Size = new System.Drawing.Size(118, 21);
             this.lblCoutMagieAptitude.TabIndex = 8;
             this.lblCoutMagieAptitude.Text = "Coût (moyen):";
             // 
@@ -113,10 +107,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblTemplateNiveauMagieAptitude.AutoSize = true;
             this.lblTemplateNiveauMagieAptitude.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTemplateNiveauMagieAptitude.Location = new System.Drawing.Point(660, 52);
-            this.lblTemplateNiveauMagieAptitude.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTemplateNiveauMagieAptitude.Location = new System.Drawing.Point(495, 42);
             this.lblTemplateNiveauMagieAptitude.Name = "lblTemplateNiveauMagieAptitude";
-            this.lblTemplateNiveauMagieAptitude.Size = new System.Drawing.Size(37, 22);
+            this.lblTemplateNiveauMagieAptitude.Size = new System.Drawing.Size(30, 19);
             this.lblTemplateNiveauMagieAptitude.TabIndex = 11;
             this.lblTemplateNiveauMagieAptitude.Text = "xxx\r\n";
             // 
@@ -124,19 +117,19 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblNiveauMagieAptitude.AutoSize = true;
             this.lblNiveauMagieAptitude.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNiveauMagieAptitude.Location = new System.Drawing.Point(658, 9);
-            this.lblNiveauMagieAptitude.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNiveauMagieAptitude.Location = new System.Drawing.Point(494, 7);
             this.lblNiveauMagieAptitude.Name = "lblNiveauMagieAptitude";
-            this.lblNiveauMagieAptitude.Size = new System.Drawing.Size(93, 27);
+            this.lblNiveauMagieAptitude.Size = new System.Drawing.Size(70, 21);
             this.lblNiveauMagieAptitude.TabIndex = 10;
             this.lblNiveauMagieAptitude.Text = "Niveau :";
             // 
             // lblSeparation
             // 
             this.lblSeparation.AutoSize = true;
-            this.lblSeparation.Location = new System.Drawing.Point(15, 102);
+            this.lblSeparation.Location = new System.Drawing.Point(11, 83);
+            this.lblSeparation.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSeparation.Name = "lblSeparation";
-            this.lblSeparation.Size = new System.Drawing.Size(736, 17);
+            this.lblSeparation.Size = new System.Drawing.Size(553, 13);
             this.lblSeparation.TabIndex = 26;
             this.lblSeparation.Text = "_________________________________________________________________________________" +
     "__________";
@@ -146,9 +139,10 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.rTxtBxTemplateDescrMagieAptitude.BackColor = System.Drawing.SystemColors.Menu;
             this.rTxtBxTemplateDescrMagieAptitude.EnableAutoDragDrop = true;
             this.rTxtBxTemplateDescrMagieAptitude.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rTxtBxTemplateDescrMagieAptitude.Location = new System.Drawing.Point(18, 162);
+            this.rTxtBxTemplateDescrMagieAptitude.Location = new System.Drawing.Point(14, 132);
+            this.rTxtBxTemplateDescrMagieAptitude.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rTxtBxTemplateDescrMagieAptitude.Name = "rTxtBxTemplateDescrMagieAptitude";
-            this.rTxtBxTemplateDescrMagieAptitude.Size = new System.Drawing.Size(739, 146);
+            this.rTxtBxTemplateDescrMagieAptitude.Size = new System.Drawing.Size(555, 119);
             this.rTxtBxTemplateDescrMagieAptitude.TabIndex = 25;
             this.rTxtBxTemplateDescrMagieAptitude.Text = "";
             // 
@@ -156,18 +150,17 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblDescriptionMagieAptitude.AutoSize = true;
             this.lblDescriptionMagieAptitude.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescriptionMagieAptitude.Location = new System.Drawing.Point(13, 122);
-            this.lblDescriptionMagieAptitude.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDescriptionMagieAptitude.Location = new System.Drawing.Point(10, 99);
             this.lblDescriptionMagieAptitude.Name = "lblDescriptionMagieAptitude";
-            this.lblDescriptionMagieAptitude.Size = new System.Drawing.Size(135, 27);
+            this.lblDescriptionMagieAptitude.Size = new System.Drawing.Size(105, 21);
             this.lblDescriptionMagieAptitude.TabIndex = 24;
             this.lblDescriptionMagieAptitude.Text = "Description :";
             // 
             // FormulaireApercuMagieEtAptitudes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 347);
+            this.ClientSize = new System.Drawing.Size(600, 282);
             this.Controls.Add(this.lblSeparation);
             this.Controls.Add(this.rTxtBxTemplateDescrMagieAptitude);
             this.Controls.Add(this.lblDescriptionMagieAptitude);
@@ -179,8 +172,11 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.Controls.Add(this.lblTypeMagieAptitude);
             this.Controls.Add(this.lblTemplateNomMagieAptitude);
             this.Controls.Add(this.lblNomMagieAptitude);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormulaireApercuMagieEtAptitudes";
             this.Text = "Aperçu";
+            this.Load += new System.EventHandler(this.FormulaireApercuMagieEtAptitudes_Load);
+            this.Resize += new System.EventHandler(this.FormulaireApercuMagieEtAptitudes_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();
 
