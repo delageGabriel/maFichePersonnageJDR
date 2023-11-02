@@ -1564,6 +1564,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.Name = "FormulaireCompetencesCaracteristiques";
             this.Text = "Caractéristiques et Compétences";
             this.Load += new System.EventHandler(this.FormulaireCompetencesCaracteristiques_Load);
+            this.Resize += new System.EventHandler(this.FormulaireCompetencesCaracteristiques_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.nudEnergie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSocial)).EndInit();
