@@ -25,6 +25,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             "Magicien",
             "Porteur de charges lourdes"
         };
+
+        private System.Collections.Generic.Dictionary<Control, Rectangle> dictionaryControlOriginalSize = new System.Collections.Generic.Dictionary<Control, Rectangle>();
+
         public int IdDuPersonnage { get => idDuPersonnage; set => idDuPersonnage = value; }
         public FormulaireAttributs()
         {
@@ -35,6 +38,10 @@ namespace maFichePersonnageJDR.View.Formulaires
         {
             GetAttributs();
             CreateCheckBoxAttribut();
+            dictionaryControlOriginalSize.Add(this, new Rectangle(this.Location, this.Size));
+            dictionaryControlOriginalSize.Add(tbControlAttributs, new Rectangle(tbControlAttributs.Location, tbControlAttributs.Size));
+            dictionaryControlOriginalSize.Add(rtbAttributs, new Rectangle(rtbAttributs.Location, rtbAttributs.Size));
+            dictionaryControlOriginalSize.Add(btnSauvegarder, new Rectangle(btnSauvegarder.Location, btnSauvegarder.Size));
         }
 
         /// <summary>
@@ -310,6 +317,17 @@ namespace maFichePersonnageJDR.View.Formulaires
             }
 
             return string.Empty;
+        }
+
+        private void FormulaireAttributs_Resize(object sender, EventArgs e)
+        {
+            float xRatio = (float)this.Width / dictionaryControlOriginalSize[this].Width;
+            float yRatio = (float)this.Height / dictionaryControlOriginalSize[this].Height;
+
+            foreach (System.Collections.Generic.KeyValuePair<Control, Rectangle> entry in dictionaryControlOriginalSize)
+            {
+                Utils.AdjustControlSizeAndPosition(entry.Key, entry.Value, xRatio, yRatio);
+            }
         }
     }
 }

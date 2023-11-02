@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -229,6 +230,30 @@ namespace maFichePersonnageJDR.Classe
                 panel.Controls.Remove(control);
                 control.Dispose();
             }
+        }
+
+        public static void AdjustControlSizeAndPosition(Control control, Rectangle originalSize, float xRatio, float yRatio)
+        {
+            control.Width = (int)(originalSize.Width * xRatio);
+            control.Height = (int)(originalSize.Height * yRatio);
+
+            // Utilisation des coordonnées originales pour l'ajustement
+            control.Left = (int)(originalSize.X * xRatio);
+            control.Top = (int)(originalSize.Y * yRatio);
+        }
+
+        public static void AdjustLabelSizeAndPosition(Label label, Rectangle originalSize, float originalFontSize, float xRatio, float yRatio)
+        {
+            label.Width = (int)(originalSize.Width * xRatio);
+            label.Height = (int)(originalSize.Height * yRatio);
+
+            // Utilisation des coordonnées originales pour l'ajustement
+            label.Left = (int)(originalSize.X * xRatio);
+            label.Top = (int)(originalSize.Y * yRatio);
+
+            // Ajustement de la taille de la police en fonction du ratio
+            float newFontSize = originalFontSize * Math.Min(xRatio, yRatio); // Vous pouvez choisir xRatio ou yRatio selon ce qui convient le mieux
+            label.Font = new Font(label.Font.FontFamily, newFontSize, label.Font.Style);
         }
     }
 }

@@ -153,7 +153,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.rTxtBxTemplateDescr.EnableAutoDragDrop = true;
             this.rTxtBxTemplateDescr.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rTxtBxTemplateDescr.Location = new System.Drawing.Point(16, 271);
-            this.rTxtBxTemplateDescr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rTxtBxTemplateDescr.Margin = new System.Windows.Forms.Padding(2);
             this.rTxtBxTemplateDescr.Name = "rTxtBxTemplateDescr";
             this.rTxtBxTemplateDescr.Size = new System.Drawing.Size(555, 119);
             this.rTxtBxTemplateDescr.TabIndex = 9;
@@ -240,7 +240,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.rTxtBxSpecial.Enabled = false;
             this.rTxtBxSpecial.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rTxtBxSpecial.Location = new System.Drawing.Point(178, 126);
-            this.rTxtBxSpecial.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rTxtBxSpecial.Margin = new System.Windows.Forms.Padding(2);
             this.rTxtBxSpecial.Name = "rTxtBxSpecial";
             this.rTxtBxSpecial.Size = new System.Drawing.Size(393, 95);
             this.rTxtBxSpecial.TabIndex = 17;
@@ -284,7 +284,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.rTxtBxProtection.Enabled = false;
             this.rTxtBxProtection.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rTxtBxProtection.Location = new System.Drawing.Point(256, 44);
-            this.rTxtBxProtection.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rTxtBxProtection.Margin = new System.Windows.Forms.Padding(2);
             this.rTxtBxProtection.Name = "rTxtBxProtection";
             this.rTxtBxProtection.Size = new System.Drawing.Size(141, 41);
             this.rTxtBxProtection.TabIndex = 22;
@@ -357,6 +357,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.Controls.Add(this.lblNomEquipement);
             this.Name = "FormulaireApercuEquipement";
             this.Text = "Aperçu";
+            this.Load += new System.EventHandler(this.FormulaireApercuEquipement_Load);
+            this.Resize += new System.EventHandler(this.FormulaireApercuEquipement_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();
 

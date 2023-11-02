@@ -292,6 +292,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.Name = "FormulaireMagieEtAptitudes";
             this.Text = "Magies & Aptitudes";
             this.Load += new System.EventHandler(this.FormulaireMagieEtAptitudes_Load);
+            this.Resize += new System.EventHandler(this.FormulaireMagieEtAptitudes_Resize);
             this.tbCntlMagie.ResumeLayout(false);
             this.tbCntlAptitudes.ResumeLayout(false);
             this.ResumeLayout(false);
