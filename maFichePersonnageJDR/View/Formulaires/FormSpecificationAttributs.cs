@@ -69,6 +69,16 @@ namespace maFichePersonnageJDR.View.Formulaires
             dictionaryControlOriginalSize.Add(txtSpec, new Rectangle(txtSpec.Location, txtSpec.Size));
             dictionaryControlOriginalSize.Add(btnOk, new Rectangle(btnOk.Location, btnOk.Size));
             dictionaryControlOriginalSize.Add(btnCancel, new Rectangle(btnCancel.Location, btnCancel.Size));
+
+            foreach(Control control in pnlMgie.Controls)
+            {
+                dictionaryControlOriginalSize.Add(control, new Rectangle(control.Location, control.Size));
+            }
+
+            foreach (Control control in pnlAvntgeTerrains.Controls)
+            {
+                dictionaryControlOriginalSize.Add(control, new Rectangle(control.Location, control.Size));
+            }
         }
 
         private void FormSpecificationAttributs_Resize(object sender, EventArgs e)

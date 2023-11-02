@@ -151,6 +151,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.Controls.Add(this.lblNomAttribut);
             this.Name = "FormulaireApercuAttributs";
             this.Text = "FormulaireApercuAttributs";
+            this.Load += new System.EventHandler(this.FormulaireApercuAttributs_Load);
+            this.Resize += new System.EventHandler(this.FormulaireApercuAttributs_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();
 
