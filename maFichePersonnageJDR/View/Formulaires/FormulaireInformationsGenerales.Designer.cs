@@ -59,7 +59,9 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // lblPrenom
             // 
-            this.lblPrenom.Location = new System.Drawing.Point(37, 13);
+            this.lblPrenom.AutoSize = true;
+            this.lblPrenom.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblPrenom.Location = new System.Drawing.Point(21, 13);
             this.lblPrenom.Name = "lblPrenom";
             this.lblPrenom.Size = new System.Drawing.Size(43, 13);
             this.lblPrenom.TabIndex = 0;
@@ -81,7 +83,8 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // lblNom
             // 
-            this.lblNom.Location = new System.Drawing.Point(134, 13);
+            this.lblNom.AutoSize = true;
+            this.lblNom.Location = new System.Drawing.Point(114, 13);
             this.lblNom.Name = "lblNom";
             this.lblNom.Size = new System.Drawing.Size(29, 13);
             this.lblNom.TabIndex = 2;
@@ -106,7 +109,8 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // lblRace
             // 
-            this.lblRace.Location = new System.Drawing.Point(227, 13);
+            this.lblRace.AutoSize = true;
+            this.lblRace.Location = new System.Drawing.Point(207, 13);
             this.lblRace.Name = "lblRace";
             this.lblRace.Size = new System.Drawing.Size(33, 13);
             this.lblRace.TabIndex = 6;
@@ -136,7 +140,8 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // lblNiveau
             // 
-            this.lblNiveau.Location = new System.Drawing.Point(318, 13);
+            this.lblNiveau.AutoSize = true;
+            this.lblNiveau.Location = new System.Drawing.Point(313, 13);
             this.lblNiveau.Name = "lblNiveau";
             this.lblNiveau.Size = new System.Drawing.Size(41, 13);
             this.lblNiveau.TabIndex = 9;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -100,7 +101,9 @@ namespace maFichePersonnageJDR.Formulaires
             0
         };
 
-        private System.Collections.Generic.Dictionary<Control, Rectangle> dictionaryControlOriginalSize = new System.Collections.Generic.Dictionary<Control, Rectangle>();
+        private Dictionary<Control, Rectangle> dictionaryControlOriginalSize = new Dictionary<Control, Rectangle>();
+        private Dictionary<Label, Tuple<Rectangle, float>> dictionaryLabelOriginalSize = new Dictionary<Label, Tuple<Rectangle, float>>();
+
         public FormulaireInfosGenerales()
         {
             InitializeComponent();
@@ -109,29 +112,18 @@ namespace maFichePersonnageJDR.Formulaires
         private void FormulaireInfosGenerales_Load(object sender, EventArgs e)
         {
             dictionaryControlOriginalSize.Add(this, new Rectangle(this.Location, this.Size));
-            dictionaryControlOriginalSize.Add(lblPrenom, new Rectangle(lblPrenom.Location, lblPrenom.Size));
-            dictionaryControlOriginalSize.Add(txtBoxPrenom, new Rectangle(txtBoxPrenom.Location, txtBoxPrenom.Size));
-            dictionaryControlOriginalSize.Add(lblNom, new Rectangle(lblNom.Location, lblNom.Size));
-            dictionaryControlOriginalSize.Add(txtBoxNom, new Rectangle(txtBoxNom.Location, txtBoxNom.Size));
-            dictionaryControlOriginalSize.Add(lblRace, new Rectangle(lblRace.Location, lblRace.Size));
-            dictionaryControlOriginalSize.Add(TxtBoxRace, new Rectangle(TxtBoxRace.Location, TxtBoxRace.Size));
-            dictionaryControlOriginalSize.Add(lblNiveau, new Rectangle(lblNiveau.Location, lblNiveau.Size));
-            dictionaryControlOriginalSize.Add(nudNiveau, new Rectangle(nudNiveau.Location, nudNiveau.Size));
-            dictionaryControlOriginalSize.Add(rdbHomme, new Rectangle(rdbHomme.Location, rdbHomme.Size));
-            dictionaryControlOriginalSize.Add(rdbFemme, new Rectangle(rdbFemme.Location, rdbFemme.Size));
-            dictionaryControlOriginalSize.Add(rdbAutre, new Rectangle(rdbAutre.Location, rdbAutre.Size));
-            dictionaryControlOriginalSize.Add(lblPtsXpTotal, new Rectangle(lblPtsXpTotal.Location, lblPtsXpTotal.Size));
-            dictionaryControlOriginalSize.Add(nudExpériencePersonnage, new Rectangle(nudExpériencePersonnage.Location, nudExpériencePersonnage.Size));
-            dictionaryControlOriginalSize.Add(lblPointsRestants, new Rectangle(lblPointsRestants.Location, lblPointsRestants.Size));
-            dictionaryControlOriginalSize.Add(cbbProgressionXp, new Rectangle(cbbProgressionXp.Location, cbbProgressionXp.Size));
-            dictionaryControlOriginalSize.Add(lblHistoire, new Rectangle(lblHistoire.Location, lblHistoire.Size));
-            dictionaryControlOriginalSize.Add(rtbHistoire, new Rectangle(rtbHistoire.Location, rtbHistoire.Size));
-            dictionaryControlOriginalSize.Add(btnViderHistoire, new Rectangle(btnViderHistoire.Location, btnViderHistoire.Size));
-            dictionaryControlOriginalSize.Add(rtbLangues, new Rectangle(rtbLangues.Location, rtbLangues.Size));
-            dictionaryControlOriginalSize.Add(lblLangages, new Rectangle(lblLangages.Location, lblLangages.Size));
-            dictionaryControlOriginalSize.Add(ptbAvatar, new Rectangle(ptbAvatar.Location, ptbAvatar.Size));
-            dictionaryControlOriginalSize.Add(btnAjouterImage, new Rectangle(btnAjouterImage.Location, btnAjouterImage.Size));
-            dictionaryControlOriginalSize.Add(btnSaveInfos, new Rectangle(btnSaveInfos.Location, btnSaveInfos.Size));
+
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is Label)
+                {
+                    dictionaryLabelOriginalSize.Add(ctrl as Label, new Tuple<Rectangle, float>(new Rectangle(ctrl.Location, ctrl.Size), (ctrl as Label).Font.Size));
+                }
+                else
+                {
+                    dictionaryControlOriginalSize.Add(ctrl, new Rectangle(ctrl.Location, ctrl.Size));
+                }
+            }
         }
 
         /// <summary>
@@ -328,11 +320,16 @@ namespace maFichePersonnageJDR.Formulaires
             float xRatio = (float)this.Width / dictionaryControlOriginalSize[this].Width;
             float yRatio = (float)this.Height / dictionaryControlOriginalSize[this].Height;
 
-            foreach (System.Collections.Generic.KeyValuePair<Control, Rectangle> entry in dictionaryControlOriginalSize)
+            foreach (KeyValuePair<Label, Tuple<Rectangle, float>> entry in dictionaryLabelOriginalSize)
+            {
+                Utils.AdjustLabelSizeAndPosition(entry.Key, entry.Value.Item1, entry.Value.Item2, xRatio, yRatio);
+            }
+            foreach (KeyValuePair<Control, Rectangle> entry in dictionaryControlOriginalSize)
             {
                 Utils.AdjustControlSizeAndPosition(entry.Key, entry.Value, xRatio, yRatio);
             }
 
+            this.Refresh();
         }
     }
 }

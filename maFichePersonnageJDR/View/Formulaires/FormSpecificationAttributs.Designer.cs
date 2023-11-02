@@ -42,6 +42,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.chkIgnee = new System.Windows.Forms.CheckBox();
             this.chkAquatique = new System.Windows.Forms.CheckBox();
             this.pnlAvntgeTerrains = new System.Windows.Forms.Panel();
+            this.chkGrotte = new System.Windows.Forms.CheckBox();
             this.chkVolcanique = new System.Windows.Forms.CheckBox();
             this.chkMarecageux = new System.Windows.Forms.CheckBox();
             this.chkInonde = new System.Windows.Forms.CheckBox();
@@ -50,7 +51,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.chkRuines = new System.Windows.Forms.CheckBox();
             this.chkMontagneux = new System.Windows.Forms.CheckBox();
             this.chkForestier = new System.Windows.Forms.CheckBox();
-            this.chkGrotte = new System.Windows.Forms.CheckBox();
             this.nudPourcentage = new System.Windows.Forms.NumericUpDown();
             this.pnlMgie.SuspendLayout();
             this.pnlAvntgeTerrains.SuspendLayout();
@@ -212,6 +212,20 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.pnlAvntgeTerrains.Size = new System.Drawing.Size(258, 77);
             this.pnlAvntgeTerrains.TabIndex = 8;
             // 
+            // chkGrotte
+            // 
+            this.chkGrotte.AccessibleDescription = "";
+            this.chkGrotte.AutoSize = true;
+            this.chkGrotte.Enabled = false;
+            this.chkGrotte.Location = new System.Drawing.Point(170, 49);
+            this.chkGrotte.Name = "chkGrotte";
+            this.chkGrotte.Size = new System.Drawing.Size(55, 17);
+            this.chkGrotte.TabIndex = 8;
+            this.chkGrotte.Text = "Grotte";
+            this.chkGrotte.UseVisualStyleBackColor = true;
+            this.chkGrotte.Visible = false;
+            this.chkGrotte.Click += new System.EventHandler(this.CheckBox_Click);
+            // 
             // chkVolcanique
             // 
             this.chkVolcanique.AccessibleDescription = "";
@@ -304,20 +318,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.chkForestier.UseVisualStyleBackColor = true;
             this.chkForestier.Click += new System.EventHandler(this.CheckBox_Click);
             // 
-            // chkGrotte
-            // 
-            this.chkGrotte.AccessibleDescription = "";
-            this.chkGrotte.AutoSize = true;
-            this.chkGrotte.Enabled = false;
-            this.chkGrotte.Location = new System.Drawing.Point(170, 49);
-            this.chkGrotte.Name = "chkGrotte";
-            this.chkGrotte.Size = new System.Drawing.Size(55, 17);
-            this.chkGrotte.TabIndex = 8;
-            this.chkGrotte.Text = "Grotte";
-            this.chkGrotte.UseVisualStyleBackColor = true;
-            this.chkGrotte.Visible = false;
-            this.chkGrotte.Click += new System.EventHandler(this.CheckBox_Click);
-            // 
             // nudPourcentage
             // 
             this.nudPourcentage.Enabled = false;
@@ -341,6 +341,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.Controls.Add(this.txtSpec);
             this.Name = "FormSpecificationAttributs";
             this.Text = "Spécifications";
+            this.Load += new System.EventHandler(this.FormSpecificationAttributs_Load);
+            this.Resize += new System.EventHandler(this.FormSpecificationAttributs_Resize);
             this.pnlMgie.ResumeLayout(false);
             this.pnlMgie.PerformLayout();
             this.pnlAvntgeTerrains.ResumeLayout(false);

@@ -85,6 +85,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.Name = "FormulaireAttributs";
             this.Text = "Attributs";
             this.Load += new System.EventHandler(this.FormulaireAttributs_Load);
+            this.Resize += new System.EventHandler(this.FormulaireAttributs_Resize);
             this.tbControlAttributs.ResumeLayout(false);
             this.ResumeLayout(false);
 
