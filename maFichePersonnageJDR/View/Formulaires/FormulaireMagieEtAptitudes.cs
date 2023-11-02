@@ -490,7 +490,8 @@ namespace maFichePersonnageJDR.Formulaires
             }
 
             classePdf.IdPersonnage = IdPersonnage;
-            classePdf.CreatePersonnagePdf();
+            classePdf.CreatePersonnagePdf(pbComplétionExportationFiche);
+            this.Close();
         }
 
         private void FormulaireMagieEtAptitudes_Resize(object sender, EventArgs e)

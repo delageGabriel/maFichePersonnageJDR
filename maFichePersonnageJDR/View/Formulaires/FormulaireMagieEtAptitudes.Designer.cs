@@ -51,6 +51,8 @@ namespace maFichePersonnageJDR.Formulaires
             this.rtbMagies = new System.Windows.Forms.RichTextBox();
             this.rtbAptitudes = new System.Windows.Forms.RichTextBox();
             this.btnFinaliserFiche = new System.Windows.Forms.Button();
+            this.pbComplétionExportationFiche = new System.Windows.Forms.ProgressBar();
+            this.lblNbMagieAptitude = new System.Windows.Forms.Label();
             this.tbCntlMagie.SuspendLayout();
             this.tbCntlAptitudes.SuspendLayout();
             this.SuspendLayout();
@@ -65,7 +67,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbCntlMagie.Controls.Add(this.tbPgeCorrompue);
             this.tbCntlMagie.Controls.Add(this.tbPgeDivine);
             this.tbCntlMagie.Controls.Add(this.tbPgeNeutre);
-            this.tbCntlMagie.Location = new System.Drawing.Point(12, 12);
+            this.tbCntlMagie.Location = new System.Drawing.Point(12, 47);
             this.tbCntlMagie.Name = "tbCntlMagie";
             this.tbCntlMagie.SelectedIndex = 0;
             this.tbCntlMagie.Size = new System.Drawing.Size(236, 154);
@@ -163,7 +165,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbCntlAptitudes.Controls.Add(this.tbPgeAptArmTrt);
             this.tbCntlAptitudes.Controls.Add(this.tbPgeAptChaine);
             this.tbCntlAptitudes.Controls.Add(this.tbPgeAptSpecial);
-            this.tbCntlAptitudes.Location = new System.Drawing.Point(279, 12);
+            this.tbCntlAptitudes.Location = new System.Drawing.Point(279, 47);
             this.tbCntlAptitudes.Name = "tbCntlAptitudes";
             this.tbCntlAptitudes.SelectedIndex = 0;
             this.tbCntlAptitudes.Size = new System.Drawing.Size(236, 154);
@@ -253,7 +255,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // rtbMagies
             // 
-            this.rtbMagies.Location = new System.Drawing.Point(15, 183);
+            this.rtbMagies.Location = new System.Drawing.Point(15, 218);
             this.rtbMagies.Margin = new System.Windows.Forms.Padding(2);
             this.rtbMagies.Name = "rtbMagies";
             this.rtbMagies.Size = new System.Drawing.Size(233, 68);
@@ -262,7 +264,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // rtbAptitudes
             // 
-            this.rtbAptitudes.Location = new System.Drawing.Point(279, 183);
+            this.rtbAptitudes.Location = new System.Drawing.Point(279, 218);
             this.rtbAptitudes.Margin = new System.Windows.Forms.Padding(2);
             this.rtbAptitudes.Name = "rtbAptitudes";
             this.rtbAptitudes.Size = new System.Drawing.Size(236, 68);
@@ -271,7 +273,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // btnFinaliserFiche
             // 
-            this.btnFinaliserFiche.Location = new System.Drawing.Point(221, 266);
+            this.btnFinaliserFiche.Location = new System.Drawing.Point(221, 301);
             this.btnFinaliserFiche.Margin = new System.Windows.Forms.Padding(2);
             this.btnFinaliserFiche.Name = "btnFinaliserFiche";
             this.btnFinaliserFiche.Size = new System.Drawing.Size(81, 29);
@@ -280,11 +282,30 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnFinaliserFiche.UseVisualStyleBackColor = true;
             this.btnFinaliserFiche.Click += new System.EventHandler(this.btnFinaliserFiche_Click);
             // 
+            // pbComplétionExportationFiche
+            // 
+            this.pbComplétionExportationFiche.Location = new System.Drawing.Point(195, 343);
+            this.pbComplétionExportationFiche.Name = "pbComplétionExportationFiche";
+            this.pbComplétionExportationFiche.Size = new System.Drawing.Size(132, 23);
+            this.pbComplétionExportationFiche.TabIndex = 5;
+            // 
+            // lblNbMagieAptitude
+            // 
+            this.lblNbMagieAptitude.AutoSize = true;
+            this.lblNbMagieAptitude.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNbMagieAptitude.Location = new System.Drawing.Point(112, 9);
+            this.lblNbMagieAptitude.Name = "lblNbMagieAptitude";
+            this.lblNbMagieAptitude.Size = new System.Drawing.Size(331, 21);
+            this.lblNbMagieAptitude.TabIndex = 6;
+            this.lblNbMagieAptitude.Text = "Vous pouvez choisir 2 magies/aptitudes (total)";
+            // 
             // FormulaireMagieEtAptitudes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(527, 306);
+            this.ClientSize = new System.Drawing.Size(527, 378);
+            this.Controls.Add(this.lblNbMagieAptitude);
+            this.Controls.Add(this.pbComplétionExportationFiche);
             this.Controls.Add(this.btnFinaliserFiche);
             this.Controls.Add(this.rtbAptitudes);
             this.Controls.Add(this.rtbMagies);
@@ -298,6 +319,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbCntlMagie.ResumeLayout(false);
             this.tbCntlAptitudes.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -324,5 +346,7 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.RichTextBox rtbMagies;
         private System.Windows.Forms.RichTextBox rtbAptitudes;
         private System.Windows.Forms.Button btnFinaliserFiche;
+        private System.Windows.Forms.ProgressBar pbComplétionExportationFiche;
+        private System.Windows.Forms.Label lblNbMagieAptitude;
     }
 }

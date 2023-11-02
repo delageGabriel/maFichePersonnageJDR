@@ -7,6 +7,7 @@ using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.text.pdf.draw;
+using System.Windows.Forms;
 
 namespace maFichePersonnageJDR.Classe
 {
@@ -16,7 +17,7 @@ namespace maFichePersonnageJDR.Classe
 
         public int IdPersonnage { get => idPersonnage; set => idPersonnage = value; }
 
-        public void CreatePersonnagePdf()
+        public void CreatePersonnagePdf(ProgressBar progressBar)
         {
             #region Initialisation des variables
             string prenomPersonnage = Controller.PersonnageController.GetPrenomPersonnage(IdPersonnage);
@@ -47,6 +48,7 @@ namespace maFichePersonnageJDR.Classe
             AddFormField(document, writer, "Race :" + racePersonnage, 200f);
             AddFormField(document, writer, "Niveau :" + niveauPersonnage, 200f);
             AddFormField(document, writer, "Sexe :" + sexePersonnage, 200f);
+            progressBar.Value += 16;
 
             // Ajoutez les points d'expérience
             AddFormField(document, writer, "Points acquis :" + experiencePersonnage, 200f);
@@ -54,6 +56,7 @@ namespace maFichePersonnageJDR.Classe
 
             // Ajoutez l'histoire du personnage
             AddFormField(document, writer, "Histoire :" + histoirePersonnage, 400f);
+            progressBar.Value += 9;
 
             // Ajoutez la monnaie dans un tableau
             PdfPTable moneyTable = new PdfPTable(3);
@@ -71,6 +74,8 @@ namespace maFichePersonnageJDR.Classe
             moneyTable.AddCell("10");
             moneyTable.AddCell("20");
             moneyTable.AddCell("5");
+
+            progressBar.Value += 10;
 
             document.Add(moneyTable);
 
@@ -95,6 +100,8 @@ namespace maFichePersonnageJDR.Classe
 
             AddCompSocialTable(document, IdPersonnage);
 
+            progressBar.Value += 25;
+
             AddFormField(document, writer, "Équipements", 200f);
 
             AddArmesTable(document, IdPersonnage);
@@ -103,12 +110,21 @@ namespace maFichePersonnageJDR.Classe
 
             AddObjetsTable(document, IdPersonnage);
 
+            progressBar.Value += 20;
+
             AddMagiesTable(document, IdPersonnage);
 
             AddAptitudesTable(document, IdPersonnage);
 
+            progressBar.Value += 20;
+
             // Fermez le document
             document.Close();
+
+            MessageBox.Show("Fiche de personnage créée avec succès !");
+
+            string cheminFichier = string.Format(@"Templates\{0}_{1}.pdf", prenomPersonnage, nomPersonnage);
+            System.Diagnostics.Process.Start(cheminFichier);
             Console.WriteLine("Fiche de personnage créée avec succès !");
         }
 

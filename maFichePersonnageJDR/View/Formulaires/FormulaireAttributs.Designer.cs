@@ -34,13 +34,14 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.tbPgeAttributs = new System.Windows.Forms.TabPage();
             this.rtbAttributs = new System.Windows.Forms.RichTextBox();
             this.btnSauvegarder = new System.Windows.Forms.Button();
+            this.lblNbAttributs = new System.Windows.Forms.Label();
             this.tbControlAttributs.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbControlAttributs
             // 
             this.tbControlAttributs.Controls.Add(this.tbPgeAttributs);
-            this.tbControlAttributs.Location = new System.Drawing.Point(12, 12);
+            this.tbControlAttributs.Location = new System.Drawing.Point(12, 23);
             this.tbControlAttributs.Name = "tbControlAttributs";
             this.tbControlAttributs.SelectedIndex = 0;
             this.tbControlAttributs.Size = new System.Drawing.Size(314, 226);
@@ -75,11 +76,22 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.btnSauvegarder.UseVisualStyleBackColor = true;
             this.btnSauvegarder.Click += new System.EventHandler(this.btnSauvegarder_Click);
             // 
+            // lblNbAttributs
+            // 
+            this.lblNbAttributs.AutoSize = true;
+            this.lblNbAttributs.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNbAttributs.Location = new System.Drawing.Point(74, 3);
+            this.lblNbAttributs.Name = "lblNbAttributs";
+            this.lblNbAttributs.Size = new System.Drawing.Size(224, 21);
+            this.lblNbAttributs.TabIndex = 5;
+            this.lblNbAttributs.Text = "Vous pouvez choisir 2 attributs";
+            // 
             // FormulaireAttributs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(342, 431);
+            this.Controls.Add(this.lblNbAttributs);
             this.Controls.Add(this.btnSauvegarder);
             this.Controls.Add(this.rtbAttributs);
             this.Controls.Add(this.tbControlAttributs);
@@ -90,6 +102,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.Resize += new System.EventHandler(this.FormulaireAttributs_Resize);
             this.tbControlAttributs.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -98,5 +111,6 @@ namespace maFichePersonnageJDR.View.Formulaires
         private System.Windows.Forms.TabPage tbPgeAttributs;
         private System.Windows.Forms.RichTextBox rtbAttributs;
         private System.Windows.Forms.Button btnSauvegarder;
+        private System.Windows.Forms.Label lblNbAttributs;
     }
 }

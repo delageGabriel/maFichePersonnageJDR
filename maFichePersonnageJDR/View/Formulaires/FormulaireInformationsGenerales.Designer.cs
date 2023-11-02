@@ -120,10 +120,10 @@ namespace maFichePersonnageJDR.Formulaires
             // rdbHomme
             // 
             this.rdbHomme.AutoSize = true;
-            this.rdbHomme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rdbHomme.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.rdbHomme.Location = new System.Drawing.Point(416, 29);
             this.rdbHomme.Name = "rdbHomme";
-            this.rdbHomme.Size = new System.Drawing.Size(66, 17);
+            this.rdbHomme.Size = new System.Drawing.Size(73, 18);
             this.rdbHomme.TabIndex = 7;
             this.rdbHomme.TabStop = true;
             this.rdbHomme.Text = "Masculin";
@@ -132,10 +132,10 @@ namespace maFichePersonnageJDR.Formulaires
             // rdbFemme
             // 
             this.rdbFemme.AutoSize = true;
-            this.rdbFemme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rdbFemme.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.rdbFemme.Location = new System.Drawing.Point(416, 53);
             this.rdbFemme.Name = "rdbFemme";
-            this.rdbFemme.Size = new System.Drawing.Size(60, 17);
+            this.rdbFemme.Size = new System.Drawing.Size(67, 18);
             this.rdbFemme.TabIndex = 8;
             this.rdbFemme.TabStop = true;
             this.rdbFemme.Text = "Féminin";
@@ -153,10 +153,10 @@ namespace maFichePersonnageJDR.Formulaires
             // rdbAutre
             // 
             this.rdbAutre.AutoSize = true;
-            this.rdbAutre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rdbAutre.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.rdbAutre.Location = new System.Drawing.Point(416, 77);
             this.rdbAutre.Name = "rdbAutre";
-            this.rdbAutre.Size = new System.Drawing.Size(49, 17);
+            this.rdbAutre.Size = new System.Drawing.Size(56, 18);
             this.rdbAutre.TabIndex = 15;
             this.rdbAutre.TabStop = true;
             this.rdbAutre.Text = "Autre";
