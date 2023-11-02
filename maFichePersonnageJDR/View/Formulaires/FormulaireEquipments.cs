@@ -18,8 +18,8 @@ namespace maFichePersonnageJDR.Formulaires
         private const decimal poidsOr = 0.115m;
         private const decimal poidsArgent = 0.0783m;
         private const decimal poidsCuivre = 0.0402m;
-        private bool isUpdatingFromCode = false;
-
+        private Dictionary<Control, Rectangle> dictionaryControlOriginalSize = new Dictionary<Control, Rectangle>();
+        private Dictionary<Label, Tuple<Rectangle, float>> dictionaryLabelOriginalSize = new Dictionary<Label, Tuple<Rectangle, float>>();
         public int IdPersonnage { get => idPersonnage; set => idPersonnage = value; }
         public decimal QuantiteOr
         {
@@ -129,6 +129,93 @@ namespace maFichePersonnageJDR.Formulaires
             CreateCheckBoxArmures();
             CreateCheckBoxObjet();
             CalculChargeMaxPortable();
+
+            dictionaryControlOriginalSize.Add(this, new Rectangle(this.Location, this.Size));
+
+            /// Chaque control en dehors des panel et TabControl
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is Label)
+                {
+                    dictionaryLabelOriginalSize.Add(ctrl as Label, new Tuple<Rectangle, float>(new Rectangle(ctrl.Location, ctrl.Size), (ctrl as Label).Font.Size));
+                }
+                else
+                {
+                    dictionaryControlOriginalSize.Add(ctrl, new Rectangle(ctrl.Location, ctrl.Size));
+                }
+            }
+
+            /// TabControl Armes
+            foreach (TabPage tabPage in tbCntlArmes.TabPages)
+            {
+                foreach(Control control in tabPage.Controls)
+                {
+                    if (control is Label)
+                    {
+                        dictionaryLabelOriginalSize.Add(control as Label, new Tuple<Rectangle, float>(new Rectangle(control.Location, control.Size), 
+                            (control as Label).Font.Size));
+                    }
+                    else
+                    {
+                        dictionaryControlOriginalSize.Add(control, new Rectangle(control.Location, control.Size));
+                    }
+                }
+            }
+
+            /// TabControl Armures
+            foreach (TabPage tabPage in tbCntlArmures.TabPages)
+            {
+                foreach (Control control in tabPage.Controls)
+                {
+                    if (control is Label)
+                    {
+                        dictionaryLabelOriginalSize.Add(control as Label, new Tuple<Rectangle, float>(new Rectangle(control.Location, control.Size),
+                            (control as Label).Font.Size));
+                    }
+                    else
+                    {
+                        dictionaryControlOriginalSize.Add(control, new Rectangle(control.Location, control.Size));
+                    }
+                }
+            }
+
+            /// TabControl Objets
+            foreach (TabPage tabPage in tbCntlObjets.TabPages)
+            {
+                foreach (Control control in tabPage.Controls)
+                {
+                    if (control is Label)
+                    {
+                        dictionaryLabelOriginalSize.Add(control as Label, new Tuple<Rectangle, float>(new Rectangle(control.Location, control.Size),
+                            (control as Label).Font.Size));
+                    }
+                    else
+                    {
+                        dictionaryControlOriginalSize.Add(control, new Rectangle(control.Location, control.Size));
+                    }
+                }
+            }
+
+            /// Panel infos achats/ventes armes
+            foreach (Control control in pnlArmesAchatVentePoids.Controls)
+            {
+                dictionaryLabelOriginalSize.Add(control as Label, new Tuple<Rectangle, float>(new Rectangle(control.Location, control.Size),
+                            (control as Label).Font.Size));
+            }
+
+            /// Panel infos achats/Ventes armures
+            foreach (Control control in pnlArmuresAchatVentePoids.Controls)
+            {
+                dictionaryLabelOriginalSize.Add(control as Label, new Tuple<Rectangle, float>(new Rectangle(control.Location, control.Size),
+                            (control as Label).Font.Size));
+            }
+
+            /// Panel infos achats/ventes objets
+            foreach (Control control in pnlObjetsAchatVentePoids.Controls)
+            {
+                dictionaryLabelOriginalSize.Add(control as Label, new Tuple<Rectangle, float>(new Rectangle(control.Location, control.Size),
+                            (control as Label).Font.Size));
+            }
         }
 
         public void linkLabelArme_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -1422,6 +1509,23 @@ namespace maFichePersonnageJDR.Formulaires
             decimal chargeMaximalePersonnage = Convert.ToDecimal(Utils.DeleteCharacterFromString(lblChrgeMxm.Text, characterDelete));
 
             return chargeMaximalePersonnage > (montantInitialDecimal + valeurAjouterDecimal);
+        }
+
+        private void FormulaireEquipments_Resize(object sender, EventArgs e)
+        {
+            float xRatio = (float)this.Width / dictionaryControlOriginalSize[this].Width;
+            float yRatio = (float)this.Height / dictionaryControlOriginalSize[this].Height;
+
+            foreach (KeyValuePair<Label, Tuple<Rectangle, float>> entry in dictionaryLabelOriginalSize)
+            {
+                Utils.AdjustLabelSizeAndPosition(entry.Key, entry.Value.Item1, entry.Value.Item2, xRatio, yRatio);
+            }
+            foreach (KeyValuePair<Control, Rectangle> entry in dictionaryControlOriginalSize)
+            {
+                Utils.AdjustControlSizeAndPosition(entry.Key, entry.Value, xRatio, yRatio);
+            }
+
+            this.Refresh();
         }
     }
 }

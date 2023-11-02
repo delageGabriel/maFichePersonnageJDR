@@ -813,7 +813,6 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(985, 608);
             this.Controls.Add(this.pnlObjetsAchatVentePoids);
             this.Controls.Add(this.pnlArmuresAchatVentePoids);
@@ -851,6 +850,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.Name = "FormulaireEquipments";
             this.Text = " Équipements";
             this.Load += new System.EventHandler(this.FormulaireEquipments_Load);
+            this.Resize += new System.EventHandler(this.FormulaireEquipments_Resize);
             this.tbCntlArmes.ResumeLayout(false);
             this.tbCntlArmures.ResumeLayout(false);
             this.tbCntlObjets.ResumeLayout(false);
