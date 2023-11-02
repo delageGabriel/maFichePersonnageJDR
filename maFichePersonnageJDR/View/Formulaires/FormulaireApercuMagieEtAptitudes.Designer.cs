@@ -29,6 +29,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormulaireApercuMagieEtAptitudes));
             this.lblTemplateNomMagieAptitude = new System.Windows.Forms.Label();
             this.lblNomMagieAptitude = new System.Windows.Forms.Label();
             this.lblTemplateTypeMagieAptitude = new System.Windows.Forms.Label();
@@ -140,7 +141,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.rTxtBxTemplateDescrMagieAptitude.EnableAutoDragDrop = true;
             this.rTxtBxTemplateDescrMagieAptitude.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rTxtBxTemplateDescrMagieAptitude.Location = new System.Drawing.Point(14, 132);
-            this.rTxtBxTemplateDescrMagieAptitude.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rTxtBxTemplateDescrMagieAptitude.Margin = new System.Windows.Forms.Padding(2);
             this.rTxtBxTemplateDescrMagieAptitude.Name = "rTxtBxTemplateDescrMagieAptitude";
             this.rTxtBxTemplateDescrMagieAptitude.Size = new System.Drawing.Size(555, 119);
             this.rTxtBxTemplateDescrMagieAptitude.TabIndex = 25;
@@ -172,7 +173,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.Controls.Add(this.lblTypeMagieAptitude);
             this.Controls.Add(this.lblTemplateNomMagieAptitude);
             this.Controls.Add(this.lblNomMagieAptitude);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormulaireApercuMagieEtAptitudes";
             this.Text = "Aperçu";
             this.Load += new System.EventHandler(this.FormulaireApercuMagieEtAptitudes_Load);

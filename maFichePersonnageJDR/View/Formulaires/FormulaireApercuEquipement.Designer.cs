@@ -29,6 +29,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormulaireApercuEquipement));
             this.lblNomEquipement = new System.Windows.Forms.Label();
             this.lblTypeEquipement = new System.Windows.Forms.Label();
             this.lblPoidsEquipement = new System.Windows.Forms.Label();
@@ -355,6 +356,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.Controls.Add(this.lblPoidsEquipement);
             this.Controls.Add(this.lblTypeEquipement);
             this.Controls.Add(this.lblNomEquipement);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormulaireApercuEquipement";
             this.Text = "Aperçu";
             this.Load += new System.EventHandler(this.FormulaireApercuEquipement_Load);

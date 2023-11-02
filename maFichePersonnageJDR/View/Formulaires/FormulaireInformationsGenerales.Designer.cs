@@ -29,6 +29,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormulaireInfosGenerales));
             this.lblPrenom = new System.Windows.Forms.Label();
             this.txtBoxPrenom = new System.Windows.Forms.TextBox();
             this.txtBoxNom = new System.Windows.Forms.TextBox();
@@ -319,6 +320,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.Controls.Add(this.lblNom);
             this.Controls.Add(this.txtBoxPrenom);
             this.Controls.Add(this.lblPrenom);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormulaireInfosGenerales";
             this.Text = "Informations générales";
             this.Load += new System.EventHandler(this.FormulaireInfosGenerales_Load);

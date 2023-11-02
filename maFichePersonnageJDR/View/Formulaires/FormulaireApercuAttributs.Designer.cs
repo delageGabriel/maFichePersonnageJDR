@@ -29,6 +29,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormulaireApercuAttributs));
             this.lblTemplateNomAttribut = new System.Windows.Forms.Label();
             this.lblNomAttribut = new System.Windows.Forms.Label();
             this.lblTemplateTypeAttribut = new System.Windows.Forms.Label();
@@ -149,6 +150,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.Controls.Add(this.lblTypeAttribut);
             this.Controls.Add(this.lblTemplateNomAttribut);
             this.Controls.Add(this.lblNomAttribut);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormulaireApercuAttributs";
             this.Text = "FormulaireApercuAttributs";
             this.Load += new System.EventHandler(this.FormulaireApercuAttributs_Load);

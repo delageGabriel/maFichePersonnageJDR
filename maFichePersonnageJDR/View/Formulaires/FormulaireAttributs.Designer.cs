@@ -29,6 +29,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormulaireAttributs));
             this.tbControlAttributs = new System.Windows.Forms.TabControl();
             this.tbPgeAttributs = new System.Windows.Forms.TabPage();
             this.rtbAttributs = new System.Windows.Forms.RichTextBox();
@@ -82,6 +83,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.Controls.Add(this.btnSauvegarder);
             this.Controls.Add(this.rtbAttributs);
             this.Controls.Add(this.tbControlAttributs);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormulaireAttributs";
             this.Text = "Attributs";
             this.Load += new System.EventHandler(this.FormulaireAttributs_Load);

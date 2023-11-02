@@ -29,6 +29,7 @@ namespace maFichePersonnageJDR
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.btnCreerPersonnage = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -48,6 +49,7 @@ namespace maFichePersonnageJDR
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(217, 200);
             this.Controls.Add(this.btnCreerPersonnage);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPrincipal";
             this.Text = "Menu";
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);

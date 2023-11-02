@@ -29,6 +29,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormulaireCompetencesCaracteristiques));
             this.nudEnergie = new System.Windows.Forms.NumericUpDown();
             this.nudPV = new System.Windows.Forms.NumericUpDown();
             this.lblEnergie = new System.Windows.Forms.Label();
@@ -1561,6 +1562,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.Controls.Add(this.gbSocial);
             this.Controls.Add(this.gbMental);
             this.Controls.Add(this.gbPhysique);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormulaireCompetencesCaracteristiques";
             this.Text = "Caractéristiques et Compétences";
             this.Load += new System.EventHandler(this.FormulaireCompetencesCaracteristiques_Load);

@@ -29,6 +29,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormulaireMagieEtAptitudes));
             this.tbCntlMagie = new System.Windows.Forms.TabControl();
             this.tbPgeAquatique = new System.Windows.Forms.TabPage();
             this.tbPgeIgnis = new System.Windows.Forms.TabPage();
@@ -289,6 +290,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.Controls.Add(this.rtbMagies);
             this.Controls.Add(this.tbCntlAptitudes);
             this.Controls.Add(this.tbCntlMagie);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormulaireMagieEtAptitudes";
             this.Text = "Magies & Aptitudes";
             this.Load += new System.EventHandler(this.FormulaireMagieEtAptitudes_Load);

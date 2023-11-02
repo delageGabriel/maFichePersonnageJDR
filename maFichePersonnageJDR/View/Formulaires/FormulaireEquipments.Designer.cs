@@ -29,6 +29,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormulaireEquipments));
             this.tbCntlArmes = new System.Windows.Forms.TabControl();
             this.tbPgeEpee = new System.Windows.Forms.TabPage();
             this.tbPgeLance = new System.Windows.Forms.TabPage();
@@ -847,6 +848,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.Controls.Add(this.tbCntlObjets);
             this.Controls.Add(this.tbCntlArmures);
             this.Controls.Add(this.tbCntlArmes);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormulaireEquipments";
             this.Text = " Équipements";
             this.Load += new System.EventHandler(this.FormulaireEquipments_Load);
