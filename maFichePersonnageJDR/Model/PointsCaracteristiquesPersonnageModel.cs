@@ -52,7 +52,7 @@ namespace maFichePersonnageJDR.Model
             }
         }
 
-        public PointsCaracteristiquesPersonnageModel GetBaseCaracteristiques(int idPersonnage)
+        public static PointsCaracteristiquesPersonnageModel GetBaseCaracteristiques(int idPersonnage)
         {
             #region Initialisation des variables
             PointsCaracteristiquesPersonnageModel physiqueToReturn = new PointsCaracteristiquesPersonnageModel();

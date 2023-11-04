@@ -163,12 +163,10 @@ namespace maFichePersonnageJDR.Controller
         {
             Console.WriteLine(string.Format("########### Méthode GetPhysiquePersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
 
-            PointsCaracteristiquesPersonnageModel pointsCaracteristiquesPersonnage = new PointsCaracteristiquesPersonnageModel();
-
             try
             {
                 // On envoie les informations du personnage à sauvegarder
-                return pointsCaracteristiquesPersonnage.GetBaseCaracteristiques(idPersonnage).NombrePhysique;
+                return PointsCaracteristiquesPersonnageModel.GetBaseCaracteristiques(idPersonnage).NombrePhysique;
             }
             catch (Exception e)
             {
@@ -185,12 +183,10 @@ namespace maFichePersonnageJDR.Controller
         {
             Console.WriteLine(string.Format("########### Méthode GetMentalPersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
 
-            PointsCaracteristiquesPersonnageModel pointsCaracteristiquesPersonnage = new PointsCaracteristiquesPersonnageModel();
-
             try
             {
                 // On envoie les informations du personnage à sauvegarder
-                return pointsCaracteristiquesPersonnage.GetBaseCaracteristiques(idPersonnage).NombreMental;
+                return PointsCaracteristiquesPersonnageModel.GetBaseCaracteristiques(idPersonnage).NombreMental;
             }
             catch (Exception e)
             {
@@ -207,12 +203,10 @@ namespace maFichePersonnageJDR.Controller
         {
             Console.WriteLine(string.Format("########### Méthode GetSocialPersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
 
-            PointsCaracteristiquesPersonnageModel pointsCaracteristiquesPersonnage = new PointsCaracteristiquesPersonnageModel();
-
             try
             {
                 // On envoie les informations du personnage à sauvegarder
-                return pointsCaracteristiquesPersonnage.GetBaseCaracteristiques(idPersonnage).NombreSocial;
+                return PointsCaracteristiquesPersonnageModel.GetBaseCaracteristiques(idPersonnage).NombreSocial;
             }
             catch (Exception e)
             {
