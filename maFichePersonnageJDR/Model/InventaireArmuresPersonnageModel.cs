@@ -197,6 +197,7 @@ namespace maFichePersonnageJDR.Model
 
                         // On vérifie si une ligne existe déjà avec le nom prénom du personnage
                         string value = reader["valeur_armure"].ToString();
+                        value = Utils.ConvertMoneyWithValue(int.Parse(value));
                         listValeurArmure.Add(value);
                     }
                 }

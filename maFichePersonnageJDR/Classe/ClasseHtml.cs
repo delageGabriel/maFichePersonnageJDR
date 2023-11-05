@@ -218,6 +218,7 @@ namespace maFichePersonnageJDR.Classe
                     {11}
                 </tbody>
             </table>
+            <h1>Notes</h1>
             ", PointsCaracteristiquesPersonnageModel.GetBaseCaracteristiques(IdPersonnage).NombrePhysique,
                PointsCaracteristiquesPersonnageModel.GetBaseCaracteristiques(IdPersonnage).NombreMental,
                PointsCaracteristiquesPersonnageModel.GetBaseCaracteristiques(IdPersonnage).NombreSocial,
@@ -384,7 +385,6 @@ namespace maFichePersonnageJDR.Classe
             List<string> typesDegatsArmes = Controller.EquipmentController.GetListTypeDegatsArmes(idPersonnage);
             List<string> degatsArmes = Controller.EquipmentController.GetListDegatsArmes(idPersonnage);
             List<string> valeurArmes = Controller.EquipmentController.GetListValeurArmes(idPersonnage);
-            List<string> specialsArmes = Controller.EquipmentController.GetListSpecialArmes(idPersonnage);
             #endregion
 
             for (int i = 0; i < typesArmes.Count; i++)
