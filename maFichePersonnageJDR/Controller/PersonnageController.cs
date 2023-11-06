@@ -279,5 +279,56 @@ namespace maFichePersonnageJDR.Controller
                 throw e;
             }
         }
+
+        public static int GetPieceOrPersonnage(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetPieceOrPersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            BoursePersonnageModel boursePersonnage = new BoursePersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return boursePersonnage.GetBoursePersonnage(idPersonnage).PieceOr;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static int GetPieceArgentPersonnage(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetPieceArgentPersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            BoursePersonnageModel boursePersonnage = new BoursePersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return boursePersonnage.GetBoursePersonnage(idPersonnage).PieceArgent;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static int GetPieceCuivrePersonnage(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetPieceCuivrePersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            BoursePersonnageModel boursePersonnage = new BoursePersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return boursePersonnage.GetBoursePersonnage(idPersonnage).PieceCuivre;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

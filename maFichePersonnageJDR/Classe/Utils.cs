@@ -255,5 +255,10 @@ namespace maFichePersonnageJDR.Classe
             float newFontSize = originalFontSize * Math.Min(xRatio, yRatio); // Vous pouvez choisir xRatio ou yRatio selon ce qui convient le mieux
             label.Font = new Font(label.Font.FontFamily, newFontSize, label.Font.Style);
         }
+
+        public static short GetDizaineInteger(int caracteristique)
+        {
+            return Convert.ToInt16((caracteristique / 10) % 10);
+        }
     }
 }
