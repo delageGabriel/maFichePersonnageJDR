@@ -23,6 +23,9 @@ namespace maFichePersonnageJDR.Classe
             int niveauPersonnage = PersonnageController.GetNiveauPersonnage(IdPersonnage);
             string sexePersonnage = PersonnageController.GetSexePersonnage(IdPersonnage);
             int experiencePersonnage = PersonnageController.GetExperiencePersonnage(IdPersonnage);
+            int esquivePersonnage = (CompetencesCaracteristiquesController.GetValueCompetence("Physique", "agilite", IdPersonnage) + CompetencesCaracteristiquesController.GetValueCompetence("Physique", "reflexes", IdPersonnage)) / 3;
+            int resistanceMental = (CompetencesCaracteristiquesController.GetValueCompetence("Mental", "esprit", IdPersonnage) + CompetencesCaracteristiquesController.GetValueCompetence("Mental", "volonte", IdPersonnage)) / 3;
+            string initiativePersonnage = GetInitiativePersonnage(CompetencesCaracteristiquesController.GetValueCompetence("Physique", "agilite", IdPersonnage));
             short[] dexteriteCaracteristiques = {
                 Utils.GetDizaineInteger(CompetencesCaracteristiquesController.GetPhysiquePersonnage(IdPersonnage)),
                 Utils.GetDizaineInteger(CompetencesCaracteristiquesController.GetMentalPersonnage(IdPersonnage)),
@@ -40,244 +43,280 @@ namespace maFichePersonnageJDR.Classe
             #endregion
 
             string htmlContent = string.Format(@"
-            <h1>Informations générales</h1>
-            <table>
-                <tbody>
-                    <tr>
-                        <td>Race :</td>
-                        <td>{0}</td>
-                        <td>Niveau :</td>
-                        <td>{1}</td>
-                        <td>Sexe :</td>
-                        <td>{2}</td>
-                    </tr>
-                    <tr>
-                        <td>Expérience :</td>
-                        <td colspan=""5"">{3}</td>
-                    </tr>
-                </tbody>
-            </table>
-            <h2>Attributs</h2>
-            <table style=""width: 70 %; border - collapse:collapse; margin: 20px 0; text - align:center"">
-                <thead>
-                    <tr style=""background - color:#333;color:white"">
-                        <th>Nom</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Notes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {4}
-                </tbody>
-            </table>
-            <h2>Monnaie</h2>
-            <table style=""width:70%;border-collapse:collapse;margin:20px 0;text-align:center"">
-                <thead>
-                    <tr style=""background - color:#333;color:white"">
-                        <th>Nom monnaie</th>
-                        <th>Or</th>
-                        <th>Argent</th>
-                        <th>Cuivre</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <td style=""border:1px solid #dddddd;padding:8px"">Sesterce(s)</td>                    
-                    <td style=""border:1px solid #dddddd;padding:8px"">{5}</td>
-                    <td style=""border:1px solid #dddddd;padding:8px"">{6}</td>
-                    <td style=""border:1px solid #dddddd;padding:8px"">{7}</td>
-                </tbody>
-            </table>
-            <h1>Caractéristiques & Compétences</h1>
-            <h2>Caractéristiques</h2>
-            <table style=""width: 50 %; border - collapse:collapse; margin: 20px 0; text - align:center"">
-                <thead>
-                    <tr style=""background-color:#333;color:white"">
-                        <th>Type</th>
-                        <th>Base</th>
-                        <th>Temporaire</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr style=""color:red"">
-                        <tr style=""color:red"">
-                        <td style=""border:1px solid #dddddd;padding:8px"">Physique</td>
-                        <td style=""border:1px solid #dddddd;padding:8px"">{8}</td>
-                        <td style=""border:1px solid #dddddd;padding:8px"">0</td>
-                        <td style=""border:1px solid #dddddd;padding:8px"">{8}</td>
-                    </tr>
-                    <tr style=""color:blue"">
-                        <td style=""border:1px solid #dddddd;padding:8px"">Mental</td>
-                        <td style=""border:1px solid #dddddd;padding:8px"">{9}</td>
-                        <td style=""border:1px solid #dddddd;padding:8px"">0</td>
-                        <td style=""border:1px solid #dddddd;padding:8px"">{9}</td>
-                    </tr>
-                    <tr style=""color:green"">
-                        <td style=""border:1px solid #dddddd;padding:8px"">Social</td>
-                        <td style=""border:1px solid #dddddd;padding:8px"">{10}</td>
-                        <td style=""border:1px solid #dddddd;padding:8px"">0</td>
-                        <td style=""border:1px solid #dddddd;padding:8px"">{10}</td>
-                    </tr>
-                </tbody>
-            </table>
-            <h2>Dextérité</h2>
-            <table>
-                <thead>
-                    <tr style=""background-color:#333;color:white"">
-                        <th>Nom caractéristiques</th>
-                        <th>Base</th>
-                        <th>Temporaire</th>
-                        <th>Caractéristiques</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr style=""color:red"">
-                        <tr style=""color:red"">
-                        <td style=""border:1px solid #dddddd;padding:8px"">Physique</td>
-                        <td style=""border:1px solid #dddddd;padding:8px"">{19}</td>
-                        <td style=""border:1px solid #dddddd;padding:8px"">0</td>
-                        <td style=""border:1px solid #dddddd;padding:8px"">{8}</td>
-                        <td style=""border:1px solid #dddddd;padding:8px"">{22}</td>
-                    </tr>
-                    <tr style=""color:blue"">
+            <details style=""border:1px solid #aaa;border-radius:4px;padding:0.5em 0.5em 0"">
+                <summary style=""font-weight:bold;font-size:x-large;margin:-0.5em -0.5em 0;padding:0.5em"">
+                    <strong>
+                        <p>Informations générales</p>
+                    </strong>
+                </summary>
+                <table>
+                    <thead>
+                        <tr style=""background-color:#333;color:white"">
+                            <th>Race</th>
+                            <th>Niveau</th>
+                            <th>Sexe</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{0}</td>
+                            <td>{1}</td>
+                            <td>{2}</td>
+                        </tr>
+                        <!--<tr>
+                            <td>Expérience :</td>
+                            <td colspan=""5"">{3}</td>
+                        </tr>-->
+                    </tbody>
+                </table>
+                <h2>Langue</h2>
+                <table style=""width:70%;border-collapse:collapse;margin:20px 0;text-align:center"">
+                    <thead>
+                        <tr style=""background-color:#333;color:white"">
+                            <th>Langues</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <td style=""border:1px solid #dddddd;padding:8px""></td>
+                    </tbody>
+                </table>
+                <h2>Attributs</h2>
+                <table style=""width:70%;border-collapse:collapse;margin:20px 0;text-align:center"">
+                    <thead>
+                        <tr style=""background-color:#333;color:white"">
+                            <th>Nom</th>
+                            <th>Description</th>
+                            <th>Type</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {4}
+                    </tbody>
+                </table>
+                <h2>Monnaie</h2>
+                <table style=""width:70%;border-collapse:collapse;margin:20px 0;text-align:center"">
+                    <thead>
+                        <tr style=""background-color:#333;color:white"">
+                            <th>Nom monnaie</th>
+                            <th>Or</th>
+                            <th>Argent</th>
+                            <th>Cuivre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style=""border:1px solid #dddddd;padding:8px;text-align:center;"">
+                            <td>Sesterce(s)</td>
+                            <td>{5}</td>
+                            <td>{6}</td>
+                            <td>{7}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </details>
+            <details style=""border:1px solid #aaa;border-radius:4px;padding:0.5em 0.5em 0"">
+                <summary style=""font-weight:bold;font-size:x-large;margin:-0.5em -0.5em 0;padding:0.5em"">
+                    <strong>
+                        <p>Caractéristiques & Compétences</p>
+                    </strong>
+                </summary>
+                <h2>Caractéristiques</h2>
+                <table style=""width:50%;border-collapse:collapse;margin:20px 0;text-align:center"">
+                    <thead>
+                        <tr style=""background-color:#333;color:white"">
+                            <th>Type</th>
+                            <th>Base</th>
+                            <th>Temporaire</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style=""color:darkred"">
+                            <td style=""border:1px solid #dddddd;padding:8px"">Physique</td>
+                            <td style=""border:1px solid #dddddd;padding:8px"">{8}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px"">0</td>
+                            <td style=""border:1px solid #dddddd;padding:8px"">{8}</td>
+                        </tr>
                         <tr style=""color:blue"">
-                        <td style=""border:1px solid #dddddd;padding:8px"">Mental</td>
-                        <td style=""border:1px solid #dddddd;padding:8px"">{20}</td>
-                        <td style=""border:1px solid #dddddd;padding:8px"">0</td>
-                        <td style=""border:1px solid #dddddd;padding:8px"">{9}</td>
-                        <td style=""border:1px solid #dddddd;padding:8px"">{23}</td>
-                    </tr>
-                    <tr style=""color:green"">
+                            <td style=""border:1px solid #dddddd;padding:8px"">Mental</td>
+                            <td style=""border:1px solid #dddddd;padding:8px"">{9}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px"">0</td>
+                            <td style=""border:1px solid #dddddd;padding:8px"">{9}</td>
+                        </tr>
                         <tr style=""color:green"">
-                        <td style=""border:1px solid #dddddd;padding:8px"">Social</td>
-                        <td style=""border:1px solid #dddddd;padding:8px"">{21}</td>
-                        <td style=""border:1px solid #dddddd;padding:8px"">0</td>
-                        <td style=""border:1px solid #dddddd;padding:8px"">{10}</td>
-                        <td style=""border:1px solid #dddddd;padding:8px"">{24}</td>
-                    </tr>
-                </tbody>
-            </table>
-            <h2>Compétences physiques</h2>
-            <table style=""width:70%;border-collapse:collapse;margin:20px 0;text-align:center"">
-                <thead>
-                    <tr style=""background-color:#333;color:white"">
-                        <th style=""white-space:nowrap"">Nom</th>
-                        <th style=""white-space:nowrap"">Base</th>
-                        <th style=""white-space:nowrap"">Caractéristique</th>
-                        <th style=""white-space:nowrap"">Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {11}
-                </tbody>
-            </table>
-            <h2>Compétences mentales</h2>
-            <table style=""width:70%;border-collapse:collapse;margin:20px 0;text-align:center"">
-                <thead>
-                    <tr style=""background-color:#333;color:white"">
-                        <th style=""white-space:nowrap"">Nom</th>
-                        <th style=""white-space:nowrap"">Base</th>
-                        <th style=""white-space:nowrap"">Caractéristique</th>
-                        <th style=""white-space:nowrap"">Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {12}
-                </tbody>
-            </table>
-            <h2>Compétences sociales</h2>
-            <table style=""width:70%;border-collapse:collapse;margin:20px 0;text-align:center"">
-                <thead>
-                    <tr style=""background-color:#333;color:white"">
-                        <th style=""white-space:nowrap"">Nom</th>
-                        <th style=""white-space:nowrap"">Base</th>
-                        <th style=""white-space:nowrap"">Caractéristique</th>
-                        <th style=""white-space:nowrap"">Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {13}
-                </tbody>
-            </table>
-            <h1>Équipements</h1>
-            <h2>Armes</h2>
-            <table style=""width:70%;border-collapse:collapse;margin:20px 0;text-align:center"">
-                <thead>
-                    <tr style=""background - color:#333;color:white"">
-                        <th style=""white-space:nowrap"">Type</th>
-                        <th style=""white-space:nowrap"">Nom</th>
-                        <th style=""white-space:nowrap"">Poids</th>
-                        <th style=""white-space:nowrap"">Allonge</th>
-                        <th style=""white-space:nowrap"">Main(s)</th>
-                        <th style=""white-space:nowrap"">Type(s) de dégât(s)</th>
-                        <th style=""white-space:nowrap"">Dégâts</th>
-                        <th style=""white-space:nowrap"">Valeur monétaire</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {14}
-                </tbody>
-            </table>
-            <h2>Armures</h2>
-            <table style=""width:70%;border-collapse:collapse;margin:20px 0;text-align:center"">
-                <thead>
-                    <tr style=""background - color:#333;color:white"">
-                        <th style=""white-space:nowrap"">Type</th>
-                        <th style=""white-space:nowrap"">Nom</th>
-                        <th style=""white-space:nowrap"">Poids</th>
-                        <th style=""white-space:nowrap"">Valeur monétaire</th>
-                        <th style=""white-space:nowrap"">Protection</th>
-                        <th style=""white-space:nowrap"">Bonus</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {15}
-                </tbody>
-            </table>
-            <h2>Objets</h2>
-            <table style=""width:70%;border-collapse:collapse;margin:20px 0;text-align:center"">
-                <thead>
-                    <tr style=""background - color:#333;color:white"">
-                        <th style=""white-space:nowrap"">Type</th>
-                        <th style=""white-space:nowrap"">Nom</th>
-                        <th style=""white-space:nowrap"">Poids</th>
-                        <th style=""white-space:nowrap"">Valeur monétaire</th>
-                        <th style=""white-space:nowrap"">Consommable</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {16}
-                </tbody>
-            </table>
-            <h1>Magie(s) & Aptitude(s)</h1>
-            <h2>Magie(s)</h2>
-            <table style=""width:70%;border-collapse:collapse;margin:20px 0;text-align:center"">
-                <thead>
-                    <tr style=""background - color:#333;color:white"">
-                        <th style=""white-space:nowrap"">Type</th>
-                        <th style=""white-space:nowrap"">Nom</th>
-                        <th style=""white-space:nowrap"">Coût (moyen)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {17}
-                </tbody>
-            </table>
-            <h2>Aptitude(s)</h2>
-            <table style=""width:70%;border-collapse:collapse;margin:20px 0;text-align:center"">
-                <thead>
-                    <tr style=""background - color:#333;color:white"">
-                        <th style=""white-space:nowrap"">Type</th>
-                        <th style=""white-space:nowrap"">Nom</th>
-                        <th style=""white-space:nowrap"">Coût (moyen)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {18}
-                </tbody>
-            </table>
+                            <td style=""border:1px solid #dddddd;padding:8px"">Social</td>
+                            <td style=""border:1px solid #dddddd;padding:8px"">{10}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px"">0</td>
+                            <td style=""border:1px solid #dddddd;padding:8px"">{10}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h2>Dextérité</h2>
+                <table>
+                    <thead>
+                        <tr style=""background-color:#333;color:white"">
+                            <th>Nom caractéristiques</th>
+                            <th>Base</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style=""color:darkred"">
+                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">Physique</td>
+                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">{11}</td>
+                        </tr>
+                        <tr style=""color:blue"">
+                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">Mental</td>
+                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">{12}</td>
+                        </tr>
+                        <tr style=""color:green"">
+                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">Social</td>
+                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">{13}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h2>Compétences spéciales</h2>                    
+                <table style=""width:70%;border-collapse:collapse;margin:20px 0;text-align:center"">
+                    <thead>
+                        <tr style=""background-color:#333;color:white"">
+                            <th>Esquive</th>
+                            <th>Résistance mentale</th>
+                            <th>Initiative</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">{14}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">{15}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">[[/r 1d{16} # Jet d'initiative]]</td> 
+                        </tr>
+                    </tbody>
+                </table>
+                <h2>Compétences physiques</h2>
+                <table style=""width:70%;border-collapse:collapse;margin:20px 0;text-align:center"">
+                    <thead>
+                        <tr style=""background-color:#333;color:white"">
+                            <th style=""white-space:nowrap"">Nom</th>
+                            <th style=""white-space:nowrap"">Base</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {17}
+                    </tbody>
+                </table>
+                <h2>Compétences mentales</h2>
+                <table style=""width:70%;border-collapse:collapse;margin:20px 0;text-align:center"">
+                    <thead>
+                        <tr style=""background-color:#333;color:white"">
+                            <th style=""white-space:nowrap"">Nom</th>
+                            <th style=""white-space:nowrap"">Base</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {18}
+                    </tbody>
+                </table>
+                <h2>Compétences sociales</h2>
+                <table style=""width:70%;border-collapse:collapse;margin:20px 0;text-align:center"">
+                    <thead>
+                        <tr style=""background-color:#333;color:white"">
+                            <th style=""white-space:nowrap"">Nom</th>
+                            <th style=""white-space:nowrap"">Base</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {19}
+                    </tbody>
+                </table>
+            </details>
+            <details style=""border:1px solid #aaa;border-radius:4px;padding:0.5em 0.5em 0"">
+                <summary style=""font-weight:bold;font-size:x-large;margin:-0.5em -0.5em 0;padding:0.5em"">
+                    <strong>
+                        <p>Équipement(s)</p>
+                    </strong>
+                </summary>
+                <h2>Armes</h2>
+                <table style=""width:70%;border-collapse:collapse;margin:20px 0;text-align:center"">
+                    <thead>
+                        <tr style=""background - color:#333;color:white"">
+                            <th style=""white-space:nowrap"">Type</th>
+                            <th style=""white-space:nowrap"">Nom</th>
+                            <th style=""white-space:nowrap"">Poids</th>
+                            <th style=""white-space:nowrap"">Allonge</th>
+                            <th style=""white-space:nowrap"">Main(s)</th>
+                            <th style=""white-space:nowrap"">Type(s) de dégât(s)</th>
+                            <th style=""white-space:nowrap"">Dégâts</th>
+                            <th style=""white-space:nowrap"">Valeur monétaire</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {20}
+                    </tbody>
+                </table>
+                <h2>Armures</h2>
+                <table style=""width:70%;border-collapse:collapse;margin:20px 0;text-align:center"">
+                    <thead>
+                        <tr style=""background - color:#333;color:white"">
+                            <th style=""white-space:nowrap"">Type</th>
+                            <th style=""white-space:nowrap"">Nom</th>
+                            <th style=""white-space:nowrap"">Poids</th>
+                            <th style=""white-space:nowrap"">Valeur monétaire</th>
+                            <th style=""white-space:nowrap"">Protection</th>
+                            <th style=""white-space:nowrap"">Bonus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {21}
+                    </tbody>
+                </table>
+                <h2>Objets</h2>
+                <table style=""width:70%;border-collapse:collapse;margin:20px 0;text-align:center"">
+                    <thead>
+                        <tr style=""background - color:#333;color:white"">
+                            <th style=""white-space:nowrap"">Type</th>
+                            <th style=""white-space:nowrap"">Nom</th>
+                            <th style=""white-space:nowrap"">Poids</th>
+                            <th style=""white-space:nowrap"">Valeur monétaire</th>
+                            <th style=""white-space:nowrap"">Consommable</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {22}
+                    </tbody>
+                </table>
+            </details>
+            <details style=""border:1px solid #aaa;border-radius:4px;padding:0.5em 0.5em 0"">
+                <summary style=""font-weight:bold;font-size:x-large;margin:-0.5em -0.5em 0;padding:0.5em"">
+                    <strong>
+                        <p>Magie(s) & Aptitude(s)</p>
+                    </strong>
+                </summary>
+                <h2>Magie(s)</h2>
+                <table style=""width:70%;border-collapse:collapse;margin:20px 0;text-align:center"">
+                    <thead>
+                        <tr style=""background - color:#333;color:white"">
+                            <th style=""white-space:nowrap"">Type</th>
+                            <th style=""white-space:nowrap"">Nom</th>
+                            <th style=""white-space:nowrap"">Coût (moyen)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {23}
+                    </tbody>
+                </table>
+                <h2>Aptitude(s)</h2>
+                <table style=""width:70%;border-collapse:collapse;margin:20px 0;text-align:center"">
+                    <thead>
+                        <tr style=""background - color:#333;color:white"">
+                            <th style=""white-space:nowrap"">Type</th>
+                            <th style=""white-space:nowrap"">Nom</th>
+                            <th style=""white-space:nowrap"">Coût (moyen)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {24}
+                    </tbody>
+                </table>
+            </details>
             <h1>Notes</h1>
             ",
                racePersonnage,
@@ -291,6 +330,12 @@ namespace maFichePersonnageJDR.Classe
                CompetencesCaracteristiquesController.GetPhysiquePersonnage(IdPersonnage),
                CompetencesCaracteristiquesController.GetMentalPersonnage(IdPersonnage),
                CompetencesCaracteristiquesController.GetSocialPersonnage(IdPersonnage),
+               dexteriteCaracteristiques[0],
+               dexteriteCaracteristiques[1],
+               dexteriteCaracteristiques[2],
+               esquivePersonnage,
+               resistanceMental,
+               initiativePersonnage,
                htmlTableCompPhy,
                htmlTableCompMen,
                htmlTableCompSoc,
@@ -298,13 +343,7 @@ namespace maFichePersonnageJDR.Classe
                htmlTableArmurePersonnage,
                htmlTableObjetPersonnage,
                htmlTableMagiePersonnage,
-               htmlTableAptitudesPersonnage,
-               dexteriteCaracteristiques[0],
-               dexteriteCaracteristiques[1],
-               dexteriteCaracteristiques[2],
-               CompetencesCaracteristiquesController.GetPhysiquePersonnage(IdPersonnage) + dexteriteCaracteristiques[0],
-               CompetencesCaracteristiquesController.GetMentalPersonnage(IdPersonnage) + dexteriteCaracteristiques[1],
-               CompetencesCaracteristiquesController.GetSocialPersonnage(IdPersonnage) + dexteriteCaracteristiques[2]
+               htmlTableAptitudesPersonnage
                );
 
             string cheminDuFichier = string.Format(@"Templates\{0}_{1}.html", prenomPersonnage, nomPersonnage);
@@ -364,11 +403,9 @@ namespace maFichePersonnageJDR.Classe
             for (int i = 0; i < listeCompPhy.Length; i++)
             {
                 compPhyPersonnage += "\n" +
-                    $"  <tr style=\"color:red\">" +
+                    $"  <tr style=\"color:darkred\">" +
                     $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{listeCompPhy[i]}</td>" +
                     $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{baseCompPhys[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{caracteristiquePhysiquePersonnage}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{baseCompPhys[i] + caracteristiquePhysiquePersonnage}</td>" +
                     $"  </tr>";
             }
 
@@ -398,8 +435,6 @@ namespace maFichePersonnageJDR.Classe
                     $"  <tr style=\"color:blue\">" +
                     $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{listeCompMen[i]}</td>" +
                     $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{baseCompMen[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{caracteristiqueMental}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{baseCompMen[i] + caracteristiqueMental}</td>" +
                     $"  </tr>";
             }
 
@@ -429,8 +464,6 @@ namespace maFichePersonnageJDR.Classe
                     $"  <tr style=\"color:green\">" +
                     $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{listeCompSoc[i]}</td>" +
                     $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{baseCompSoc[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{caracteristiqueSocial}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{baseCompSoc[i] + caracteristiqueSocial}</td>" +
                     $"  </tr>";
             }
 
@@ -468,7 +501,7 @@ namespace maFichePersonnageJDR.Classe
                     $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{allongeArmes[i]}</td>" +
                     $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{mainsArmes[i]}</td>" +
                     $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{typesDegatsArmes[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{degatsArmes[i]}</td>" +
+                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">[[/r {degatsArmes[i]}]]</td>" +
                     $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{valeurArmes[i]}</td>" +
                     $"  </tr>";
             }
@@ -601,6 +634,30 @@ namespace maFichePersonnageJDR.Classe
             }
 
             return tableAptitudesHtml;
+        }
+
+        private string GetInitiativePersonnage(int valueAgilite)
+        {
+            if (valueAgilite >= 0 && valueAgilite < 5)
+            {
+                return "4";
+            }
+            else if (valueAgilite > 4 && valueAgilite < 10)
+            {
+                return "6";
+            }
+            else if (valueAgilite > 9 && valueAgilite < 15)
+            {
+                return "8";
+            }
+            else if (valueAgilite > 14 && valueAgilite < 20)
+            {
+                return "10";
+            }
+            else
+            {
+                return "12";
+            }
         }
     }
 }

@@ -93,17 +93,24 @@ namespace maFichePersonnageJDR.Model
                 {
                     while (reader.Read())
                     {
-                        return reader.GetInt32(0); 
+                        return reader.GetInt32(0);
                     }
                 }
 
                 return 0;
             }
-            catch(SQLiteException ex)
+            catch (SQLiteException ex)
             {
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// Méthode qui permet de récupérer toutes les valeurs de chaque caractéristiques physique
+        /// du personnage
+        /// </summary>
+        /// <param name="idPersonnage">id du personnage dont il faut récupérer les valeurs</param>
+        /// <returns>CompetencePhysiquePersonnageModel</returns>
         public CompetencePhysiquePersonnageModel GetBasePhysiquePersonnage(int idPersonnage)
         {
             #region Initialisation des variables
@@ -149,6 +156,38 @@ namespace maFichePersonnageJDR.Model
             catch (Exception e)
             {
                 throw e;
+            }
+        }
+
+        public static int GetValueCompetencePhysique(string nomCompetence, int idPersonnage)
+        {
+            int defautReturn = 0;
+
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand($"SELECT {nomCompetence} " +
+                    "FROM COMPETENCE_PHYSIQUE_PERSONNAGE " +
+                    "WHERE id_personnage = @id_personnage; ", connection);
+                command.Parameters.AddWithValue("@id_personnage", idPersonnage);
+                command.Parameters.AddWithValue("@nomCompetence", nomCompetence);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    Console.WriteLine(command.CommandText);
+
+                    while (reader.Read())
+                    {
+                        return reader.GetInt32(0);
+                    }
+                }
+
+                return defautReturn;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

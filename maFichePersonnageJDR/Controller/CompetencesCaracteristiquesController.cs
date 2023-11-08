@@ -62,7 +62,7 @@ namespace maFichePersonnageJDR.Controller
         /// <param name="natation"></param>
         /// <param name="reflexes"></param>
         /// <param name="vigueur"></param>
-        public static void SaveCompetencePhysiquePersonnage(int idPersonnage, int agilite, int artisanat, int crochetage, int discretion, int equilibre, int escalade, 
+        public static void SaveCompetencePhysiquePersonnage(int idPersonnage, int agilite, int artisanat, int crochetage, int discretion, int equilibre, int escalade,
             int escamotage, int force, int fouille, int natation, int reflexes, int vigueur)
         {
             Console.WriteLine(string.Format("########### Méthode SaveCompetencePhysiquePersonnage — Personnage créé : idPersonnage : {0} ###########", idPersonnage.ToString()));
@@ -71,7 +71,7 @@ namespace maFichePersonnageJDR.Controller
 
             try
             {
-                competencePhysique.SaveCompetencePhysiquePersonnage(idPersonnage, agilite, artisanat, crochetage, discretion, equilibre, 
+                competencePhysique.SaveCompetencePhysiquePersonnage(idPersonnage, agilite, artisanat, crochetage, discretion, equilibre,
                     escalade, escamotage, force, fouille, natation, reflexes, vigueur);
             }
             catch (Exception e)
@@ -237,7 +237,7 @@ namespace maFichePersonnageJDR.Controller
 
                 return listBaseCompPhy;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw e;
             }
@@ -355,6 +355,28 @@ namespace maFichePersonnageJDR.Controller
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        public static int GetValueCompetence(string typeCompetence, string nomCompetence, int idPersonnage)
+        {
+            int defautValue = 0;
+
+            if (typeCompetence == "Physique")
+            {
+                return CompetencePhysiquePersonnageModel.GetValueCompetencePhysique(nomCompetence, idPersonnage);
+            }
+            else if (typeCompetence == "Mental")
+            {
+                return CompetenceMentalPersonnageModel.GetValueCompetenceMental(nomCompetence, idPersonnage);
+            }
+            else if (typeCompetence == "Social")
+            {
+                return CompetenceSocialPersonnageModel.GetValueCompetenceSocial(nomCompetence, idPersonnage);
+            }
+            else
+            {
+                return defautValue;
             }
         }
     }
