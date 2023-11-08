@@ -22,6 +22,7 @@ namespace maFichePersonnageJDR.Classe
             string racePersonnage = PersonnageController.GetRacePersonnage(IdPersonnage);
             int niveauPersonnage = PersonnageController.GetNiveauPersonnage(IdPersonnage);
             string sexePersonnage = PersonnageController.GetSexePersonnage(IdPersonnage);
+            string languePersonnage = PersonnageController.GetLanguesPersonnage(IdPersonnage);
             int experiencePersonnage = PersonnageController.GetExperiencePersonnage(IdPersonnage);
             int esquivePersonnage = (CompetencesCaracteristiquesController.GetValueCompetence("Physique", "agilite", IdPersonnage) + CompetencesCaracteristiquesController.GetValueCompetence("Physique", "reflexes", IdPersonnage)) / 3;
             int resistanceMental = (CompetencesCaracteristiquesController.GetValueCompetence("Mental", "esprit", IdPersonnage) + CompetencesCaracteristiquesController.GetValueCompetence("Mental", "volonte", IdPersonnage)) / 3;
@@ -77,7 +78,7 @@ namespace maFichePersonnageJDR.Classe
                         </tr>
                     </thead>
                     <tbody>
-                        <td style=""border:1px solid #dddddd;padding:8px""></td>
+                        <td style=""border:1px solid #dddddd;padding:8px"">{4}</td>
                     </tbody>
                 </table>
                 <h2>Attributs</h2>
@@ -90,8 +91,7 @@ namespace maFichePersonnageJDR.Classe
                             <th>Notes</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {4}
+                    <tbody>{5}
                     </tbody>
                 </table>
                 <h2>Monnaie</h2>
@@ -107,9 +107,9 @@ namespace maFichePersonnageJDR.Classe
                     <tbody>
                         <tr style=""border:1px solid #dddddd;padding:8px;text-align:center;"">
                             <td>Sesterce(s)</td>
-                            <td>{5}</td>
                             <td>{6}</td>
                             <td>{7}</td>
+                            <td>{8}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -133,21 +133,21 @@ namespace maFichePersonnageJDR.Classe
                     <tbody>
                         <tr style=""color:darkred"">
                             <td style=""border:1px solid #dddddd;padding:8px"">Physique</td>
-                            <td style=""border:1px solid #dddddd;padding:8px"">{8}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px"">{9}</td>
                             <td style=""border:1px solid #dddddd;padding:8px"">0</td>
-                            <td style=""border:1px solid #dddddd;padding:8px"">{8}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px"">{9}</td>
                         </tr>
                         <tr style=""color:blue"">
                             <td style=""border:1px solid #dddddd;padding:8px"">Mental</td>
-                            <td style=""border:1px solid #dddddd;padding:8px"">{9}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px"">{10}</td>
                             <td style=""border:1px solid #dddddd;padding:8px"">0</td>
-                            <td style=""border:1px solid #dddddd;padding:8px"">{9}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px"">{10}</td>
                         </tr>
                         <tr style=""color:green"">
                             <td style=""border:1px solid #dddddd;padding:8px"">Social</td>
-                            <td style=""border:1px solid #dddddd;padding:8px"">{10}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px"">{11}</td>
                             <td style=""border:1px solid #dddddd;padding:8px"">0</td>
-                            <td style=""border:1px solid #dddddd;padding:8px"">{10}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px"">{11}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -162,15 +162,15 @@ namespace maFichePersonnageJDR.Classe
                     <tbody>
                         <tr style=""color:darkred"">
                             <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">Physique</td>
-                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">{11}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">{12}</td>
                         </tr>
                         <tr style=""color:blue"">
                             <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">Mental</td>
-                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">{12}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">{13}</td>
                         </tr>
                         <tr style=""color:green"">
                             <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">Social</td>
-                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">{13}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">{14}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -185,9 +185,9 @@ namespace maFichePersonnageJDR.Classe
                     </thead>
                     <tbody>
                         <tr>
-                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">{14}</td>
                             <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">{15}</td>
-                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">[[/r 1d{16} # Jet d'initiative]]</td> 
+                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">{16}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">[[/r 1d{17} # Jet d'initiative]]</td> 
                         </tr>
                     </tbody>
                 </table>
@@ -199,8 +199,7 @@ namespace maFichePersonnageJDR.Classe
                             <th style=""white-space:nowrap"">Base</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {17}
+                    <tbody>{18}
                     </tbody>
                 </table>
                 <h2>Compétences mentales</h2>
@@ -211,8 +210,7 @@ namespace maFichePersonnageJDR.Classe
                             <th style=""white-space:nowrap"">Base</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {18}
+                    <tbody>{19}
                     </tbody>
                 </table>
                 <h2>Compétences sociales</h2>
@@ -223,8 +221,7 @@ namespace maFichePersonnageJDR.Classe
                             <th style=""white-space:nowrap"">Base</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {19}
+                    <tbody>{20}
                     </tbody>
                 </table>
             </details>
@@ -248,8 +245,7 @@ namespace maFichePersonnageJDR.Classe
                             <th style=""white-space:nowrap"">Valeur monétaire</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {20}
+                    <tbody>{21}
                     </tbody>
                 </table>
                 <h2>Armures</h2>
@@ -264,8 +260,7 @@ namespace maFichePersonnageJDR.Classe
                             <th style=""white-space:nowrap"">Bonus</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {21}
+                    <tbody>{22}
                     </tbody>
                 </table>
                 <h2>Objets</h2>
@@ -279,8 +274,7 @@ namespace maFichePersonnageJDR.Classe
                             <th style=""white-space:nowrap"">Consommable</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {22}
+                    <tbody>{23}
                     </tbody>
                 </table>
             </details>
@@ -299,8 +293,7 @@ namespace maFichePersonnageJDR.Classe
                             <th style=""white-space:nowrap"">Coût (moyen)</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {23}
+                    <tbody>{24}
                     </tbody>
                 </table>
                 <h2>Aptitude(s)</h2>
@@ -312,8 +305,7 @@ namespace maFichePersonnageJDR.Classe
                             <th style=""white-space:nowrap"">Coût (moyen)</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {24}
+                    <tbody>{25}
                     </tbody>
                 </table>
             </details>
@@ -323,6 +315,7 @@ namespace maFichePersonnageJDR.Classe
                niveauPersonnage,
                sexePersonnage,
                experiencePersonnage,
+               languePersonnage,
                htmlTableAttributs,
                PersonnageController.GetPieceOrPersonnage(IdPersonnage),
                PersonnageController.GetPieceArgentPersonnage(IdPersonnage),
@@ -372,13 +365,13 @@ namespace maFichePersonnageJDR.Classe
             // Pour chaque attribut on créait une ligne dans le tableau
             for (int i = 0; i < nomsAttribut.Count; i++)
             {
-                attributesPersonnages += "\n" +
-                    $"  <tr >" +
-                    $"      <td style=\"border:1px solid #dddddd;padding:8px;white-space:nowrap\">{nomsAttribut[i]}</td>" +
-                    $"      <td style=\"border:1px solid #dddddd;padding:8px;white-space:nowrap\">{descriptionsAttribut[i]}</td>" +
-                    $"      <td style=\"border:1px solid #dddddd;padding:8px;white-space:nowrap\">{typesAttribut[i]}</td>" +
-                    $"      <td style=\"border:1px solid #dddddd;padding:8px;white-space:nowrap\">{notesAttributs[i]}</td>" +
-                    $"  </tr>";
+                attributesPersonnages += 
+                    $"                      \n<tr>\n" +
+                    $"                          <td style=\"border:1px solid #dddddd;padding:8px;white-space:nowrap\">{nomsAttribut[i]}</td>\n" +
+                    $"                          <td style=\"border:1px solid #dddddd;padding:8px;white-space:nowrap\">{descriptionsAttribut[i]}</td>\n" +
+                    $"                          <td style=\"border:1px solid #dddddd;padding:8px;white-space:nowrap\">{typesAttribut[i]}</td>\n" +
+                    $"                          <td style=\"border:1px solid #dddddd;padding:8px;white-space:nowrap\">{notesAttributs[i]}</td>\n" +
+                    $"                      </tr>\n";
             }
 
             return attributesPersonnages;
@@ -402,11 +395,11 @@ namespace maFichePersonnageJDR.Classe
 
             for (int i = 0; i < listeCompPhy.Length; i++)
             {
-                compPhyPersonnage += "\n" +
-                    $"  <tr style=\"color:darkred\">" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{listeCompPhy[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{baseCompPhys[i]}</td>" +
-                    $"  </tr>";
+                compPhyPersonnage +=
+                    $"                      \n<tr style=\"color:darkred\">\n" +
+                    $"                          <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{listeCompPhy[i]}</td>\n" +
+                    $"                          <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{baseCompPhys[i]}</td>\n" +
+                    $"                      </tr>\n";
             }
 
             return compPhyPersonnage;
@@ -431,11 +424,11 @@ namespace maFichePersonnageJDR.Classe
 
             for (int i = 0; i < listeCompMen.Length; i++)
             {
-                compMenPersonnage += "\n" +
-                    $"  <tr style=\"color:blue\">" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{listeCompMen[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{baseCompMen[i]}</td>" +
-                    $"  </tr>";
+                compMenPersonnage += 
+                    $"                      \n<tr style=\"color:blue\">\n" +
+                    $"                          <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{listeCompMen[i]}</td>\n" +
+                    $"                          <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{baseCompMen[i]}</td>\n" +
+                    $"                      </tr>\n";
             }
 
             return compMenPersonnage;
@@ -460,11 +453,11 @@ namespace maFichePersonnageJDR.Classe
 
             for (int i = 0; i < listeCompSoc.Length; i++)
             {
-                compSocPersonnage += "\n" +
-                    $"  <tr style=\"color:green\">" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{listeCompSoc[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{baseCompSoc[i]}</td>" +
-                    $"  </tr>";
+                compSocPersonnage +=
+                    $"                      \n<tr style=\"color:green\">\n" +
+                    $"                          <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{listeCompSoc[i]}</td>\n" +
+                    $"                          <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{baseCompSoc[i]}</td>\n" +
+                    $"                      </tr>\n";
             }
 
             return compSocPersonnage;
@@ -493,17 +486,17 @@ namespace maFichePersonnageJDR.Classe
 
             for (int i = 0; i < typesArmes.Count; i++)
             {
-                tableArmeHtmlPersonnage += "\n" +
-                    $"  <tr>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{typesArmes[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{nomArmes[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{poidsArmes[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{allongeArmes[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{mainsArmes[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{typesDegatsArmes[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">[[/r {degatsArmes[i]}]]</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{valeurArmes[i]}</td>" +
-                    $"  </tr>";
+                tableArmeHtmlPersonnage +=
+                    $"                          \n<tr>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{typesArmes[i]}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{nomArmes[i]}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{poidsArmes[i]}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{allongeArmes[i]}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{mainsArmes[i]}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{typesDegatsArmes[i]}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">[[/r {degatsArmes[i]}]]</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{valeurArmes[i]}</td>\n" +
+                    $"                          </tr>\n";
             }
 
             return tableArmeHtmlPersonnage;
@@ -531,15 +524,15 @@ namespace maFichePersonnageJDR.Classe
 
             for (int i = 0; i < typesArmures.Count; i++)
             {
-                tableArmureHtmlPersonnage += "\n" +
-                    $"  <tr>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{typesArmures[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{nomArmures[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{poidsArmures[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{valeurArmures[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{protectionsArmures[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{bonusArmures[i]}</td>" +
-                    $"  </tr>";
+                tableArmureHtmlPersonnage +=
+                    $"                          \n<tr>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{typesArmures[i]}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{nomArmures[i]}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{poidsArmures[i]}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{valeurArmures[i]}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{protectionsArmures[i]}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{bonusArmures[i]}</td>\n" +
+                    $"                          </tr>\n";
             }
 
             return tableArmureHtmlPersonnage;
@@ -565,14 +558,14 @@ namespace maFichePersonnageJDR.Classe
 
             for (int i = 0; i < typesObjets.Count; i++)
             {
-                tableObjetsHtml += "\n" +
-                    $"  <tr>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{typesObjets[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{nomsObjets[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{poidsObjets[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{valeursObjets[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{consommablesObjets[i]}</td>" +
-                    $"  </tr>";
+                tableObjetsHtml +=
+                    $"                          \n<tr>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{typesObjets[i]}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{nomsObjets[i]}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{poidsObjets[i]}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{valeursObjets[i]}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{consommablesObjets[i]}</td>\n" +
+                    $"                          </tr>\n";
             }
 
             return tableObjetsHtml;
@@ -596,12 +589,12 @@ namespace maFichePersonnageJDR.Classe
 
             for (int i = 0; i < typesMagies.Count; i++)
             {
-                tableMagiesHtml += "\n" +
-                    $"  <tr>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{typesMagies[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{nomsMagies[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{coutsMagies[i]}</td>" +
-                    $"  </tr>";
+                tableMagiesHtml +=
+                    $"                          \n<tr>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{typesMagies[i]}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{nomsMagies[i]}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{coutsMagies[i]}</td>\n" +
+                    $"                          </tr>\n";
             }
 
             return tableMagiesHtml;
@@ -625,12 +618,12 @@ namespace maFichePersonnageJDR.Classe
 
             for (int i = 0; i < typesAptitudes.Count; i++)
             {
-                tableAptitudesHtml += "\n" +
-                    $"  <tr>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{typesAptitudes[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{nomsAptitudes[i]}</td>" +
-                    $"      <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{coutsAptitudes[i]}</td>" +
-                    $"  </tr>";
+                tableAptitudesHtml +=
+                    $"                          \n<tr>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{typesAptitudes[i]}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{nomsAptitudes[i]}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{coutsAptitudes[i]}</td>\n" +
+                    $"                          </tr>\n";
             }
 
             return tableAptitudesHtml;
