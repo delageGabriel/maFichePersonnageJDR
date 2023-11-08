@@ -47,5 +47,39 @@ namespace maFichePersonnageJDR.Model
                 throw ex;
             }
         }
+
+        public BoursePersonnageModel GetBoursePersonnage(int idPersonnage)
+        {
+            #region Initialisation des variables
+            BoursePersonnageModel boursePersonnage = new BoursePersonnageModel();
+            #endregion
+
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT * FROM BOURSE_PERSONNAGE WHERE id_personnage = @id_personnage", connection);
+                command.Parameters.AddWithValue("@id_personnage", idPersonnage);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
+                        boursePersonnage.IdBoursePersonnage = reader.GetInt32(0);
+                        boursePersonnage.IdPersonnage = reader.GetInt32(1);
+                        boursePersonnage.PieceOr = reader.GetInt32(2);
+                        boursePersonnage.PieceArgent = reader.GetInt32(3);
+                        boursePersonnage.PieceCuivre = reader.GetInt32(4);
+                    }
+                }
+
+                return boursePersonnage;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

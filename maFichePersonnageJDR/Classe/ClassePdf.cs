@@ -413,7 +413,6 @@ namespace maFichePersonnageJDR.Classe
             List<double> poidsObjets = Controller.EquipmentController.GetListPoidsObjets(idPersonnage);
             List<string> valeursObjets = Controller.EquipmentController.GetListValeurObjets(idPersonnage);
             List<string> consommablesObjets = Controller.EquipmentController.GetListConsommableObjets(idPersonnage);
-            List<string> specialsObjets = Controller.EquipmentController.GetListSpecialObjets(idPersonnage);
             #endregion
 
             PdfPTable objetsTable = new PdfPTable(5);

@@ -1484,7 +1484,7 @@ namespace maFichePersonnageJDR.Formulaires
         {
             bool checkForce = AttributsController.CheckIfPersonnageHaveAttribut(IdPersonnage, AttributsController.GetIdAttributByName("Force surhumaine"));
             int baseCalcul = checkForce ? 110 : 75;
-            int forcePersonnage = CompetencesCaracteristiquesController.GetForcePersonnage(IdPersonnage);
+            int forcePersonnage = CompetencesCaracteristiquesController.GetValueCompetence("Physique", "force", IdPersonnage);
 
             if (!String.IsNullOrEmpty(AttributsController.GetPourcentagePorteurChargesLourdes(IdPersonnage)))
             {

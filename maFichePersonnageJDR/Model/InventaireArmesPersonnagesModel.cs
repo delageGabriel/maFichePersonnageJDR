@@ -39,7 +39,7 @@ namespace maFichePersonnageJDR.Model
 
             try
             {
-                
+
 
                 SQLiteCommand command = new SQLiteCommand("INSERT INTO INVENTAIRE_ARMES_PERSONNAGES (id_arme, id_personnage, quantite) " +
                 "VALUES (@idArme, @idPersonnage, @quantite)", DatabaseConnection.Instance.GetConnection());
@@ -388,6 +388,7 @@ namespace maFichePersonnageJDR.Model
 
                         // On vérifie si une ligne existe déjà avec le nom prénom du personnage
                         string value = reader["valeur_arme"].ToString();
+                        value = Utils.ConvertMoneyWithValue(int.Parse(value));
                         listValeurArmes.Add(value);
                     }
                 }
@@ -676,7 +677,7 @@ namespace maFichePersonnageJDR.Model
 
                 return quantity;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
