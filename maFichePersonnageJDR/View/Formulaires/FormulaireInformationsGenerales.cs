@@ -22,6 +22,8 @@ namespace maFichePersonnageJDR.Formulaires
         public string FemmePersonnage { get => rdbFemme.Text; set => rdbFemme.Text = value; }
         public string AutrePersonnage { get => rdbAutre.Text; set => rdbAutre.Text = value; }
         public int ExperiencePersonnage { get => Convert.ToInt32(nudExpériencePersonnage.Value); set => nudExpériencePersonnage.Value = value; }
+        public string CourbeProgressionPersonnage { get => cbbProgressionXp.Text; }
+        public int NiveauSuivantPersonnage { get => int.Parse(Utils.DeleteCharacterFromString(lblPointsRestants.Text, "/")); }
         public string AvatarPersonnage { get => ptbAvatar.ImageLocation; set => ptbAvatar.ImageLocation = value; }
         public string LanguesPersonnage { get => rtbLangues.Text; set => rtbLangues.Text = value; }
         public string HistoirePersonnage { get => rtbHistoire.Text; set => rtbHistoire.Text = value; }
@@ -192,6 +194,14 @@ namespace maFichePersonnageJDR.Formulaires
                 }
 
                 /**
+                 * Test COURBE PROGRESSION
+                 */
+                if(cbbProgressionXp.Text == "Progression")
+                {
+                    MessageBox.Show("Veuillez sélectionner une courbe de progression pour le personnage !");
+                    return;
+                }
+                /**
                  * Test LANGUES
                  */
                 if (String.IsNullOrEmpty(rtbLangues.Text))
@@ -211,7 +221,7 @@ namespace maFichePersonnageJDR.Formulaires
 
                 // Si tout est bon, on sauvegarde les informations et on créait le personnage
                 Controller.PersonnageController.SaveInformationsPersonnage(PrenomPersonnage, NomPersonnage, RacePersonnage, NiveauPersonnage,
-                    sexe, ExperiencePersonnage, LanguesPersonnage, AvatarPersonnage, HistoirePersonnage);
+                    sexe, ExperiencePersonnage, CourbeProgressionPersonnage, NiveauSuivantPersonnage, LanguesPersonnage, AvatarPersonnage, HistoirePersonnage);
 
                 // On récupère l'id du personnage créé
                 formulaireAttributs.IdDuPersonnage = Controller.PersonnageController.GetIdPersonnageByNameAndSurname(NomPersonnage,

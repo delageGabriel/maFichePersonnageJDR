@@ -197,7 +197,7 @@ namespace maFichePersonnageJDR.Classe
         /// <param name="stringToClean"></param>
         /// <param name="arraysCharToDelete"></param>
         /// <returns></returns>
-        public static string DeleteCharacterFromString(string stringToClean, string[] arraysCharToDelete)
+        public static string DeleteCharacterFromString(string stringToClean, params string[] arraysCharToDelete)
         {
             foreach (string character in arraysCharToDelete)
             {

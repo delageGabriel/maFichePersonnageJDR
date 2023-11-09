@@ -17,9 +17,13 @@ namespace maFichePersonnageJDR.Model
         private int niveauPersonnage;
         private string sexePersonnage;
         private int experiencePersonnage;
+        private string courbeProgressionPersonnage;
+        private int niveauSuivantPersonnage;
         private string languesPersonnages;
         private string avatarPersonnage;
         private string histoirePersonnage;
+        private decimal chargePorteePersonnage;
+        private decimal chargeTotalePersonnage;
 
         /// <summary>
         /// Accesseurs et mutateurs
@@ -31,9 +35,13 @@ namespace maFichePersonnageJDR.Model
         public int NiveauPersonnage { get => niveauPersonnage; set => niveauPersonnage = value; }
         public string SexePersonnage { get => sexePersonnage; set => sexePersonnage = value; }
         public int ExperiencePersonnage { get => experiencePersonnage; set => experiencePersonnage = value; }
+        public string CourbeProgressionPersonnage { get => courbeProgressionPersonnage; set => courbeProgressionPersonnage = value; }
+        public int NiveauSuivantPersonnage { get => niveauSuivantPersonnage; set => niveauSuivantPersonnage = value; }
         public string LanguesPersonnages { get => languesPersonnages; set => languesPersonnages = value; }
         public string AvatarPersonnage { get => avatarPersonnage; set => avatarPersonnage = value; }
         public string HistoirePersonnage { get => histoirePersonnage; set => histoirePersonnage = value; }
+        public decimal ChargePorteePersonnage { get => chargePorteePersonnage; set => chargePorteePersonnage = value; }
+        public decimal ChargeTotalePersonnage { get => chargeTotalePersonnage; set => chargeTotalePersonnage = value; }
 
         /// <summary>
         /// Méthode qui permet de sauvegarder en base les informations d'un personnage
@@ -48,15 +56,29 @@ namespace maFichePersonnageJDR.Model
         /// <param name="avatarPersonnage"></param>
         /// <param name="histoirePersonnage"></param>
         public void SaveInformationsPersonnage(string prenomPersonnage, string nomPersonnage, string racePersonnage, int niveauPersonnage,
-            string sexePersonnage, int experiencePersonnage, string languesPersonnage, string avatarPersonnage, string histoirePersonnage)
+            string sexePersonnage, int experiencePersonnage, string courbeExperiencePersonnage, int niveauSuivantPersonnage,
+            string languesPersonnage, string avatarPersonnage, string histoirePersonnage)
         {
             try
             {
                 // Commande
-                SQLiteCommand command = new SQLiteCommand(string.Format("INSERT INTO PERSONNAGE (prenom_personnage, nom_personnage, race_personnage, " +
-                    "niveau_personnage, sexe_personnage, experience_personnage, langues_personnage, avatar_personnage, histoire_personnage) " +
-                    "VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')", prenomPersonnage, nomPersonnage, racePersonnage,
-                    niveauPersonnage, sexePersonnage, experiencePersonnage, languesPersonnage, avatarPersonnage, histoirePersonnage), DatabaseConnection.Instance.GetConnection());
+                SQLiteCommand command = new SQLiteCommand("INSERT INTO PERSONNAGE (prenom_personnage, nom_personnage, race_personnage, " +
+                    "niveau_personnage, sexe_personnage, experience_personnage, courbe_progression_personnage, niveau_suivant_personnage, langues_personnage, " +
+                    "avatar_personnage, histoire_personnage, charge_portee_personnage, charge_totale_personnage) " +
+                    "VALUES (@prenomPersonnage, @nomPersonnage, @racePersonnage, @niveauPersonnage, @sexePersonnage, @experiencePersonnage, @courbeExperiencePersonnage," +
+                    "@niveauSuivantPersonnage, @languesPersonnage, @avatarPersonnage, @histoirePersonnage, 0, 0)",
+                    DatabaseConnection.Instance.GetConnection());
+                command.Parameters.AddWithValue("@prenomPersonnage", prenomPersonnage);
+                command.Parameters.AddWithValue("@nomPersonnage", nomPersonnage);
+                command.Parameters.AddWithValue("@racePersonnage", racePersonnage);
+                command.Parameters.AddWithValue("@niveauPersonnage", niveauPersonnage);
+                command.Parameters.AddWithValue("@sexePersonnage", sexePersonnage);
+                command.Parameters.AddWithValue("@experiencePersonnage", experiencePersonnage);
+                command.Parameters.AddWithValue("@courbeExperiencePersonnage", courbeExperiencePersonnage);
+                command.Parameters.AddWithValue("@niveauSuivantPersonnage", niveauSuivantPersonnage);
+                command.Parameters.AddWithValue("@languesPersonnage", languesPersonnage);
+                command.Parameters.AddWithValue("@avatarPersonnage", avatarPersonnage);
+                command.Parameters.AddWithValue("@histoirePersonnage", histoirePersonnage);
 
                 int rowsAffected = command.ExecuteNonQuery();
             }
@@ -178,9 +200,12 @@ namespace maFichePersonnageJDR.Model
                         personnageModel.NiveauPersonnage = reader.GetInt32(4);
                         personnageModel.SexePersonnage = reader.GetString(5);
                         personnageModel.ExperiencePersonnage = reader.GetInt32(6);
-                        personnageModel.LanguesPersonnages = reader.GetString(7);
-                        personnageModel.AvatarPersonnage = reader.GetString(8);
-                        personnageModel.HistoirePersonnage = reader.GetString(9);
+                        personnageModel.CourbeProgressionPersonnage = reader.GetString(7);
+                        personnageModel.LanguesPersonnages = reader.GetString(8);
+                        personnageModel.AvatarPersonnage = reader.GetString(9);
+                        personnageModel.HistoirePersonnage = reader.GetString(10);
+                        personnageModel.ChargePorteePersonnage = reader.GetDecimal(11);
+                        personnageModel.ChargeTotalePersonnage = reader.GetDecimal(12);
 
                         personnageToReturn = personnageModel;
                     }
@@ -191,6 +216,61 @@ namespace maFichePersonnageJDR.Model
             catch (Exception e)
             {
                 throw e;
+            }
+        }
+
+        public static object GetValueFieldPersonnage(string nomColonne, int idPersonnage)
+        {
+            int defautReturn = 0;
+
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand($"SELECT {nomColonne} " +
+                    "FROM PERSONNAGE " +
+                    "WHERE id_personnage = @id_personnage; ", connection);
+                command.Parameters.AddWithValue("@id_personnage", idPersonnage);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    Console.WriteLine(command.CommandText);
+
+                    while (reader.Read())
+                    {
+                        return reader.GetValue(0);
+                    }
+                }
+
+                return defautReturn;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void SetValueFieldPersonnage(string nomColonne, int idPersonnage, object newValue)
+        {
+            try
+            {
+                if (!String.IsNullOrEmpty(nomColonne))
+                {
+                    // Commande
+                    SQLiteCommand command = new SQLiteCommand("UPDATE PERSONNAGE " +
+                        $"SET {nomColonne} = @newValue " +
+                        $"WHERE id_personnage = @idPersonnage",
+                        DatabaseConnection.Instance.GetConnection());
+
+                    command.Parameters.AddWithValue("@newValue", newValue);
+                    command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+                }
+            }
+            catch (SQLiteException ex)
+            {
+                throw ex;
             }
         }
     }

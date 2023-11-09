@@ -917,6 +917,8 @@ namespace maFichePersonnageJDR.Formulaires
             try
             {
                 PersonnageController.SaveBoursePersonnage(IdPersonnage, Convert.ToInt32(nudPo.Value), Convert.ToInt32(nudPa.Value), Convert.ToInt32(nudPc.Value));
+                PersonnageController.SetValueField("charge_portee_personnage", IdPersonnage, double.Parse(Utils.DeleteCharacterFromString(lblChrgPrtePersonnage.Text, " ", "k", "g")));
+                PersonnageController.SetValueField("charge_totale_personnage", IdPersonnage, double.Parse(Utils.DeleteCharacterFromString(lblChrgeMxm.Text, " ", "k", "g")));
 
                 formulaireMagieEtAptitudes.IdPersonnage = IdPersonnage;
                 MessageBox.Show("Équipement sauvegardé !");

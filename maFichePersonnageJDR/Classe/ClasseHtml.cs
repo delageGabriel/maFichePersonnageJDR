@@ -59,18 +59,31 @@ namespace maFichePersonnageJDR.Classe
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr style=""border:1px solid #dddddd;padding:8px;text-align:center;"">
                             <td>{0}</td>
                             <td>{1}</td>
                             <td>{2}</td>
                         </tr>
-                        <!--<tr>
-                            <td>Expérience :</td>
-                            <td colspan=""5"">{3}</td>
-                        </tr>-->
                     </tbody>
                 </table>
-                <h2>Langue</h2>
+                <h2>Expérience du personnage</h2>
+                <table>
+                    <thead>
+                        <tr style=""background-color:#333;color:white"">
+                            <th>Point(s) acquis</th>
+                            <th>Niveau suivant</th>
+                            <th>Progression</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style=""border:1px solid #dddddd;padding:8px;text-align:center;"">
+                            <td>{3}</td>
+                            <td>{4}</td>
+                            <td>{5}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h2>Langue(s)</h2>
                 <table style=""width:70%;border-collapse:collapse;margin:20px 0;text-align:center"">
                     <thead>
                         <tr style=""background-color:#333;color:white"">
@@ -78,7 +91,9 @@ namespace maFichePersonnageJDR.Classe
                         </tr>
                     </thead>
                     <tbody>
-                        <td style=""border:1px solid #dddddd;padding:8px"">{4}</td>
+                        <tr style=""border:1px solid #dddddd;padding:8px;text-align:center;"">
+                            <td>{6}</td>
+                        </tr>
                     </tbody>
                 </table>
                 <h2>Attributs</h2>
@@ -91,7 +106,7 @@ namespace maFichePersonnageJDR.Classe
                             <th>Notes</th>
                         </tr>
                     </thead>
-                    <tbody>{5}
+                    <tbody>{7}
                     </tbody>
                 </table>
                 <h2>Monnaie</h2>
@@ -107,9 +122,9 @@ namespace maFichePersonnageJDR.Classe
                     <tbody>
                         <tr style=""border:1px solid #dddddd;padding:8px;text-align:center;"">
                             <td>Sesterce(s)</td>
-                            <td>{6}</td>
-                            <td>{7}</td>
                             <td>{8}</td>
+                            <td>{9}</td>
+                            <td>{10}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -133,21 +148,21 @@ namespace maFichePersonnageJDR.Classe
                     <tbody>
                         <tr style=""color:darkred"">
                             <td style=""border:1px solid #dddddd;padding:8px"">Physique</td>
-                            <td style=""border:1px solid #dddddd;padding:8px"">{9}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px"">{11}</td>
                             <td style=""border:1px solid #dddddd;padding:8px"">0</td>
-                            <td style=""border:1px solid #dddddd;padding:8px"">{9}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px"">{11}</td>
                         </tr>
                         <tr style=""color:blue"">
                             <td style=""border:1px solid #dddddd;padding:8px"">Mental</td>
-                            <td style=""border:1px solid #dddddd;padding:8px"">{10}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px"">{12}</td>
                             <td style=""border:1px solid #dddddd;padding:8px"">0</td>
-                            <td style=""border:1px solid #dddddd;padding:8px"">{10}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px"">{12}</td>
                         </tr>
                         <tr style=""color:green"">
                             <td style=""border:1px solid #dddddd;padding:8px"">Social</td>
-                            <td style=""border:1px solid #dddddd;padding:8px"">{11}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px"">{13}</td>
                             <td style=""border:1px solid #dddddd;padding:8px"">0</td>
-                            <td style=""border:1px solid #dddddd;padding:8px"">{11}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px"">{13}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -162,15 +177,15 @@ namespace maFichePersonnageJDR.Classe
                     <tbody>
                         <tr style=""color:darkred"">
                             <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">Physique</td>
-                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">{12}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">{14}</td>
                         </tr>
                         <tr style=""color:blue"">
                             <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">Mental</td>
-                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">{13}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">{15}</td>
                         </tr>
                         <tr style=""color:green"">
                             <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">Social</td>
-                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">{14}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">{16}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -185,9 +200,9 @@ namespace maFichePersonnageJDR.Classe
                     </thead>
                     <tbody>
                         <tr>
-                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">{15}</td>
-                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">{16}</td>
-                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">[[/r 1d{17} # Jet d'initiative]]</td> 
+                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">{17}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">{18}</td>
+                            <td style=""border:1px solid #dddddd;padding:8px;text-align:center;"">[[/r 1d{19} # Jet d'initiative]]</td> 
                         </tr>
                     </tbody>
                 </table>
@@ -199,7 +214,7 @@ namespace maFichePersonnageJDR.Classe
                             <th style=""white-space:nowrap"">Base</th>
                         </tr>
                     </thead>
-                    <tbody>{18}
+                    <tbody>{20}
                     </tbody>
                 </table>
                 <h2>Compétences mentales</h2>
@@ -210,7 +225,7 @@ namespace maFichePersonnageJDR.Classe
                             <th style=""white-space:nowrap"">Base</th>
                         </tr>
                     </thead>
-                    <tbody>{19}
+                    <tbody>{21}
                     </tbody>
                 </table>
                 <h2>Compétences sociales</h2>
@@ -221,7 +236,7 @@ namespace maFichePersonnageJDR.Classe
                             <th style=""white-space:nowrap"">Base</th>
                         </tr>
                     </thead>
-                    <tbody>{20}
+                    <tbody>{22}
                     </tbody>
                 </table>
             </details>
@@ -237,7 +252,7 @@ namespace maFichePersonnageJDR.Classe
                         <tr style=""background - color:#333;color:white"">
                             <th style=""white-space:nowrap"">Type</th>
                             <th style=""white-space:nowrap"">Nom</th>
-                            <th style=""white-space:nowrap"">Poids</th>
+                            <th style=""white-space:nowrap"">Poids(kg)</th>
                             <th style=""white-space:nowrap"">Allonge</th>
                             <th style=""white-space:nowrap"">Main(s)</th>
                             <th style=""white-space:nowrap"">Type(s) de dégât(s)</th>
@@ -245,7 +260,7 @@ namespace maFichePersonnageJDR.Classe
                             <th style=""white-space:nowrap"">Valeur monétaire</th>
                         </tr>
                     </thead>
-                    <tbody>{21}
+                    <tbody>{23}
                     </tbody>
                 </table>
                 <h2>Armures</h2>
@@ -254,27 +269,42 @@ namespace maFichePersonnageJDR.Classe
                         <tr style=""background - color:#333;color:white"">
                             <th style=""white-space:nowrap"">Type</th>
                             <th style=""white-space:nowrap"">Nom</th>
-                            <th style=""white-space:nowrap"">Poids</th>
+                            <th style=""white-space:nowrap"">Poids(kg)</th>
                             <th style=""white-space:nowrap"">Valeur monétaire</th>
                             <th style=""white-space:nowrap"">Protection</th>
                             <th style=""white-space:nowrap"">Bonus</th>
                         </tr>
                     </thead>
-                    <tbody>{22}
+                    <tbody>{24}
                     </tbody>
                 </table>
                 <h2>Objets</h2>
                 <table style=""width:70%;border-collapse:collapse;margin:20px 0;text-align:center"">
                     <thead>
-                        <tr style=""background - color:#333;color:white"">
+                        <tr style=""background-color:#333;color:white"">
                             <th style=""white-space:nowrap"">Type</th>
                             <th style=""white-space:nowrap"">Nom</th>
-                            <th style=""white-space:nowrap"">Poids</th>
+                            <th style=""white-space:nowrap"">Poids(kg)</th>
                             <th style=""white-space:nowrap"">Valeur monétaire</th>
                             <th style=""white-space:nowrap"">Consommable</th>
                         </tr>
                     </thead>
-                    <tbody>{23}
+                    <tbody>{25}
+                    </tbody>
+                </table>
+                <h2>Poids</h2>
+                <table style=""width:70%;border-collapse:collapse;margin:20px 0;text-align:center"">
+                    <thead>
+                        <tr style=""background-color:#333;color:white"">
+                            <th style=""white-space:nowrap"">Poids transporté(kg)</th>
+                            <th style=""white-space:nowrap"">Poids maximal(kg)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style=""border:1px solid #dddddd;padding:8px;text-align:center;"">
+                            <td>{26}</td>
+                            <td>{27}</td>
+                        </tr>
                     </tbody>
                 </table>
             </details>
@@ -287,13 +317,13 @@ namespace maFichePersonnageJDR.Classe
                 <h2>Magie(s)</h2>
                 <table style=""width:70%;border-collapse:collapse;margin:20px 0;text-align:center"">
                     <thead>
-                        <tr style=""background - color:#333;color:white"">
+                        <tr style=""background-color:#333;color:white"">
                             <th style=""white-space:nowrap"">Type</th>
                             <th style=""white-space:nowrap"">Nom</th>
                             <th style=""white-space:nowrap"">Coût (moyen)</th>
                         </tr>
                     </thead>
-                    <tbody>{24}
+                    <tbody>{28}
                     </tbody>
                 </table>
                 <h2>Aptitude(s)</h2>
@@ -305,7 +335,7 @@ namespace maFichePersonnageJDR.Classe
                             <th style=""white-space:nowrap"">Coût (moyen)</th>
                         </tr>
                     </thead>
-                    <tbody>{25}
+                    <tbody>{29}
                     </tbody>
                 </table>
             </details>
@@ -315,6 +345,8 @@ namespace maFichePersonnageJDR.Classe
                niveauPersonnage,
                sexePersonnage,
                experiencePersonnage,
+               PersonnageController.GetNiveauSuivantPersonnage(IdPersonnage),
+               PersonnageController.GetCourbeProgressionPersonnage(IdPersonnage),
                languePersonnage,
                htmlTableAttributs,
                PersonnageController.GetPieceOrPersonnage(IdPersonnage),
@@ -335,11 +367,20 @@ namespace maFichePersonnageJDR.Classe
                htmlTableArmePersonnage,
                htmlTableArmurePersonnage,
                htmlTableObjetPersonnage,
+               PersonnageController.GetChargePortee(idPersonnage),
+               PersonnageController.GetChargeTotale(idPersonnage),
                htmlTableMagiePersonnage,
                htmlTableAptitudesPersonnage
                );
 
             string cheminDuFichier = string.Format(@"Templates\{0}_{1}.html", prenomPersonnage, nomPersonnage);
+            string folderPath = Path.GetDirectoryName(cheminDuFichier);
+
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
             // Écrire le contenu dans le fichier
             File.WriteAllText(cheminDuFichier, htmlContent, Encoding.UTF8);
             Console.WriteLine("Fichier HTML créé avec succès !");

@@ -440,7 +440,7 @@ namespace maFichePersonnageJDR.Formulaires
 
         private void btnFinaliserFiche_Click(object sender, EventArgs e)
         {
-            ClassePdf classePdf = new ClassePdf();
+            //ClassePdf classePdf = new ClassePdf();
             ClasseHtml classeHtml = new ClasseHtml();
 
             int nbCheckBoxCochee = 0;
@@ -492,8 +492,8 @@ namespace maFichePersonnageJDR.Formulaires
             }
 
             // Format PDF
-            classePdf.IdPersonnage = IdPersonnage;
-            classePdf.CreatePersonnagePdf(pbComplétionExportationFiche);
+            //classePdf.IdPersonnage = IdPersonnage;
+            //classePdf.CreatePersonnagePdf(pbComplétionExportationFiche);
 
             // Format HTML pour forge
             classeHtml.IdPersonnage = IdPersonnage;

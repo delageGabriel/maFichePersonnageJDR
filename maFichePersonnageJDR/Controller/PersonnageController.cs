@@ -24,7 +24,8 @@ namespace maFichePersonnageJDR.Controller
         /// <param name="avatarPersonnage"></param>
         /// <param name="histoirePersonnage"></param>
         public static void SaveInformationsPersonnage(string prenomPersonnage, string nomPersonnage, string racePersonnage, int niveauPersonnage,
-            string sexePersonnage, int experiencePersonnage, string languesPersonnage, string avatarPersonnage, string histoirePersonnage)
+            string sexePersonnage, int experiencePersonnage, string courbeExperience, int niveauSuivantPersonnage, string languesPersonnage, 
+            string avatarPersonnage, string histoirePersonnage)
         {
             Console.WriteLine(string.Format("########### Méthode SaveInformationsPersonnage — Personnage créé : Prénom : {0} ###########", prenomPersonnage));
 
@@ -34,7 +35,7 @@ namespace maFichePersonnageJDR.Controller
             {
                 // On envoie les informations du personnage à sauvegarder
                 personnageToSave.SaveInformationsPersonnage(prenomPersonnage, nomPersonnage, racePersonnage, niveauPersonnage, sexePersonnage, experiencePersonnage,
-                    languesPersonnage, avatarPersonnage, histoirePersonnage);
+                    courbeExperience, niveauSuivantPersonnage, languesPersonnage, avatarPersonnage, histoirePersonnage);
             }
             catch (Exception e)
             {
@@ -73,7 +74,7 @@ namespace maFichePersonnageJDR.Controller
             try
             {
                 // On envoie les informations du personnage à sauvegarder
-                return personnageToSave.GetIdByNameAndSurname(nomPersonnage, prenomPersonnage);               
+                return personnageToSave.GetIdByNameAndSurname(nomPersonnage, prenomPersonnage);
             }
             catch (Exception e)
             {
@@ -113,12 +114,9 @@ namespace maFichePersonnageJDR.Controller
         {
             Console.WriteLine(string.Format("########### Méthode GetPrenomPersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
 
-            PersonnageModel personnagePrenom = new PersonnageModel();
-
             try
             {
-                // On envoie les informations du personnage à sauvegarder
-                return personnagePrenom.GetPersonnage(idPersonnage).PrenomPersonnage;
+                return PersonnageModel.GetValueFieldPersonnage("prenom_personnage", idPersonnage).ToString();
             }
             catch (Exception e)
             {
@@ -135,12 +133,9 @@ namespace maFichePersonnageJDR.Controller
         {
             Console.WriteLine(string.Format("########### Méthode GetNomPersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
 
-            PersonnageModel personnagePrenom = new PersonnageModel();
-
             try
             {
-                // On envoie les informations du personnage à sauvegarder
-                return personnagePrenom.GetPersonnage(idPersonnage).NomPersonnage;
+                return PersonnageModel.GetValueFieldPersonnage("nom_personnage", idPersonnage).ToString();
             }
             catch (Exception e)
             {
@@ -157,12 +152,9 @@ namespace maFichePersonnageJDR.Controller
         {
             Console.WriteLine(string.Format("########### Méthode GetRacePersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
 
-            PersonnageModel personnagePrenom = new PersonnageModel();
-
             try
             {
-                // On envoie les informations du personnage à sauvegarder
-                return personnagePrenom.GetPersonnage(idPersonnage).RacePersonnage;
+                return PersonnageModel.GetValueFieldPersonnage("race_personnage", idPersonnage).ToString();
             }
             catch (Exception e)
             {
@@ -179,12 +171,9 @@ namespace maFichePersonnageJDR.Controller
         {
             Console.WriteLine(string.Format("########### Méthode GetNiveauPersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
 
-            PersonnageModel personnagePrenom = new PersonnageModel();
-
             try
             {
-                // On envoie les informations du personnage à sauvegarder
-                return personnagePrenom.GetPersonnage(idPersonnage).NiveauPersonnage;
+                return Convert.ToInt32(PersonnageModel.GetValueFieldPersonnage("niveau_personnage", idPersonnage));
             }
             catch (Exception e)
             {
@@ -201,12 +190,9 @@ namespace maFichePersonnageJDR.Controller
         {
             Console.WriteLine(string.Format("########### Méthode GetSexePersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
 
-            PersonnageModel personnagePrenom = new PersonnageModel();
-
             try
             {
-                // On envoie les informations du personnage à sauvegarder
-                return personnagePrenom.GetPersonnage(idPersonnage).SexePersonnage;
+                return PersonnageModel.GetValueFieldPersonnage("sexe_personnage", idPersonnage).ToString();
             }
             catch (Exception e)
             {
@@ -223,12 +209,9 @@ namespace maFichePersonnageJDR.Controller
         {
             Console.WriteLine(string.Format("########### Méthode GetExperiencePersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
 
-            PersonnageModel personnagePrenom = new PersonnageModel();
-
             try
             {
-                // On envoie les informations du personnage à sauvegarder
-                return personnagePrenom.GetPersonnage(idPersonnage).ExperiencePersonnage;
+                return Convert.ToInt32(PersonnageModel.GetValueFieldPersonnage("experience_personnage", idPersonnage));
             }
             catch (Exception e)
             {
@@ -236,6 +219,33 @@ namespace maFichePersonnageJDR.Controller
             }
         }
 
+        public static string GetCourbeProgressionPersonnage(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetCourbeProgressionPersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            try
+            {
+                return PersonnageModel.GetValueFieldPersonnage("courbe_progression_personnage", idPersonnage).ToString();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static int GetNiveauSuivantPersonnage(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetNiveauSuivantPersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            try
+            {
+                return Convert.ToInt32(PersonnageModel.GetValueFieldPersonnage("niveau_suivant_personnage", idPersonnage));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         /// <summary>
         /// Retourne les langues du personnage
         /// </summary>
@@ -245,12 +255,9 @@ namespace maFichePersonnageJDR.Controller
         {
             Console.WriteLine(string.Format("########### Méthode GetLanguesPersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
 
-            PersonnageModel personnagePrenom = new PersonnageModel();
-
             try
             {
-                // On envoie les informations du personnage à sauvegarder
-                return personnagePrenom.GetPersonnage(idPersonnage).LanguesPersonnages;
+                return PersonnageModel.GetValueFieldPersonnage("langues_personnage", idPersonnage).ToString();
             }
             catch (Exception e)
             {
@@ -267,12 +274,9 @@ namespace maFichePersonnageJDR.Controller
         {
             Console.WriteLine(string.Format("########### Méthode GetHistoirePersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
 
-            PersonnageModel personnagePrenom = new PersonnageModel();
-
             try
             {
-                // On envoie les informations du personnage à sauvegarder
-                return personnagePrenom.GetPersonnage(idPersonnage).HistoirePersonnage;
+                return PersonnageModel.GetValueFieldPersonnage("histoire_personnage", idPersonnage).ToString();
             }
             catch (Exception e)
             {
@@ -328,6 +332,52 @@ namespace maFichePersonnageJDR.Controller
             catch (Exception e)
             {
                 throw e;
+            }
+        }
+        
+        public static decimal GetChargePortee(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetChargePortee — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return Convert.ToDecimal(PersonnageModel.GetValueFieldPersonnage("charge_portee_personnage", idPersonnage));
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static decimal GetChargeTotale(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetChargeTotale — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return Convert.ToDecimal(PersonnageModel.GetValueFieldPersonnage("charge_totale_personnage", idPersonnage));
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static void SetValueField(string nomColonne, int idPersonnage, object newValue)
+        {
+            Console.WriteLine(string.Format("########### Méthode SetValueField — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            try
+            {
+                PersonnageModel.SetValueFieldPersonnage(nomColonne, idPersonnage, newValue);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }
