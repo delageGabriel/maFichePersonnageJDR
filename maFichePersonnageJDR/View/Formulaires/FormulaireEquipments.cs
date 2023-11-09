@@ -11,7 +11,6 @@ namespace maFichePersonnageJDR.Formulaires
 {
     public partial class FormulaireEquipments : Form
     {
-        private int idPersonnage;
         private decimal quantiteOr;
         private decimal quantiteArgent;
         private decimal quantiteCuivre;
@@ -20,7 +19,6 @@ namespace maFichePersonnageJDR.Formulaires
         private const decimal poidsCuivre = 0.0402m;
         private Dictionary<Control, Rectangle> dictionaryControlOriginalSize = new Dictionary<Control, Rectangle>();
         private Dictionary<Label, Tuple<Rectangle, float>> dictionaryLabelOriginalSize = new Dictionary<Label, Tuple<Rectangle, float>>();
-        public int IdPersonnage { get => idPersonnage; set => idPersonnage = value; }
         public decimal QuantiteOr
         {
             get => quantiteOr;
@@ -916,11 +914,10 @@ namespace maFichePersonnageJDR.Formulaires
 
             try
             {
-                PersonnageController.SaveBoursePersonnage(IdPersonnage, Convert.ToInt32(nudPo.Value), Convert.ToInt32(nudPa.Value), Convert.ToInt32(nudPc.Value));
-                PersonnageController.SetValueField("charge_portee_personnage", IdPersonnage, double.Parse(Utils.DeleteCharacterFromString(lblChrgPrtePersonnage.Text, " ", "k", "g")));
-                PersonnageController.SetValueField("charge_totale_personnage", IdPersonnage, double.Parse(Utils.DeleteCharacterFromString(lblChrgeMxm.Text, " ", "k", "g")));
+                PersonnageController.SaveBoursePersonnage(GlobaleVariables.idPersonnage, Convert.ToInt32(nudPo.Value), Convert.ToInt32(nudPa.Value), Convert.ToInt32(nudPc.Value));
+                PersonnageController.SetValueField("charge_portee_personnage", GlobaleVariables.idPersonnage, double.Parse(Utils.DeleteCharacterFromString(lblChrgPrtePersonnage.Text, " ", "k", "g")));
+                PersonnageController.SetValueField("charge_totale_personnage", GlobaleVariables.idPersonnage, double.Parse(Utils.DeleteCharacterFromString(lblChrgeMxm.Text, " ", "k", "g")));
 
-                formulaireMagieEtAptitudes.IdPersonnage = IdPersonnage;
                 MessageBox.Show("Équipement sauvegardé !");
                 formulaireMagieEtAptitudes.Show();
                 this.Close();
@@ -952,8 +949,8 @@ namespace maFichePersonnageJDR.Formulaires
         private void MettreAJourPoidsTotal()
         {
             decimal poidsTotal = (QuantiteOr * 0.115m) + (QuantiteArgent * 0.0783m) + (QuantiteCuivre * 0.0402m);
-            poidsTotal += Controller.EquipmentController.GetPoidsTotalArmeTransportees(IdPersonnage) +
-                EquipmentController.GetPoidsTotalArmureTransportees(IdPersonnage) + EquipmentController.GetPoidsTotalObjetTransportees(IdPersonnage);
+            poidsTotal += Controller.EquipmentController.GetPoidsTotalArmeTransportees(GlobaleVariables.idPersonnage) +
+                EquipmentController.GetPoidsTotalArmureTransportees(GlobaleVariables.idPersonnage) + EquipmentController.GetPoidsTotalObjetTransportees(GlobaleVariables.idPersonnage);
             lblChrgPrtePersonnage.Text = poidsTotal.ToString("0.##") + " kg";
         }
 
@@ -1096,7 +1093,7 @@ namespace maFichePersonnageJDR.Formulaires
             int differenceAchat = monnaiePersonnage - achat;
             if (GetEquipmentInInventairePersonnage != null)
             {
-                listeEquipementPersonnage = GetEquipmentInInventairePersonnage(IdPersonnage);
+                listeEquipementPersonnage = GetEquipmentInInventairePersonnage(GlobaleVariables.idPersonnage);
             }
             else
             {
@@ -1113,7 +1110,7 @@ namespace maFichePersonnageJDR.Formulaires
 
                 if (GetEquipmentsInInventairePersonnageToCreateControl != null)
                 {
-                    GetEquipmentsInInventairePersonnageToCreateControl(panelVendreEquipement, IdPersonnage);
+                    GetEquipmentsInInventairePersonnageToCreateControl(panelVendreEquipement, GlobaleVariables.idPersonnage);
                 }
                 else
                 {
@@ -1160,7 +1157,7 @@ namespace maFichePersonnageJDR.Formulaires
 
                         if (GetQuantityEquipment != null)
                         {
-                            nouvelleQte = GetQuantityEquipment(idArme, IdPersonnage);
+                            nouvelleQte = GetQuantityEquipment(idArme, GlobaleVariables.idPersonnage);
                         }
                         else
                         {
@@ -1183,7 +1180,7 @@ namespace maFichePersonnageJDR.Formulaires
 
                         if (UpdateEquipmentQuantity != null)
                         {
-                            UpdateEquipmentQuantity(idArme, IdPersonnage, nouvelleQte);
+                            UpdateEquipmentQuantity(idArme, GlobaleVariables.idPersonnage, nouvelleQte);
                         }
                         else
                         {
@@ -1194,7 +1191,7 @@ namespace maFichePersonnageJDR.Formulaires
                     {
                         if (AddNewEquipmentToInventairePersonnage != null)
                         {
-                            AddNewEquipmentToInventairePersonnage(idArme, IdPersonnage, Convert.ToInt32(substring[1]));
+                            AddNewEquipmentToInventairePersonnage(idArme, GlobaleVariables.idPersonnage, Convert.ToInt32(substring[1]));
                         }
                         else
                         {
@@ -1219,7 +1216,7 @@ namespace maFichePersonnageJDR.Formulaires
 
             if (GetEquipmentsInInventairePersonnageToCreateControl != null)
             {
-                GetEquipmentsInInventairePersonnageToCreateControl(panelVendreEquipement, IdPersonnage);
+                GetEquipmentsInInventairePersonnageToCreateControl(panelVendreEquipement, GlobaleVariables.idPersonnage);
             }
             else
             {
@@ -1426,7 +1423,7 @@ namespace maFichePersonnageJDR.Formulaires
                     {
                         if (SellEquipment != null)
                         {
-                            SellEquipment(idEquipment, IdPersonnage);
+                            SellEquipment(idEquipment, GlobaleVariables.idPersonnage);
                             controlsToDelete.Add(numericUpDown);
                         }
                         else
@@ -1440,7 +1437,7 @@ namespace maFichePersonnageJDR.Formulaires
 
                         if (UpdateEquipment != null)
                         {
-                            UpdateEquipment(idEquipment, IdPersonnage, nouvelleQteMax);
+                            UpdateEquipment(idEquipment, GlobaleVariables.idPersonnage, nouvelleQteMax);
                         }
                         else
                         {
@@ -1484,14 +1481,14 @@ namespace maFichePersonnageJDR.Formulaires
 
         private void CalculChargeMaxPortable()
         {
-            bool checkForce = AttributsController.CheckIfPersonnageHaveAttribut(IdPersonnage, AttributsController.GetIdAttributByName("Force surhumaine"));
+            bool checkForce = AttributsController.CheckIfPersonnageHaveAttribut(GlobaleVariables.idPersonnage, AttributsController.GetIdAttributByName("Force surhumaine"));
             int baseCalcul = checkForce ? 110 : 75;
-            int forcePersonnage = CompetencesCaracteristiquesController.GetValueCompetence("Physique", "force", IdPersonnage);
+            int forcePersonnage = CompetencesCaracteristiquesController.GetValueCompetence("Physique", "force", GlobaleVariables.idPersonnage);
 
-            if (!String.IsNullOrEmpty(AttributsController.GetPourcentagePorteurChargesLourdes(IdPersonnage)))
+            if (!String.IsNullOrEmpty(AttributsController.GetPourcentagePorteurChargesLourdes(GlobaleVariables.idPersonnage)))
             {
                 int poidsTotal = baseCalcul * (1 + forcePersonnage / 10);
-                int pourcentage = int.Parse(AttributsController.GetPourcentagePorteurChargesLourdes(IdPersonnage));
+                int pourcentage = int.Parse(AttributsController.GetPourcentagePorteurChargesLourdes(GlobaleVariables.idPersonnage));
                 decimal pourcentageString = pourcentage / 100.0m;
                 decimal calcul = (poidsTotal * (1 + pourcentageString));
 

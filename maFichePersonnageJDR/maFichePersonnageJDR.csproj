@@ -134,6 +134,7 @@
     <Compile Include="Classe\ClasseImage.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Classe\GlobaleVariables.cs" />
     <Compile Include="Classe\Utils.cs" />
     <Compile Include="Controller\AptitudesController.cs" />
     <Compile Include="Controller\AttributsController.cs" />

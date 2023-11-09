@@ -13,7 +13,6 @@ namespace maFichePersonnageJDR.View.Formulaires
 {
     public partial class FormulaireAttributs : Form
     {
-        private int idDuPersonnage;
         private string[] lstAttributsCheck = { 
             "Alifère", 
             "Armure naturelle", 
@@ -28,7 +27,6 @@ namespace maFichePersonnageJDR.View.Formulaires
 
         private System.Collections.Generic.Dictionary<Control, Rectangle> dictionaryControlOriginalSize = new System.Collections.Generic.Dictionary<Control, Rectangle>();
 
-        public int IdDuPersonnage { get => idDuPersonnage; set => idDuPersonnage = value; }
         public FormulaireAttributs()
         {
             InitializeComponent();
@@ -181,7 +179,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         public void DisableOrCheckBox(TabPage page)
         {
             int nbCheckBoxChecked = 0;
-            int nbAttributParNiveau = AttributsLimitations(IdDuPersonnage);
+            int nbAttributParNiveau = AttributsLimitations(GlobaleVariables.idPersonnage);
 
             foreach (object controls in page.Controls)
             {
@@ -240,9 +238,9 @@ namespace maFichePersonnageJDR.View.Formulaires
                 /**
                  * Test BON NOMBRE ATTRIBUTS
                  */
-                if (nbCaseCocher < AttributsLimitations(IdDuPersonnage))
+                if (nbCaseCocher < AttributsLimitations(GlobaleVariables.idPersonnage))
                 {
-                    MessageBox.Show(string.Format("Il vous reste {0} à donner à votre personnage", AttributsLimitations(IdDuPersonnage) - nbCaseCocher));
+                    MessageBox.Show(string.Format("Il vous reste {0} à donner à votre personnage", AttributsLimitations(GlobaleVariables.idPersonnage) - nbCaseCocher));
                     return;
                 }
 
@@ -262,7 +260,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                     {
                         if (!String.IsNullOrEmpty(substring[0]))
                         {
-                            AttributsController.AddNewAttributToPersonnage(AttributsController.GetIdAttributByName(substring[0]), IdDuPersonnage, "Aucunes");
+                            AttributsController.AddNewAttributToPersonnage(AttributsController.GetIdAttributByName(substring[0]), GlobaleVariables.idPersonnage, "Aucunes");
                         }
                     }
                 }
@@ -271,10 +269,9 @@ namespace maFichePersonnageJDR.View.Formulaires
                 {
                     int idAttribut = keyValue.Key;
                     string specificationsAttr = keyValue.Value;
-                    AttributsController.AddNewAttributToPersonnage(idAttribut, IdDuPersonnage, specificationsAttr);
+                    AttributsController.AddNewAttributToPersonnage(idAttribut, GlobaleVariables.idPersonnage, specificationsAttr);
                 }
 
-                formulaireCompetencesCaracteristiques.IdDuPersonnage = IdDuPersonnage;
                 MessageBox.Show("Attributs sauvegardés");
 
                 formulaireCompetencesCaracteristiques.Show();

@@ -17,7 +17,6 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// <summary>
         /// Champs
         /// </summary>
-        private int idDuPersonnage;
         private int compPhysique;
         private int compMentale;
         private int compSociale;
@@ -29,7 +28,6 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// <summary>
         /// Accesseurs et Mutateurs
         /// </summary>
-        public int IdDuPersonnage { get => idDuPersonnage; set => idDuPersonnage = value; }
         public int CompPhysique
         {
             get => compPhysique;
@@ -136,30 +134,29 @@ namespace maFichePersonnageJDR.View.Formulaires
             FormulaireEquipments formulaireEquipments = new FormulaireEquipments();
 
             // Ajout des PV et Energie
-            Controller.CompetencesCaracteristiquesController.SavePVAndEnergie(IdDuPersonnage, Convert.ToInt32(nudPV.Value), Convert.ToInt32(nudEnergie.Value));
+            Controller.CompetencesCaracteristiquesController.SavePVAndEnergie(GlobaleVariables.idPersonnage, Convert.ToInt32(nudPV.Value), Convert.ToInt32(nudEnergie.Value));
 
             // Ajout des caractéristiques
-            Controller.CompetencesCaracteristiquesController.SaveCaracteristiques(IdDuPersonnage, Convert.ToInt32(nudPhysique.Value), Convert.ToInt32(nudMental.Value),
+            Controller.CompetencesCaracteristiquesController.SaveCaracteristiques(GlobaleVariables.idPersonnage, Convert.ToInt32(nudPhysique.Value), Convert.ToInt32(nudMental.Value),
                 Convert.ToInt32(nudSocial.Value));
 
             // Ajout des compétences mentales
-            Controller.CompetencesCaracteristiquesController.SaveCompetenceMentalPersonnage(idDuPersonnage, Convert.ToInt32(nudCncention.Value), Convert.ToInt32(nudConnGeographiques.Value),
+            Controller.CompetencesCaracteristiquesController.SaveCompetenceMentalPersonnage(GlobaleVariables.idPersonnage, Convert.ToInt32(nudCncention.Value), Convert.ToInt32(nudConnGeographiques.Value),
                 Convert.ToInt32(nudConnHistoriques.Value), Convert.ToInt32(nudMagiques.Value), Convert.ToInt32(nudConnNatures.Value), Convert.ToInt32(nudConnReligieuses.Value),
                 Convert.ToInt32(nudDecryptage.Value), Convert.ToInt32(nudEsprit.Value), Convert.ToInt32(nudExplosifs.Value), Convert.ToInt32(nudMecanique.Value),
                 Convert.ToInt32(nudMedecine.Value), Convert.ToInt32(nudMemoire.Value), Convert.ToInt32(nudPerception.Value), Convert.ToInt32(nudVolonte.Value));
 
             // Ajout des compétences physiques
-            Controller.CompetencesCaracteristiquesController.SaveCompetencePhysiquePersonnage(idDuPersonnage, Convert.ToInt32(nudAgilite.Value), Convert.ToInt32(nudArtisanat.Value),
+            Controller.CompetencesCaracteristiquesController.SaveCompetencePhysiquePersonnage(GlobaleVariables.idPersonnage, Convert.ToInt32(nudAgilite.Value), Convert.ToInt32(nudArtisanat.Value),
                 Convert.ToInt32(nudCrochetage.Value), Convert.ToInt32(nudDiscretion.Value), Convert.ToInt32(nudEqlibre.Value), Convert.ToInt32(nudEscalade.Value),
                 Convert.ToInt32(nudEscamotage.Value), Convert.ToInt32(nudForce.Value), Convert.ToInt32(nudFouille.Value), Convert.ToInt32(nudNatation.Value), Convert.ToInt32(nudReflexes.Value),
                 Convert.ToInt32(nudVigueur.Value));
 
             // Ajout des compétences sociales
-            Controller.CompetencesCaracteristiquesController.SaveCompetenceSocialPersonnage(idDuPersonnage, Convert.ToInt32(nudBaratinage.Value), Convert.ToInt32(nudCharme.Value),
+            Controller.CompetencesCaracteristiquesController.SaveCompetenceSocialPersonnage(GlobaleVariables.idPersonnage, Convert.ToInt32(nudBaratinage.Value), Convert.ToInt32(nudCharme.Value),
                 Convert.ToInt32(nudCmedie.Value), Convert.ToInt32(nudDiplomatie.Value), Convert.ToInt32(nudDressage.Value), Convert.ToInt32(nudIntimidation.Value),
                 Convert.ToInt32(nudMarchandage.Value), Convert.ToInt32(nudPrestance.Value), Convert.ToInt32(nudProvocation.Value));
 
-            formulaireEquipments.IdPersonnage = IdDuPersonnage;
             MessageBox.Show("Compétences et caractéristiques sauvegardées");
 
             formulaireEquipments.Show();
@@ -171,7 +168,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// </summary>
         public void GetPointsToRepartPvEnergieByNiveau()
         {
-            int maximum = Controller.CompetencesCaracteristiquesController.GetPointPvEnergieRepartition(Controller.PersonnageController.GetNiveauPersonnage(IdDuPersonnage));
+            int maximum = Controller.CompetencesCaracteristiquesController.GetPointPvEnergieRepartition(Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.idPersonnage));
             txtPntsPVEnergie.Text = maximum.ToString();
             nudPV.Maximum = maximum;
             nudEnergie.Maximum = maximum;
@@ -183,7 +180,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// </summary>
         public void GetPointsToRepartCaracteristiquesByNiveau()
         {
-            txtPntsCaracteristiques.Text = Controller.CompetencesCaracteristiquesController.GetPointCaracteristiquesRepartition(Controller.PersonnageController.GetNiveauPersonnage(IdDuPersonnage)).ToString();
+            txtPntsCaracteristiques.Text = Controller.CompetencesCaracteristiquesController.GetPointCaracteristiquesRepartition(Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.idPersonnage)).ToString();
         }
 
         private void FormulaireCompetencesCaracteristiques_Load(object sender, EventArgs e)
@@ -245,7 +242,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             int pointsEnergie = (int)nudEnergie.Value;
 
             // Calculer le total des points disponibles
-            int totalPoints = Controller.CompetencesCaracteristiquesController.GetPointPvEnergieRepartition(Controller.PersonnageController.GetNiveauPersonnage(IdDuPersonnage));
+            int totalPoints = Controller.CompetencesCaracteristiquesController.GetPointPvEnergieRepartition(Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.idPersonnage));
 
             // Calculer le nombre de points disponibles pour l'autre attribut
             int pointsRestantsPV = totalPoints - pointsEnergie;
@@ -270,7 +267,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             int pointsMen = (int)nudMental.Value;
             int pointsSoc = (int)nudSocial.Value;
 
-            int totalPoints = Controller.CompetencesCaracteristiquesController.GetPointCaracteristiquesRepartition(Controller.PersonnageController.GetNiveauPersonnage(IdDuPersonnage));
+            int totalPoints = Controller.CompetencesCaracteristiquesController.GetPointCaracteristiquesRepartition(Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.idPersonnage));
 
             int pointsRestantsPhy = totalPoints - (pointsMen + pointsSoc);
             int pointsRestantsMen = totalPoints - (pointsPhy + pointsSoc);
@@ -305,7 +302,7 @@ namespace maFichePersonnageJDR.View.Formulaires
 
                 // On en profite pour afficher les control liés à la répartition des points de
                 // compétences si le niveau du personnage est supérieur à 1
-                if (Controller.PersonnageController.GetNiveauPersonnage(IdDuPersonnage) > 1)
+                if (Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.idPersonnage) > 1)
                 {
                     GetNbFoisPointsRepartitions();
                     EnableOrDisableTextBoxButtonRepartitionPoints(true);
@@ -531,7 +528,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             }
             else
             {
-                NbFoisPointsMiseAJour = subsplit[0] + ": " + (Controller.PersonnageController.GetNiveauPersonnage(IdDuPersonnage) - 1).ToString();
+                NbFoisPointsMiseAJour = subsplit[0] + ": " + (Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.idPersonnage) - 1).ToString();
             }
 
             lblNbRepartitionComp.Text = NbFoisPointsMiseAJour;
@@ -608,7 +605,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// </summary>
         private void GetMaximumForCaracteristiques()
         {
-            int niveauDuPersonnage = Controller.PersonnageController.GetNiveauPersonnage(IdDuPersonnage);
+            int niveauDuPersonnage = Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.idPersonnage);
 
             if (niveauDuPersonnage < 3)
             {

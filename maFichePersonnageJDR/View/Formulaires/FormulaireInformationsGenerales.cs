@@ -223,9 +223,9 @@ namespace maFichePersonnageJDR.Formulaires
                 Controller.PersonnageController.SaveInformationsPersonnage(PrenomPersonnage, NomPersonnage, RacePersonnage, NiveauPersonnage,
                     sexe, ExperiencePersonnage, CourbeProgressionPersonnage, NiveauSuivantPersonnage, LanguesPersonnage, AvatarPersonnage, HistoirePersonnage);
 
-                // On récupère l'id du personnage créé
-                formulaireAttributs.IdDuPersonnage = Controller.PersonnageController.GetIdPersonnageByNameAndSurname(NomPersonnage,
+                GlobaleVariables.idPersonnage = Controller.PersonnageController.GetIdPersonnageByNameAndSurname(NomPersonnage,
                     PrenomPersonnage);
+
                 MessageBox.Show("Formulaire sauvegardé !");
 
                 formulaireAttributs.Show();

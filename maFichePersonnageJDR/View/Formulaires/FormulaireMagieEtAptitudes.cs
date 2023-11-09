@@ -11,11 +11,8 @@ namespace maFichePersonnageJDR.Formulaires
 {
     public partial class FormulaireMagieEtAptitudes : Form
     {
-        private int idPersonnage;
-
         private Dictionary<Control, Rectangle> dictionaryControlOriginalSize = new Dictionary<Control, Rectangle>();
         private Dictionary<Label, Tuple<Rectangle, float>> dictionaryLabelOriginalSize = new Dictionary<Label, Tuple<Rectangle, float>>();
-        public int IdPersonnage { get => idPersonnage; set => idPersonnage = value; }
         public FormulaireMagieEtAptitudes()
         {
             InitializeComponent();
@@ -310,7 +307,7 @@ namespace maFichePersonnageJDR.Formulaires
         public void DisableOrCheckBox(TabControl tbControlAptitudes, TabControl tbControlMagies)
         {
             int nbCheckBoxChecked = 0;
-            int nbAttributParNiveau = MagiesEtAptitudesLimitations(IdPersonnage);
+            int nbAttributParNiveau = MagiesEtAptitudesLimitations(GlobaleVariables.idPersonnage);
 
             /// Parcours des aptitudes
             foreach (TabPage page in tbControlAptitudes.TabPages)
@@ -463,9 +460,9 @@ namespace maFichePersonnageJDR.Formulaires
                 }
             }
 
-            if (nbCheckBoxCochee < MagieAptitudesLimitationByLevel(PersonnageController.GetNiveauPersonnage(IdPersonnage)))
+            if (nbCheckBoxCochee < MagieAptitudesLimitationByLevel(PersonnageController.GetNiveauPersonnage(GlobaleVariables.idPersonnage)))
             {
-                MessageBox.Show(string.Format("Il vous reste {0} à attribuer au personnage !", MagieAptitudesLimitationByLevel(PersonnageController.GetNiveauPersonnage(IdPersonnage) - nbCheckBoxCochee)));
+                MessageBox.Show(string.Format("Il vous reste {0} à attribuer au personnage !", MagieAptitudesLimitationByLevel(PersonnageController.GetNiveauPersonnage(GlobaleVariables.idPersonnage) - nbCheckBoxCochee)));
                 return;
             }
 
@@ -476,7 +473,7 @@ namespace maFichePersonnageJDR.Formulaires
                 {
                     string[] substring = line.Split(';');
                     MagieController.AddNewMagieToPersonnage(Convert.ToInt32(substring[0]),
-                    IdPersonnage);
+                    GlobaleVariables.idPersonnage);
                 }
             }
 
@@ -487,18 +484,18 @@ namespace maFichePersonnageJDR.Formulaires
                 {
                     string[] substring = line.Split(';');
                     AptitudesController.AddNewAptitudeToPersonnage(Convert.ToInt32(substring[0]),
-                    IdPersonnage);
+                    GlobaleVariables.idPersonnage);
                 }
             }
 
             // Format PDF
-            //classePdf.IdPersonnage = IdPersonnage;
+            //classePdf.GlobaleVariables.idPersonnage = GlobaleVariables.idPersonnage;
             //classePdf.CreatePersonnagePdf(pbComplétionExportationFiche);
 
             // Format HTML pour forge
-            classeHtml.IdPersonnage = IdPersonnage;
             classeHtml.CreatePersonnageHtml();
 
+            GlobaleVariables.idPersonnage = 0;
             this.Close();
         }
 
