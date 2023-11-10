@@ -227,6 +227,11 @@ namespace maFichePersonnageJDR.View.Formulaires
             {
                 dictionaryControlOriginalSize.Add(control, new Rectangle(control.Location, control.Size));
             }
+
+            if (GlobaleVariables.isEdit)
+            {
+                EditUpdateCompCarac();
+            }
         }
 
         /// <summary>
@@ -629,6 +634,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void EnableNumericUpDownInGroupBox()
         {
             foreach (Control control in gbPhysique.Controls)
@@ -674,6 +682,63 @@ namespace maFichePersonnageJDR.View.Formulaires
             }
 
             this.Refresh();
+        }
+
+        private void EditUpdateCompCarac()
+        {
+            nudPV.Value = Controller.CompetencesCaracteristiquesController.GetValuePvEnergie("pv", "nombre_points_pv", GlobaleVariables.idPersonnage);
+            nudEnergie.Value = Controller.CompetencesCaracteristiquesController.GetValuePvEnergie("energie", "nombre_points_energie", GlobaleVariables.idPersonnage);
+
+            nudPhysique.Value = Controller.CompetencesCaracteristiquesController.GetPhysiquePersonnage(GlobaleVariables.idPersonnage);
+            nudMental.Value = Controller.CompetencesCaracteristiquesController.GetMentalPersonnage(GlobaleVariables.idPersonnage);
+            nudSocial.Value = Controller.CompetencesCaracteristiquesController.GetSocialPersonnage(GlobaleVariables.idPersonnage);
+
+            /**
+             * COMP PHYSIQUE
+             */
+            nudAgilite.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "agilite", GlobaleVariables.idPersonnage);
+            nudArtisanat.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "artisanat", GlobaleVariables.idPersonnage);
+            nudCrochetage.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "crochetage", GlobaleVariables.idPersonnage);
+            nudDiscretion.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "discretion", GlobaleVariables.idPersonnage);
+            nudEqlibre.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "equilibre", GlobaleVariables.idPersonnage);
+            nudEscalade.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "escalade", GlobaleVariables.idPersonnage);
+            nudEscamotage.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "escamotage", GlobaleVariables.idPersonnage);
+            nudForce.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "escamotage", GlobaleVariables.idPersonnage);
+            nudFouille.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "fouille", GlobaleVariables.idPersonnage);
+            nudNatation.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "natation", GlobaleVariables.idPersonnage);
+            nudReflexes.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "reflexes", GlobaleVariables.idPersonnage);
+            nudVigueur.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "vigueur", GlobaleVariables.idPersonnage);
+
+            /**
+             * COMP MENTAL
+             */
+            nudCncention.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "concentration", GlobaleVariables.idPersonnage);
+            nudConnGeographiques.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "connaissance_geographiques", GlobaleVariables.idPersonnage);
+            nudConnHistoriques.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "connaissance_historiques", GlobaleVariables.idPersonnage);
+            nudMagiques.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "connaissance_magiques", GlobaleVariables.idPersonnage);
+            nudConnNatures.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "connaissance_natures", GlobaleVariables.idPersonnage);
+            nudConnReligieuses.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "connaissance_religieuses", GlobaleVariables.idPersonnage);
+            nudDecryptage.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "decryptage", GlobaleVariables.idPersonnage);
+            nudEsprit.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "esprit", GlobaleVariables.idPersonnage);
+            nudExplosifs.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "explosifs", GlobaleVariables.idPersonnage);
+            nudMecanique.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "mecanique", GlobaleVariables.idPersonnage);
+            nudMedecine.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "medecine", GlobaleVariables.idPersonnage);
+            nudMemoire.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "memoire", GlobaleVariables.idPersonnage);
+            nudPerception.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "perception", GlobaleVariables.idPersonnage);
+            nudVolonte.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "volonte", GlobaleVariables.idPersonnage);
+
+            /**
+             * COMP SOCIAL
+             */
+            nudBaratinage.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "baratinage", GlobaleVariables.idPersonnage);
+            nudCharme.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "charme", GlobaleVariables.idPersonnage);
+            nudCmedie.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "comedie", GlobaleVariables.idPersonnage);
+            nudDiplomatie.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "diplomatie", GlobaleVariables.idPersonnage);
+            nudDressage.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "dressage", GlobaleVariables.idPersonnage);
+            nudIntimidation.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "intimidation", GlobaleVariables.idPersonnage);
+            nudMarchandage.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "marchandage", GlobaleVariables.idPersonnage);
+            nudPrestance.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "prestance", GlobaleVariables.idPersonnage);
+            nudProvocation.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "provocation", GlobaleVariables.idPersonnage);
         }
     }
 }

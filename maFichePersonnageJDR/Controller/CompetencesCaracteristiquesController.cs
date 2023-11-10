@@ -379,5 +379,23 @@ namespace maFichePersonnageJDR.Controller
                 return defautValue;
             }
         }
+
+        public static int GetValuePvEnergie(string pvOrEnergie, string nomColonne, int idPersonnage)
+        {
+            int defautValue = 0;
+
+            if (pvOrEnergie == "pv")
+            {
+                return PointsPVEnergiePersonnageModel.GetValuePVEnergie(nomColonne, idPersonnage);
+            }
+            else if (pvOrEnergie == "energie")
+            {
+                return PointsPVEnergiePersonnageModel.GetValuePVEnergie(nomColonne, idPersonnage);
+            }
+            else
+            {
+                return defautValue;
+            }
+        }
     }
 }

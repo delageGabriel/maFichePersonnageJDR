@@ -47,5 +47,33 @@ namespace maFichePersonnageJDR.Model
                 throw e;
             }
         }
+
+        public static int GetValuePVEnergie(string nomColonne, int idPersonnage)
+        {
+            int defautValue = 0;
+
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand($"SELECT {nomColonne} FROM POINTS_PV_ENERGIE_PERSONNAGE " +
+                    "WHERE id_personnage = @id_personnage", connection);
+                command.Parameters.AddWithValue("@id_personnage", idPersonnage);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        return reader.GetInt32(0);
+                    }
+                }
+
+                return defautValue;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

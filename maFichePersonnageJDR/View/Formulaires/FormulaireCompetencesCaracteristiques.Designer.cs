@@ -1438,7 +1438,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // btnSauvegarder
             // 
-            this.btnSauvegarder.Location = new System.Drawing.Point(429, 435);
+            this.btnSauvegarder.Location = new System.Drawing.Point(406, 451);
             this.btnSauvegarder.Name = "btnSauvegarder";
             this.btnSauvegarder.Size = new System.Drawing.Size(115, 33);
             this.btnSauvegarder.TabIndex = 47;
@@ -1483,7 +1483,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // btnAddPtsMen
             // 
-            this.btnAddPtsMen.Location = new System.Drawing.Point(462, 379);
+            this.btnAddPtsMen.Location = new System.Drawing.Point(462, 380);
             this.btnAddPtsMen.Name = "btnAddPtsMen";
             this.btnAddPtsMen.Size = new System.Drawing.Size(103, 23);
             this.btnAddPtsMen.TabIndex = 52;
@@ -1548,7 +1548,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(916, 480);
+            this.ClientSize = new System.Drawing.Size(916, 499);
             this.Controls.Add(this.pnlCaracteristiques);
             this.Controls.Add(this.pnlPvEnergie);
             this.Controls.Add(this.lblNbRepartitionComp);

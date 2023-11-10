@@ -60,15 +60,16 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // rtbAttributs
             // 
-            this.rtbAttributs.Location = new System.Drawing.Point(12, 259);
+            this.rtbAttributs.Enabled = false;
+            this.rtbAttributs.Location = new System.Drawing.Point(12, 255);
             this.rtbAttributs.Name = "rtbAttributs";
-            this.rtbAttributs.Size = new System.Drawing.Size(310, 122);
+            this.rtbAttributs.Size = new System.Drawing.Size(310, 91);
             this.rtbAttributs.TabIndex = 3;
             this.rtbAttributs.Text = "";
             // 
             // btnSauvegarder
             // 
-            this.btnSauvegarder.Location = new System.Drawing.Point(105, 386);
+            this.btnSauvegarder.Location = new System.Drawing.Point(109, 369);
             this.btnSauvegarder.Name = "btnSauvegarder";
             this.btnSauvegarder.Size = new System.Drawing.Size(112, 33);
             this.btnSauvegarder.TabIndex = 4;
@@ -80,7 +81,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.lblNbAttributs.AutoSize = true;
             this.lblNbAttributs.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNbAttributs.Location = new System.Drawing.Point(74, 3);
+            this.lblNbAttributs.Location = new System.Drawing.Point(74, 10);
             this.lblNbAttributs.Name = "lblNbAttributs";
             this.lblNbAttributs.Size = new System.Drawing.Size(224, 21);
             this.lblNbAttributs.TabIndex = 5;
@@ -90,7 +91,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 431);
+            this.ClientSize = new System.Drawing.Size(342, 413);
             this.Controls.Add(this.lblNbAttributs);
             this.Controls.Add(this.btnSauvegarder);
             this.Controls.Add(this.rtbAttributs);

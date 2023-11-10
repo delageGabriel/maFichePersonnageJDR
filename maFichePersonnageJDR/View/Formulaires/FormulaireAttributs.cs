@@ -13,14 +13,14 @@ namespace maFichePersonnageJDR.View.Formulaires
 {
     public partial class FormulaireAttributs : Form
     {
-        private string[] lstAttributsCheck = { 
-            "Alifère", 
-            "Armure naturelle", 
-            "Avantage du terrain", 
-            "Canaliseur", 
-            "Frigifugé", 
-            "Gigantisme", 
-            "Ignifugé", 
+        private string[] lstAttributsCheck = {
+            "Alifère",
+            "Armure naturelle",
+            "Avantage du terrain",
+            "Canaliseur",
+            "Frigifugé",
+            "Gigantisme",
+            "Ignifugé",
             "Magicien",
             "Porteur de charges lourdes"
         };
@@ -36,10 +36,16 @@ namespace maFichePersonnageJDR.View.Formulaires
         {
             GetAttributs();
             CreateCheckBoxAttribut();
+
             dictionaryControlOriginalSize.Add(this, new Rectangle(this.Location, this.Size));
             dictionaryControlOriginalSize.Add(tbControlAttributs, new Rectangle(tbControlAttributs.Location, tbControlAttributs.Size));
             dictionaryControlOriginalSize.Add(rtbAttributs, new Rectangle(rtbAttributs.Location, rtbAttributs.Size));
             dictionaryControlOriginalSize.Add(btnSauvegarder, new Rectangle(btnSauvegarder.Location, btnSauvegarder.Size));
+
+            if (GlobaleVariables.isEdit)
+            {
+                EditPersonnageAttributs();
+            }
         }
 
         /// <summary>
@@ -62,6 +68,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             Console.WriteLine("########### FIN Méthode GetAttributs ###########");
         }
 
+        /// <summary>
+        /// Permet d'afficher dans un autre formulaire, les différentes informations
+        /// d'un attribut sur lequel l'utilisateur a cliqué
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void linkLabelAttribut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FormulaireApercuAttributs formulaireApercuAttributs = new FormulaireApercuAttributs();
@@ -91,7 +103,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                 // FR : Devrait ajouter le texte
                 // EN : Should append text
                 rtbAttributs.AppendText(attribut + Environment.NewLine);
-                DisableOrCheckBox(tbPgeAttributs);
+                CheckAndEnableOrDisableCheckBoxes();
             }
             else
             {
@@ -110,7 +122,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                 // FR : On réattribue les nouvelles lignes à celles de la RichTextBox
                 // EN : Reassign the new lines to those in the RichTextBox
                 rtbAttributs.Lines = lines.ToArray();
-                DisableOrCheckBox(tbPgeAttributs);
+                CheckAndEnableOrDisableCheckBoxes();
             }
         }
 
@@ -139,11 +151,12 @@ namespace maFichePersonnageJDR.View.Formulaires
         }
 
         /// <summary>
-        /// Obtient le nombre d'attributs qu'un personnage peut gagner par niveau
+        /// Détermine le nombre d'attributs qu'un personnage peut encore
+        /// s'attribuer
         /// </summary>
         /// <param name="idPersonnage"></param>
         /// <returns></returns>
-        public int AttributsLimitations(int idPersonnage)
+        public int MaxAttributesByLevel(int idPersonnage)
         {
             int nbAttributes = 0;
             int niveauPersonnage = PersonnageController.GetNiveauPersonnage(idPersonnage);
@@ -176,43 +189,40 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// Permet d'activer ou désactiver les CheckBox attributs
         /// </summary>
         /// <param name="page"></param>
-        public void DisableOrCheckBox(TabPage page)
+        public void CheckAndEnableOrDisableCheckBoxes()
         {
-            int nbCheckBoxChecked = 0;
-            int nbAttributParNiveau = AttributsLimitations(GlobaleVariables.idPersonnage);
+            int nbAttributParNiveau = MaxAttributesByLevel(GlobaleVariables.idPersonnage);
+            int nbCheckBoxesChecked = tbPgeAttributs.Controls
+                .OfType<CheckBox>()
+                .Count(cb => cb.Checked);
 
-            foreach (object controls in page.Controls)
+            if (nbCheckBoxesChecked >= nbAttributParNiveau)
             {
-                if (controls is CheckBox)
+                foreach (Control control in tbPgeAttributs.Controls)
                 {
-                    CheckBox checkBox = controls as CheckBox;
-                    nbCheckBoxChecked += checkBox.Checked ? 1 : 0;
-                }
-            }
-
-            if (nbCheckBoxChecked == nbAttributParNiveau)
-            {
-                foreach (object controls in page.Controls)
-                {
-                    if (controls is CheckBox)
+                    if ((control is CheckBox) && (control as CheckBox).Checked == false)
                     {
-                        CheckBox checkBox = controls as CheckBox;
-                        checkBox.Enabled = checkBox.Checked ? true : false;
+                        (control as CheckBox).Enabled = false;
                     }
                 }
             }
             else
             {
-                foreach (object controls in page.Controls)
+                foreach (Control control in tbPgeAttributs.Controls)
                 {
-                    if (controls is CheckBox)
+                    if ((control is CheckBox) && (control as CheckBox).Checked == false)
                     {
-                        CheckBox checkBox = controls as CheckBox;
-                        checkBox.Enabled = true;
+                        (control as CheckBox).Enabled = true;
                     }
                 }
             }
         }
+
+        /// <summary>
+        /// Permet de sauvegarder les informations du formulaire dans la base de données
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSauvegarder_Click(object sender, EventArgs e)
         {
             #region Initialisation des variables
@@ -238,9 +248,9 @@ namespace maFichePersonnageJDR.View.Formulaires
                 /**
                  * Test BON NOMBRE ATTRIBUTS
                  */
-                if (nbCaseCocher < AttributsLimitations(GlobaleVariables.idPersonnage))
+                if (nbCaseCocher < MaxAttributesByLevel(GlobaleVariables.idPersonnage))
                 {
-                    MessageBox.Show(string.Format("Il vous reste {0} à donner à votre personnage", AttributsLimitations(GlobaleVariables.idPersonnage) - nbCaseCocher));
+                    MessageBox.Show(string.Format("Il vous reste {0} à donner à votre personnage", MaxAttributesByLevel(GlobaleVariables.idPersonnage) - nbCaseCocher));
                     return;
                 }
 
@@ -283,6 +293,11 @@ namespace maFichePersonnageJDR.View.Formulaires
             }
         }
 
+        /// <summary>
+        /// Permet de spécifier une information lié à un attribut coché
+        /// </summary>
+        /// <param name="nameAttribut"></param>
+        /// <returns></returns>
         private string AttributesSpecifications(string nameAttribut)
         {
             using (FormSpecificationAttributs formSpecification = new FormSpecificationAttributs())
@@ -316,6 +331,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             return string.Empty;
         }
 
+        /// <summary>
+        /// Permet de mettre à jour la taille du formulaire
+        /// ainsi que de ses controls enfants
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormulaireAttributs_Resize(object sender, EventArgs e)
         {
             float xRatio = (float)this.Width / dictionaryControlOriginalSize[this].Width;
@@ -325,6 +346,32 @@ namespace maFichePersonnageJDR.View.Formulaires
             {
                 Utils.AdjustControlSizeAndPosition(entry.Key, entry.Value, xRatio, yRatio);
             }
+        }
+
+        /// <summary>
+        /// Permet de cocher et d'ajouter dès que le formulaire est ouvert, les attributs que le personnage possède déjà.
+        /// </summary>
+        private void EditPersonnageAttributs()
+        {
+            string[] attributes = AttributsController.GetListNomAttributs(GlobaleVariables.idPersonnage).ToArray();
+
+            for (int i = 0; i < attributes.Length; i++)
+            {
+                string nomCheckBox = "chck" + attributes[i];
+
+                foreach (Control control in tbPgeAttributs.Controls)
+                {
+                    if (control is CheckBox && control.Name == nomCheckBox)
+                    {
+                        (control as CheckBox).Checked = true;
+                        (control as CheckBox).Enabled = false;
+                    }
+                }
+
+                rtbAttributs.Text += attributes[i] + "," + "\n";
+            }
+
+            CheckAndEnableOrDisableCheckBoxes();
         }
     }
 }
