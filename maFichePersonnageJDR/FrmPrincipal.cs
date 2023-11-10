@@ -59,16 +59,31 @@ namespace maFichePersonnageJDR
             btnCreerPersonnage.Left = (this.ClientSize.Width - btnCreerPersonnage.Width) / 2;
         }
 
+        /// <summary>
+        /// Méthode qui permet d'éditer les informations d'un personnage
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbbEditPersonnage_SelectedIndexChanged(object sender, EventArgs e)
         {
+            FormEditMenu formEditMenu = new FormEditMenu();
 
+            // On passe en mode Edit et on récupère l'id du personnage à éditer
+            GlobaleVariables.isEdit = true;
+            string[] substring = cbbEditPersonnage.SelectedItem.ToString().Split(' ');
+            GlobaleVariables.idPersonnage = PersonnageController.GetIdPersonnageByNameAndSurname(substring[1], substring[0]);
+
+            // On passe sur le form edit menu en cachant le form principal
+            this.Hide();
+            formEditMenu.Show();
         }
 
         private void cbbDeletePersonnage_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbbDeletePersonnage.SelectedItem != null)
             {
-                DialogResult result = MessageBox.Show("Voulez-vous vraiment supprimer ce Personnage ?\n Toutes les données qui lui sont liées seront supprimées également.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Voulez-vous vraiment supprimer ce Personnage ?\n Toutes les données qui lui sont liées seront supprimées " +
+                    "également et vous ne pourrez plus éditer le personnage (vous aurez toujours sa fiche).", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 // Vérifier la réponse de l'utilisateur
                 if (result == DialogResult.Yes)

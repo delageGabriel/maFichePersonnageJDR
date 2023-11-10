@@ -126,6 +126,12 @@ namespace maFichePersonnageJDR.Formulaires
                     dictionaryControlOriginalSize.Add(ctrl, new Rectangle(ctrl.Location, ctrl.Size));
                 }
             }
+
+            // Cas où l'on edit un personnage existant
+            if (GlobaleVariables.isEdit)
+            {
+                EditPersonnage();
+            }
         }
 
         /// <summary>
@@ -143,94 +149,134 @@ namespace maFichePersonnageJDR.Formulaires
 
             try
             {
-                string sexe = "";
+                if (GlobaleVariables.isEdit)
+                {
+                    FormEditMenu formEditMenu = new FormEditMenu();
 
-                /**
-                 * Test du PRENOM
-                 */
-                if (String.IsNullOrEmpty(txtBoxPrenom.Text))
-                {
-                    MessageBox.Show("Le champ « Prénom » doit être rempli !");
-                    return;
-                }
+                    string niveauSuivant = Utils.DeleteCharacterFromString(lblPointsRestants.Text, "/");
 
-                /**
-                 * Test du NOM
-                 */
-                if (String.IsNullOrEmpty(txtBoxNom.Text))
-                {
-                    MessageBox.Show("Le champ « Nom » doit être rempli !");
-                    return;
-                }
+                    // Mise à jour du niveau du personnage
+                    if (nudNiveau.Value != Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.idPersonnage))
+                    {
+                        Controller.PersonnageController.SetValueField("niveau_personnage", GlobaleVariables.idPersonnage, nudNiveau.Value);
+                    }
 
-                /**
-                 * Test RACE
-                 */
-                if (String.IsNullOrEmpty(TxtBoxRace.Text))
-                {
-                    MessageBox.Show("Le champ « Race » doit être rempli !");
-                    return;
-                }
+                    // Mise à jour du nombre de points à atteindre pour le niveau suivant du personnage
+                    if (int.Parse(niveauSuivant) != Controller.PersonnageController.GetNiveauSuivantPersonnage(GlobaleVariables.idPersonnage))
+                    {
+                        Controller.PersonnageController.SetValueField("niveau_suivant_personnage", GlobaleVariables.idPersonnage, niveauSuivant);
+                    }
 
-                /**
-                 * Test SEXE
-                 */
-                if (rdbHomme.Checked == true)
-                {
-                    sexe = HommePersonnage;
-                }
-                else if (rdbFemme.Checked == true)
-                {
-                    sexe = FemmePersonnage;
-                }
-                else if (rdbAutre.Checked == true)
-                {
-                    sexe = AutrePersonnage;
+                    // Mise à jour du nombre de points d'expérience acquis par le personnage
+                    if (nudExpériencePersonnage.Value != Controller.PersonnageController.GetExperiencePersonnage(GlobaleVariables.idPersonnage))
+                    {
+                        Controller.PersonnageController.SetValueField("experience_personnage", GlobaleVariables.idPersonnage, nudExpériencePersonnage.Value);
+                    }
+
+                    // Mise à jour l'histoire du personnage
+                    if (rtbHistoire.Text != Controller.PersonnageController.GetHistoirePersonnage(GlobaleVariables.idPersonnage))
+                    {
+                        Controller.PersonnageController.SetValueField("histoire_personnage", GlobaleVariables.idPersonnage, rtbHistoire.Text);
+                    }
+
+                    // Mise à jour des langues parlées par le personnage
+                    if (rtbLangues.Text != Controller.PersonnageController.GetLanguesPersonnage(GlobaleVariables.idPersonnage))
+                    {
+                        Controller.PersonnageController.SetValueField("langues_personnage", GlobaleVariables.idPersonnage, rtbLangues.Text);
+                    }
+
+                    formEditMenu.Show();
                 }
                 else
                 {
-                    MessageBox.Show("Veuillez cocher un sexe pour le personnage !");
-                    return;
-                }
+                    string sexe = "";
 
-                /**
-                 * Test COURBE PROGRESSION
-                 */
-                if(cbbProgressionXp.Text == "Progression")
-                {
-                    MessageBox.Show("Veuillez sélectionner une courbe de progression pour le personnage !");
-                    return;
-                }
-                /**
-                 * Test LANGUES
-                 */
-                if (String.IsNullOrEmpty(rtbLangues.Text))
-                {
-                    MessageBox.Show("Le champ « Langues » doit être rempli !");
-                    return;
-                }
+                    /**
+                     * Test du PRENOM
+                     */
+                    if (String.IsNullOrEmpty(txtBoxPrenom.Text))
+                    {
+                        MessageBox.Show("Le champ « Prénom » doit être rempli !");
+                        return;
+                    }
 
-                /**
-                 * Test PERSONNAGE EXISTE DEJA
-                 */
-                if (!Controller.PersonnageController.CheckPersonnageExist(NomPersonnage, PrenomPersonnage))
-                {
-                    MessageBox.Show("Le personnage existe déjà en base !");
-                    return;
+                    /**
+                     * Test du NOM
+                     */
+                    if (String.IsNullOrEmpty(txtBoxNom.Text))
+                    {
+                        MessageBox.Show("Le champ « Nom » doit être rempli !");
+                        return;
+                    }
+
+                    /**
+                     * Test RACE
+                     */
+                    if (String.IsNullOrEmpty(TxtBoxRace.Text))
+                    {
+                        MessageBox.Show("Le champ « Race » doit être rempli !");
+                        return;
+                    }
+
+                    /**
+                     * Test SEXE
+                     */
+                    if (rdbHomme.Checked == true)
+                    {
+                        sexe = HommePersonnage;
+                    }
+                    else if (rdbFemme.Checked == true)
+                    {
+                        sexe = FemmePersonnage;
+                    }
+                    else if (rdbAutre.Checked == true)
+                    {
+                        sexe = AutrePersonnage;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Veuillez cocher un sexe pour le personnage !");
+                        return;
+                    }
+
+                    /**
+                     * Test COURBE PROGRESSION
+                     */
+                    if (cbbProgressionXp.Text == "Progression")
+                    {
+                        MessageBox.Show("Veuillez sélectionner une courbe de progression pour le personnage !");
+                        return;
+                    }
+                    /**
+                     * Test LANGUES
+                     */
+                    if (String.IsNullOrEmpty(rtbLangues.Text))
+                    {
+                        MessageBox.Show("Le champ « Langues » doit être rempli !");
+                        return;
+                    }
+
+                    /**
+                     * Test PERSONNAGE EXISTE DEJA
+                     */
+                    if (!Controller.PersonnageController.CheckPersonnageExist(NomPersonnage, PrenomPersonnage))
+                    {
+                        MessageBox.Show("Le personnage existe déjà en base !");
+                        return;
+                    }
+
+                    // Si tout est bon, on sauvegarde les informations et on créait le personnage
+                    Controller.PersonnageController.SaveInformationsPersonnage(PrenomPersonnage, NomPersonnage, RacePersonnage, NiveauPersonnage,
+                        sexe, ExperiencePersonnage, CourbeProgressionPersonnage, NiveauSuivantPersonnage, LanguesPersonnage, AvatarPersonnage, HistoirePersonnage);
+
+                    GlobaleVariables.idPersonnage = Controller.PersonnageController.GetIdPersonnageByNameAndSurname(NomPersonnage,
+                        PrenomPersonnage);
+                    
+                    formulaireAttributs.Show();
                 }
-
-                // Si tout est bon, on sauvegarde les informations et on créait le personnage
-                Controller.PersonnageController.SaveInformationsPersonnage(PrenomPersonnage, NomPersonnage, RacePersonnage, NiveauPersonnage,
-                    sexe, ExperiencePersonnage, CourbeProgressionPersonnage, NiveauSuivantPersonnage, LanguesPersonnage, AvatarPersonnage, HistoirePersonnage);
-
-                GlobaleVariables.idPersonnage = Controller.PersonnageController.GetIdPersonnageByNameAndSurname(NomPersonnage,
-                    PrenomPersonnage);
 
                 MessageBox.Show("Formulaire sauvegardé !");
-
-                formulaireAttributs.Show();
                 this.Close();
-
             }
             catch (Exception exception)
             {
@@ -283,14 +329,14 @@ namespace maFichePersonnageJDR.Formulaires
             return cheminImage;
         }
 
+        /// <summary>
+        /// Vide la RichTextBoxHistoire
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnViderHistoire_Click(object sender, EventArgs e)
         {
             rtbHistoire.Text = rtbHistoire.Text.Remove(0, rtbHistoire.TextLength);
-        }
-
-        private void btnViderLangues_Click(object sender, EventArgs e)
-        {
-            rtbLangues.Text = rtbLangues.Text.Remove(0, rtbLangues.TextLength);
         }
 
         private void nudNiveau_ValueChanged(object sender, EventArgs e)
@@ -340,6 +386,47 @@ namespace maFichePersonnageJDR.Formulaires
             }
 
             this.Refresh();
+        }
+
+        /// <summary>
+        /// Méthode qui assigne les valeurs pour un personnage déjà existant
+        /// </summary>
+        private void EditPersonnage()
+        {
+            string sexe = Controller.PersonnageController.GetSexePersonnage(GlobaleVariables.idPersonnage);
+
+            switch (sexe)
+            {
+                case "Masculin":
+                    rdbHomme.Checked = true;
+                    break;
+                case "Féminin":
+                    rdbFemme.Checked = true;
+                    break;
+                case "Autre":
+                    rdbAutre.Checked = true;
+                    break;
+                default:
+                    break;
+            }
+
+            // On bloque les controls qui changerait des informations trop importante
+            txtBoxPrenom.Enabled = false;
+            txtBoxNom.Enabled = false;
+            TxtBoxRace.Enabled = false;
+            rdbHomme.Enabled = false;
+            rdbFemme.Enabled = false;
+            rdbAutre.Enabled = false;
+            cbbProgressionXp.Enabled = false;
+
+            // On remet les valeurs à jour dans les controls du formulaire
+            txtBoxPrenom.Text = Controller.PersonnageController.GetPrenomPersonnage(GlobaleVariables.idPersonnage);
+            txtBoxNom.Text = Controller.PersonnageController.GetNomPersonnage(GlobaleVariables.idPersonnage);
+            TxtBoxRace.Text = Controller.PersonnageController.GetRacePersonnage(GlobaleVariables.idPersonnage);
+            nudNiveau.Value = Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.idPersonnage);
+            cbbProgressionXp.SelectedItem = Controller.PersonnageController.GetCourbeProgressionPersonnage(GlobaleVariables.idPersonnage);
+            rtbHistoire.Text = Controller.PersonnageController.GetHistoirePersonnage(GlobaleVariables.idPersonnage);
+            rtbLangues.Text = Controller.PersonnageController.GetLanguesPersonnage(GlobaleVariables.idPersonnage);
         }
     }
 }
