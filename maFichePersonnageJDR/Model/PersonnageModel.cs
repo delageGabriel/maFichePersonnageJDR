@@ -169,56 +169,12 @@ namespace maFichePersonnageJDR.Model
         }
 
         /// <summary>
-        /// Retourne un personnage par son ID
+        /// Obtenir la valeur d'une colonne donnée en paramètre
+        /// pour un personnage
         /// </summary>
+        /// <param name="nomColonne"></param>
         /// <param name="idPersonnage"></param>
         /// <returns></returns>
-        public PersonnageModel GetPersonnage(int idPersonnage)
-        {
-            #region Initialisation des variables
-            PersonnageModel personnageToReturn = new PersonnageModel();
-            #endregion
-
-            try
-            {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
-                // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT * FROM PERSONNAGE WHERE id_personnage = @id_personnage", connection);
-                command.Parameters.AddWithValue("@id_personnage", idPersonnage);
-
-                using (SQLiteDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        PersonnageModel personnageModel = new PersonnageModel();
-
-                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
-                        personnageModel.IdPersonnage = reader.GetInt32(0);
-                        personnageModel.PrenomPersonnage = reader.GetString(1);
-                        personnageModel.NomPersonnage = reader.GetString(2);
-                        personnageModel.RacePersonnage = reader.GetString(3);
-                        personnageModel.NiveauPersonnage = reader.GetInt32(4);
-                        personnageModel.SexePersonnage = reader.GetString(5);
-                        personnageModel.ExperiencePersonnage = reader.GetInt32(6);
-                        personnageModel.CourbeProgressionPersonnage = reader.GetString(7);
-                        personnageModel.LanguesPersonnages = reader.GetString(8);
-                        personnageModel.AvatarPersonnage = reader.GetString(9);
-                        personnageModel.HistoirePersonnage = reader.GetString(10);
-                        personnageModel.ChargePorteePersonnage = reader.GetDecimal(11);
-                        personnageModel.ChargeTotalePersonnage = reader.GetDecimal(12);
-
-                        personnageToReturn = personnageModel;
-                    }
-                }
-
-                return personnageToReturn;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
         public static object GetValueFieldPersonnage(string nomColonne, int idPersonnage)
         {
             int defautReturn = 0;
@@ -250,6 +206,12 @@ namespace maFichePersonnageJDR.Model
             }
         }
 
+        /// <summary>
+        /// Permet de mettre à jour un champ dans la table PERSONNAGE
+        /// </summary>
+        /// <param name="nomColonne"></param>
+        /// <param name="idPersonnage"></param>
+        /// <param name="newValue"></param>
         public static void SetValueFieldPersonnage(string nomColonne, int idPersonnage, object newValue)
         {
             try
@@ -269,6 +231,75 @@ namespace maFichePersonnageJDR.Model
                 }
             }
             catch (SQLiteException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void DeleteRowPersonnage(int idPersonnage)
+        {
+            try
+            {
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("DELETE FROM PERSONNAGE WHERE id_personnage = @idPersonnage",
+                    DatabaseConnection.Instance.GetConnection());
+
+                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
+
+                int rowsAffected = command.ExecuteNonQuery();
+            }
+            catch (SQLiteException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void DeleteRowPersonnageByPrenomAndNom(string prenomPersonnage, string nomPersonnage)
+        {
+            try
+            {
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("DELETE FROM PERSONNAGE WHERE prenom_personnage = @prenomPersonnage AND nom_personnage = @nomPersonnage",
+                    DatabaseConnection.Instance.GetConnection());
+
+                command.Parameters.AddWithValue("@prenomPersonnage", prenomPersonnage);
+                command.Parameters.AddWithValue("@nomPersonnage", nomPersonnage);
+
+                int rowsAffected = command.ExecuteNonQuery();
+            }
+            catch (SQLiteException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static List<object> GetListPersonnage()
+        {
+            List<object> ListPersonnage = new List<object>();
+
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand($"SELECT prenom_personnage, nom_personnage " +
+                    "FROM PERSONNAGE", connection);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    Console.WriteLine(command.CommandText);
+
+                    while (reader.Read())
+                    {
+                        string prenom = reader["prenom_personnage"].ToString();
+                        string nom = reader["nom_personnage"].ToString();
+
+                        ListPersonnage.Add(prenom + " " + nom);
+                    }
+                }
+
+                return ListPersonnage;
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

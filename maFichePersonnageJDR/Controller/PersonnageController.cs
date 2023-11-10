@@ -24,7 +24,7 @@ namespace maFichePersonnageJDR.Controller
         /// <param name="avatarPersonnage"></param>
         /// <param name="histoirePersonnage"></param>
         public static void SaveInformationsPersonnage(string prenomPersonnage, string nomPersonnage, string racePersonnage, int niveauPersonnage,
-            string sexePersonnage, int experiencePersonnage, string courbeExperience, int niveauSuivantPersonnage, string languesPersonnage, 
+            string sexePersonnage, int experiencePersonnage, string courbeExperience, int niveauSuivantPersonnage, string languesPersonnage,
             string avatarPersonnage, string histoirePersonnage)
         {
             Console.WriteLine(string.Format("########### Méthode SaveInformationsPersonnage — Personnage créé : Prénom : {0} ###########", prenomPersonnage));
@@ -334,7 +334,7 @@ namespace maFichePersonnageJDR.Controller
                 throw e;
             }
         }
-        
+
         public static decimal GetChargePortee(int idPersonnage)
         {
             Console.WriteLine(string.Format("########### Méthode GetChargePortee — Personnage recherchée : ID : {0} ###########", idPersonnage));
@@ -374,6 +374,48 @@ namespace maFichePersonnageJDR.Controller
             try
             {
                 PersonnageModel.SetValueFieldPersonnage(nomColonne, idPersonnage, newValue);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void DeleteRowPersonnage(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode DeleteRowPersonnage — Personnage supprimé : ID : {0} ###########", idPersonnage));
+
+            try
+            {
+                PersonnageModel.DeleteRowPersonnage(idPersonnage);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void DeleteRowPersonnageByPrenomAndNom(string prenom, string nom)
+        {
+            Console.WriteLine(string.Format("########### Méthode DeleteRowPersonnageByPrenomAndNom — Personnage supprimé : prénom : {0} ###########", prenom));
+
+            try
+            {
+                PersonnageModel.DeleteRowPersonnageByPrenomAndNom(prenom, nom);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static object[] GetListPersonnage()
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListPersonnage"));
+
+            try
+            {
+                return PersonnageModel.GetListPersonnage().ToArray();
             }
             catch (Exception ex)
             {

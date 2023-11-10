@@ -145,11 +145,11 @@
     </Compile>
     <Compile Include="Controller\MagieController.cs" />
     <Compile Include="Controller\PersonnageController.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FrmPrincipal.Designer.cs">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\AptitudesModel.cs" />
     <Compile Include="Model\AptitudesPersonnageModel.cs" />
@@ -230,8 +230,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FrmPrincipal.resx">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Formulaires\FormSpecificationAttributs.resx">
       <DependentUpon>FormSpecificationAttributs.cs</DependentUpon>

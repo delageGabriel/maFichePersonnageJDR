@@ -33,22 +33,18 @@ namespace maFichePersonnageJDR
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
+            cbbEditPersonnage.Items.AddRange(PersonnageController.GetListPersonnage());
+            cbbDeletePersonnage.Items.AddRange(PersonnageController.GetListPersonnage());
             // Mémorisez la taille originale du formulaire et du bouton au chargement
             originalFormSize = this.Size;
             originalButtonSize = btnCreerPersonnage.Size;
         }
 
-        private void btnInfosGenerales_Click(object sender, EventArgs e)
-        {
-            FormulaireInfosGenerales frmIG = new FormulaireInfosGenerales();
-            frmIG.Show();
-        }
-
-
         private void btnCreerPersonnage_Click(object sender, EventArgs e)
         {
             FormulaireInfosGenerales formulaireMenu = new FormulaireInfosGenerales();
             formulaireMenu.Show();
+            this.Hide();
         }
 
         private void FrmPrincipal_Resize(object sender, EventArgs e)
@@ -61,6 +57,42 @@ namespace maFichePersonnageJDR
 
             // Si vous voulez garder le bouton centré après le redimensionnement :
             btnCreerPersonnage.Left = (this.ClientSize.Width - btnCreerPersonnage.Width) / 2;
+        }
+
+        private void cbbEditPersonnage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbbDeletePersonnage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbDeletePersonnage.SelectedItem != null)
+            {
+                DialogResult result = MessageBox.Show("Voulez-vous vraiment supprimer ce Personnage ?\n Toutes les données qui lui sont liées seront supprimées également.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                // Vérifier la réponse de l'utilisateur
+                if (result == DialogResult.Yes)
+                {
+                    string[] substring = cbbDeletePersonnage.SelectedItem.ToString().Split(' ');
+                    PersonnageController.DeleteRowPersonnageByPrenomAndNom(substring[0], substring[1]);
+
+                    // Update ComboboxDelete & Edit
+                    UpdateComboBoxes();
+                }
+            }
+        }
+
+        public void UpdateComboBoxes()
+        {
+            // Delete
+            cbbDeletePersonnage.Refresh();
+            cbbDeletePersonnage.Items.Clear();
+            cbbDeletePersonnage.Items.AddRange(PersonnageController.GetListPersonnage());
+
+            // Edit
+            cbbEditPersonnage.Refresh();
+            cbbEditPersonnage.Items.Clear();
+            cbbEditPersonnage.Items.AddRange(PersonnageController.GetListPersonnage());
         }
     }
 }

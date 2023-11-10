@@ -437,6 +437,8 @@ namespace maFichePersonnageJDR.Formulaires
 
         private void btnFinaliserFiche_Click(object sender, EventArgs e)
         {
+            FrmPrincipal frmPrincipal = new FrmPrincipal();
+
             //ClassePdf classePdf = new ClassePdf();
             ClasseHtml classeHtml = new ClasseHtml();
 
@@ -494,7 +496,8 @@ namespace maFichePersonnageJDR.Formulaires
 
             // Format HTML pour forge
             classeHtml.CreatePersonnageHtml();
-
+            frmPrincipal.Refresh();
+            frmPrincipal.Show();
             GlobaleVariables.idPersonnage = 0;
             this.Close();
         }
