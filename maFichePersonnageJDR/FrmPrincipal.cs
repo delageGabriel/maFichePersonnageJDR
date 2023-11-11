@@ -69,9 +69,9 @@ namespace maFichePersonnageJDR
             FormEditMenu formEditMenu = new FormEditMenu();
 
             // On passe en mode Edit et on récupère l'id du personnage à éditer
-            GlobaleVariables.isEdit = true;
+            GlobaleVariables.IsEdit = true;
             string[] substring = cbbEditPersonnage.SelectedItem.ToString().Split(' ');
-            GlobaleVariables.idPersonnage = PersonnageController.GetIdPersonnageByNameAndSurname(substring[1], substring[0]);
+            GlobaleVariables.IdPersonnage = PersonnageController.GetIdPersonnageByNameAndSurname(substring[1], substring[0]);
 
             // On passe sur le form edit menu en cachant le form principal
             this.Hide();

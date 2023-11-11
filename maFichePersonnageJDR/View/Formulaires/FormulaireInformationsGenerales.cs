@@ -128,7 +128,7 @@ namespace maFichePersonnageJDR.Formulaires
             }
 
             // Cas où l'on edit un personnage existant
-            if (GlobaleVariables.isEdit)
+            if (GlobaleVariables.IsEdit)
             {
                 EditPersonnage();
             }
@@ -149,40 +149,40 @@ namespace maFichePersonnageJDR.Formulaires
 
             try
             {
-                if (GlobaleVariables.isEdit)
+                if (GlobaleVariables.IsEdit)
                 {
                     FormEditMenu formEditMenu = new FormEditMenu();
 
                     string niveauSuivant = Utils.DeleteCharacterFromString(lblPointsRestants.Text, "/");
 
                     // Mise à jour du niveau du personnage
-                    if (nudNiveau.Value != Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.idPersonnage))
+                    if (nudNiveau.Value != Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage))
                     {
-                        Controller.PersonnageController.SetValueField("niveau_personnage", GlobaleVariables.idPersonnage, nudNiveau.Value);
+                        Controller.PersonnageController.SetValueField("niveau_personnage", GlobaleVariables.IdPersonnage, nudNiveau.Value);
                     }
 
                     // Mise à jour du nombre de points à atteindre pour le niveau suivant du personnage
-                    if (int.Parse(niveauSuivant) != Controller.PersonnageController.GetNiveauSuivantPersonnage(GlobaleVariables.idPersonnage))
+                    if (int.Parse(niveauSuivant) != Controller.PersonnageController.GetNiveauSuivantPersonnage(GlobaleVariables.IdPersonnage))
                     {
-                        Controller.PersonnageController.SetValueField("niveau_suivant_personnage", GlobaleVariables.idPersonnage, niveauSuivant);
+                        Controller.PersonnageController.SetValueField("niveau_suivant_personnage", GlobaleVariables.IdPersonnage, niveauSuivant);
                     }
 
                     // Mise à jour du nombre de points d'expérience acquis par le personnage
-                    if (nudExpériencePersonnage.Value != Controller.PersonnageController.GetExperiencePersonnage(GlobaleVariables.idPersonnage))
+                    if (nudExpériencePersonnage.Value != Controller.PersonnageController.GetExperiencePersonnage(GlobaleVariables.IdPersonnage))
                     {
-                        Controller.PersonnageController.SetValueField("experience_personnage", GlobaleVariables.idPersonnage, nudExpériencePersonnage.Value);
+                        Controller.PersonnageController.SetValueField("experience_personnage", GlobaleVariables.IdPersonnage, nudExpériencePersonnage.Value);
                     }
 
                     // Mise à jour l'histoire du personnage
-                    if (rtbHistoire.Text != Controller.PersonnageController.GetHistoirePersonnage(GlobaleVariables.idPersonnage))
+                    if (rtbHistoire.Text != Controller.PersonnageController.GetHistoirePersonnage(GlobaleVariables.IdPersonnage))
                     {
-                        Controller.PersonnageController.SetValueField("histoire_personnage", GlobaleVariables.idPersonnage, rtbHistoire.Text);
+                        Controller.PersonnageController.SetValueField("histoire_personnage", GlobaleVariables.IdPersonnage, rtbHistoire.Text);
                     }
 
                     // Mise à jour des langues parlées par le personnage
-                    if (rtbLangues.Text != Controller.PersonnageController.GetLanguesPersonnage(GlobaleVariables.idPersonnage))
+                    if (rtbLangues.Text != Controller.PersonnageController.GetLanguesPersonnage(GlobaleVariables.IdPersonnage))
                     {
-                        Controller.PersonnageController.SetValueField("langues_personnage", GlobaleVariables.idPersonnage, rtbLangues.Text);
+                        Controller.PersonnageController.SetValueField("langues_personnage", GlobaleVariables.IdPersonnage, rtbLangues.Text);
                     }
 
                     formEditMenu.Show();
@@ -269,7 +269,7 @@ namespace maFichePersonnageJDR.Formulaires
                     Controller.PersonnageController.SaveInformationsPersonnage(PrenomPersonnage, NomPersonnage, RacePersonnage, NiveauPersonnage,
                         sexe, ExperiencePersonnage, CourbeProgressionPersonnage, NiveauSuivantPersonnage, LanguesPersonnage, AvatarPersonnage, HistoirePersonnage);
 
-                    GlobaleVariables.idPersonnage = Controller.PersonnageController.GetIdPersonnageByNameAndSurname(NomPersonnage,
+                    GlobaleVariables.IdPersonnage = Controller.PersonnageController.GetIdPersonnageByNameAndSurname(NomPersonnage,
                         PrenomPersonnage);
                     
                     formulaireAttributs.Show();
@@ -393,7 +393,7 @@ namespace maFichePersonnageJDR.Formulaires
         /// </summary>
         private void EditPersonnage()
         {
-            string sexe = Controller.PersonnageController.GetSexePersonnage(GlobaleVariables.idPersonnage);
+            string sexe = Controller.PersonnageController.GetSexePersonnage(GlobaleVariables.IdPersonnage);
 
             switch (sexe)
             {
@@ -420,13 +420,13 @@ namespace maFichePersonnageJDR.Formulaires
             cbbProgressionXp.Enabled = false;
 
             // On remet les valeurs à jour dans les controls du formulaire
-            txtBoxPrenom.Text = Controller.PersonnageController.GetPrenomPersonnage(GlobaleVariables.idPersonnage);
-            txtBoxNom.Text = Controller.PersonnageController.GetNomPersonnage(GlobaleVariables.idPersonnage);
-            TxtBoxRace.Text = Controller.PersonnageController.GetRacePersonnage(GlobaleVariables.idPersonnage);
-            nudNiveau.Value = Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.idPersonnage);
-            cbbProgressionXp.SelectedItem = Controller.PersonnageController.GetCourbeProgressionPersonnage(GlobaleVariables.idPersonnage);
-            rtbHistoire.Text = Controller.PersonnageController.GetHistoirePersonnage(GlobaleVariables.idPersonnage);
-            rtbLangues.Text = Controller.PersonnageController.GetLanguesPersonnage(GlobaleVariables.idPersonnage);
+            txtBoxPrenom.Text = Controller.PersonnageController.GetPrenomPersonnage(GlobaleVariables.IdPersonnage);
+            txtBoxNom.Text = Controller.PersonnageController.GetNomPersonnage(GlobaleVariables.IdPersonnage);
+            TxtBoxRace.Text = Controller.PersonnageController.GetRacePersonnage(GlobaleVariables.IdPersonnage);
+            nudNiveau.Value = Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage);
+            cbbProgressionXp.SelectedItem = Controller.PersonnageController.GetCourbeProgressionPersonnage(GlobaleVariables.IdPersonnage);
+            rtbHistoire.Text = Controller.PersonnageController.GetHistoirePersonnage(GlobaleVariables.IdPersonnage);
+            rtbLangues.Text = Controller.PersonnageController.GetLanguesPersonnage(GlobaleVariables.IdPersonnage);
         }
     }
 }

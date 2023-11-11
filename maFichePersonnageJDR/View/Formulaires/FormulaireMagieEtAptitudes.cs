@@ -307,7 +307,7 @@ namespace maFichePersonnageJDR.Formulaires
         public void DisableOrCheckBox(TabControl tbControlAptitudes, TabControl tbControlMagies)
         {
             int nbCheckBoxChecked = 0;
-            int nbAttributParNiveau = MagiesEtAptitudesLimitations(GlobaleVariables.idPersonnage);
+            int nbAttributParNiveau = MagiesEtAptitudesLimitations(GlobaleVariables.IdPersonnage);
 
             /// Parcours des aptitudes
             foreach (TabPage page in tbControlAptitudes.TabPages)
@@ -462,9 +462,9 @@ namespace maFichePersonnageJDR.Formulaires
                 }
             }
 
-            if (nbCheckBoxCochee < MagieAptitudesLimitationByLevel(PersonnageController.GetNiveauPersonnage(GlobaleVariables.idPersonnage)))
+            if (nbCheckBoxCochee < MagieAptitudesLimitationByLevel(PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage)))
             {
-                MessageBox.Show(string.Format("Il vous reste {0} à attribuer au personnage !", MagieAptitudesLimitationByLevel(PersonnageController.GetNiveauPersonnage(GlobaleVariables.idPersonnage) - nbCheckBoxCochee)));
+                MessageBox.Show(string.Format("Il vous reste {0} à attribuer au personnage !", MagieAptitudesLimitationByLevel(PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage) - nbCheckBoxCochee)));
                 return;
             }
 
@@ -475,7 +475,7 @@ namespace maFichePersonnageJDR.Formulaires
                 {
                     string[] substring = line.Split(';');
                     MagieController.AddNewMagieToPersonnage(Convert.ToInt32(substring[0]),
-                    GlobaleVariables.idPersonnage);
+                    GlobaleVariables.IdPersonnage);
                 }
             }
 
@@ -486,7 +486,7 @@ namespace maFichePersonnageJDR.Formulaires
                 {
                     string[] substring = line.Split(';');
                     AptitudesController.AddNewAptitudeToPersonnage(Convert.ToInt32(substring[0]),
-                    GlobaleVariables.idPersonnage);
+                    GlobaleVariables.IdPersonnage);
                 }
             }
 
@@ -498,7 +498,7 @@ namespace maFichePersonnageJDR.Formulaires
             classeHtml.CreatePersonnageHtml();
             frmPrincipal.Refresh();
             frmPrincipal.Show();
-            GlobaleVariables.idPersonnage = 0;
+            GlobaleVariables.IdPersonnage = 0;
             this.Close();
         }
 

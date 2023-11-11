@@ -52,18 +52,18 @@ namespace maFichePersonnageJDR.View.Formulaires
         private void btnRetour_Click(object sender, EventArgs e)
         {
             Console.WriteLine(string.Format("##### DEBUG : GlobaleVariables.idPersonnage = {0} / GlobaleVariables.idPersonnage = {1} #####",
-                Classe.GlobaleVariables.idPersonnage, Classe.GlobaleVariables.isEdit));
+                Classe.GlobaleVariables.IdPersonnage, Classe.GlobaleVariables.IsEdit));
 
             FrmPrincipal frmPrincipal = new FrmPrincipal();
 
-            Classe.GlobaleVariables.idPersonnage = 0;
-            Classe.GlobaleVariables.isEdit = false;
+            Classe.GlobaleVariables.IdPersonnage = 0;
+            Classe.GlobaleVariables.IsEdit = false;
 
             frmPrincipal.Show();
             this.Close();
 
             Console.WriteLine(string.Format("##### DEBUG END : GlobaleVariables.idPersonnage = {0} / GlobaleVariables.idPersonnage = {1} #####",
-                Classe.GlobaleVariables.idPersonnage, Classe.GlobaleVariables.isEdit));
+                Classe.GlobaleVariables.IdPersonnage, Classe.GlobaleVariables.IsEdit));
         }
     }
 }

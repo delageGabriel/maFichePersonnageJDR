@@ -8,7 +8,10 @@ namespace maFichePersonnageJDR.Classe
 {
     static class GlobaleVariables
     {
-        public static int idPersonnage = 0;
-        public static bool isEdit = false;
+        private static int idPersonnage = 0;
+        private static bool isEdit = false;
+
+        public static int IdPersonnage { get => idPersonnage; set => idPersonnage = value; }
+        public static bool IsEdit { get => isEdit; set => isEdit = value; }
     }
 }

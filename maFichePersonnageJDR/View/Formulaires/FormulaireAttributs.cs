@@ -42,7 +42,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             dictionaryControlOriginalSize.Add(rtbAttributs, new Rectangle(rtbAttributs.Location, rtbAttributs.Size));
             dictionaryControlOriginalSize.Add(btnSauvegarder, new Rectangle(btnSauvegarder.Location, btnSauvegarder.Size));
 
-            if (GlobaleVariables.isEdit)
+            if (GlobaleVariables.IsEdit)
             {
                 EditPersonnageAttributs();
             }
@@ -191,7 +191,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// <param name="page"></param>
         public void CheckAndEnableOrDisableCheckBoxes()
         {
-            int nbAttributParNiveau = MaxAttributesByLevel(GlobaleVariables.idPersonnage);
+            int nbAttributParNiveau = MaxAttributesByLevel(GlobaleVariables.IdPersonnage);
             int nbCheckBoxesChecked = tbPgeAttributs.Controls
                 .OfType<CheckBox>()
                 .Count(cb => cb.Checked);
@@ -248,9 +248,9 @@ namespace maFichePersonnageJDR.View.Formulaires
                 /**
                  * Test BON NOMBRE ATTRIBUTS
                  */
-                if (nbCaseCocher < MaxAttributesByLevel(GlobaleVariables.idPersonnage))
+                if (nbCaseCocher < MaxAttributesByLevel(GlobaleVariables.IdPersonnage))
                 {
-                    MessageBox.Show(string.Format("Il vous reste {0} à donner à votre personnage", MaxAttributesByLevel(GlobaleVariables.idPersonnage) - nbCaseCocher));
+                    MessageBox.Show(string.Format("Il vous reste {0} à donner à votre personnage", MaxAttributesByLevel(GlobaleVariables.IdPersonnage) - nbCaseCocher));
                     return;
                 }
 
@@ -270,7 +270,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                     {
                         if (!String.IsNullOrEmpty(substring[0]))
                         {
-                            AttributsController.AddNewAttributToPersonnage(AttributsController.GetIdAttributByName(substring[0]), GlobaleVariables.idPersonnage, "Aucunes");
+                            AttributsController.AddNewAttributToPersonnage(AttributsController.GetIdAttributByName(substring[0]), GlobaleVariables.IdPersonnage, "Aucunes");
                         }
                     }
                 }
@@ -279,7 +279,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                 {
                     int idAttribut = keyValue.Key;
                     string specificationsAttr = keyValue.Value;
-                    AttributsController.AddNewAttributToPersonnage(idAttribut, GlobaleVariables.idPersonnage, specificationsAttr);
+                    AttributsController.AddNewAttributToPersonnage(idAttribut, GlobaleVariables.IdPersonnage, specificationsAttr);
                 }
 
                 MessageBox.Show("Attributs sauvegardés");
@@ -353,7 +353,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// </summary>
         private void EditPersonnageAttributs()
         {
-            string[] attributes = AttributsController.GetListNomAttributs(GlobaleVariables.idPersonnage).ToArray();
+            string[] attributes = AttributsController.GetListNomAttributs(GlobaleVariables.IdPersonnage).ToArray();
 
             for (int i = 0; i < attributes.Length; i++)
             {

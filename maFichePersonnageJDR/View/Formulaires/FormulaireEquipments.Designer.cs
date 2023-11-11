@@ -452,7 +452,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnSuivant.Name = "btnSuivant";
             this.btnSuivant.Size = new System.Drawing.Size(98, 31);
             this.btnSuivant.TabIndex = 15;
-            this.btnSuivant.Text = "Suivant";
+            this.btnSuivant.Text = "Sauvegarder";
             this.btnSuivant.UseVisualStyleBackColor = true;
             this.btnSuivant.Click += new System.EventHandler(this.btnSuivant_Click);
             // 

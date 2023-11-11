@@ -15,15 +15,50 @@ namespace maFichePersonnageJDR.View.Formulaires
     public partial class FormulaireCompetencesCaracteristiques : Form
     {
         /// <summary>
-        /// Champs
+        /// Champs des points à répartir dans les trois type compétences
         /// </summary>
-        private int compPhysique;
-        private int compMentale;
-        private int compSociale;
+        private int compPhysique = 36;
+        private int compMentale = 41;
+        private int compSociale = 22;
+
+        /// <summary>
+        /// Champs des trois type de caractéristiques pour éviter les
+        /// valeurs en dur
+        /// </summary>
+        private enum TypeComp
+        {
+            Physique,
+            Mental,
+            Social
+        }
+
+        /// <summary>
+        /// Champs du nombre de fois que le l'utilisateur peut
+        /// ajouter des points de compétences dans un des trois types
+        /// et le maximum qu'on peut répartir dans une caractéristique
+        /// au niveau du personnage
+        /// </summary>
         private string nbFoisPointsMiseAJour;
         private int maximumCaracteristiquesDefaut;
+
+        /// <summary>
+        /// Champs du nombre de points qu'on peut ajouter dans chaque
+        /// compétences une fois le niveau suivant atteint
+        /// </summary>
+        private const int pointsPhysique = 4;
+        private const int pointsMental = 5;
+        private const int pointsSocial = 3;
+
+        /// <summary>
+        /// Stockage des controls du formulaire
+        /// </summary>
         private Dictionary<Control, Rectangle> dictionaryControlOriginalSize = new Dictionary<Control, Rectangle>();
         private Dictionary<Label, Tuple<Rectangle, float>> dictionaryLabelOriginalSize = new Dictionary<Label, Tuple<Rectangle, float>>();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private Dictionary<string, Action<int>> competencesMiseAJour;
 
         /// <summary>
         /// Accesseurs et Mutateurs
@@ -76,12 +111,27 @@ namespace maFichePersonnageJDR.View.Formulaires
                 }
             }
         }
+
+        public static int PointsPhysique => pointsPhysique;
+
+        public static int PointsMental => pointsMental;
+
+        public static int PointsSocial => pointsSocial;
+
         /// <summary>
         /// Méthodes
         /// </summary>
         public FormulaireCompetencesCaracteristiques()
         {
             InitializeComponent();
+
+            // Initialisation du dictionnaire
+            competencesMiseAJour = new Dictionary<string, Action<int>>
+            {
+                { "Physique", (points) => {CompPhysique += points; txtBxCompPhy.Text = CompPhysique.ToString(); } },
+                { "Mental", (points) => {CompMentale += points; txtBxCompMen.Text = CompMentale.ToString(); } },
+                { "Social", (points) => {CompSociale += points; txtBxComSoc.Text = CompSociale.ToString(); } }
+            };
         }
 
         private void btnSauvegarder_Click(object sender, EventArgs e)
@@ -134,26 +184,26 @@ namespace maFichePersonnageJDR.View.Formulaires
             FormulaireEquipments formulaireEquipments = new FormulaireEquipments();
 
             // Ajout des PV et Energie
-            Controller.CompetencesCaracteristiquesController.SavePVAndEnergie(GlobaleVariables.idPersonnage, Convert.ToInt32(nudPV.Value), Convert.ToInt32(nudEnergie.Value));
+            Controller.CompetencesCaracteristiquesController.SavePVAndEnergie(GlobaleVariables.IdPersonnage, Convert.ToInt32(nudPV.Value), Convert.ToInt32(nudEnergie.Value));
 
             // Ajout des caractéristiques
-            Controller.CompetencesCaracteristiquesController.SaveCaracteristiques(GlobaleVariables.idPersonnage, Convert.ToInt32(nudPhysique.Value), Convert.ToInt32(nudMental.Value),
+            Controller.CompetencesCaracteristiquesController.SaveCaracteristiques(GlobaleVariables.IdPersonnage, Convert.ToInt32(nudPhysique.Value), Convert.ToInt32(nudMental.Value),
                 Convert.ToInt32(nudSocial.Value));
 
             // Ajout des compétences mentales
-            Controller.CompetencesCaracteristiquesController.SaveCompetenceMentalPersonnage(GlobaleVariables.idPersonnage, Convert.ToInt32(nudCncention.Value), Convert.ToInt32(nudConnGeographiques.Value),
+            Controller.CompetencesCaracteristiquesController.SaveCompetenceMentalPersonnage(GlobaleVariables.IdPersonnage, Convert.ToInt32(nudCncention.Value), Convert.ToInt32(nudConnGeographiques.Value),
                 Convert.ToInt32(nudConnHistoriques.Value), Convert.ToInt32(nudMagiques.Value), Convert.ToInt32(nudConnNatures.Value), Convert.ToInt32(nudConnReligieuses.Value),
                 Convert.ToInt32(nudDecryptage.Value), Convert.ToInt32(nudEsprit.Value), Convert.ToInt32(nudExplosifs.Value), Convert.ToInt32(nudMecanique.Value),
                 Convert.ToInt32(nudMedecine.Value), Convert.ToInt32(nudMemoire.Value), Convert.ToInt32(nudPerception.Value), Convert.ToInt32(nudVolonte.Value));
 
             // Ajout des compétences physiques
-            Controller.CompetencesCaracteristiquesController.SaveCompetencePhysiquePersonnage(GlobaleVariables.idPersonnage, Convert.ToInt32(nudAgilite.Value), Convert.ToInt32(nudArtisanat.Value),
+            Controller.CompetencesCaracteristiquesController.SaveCompetencePhysiquePersonnage(GlobaleVariables.IdPersonnage, Convert.ToInt32(nudAgilite.Value), Convert.ToInt32(nudArtisanat.Value),
                 Convert.ToInt32(nudCrochetage.Value), Convert.ToInt32(nudDiscretion.Value), Convert.ToInt32(nudEqlibre.Value), Convert.ToInt32(nudEscalade.Value),
                 Convert.ToInt32(nudEscamotage.Value), Convert.ToInt32(nudForce.Value), Convert.ToInt32(nudFouille.Value), Convert.ToInt32(nudNatation.Value), Convert.ToInt32(nudReflexes.Value),
                 Convert.ToInt32(nudVigueur.Value));
 
             // Ajout des compétences sociales
-            Controller.CompetencesCaracteristiquesController.SaveCompetenceSocialPersonnage(GlobaleVariables.idPersonnage, Convert.ToInt32(nudBaratinage.Value), Convert.ToInt32(nudCharme.Value),
+            Controller.CompetencesCaracteristiquesController.SaveCompetenceSocialPersonnage(GlobaleVariables.IdPersonnage, Convert.ToInt32(nudBaratinage.Value), Convert.ToInt32(nudCharme.Value),
                 Convert.ToInt32(nudCmedie.Value), Convert.ToInt32(nudDiplomatie.Value), Convert.ToInt32(nudDressage.Value), Convert.ToInt32(nudIntimidation.Value),
                 Convert.ToInt32(nudMarchandage.Value), Convert.ToInt32(nudPrestance.Value), Convert.ToInt32(nudProvocation.Value));
 
@@ -168,7 +218,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// </summary>
         public void GetPointsToRepartPvEnergieByNiveau()
         {
-            int maximum = Controller.CompetencesCaracteristiquesController.GetPointPvEnergieRepartition(Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.idPersonnage));
+            int maximum = Controller.CompetencesCaracteristiquesController.GetPointPvEnergieRepartition(Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage));
             txtPntsPVEnergie.Text = maximum.ToString();
             nudPV.Maximum = maximum;
             nudEnergie.Maximum = maximum;
@@ -180,7 +230,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// </summary>
         public void GetPointsToRepartCaracteristiquesByNiveau()
         {
-            txtPntsCaracteristiques.Text = Controller.CompetencesCaracteristiquesController.GetPointCaracteristiquesRepartition(Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.idPersonnage)).ToString();
+            txtPntsCaracteristiques.Text = Controller.CompetencesCaracteristiquesController.GetPointCaracteristiquesRepartition(Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage)).ToString();
         }
 
         private void FormulaireCompetencesCaracteristiques_Load(object sender, EventArgs e)
@@ -228,7 +278,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                 dictionaryControlOriginalSize.Add(control, new Rectangle(control.Location, control.Size));
             }
 
-            if (GlobaleVariables.isEdit)
+            if (GlobaleVariables.IsEdit)
             {
                 EditUpdateCompCarac();
             }
@@ -247,7 +297,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             int pointsEnergie = (int)nudEnergie.Value;
 
             // Calculer le total des points disponibles
-            int totalPoints = Controller.CompetencesCaracteristiquesController.GetPointPvEnergieRepartition(Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.idPersonnage));
+            int totalPoints = Controller.CompetencesCaracteristiquesController.GetPointPvEnergieRepartition(Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage));
 
             // Calculer le nombre de points disponibles pour l'autre attribut
             int pointsRestantsPV = totalPoints - pointsEnergie;
@@ -268,38 +318,31 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// <param name="e"></param>
         private void nudPhyMenSoc_ValueChanged(object sender, EventArgs e)
         {
+            /// Récupération des valeurs de chaque NumericUpDown caractéristiques
             int pointsPhy = (int)nudPhysique.Value;
             int pointsMen = (int)nudMental.Value;
             int pointsSoc = (int)nudSocial.Value;
 
-            int totalPoints = Controller.CompetencesCaracteristiquesController.GetPointCaracteristiquesRepartition(Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.idPersonnage));
+            // Le nombre total de point que le personnage peut répartir à son niveau dans les trois
+            // caractéristiques
+            int totalPoints = Controller.CompetencesCaracteristiquesController.GetPointCaracteristiquesRepartition(Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage));
 
+            /// Calcul des points restants à répartir dans chaque caractéristique
             int pointsRestantsPhy = totalPoints - (pointsMen + pointsSoc);
             int pointsRestantsMen = totalPoints - (pointsPhy + pointsSoc);
             int pointsRestantsSoc = totalPoints - (pointsMen + pointsPhy);
 
+            /// Mise à jour du maximum de point à répartir en fonction 
             nudPhysique.Maximum = totalPoints - ((int)nudPhysique.Value + (int)nudMental.Value + (int)nudSocial.Value) > 0 ? MaximumCaracteristiquesDefaut : pointsRestantsPhy;
             nudMental.Maximum = totalPoints - ((int)nudPhysique.Value + (int)nudMental.Value + (int)nudSocial.Value) > 0 ? MaximumCaracteristiquesDefaut : pointsRestantsMen;
             nudSocial.Maximum = totalPoints - ((int)nudPhysique.Value + (int)nudMental.Value + (int)nudSocial.Value) > 0 ? MaximumCaracteristiquesDefaut : pointsRestantsSoc;
 
+            // Mise à jour du nombre de points restants total à répartir dans les trois caractéristiques
             txtPntsCaracteristiques.Text = (totalPoints - ((int)nudPhysique.Value + (int)nudMental.Value + (int)nudSocial.Value)).ToString();
 
             /// Une fois qu'on a réparti tous les points on affiche les points pour les différentes compétences
             if (nudPhysique.Value == nudPhysique.Maximum && nudMental.Value == nudMental.Maximum && nudSocial.Value == nudSocial.Maximum)
             {
-                int dizainePhys = pointsPhy / 10; // Récupérer la dizaine
-                int dizaineMent = pointsMen / 10;
-                int dizaineSoc = pointsSoc / 10;
-
-                int pointsPhys = dizainePhys + 36; // Ajouter la dizaine aux points correspondants
-                int pointsMent = dizaineMent + 42;
-                int pointsSoci = dizaineSoc + 22;
-
-                /// On attribue aux propriétés leurs nouveaux points
-                CompPhysique = pointsPhys;
-                CompMentale = pointsMent;
-                CompSociale = pointsSoci;
-
                 /// Puis on met à jour les différentes textbox
                 txtBxCompPhy.Text = CompPhysique.ToString();
                 txtBxCompMen.Text = CompMentale.ToString();
@@ -307,7 +350,7 @@ namespace maFichePersonnageJDR.View.Formulaires
 
                 // On en profite pour afficher les control liés à la répartition des points de
                 // compétences si le niveau du personnage est supérieur à 1
-                if (Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.idPersonnage) > 1)
+                if (Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage) > 1)
                 {
                     GetNbFoisPointsRepartitions();
                     EnableOrDisableTextBoxButtonRepartitionPoints(true);
@@ -324,52 +367,11 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// <param name="e"></param>
         private void nudCompPhy_ValueChanged(object sender, EventArgs e)
         {
-            /// On commence par récupérer les valeurs de chaque NumericUpDown
-            int agilite = (int)nudAgilite.Value;
-            int artisanat = (int)nudArtisanat.Value;
-            int crochetage = (int)nudCrochetage.Value;
-            int discretion = (int)nudDiscretion.Value;
-            int equilibre = (int)nudEqlibre.Value;
-            int escalade = (int)nudEscalade.Value;
-            int escamotage = (int)nudEscamotage.Value;
-            int force = (int)nudForce.Value;
-            int fouille = (int)nudFouille.Value;
-            int natation = (int)nudNatation.Value;
-            int reflexes = (int)nudReflexes.Value;
-            int vigueur = (int)nudVigueur.Value;
+            int sommeDesValeurs = CalculerSommeValeursNumericUpDown(gbPhysique);
 
-            // Le nombre de point total à répartir
-            int totalPoints = CompPhysique;
+            int pointsRestants = CompPhysique - sommeDesValeurs;
 
-            // Les points qu'il reste à répartir
-            int pointsRestants = totalPoints - (agilite + artisanat + crochetage + discretion + equilibre + escalade + escamotage + force + fouille + natation +
-                reflexes + vigueur);
-
-            /// On vérifie s'il reste des points à attribuer, si ce n'est pas le cas
-            /// on pose le maximum de chaque NumericUpDown par rapport à sa valeur
-            /// Sinon le maximum = 15
-            if (pointsRestants == 0)
-            {
-                foreach (Control control in gbPhysique.Controls)
-                {
-                    if (control is NumericUpDown)
-                    {
-                        NumericUpDown numeric = control as NumericUpDown;
-                        numeric.Maximum = numeric.Value;
-                    }
-                }
-            }
-            else
-            {
-                foreach (Control control in gbPhysique.Controls)
-                {
-                    if (control is NumericUpDown)
-                    {
-                        NumericUpDown numeric = control as NumericUpDown;
-                        numeric.Maximum = 15;
-                    }
-                }
-            }
+            MettreAJourMaximumNumericUpDown(gbPhysique, pointsRestants);
 
             // Et ensuite on met à jour la TextBox des points à répartir
             txtBxCompPhy.Text = pointsRestants.ToString();
@@ -382,51 +384,11 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// <param name="e"></param>
         private void nudCompMen_ValueChanged(object sender, EventArgs e)
         {
-            int concentration = (int)nudCncention.Value;
-            int connGeo = (int)nudConnGeographiques.Value;
-            int connHis = (int)nudConnHistoriques.Value;
-            int connMag = (int)nudMagiques.Value;
-            int connNat = (int)nudConnNatures.Value;
-            int connRel = (int)nudConnReligieuses.Value;
-            int decryptage = (int)nudDecryptage.Value;
-            int esprit = (int)nudEsprit.Value;
-            int explosifs = (int)nudExplosifs.Value;
-            int mecanique = (int)nudMecanique.Value;
-            int medecine = (int)nudMedecine.Value;
-            int memoire = (int)nudMemoire.Value;
-            int perception = (int)nudPerception.Value;
-            int volonte = (int)nudVolonte.Value;
+            int sommeDesValeurs = CalculerSommeValeursNumericUpDown(gbMental);
 
-            int totalPoints = CompMentale;
+            int pointsRestants = CompMentale - sommeDesValeurs;
 
-            int pointsRestants = totalPoints - (concentration + connGeo + connHis + connMag + connNat + connRel + decryptage + esprit + explosifs + mecanique +
-                medecine + memoire + perception + volonte);
-
-            /// On vérifie s'il reste des points à attribuer, si ce n'est pas le cas
-            /// on pose le maximum de chaque NumericUpDown par rapport à sa valeur
-            /// Sinon le maximum = 15
-            if (pointsRestants == 0)
-            {
-                foreach (Control control in gbMental.Controls)
-                {
-                    if (control is NumericUpDown)
-                    {
-                        NumericUpDown numeric = control as NumericUpDown;
-                        numeric.Maximum = numeric.Value;
-                    }
-                }
-            }
-            else
-            {
-                foreach (Control control in gbMental.Controls)
-                {
-                    if (control is NumericUpDown)
-                    {
-                        NumericUpDown numeric = control as NumericUpDown;
-                        numeric.Maximum = 15;
-                    }
-                }
-            }
+            MettreAJourMaximumNumericUpDown(gbMental, pointsRestants);
 
             txtBxCompMen.Text = pointsRestants.ToString();
         }
@@ -438,47 +400,39 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// <param name="e"></param>
         private void nudCompSoc_ValueChanged(object sender, EventArgs e)
         {
-            int baratinage = (int)nudBaratinage.Value;
-            int charme = (int)nudCharme.Value;
-            int comedie = (int)nudCmedie.Value;
-            int diplomatie = (int)nudDiplomatie.Value;
-            int dressage = (int)nudDressage.Value;
-            int intimidation = (int)nudIntimidation.Value;
-            int marchandage = (int)nudMarchandage.Value;
-            int prestance = (int)nudPrestance.Value;
-            int provocation = (int)nudProvocation.Value;
+            int sommeDesValeurs = CalculerSommeValeursNumericUpDown(gbSocial);
 
-            int totalPoints = CompSociale;
+            int pointsRestants = CompSociale - sommeDesValeurs;
 
-            int pointsRestants = totalPoints - (baratinage + charme + comedie + diplomatie + dressage + intimidation + marchandage + prestance + provocation);
-
-            /// On vérifie s'il reste des points à attribuer, si ce n'est pas le cas
-            /// on pose le maximum de chaque NumericUpDown par rapport à sa valeur
-            /// Sinon le maximum = 15
-            if (pointsRestants == 0)
-            {
-                foreach (Control control in gbSocial.Controls)
-                {
-                    if (control is NumericUpDown)
-                    {
-                        NumericUpDown numeric = control as NumericUpDown;
-                        numeric.Maximum = numeric.Value;
-                    }
-                }
-            }
-            else
-            {
-                foreach (Control control in gbSocial.Controls)
-                {
-                    if (control is NumericUpDown)
-                    {
-                        NumericUpDown numeric = control as NumericUpDown;
-                        numeric.Maximum = 15;
-                    }
-                }
-            }
+            MettreAJourMaximumNumericUpDown(gbSocial, pointsRestants);
 
             txtBxComSoc.Text = pointsRestants.ToString();
+        }
+
+        /// <summary>
+        /// Permet de calculer la somme des valeurs de chaque NumericUpDown
+        /// présents dans une GroupBox
+        /// </summary>
+        /// <param name="groupBox">GroupBox qui contient les NumericUpDown</param>
+        /// <returns>La  somme de chaque NumericUpDown</returns>
+        private int CalculerSommeValeursNumericUpDown(GroupBox groupBox)
+        {
+            return groupBox.Controls
+                .OfType<NumericUpDown>()
+                .Sum(nud => (int)nud.Value);
+        }
+
+        /// <summary>
+        /// Permet de mettre à jour le maximum de tous les NumericUpDown enfants d'une GroupBox parent
+        /// </summary>
+        /// <param name="groupBox">La GroupBox qui contient les NumericUpDown</param>
+        /// <param name="pointsRestants">Les points qu'ils restent à répartir</param>
+        private void MettreAJourMaximumNumericUpDown(GroupBox groupBox, int pointsRestants)
+        {
+            foreach (NumericUpDown nud in groupBox.Controls.OfType<NumericUpDown>())
+            {
+                nud.Maximum = pointsRestants == 0 ? nud.Value : 15;
+            }
         }
 
         /// <summary>
@@ -486,30 +440,71 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// </summary>
         /// <param name="nbPointsAAjouter"></param>
         /// <param name="compAAjouter"></param>
-        private void MettreAJourPointsTotal(int nbPointsAAjouter, string compAAjouter)
+        private void MettreAJourPointsTotal(int nbPointsAAjouter, TypeComp typeCompetence)
         {
-            /// Si nos paramètres ne sont pas vide, on cherche à rajouter les points de compétences supplémentaires
-            if (nbPointsAAjouter > 0 && !String.IsNullOrEmpty(compAAjouter))
+            GroupBox groupBox = new GroupBox();
+            int compAdd = 0;
+
+            // On vérifie d'abord qu'on a bien une valeur correct
+            if (nbPointsAAjouter <= 0)
             {
-                switch (compAAjouter)
-                {
-                    case "Physique":
-                        CompPhysique += nbPointsAAjouter;
-                        txtBxCompPhy.Text = CompPhysique.ToString();
-                        break;
-                    case "Mental":
-                        CompMentale += nbPointsAAjouter;
-                        txtBxCompMen.Text = CompMentale.ToString();
-                        break;
-                    case "Social":
-                        CompSociale += nbPointsAAjouter;
-                        txtBxComSoc.Text = CompSociale.ToString();
-                        break;
-                    default:
-                        Console.WriteLine("Aucune des trois propositions");
-                        break;
-                }
+                Console.WriteLine("Paramètres invalides");
+                return;
             }
+            
+            /**
+             * - PHYSIQUE
+             * - SOCIALE
+             * - MENTALE
+             */
+            if (typeCompetence.Equals(TypeComp.Physique))
+            {
+                // On met à jour le nombre de points dans la compétence physique
+                if (competencesMiseAJour.TryGetValue("Physique", out Action<int> miseAJourAction))
+                {
+                    miseAJourAction(nbPointsAAjouter);
+                }
+
+                groupBox = gbPhysique;
+                compAdd = CompPhysique;
+
+                // Mise à jour de l'affichage du nombre de points total
+                txtBxCompPhy.Text = (CompPhysique - CalculerSommeValeursNumericUpDown(gbPhysique)).ToString();
+            }
+            else if (typeCompetence.Equals(TypeComp.Social))
+            {
+                // On met à jour le nombre de points dans la compétence mental
+                if (competencesMiseAJour.TryGetValue("Social", out Action<int> miseAJourAction))
+                {
+                    miseAJourAction(nbPointsAAjouter);
+                }
+
+                groupBox = gbSocial;
+                compAdd = CompSociale;
+
+                // Mise à jour de l'affichage du nombre de points total
+                txtBxComSoc.Text = (CompSociale - CalculerSommeValeursNumericUpDown(gbSocial)).ToString();
+            }
+            else if (typeCompetence.Equals(TypeComp.Mental))
+            {
+                // On met à jour le nombre de points dans la compétence mental
+                if (competencesMiseAJour.TryGetValue("Mental", out Action<int> miseAJourAction))
+                {
+                    miseAJourAction(nbPointsAAjouter);
+                }
+
+                groupBox = gbMental;
+                compAdd = CompMentale;
+
+                // Mise à jour de l'affichage du nombre de points total
+                txtBxCompMen.Text = (CompMentale - CalculerSommeValeursNumericUpDown(gbMental)).ToString();
+            }
+            else
+            {
+                Console.WriteLine("Compétence non reconnue");
+            }
+
+            MettreAJourMaximumNumericUpDown(groupBox, compAdd);
         }
 
         /// <summary>
@@ -533,7 +528,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             }
             else
             {
-                NbFoisPointsMiseAJour = subsplit[0] + ": " + (Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.idPersonnage) - 1).ToString();
+                NbFoisPointsMiseAJour = subsplit[0] + ": " + (Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage) - 1).ToString();
             }
 
             lblNbRepartitionComp.Text = NbFoisPointsMiseAJour;
@@ -547,7 +542,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// <param name="e"></param>
         private void btnAddPtsPhy_Click(object sender, EventArgs e)
         {
-            MettreAJourPointsTotal(4, "Physique");
+            MettreAJourPointsTotal(PointsPhysique, TypeComp.Physique);
             GetNbFoisPointsRepartitions(true);
         }
 
@@ -559,13 +554,13 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// <param name="e"></param>
         private void btnAddPtsMen_Click(object sender, EventArgs e)
         {
-            MettreAJourPointsTotal(5, "Mental");
+            MettreAJourPointsTotal(PointsMental, TypeComp.Mental);
             GetNbFoisPointsRepartitions(true);
         }
 
         private void btnAddPtsSoc_Click(object sender, EventArgs e)
         {
-            MettreAJourPointsTotal(3, "Social");
+            MettreAJourPointsTotal(PointsSocial, TypeComp.Social);
             GetNbFoisPointsRepartitions(true);
         }
 
@@ -610,7 +605,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// </summary>
         private void GetMaximumForCaracteristiques()
         {
-            int niveauDuPersonnage = Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.idPersonnage);
+            int niveauDuPersonnage = Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage);
 
             if (niveauDuPersonnage < 3)
             {
@@ -667,6 +662,11 @@ namespace maFichePersonnageJDR.View.Formulaires
             }
         }
 
+        /// <summary>
+        /// Permet de redimensionner le formulaire et ses controls enfants
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormulaireCompetencesCaracteristiques_Resize(object sender, EventArgs e)
         {
             float xRatio = (float)this.Width / dictionaryControlOriginalSize[this].Width;
@@ -686,59 +686,59 @@ namespace maFichePersonnageJDR.View.Formulaires
 
         private void EditUpdateCompCarac()
         {
-            nudPV.Value = Controller.CompetencesCaracteristiquesController.GetValuePvEnergie("pv", "nombre_points_pv", GlobaleVariables.idPersonnage);
-            nudEnergie.Value = Controller.CompetencesCaracteristiquesController.GetValuePvEnergie("energie", "nombre_points_energie", GlobaleVariables.idPersonnage);
+            nudPV.Value = Controller.CompetencesCaracteristiquesController.GetValuePvEnergie("pv", "nombre_points_pv", GlobaleVariables.IdPersonnage);
+            nudEnergie.Value = Controller.CompetencesCaracteristiquesController.GetValuePvEnergie("energie", "nombre_points_energie", GlobaleVariables.IdPersonnage);
 
-            nudPhysique.Value = Controller.CompetencesCaracteristiquesController.GetPhysiquePersonnage(GlobaleVariables.idPersonnage);
-            nudMental.Value = Controller.CompetencesCaracteristiquesController.GetMentalPersonnage(GlobaleVariables.idPersonnage);
-            nudSocial.Value = Controller.CompetencesCaracteristiquesController.GetSocialPersonnage(GlobaleVariables.idPersonnage);
+            nudPhysique.Value = Controller.CompetencesCaracteristiquesController.GetPhysiquePersonnage(GlobaleVariables.IdPersonnage);
+            nudMental.Value = Controller.CompetencesCaracteristiquesController.GetMentalPersonnage(GlobaleVariables.IdPersonnage);
+            nudSocial.Value = Controller.CompetencesCaracteristiquesController.GetSocialPersonnage(GlobaleVariables.IdPersonnage);
 
             /**
              * COMP PHYSIQUE
              */
-            nudAgilite.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "agilite", GlobaleVariables.idPersonnage);
-            nudArtisanat.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "artisanat", GlobaleVariables.idPersonnage);
-            nudCrochetage.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "crochetage", GlobaleVariables.idPersonnage);
-            nudDiscretion.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "discretion", GlobaleVariables.idPersonnage);
-            nudEqlibre.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "equilibre", GlobaleVariables.idPersonnage);
-            nudEscalade.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "escalade", GlobaleVariables.idPersonnage);
-            nudEscamotage.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "escamotage", GlobaleVariables.idPersonnage);
-            nudForce.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "escamotage", GlobaleVariables.idPersonnage);
-            nudFouille.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "fouille", GlobaleVariables.idPersonnage);
-            nudNatation.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "natation", GlobaleVariables.idPersonnage);
-            nudReflexes.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "reflexes", GlobaleVariables.idPersonnage);
-            nudVigueur.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "vigueur", GlobaleVariables.idPersonnage);
+            nudAgilite.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "agilite", GlobaleVariables.IdPersonnage);
+            nudArtisanat.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "artisanat", GlobaleVariables.IdPersonnage);
+            nudCrochetage.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "crochetage", GlobaleVariables.IdPersonnage);
+            nudDiscretion.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "discretion", GlobaleVariables.IdPersonnage);
+            nudEqlibre.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "equilibre", GlobaleVariables.IdPersonnage);
+            nudEscalade.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "escalade", GlobaleVariables.IdPersonnage);
+            nudEscamotage.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "escamotage", GlobaleVariables.IdPersonnage);
+            nudForce.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "escamotage", GlobaleVariables.IdPersonnage);
+            nudFouille.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "fouille", GlobaleVariables.IdPersonnage);
+            nudNatation.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "natation", GlobaleVariables.IdPersonnage);
+            nudReflexes.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "reflexes", GlobaleVariables.IdPersonnage);
+            nudVigueur.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "vigueur", GlobaleVariables.IdPersonnage);
 
             /**
              * COMP MENTAL
              */
-            nudCncention.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "concentration", GlobaleVariables.idPersonnage);
-            nudConnGeographiques.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "connaissance_geographiques", GlobaleVariables.idPersonnage);
-            nudConnHistoriques.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "connaissance_historiques", GlobaleVariables.idPersonnage);
-            nudMagiques.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "connaissance_magiques", GlobaleVariables.idPersonnage);
-            nudConnNatures.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "connaissance_natures", GlobaleVariables.idPersonnage);
-            nudConnReligieuses.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "connaissance_religieuses", GlobaleVariables.idPersonnage);
-            nudDecryptage.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "decryptage", GlobaleVariables.idPersonnage);
-            nudEsprit.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "esprit", GlobaleVariables.idPersonnage);
-            nudExplosifs.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "explosifs", GlobaleVariables.idPersonnage);
-            nudMecanique.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "mecanique", GlobaleVariables.idPersonnage);
-            nudMedecine.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "medecine", GlobaleVariables.idPersonnage);
-            nudMemoire.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "memoire", GlobaleVariables.idPersonnage);
-            nudPerception.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "perception", GlobaleVariables.idPersonnage);
-            nudVolonte.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "volonte", GlobaleVariables.idPersonnage);
+            nudCncention.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "concentration", GlobaleVariables.IdPersonnage);
+            nudConnGeographiques.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "connaissance_geographiques", GlobaleVariables.IdPersonnage);
+            nudConnHistoriques.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "connaissance_historiques", GlobaleVariables.IdPersonnage);
+            nudMagiques.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "connaissance_magiques", GlobaleVariables.IdPersonnage);
+            nudConnNatures.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "connaissance_natures", GlobaleVariables.IdPersonnage);
+            nudConnReligieuses.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "connaissance_religieuses", GlobaleVariables.IdPersonnage);
+            nudDecryptage.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "decryptage", GlobaleVariables.IdPersonnage);
+            nudEsprit.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "esprit", GlobaleVariables.IdPersonnage);
+            nudExplosifs.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "explosifs", GlobaleVariables.IdPersonnage);
+            nudMecanique.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "mecanique", GlobaleVariables.IdPersonnage);
+            nudMedecine.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "medecine", GlobaleVariables.IdPersonnage);
+            nudMemoire.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "memoire", GlobaleVariables.IdPersonnage);
+            nudPerception.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "perception", GlobaleVariables.IdPersonnage);
+            nudVolonte.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "volonte", GlobaleVariables.IdPersonnage);
 
             /**
              * COMP SOCIAL
              */
-            nudBaratinage.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "baratinage", GlobaleVariables.idPersonnage);
-            nudCharme.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "charme", GlobaleVariables.idPersonnage);
-            nudCmedie.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "comedie", GlobaleVariables.idPersonnage);
-            nudDiplomatie.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "diplomatie", GlobaleVariables.idPersonnage);
-            nudDressage.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "dressage", GlobaleVariables.idPersonnage);
-            nudIntimidation.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "intimidation", GlobaleVariables.idPersonnage);
-            nudMarchandage.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "marchandage", GlobaleVariables.idPersonnage);
-            nudPrestance.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "prestance", GlobaleVariables.idPersonnage);
-            nudProvocation.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "provocation", GlobaleVariables.idPersonnage);
+            nudBaratinage.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "baratinage", GlobaleVariables.IdPersonnage);
+            nudCharme.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "charme", GlobaleVariables.IdPersonnage);
+            nudCmedie.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "comedie", GlobaleVariables.IdPersonnage);
+            nudDiplomatie.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "diplomatie", GlobaleVariables.IdPersonnage);
+            nudDressage.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "dressage", GlobaleVariables.IdPersonnage);
+            nudIntimidation.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "intimidation", GlobaleVariables.IdPersonnage);
+            nudMarchandage.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "marchandage", GlobaleVariables.IdPersonnage);
+            nudPrestance.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "prestance", GlobaleVariables.IdPersonnage);
+            nudProvocation.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "provocation", GlobaleVariables.IdPersonnage);
         }
     }
 }

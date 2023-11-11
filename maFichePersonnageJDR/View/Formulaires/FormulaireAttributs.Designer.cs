@@ -73,7 +73,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.btnSauvegarder.Name = "btnSauvegarder";
             this.btnSauvegarder.Size = new System.Drawing.Size(112, 33);
             this.btnSauvegarder.TabIndex = 4;
-            this.btnSauvegarder.Text = "Suivant";
+            this.btnSauvegarder.Text = "Sauvegarder";
             this.btnSauvegarder.UseVisualStyleBackColor = true;
             this.btnSauvegarder.Click += new System.EventHandler(this.btnSauvegarder_Click);
             // 

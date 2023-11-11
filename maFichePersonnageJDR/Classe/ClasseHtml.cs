@@ -13,30 +13,30 @@ namespace maFichePersonnageJDR.Classe
         public void CreatePersonnageHtml()
         {
             #region Initialisation des variables
-            string prenomPersonnage = PersonnageController.GetPrenomPersonnage(GlobaleVariables.idPersonnage);
-            string nomPersonnage = PersonnageController.GetNomPersonnage(GlobaleVariables.idPersonnage);
-            string racePersonnage = PersonnageController.GetRacePersonnage(GlobaleVariables.idPersonnage);
-            int niveauPersonnage = PersonnageController.GetNiveauPersonnage(GlobaleVariables.idPersonnage);
-            string sexePersonnage = PersonnageController.GetSexePersonnage(GlobaleVariables.idPersonnage);
-            string languePersonnage = PersonnageController.GetLanguesPersonnage(GlobaleVariables.idPersonnage);
-            int experiencePersonnage = PersonnageController.GetExperiencePersonnage(GlobaleVariables.idPersonnage);
-            int esquivePersonnage = (CompetencesCaracteristiquesController.GetValueCompetence("Physique", "agilite", GlobaleVariables.idPersonnage) + CompetencesCaracteristiquesController.GetValueCompetence("Physique", "reflexes", GlobaleVariables.idPersonnage)) / 3;
-            int resistanceMental = (CompetencesCaracteristiquesController.GetValueCompetence("Mental", "esprit", GlobaleVariables.idPersonnage) + CompetencesCaracteristiquesController.GetValueCompetence("Mental", "volonte", GlobaleVariables.idPersonnage)) / 3;
-            string initiativePersonnage = GetInitiativePersonnage(CompetencesCaracteristiquesController.GetValueCompetence("Physique", "agilite", GlobaleVariables.idPersonnage));
+            string prenomPersonnage = PersonnageController.GetPrenomPersonnage(GlobaleVariables.IdPersonnage);
+            string nomPersonnage = PersonnageController.GetNomPersonnage(GlobaleVariables.IdPersonnage);
+            string racePersonnage = PersonnageController.GetRacePersonnage(GlobaleVariables.IdPersonnage);
+            int niveauPersonnage = PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage);
+            string sexePersonnage = PersonnageController.GetSexePersonnage(GlobaleVariables.IdPersonnage);
+            string languePersonnage = PersonnageController.GetLanguesPersonnage(GlobaleVariables.IdPersonnage);
+            int experiencePersonnage = PersonnageController.GetExperiencePersonnage(GlobaleVariables.IdPersonnage);
+            int esquivePersonnage = (CompetencesCaracteristiquesController.GetValueCompetence("Physique", "agilite", GlobaleVariables.IdPersonnage) + CompetencesCaracteristiquesController.GetValueCompetence("Physique", "reflexes", GlobaleVariables.IdPersonnage)) / 3;
+            int resistanceMental = (CompetencesCaracteristiquesController.GetValueCompetence("Mental", "esprit", GlobaleVariables.IdPersonnage) + CompetencesCaracteristiquesController.GetValueCompetence("Mental", "volonte", GlobaleVariables.IdPersonnage)) / 3;
+            string initiativePersonnage = GetInitiativePersonnage(CompetencesCaracteristiquesController.GetValueCompetence("Physique", "agilite", GlobaleVariables.IdPersonnage));
             short[] dexteriteCaracteristiques = {
-                Utils.GetDizaineInteger(CompetencesCaracteristiquesController.GetPhysiquePersonnage(GlobaleVariables.idPersonnage)),
-                Utils.GetDizaineInteger(CompetencesCaracteristiquesController.GetMentalPersonnage(GlobaleVariables.idPersonnage)),
-                Utils.GetDizaineInteger(CompetencesCaracteristiquesController.GetSocialPersonnage(GlobaleVariables.idPersonnage))
+                Utils.GetDizaineInteger(CompetencesCaracteristiquesController.GetPhysiquePersonnage(GlobaleVariables.IdPersonnage)),
+                Utils.GetDizaineInteger(CompetencesCaracteristiquesController.GetMentalPersonnage(GlobaleVariables.IdPersonnage)),
+                Utils.GetDizaineInteger(CompetencesCaracteristiquesController.GetSocialPersonnage(GlobaleVariables.IdPersonnage))
             };
-            string htmlTableAttributs = AddAttributesHtml(GlobaleVariables.idPersonnage);
-            string htmlTableCompPhy = AddCompPhysiqueHtml(GlobaleVariables.idPersonnage, CompetencesCaracteristiquesController.GetPhysiquePersonnage(GlobaleVariables.idPersonnage));
-            string htmlTableCompMen = AddCompMentalHtml(GlobaleVariables.idPersonnage, CompetencesCaracteristiquesController.GetMentalPersonnage(GlobaleVariables.idPersonnage));
-            string htmlTableCompSoc = AddCompSocialHtml(GlobaleVariables.idPersonnage, CompetencesCaracteristiquesController.GetSocialPersonnage(GlobaleVariables.idPersonnage));
-            string htmlTableArmePersonnage = AddArmesPersonnage(GlobaleVariables.idPersonnage);
-            string htmlTableArmurePersonnage = AddArmuresPersonnage(GlobaleVariables.idPersonnage);
-            string htmlTableObjetPersonnage = AddObjetsPersonnage(GlobaleVariables.idPersonnage);
-            string htmlTableMagiePersonnage = AddMagiesTable(GlobaleVariables.idPersonnage);
-            string htmlTableAptitudesPersonnage = AddAptitudesTable(GlobaleVariables.idPersonnage);
+            string htmlTableAttributs = AddAttributesHtml(GlobaleVariables.IdPersonnage);
+            string htmlTableCompPhy = AddCompPhysiqueHtml(GlobaleVariables.IdPersonnage, CompetencesCaracteristiquesController.GetPhysiquePersonnage(GlobaleVariables.IdPersonnage));
+            string htmlTableCompMen = AddCompMentalHtml(GlobaleVariables.IdPersonnage, CompetencesCaracteristiquesController.GetMentalPersonnage(GlobaleVariables.IdPersonnage));
+            string htmlTableCompSoc = AddCompSocialHtml(GlobaleVariables.IdPersonnage, CompetencesCaracteristiquesController.GetSocialPersonnage(GlobaleVariables.IdPersonnage));
+            string htmlTableArmePersonnage = AddArmesPersonnage(GlobaleVariables.IdPersonnage);
+            string htmlTableArmurePersonnage = AddArmuresPersonnage(GlobaleVariables.IdPersonnage);
+            string htmlTableObjetPersonnage = AddObjetsPersonnage(GlobaleVariables.IdPersonnage);
+            string htmlTableMagiePersonnage = AddMagiesTable(GlobaleVariables.IdPersonnage);
+            string htmlTableAptitudesPersonnage = AddAptitudesTable(GlobaleVariables.IdPersonnage);
             #endregion
 
             string htmlContent = string.Format(@"
@@ -341,16 +341,16 @@ namespace maFichePersonnageJDR.Classe
                niveauPersonnage,
                sexePersonnage,
                experiencePersonnage,
-               PersonnageController.GetNiveauSuivantPersonnage(GlobaleVariables.idPersonnage),
-               PersonnageController.GetCourbeProgressionPersonnage(GlobaleVariables.idPersonnage),
+               PersonnageController.GetNiveauSuivantPersonnage(GlobaleVariables.IdPersonnage),
+               PersonnageController.GetCourbeProgressionPersonnage(GlobaleVariables.IdPersonnage),
                languePersonnage,
                htmlTableAttributs,
-               PersonnageController.GetPieceOrPersonnage(GlobaleVariables.idPersonnage),
-               PersonnageController.GetPieceArgentPersonnage(GlobaleVariables.idPersonnage),
-               PersonnageController.GetPieceCuivrePersonnage(GlobaleVariables.idPersonnage),
-               CompetencesCaracteristiquesController.GetPhysiquePersonnage(GlobaleVariables.idPersonnage),
-               CompetencesCaracteristiquesController.GetMentalPersonnage(GlobaleVariables.idPersonnage),
-               CompetencesCaracteristiquesController.GetSocialPersonnage(GlobaleVariables.idPersonnage),
+               PersonnageController.GetPieceOrPersonnage(GlobaleVariables.IdPersonnage),
+               PersonnageController.GetPieceArgentPersonnage(GlobaleVariables.IdPersonnage),
+               PersonnageController.GetPieceCuivrePersonnage(GlobaleVariables.IdPersonnage),
+               CompetencesCaracteristiquesController.GetPhysiquePersonnage(GlobaleVariables.IdPersonnage),
+               CompetencesCaracteristiquesController.GetMentalPersonnage(GlobaleVariables.IdPersonnage),
+               CompetencesCaracteristiquesController.GetSocialPersonnage(GlobaleVariables.IdPersonnage),
                dexteriteCaracteristiques[0],
                dexteriteCaracteristiques[1],
                dexteriteCaracteristiques[2],
@@ -363,8 +363,8 @@ namespace maFichePersonnageJDR.Classe
                htmlTableArmePersonnage,
                htmlTableArmurePersonnage,
                htmlTableObjetPersonnage,
-               PersonnageController.GetChargePortee(GlobaleVariables.idPersonnage),
-               PersonnageController.GetChargeTotale(GlobaleVariables.idPersonnage),
+               PersonnageController.GetChargePortee(GlobaleVariables.IdPersonnage),
+               PersonnageController.GetChargeTotale(GlobaleVariables.IdPersonnage),
                htmlTableMagiePersonnage,
                htmlTableAptitudesPersonnage
                );
