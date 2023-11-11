@@ -19,26 +19,15 @@ namespace maFichePersonnageJDR.Classe
         /// <returns></returns>
         public static int GetLineNumberToDelete(string textToRemove, RichTextBox richTextBox)
         {
-            try
+            for (int i = 0; i < richTextBox.Lines.Length; i++)
             {
-                int indexLineToRemove = 0;
-
-                // FR : On parcourt la liste jusqu'à retrouver la ligne
-                // EN : Go through the list until you find the line
-                for (int i = 0; i < richTextBox.Lines.Length; i++)
+                if(richTextBox.Lines[i].Contains(textToRemove))
                 {
-                    if (richTextBox.Lines[i].Contains(textToRemove))
-                    {
-                        indexLineToRemove = i;
-                    }
+                    return i;
                 }
+            }
 
-                return indexLineToRemove;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            return -1;
         }
 
         /// <summary>
@@ -87,88 +76,23 @@ namespace maFichePersonnageJDR.Classe
         /// <returns></returns>
         public static string ConvertMoneyWithValue(int valueToConvert)
         {
-            string valueToReturn = string.Empty;
+            int or = valueToConvert / 100;
+            int argent = (valueToConvert % 100) / 10;
+            int cuivre = valueToConvert % 10;
 
-            /**
-             * CAS PIECE OR
-             */
-            if (valueToConvert >= 100)
+            string result = "";
+
+            if (or > 0)
             {
-                /*
-                 * PLUSIEURS CAS POSSIBLES :
-                 * 100.000 PO
-                 * 10.000 PO
-                 * 1.000 PO
-                 * 100 PO
-                 */
-                if (valueToConvert > 99999)
-                {
-                    // Décorticage de l'or
-                    int valueOrCentaineMillier = (valueToConvert / 100000) % 10;
-                    int valueOrDizaineMillier = (valueToConvert / 10000) % 10;
-                    int valueOrMillier = (valueToConvert / 1000) % 10;
-                    int valueOrCentaine = (valueToConvert / 100) % 10;
-
-                    // Rajout des pièces d'argent et de cuivre
-                    int valueArgent = (valueToConvert / 10) % 10;
-                    int valueCuivre = valueToConvert % 10;
-                    valueToReturn += valueOrCentaineMillier.ToString() + valueOrDizaineMillier.ToString() + valueOrMillier.ToString() + valueOrCentaine.ToString() + " PO, "
-                        + valueArgent.ToString() + " PA, " + valueCuivre.ToString() + " PC";
-                }
-                else if (valueToConvert > 9999)
-                {
-                    // Décorticage de l'or
-                    int valueOrDizaineMillier = (valueToConvert / 10000) % 10;
-                    int valueOrMillier = (valueToConvert / 1000) % 10;
-                    int valueOrCentaine = (valueToConvert / 100) % 10;
-
-                    // Rajout des pièces d'argent et de cuivre
-                    int valueArgent = (valueToConvert / 10) % 10;
-                    int valueCuivre = valueToConvert % 10;
-                    valueToReturn += valueOrDizaineMillier.ToString() + valueOrMillier.ToString() + valueOrCentaine.ToString() + " PO, "
-                        + valueArgent.ToString() + " PA, " + valueCuivre.ToString() + " PC";
-                }
-                else if (valueToConvert > 999)
-                {
-                    // Décorticage de l'or
-                    int valueOrMillier = (valueToConvert / 1000) % 10;
-                    int valueOrCentaine = (valueToConvert / 100) % 10;
-
-                    // Rajout des pièces d'argent et de cuivre
-                    int valueArgent = (valueToConvert / 10) % 10;
-                    int valueCuivre = valueToConvert % 10;
-                    valueToReturn += valueOrMillier.ToString() + valueOrCentaine.ToString() + " PO, " + valueArgent.ToString() + " PA, "
-                        + valueCuivre.ToString() + " PC";
-                }
-                else
-                {
-                    // Décorticage de l'or
-                    int valueOrCentaine = (valueToConvert / 100) % 10;
-
-                    // Rajout des pièces d'argent et de cuivre
-                    int valueArgent = (valueToConvert / 10) % 10;
-                    int valueCuivre = valueToConvert % 10;
-                    valueToReturn += valueOrCentaine.ToString() + " PO, " + valueArgent.ToString() + " PA, "
-                        + valueCuivre.ToString() + " PC";
-                }
-
+                result += or + " PO, ";
             }
-            /**
-             * CAS PIECE ARGENT
-             */
-            else if (valueToConvert >= 10)
+            if (argent > 0 || or > 0) // Inclure des pièces d'argent si on a des pièces d'or
             {
-                int valueArgent = (valueToConvert / 10) % 10;
-                int valueCuivre = valueToConvert % 10;
-                valueToReturn += valueArgent.ToString() + " PA, " + valueCuivre.ToString() + " PC";
+                result += argent + " PA, ";
             }
-            else
-            {
-                int valueCuivre = valueToConvert % 10;
-                valueToReturn = valueCuivre.ToString() + " PC";
-            }
+            result += cuivre + " PC";
 
-            return valueToReturn;
+            return result;
         }
 
         /// <summary>

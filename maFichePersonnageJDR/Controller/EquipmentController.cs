@@ -168,6 +168,7 @@ namespace maFichePersonnageJDR.Controller
         public static List<string> GetArmesInInventairePersonnage(int idPersonnage)
         {
             Console.WriteLine(string.Format("########### Méthode GetArmesInInventairePersonnage — Personnage : {0} ###########", idPersonnage.ToString()));
+
             InventaireArmesPersonnagesModel armesModel = new InventaireArmesPersonnagesModel();
 
             try

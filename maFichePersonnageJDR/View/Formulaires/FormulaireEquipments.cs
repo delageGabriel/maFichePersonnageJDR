@@ -128,6 +128,11 @@ namespace maFichePersonnageJDR.Formulaires
             CreateCheckBoxObjet();
             CalculChargeMaxPortable();
 
+            if (GlobaleVariables.IsEdit)
+            {
+                EditEquipmentCharacter();
+            }
+
             dictionaryControlOriginalSize.Add(this, new Rectangle(this.Location, this.Size));
 
             /// Chaque control en dehors des panel et TabControl
@@ -146,11 +151,11 @@ namespace maFichePersonnageJDR.Formulaires
             /// TabControl Armes
             foreach (TabPage tabPage in tbCntlArmes.TabPages)
             {
-                foreach(Control control in tabPage.Controls)
+                foreach (Control control in tabPage.Controls)
                 {
                     if (control is Label)
                     {
-                        dictionaryLabelOriginalSize.Add(control as Label, new Tuple<Rectangle, float>(new Rectangle(control.Location, control.Size), 
+                        dictionaryLabelOriginalSize.Add(control as Label, new Tuple<Rectangle, float>(new Rectangle(control.Location, control.Size),
                             (control as Label).Font.Size));
                     }
                     else
@@ -1231,6 +1236,7 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 throw new Exception("CreateCheckBoxVendre est null");
             }
+
             // On met à jour le poids porté par le personnage et son argent
             RepartitionMoneyAfterBuyOrSell(achat, monnaiePersonnage, "Buy");
         }
@@ -1525,6 +1531,31 @@ namespace maFichePersonnageJDR.Formulaires
             }
 
             this.Refresh();
+        }
+
+        private void EditEquipmentCharacter()
+        {
+            nudPo.Value = PersonnageController.GetPieceOrPersonnage(GlobaleVariables.IdPersonnage);
+            nudPa.Value = PersonnageController.GetPieceArgentPersonnage(GlobaleVariables.IdPersonnage);
+            nudPc.Value = PersonnageController.GetPieceCuivrePersonnage(GlobaleVariables.IdPersonnage);
+
+            if (EquipmentController.GetArmesInInventairePersonnage(GlobaleVariables.IdPersonnage) != null)
+            {
+                EquipmentController.GetArmesInInventairePersonnageToCreateControl(pnlVendreArme, GlobaleVariables.IdPersonnage);
+                CreateCheckBoxVendreArmes();
+            }
+
+            if (EquipmentController.GetArmuresInInventairePersonnage(GlobaleVariables.IdPersonnage) != null)
+            {
+                EquipmentController.GetArmuresInInventairePersonnageToCreateControl(pnlVendreArmure, GlobaleVariables.IdPersonnage);
+                CreateCheckBoxVendreArmures();
+            }
+
+            if (EquipmentController.GetObjetsInInventairePersonnage(GlobaleVariables.IdPersonnage) != null)
+            {
+                EquipmentController.GetObjetsInInventairePersonnageToCreateControls(pnlVendreObjet, GlobaleVariables.IdPersonnage);
+                CreateCheckBoxVendreObjets();
+            }
         }
     }
 }
