@@ -144,6 +144,7 @@ namespace maFichePersonnageJDR.Formulaires
         {
             Console.WriteLine("########### Classe : FormulaireInfosGenerales; Méthode : btnSaveInfos_Click; ###########");
             #region Initialisation des variables
+            FormEditMenu formEditMenu = new FormEditMenu();
             FormulaireAttributs formulaireAttributs = new FormulaireAttributs();
             #endregion
 
@@ -151,8 +152,6 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 if (GlobaleVariables.IsEdit)
                 {
-                    FormEditMenu formEditMenu = new FormEditMenu();
-
                     string niveauSuivant = Utils.DeleteCharacterFromString(lblPointsRestants.Text, "/");
 
                     // Mise à jour du niveau du personnage

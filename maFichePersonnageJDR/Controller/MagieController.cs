@@ -103,7 +103,7 @@ namespace maFichePersonnageJDR.Controller
         /// </summary>
         /// <param name="nomArme"></param>
         /// <returns></returns>
-        public static string GetIdMagieByName(string nomMagie)
+        public static int GetIdMagieByName(string nomMagie)
         {
             #region Initialisation des variables
             MagieModel magieModel = new MagieModel();
@@ -112,7 +112,7 @@ namespace maFichePersonnageJDR.Controller
             try
             {
                 MagieModel magie = magieModel.GetMagieByName(nomMagie);
-                return magie.IdMagie.ToString() + ";";
+                return magie.IdMagie;
             }
             catch (Exception e)
             {

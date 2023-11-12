@@ -55,15 +55,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         {
             Console.WriteLine("########### Classe : FormulaireAttributs; Méthode : GetAttributs; ###########");
 
-            try
-            {
-                FormulaireAttributs formulaireAttributs = new FormulaireAttributs();
-                formulaireAttributs = Controller.AttributsController.GetAttributs(tbControlAttributs, tbPgeAttributs);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            AttributsController.GetAttributs(tbControlAttributs, tbPgeAttributs);
 
             Console.WriteLine("########### FIN Méthode GetAttributs ###########");
         }
@@ -84,8 +76,8 @@ namespace maFichePersonnageJDR.View.Formulaires
         }
 
         /// <summary>
-        /// Méthode pour ajouter un attribut à la richtextbox
-        /// au clic sur ces dernières
+        /// Gère le clic sur une CheckBox pour ajouter ou retirer dynamiquement 
+        /// l'attribut correspondant de la RichTextBox
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -100,27 +92,19 @@ namespace maFichePersonnageJDR.View.Formulaires
                 {
                     attribut += AttributesSpecifications(attribut);
                 }
-                // FR : Devrait ajouter le texte
-                // EN : Should append text
+
+                // Ajoute l'attribut sélectionné à la RichTextBox pour affichage
                 rtbAttributs.AppendText(attribut + Environment.NewLine);
                 CheckAndEnableOrDisableCheckBoxes();
             }
             else
             {
-                // FR : Récupération de l'index de la ligne à supprimer
-                // EN : Retrieve the index of the line to be deleted
                 int indexToDelete = Utils.GetLineNumberToDelete(attribut, rtbAttributs);
 
-                // FR : On récupère toutes les lignes sous la forme d'une liste
-                // EN : All rows are retrieved in the form of a list
                 List<string> lines = new List<string>(rtbAttributs.Lines);
 
-                // FR : On supprime la ligne où l'on a trouvé le texte correspondant
-                // EN : On supprime la ligne où l'on a trouvé le texte correspondan
                 lines.RemoveAt(indexToDelete);
 
-                // FR : On réattribue les nouvelles lignes à celles de la RichTextBox
-                // EN : Reassign the new lines to those in the RichTextBox
                 rtbAttributs.Lines = lines.ToArray();
                 CheckAndEnableOrDisableCheckBoxes();
             }
@@ -163,21 +147,21 @@ namespace maFichePersonnageJDR.View.Formulaires
 
             if (niveauPersonnage <= 3)
                 nbAttributes = 2;
-            else if (niveauPersonnage > 3 && niveauPersonnage < 6)
+            else if (niveauPersonnage <= 5)
                 nbAttributes = 3;
-            else if (niveauPersonnage > 5 && niveauPersonnage < 7)
+            else if (niveauPersonnage <= 6)
                 nbAttributes = 4;
-            else if (niveauPersonnage > 7 && niveauPersonnage < 9)
+            else if (niveauPersonnage <= 8)
                 nbAttributes = 6;
-            else if (niveauPersonnage > 8 && niveauPersonnage < 13)
+            else if (niveauPersonnage <= 12)
                 nbAttributes = 7;
-            else if (niveauPersonnage > 12 && niveauPersonnage < 14)
+            else if (niveauPersonnage <= 13)
                 nbAttributes = 8;
-            else if (niveauPersonnage > 13 && niveauPersonnage < 15)
+            else if (niveauPersonnage <= 14)
                 nbAttributes = 9;
-            else if (niveauPersonnage > 14 && niveauPersonnage < 17)
+            else if (niveauPersonnage <= 16)
                 nbAttributes = 11;
-            else if (niveauPersonnage > 16 && niveauPersonnage < 18)
+            else if (niveauPersonnage <= 17)
                 nbAttributes = 12;
             else if (niveauPersonnage > 19)
                 nbAttributes = 13;
@@ -196,24 +180,12 @@ namespace maFichePersonnageJDR.View.Formulaires
                 .OfType<CheckBox>()
                 .Count(cb => cb.Checked);
 
-            if (nbCheckBoxesChecked >= nbAttributParNiveau)
+            bool enableOrDisableCheckBoxes = nbCheckBoxesChecked < nbAttributParNiveau;
+            foreach (CheckBox check in tbPgeAttributs.Controls.OfType<CheckBox>())
             {
-                foreach (Control control in tbPgeAttributs.Controls)
+                if (!check.Checked)
                 {
-                    if ((control is CheckBox) && (control as CheckBox).Checked == false)
-                    {
-                        (control as CheckBox).Enabled = false;
-                    }
-                }
-            }
-            else
-            {
-                foreach (Control control in tbPgeAttributs.Controls)
-                {
-                    if ((control is CheckBox) && (control as CheckBox).Checked == false)
-                    {
-                        (control as CheckBox).Enabled = true;
-                    }
+                    check.Enabled = enableOrDisableCheckBoxes;
                 }
             }
         }

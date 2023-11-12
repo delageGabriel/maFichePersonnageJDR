@@ -103,7 +103,7 @@ namespace maFichePersonnageJDR.Controller
         /// </summary>
         /// <param name="nomArme"></param>
         /// <returns></returns>
-        public static string GetIdAptitudeByName(string nomAptitude)
+        public static int GetIdAptitudeByName(string nomAptitude)
         {
             #region Initialisation des variables
             AptitudesModel aptitudesModel = new AptitudesModel();
@@ -112,7 +112,7 @@ namespace maFichePersonnageJDR.Controller
             try
             {
                 AptitudesModel aptitudes = aptitudesModel.GetAptitudesByName(nomAptitude);
-                return aptitudes.IdAptitude.ToString() + ";";
+                return aptitudes.IdAptitude;
             }
             catch (Exception e)
             {

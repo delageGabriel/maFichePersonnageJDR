@@ -106,6 +106,11 @@ namespace maFichePersonnageJDR.Formulaires
             CreateCheckBoxMagie();
             CreateCheckBoxAptitudes();
 
+            if (GlobaleVariables.IsEdit)
+            {
+                EditPersonnageMagieAptitudes();
+            }
+
             dictionaryControlOriginalSize.Add(this, new Rectangle(this.Location, this.Size));
 
             /// Chaque control en dehors des panel et TabControl
@@ -223,13 +228,10 @@ namespace maFichePersonnageJDR.Formulaires
         {
             CheckBox checkBox = sender as CheckBox;
             string nomMagie = checkBox.Name.Substring(4);
-            string magie = MagieController.GetIdMagieByName(nomMagie);
 
             if (checkBox.Checked)
             {
-                // FR : Devrait ajouter le texte
-                // EN : Should append text
-                rtbMagies.AppendText(magie + Environment.NewLine);
+                rtbMagies.Text += rtbMagies.Lines.Length > 0 ? Environment.NewLine + nomMagie : nomMagie;
                 DisableOrCheckBox(tbCntlAptitudes, tbCntlMagie);
             }
             else
@@ -247,13 +249,12 @@ namespace maFichePersonnageJDR.Formulaires
         {
             CheckBox checkBox = sender as CheckBox;
             string nomAptitude = checkBox.Name.Substring(4);
-            string aptitude = AptitudesController.GetIdAptitudeByName(nomAptitude);
 
             if (checkBox.Checked)
             {
                 // FR : Devrait ajouter le texte
                 // EN : Should append text
-                rtbAptitudes.AppendText(aptitude + Environment.NewLine);
+                rtbAptitudes.Text += rtbAptitudes.Lines.Length > 0 ? Environment.NewLine + nomAptitude : nomAptitude;
                 DisableOrCheckBox(tbCntlAptitudes, tbCntlMagie);
             }
             else
@@ -262,76 +263,26 @@ namespace maFichePersonnageJDR.Formulaires
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="idPersonnage"></param>
-        /// <returns></returns>
-        public int MagiesEtAptitudesLimitations(int idPersonnage)
-        {
-            int nbMagieAptitude = 0;
-            int niveauPersonnage = PersonnageController.GetNiveauPersonnage(idPersonnage);
-
-            if (niveauPersonnage <= 3)
-                nbMagieAptitude = 2;
-            else if (niveauPersonnage > 2 && niveauPersonnage < 4)
-                nbMagieAptitude = 3;
-            else if (niveauPersonnage > 3 && niveauPersonnage < 5)
-                nbMagieAptitude = 4;
-            else if (niveauPersonnage > 4 && niveauPersonnage < 6)
-                nbMagieAptitude = 6;
-            else if (niveauPersonnage > 5 && niveauPersonnage < 7)
-                nbMagieAptitude = 8;
-            else if (niveauPersonnage > 6 && niveauPersonnage < 9)
-                nbMagieAptitude = 9;
-            else if (niveauPersonnage > 8 && niveauPersonnage < 10)
-                nbMagieAptitude = 10;
-            else if (niveauPersonnage > 9 && niveauPersonnage < 12)
-                nbMagieAptitude = 12;
-            else if (niveauPersonnage > 11 && niveauPersonnage < 14)
-                nbMagieAptitude = 13;
-            else if (niveauPersonnage > 13 && niveauPersonnage < 15)
-                nbMagieAptitude = 14;
-            else if (niveauPersonnage > 14 && niveauPersonnage < 17)
-                nbMagieAptitude = 16;
-            else if (niveauPersonnage > 16 && niveauPersonnage < 19)
-                nbMagieAptitude = 17;
-            else if (niveauPersonnage > 18 && niveauPersonnage < 20)
-                nbMagieAptitude = 18;
-            else if (niveauPersonnage > 19)
-                nbMagieAptitude = 20;
-
-            return nbMagieAptitude;
-        }
-
         public void DisableOrCheckBox(TabControl tbControlAptitudes, TabControl tbControlMagies)
         {
             int nbCheckBoxChecked = 0;
-            int nbAttributParNiveau = MagiesEtAptitudesLimitations(GlobaleVariables.IdPersonnage);
+            int nbAttributParNiveau = MagieAptitudesLimitationByLevel(GlobaleVariables.IdPersonnage);
 
             /// Parcours des aptitudes
             foreach (TabPage page in tbControlAptitudes.TabPages)
             {
-                foreach (object controls in page.Controls)
+                foreach (CheckBox checkBox in page.Controls.OfType<CheckBox>())
                 {
-                    if (controls is CheckBox)
-                    {
-                        CheckBox checkBox = controls as CheckBox;
-                        nbCheckBoxChecked += checkBox.Checked ? 1 : 0;
-                    }
+                    nbCheckBoxChecked += checkBox.Checked ? 1 : 0;
                 }
             }
 
             /// Parcours des magies
             foreach (TabPage page in tbControlMagies.TabPages)
             {
-                foreach (object controls in page.Controls)
+                foreach (CheckBox checkBox in page.Controls.OfType<CheckBox>())
                 {
-                    if (controls is CheckBox)
-                    {
-                        CheckBox checkBox = controls as CheckBox;
-                        nbCheckBoxChecked += checkBox.Checked ? 1 : 0;
-                    }
+                    nbCheckBoxChecked += checkBox.Checked ? 1 : 0;
                 }
             }
 
@@ -340,26 +291,18 @@ namespace maFichePersonnageJDR.Formulaires
                 /// Parcours des aptitudes
                 foreach (TabPage page in tbControlAptitudes.TabPages)
                 {
-                    foreach (object controls in page.Controls)
+                    foreach (CheckBox checkBox in page.Controls.OfType<CheckBox>())
                     {
-                        if (controls is CheckBox)
-                        {
-                            CheckBox checkBox = controls as CheckBox;
-                            checkBox.Enabled = checkBox.Checked ? true : false;
-                        }
+                        checkBox.Enabled = checkBox.Checked ? true : false;
                     }
                 }
 
                 /// Parcours des magies
                 foreach (TabPage page in tbControlMagies.TabPages)
                 {
-                    foreach (object controls in page.Controls)
+                    foreach (CheckBox checkBox in page.Controls.OfType<CheckBox>())
                     {
-                        if (controls is CheckBox)
-                        {
-                            CheckBox checkBox = controls as CheckBox;
-                            checkBox.Enabled = checkBox.Checked ? true : false;
-                        }
+                        checkBox.Enabled = checkBox.Checked ? true : false;
                     }
                 }
             }
@@ -368,26 +311,18 @@ namespace maFichePersonnageJDR.Formulaires
                 /// Parcours des aptitudes
                 foreach (TabPage page in tbControlAptitudes.TabPages)
                 {
-                    foreach (object controls in page.Controls)
+                    foreach (CheckBox checkBox in page.Controls.OfType<CheckBox>())
                     {
-                        if (controls is CheckBox)
-                        {
-                            CheckBox checkBox = controls as CheckBox;
-                            checkBox.Enabled = true;
-                        }
+                        checkBox.Enabled = true;
                     }
                 }
 
                 /// Parcours des magies
                 foreach (TabPage page in tbControlMagies.TabPages)
                 {
-                    foreach (object controls in page.Controls)
+                    foreach (CheckBox checkBox in page.Controls.OfType<CheckBox>())
                     {
-                        if (controls is CheckBox)
-                        {
-                            CheckBox checkBox = controls as CheckBox;
-                            checkBox.Enabled = true;
-                        }
+                        checkBox.Enabled = true;
                     }
                 }
             }
@@ -401,38 +336,45 @@ namespace maFichePersonnageJDR.Formulaires
         /// <returns></returns>
         private int MagieAptitudesLimitationByLevel(int niveauPersonnage)
         {
-            int nbMagieAptitude = 0;
-
-            if (niveauPersonnage < 3)
-                nbMagieAptitude = 2;
-            else if (niveauPersonnage > 3 && niveauPersonnage < 4)
-                nbMagieAptitude = 3;
-            else if (niveauPersonnage > 4 && niveauPersonnage < 5)
-                nbMagieAptitude = 4;
-            else if (niveauPersonnage > 4 && niveauPersonnage < 6)
-                nbMagieAptitude = 6;
-            else if (niveauPersonnage > 5 && niveauPersonnage < 7)
-                nbMagieAptitude = 8;
-            else if (niveauPersonnage > 6 && niveauPersonnage < 9)
-                nbMagieAptitude = 9;
-            else if (niveauPersonnage > 8 && niveauPersonnage < 10)
-                nbMagieAptitude = 10;
-            else if (niveauPersonnage > 9 && niveauPersonnage < 12)
-                nbMagieAptitude = 12;
-            else if (niveauPersonnage > 11 && niveauPersonnage < 14)
-                nbMagieAptitude = 13;
-            else if (niveauPersonnage > 13 && niveauPersonnage < 15)
-                nbMagieAptitude = 14;
-            else if (niveauPersonnage > 14 && niveauPersonnage < 17)
-                nbMagieAptitude = 16;
-            else if (niveauPersonnage > 16 && niveauPersonnage < 19)
-                nbMagieAptitude = 17;
-            else if (niveauPersonnage > 18 && niveauPersonnage < 20)
-                nbMagieAptitude = 18;
-            else
-                nbMagieAptitude = 20;
-
-            return nbMagieAptitude;
+            switch (niveauPersonnage)
+            {
+                case 1:
+                case 2:
+                    return 2;
+                case 3:
+                case 4:
+                    return 3;
+                case 5:
+                    return 4;
+                case 6:
+                    return 6;
+                case 7:
+                case 8:
+                    return 8;
+                case 9:
+                    return 9;
+                case 10:
+                case 11:
+                    return 10;
+                case 12:
+                case 13:
+                    return 12;
+                case 14:
+                    return 13;
+                case 15:
+                case 16:
+                    return 14;
+                case 17:
+                case 18:
+                    return 16;
+                case 19:
+                    return 18;
+                case 20:
+                    return 20;
+                default:
+                    Console.WriteLine("Entrée incorrect");
+                    return -1;
+            }
         }
 
         private void btnFinaliserFiche_Click(object sender, EventArgs e)
@@ -473,8 +415,7 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 if (!String.IsNullOrEmpty(line))
                 {
-                    string[] substring = line.Split(';');
-                    MagieController.AddNewMagieToPersonnage(Convert.ToInt32(substring[0]),
+                    MagieController.AddNewMagieToPersonnage(MagieController.GetIdMagieByName(line),
                     GlobaleVariables.IdPersonnage);
                 }
             }
@@ -485,7 +426,7 @@ namespace maFichePersonnageJDR.Formulaires
                 if (!String.IsNullOrEmpty(line))
                 {
                     string[] substring = line.Split(';');
-                    AptitudesController.AddNewAptitudeToPersonnage(Convert.ToInt32(substring[0]),
+                    AptitudesController.AddNewAptitudeToPersonnage(AptitudesController.GetIdAptitudeByName(Utils.DeleteCharacterFromString(line, "\n", " ")),
                     GlobaleVariables.IdPersonnage);
                 }
             }
@@ -517,6 +458,58 @@ namespace maFichePersonnageJDR.Formulaires
             }
 
             this.Refresh();
+        }
+
+        private void EditPersonnageMagieAptitudes()
+        {
+            string[] magiesPersonnage = MagieController.GetListNomMagie(GlobaleVariables.IdPersonnage).ToArray();
+            string[] aptitudesPersonnage = AptitudesController.GetListNomAptitude(GlobaleVariables.IdPersonnage).ToArray();
+
+            if (magiesPersonnage.Length > 0)
+            {
+                for (int i = 0; i < magiesPersonnage.Length; i++)
+                {
+                    string nomCheckbox = "chck" + magiesPersonnage[i];
+
+                    foreach (TabPage page in tbCntlMagie.TabPages)
+                    {
+                        foreach (CheckBox checkBox in page.Controls.OfType<CheckBox>())
+                        {
+                            if (checkBox.Name == nomCheckbox)
+                            {
+                                checkBox.Checked = true;
+                                checkBox.Enabled = false;
+                            }
+                        }
+                    }
+
+                    rtbMagies.Text += magiesPersonnage[i] + "\n";
+                }
+            }
+
+            if (aptitudesPersonnage.Length > 0)
+            {
+                for (int i = 0; i < magiesPersonnage.Length; i++)
+                {
+                    string nomCheckbox = "chck" + aptitudesPersonnage[i];
+
+                    foreach (TabPage page in tbCntlAptitudes.TabPages)
+                    {
+                        foreach (CheckBox checkBox in page.Controls.OfType<CheckBox>())
+                        {
+                            if (checkBox.Name == nomCheckbox)
+                            {
+                                checkBox.Checked = true;
+                                checkBox.Enabled = false;
+                            }
+                        }
+                    }
+
+                    rtbAptitudes.Text += aptitudesPersonnage[i] + "\n";
+                }
+            }
+
+            DisableOrCheckBox(tbCntlAptitudes, tbCntlMagie);
         }
     }
 }
