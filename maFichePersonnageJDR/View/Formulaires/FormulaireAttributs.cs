@@ -565,7 +565,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                 {
                     if (attributes.Contains(checkBox.Tag))
                     {
-                        checkBox.Enabled = true;
+                        checkBox.Enabled = false;
                         checkBox.Checked = true;
 
                         rtbAttributs.Text += rtbAttributs.Lines.Length > 0 ? Environment.NewLine + checkBox.Tag.ToString() : checkBox.Tag.ToString();
@@ -577,7 +577,8 @@ namespace maFichePersonnageJDR.View.Formulaires
         }
 
         /// <summary>
-        /// 
+        /// Événement qui gère le cas de figure en fonction du tri choisi
+        /// par l'utilisateur
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -665,6 +666,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             GetAttributs();
         }
 
+
+        /// <summary>
+        /// Événement qui gère la fermeture du formulaire
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormulaireAttributs_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!GlobaleVariables.IsClosedProgrammatically)
