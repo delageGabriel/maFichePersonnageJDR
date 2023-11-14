@@ -17,9 +17,9 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// <summary>
         /// Champs des points à répartir dans les trois type compétences
         /// </summary>
-        private int compPhysique = 36;
-        private int compMentale = 41;
-        private int compSociale = 22;
+        private int compPhysique = 39;
+        private int compMentale = 45;
+        private int compSociale = 33;
 
         /// <summary>
         /// Champs des trois type de caractéristiques pour éviter les
@@ -45,9 +45,9 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// Champs du nombre de points qu'on peut ajouter dans chaque
         /// compétences une fois le niveau suivant atteint
         /// </summary>
-        private const int pointsPhysique = 4;
-        private const int pointsMental = 5;
-        private const int pointsSocial = 3;
+        private const int pointsPhysique = 5;
+        private const int pointsMental = 6;
+        private const int pointsSocial = 4;
 
         /// <summary>
         /// Stockage des controls du formulaire
@@ -199,7 +199,7 @@ namespace maFichePersonnageJDR.View.Formulaires
 
             // Ajout des compétences physiques
             Controller.CompetencesCaracteristiquesController.SaveCompetencePhysiquePersonnage(GlobaleVariables.IdPersonnage, Convert.ToInt32(nudAgilite.Value), Convert.ToInt32(nudArtisanat.Value),
-                Convert.ToInt32(nudCrochetage.Value), Convert.ToInt32(nudDiscretion.Value), Convert.ToInt32(nudEqlibre.Value), Convert.ToInt32(nudEscalade.Value),
+                Convert.ToInt32(nudCrochetage.Value), Convert.ToInt32(nudDiscretion.Value), Convert.ToInt32(nudEqlibre.Value), Convert.ToInt32(nudEquitation.Value), Convert.ToInt32(nudEscalade.Value),
                 Convert.ToInt32(nudEscamotage.Value), Convert.ToInt32(nudForce.Value), Convert.ToInt32(nudFouille.Value), Convert.ToInt32(nudNatation.Value), Convert.ToInt32(nudReflexes.Value),
                 Convert.ToInt32(nudVigueur.Value));
 
@@ -369,6 +369,8 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// <param name="e"></param>
         private void nudCompPhy_ValueChanged(object sender, EventArgs e)
         {
+            
+            
             int sommeDesValeurs = CalculerSommeValeursNumericUpDown(gbPhysique);
 
             int pointsRestants = CompPhysique - sommeDesValeurs;

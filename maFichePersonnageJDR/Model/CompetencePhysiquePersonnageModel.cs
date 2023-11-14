@@ -20,6 +20,7 @@ namespace maFichePersonnageJDR.Model
         private int crochetage;
         private int discretion;
         private int equilibre;
+        private int equitation;
         private int escalade;
         private int escamotage;
         private int force;
@@ -38,6 +39,7 @@ namespace maFichePersonnageJDR.Model
         public int Crochetage { get => crochetage; set => crochetage = value; }
         public int Discretion { get => discretion; set => discretion = value; }
         public int Equilibre { get => equilibre; set => equilibre = value; }
+        public int Equitation { get => equitation; set => equitation = value; }
         public int Escalade { get => escalade; set => escalade = value; }
         public int Escamotage { get => escamotage; set => escamotage = value; }
         public int Force { get => force; set => force = value; }
@@ -61,16 +63,33 @@ namespace maFichePersonnageJDR.Model
         /// <param name="natation"></param>
         /// <param name="reflexes"></param>
         /// <param name="vigueur"></param>
-        public void SaveCompetencePhysiquePersonnage(int idPersonnage, int agilite, int artisanat, int crochetage, int discretion, int equilibre, int escalade, int escamotage,
-            int force, int fouille, int natation, int reflexes, int vigueur)
+        public void SaveCompetencePhysiquePersonnage(int idPersonnage, int agilite, int artisanat, int crochetage, int discretion, int equilibre, int equitation, 
+            int escalade, int escamotage, int force, int fouille, int natation, int reflexes, int vigueur)
         {
             try
             {
                 // Commande
-                SQLiteCommand command = new SQLiteCommand(string.Format("INSERT INTO COMPETENCE_PHYSIQUE_PERSONNAGE (id_personnage, agilite, artisanat, " +
-                    "crochetage, discretion, equilibre, escalade, escamotage, force, fouille, natation, reflexes, vigueur) " +
-                    "VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12})", idPersonnage, agilite, artisanat, crochetage,
-                    discretion, equilibre, escalade, escamotage, force, fouille, natation, reflexes, vigueur), DatabaseConnection.Instance.GetConnection());
+                SQLiteCommand command = new SQLiteCommand(
+                    "INSERT INTO COMPETENCE_PHYSIQUE_PERSONNAGE (id_personnage, agilite, artisanat, crochetage, discretion, equilibre, equitation, " +
+                    "escalade, escamotage, force, fouille, natation, reflexes, vigueur) " +
+                    "VALUES (@idPersonnage, @agilite, @artisanat, @crochetage, @discretion, @equilibre, @equitation, @escalade, @escamotage, @force," +
+                    "@fouille, @natation, @reflexes, @vigueur)", 
+                    DatabaseConnection.Instance.GetConnection());
+
+                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
+                command.Parameters.AddWithValue("@agilite", agilite);
+                command.Parameters.AddWithValue("@artisanat", artisanat);
+                command.Parameters.AddWithValue("@crochetage", crochetage);
+                command.Parameters.AddWithValue("@discretion", discretion);
+                command.Parameters.AddWithValue("@equilibre", equilibre);
+                command.Parameters.AddWithValue("@equitation", equitation);
+                command.Parameters.AddWithValue("@escalade", escalade);
+                command.Parameters.AddWithValue("@escamotage", escamotage);
+                command.Parameters.AddWithValue("@force", force);
+                command.Parameters.AddWithValue("@fouille", fouille);
+                command.Parameters.AddWithValue("@natation", natation);
+                command.Parameters.AddWithValue("@reflexes", reflexes);
+                command.Parameters.AddWithValue("@vigueur", vigueur);
 
                 int rowsAffected = command.ExecuteNonQuery();
             }
