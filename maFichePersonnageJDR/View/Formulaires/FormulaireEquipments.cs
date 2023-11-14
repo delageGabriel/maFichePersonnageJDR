@@ -924,6 +924,7 @@ namespace maFichePersonnageJDR.Formulaires
                 PersonnageController.SetValueField("charge_totale_personnage", GlobaleVariables.IdPersonnage, double.Parse(Utils.DeleteCharacterFromString(lblChrgeMxm.Text, " ", "k", "g")));
 
                 MessageBox.Show("Équipement sauvegardé !");
+                GlobaleVariables.IsClosedProgrammatically = true;
                 formulaireMagieEtAptitudes.Show();
                 this.Close();
             }
@@ -1555,6 +1556,38 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 EquipmentController.GetObjetsInInventairePersonnageToCreateControls(pnlVendreObjet, GlobaleVariables.IdPersonnage);
                 CreateCheckBoxVendreObjets();
+            }
+        }
+
+        private void FormulaireEquipments_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!GlobaleVariables.IsClosedProgrammatically)
+            {
+                string msg = GlobaleVariables.IsEdit ? "Voulez-vous annuler l'édition du personnage ?" : "Voulez-vous annuler la création du personnage ?";
+                DialogResult result = MessageBox.Show(msg, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                // Vérifier la réponse de l'utilisateur
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    if (GlobaleVariables.IsEdit)
+                    {
+                        FormEditMenu formEditMenu = new FormEditMenu();
+                        formEditMenu.Show();
+                    }
+                    else
+                    {
+                        FrmPrincipal frmPrincipal = new FrmPrincipal();
+                        frmPrincipal.Show();
+                    }
+                }
+            }
+            else
+            {
+                GlobaleVariables.IsClosedProgrammatically = false;
             }
         }
     }

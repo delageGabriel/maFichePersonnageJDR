@@ -31,60 +31,6 @@ namespace maFichePersonnageJDR.Controller
 
             return dictionaryAttributes;
         }
-        //public static List<string> GetAttributs(TabControl controlParent, TabPage page)
-        //{
-        //    Console.WriteLine("########### Méthode GetAttributs — ###########");
-        //    List<string> osef = new List<string>();
-        //    osef.Add("");
-        //    FormulaireAttributs formulaireAttributs = new FormulaireAttributs();
-        //    AttributsModel attributsModel = new AttributsModel();
-        //    List<CheckBox> checkBoxes = new List<CheckBox>();
-
-        //    try
-        //    {
-        //        List<AttributsModel> attributsList = attributsModel.GetListAttributs();
-
-        //        if (attributsList != null)
-        //        {
-        //            // Coordonnées qui gèrent la localisation
-        //            int x = 10;
-        //            int y = 5;
-        //            int indexOfTabPage = controlParent.TabPages.IndexOfKey(page.Name);
-
-        //            // NOM
-        //            Label lblNom = new Label();
-        //            lblNom.Name = "lblNom" + page.Text;
-        //            lblNom.Location = new Point(x + 25, y);
-        //            lblNom.Text = "Nom";
-        //            lblNom.Font = new Font(lblNom.Font, FontStyle.Underline);
-
-        //            controlParent.TabPages[indexOfTabPage].Controls.Add(lblNom);
-
-        //            y += 30;
-
-        //            // On ajoute tous les attributs dans la groupBox
-        //            foreach (AttributsModel attributs in attributsList)
-        //            {
-        //                LinkLabel linkLabel = new LinkLabel();
-        //                linkLabel.Text = attributs.NomAttribut;
-        //                linkLabel.Name = ("lnkLbl" + attributs.NomAttribut).Trim();
-        //                linkLabel.Location = new Point(x + 25, y);
-        //                linkLabel.AutoSize = true;
-        //                linkLabel.LinkClicked += formulaireAttributs.linkLabelAttribut_LinkClicked;
-
-        //                controlParent.TabPages[indexOfTabPage].Controls.Add(linkLabel);
-
-        //                y += 25;
-        //            }
-        //        }
-
-        //        return osef;
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        throw e;
-        //    }
-        //}
 
         /// <summary>
         /// Va chercher en base les informations par rapport au nom d'une arme

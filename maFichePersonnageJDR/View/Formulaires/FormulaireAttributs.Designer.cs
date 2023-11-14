@@ -105,6 +105,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormulaireAttributs";
             this.Text = "Attributs";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormulaireAttributs_FormClosing);
             this.Load += new System.EventHandler(this.FormulaireAttributs_Load);
             this.Resize += new System.EventHandler(this.FormulaireAttributs_Resize);
             this.tbControlAttributs.ResumeLayout(false);

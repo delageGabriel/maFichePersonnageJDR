@@ -43,7 +43,7 @@ namespace maFichePersonnageJDR.Controller
             }
             catch (Exception e)
             {
-                throw e;
+                throw;
             }
         }
 
@@ -96,7 +96,7 @@ namespace maFichePersonnageJDR.Controller
         public static void SaveCompetenceSocialPersonnage(int idPersonnage, int baratinage, int charme, int comedie, int commandement, int diplomatie, int dressage, 
             int intimidation, int marchandage, int prestance, int provocation, int representation)
         {
-            Console.WriteLine(string.Format("########### Méthode SaveCompetencePhysiquePersonnage — Personnage créé : idPersonnage : {0} ###########", idPersonnage.ToString()));
+            Console.WriteLine(string.Format("########### Méthode SaveCompetenceSocialPersonnage — Personnage créé : idPersonnage : {0} ###########", idPersonnage.ToString()));
 
             CompetenceSocialPersonnageModel competenceSocial = new CompetenceSocialPersonnageModel();
 

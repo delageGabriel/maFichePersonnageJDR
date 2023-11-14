@@ -94,7 +94,9 @@ namespace maFichePersonnageJDR.View.Formulaires
                             Name = "chck" + premiereValeur,
                             Location = new Point(x, y),
                             Width = 20,
-                            Tag = "chck" + premiereValeur
+                            Tag = premiereValeur,
+                            Checked = CheckIfAttributeIsInRichTextBox(premiereValeur),
+                            Enabled = GlobaleVariables.IsEdit ? false : true
                         };
 
                         checkBox.Click += checkBox_Click;
@@ -109,7 +111,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                             Name = "lnkLbl" + premiereValeur,
                             Location = new Point(x, y),
                             Text = premiereValeur,
-                            Tag = "lnkLbl" + premiereValeur
+                            Tag = premiereValeur
                         };
 
                         linkLabel.LinkClicked += linkLabelAttribut_LinkClicked;
@@ -149,7 +151,9 @@ namespace maFichePersonnageJDR.View.Formulaires
                             Name = "chck" + premiereValeur,
                             Location = new Point(x, y),
                             Width = 20,
-                            Tag = premiereValeur
+                            Tag = premiereValeur,
+                            Checked = CheckIfAttributeIsInRichTextBox(premiereValeur),
+                            Enabled = GlobaleVariables.IsEdit ? false : true
                         };
 
                         checkBox.Click += checkBox_Click;
@@ -203,7 +207,9 @@ namespace maFichePersonnageJDR.View.Formulaires
                             Name = "chck" + premiereValeur,
                             Location = new Point(x, y),
                             Width = 20,
-                            Tag = premiereValeur
+                            Tag = premiereValeur,
+                            Checked = CheckIfAttributeIsInRichTextBox(premiereValeur),
+                            Enabled = GlobaleVariables.IsEdit ? false : true
                         };
 
                         checkBox.Click += checkBox_Click;
@@ -258,7 +264,9 @@ namespace maFichePersonnageJDR.View.Formulaires
                             Name = "chck" + premiereValeur,
                             Location = new Point(x, y),
                             Width = 20,
-                            Tag = premiereValeur
+                            Tag = premiereValeur,
+                            Checked = CheckIfAttributeIsInRichTextBox(premiereValeur),
+                            Enabled = GlobaleVariables .IsEdit ? false : true
                         };
 
                         checkBox.Click += checkBox_Click;
@@ -286,7 +294,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                 }
             }
 
-
+            EnableOrDisableCheckBoxes();
             Console.WriteLine("########### FIN Méthode GetAttributs ###########");
         }
 
@@ -323,9 +331,8 @@ namespace maFichePersonnageJDR.View.Formulaires
                     attribut += AttributesSpecifications(attribut);
                 }
 
-                // Ajoute l'attribut sélectionné à la RichTextBox pour affichage
-                rtbAttributs.AppendText(attribut + Environment.NewLine);
-                CheckAndEnableOrDisableCheckBoxes();
+                rtbAttributs.Text += rtbAttributs.Lines.Length > 0 ? Environment.NewLine + attribut : attribut;
+                EnableOrDisableCheckBoxes();
             }
             else
             {
@@ -336,7 +343,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                 lines.RemoveAt(indexToDelete);
 
                 rtbAttributs.Lines = lines.ToArray();
-                CheckAndEnableOrDisableCheckBoxes();
+                EnableOrDisableCheckBoxes();
             }
         }
 
@@ -379,21 +386,36 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// Permet d'activer ou désactiver les CheckBox attributs
         /// </summary>
         /// <param name="page"></param>
-        public void CheckAndEnableOrDisableCheckBoxes()
+        private void EnableOrDisableCheckBoxes()
         {
+            int nbLignesRichTextBox = rtbAttributs.Lines.Length;
             int nbAttributParNiveau = MaxAttributesByLevel(GlobaleVariables.IdPersonnage);
-            int nbCheckBoxesChecked = tbPgeAttributs.Controls
-                .OfType<CheckBox>()
-                .Count(cb => cb.Checked);
 
-            bool enableOrDisableCheckBoxes = nbCheckBoxesChecked < nbAttributParNiveau;
-            foreach (CheckBox check in tbPgeAttributs.Controls.OfType<CheckBox>())
+            bool enableOrDisableCheckBoxes = nbLignesRichTextBox < nbAttributParNiveau;
+
+            foreach (TabPage page in tbControlAttributs.TabPages)
             {
-                if (!check.Checked)
+                foreach (CheckBox checkBox in page.Controls.OfType<CheckBox>())
                 {
-                    check.Enabled = enableOrDisableCheckBoxes;
+                    if (!checkBox.Checked)
+                    {
+                        checkBox.Enabled = enableOrDisableCheckBoxes;
+                    }
                 }
             }
+        }
+
+        private bool CheckIfAttributeIsInRichTextBox(string strInLine)
+        {
+            foreach (string ligne in rtbAttributs.Lines)
+            {
+                if (ligne.Contains(strInLine))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -404,7 +426,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         private void btnSauvegarder_Click(object sender, EventArgs e)
         {
             #region Initialisation des variables
-            Dictionary<int, string> dictionnaireIdSpecificationsAttribut = new Dictionary<int, string>();
+            Dictionary<int, Tuple<string, string>> dictionnaireIdSpecificationsAttribut = new Dictionary<int, Tuple<string, string>>();
             FormulaireCompetencesCaracteristiques formulaireCompetencesCaracteristiques = new FormulaireCompetencesCaracteristiques();
             int nbCaseCocher = 0;
             string specifications = string.Empty;
@@ -430,42 +452,48 @@ namespace maFichePersonnageJDR.View.Formulaires
                     return;
                 }
 
-                // On commence par récupérer l'id de l'attribut
-                foreach (string line in rtbAttributs.Lines)
+                foreach(string line in rtbAttributs.Lines)
                 {
-                    string[] substring = line.Split(';');
+                    string[] lineSplited = line.Split(':');
+                    int idAttribut = AttributsController.GetIdAttributByName(lineSplited[0]);
 
-                    if (substring.Length > 1)
-                    {
-                        int idAttribut = AttributsController.GetIdAttributByName(substring[0]);
-                        string nomAttribut = substring[1];
-
-                        dictionnaireIdSpecificationsAttribut.Add(idAttribut, nomAttribut);
-                    }
+                    if (lineSplited.Length > 1)
+                        dictionnaireIdSpecificationsAttribut.Add(idAttribut, Tuple.Create(lineSplited[0], lineSplited[1]));
                     else
-                    {
-                        if (!String.IsNullOrEmpty(substring[0]))
-                        {
-                            AttributsController.AddNewAttributToPersonnage(AttributsController.GetIdAttributByName(substring[0]), GlobaleVariables.IdPersonnage, "Aucunes");
-                        }
-                    }
+                        dictionnaireIdSpecificationsAttribut.Add(idAttribut, Tuple.Create(lineSplited[0], string.Empty));
                 }
 
+                // On sauvegarde chaque attribut en base
                 foreach (var keyValue in dictionnaireIdSpecificationsAttribut)
                 {
                     int idAttribut = keyValue.Key;
-                    string specificationsAttr = keyValue.Value;
-                    AttributsController.AddNewAttributToPersonnage(idAttribut, GlobaleVariables.IdPersonnage, specificationsAttr);
+                    string nameAttribut = keyValue.Value.Item1;
+                    string specificationsAttr = keyValue.Value.Item2;
+
+                    if(!AttributsController.CheckIfPersonnageHaveAttribut(GlobaleVariables.IdPersonnage, idAttribut))
+                    {
+                        AttributsController.AddNewAttributToPersonnage(idAttribut, GlobaleVariables.IdPersonnage, specificationsAttr);
+                    }
                 }
 
                 MessageBox.Show("Attributs sauvegardés");
+                GlobaleVariables.IsClosedProgrammatically = true;
 
-                formulaireCompetencesCaracteristiques.Show();
+                if(GlobaleVariables.IsEdit)
+                {
+                    FormEditMenu formEditMenu = new FormEditMenu();
+                    formEditMenu.Show();
+                }
+                else
+                {
+                    formulaireCompetencesCaracteristiques.Show();
+                }
+
                 this.Close();
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -531,23 +559,21 @@ namespace maFichePersonnageJDR.View.Formulaires
         {
             string[] attributes = AttributsController.GetListNomAttributs(GlobaleVariables.IdPersonnage).ToArray();
 
-            for (int i = 0; i < attributes.Length; i++)
+            foreach (TabPage page in tbControlAttributs.TabPages)
             {
-                string nomCheckBox = "chck" + attributes[i];
-
-                foreach (Control control in tbPgeAttributs.Controls)
+                foreach (CheckBox checkBox in page.Controls.OfType<CheckBox>())
                 {
-                    if (control is CheckBox && control.Name == nomCheckBox)
+                    if (attributes.Contains(checkBox.Tag))
                     {
-                        (control as CheckBox).Checked = true;
-                        (control as CheckBox).Enabled = false;
+                        checkBox.Enabled = true;
+                        checkBox.Checked = true;
+
+                        rtbAttributs.Text += rtbAttributs.Lines.Length > 0 ? Environment.NewLine + checkBox.Tag.ToString() : checkBox.Tag.ToString();
                     }
                 }
-
-                rtbAttributs.Text += attributes[i] + "," + "\n";
             }
 
-            CheckAndEnableOrDisableCheckBoxes();
+            EnableOrDisableCheckBoxes();
         }
 
         /// <summary>
@@ -637,6 +663,39 @@ namespace maFichePersonnageJDR.View.Formulaires
             }
 
             GetAttributs();
+        }
+
+        private void FormulaireAttributs_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!GlobaleVariables.IsClosedProgrammatically)
+            {
+                string msg = GlobaleVariables.IsEdit ? "Voulez-vous annuler l'édition du personnage ?" : "Voulez-vous annuler la création du personnage ?";
+                DialogResult result = MessageBox.Show(msg, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                // Vérifier la réponse de l'utilisateur
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    if (GlobaleVariables.IsEdit)
+                    {
+                        FormEditMenu formEditMenu = new FormEditMenu();
+                        formEditMenu.Show();
+                    }
+                    else
+                    {
+                        FrmPrincipal frmPrincipal = new FrmPrincipal();
+                        frmPrincipal.Show();
+                        PersonnageController.DeleteRowPersonnage(GlobaleVariables.IdPersonnage);
+                    }
+                }
+            }
+            else
+            {
+                GlobaleVariables.IsClosedProgrammatically = false;
+            }
         }
     }
 }

@@ -76,11 +76,13 @@ namespace maFichePersonnageJDR.Model
             try
             {
                 // Commande
-                SQLiteCommand command = new SQLiteCommand("INSERT INTO COMPETENCE_MENTAL_PERSONNAGE (id_personnage, concentration, connaissance_geographiques, " +
-                    "connaissance_historiques, connaissance_magiques, connaissance_natures, connaissance_religieuses, decryptage, esprit, explosifs, mecanique, medecine, " +
-                    "memoire, orientation, perception, volonte) " +
-                    "VALUES (@idPersonnage, @concentration, @connGeo, @connHis, @connMag, @connNat, @connRel, @decryptage, @esprit, @explosifs, @mecanique, @medecine," +
-                    "@memoire, @orientation, @perception, @volonte", DatabaseConnection.Instance.GetConnection());
+                SQLiteCommand command = new SQLiteCommand(
+                    "INSERT INTO COMPETENCE_MENTAL_PERSONNAGE (id_personnage, concentration, connaissance_geographiques, " +
+                    "connaissance_historiques, connaissance_magiques, connaissance_natures, connaissance_religieuses, decryptage, " +
+                    "esprit, explosifs, mecanique, medecine, memoire, orientation, perception, volonte) " +
+                    "VALUES (@idPersonnage, @concentration, @connGeo, @connHis, @connMag, @connNat, @connRel, @decryptage, " +
+                    "@esprit, @explosifs, @mecanique, @medecine, @memoire, @orientation, @perception, @volonte)", 
+                    DatabaseConnection.Instance.GetConnection());
 
                 command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
                 command.Parameters.AddWithValue("@concentration", concentration);
@@ -101,9 +103,10 @@ namespace maFichePersonnageJDR.Model
 
                 int rowsAffected = command.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch (SQLiteException ex)
             {
-                throw e;
+                Console.WriteLine(ex.Message);
+                throw;
             }
         }
 

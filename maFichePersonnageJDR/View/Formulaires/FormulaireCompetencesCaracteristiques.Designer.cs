@@ -70,6 +70,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudAgilite = new System.Windows.Forms.NumericUpDown();
             this.lblAgilite = new System.Windows.Forms.Label();
             this.gbMental = new System.Windows.Forms.GroupBox();
+            this.nudOrientation = new System.Windows.Forms.NumericUpDown();
+            this.lblOrientation = new System.Windows.Forms.Label();
             this.nudVolonte = new System.Windows.Forms.NumericUpDown();
             this.lblVolonte = new System.Windows.Forms.Label();
             this.nudPerception = new System.Windows.Forms.NumericUpDown();
@@ -99,6 +101,10 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.nudConnNatures = new System.Windows.Forms.NumericUpDown();
             this.lblConnNatures = new System.Windows.Forms.Label();
             this.gbSocial = new System.Windows.Forms.GroupBox();
+            this.nudRepresentation = new System.Windows.Forms.NumericUpDown();
+            this.nudCommandement = new System.Windows.Forms.NumericUpDown();
+            this.lblRepresentation = new System.Windows.Forms.Label();
+            this.lblCommandement = new System.Windows.Forms.Label();
             this.nudBaratinage = new System.Windows.Forms.NumericUpDown();
             this.nudProvocation = new System.Windows.Forms.NumericUpDown();
             this.lblProvocation = new System.Windows.Forms.Label();
@@ -127,12 +133,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.lblNbRepartitionComp = new System.Windows.Forms.Label();
             this.pnlPvEnergie = new System.Windows.Forms.Panel();
             this.pnlCaracteristiques = new System.Windows.Forms.Panel();
-            this.nudOrientation = new System.Windows.Forms.NumericUpDown();
-            this.lblOrientation = new System.Windows.Forms.Label();
-            this.nudCommandement = new System.Windows.Forms.NumericUpDown();
-            this.lblCommandement = new System.Windows.Forms.Label();
-            this.nudRepresentation = new System.Windows.Forms.NumericUpDown();
-            this.lblRepresentation = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudEnergie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSocial)).BeginInit();
@@ -152,6 +152,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.nudArtisanat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAgilite)).BeginInit();
             this.gbMental.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudOrientation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudVolonte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPerception)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMemoire)).BeginInit();
@@ -167,6 +168,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.nudConnGeographiques)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudConnNatures)).BeginInit();
             this.gbSocial.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudRepresentation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCommandement)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBaratinage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudProvocation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrestance)).BeginInit();
@@ -178,9 +181,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.nudCharme)).BeginInit();
             this.pnlPvEnergie.SuspendLayout();
             this.pnlCaracteristiques.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudOrientation)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCommandement)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudRepresentation)).BeginInit();
             this.SuspendLayout();
             // 
             // nudEnergie
@@ -748,6 +748,34 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.gbMental.TabStop = false;
             this.gbMental.Text = "Mental";
             // 
+            // nudOrientation
+            // 
+            this.nudOrientation.Enabled = false;
+            this.nudOrientation.Location = new System.Drawing.Point(286, 68);
+            this.nudOrientation.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.nudOrientation.Minimum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            -2147483648});
+            this.nudOrientation.Name = "nudOrientation";
+            this.nudOrientation.Size = new System.Drawing.Size(41, 20);
+            this.nudOrientation.TabIndex = 95;
+            this.nudOrientation.Tag = "Mental";
+            // 
+            // lblOrientation
+            // 
+            this.lblOrientation.AutoSize = true;
+            this.lblOrientation.Location = new System.Drawing.Point(213, 69);
+            this.lblOrientation.Name = "lblOrientation";
+            this.lblOrientation.Size = new System.Drawing.Size(58, 13);
+            this.lblOrientation.TabIndex = 96;
+            this.lblOrientation.Text = "Orientation";
+            // 
             // nudVolonte
             // 
             this.nudVolonte.Enabled = false;
@@ -1187,6 +1215,64 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.gbSocial.TabStop = false;
             this.gbSocial.Text = "Social";
             // 
+            // nudRepresentation
+            // 
+            this.nudRepresentation.Enabled = false;
+            this.nudRepresentation.Location = new System.Drawing.Point(219, 19);
+            this.nudRepresentation.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.nudRepresentation.Minimum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            -2147483648});
+            this.nudRepresentation.Name = "nudRepresentation";
+            this.nudRepresentation.Size = new System.Drawing.Size(41, 20);
+            this.nudRepresentation.TabIndex = 89;
+            this.nudRepresentation.Tag = "Social";
+            // 
+            // nudCommandement
+            // 
+            this.nudCommandement.Enabled = false;
+            this.nudCommandement.Location = new System.Drawing.Point(88, 92);
+            this.nudCommandement.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.nudCommandement.Minimum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            -2147483648});
+            this.nudCommandement.Name = "nudCommandement";
+            this.nudCommandement.Size = new System.Drawing.Size(41, 20);
+            this.nudCommandement.TabIndex = 86;
+            this.nudCommandement.Tag = "Social";
+            // 
+            // lblRepresentation
+            // 
+            this.lblRepresentation.AutoSize = true;
+            this.lblRepresentation.Location = new System.Drawing.Point(135, 21);
+            this.lblRepresentation.Name = "lblRepresentation";
+            this.lblRepresentation.Size = new System.Drawing.Size(79, 13);
+            this.lblRepresentation.TabIndex = 88;
+            this.lblRepresentation.Tag = "";
+            this.lblRepresentation.Text = "Représentation";
+            // 
+            // lblCommandement
+            // 
+            this.lblCommandement.AutoSize = true;
+            this.lblCommandement.Location = new System.Drawing.Point(6, 94);
+            this.lblCommandement.Name = "lblCommandement";
+            this.lblCommandement.Size = new System.Drawing.Size(83, 13);
+            this.lblCommandement.TabIndex = 87;
+            this.lblCommandement.Tag = "";
+            this.lblCommandement.Text = "Commandement";
+            // 
             // nudBaratinage
             // 
             this.nudBaratinage.Enabled = false;
@@ -1559,92 +1645,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.pnlCaracteristiques.Size = new System.Drawing.Size(200, 73);
             this.pnlCaracteristiques.TabIndex = 56;
             // 
-            // nudOrientation
-            // 
-            this.nudOrientation.Enabled = false;
-            this.nudOrientation.Location = new System.Drawing.Point(286, 68);
-            this.nudOrientation.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.nudOrientation.Minimum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            -2147483648});
-            this.nudOrientation.Name = "nudOrientation";
-            this.nudOrientation.Size = new System.Drawing.Size(41, 20);
-            this.nudOrientation.TabIndex = 95;
-            this.nudOrientation.Tag = "Mental";
-            // 
-            // lblOrientation
-            // 
-            this.lblOrientation.AutoSize = true;
-            this.lblOrientation.Location = new System.Drawing.Point(213, 69);
-            this.lblOrientation.Name = "lblOrientation";
-            this.lblOrientation.Size = new System.Drawing.Size(58, 13);
-            this.lblOrientation.TabIndex = 96;
-            this.lblOrientation.Text = "Orientation";
-            // 
-            // nudCommandement
-            // 
-            this.nudCommandement.Enabled = false;
-            this.nudCommandement.Location = new System.Drawing.Point(88, 92);
-            this.nudCommandement.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.nudCommandement.Minimum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            -2147483648});
-            this.nudCommandement.Name = "nudCommandement";
-            this.nudCommandement.Size = new System.Drawing.Size(41, 20);
-            this.nudCommandement.TabIndex = 86;
-            this.nudCommandement.Tag = "Social";
-            // 
-            // lblCommandement
-            // 
-            this.lblCommandement.AutoSize = true;
-            this.lblCommandement.Location = new System.Drawing.Point(6, 94);
-            this.lblCommandement.Name = "lblCommandement";
-            this.lblCommandement.Size = new System.Drawing.Size(83, 13);
-            this.lblCommandement.TabIndex = 87;
-            this.lblCommandement.Tag = "";
-            this.lblCommandement.Text = "Commandement";
-            // 
-            // nudRepresentation
-            // 
-            this.nudRepresentation.Enabled = false;
-            this.nudRepresentation.Location = new System.Drawing.Point(219, 19);
-            this.nudRepresentation.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.nudRepresentation.Minimum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            -2147483648});
-            this.nudRepresentation.Name = "nudRepresentation";
-            this.nudRepresentation.Size = new System.Drawing.Size(41, 20);
-            this.nudRepresentation.TabIndex = 89;
-            this.nudRepresentation.Tag = "Social";
-            // 
-            // lblRepresentation
-            // 
-            this.lblRepresentation.AutoSize = true;
-            this.lblRepresentation.Location = new System.Drawing.Point(135, 21);
-            this.lblRepresentation.Name = "lblRepresentation";
-            this.lblRepresentation.Size = new System.Drawing.Size(79, 13);
-            this.lblRepresentation.TabIndex = 88;
-            this.lblRepresentation.Tag = "";
-            this.lblRepresentation.Text = "Représentation";
-            // 
             // FormulaireCompetencesCaracteristiques
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1666,6 +1666,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormulaireCompetencesCaracteristiques";
             this.Text = "Caractéristiques et Compétences";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormulaireCompetencesCaracteristiques_FormClosing);
             this.Load += new System.EventHandler(this.FormulaireCompetencesCaracteristiques_Load);
             this.Resize += new System.EventHandler(this.FormulaireCompetencesCaracteristiques_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.nudEnergie)).EndInit();
@@ -1689,6 +1690,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.nudAgilite)).EndInit();
             this.gbMental.ResumeLayout(false);
             this.gbMental.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudOrientation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudVolonte)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPerception)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMemoire)).EndInit();
@@ -1705,6 +1707,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.nudConnNatures)).EndInit();
             this.gbSocial.ResumeLayout(false);
             this.gbSocial.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudRepresentation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCommandement)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBaratinage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudProvocation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrestance)).EndInit();
@@ -1718,9 +1722,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.pnlPvEnergie.PerformLayout();
             this.pnlCaracteristiques.ResumeLayout(false);
             this.pnlCaracteristiques.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudOrientation)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCommandement)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudRepresentation)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -244,9 +244,9 @@ namespace maFichePersonnageJDR.Model
             {
                 SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT COUNT(@idAttribut) " +
+                SQLiteCommand command = new SQLiteCommand("SELECT COUNT(id_attribut) " +
                     "FROM ATTRIBUTS_PERSONNAGE " +
-                    "WHERE ATTRIBUTS_PERSONNAGE.id_personnage = @idPersonnage", connection);
+                    "WHERE ATTRIBUTS_PERSONNAGE.id_personnage = @idPersonnage AND ATTRIBUTS_PERSONNAGE.id_attribut = @idAttribut", connection);
                 command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
                 command.Parameters.AddWithValue("@idAttribut", idAttribut);
 

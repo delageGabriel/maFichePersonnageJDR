@@ -29,6 +29,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         {
             FormulaireAttributs formulaireAttributs = new FormulaireAttributs();
             formulaireAttributs.Show();
+            this.Hide();
         }
 
         private void btnCompCarac_Click(object sender, EventArgs e)

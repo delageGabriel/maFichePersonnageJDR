@@ -52,7 +52,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.rtbAptitudes = new System.Windows.Forms.RichTextBox();
             this.btnFinaliserFiche = new System.Windows.Forms.Button();
             this.pbComplétionExportationFiche = new System.Windows.Forms.ProgressBar();
-            this.lblNbMagieAptitude = new System.Windows.Forms.Label();
             this.tbCntlMagie.SuspendLayout();
             this.tbCntlAptitudes.SuspendLayout();
             this.SuspendLayout();
@@ -289,22 +288,11 @@ namespace maFichePersonnageJDR.Formulaires
             this.pbComplétionExportationFiche.Size = new System.Drawing.Size(132, 23);
             this.pbComplétionExportationFiche.TabIndex = 5;
             // 
-            // lblNbMagieAptitude
-            // 
-            this.lblNbMagieAptitude.AutoSize = true;
-            this.lblNbMagieAptitude.Font = new System.Drawing.Font("Ebrima", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNbMagieAptitude.Location = new System.Drawing.Point(112, 9);
-            this.lblNbMagieAptitude.Name = "lblNbMagieAptitude";
-            this.lblNbMagieAptitude.Size = new System.Drawing.Size(331, 21);
-            this.lblNbMagieAptitude.TabIndex = 6;
-            this.lblNbMagieAptitude.Text = "Vous pouvez choisir 2 magies/aptitudes (total)";
-            // 
             // FormulaireMagieEtAptitudes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(527, 378);
-            this.Controls.Add(this.lblNbMagieAptitude);
             this.Controls.Add(this.pbComplétionExportationFiche);
             this.Controls.Add(this.btnFinaliserFiche);
             this.Controls.Add(this.rtbAptitudes);
@@ -314,12 +302,12 @@ namespace maFichePersonnageJDR.Formulaires
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormulaireMagieEtAptitudes";
             this.Text = "Magies & Aptitudes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormulaireMagieEtAptitudes_FormClosing);
             this.Load += new System.EventHandler(this.FormulaireMagieEtAptitudes_Load);
             this.Resize += new System.EventHandler(this.FormulaireMagieEtAptitudes_Resize);
             this.tbCntlMagie.ResumeLayout(false);
             this.tbCntlAptitudes.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -347,6 +335,5 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.RichTextBox rtbAptitudes;
         private System.Windows.Forms.Button btnFinaliserFiche;
         private System.Windows.Forms.ProgressBar pbComplétionExportationFiche;
-        private System.Windows.Forms.Label lblNbMagieAptitude;
     }
 }

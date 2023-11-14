@@ -440,7 +440,9 @@ namespace maFichePersonnageJDR.Formulaires
             frmPrincipal.Refresh();
             frmPrincipal.Show();
             GlobaleVariables.IdPersonnage = 0;
+            GlobaleVariables.IsClosedProgrammatically = true;
             this.Close();
+            DatabaseConnection.Instance.CloseConnection();
         }
 
         private void FormulaireMagieEtAptitudes_Resize(object sender, EventArgs e)
@@ -510,6 +512,38 @@ namespace maFichePersonnageJDR.Formulaires
             }
 
             DisableOrCheckBox(tbCntlAptitudes, tbCntlMagie);
+        }
+
+        private void FormulaireMagieEtAptitudes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!GlobaleVariables.IsClosedProgrammatically)
+            {
+                string msg = GlobaleVariables.IsEdit ? "Voulez-vous annuler l'édition du personnage ?" : "Voulez-vous annuler la création du personnage ?";
+                DialogResult result = MessageBox.Show(msg, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                // Vérifier la réponse de l'utilisateur
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    if (GlobaleVariables.IsEdit)
+                    {
+                        FormEditMenu formEditMenu = new FormEditMenu();
+                        formEditMenu.Show();
+                    }
+                    else
+                    {
+                        FrmPrincipal frmPrincipal = new FrmPrincipal();
+                        frmPrincipal.Show();
+                    }
+                }
+            }
+            else
+            {
+                GlobaleVariables.IsClosedProgrammatically = false;
+            }
         }
     }
 }

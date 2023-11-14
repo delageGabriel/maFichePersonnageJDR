@@ -270,11 +270,12 @@ namespace maFichePersonnageJDR.Formulaires
 
                     GlobaleVariables.IdPersonnage = Controller.PersonnageController.GetIdPersonnageByNameAndSurname(NomPersonnage,
                         PrenomPersonnage);
-                    
+
                     formulaireAttributs.Show();
                 }
 
                 MessageBox.Show("Formulaire sauvegardé !");
+                GlobaleVariables.IsClosedProgrammatically = true;
                 this.Close();
             }
             catch (Exception exception)
@@ -283,7 +284,6 @@ namespace maFichePersonnageJDR.Formulaires
             }
 
             Console.WriteLine("########### FIN Méthode btnSaveInfos_Click ###########");
-
         }
 
         private void btnAjouterImage_Click(object sender, EventArgs e)
@@ -426,6 +426,38 @@ namespace maFichePersonnageJDR.Formulaires
             cbbProgressionXp.SelectedItem = Controller.PersonnageController.GetCourbeProgressionPersonnage(GlobaleVariables.IdPersonnage);
             rtbHistoire.Text = Controller.PersonnageController.GetHistoirePersonnage(GlobaleVariables.IdPersonnage);
             rtbLangues.Text = Controller.PersonnageController.GetLanguesPersonnage(GlobaleVariables.IdPersonnage);
+        }
+
+        private void FormulaireInfosGenerales_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!GlobaleVariables.IsClosedProgrammatically)
+            {
+                string msg = GlobaleVariables.IsEdit ? "Voulez-vous annuler l'édition du personnage ?" : "Voulez-vous annuler la création du personnage ?";
+                DialogResult result = MessageBox.Show(msg, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                // Vérifier la réponse de l'utilisateur
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    if (GlobaleVariables.IsEdit)
+                    {
+                        FormEditMenu formEditMenu = new FormEditMenu();
+                        formEditMenu.Show();
+                    }
+                    else
+                    {
+                        FrmPrincipal frmPrincipal = new FrmPrincipal();
+                        frmPrincipal.Show();
+                    }
+                }
+            }
+            else
+            {
+                GlobaleVariables.IsClosedProgrammatically = false;
+            }
         }
     }
 }

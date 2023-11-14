@@ -29,6 +29,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEditMenu));
             this.btnInfosGenerales = new System.Windows.Forms.Button();
             this.btnAttributs = new System.Windows.Forms.Button();
             this.btnCompCarac = new System.Windows.Forms.Button();
@@ -108,6 +109,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.Controls.Add(this.btnCompCarac);
             this.Controls.Add(this.btnAttributs);
             this.Controls.Add(this.btnInfosGenerales);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormEditMenu";
             this.Text = "Menu";
             this.ResumeLayout(false);

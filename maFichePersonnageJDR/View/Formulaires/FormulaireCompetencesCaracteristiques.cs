@@ -210,7 +210,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                 Convert.ToInt32(nudProvocation.Value), Convert.ToInt32(nudRepresentation.Value));
 
             MessageBox.Show("Compétences et caractéristiques sauvegardées");
-
+            GlobaleVariables.IsClosedProgrammatically = true;
             formulaireEquipments.Show();
             this.Close();
         }
@@ -750,6 +750,38 @@ namespace maFichePersonnageJDR.View.Formulaires
             nudPrestance.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "prestance", GlobaleVariables.IdPersonnage);
             nudProvocation.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "provocation", GlobaleVariables.IdPersonnage);
             nudRepresentation.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "representation", GlobaleVariables.IdPersonnage);
+        }
+
+        private void FormulaireCompetencesCaracteristiques_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!GlobaleVariables.IsClosedProgrammatically)
+            {
+                string msg = GlobaleVariables.IsEdit ? "Voulez-vous annuler l'édition du personnage ?" : "Voulez-vous annuler la création du personnage ?";
+                DialogResult result = MessageBox.Show(msg, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                // Vérifier la réponse de l'utilisateur
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    if (GlobaleVariables.IsEdit)
+                    {
+                        FormEditMenu formEditMenu = new FormEditMenu();
+                        formEditMenu.Show();
+                    }
+                    else
+                    {
+                        FrmPrincipal frmPrincipal = new FrmPrincipal();
+                        frmPrincipal.Show();
+                    }
+                }
+            }
+            else
+            {
+                GlobaleVariables.IsClosedProgrammatically = false;
+            }
         }
     }
 }

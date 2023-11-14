@@ -851,6 +851,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormulaireEquipments";
             this.Text = " Équipements";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormulaireEquipments_FormClosing);
             this.Load += new System.EventHandler(this.FormulaireEquipments_Load);
             this.Resize += new System.EventHandler(this.FormulaireEquipments_Resize);
             this.tbCntlArmes.ResumeLayout(false);

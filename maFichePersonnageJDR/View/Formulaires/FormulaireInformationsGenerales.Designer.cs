@@ -200,9 +200,9 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // btnSaveInfos
             // 
-            this.btnSaveInfos.Location = new System.Drawing.Point(502, 313);
+            this.btnSaveInfos.Location = new System.Drawing.Point(502, 317);
             this.btnSaveInfos.Name = "btnSaveInfos";
-            this.btnSaveInfos.Size = new System.Drawing.Size(256, 40);
+            this.btnSaveInfos.Size = new System.Drawing.Size(257, 38);
             this.btnSaveInfos.TabIndex = 24;
             this.btnSaveInfos.Text = "Sauvegarder";
             this.btnSaveInfos.UseVisualStyleBackColor = true;
@@ -210,6 +210,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // btnAjouterImage
             // 
+            this.btnAjouterImage.Enabled = false;
             this.btnAjouterImage.Location = new System.Drawing.Point(578, 275);
             this.btnAjouterImage.Name = "btnAjouterImage";
             this.btnAjouterImage.Size = new System.Drawing.Size(109, 23);
@@ -328,6 +329,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormulaireInfosGenerales";
             this.Text = "Informations générales";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormulaireInfosGenerales_FormClosing);
             this.Load += new System.EventHandler(this.FormulaireInfosGenerales_Load);
             this.Resize += new System.EventHandler(this.FormulaireInfosGenerales_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvatar)).EndInit();

@@ -63,8 +63,12 @@ namespace maFichePersonnageJDR.Model
             try
             {
                 // Commande
-                SQLiteCommand command = new SQLiteCommand("INSERT INTO COMPETENCE_SOCIAL_PERSONNAGE (@idPersonnage, @baratinage, @charme, @comedie, " +
-                    "@commandement, @diplomatie, @dressage, @intimidation, @marchandise, @prestance, @provocation, @representation", DatabaseConnection.Instance.GetConnection());
+                SQLiteCommand command = new SQLiteCommand(
+                    "INSERT INTO COMPETENCE_SOCIAL_PERSONNAGE (id_personnage, baratinage, charme, comedie, commandement, diplomatie, dressage," +
+                    "intimidation, marchandage, prestance, provocation, representation)" +
+                    "VALUES (@idPersonnage, @baratinage, @charme, @comedie, @commandement, @diplomatie, @dressage, @intimidation, @marchandage, " +
+                    "@prestance, @provocation, @representation)", 
+                    DatabaseConnection.Instance.GetConnection());
 
                 command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
                 command.Parameters.AddWithValue("@baratinage", baratinage);
@@ -83,7 +87,8 @@ namespace maFichePersonnageJDR.Model
             }
             catch (Exception e)
             {
-                throw e;
+                Console.WriteLine(e.Message);
+                throw;
             }
         }
 
