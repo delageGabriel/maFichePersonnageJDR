@@ -18,12 +18,14 @@ namespace maFichePersonnageJDR.Model
         private int baratinage;
         private int charme;
         private int comedie;
+        private int commandement;
         private int diplomatie;
         private int dressage;
         private int intimidation;
         private int marchandage;
         private int prestance;
         private int provocation;
+        private int representation;
 
         /// <summary>
         /// Accesseurs et mutateurs
@@ -33,12 +35,14 @@ namespace maFichePersonnageJDR.Model
         public int Baratinage { get => baratinage; set => baratinage = value; }
         public int Charme { get => charme; set => charme = value; }
         public int Comedie { get => comedie; set => comedie = value; }
+        public int Commandement { get => commandement; set => commandement = value; }
         public int Diplomatie { get => diplomatie; set => diplomatie = value; }
         public int Dressage { get => dressage; set => dressage = value; }
         public int Intimidation { get => intimidation; set => intimidation = value; }
         public int Marchandage { get => marchandage; set => marchandage = value; }
         public int Prestance { get => prestance; set => prestance = value; }
         public int Provocation { get => provocation; set => provocation = value; }
+        public int Representation { get => representation; set => representation = value; }
 
         /// <summary>
         /// 
@@ -53,16 +57,27 @@ namespace maFichePersonnageJDR.Model
         /// <param name="marchandage"></param>
         /// <param name="prestance"></param>
         /// <param name="provocation"></param>
-        public void SaveCompetenceSocialPersonnage(int idPersonnage, int baratinage, int charme, int comedie, int diplomatie, int dressage, int intimidation, int marchandage,
-            int prestance, int provocation)
+        public void SaveCompetenceSocialPersonnage(int idPersonnage, int baratinage, int charme, int comedie, int commandement, int diplomatie, int dressage, 
+            int intimidation, int marchandage, int prestance, int provocation, int representation)
         {
             try
             {
                 // Commande
-                SQLiteCommand command = new SQLiteCommand(string.Format("INSERT INTO COMPETENCE_SOCIAL_PERSONNAGE (id_personnage, baratinage, charme, " +
-                    "comedie, diplomatie, dressage, intimidation, marchandage, prestance, provocation) " +
-                    "VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9})", idPersonnage, baratinage, charme, comedie,
-                    diplomatie, dressage, intimidation, marchandage, prestance, provocation), DatabaseConnection.Instance.GetConnection());
+                SQLiteCommand command = new SQLiteCommand("INSERT INTO COMPETENCE_SOCIAL_PERSONNAGE (@idPersonnage, @baratinage, @charme, @comedie, " +
+                    "@commandement, @diplomatie, @dressage, @intimidation, @marchandise, @prestance, @provocation, @representation", DatabaseConnection.Instance.GetConnection());
+
+                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
+                command.Parameters.AddWithValue("@baratinage", baratinage);
+                command.Parameters.AddWithValue("@charme", charme);
+                command.Parameters.AddWithValue("@comedie", comedie);
+                command.Parameters.AddWithValue("@commandement", commandement);
+                command.Parameters.AddWithValue("@diplomatie", diplomatie);
+                command.Parameters.AddWithValue("@dressage", dressage);
+                command.Parameters.AddWithValue("@intimidation", intimidation);
+                command.Parameters.AddWithValue("@marchandage", marchandage);
+                command.Parameters.AddWithValue("@prestance", prestance);
+                command.Parameters.AddWithValue("@provocation", provocation);
+                command.Parameters.AddWithValue("@representation", representation);
 
                 int rowsAffected = command.ExecuteNonQuery();
             }

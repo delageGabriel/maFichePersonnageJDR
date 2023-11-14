@@ -29,7 +29,7 @@ namespace maFichePersonnageJDR.Controller
         /// <param name="perspicacite"></param>
         /// <param name="volonte"></param>
         public static void SaveCompetenceMentalPersonnage(int idPersonnage, int concentration, int connGeo, int connHis, int connMag, int connNat, int connRel, int decryptage,
-            int esprit, int explosifs, int mecanique, int medecine, int memoire, int perception, int volonte)
+            int esprit, int explosifs, int mecanique, int medecine, int memoire, int orientation, int perception, int volonte)
         {
             Console.WriteLine(string.Format("########### Méthode SaveCompetenceMentalPersonnage — Personnage créé : idPersonnage : {0} ###########", idPersonnage.ToString()));
 
@@ -39,7 +39,7 @@ namespace maFichePersonnageJDR.Controller
             {
                 // On envoie les informations du personnage à sauvegarder
                 competenceMental.SaveCompetenceMentalPersonnage(idPersonnage, concentration, connGeo, connHis, connMag, connNat, connRel, decryptage, esprit, explosifs, mecanique,
-                    medecine, memoire, perception, volonte);
+                    medecine, memoire, orientation, perception, volonte);
             }
             catch (Exception e)
             {
@@ -93,8 +93,8 @@ namespace maFichePersonnageJDR.Controller
         /// <param name="marchandage"></param>
         /// <param name="prestance"></param>
         /// <param name="provocation"></param>
-        public static void SaveCompetenceSocialPersonnage(int idPersonnage, int baratinage, int charme, int comedie, int diplomatie, int dressage, int intimidation, int marchandage,
-            int prestance, int provocation)
+        public static void SaveCompetenceSocialPersonnage(int idPersonnage, int baratinage, int charme, int comedie, int commandement, int diplomatie, int dressage, 
+            int intimidation, int marchandage, int prestance, int provocation, int representation)
         {
             Console.WriteLine(string.Format("########### Méthode SaveCompetencePhysiquePersonnage — Personnage créé : idPersonnage : {0} ###########", idPersonnage.ToString()));
 
@@ -102,7 +102,8 @@ namespace maFichePersonnageJDR.Controller
 
             try
             {
-                competenceSocial.SaveCompetenceSocialPersonnage(idPersonnage, baratinage, charme, comedie, diplomatie, dressage, intimidation, marchandage, prestance, provocation);
+                competenceSocial.SaveCompetenceSocialPersonnage(idPersonnage, baratinage, charme, comedie, commandement, diplomatie, dressage, intimidation, 
+                    marchandage, prestance, provocation, representation);
             }
             catch (Exception e)
             {

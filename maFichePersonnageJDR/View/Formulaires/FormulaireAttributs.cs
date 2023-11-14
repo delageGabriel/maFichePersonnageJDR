@@ -25,7 +25,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             "Porteur de charges lourdes"
         };
 
-        private System.Collections.Generic.Dictionary<Control, Rectangle> dictionaryControlOriginalSize = new System.Collections.Generic.Dictionary<Control, Rectangle>();
+        private Dictionary<Control, Rectangle> dictionaryControlOriginalSize = new Dictionary<Control, Rectangle>();
+        private Dictionary<int, Tuple<string, string, string, string>> dictionaryAttributes = new Dictionary<int, Tuple<string, string, string, string>>();
 
         public FormulaireAttributs()
         {
@@ -35,7 +36,6 @@ namespace maFichePersonnageJDR.View.Formulaires
         private void FormulaireAttributs_Load(object sender, EventArgs e)
         {
             GetAttributs();
-            CreateCheckBoxAttribut();
 
             dictionaryControlOriginalSize.Add(this, new Rectangle(this.Location, this.Size));
             dictionaryControlOriginalSize.Add(tbControlAttributs, new Rectangle(tbControlAttributs.Location, tbControlAttributs.Size));
@@ -54,8 +54,238 @@ namespace maFichePersonnageJDR.View.Formulaires
         public void GetAttributs()
         {
             Console.WriteLine("########### Classe : FormulaireAttributs; Méthode : GetAttributs; ###########");
+            dictionaryAttributes = AttributsController.GetAttributes();
 
-            AttributsController.GetAttributs(tbControlAttributs, tbPgeAttributs);
+            // Coordonnées contrôles
+            int initialX = 10;
+            int initialY = 10;
+            int x = initialX;
+            int y = initialY;
+
+            int decalageY = 30;
+            char lettreCheck = ' ';
+            string tagTemp = string.Empty;
+
+            // CAS TRI A-Z
+            if (cbbTrier.SelectedIndex == 0)
+            {
+                var dictionaryTrie = dictionaryAttributes.OrderBy(kvp => kvp.Value.Item1);
+
+                foreach (KeyValuePair<int, Tuple<string, string, string, string>> item in dictionaryTrie)
+                {
+                    string premiereValeur = item.Value.Item1;
+                    char premiereLettre = premiereValeur[0];
+
+                    // Réinitialisation du Y si on change de page
+                    if (lettreCheck != premiereLettre)
+                    {
+                        y = initialY;
+                        lettreCheck = premiereLettre;
+                    }
+
+                    string tabPageName = "page" + premiereLettre.ToString().ToUpper();
+                    TabPage pageCorrespondante = tbControlAttributs.TabPages[tabPageName];
+
+                    if (pageCorrespondante != null)
+                    {
+                        // Création d'une CheckBox
+                        CheckBox checkBox = new CheckBox
+                        {
+                            Name = "chck" + premiereValeur,
+                            Location = new Point(x, y),
+                            Width = 20,
+                            Tag = "chck" + premiereValeur
+                        };
+
+                        checkBox.Click += checkBox_Click;
+
+                        pageCorrespondante.Controls.Add(checkBox);
+
+                        x += checkBox.Width;
+                        y += 5;
+
+                        LinkLabel linkLabel = new LinkLabel
+                        {
+                            Name = "lnkLbl" + premiereValeur,
+                            Location = new Point(x, y),
+                            Text = premiereValeur,
+                            Tag = "lnkLbl" + premiereValeur
+                        };
+
+                        linkLabel.LinkClicked += linkLabelAttribut_LinkClicked;
+
+                        pageCorrespondante.Controls.Add(linkLabel);
+
+                        x = initialX;
+                        y += decalageY;
+                    }
+                }
+            }
+            // CAS TRI Z-A
+            else if (cbbTrier.SelectedIndex == 1)
+            {
+                var dictionaryTrie = dictionaryAttributes.OrderByDescending(kvp => kvp.Value.Item1);
+
+                foreach (KeyValuePair<int, Tuple<string, string, string, string>> item in dictionaryTrie)
+                {
+                    string premiereValeur = item.Value.Item1;
+                    char premiereLettre = premiereValeur[0];
+
+                    // Réinitialisation du Y si on change de page
+                    if (lettreCheck != premiereLettre)
+                    {
+                        y = initialY;
+                        lettreCheck = premiereLettre;
+                    }
+
+                    string tabPageName = "page" + premiereLettre.ToString().ToUpper();
+                    TabPage pageCorrespondante = tbControlAttributs.TabPages[tabPageName];
+
+                    if (pageCorrespondante != null)
+                    {
+                        // Création d'une CheckBox
+                        CheckBox checkBox = new CheckBox
+                        {
+                            Name = "chck" + premiereValeur,
+                            Location = new Point(x, y),
+                            Width = 20,
+                            Tag = premiereValeur
+                        };
+
+                        checkBox.Click += checkBox_Click;
+
+                        pageCorrespondante.Controls.Add(checkBox);
+
+                        x += checkBox.Width;
+                        y += 5;
+
+                        LinkLabel linkLabel = new LinkLabel
+                        {
+                            Name = "lnkLbl" + premiereValeur,
+                            Location = new Point(x, y),
+                            Text = premiereValeur,
+                            Tag = premiereValeur
+                        };
+
+                        linkLabel.LinkClicked += linkLabelAttribut_LinkClicked;
+
+                        pageCorrespondante.Controls.Add(linkLabel);
+
+                        x = initialX;
+                        y += decalageY;
+                    }
+                }
+            }
+            else if (cbbTrier.SelectedIndex == 2)
+            {
+                var dictionaryTrie = dictionaryAttributes.OrderBy(kvp => kvp.Value.Item3).ThenBy(kvp => kvp.Value.Item1);
+
+                foreach (KeyValuePair<int, Tuple<string, string, string, string>> item in dictionaryTrie)
+                {
+                    string premiereValeur = item.Value.Item1;
+                    string pageTag = item.Value.Item3;
+
+                    // Réinitialisation du Y si on change de page
+                    if (tagTemp != pageTag)
+                    {
+                        y = initialY;
+                        tagTemp = pageTag;
+                    }
+
+                    string tabPageName = "page" + pageTag.ToString().ToUpper();
+                    TabPage pageCorrespondante = tbControlAttributs.TabPages[tabPageName];
+
+                    if (pageCorrespondante != null)
+                    {
+                        // Création d'une CheckBox
+                        CheckBox checkBox = new CheckBox
+                        {
+                            Name = "chck" + premiereValeur,
+                            Location = new Point(x, y),
+                            Width = 20,
+                            Tag = premiereValeur
+                        };
+
+                        checkBox.Click += checkBox_Click;
+
+                        pageCorrespondante.Controls.Add(checkBox);
+
+                        x += checkBox.Width;
+                        y += 5;
+
+                        LinkLabel linkLabel = new LinkLabel
+                        {
+                            Name = "lnkLbl" + premiereValeur,
+                            Location = new Point(x, y),
+                            Text = premiereValeur,
+                            Tag = premiereValeur
+                        };
+
+                        linkLabel.LinkClicked += linkLabelAttribut_LinkClicked;
+
+                        pageCorrespondante.Controls.Add(linkLabel);
+
+                        x = initialX;
+                        y += decalageY;
+                    }
+                }
+            }
+            else
+            {
+                tbControlAttributs.TabPages.Clear();
+
+                TabPage tabPage = new TabPage
+                {
+                    Text = "Attributs",
+                    Name = "Attributs",
+                    AutoScroll = true,
+                    BackColor = Color.White
+                };
+
+                tbControlAttributs.TabPages.Add(tabPage);
+
+                foreach (KeyValuePair<int, Tuple<string, string, string, string>> item in dictionaryAttributes)
+                {
+                    string premiereValeur = item.Value.Item1;
+
+                    TabPage pageCorrespondante = tbControlAttributs.TabPages["Attributs"];
+
+                    if (pageCorrespondante != null)
+                    {
+                        // Création d'une CheckBox
+                        CheckBox checkBox = new CheckBox
+                        {
+                            Name = "chck" + premiereValeur,
+                            Location = new Point(x, y),
+                            Width = 20,
+                            Tag = premiereValeur
+                        };
+
+                        checkBox.Click += checkBox_Click;
+
+                        pageCorrespondante.Controls.Add(checkBox);
+
+                        x += checkBox.Width;
+                        y += 5;
+
+                        LinkLabel linkLabel = new LinkLabel
+                        {
+                            Name = "lnkLbl" + premiereValeur,
+                            Location = new Point(x, y),
+                            Text = premiereValeur,
+                            Tag = premiereValeur
+                        };
+
+                        linkLabel.LinkClicked += linkLabelAttribut_LinkClicked;
+
+                        pageCorrespondante.Controls.Add(linkLabel);
+
+                        x = initialX;
+                        y += decalageY;
+                    }
+                }
+            }
+
 
             Console.WriteLine("########### FIN Méthode GetAttributs ###########");
         }
@@ -107,30 +337,6 @@ namespace maFichePersonnageJDR.View.Formulaires
 
                 rtbAttributs.Lines = lines.ToArray();
                 CheckAndEnableOrDisableCheckBoxes();
-            }
-        }
-
-        /// <summary>
-        /// Créez les checkbox associées aux attributs
-        /// </summary>
-        public void CreateCheckBoxAttribut()
-        {
-            int y = 30;
-
-            foreach (object controls in tbPgeAttributs.Controls)
-            {
-                if (controls is LinkLabel)
-                {
-                    LinkLabel linkLabel = controls as LinkLabel;
-
-                    CheckBox checkBox = new CheckBox();
-                    checkBox.Location = new Point(5, y);
-                    checkBox.Name = ("chck" + linkLabel.Name.Substring(6));
-                    checkBox.Click += checkBox_Click;
-
-                    tbPgeAttributs.Controls.Add(checkBox);
-                    y += 25;
-                }
             }
         }
 
@@ -199,7 +405,6 @@ namespace maFichePersonnageJDR.View.Formulaires
         {
             #region Initialisation des variables
             Dictionary<int, string> dictionnaireIdSpecificationsAttribut = new Dictionary<int, string>();
-            List<int> listeIdAttributs = new List<int>();
             FormulaireCompetencesCaracteristiques formulaireCompetencesCaracteristiques = new FormulaireCompetencesCaracteristiques();
             int nbCaseCocher = 0;
             string specifications = string.Empty;
@@ -208,11 +413,10 @@ namespace maFichePersonnageJDR.View.Formulaires
             try
             {
                 /// On récupère le nombre de CheckBox cochées
-                foreach (Control control in tbPgeAttributs.Controls)
+                foreach (TabPage pages in tbControlAttributs.TabPages)
                 {
-                    if (control is CheckBox)
+                    foreach (CheckBox checkBox in pages.Controls.OfType<CheckBox>())
                     {
-                        CheckBox checkBox = control as CheckBox;
                         nbCaseCocher += checkBox.Checked ? 1 : 0;
                     }
                 }
@@ -344,6 +548,95 @@ namespace maFichePersonnageJDR.View.Formulaires
             }
 
             CheckAndEnableOrDisableCheckBoxes();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbbTrier_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<TabPage> pages = new List<TabPage>();
+
+            tbControlAttributs.TabPages.Clear();
+
+            // Tri (A-Z)
+            if ((sender as ComboBox).SelectedIndex == 0)
+            {
+                for (char letter = 'A'; letter <= 'Z'; letter++)
+                {
+                    TabPage tabPage = new TabPage
+                    {
+                        Text = letter.ToString(),
+                        Name = "page" + letter,
+                        AutoScroll = true,
+                        BackColor = Color.White
+                    };
+
+                    pages.Add(tabPage);
+                }
+
+                tbControlAttributs.TabPages.AddRange(pages.ToArray());
+            }
+            // Tri (Z-A)
+            else if ((sender as ComboBox).SelectedIndex == 1)
+            {
+                for (char letter = 'Z'; letter >= 'A'; letter--)
+                {
+                    TabPage tabPage = new TabPage
+                    {
+                        Text = letter.ToString(),
+                        Name = "page" + letter,
+                        AutoScroll = true,
+                        BackColor = Color.White
+                    };
+
+                    pages.Add(tabPage);
+                }
+
+                tbControlAttributs.TabPages.AddRange(pages.ToArray());
+            }
+            // Tri Type
+            else if ((sender as ComboBox).SelectedIndex == 2)
+            {
+                TabPage pagePhysique = new TabPage();
+                pagePhysique.Text = "Physique";
+                pagePhysique.Name = "pagePhysique";
+                pagePhysique.AutoScroll = true;
+                pagePhysique.BackColor = Color.White;
+
+                TabPage pageMental = new TabPage();
+                pageMental.Text = "Mental";
+                pageMental.Name = "pageMental";
+                pageMental.AutoScroll = true;
+                pageMental.BackColor = Color.White;
+
+                TabPage pageSocial = new TabPage();
+                pageSocial.Text = "Social";
+                pageSocial.Name = "pageSocial";
+                pageSocial.AutoScroll = true;
+                pageSocial.BackColor = Color.White;
+
+                TabPage[] pagesType = { pagePhysique, pageMental, pageSocial };
+
+                tbControlAttributs.TabPages.AddRange(pagesType);
+            }
+            // DEFAUT
+            else
+            {
+                TabPage tabPage = new TabPage
+                {
+                    Text = "Attributs",
+                    Name = "Attributs",
+                    AutoScroll = true,
+                    BackColor = Color.White
+                };
+
+                tbControlAttributs.TabPages.Add(tabPage);
+            }
+
+            GetAttributs();
         }
     }
 }

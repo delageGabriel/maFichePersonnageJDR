@@ -11,59 +11,80 @@ namespace maFichePersonnageJDR.Controller
 {
     class AttributsController
     {
-        public static FormulaireAttributs GetAttributs(TabControl controlParent, TabPage page)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static Dictionary<int, Tuple<string, string, string, string>> GetAttributes()
         {
-            Console.WriteLine("########### Méthode GetAttributs — ###########");
+            Console.WriteLine("########### DEBUT Méthode AttributsController.GetAttributs — ###########");
+            
+            Dictionary<int, Tuple<string, string, string, string>> dictionaryAttributes = new Dictionary<int, Tuple<string, string, string, string>>();
+            List<AttributsModel> attributsModels = AttributsModel.GetListAttributs();
 
-            FormulaireAttributs formulaireAttributs = new FormulaireAttributs();
-            AttributsModel attributsModel = new AttributsModel();
-            List<CheckBox> checkBoxes = new List<CheckBox>();
-
-            try
+            foreach (AttributsModel attributs in attributsModels)
             {
-                List<AttributsModel> attributsList = attributsModel.GetListAttributs();
-
-                if (attributsList != null)
-                {
-                    // Coordonnées qui gèrent la localisation
-                    int x = 10;
-                    int y = 5;
-                    int indexOfTabPage = controlParent.TabPages.IndexOfKey(page.Name);
-
-                    // NOM
-                    Label lblNom = new Label();
-                    lblNom.Name = "lblNom" + page.Text;
-                    lblNom.Location = new Point(x + 25, y);
-                    lblNom.Text = "Nom";
-                    lblNom.Font = new Font(lblNom.Font, FontStyle.Underline);
-
-                    controlParent.TabPages[indexOfTabPage].Controls.Add(lblNom);
-
-                    y += 30;
-
-                    // On ajoute tous les attributs dans la groupBox
-                    foreach (AttributsModel attributs in attributsList)
-                    {
-                        LinkLabel linkLabel = new LinkLabel();
-                        linkLabel.Text = attributs.NomAttribut;
-                        linkLabel.Name = ("lnkLbl" + attributs.NomAttribut).Trim();
-                        linkLabel.Location = new Point(x + 25, y);
-                        linkLabel.AutoSize = true;
-                        linkLabel.LinkClicked += formulaireAttributs.linkLabelAttribut_LinkClicked;
-
-                        controlParent.TabPages[indexOfTabPage].Controls.Add(linkLabel);
-
-                        y += 25;
-                    }
-                }
-
-                return formulaireAttributs;
+                dictionaryAttributes.Add(attributs.IdAttribut, Tuple.Create(attributs.NomAttribut, attributs.DescriptionAttribut, attributs.TypeAttribut, attributs.NoteAttribut));
             }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            
+            Console.WriteLine("########### FIN Méthode AttributsController.GetAttributs — ###########");
+
+            return dictionaryAttributes;
         }
+        //public static List<string> GetAttributs(TabControl controlParent, TabPage page)
+        //{
+        //    Console.WriteLine("########### Méthode GetAttributs — ###########");
+        //    List<string> osef = new List<string>();
+        //    osef.Add("");
+        //    FormulaireAttributs formulaireAttributs = new FormulaireAttributs();
+        //    AttributsModel attributsModel = new AttributsModel();
+        //    List<CheckBox> checkBoxes = new List<CheckBox>();
+
+        //    try
+        //    {
+        //        List<AttributsModel> attributsList = attributsModel.GetListAttributs();
+
+        //        if (attributsList != null)
+        //        {
+        //            // Coordonnées qui gèrent la localisation
+        //            int x = 10;
+        //            int y = 5;
+        //            int indexOfTabPage = controlParent.TabPages.IndexOfKey(page.Name);
+
+        //            // NOM
+        //            Label lblNom = new Label();
+        //            lblNom.Name = "lblNom" + page.Text;
+        //            lblNom.Location = new Point(x + 25, y);
+        //            lblNom.Text = "Nom";
+        //            lblNom.Font = new Font(lblNom.Font, FontStyle.Underline);
+
+        //            controlParent.TabPages[indexOfTabPage].Controls.Add(lblNom);
+
+        //            y += 30;
+
+        //            // On ajoute tous les attributs dans la groupBox
+        //            foreach (AttributsModel attributs in attributsList)
+        //            {
+        //                LinkLabel linkLabel = new LinkLabel();
+        //                linkLabel.Text = attributs.NomAttribut;
+        //                linkLabel.Name = ("lnkLbl" + attributs.NomAttribut).Trim();
+        //                linkLabel.Location = new Point(x + 25, y);
+        //                linkLabel.AutoSize = true;
+        //                linkLabel.LinkClicked += formulaireAttributs.linkLabelAttribut_LinkClicked;
+
+        //                controlParent.TabPages[indexOfTabPage].Controls.Add(linkLabel);
+
+        //                y += 25;
+        //            }
+        //        }
+
+        //        return osef;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        throw e;
+        //    }
+        //}
 
         /// <summary>
         /// Va chercher en base les informations par rapport au nom d'une arme
@@ -114,7 +135,7 @@ namespace maFichePersonnageJDR.Controller
                 throw e;
             }
         }
-    
+
         /// <summary>
         /// Permet d'ajouter un nouvelle attribut à un personnage
         /// </summary>
@@ -136,7 +157,7 @@ namespace maFichePersonnageJDR.Controller
                 throw e;
             }
         }
-    
+
         /// <summary>
         /// Permet d'obtenir l'id d'un attribut par rapport à son nom
         /// </summary>

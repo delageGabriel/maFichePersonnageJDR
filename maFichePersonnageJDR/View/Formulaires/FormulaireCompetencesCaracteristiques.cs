@@ -194,7 +194,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             Controller.CompetencesCaracteristiquesController.SaveCompetenceMentalPersonnage(GlobaleVariables.IdPersonnage, Convert.ToInt32(nudCncention.Value), Convert.ToInt32(nudConnGeographiques.Value),
                 Convert.ToInt32(nudConnHistoriques.Value), Convert.ToInt32(nudMagiques.Value), Convert.ToInt32(nudConnNatures.Value), Convert.ToInt32(nudConnReligieuses.Value),
                 Convert.ToInt32(nudDecryptage.Value), Convert.ToInt32(nudEsprit.Value), Convert.ToInt32(nudExplosifs.Value), Convert.ToInt32(nudMecanique.Value),
-                Convert.ToInt32(nudMedecine.Value), Convert.ToInt32(nudMemoire.Value), Convert.ToInt32(nudPerception.Value), Convert.ToInt32(nudVolonte.Value));
+                Convert.ToInt32(nudMedecine.Value), Convert.ToInt32(nudMemoire.Value), Convert.ToInt32(nudOrientation.Value), Convert.ToInt32(nudPerception.Value), 
+                Convert.ToInt32(nudVolonte.Value));
 
             // Ajout des compétences physiques
             Controller.CompetencesCaracteristiquesController.SaveCompetencePhysiquePersonnage(GlobaleVariables.IdPersonnage, Convert.ToInt32(nudAgilite.Value), Convert.ToInt32(nudArtisanat.Value),
@@ -203,9 +204,10 @@ namespace maFichePersonnageJDR.View.Formulaires
                 Convert.ToInt32(nudVigueur.Value));
 
             // Ajout des compétences sociales
-            Controller.CompetencesCaracteristiquesController.SaveCompetenceSocialPersonnage(GlobaleVariables.IdPersonnage, Convert.ToInt32(nudBaratinage.Value), Convert.ToInt32(nudCharme.Value),
-                Convert.ToInt32(nudCmedie.Value), Convert.ToInt32(nudDiplomatie.Value), Convert.ToInt32(nudDressage.Value), Convert.ToInt32(nudIntimidation.Value),
-                Convert.ToInt32(nudMarchandage.Value), Convert.ToInt32(nudPrestance.Value), Convert.ToInt32(nudProvocation.Value));
+            Controller.CompetencesCaracteristiquesController.SaveCompetenceSocialPersonnage(GlobaleVariables.IdPersonnage, Convert.ToInt32(nudBaratinage.Value), 
+                Convert.ToInt32(nudCharme.Value), Convert.ToInt32(nudCmedie.Value), Convert.ToInt32(nudCommandement.Value), Convert.ToInt32(nudDiplomatie.Value), 
+                Convert.ToInt32(nudDressage.Value), Convert.ToInt32(nudIntimidation.Value), Convert.ToInt32(nudMarchandage.Value), Convert.ToInt32(nudPrestance.Value), 
+                Convert.ToInt32(nudProvocation.Value), Convert.ToInt32(nudRepresentation.Value));
 
             MessageBox.Show("Compétences et caractéristiques sauvegardées");
 
@@ -686,9 +688,15 @@ namespace maFichePersonnageJDR.View.Formulaires
 
         private void EditUpdateCompCarac()
         {
+            /**
+             * PV ET ENERGIE
+             */
             nudPV.Value = Controller.CompetencesCaracteristiquesController.GetValuePvEnergie("pv", "nombre_points_pv", GlobaleVariables.IdPersonnage);
             nudEnergie.Value = Controller.CompetencesCaracteristiquesController.GetValuePvEnergie("energie", "nombre_points_energie", GlobaleVariables.IdPersonnage);
 
+            /**
+             * CARACTERISTIQUE
+             */
             nudPhysique.Value = Controller.CompetencesCaracteristiquesController.GetPhysiquePersonnage(GlobaleVariables.IdPersonnage);
             nudMental.Value = Controller.CompetencesCaracteristiquesController.GetMentalPersonnage(GlobaleVariables.IdPersonnage);
             nudSocial.Value = Controller.CompetencesCaracteristiquesController.GetSocialPersonnage(GlobaleVariables.IdPersonnage);
@@ -724,6 +732,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             nudMecanique.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "mecanique", GlobaleVariables.IdPersonnage);
             nudMedecine.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "medecine", GlobaleVariables.IdPersonnage);
             nudMemoire.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "memoire", GlobaleVariables.IdPersonnage);
+            nudOrientation.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "orientation", GlobaleVariables.IdPersonnage);
             nudPerception.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "perception", GlobaleVariables.IdPersonnage);
             nudVolonte.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "volonte", GlobaleVariables.IdPersonnage);
 
@@ -733,12 +742,14 @@ namespace maFichePersonnageJDR.View.Formulaires
             nudBaratinage.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "baratinage", GlobaleVariables.IdPersonnage);
             nudCharme.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "charme", GlobaleVariables.IdPersonnage);
             nudCmedie.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "comedie", GlobaleVariables.IdPersonnage);
+            nudCommandement.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "commandement", GlobaleVariables.IdPersonnage);
             nudDiplomatie.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "diplomatie", GlobaleVariables.IdPersonnage);
             nudDressage.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "dressage", GlobaleVariables.IdPersonnage);
             nudIntimidation.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "intimidation", GlobaleVariables.IdPersonnage);
             nudMarchandage.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "marchandage", GlobaleVariables.IdPersonnage);
             nudPrestance.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "prestance", GlobaleVariables.IdPersonnage);
             nudProvocation.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "provocation", GlobaleVariables.IdPersonnage);
+            nudRepresentation.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Social", "representation", GlobaleVariables.IdPersonnage);
         }
     }
 }

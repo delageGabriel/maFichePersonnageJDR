@@ -29,7 +29,7 @@ namespace maFichePersonnageJDR.Model
         /// Obtient la liste de tous les attributs
         /// </summary>
         /// <returns></returns>
-        public List<AttributsModel> GetListAttributs()
+        public static List<AttributsModel> GetListAttributs()
         {
             #region Initialisation des variables
             List<AttributsModel> attributsModels = new List<AttributsModel>();
@@ -37,30 +37,32 @@ namespace maFichePersonnageJDR.Model
 
             try
             {
-                SQLiteCommand command = new SQLiteCommand("SELECT * FROM ATTRIBUTS", DatabaseConnection.Instance.GetConnection());
+                SQLiteCommand command = new SQLiteCommand("SELECT id_attribut, nom_attribut, description_attribut, type_attribut, note_attribut FROM ATTRIBUTS", 
+                    DatabaseConnection.Instance.GetConnection());
 
                 using (SQLiteDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        AttributsModel attributs = new AttributsModel();
-
-                        attributs.IdAttribut = reader.GetInt32(0);
-                        attributs.NomAttribut = reader.GetString(1);
-                        attributs.DescriptionAttribut = reader.GetString(2);
-                        attributs.TypeAttribut = reader.GetString(3);
-                        attributs.NoteAttribut = reader.GetString(4);
+                        AttributsModel attributs = new AttributsModel
+                        {
+                            IdAttribut = reader.GetInt32(0),
+                            NomAttribut = reader.IsDBNull(1) ? null : reader.GetString(1),
+                            DescriptionAttribut = reader.IsDBNull(2) ? null : reader.GetString(2),
+                            TypeAttribut = reader.IsDBNull(3) ? null : reader.GetString(3),
+                            NoteAttribut = reader.IsDBNull(4) ? null : reader.GetString(4)
+                        };
 
                         attributsModels.Add(attributs);
                     }
                 }
-
-                return attributsModels;
             }
             catch (Exception e)
             {
-                throw e;
+                throw;
             }
+
+            return attributsModels;
         }
 
         /// <summary>
