@@ -550,6 +550,7 @@ namespace maFichePersonnageJDR.Formulaires
                     {
                         FrmPrincipal frmPrincipal = new FrmPrincipal();
                         frmPrincipal.Show();
+                        Controller.PersonnageController.DeleteRowPersonnage(GlobaleVariables.IdPersonnage);
                     }
                 }
             }

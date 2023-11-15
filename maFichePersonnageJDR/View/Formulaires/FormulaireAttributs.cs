@@ -493,6 +493,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 throw;
             }
         }
