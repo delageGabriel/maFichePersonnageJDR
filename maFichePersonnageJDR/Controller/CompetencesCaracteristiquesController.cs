@@ -231,10 +231,12 @@ namespace maFichePersonnageJDR.Controller
             try
             {
                 competencePhysiquePersonnageModel = competencePhysiquePersonnageModel.GetBasePhysiquePersonnage(idPersonnage);
-                int[] listBaseCompPhy = {competencePhysiquePersonnageModel.Agilite, competencePhysiquePersonnageModel.Artisanat, competencePhysiquePersonnageModel.Crochetage,
-                competencePhysiquePersonnageModel.Discretion, competencePhysiquePersonnageModel.Equilibre, competencePhysiquePersonnageModel.Escalade, competencePhysiquePersonnageModel.Escamotage,
-                competencePhysiquePersonnageModel.Force, competencePhysiquePersonnageModel.Fouille, competencePhysiquePersonnageModel.Natation, competencePhysiquePersonnageModel.Reflexes,
-                competencePhysiquePersonnageModel.Vigueur};
+                int[] listBaseCompPhy = {
+                    competencePhysiquePersonnageModel.Agilite, competencePhysiquePersonnageModel.Artisanat, 
+                    competencePhysiquePersonnageModel.Crochetage, competencePhysiquePersonnageModel.Discretion, competencePhysiquePersonnageModel.Equilibre, 
+                    competencePhysiquePersonnageModel.Equitation, competencePhysiquePersonnageModel.Escalade, competencePhysiquePersonnageModel.Escamotage,
+                    competencePhysiquePersonnageModel.Force, competencePhysiquePersonnageModel.Fouille, competencePhysiquePersonnageModel.Natation, 
+                    competencePhysiquePersonnageModel.Reflexes, competencePhysiquePersonnageModel.Vigueur};
 
                 return listBaseCompPhy;
             }
@@ -260,10 +262,13 @@ namespace maFichePersonnageJDR.Controller
             try
             {
                 competenceMentalPersonnageModel = competenceMentalPersonnageModel.GetBaseMentalPersonnage(idPersonnage);
-                int[] listBaseCompMen = {competenceMentalPersonnageModel.Concentration, competenceMentalPersonnageModel.ConnaissanceGeographiques, competenceMentalPersonnageModel.ConnaissanceHistoriques,
-                competenceMentalPersonnageModel.ConnaissanceMagiques, competenceMentalPersonnageModel.ConnaissanceNatures, competenceMentalPersonnageModel.ConnaissanceReligieuses, competenceMentalPersonnageModel.Decryptage,
-                competenceMentalPersonnageModel.Esprit, competenceMentalPersonnageModel.Explosifs, competenceMentalPersonnageModel.Mecanique, competenceMentalPersonnageModel.Medecine,
-                competenceMentalPersonnageModel.Memoire, competenceMentalPersonnageModel.Perception, competenceMentalPersonnageModel.Volonte};
+                int[] listBaseCompMen = {
+                    competenceMentalPersonnageModel.Concentration, competenceMentalPersonnageModel.ConnaissanceGeographiques, 
+                    competenceMentalPersonnageModel.ConnaissanceHistoriques, competenceMentalPersonnageModel.ConnaissanceMagiques, 
+                    competenceMentalPersonnageModel.ConnaissanceNatures, competenceMentalPersonnageModel.ConnaissanceReligieuses, 
+                    competenceMentalPersonnageModel.Decryptage, competenceMentalPersonnageModel.Esprit, competenceMentalPersonnageModel.Explosifs, 
+                    competenceMentalPersonnageModel.Mecanique, competenceMentalPersonnageModel.Medecine, competenceMentalPersonnageModel.Memoire, 
+                    competenceMentalPersonnageModel.Orientation, competenceMentalPersonnageModel.Perception, competenceMentalPersonnageModel.Volonte};
 
                 return listBaseCompMen;
             }
@@ -288,10 +293,11 @@ namespace maFichePersonnageJDR.Controller
             try
             {
                 competenceSocialPersonnageModel = competenceSocialPersonnageModel.GetBaseSocialPersonnage(idPersonnage);
-                int[] listBaseCompSoc = {competenceSocialPersonnageModel.Baratinage, competenceSocialPersonnageModel.Charme,
-                competenceSocialPersonnageModel.Comedie, competenceSocialPersonnageModel.Diplomatie, competenceSocialPersonnageModel.Dressage,
-                competenceSocialPersonnageModel.Intimidation, competenceSocialPersonnageModel.Marchandage, competenceSocialPersonnageModel.Prestance,
-                competenceSocialPersonnageModel.Provocation};
+                int[] listBaseCompSoc = {
+                    competenceSocialPersonnageModel.Baratinage, competenceSocialPersonnageModel.Charme, competenceSocialPersonnageModel.Comedie, 
+                    competenceSocialPersonnageModel.Commandement, competenceSocialPersonnageModel.Diplomatie, competenceSocialPersonnageModel.Dressage,
+                    competenceSocialPersonnageModel.Intimidation, competenceSocialPersonnageModel.Marchandage, competenceSocialPersonnageModel.Prestance,
+                    competenceSocialPersonnageModel.Provocation, competenceSocialPersonnageModel.Representation};
 
                 return listBaseCompSoc;
             }

@@ -426,7 +426,8 @@ namespace maFichePersonnageJDR.Classe
 
             #region Initialisation des variables
             int[] baseCompPhys = Controller.CompetencesCaracteristiquesController.GetBaseCompetencePhysique(idPersonnage);
-            string[] listeCompPhy = { "Agilité", "Artisanat", "Crochetage", "Discrétion", "Équilibre", "Escalade", "Escamotage", "Force", "Fouille", "Natation", "Réflexes", "Vigueur" };
+            string[] listeCompPhy = { "Agilité", "Artisanat", "Crochetage", "Discrétion", "Équilibre","Équitation", "Escalade", "Escamotage", "Force", "Fouille", 
+                "Natation", "Réflexes", "Vigueur" };
 
             #endregion
 
@@ -455,7 +456,8 @@ namespace maFichePersonnageJDR.Classe
             #region Initialisation des variables
             int[] baseCompMen = Controller.CompetencesCaracteristiquesController.GetBaseCompetenceMental(idPersonnage);
             string[] listeCompMen = { "Concentration", "Connaissance géographiques", "Connaissance historiques", "Connaissance magiques",
-                "Connaissance natures", "Connaissance religieuses", "Décryptage", "Esprit", "Explosifs", "Mécanique", "Médecine", "Mémoire", "Perception", "Volonté" };
+                "Connaissance natures", "Connaissance religieuses", "Décryptage", "Esprit", "Explosifs", "Mécanique", "Médecine", "Mémoire", "Orientation",
+                "Perception", "Volonté" };
 
             #endregion
 
@@ -483,8 +485,8 @@ namespace maFichePersonnageJDR.Classe
 
             #region Initialisation des variables
             int[] baseCompSoc = Controller.CompetencesCaracteristiquesController.GetBaseCompetenceSocial(idPersonnage);
-            string[] listeCompSoc = { "Baratinage", "Charme", "Comédie", "Diplomatie", "Dressage", "Intimidation", "Marchandage",
-                "Prestance", "Provocation"};
+            string[] listeCompSoc = { "Baratinage", "Charme", "Comédie", "Commandement", "Diplomatie", "Dressage", "Intimidation", "Marchandage",
+                "Prestance", "Provocation", "Représentation"};
 
             #endregion
 

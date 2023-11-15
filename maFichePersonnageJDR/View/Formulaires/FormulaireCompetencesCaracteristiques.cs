@@ -22,17 +22,6 @@ namespace maFichePersonnageJDR.View.Formulaires
         private int compSociale = 33;
 
         /// <summary>
-        /// Champs des trois type de caractéristiques pour éviter les
-        /// valeurs en dur
-        /// </summary>
-        private enum TypeComp
-        {
-            Physique,
-            Mental,
-            Social
-        }
-
-        /// <summary>
         /// Champs du nombre de fois que le l'utilisateur peut
         /// ajouter des points de compétences dans un des trois types
         /// et le maximum qu'on peut répartir dans une caractéristique
@@ -194,7 +183,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             Controller.CompetencesCaracteristiquesController.SaveCompetenceMentalPersonnage(GlobaleVariables.IdPersonnage, Convert.ToInt32(nudCncention.Value), Convert.ToInt32(nudConnGeographiques.Value),
                 Convert.ToInt32(nudConnHistoriques.Value), Convert.ToInt32(nudMagiques.Value), Convert.ToInt32(nudConnNatures.Value), Convert.ToInt32(nudConnReligieuses.Value),
                 Convert.ToInt32(nudDecryptage.Value), Convert.ToInt32(nudEsprit.Value), Convert.ToInt32(nudExplosifs.Value), Convert.ToInt32(nudMecanique.Value),
-                Convert.ToInt32(nudMedecine.Value), Convert.ToInt32(nudMemoire.Value), Convert.ToInt32(nudOrientation.Value), Convert.ToInt32(nudPerception.Value), 
+                Convert.ToInt32(nudMedecine.Value), Convert.ToInt32(nudMemoire.Value), Convert.ToInt32(nudOrientation.Value), Convert.ToInt32(nudPerception.Value),
                 Convert.ToInt32(nudVolonte.Value));
 
             // Ajout des compétences physiques
@@ -204,9 +193,9 @@ namespace maFichePersonnageJDR.View.Formulaires
                 Convert.ToInt32(nudVigueur.Value));
 
             // Ajout des compétences sociales
-            Controller.CompetencesCaracteristiquesController.SaveCompetenceSocialPersonnage(GlobaleVariables.IdPersonnage, Convert.ToInt32(nudBaratinage.Value), 
-                Convert.ToInt32(nudCharme.Value), Convert.ToInt32(nudCmedie.Value), Convert.ToInt32(nudCommandement.Value), Convert.ToInt32(nudDiplomatie.Value), 
-                Convert.ToInt32(nudDressage.Value), Convert.ToInt32(nudIntimidation.Value), Convert.ToInt32(nudMarchandage.Value), Convert.ToInt32(nudPrestance.Value), 
+            Controller.CompetencesCaracteristiquesController.SaveCompetenceSocialPersonnage(GlobaleVariables.IdPersonnage, Convert.ToInt32(nudBaratinage.Value),
+                Convert.ToInt32(nudCharme.Value), Convert.ToInt32(nudCmedie.Value), Convert.ToInt32(nudCommandement.Value), Convert.ToInt32(nudDiplomatie.Value),
+                Convert.ToInt32(nudDressage.Value), Convert.ToInt32(nudIntimidation.Value), Convert.ToInt32(nudMarchandage.Value), Convert.ToInt32(nudPrestance.Value),
                 Convert.ToInt32(nudProvocation.Value), Convert.ToInt32(nudRepresentation.Value));
 
             MessageBox.Show("Compétences et caractéristiques sauvegardées");
@@ -237,16 +226,20 @@ namespace maFichePersonnageJDR.View.Formulaires
 
         private void FormulaireCompetencesCaracteristiques_Load(object sender, EventArgs e)
         {
+            // Chargement des points à répartir pour PvEnergie et Caractéristiques en fonction du niveau
             GetPointsToRepartPvEnergieByNiveau();
             GetPointsToRepartCaracteristiquesByNiveau();
             GetMaximumForCaracteristiques();
 
+            // Initialisation du dictionnaire pour gérer la taille et l'emplacement originaux des contrôles
             dictionaryControlOriginalSize.Add(this, new Rectangle(this.Location, this.Size));
 
+            // Parcours de tous les contrôles pour sauvegarder leur taille et position initiales
             foreach (Control ctrl in this.Controls)
             {
                 if (ctrl is Label)
                 {
+                    // Pour les labels, sauvegarde également la taille de la police
                     dictionaryLabelOriginalSize.Add(ctrl as Label, new Tuple<Rectangle, float>(new Rectangle(ctrl.Location, ctrl.Size), (ctrl as Label).Font.Size));
                 }
                 else
@@ -255,6 +248,9 @@ namespace maFichePersonnageJDR.View.Formulaires
                 }
             }
 
+            /**
+             * Activation ou désactivation des contrôles de répartition des points en fonction du niveau du personnage
+             */
             foreach (Control control in pnlPvEnergie.Controls)
             {
                 dictionaryControlOriginalSize.Add(control, new Rectangle(control.Location, control.Size));
@@ -280,9 +276,27 @@ namespace maFichePersonnageJDR.View.Formulaires
                 dictionaryControlOriginalSize.Add(control, new Rectangle(control.Location, control.Size));
             }
 
+            // Traitement conditionnel si le formulaire est en mode édition
             if (GlobaleVariables.IsEdit)
             {
                 EditUpdateCompCarac();
+            }
+            else
+            {
+                // Configuration initiale des champs de texte avec les valeurs par défaut
+                txtBxCompPhy.Text = CompPhysique.ToString();
+                txtBxCompMen.Text = CompMentale.ToString();
+                txtBxComSoc.Text = CompSociale.ToString();
+            }
+
+            // Activation ou désactivation des contrôles de répartition des points en fonction du niveau du personnage
+            if (Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage) > 1)
+            {
+                string[] lblSplited = lblNbRepartitionComp.Text.Split(':');
+                string newStringLabelNbRepartComp = $"{lblSplited[0]}: {Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage) - 1}";
+                lblNbRepartitionComp.Text = newStringLabelNbRepartComp;
+                
+                EnableOrDisableTextBoxButtonRepartitionPoints(true);
             }
         }
 
@@ -324,9 +338,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             int pointsPhy = (int)nudPhysique.Value;
             int pointsMen = (int)nudMental.Value;
             int pointsSoc = (int)nudSocial.Value;
+            int sommePoints = pointsPhy + pointsMen + pointsSoc;
 
-            // Le nombre total de point que le personnage peut répartir à son niveau dans les trois
-            // caractéristiques
+            // Obtention du total de points à répartir
             int totalPoints = Controller.CompetencesCaracteristiquesController.GetPointCaracteristiquesRepartition(Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage));
 
             /// Calcul des points restants à répartir dans chaque caractéristique
@@ -340,26 +354,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             nudSocial.Maximum = totalPoints - ((int)nudPhysique.Value + (int)nudMental.Value + (int)nudSocial.Value) > 0 ? MaximumCaracteristiquesDefaut : pointsRestantsSoc;
 
             // Mise à jour du nombre de points restants total à répartir dans les trois caractéristiques
-            txtPntsCaracteristiques.Text = (totalPoints - ((int)nudPhysique.Value + (int)nudMental.Value + (int)nudSocial.Value)).ToString();
-
-            /// Une fois qu'on a réparti tous les points on affiche les points pour les différentes compétences
-            if (nudPhysique.Value == nudPhysique.Maximum && nudMental.Value == nudMental.Maximum && nudSocial.Value == nudSocial.Maximum)
-            {
-                /// Puis on met à jour les différentes textbox
-                txtBxCompPhy.Text = CompPhysique.ToString();
-                txtBxCompMen.Text = CompMentale.ToString();
-                txtBxComSoc.Text = CompSociale.ToString();
-
-                // On en profite pour afficher les control liés à la répartition des points de
-                // compétences si le niveau du personnage est supérieur à 1
-                if (Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage) > 1)
-                {
-                    GetNbFoisPointsRepartitions();
-                    EnableOrDisableTextBoxButtonRepartitionPoints(true);
-                }
-
-                EnableNumericUpDownInGroupBox();
-            }
+            txtPntsCaracteristiques.Text = (totalPoints - sommePoints).ToString();
         }
 
         /// <summary>
@@ -369,13 +364,9 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// <param name="e"></param>
         private void nudCompPhy_ValueChanged(object sender, EventArgs e)
         {
-            
-            
             int sommeDesValeurs = CalculerSommeValeursNumericUpDown(gbPhysique);
 
             int pointsRestants = CompPhysique - sommeDesValeurs;
-
-            MettreAJourMaximumNumericUpDown(gbPhysique, pointsRestants);
 
             // Et ensuite on met à jour la TextBox des points à répartir
             txtBxCompPhy.Text = pointsRestants.ToString();
@@ -392,8 +383,6 @@ namespace maFichePersonnageJDR.View.Formulaires
 
             int pointsRestants = CompMentale - sommeDesValeurs;
 
-            MettreAJourMaximumNumericUpDown(gbMental, pointsRestants);
-
             txtBxCompMen.Text = pointsRestants.ToString();
         }
 
@@ -407,8 +396,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             int sommeDesValeurs = CalculerSommeValeursNumericUpDown(gbSocial);
 
             int pointsRestants = CompSociale - sommeDesValeurs;
-
-            MettreAJourMaximumNumericUpDown(gbSocial, pointsRestants);
 
             txtBxComSoc.Text = pointsRestants.ToString();
         }
@@ -433,82 +420,12 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// <param name="pointsRestants">Les points qu'ils restent à répartir</param>
         private void MettreAJourMaximumNumericUpDown(GroupBox groupBox, int pointsRestants)
         {
+            int maximumNud = GetMaximumDefautNumericUpDown();
+
             foreach (NumericUpDown nud in groupBox.Controls.OfType<NumericUpDown>())
             {
-                nud.Maximum = pointsRestants == 0 ? nud.Value : 15;
+                nud.Maximum = pointsRestants == 0 ? nud.Value : maximumNud;
             }
-        }
-
-        /// <summary>
-        /// Événement qui permet de mettre à jour chaque TextBox affiliée aux compétences
-        /// </summary>
-        /// <param name="nbPointsAAjouter"></param>
-        /// <param name="compAAjouter"></param>
-        private void MettreAJourPointsTotal(int nbPointsAAjouter, TypeComp typeCompetence)
-        {
-            GroupBox groupBox = new GroupBox();
-            int compAdd = 0;
-
-            // On vérifie d'abord qu'on a bien une valeur correct
-            if (nbPointsAAjouter <= 0)
-            {
-                Console.WriteLine("Paramètres invalides");
-                return;
-            }
-            
-            /**
-             * - PHYSIQUE
-             * - SOCIALE
-             * - MENTALE
-             */
-            if (typeCompetence.Equals(TypeComp.Physique))
-            {
-                // On met à jour le nombre de points dans la compétence physique
-                if (competencesMiseAJour.TryGetValue("Physique", out Action<int> miseAJourAction))
-                {
-                    miseAJourAction(nbPointsAAjouter);
-                }
-
-                groupBox = gbPhysique;
-                compAdd = CompPhysique;
-
-                // Mise à jour de l'affichage du nombre de points total
-                txtBxCompPhy.Text = (CompPhysique - CalculerSommeValeursNumericUpDown(gbPhysique)).ToString();
-            }
-            else if (typeCompetence.Equals(TypeComp.Social))
-            {
-                // On met à jour le nombre de points dans la compétence mental
-                if (competencesMiseAJour.TryGetValue("Social", out Action<int> miseAJourAction))
-                {
-                    miseAJourAction(nbPointsAAjouter);
-                }
-
-                groupBox = gbSocial;
-                compAdd = CompSociale;
-
-                // Mise à jour de l'affichage du nombre de points total
-                txtBxComSoc.Text = (CompSociale - CalculerSommeValeursNumericUpDown(gbSocial)).ToString();
-            }
-            else if (typeCompetence.Equals(TypeComp.Mental))
-            {
-                // On met à jour le nombre de points dans la compétence mental
-                if (competencesMiseAJour.TryGetValue("Mental", out Action<int> miseAJourAction))
-                {
-                    miseAJourAction(nbPointsAAjouter);
-                }
-
-                groupBox = gbMental;
-                compAdd = CompMentale;
-
-                // Mise à jour de l'affichage du nombre de points total
-                txtBxCompMen.Text = (CompMentale - CalculerSommeValeursNumericUpDown(gbMental)).ToString();
-            }
-            else
-            {
-                Console.WriteLine("Compétence non reconnue");
-            }
-
-            MettreAJourMaximumNumericUpDown(groupBox, compAdd);
         }
 
         /// <summary>
@@ -546,7 +463,8 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// <param name="e"></param>
         private void btnAddPtsPhy_Click(object sender, EventArgs e)
         {
-            MettreAJourPointsTotal(PointsPhysique, TypeComp.Physique);
+            txtBxCompPhy.Text = (int.Parse(txtBxCompPhy.Text) + PointsPhysique).ToString();
+            CompPhysique += PointsPhysique;
             GetNbFoisPointsRepartitions(true);
         }
 
@@ -558,13 +476,15 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// <param name="e"></param>
         private void btnAddPtsMen_Click(object sender, EventArgs e)
         {
-            MettreAJourPointsTotal(PointsMental, TypeComp.Mental);
+            txtBxCompMen.Text = (int.Parse(txtBxCompMen.Text) + PointsMental).ToString();
+            CompMentale += PointsMental;
             GetNbFoisPointsRepartitions(true);
         }
 
         private void btnAddPtsSoc_Click(object sender, EventArgs e)
         {
-            MettreAJourPointsTotal(PointsSocial, TypeComp.Social);
+            txtBxComSoc.Text = (int.Parse(txtBxComSoc.Text) + PointsSocial).ToString();
+            CompSociale += PointsSocial;
             GetNbFoisPointsRepartitions(true);
         }
 
@@ -611,19 +531,19 @@ namespace maFichePersonnageJDR.View.Formulaires
         {
             int niveauDuPersonnage = Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage);
 
-            if (niveauDuPersonnage < 3)
+            if (niveauDuPersonnage <= 3)
             {
                 MaximumCaracteristiquesDefaut = 55;
             }
-            else if (niveauDuPersonnage > 3 && niveauDuPersonnage < 9)
+            else if (niveauDuPersonnage <= 9)
             {
                 MaximumCaracteristiquesDefaut = 60;
             }
-            else if (niveauDuPersonnage > 9 && niveauDuPersonnage < 12)
+            else if (niveauDuPersonnage <= 12)
             {
                 MaximumCaracteristiquesDefaut = 65;
             }
-            else if (niveauDuPersonnage > 12 && niveauDuPersonnage < 18)
+            else if (niveauDuPersonnage <= 18)
             {
                 MaximumCaracteristiquesDefaut = 70;
             }
@@ -633,36 +553,21 @@ namespace maFichePersonnageJDR.View.Formulaires
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        private void EnableNumericUpDownInGroupBox()
+        private int GetMaximumDefautNumericUpDown()
         {
-            foreach (Control control in gbPhysique.Controls)
-            {
-                if (control is NumericUpDown)
-                {
-                    NumericUpDown numeric = control as NumericUpDown;
-                    numeric.Enabled = true;
-                }
-            }
+            int niveauPersonnage = Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage);
 
-            foreach (Control control in gbMental.Controls)
+            if (niveauPersonnage <= 5)
             {
-                if (control is NumericUpDown)
-                {
-                    NumericUpDown numeric = control as NumericUpDown;
-                    numeric.Enabled = true;
-                }
+                return 15;
             }
-
-            foreach (Control control in gbSocial.Controls)
+            else if (niveauPersonnage <= 12)
             {
-                if (control is NumericUpDown)
-                {
-                    NumericUpDown numeric = control as NumericUpDown;
-                    numeric.Enabled = true;
-                }
+                return 18;
+            }
+            else
+            {
+                return 20;
             }
         }
 
@@ -711,6 +616,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             nudCrochetage.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "crochetage", GlobaleVariables.IdPersonnage);
             nudDiscretion.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "discretion", GlobaleVariables.IdPersonnage);
             nudEqlibre.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "equilibre", GlobaleVariables.IdPersonnage);
+            nudEquitation.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "equitation", GlobaleVariables.IdPersonnage);
             nudEscalade.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "escalade", GlobaleVariables.IdPersonnage);
             nudEscamotage.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "escamotage", GlobaleVariables.IdPersonnage);
             nudForce.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "escamotage", GlobaleVariables.IdPersonnage);
@@ -784,6 +690,27 @@ namespace maFichePersonnageJDR.View.Formulaires
             {
                 GlobaleVariables.IsClosedProgrammatically = false;
             }
+        }
+
+        private void txtBxCompPhy_TextChanged(object sender, EventArgs e)
+        {
+            int pointsTextBox = int.Parse((sender as TextBox).Text);
+
+            MettreAJourMaximumNumericUpDown(gbPhysique, pointsTextBox);
+        }
+
+        private void txtBxCompMen_TextChanged(object sender, EventArgs e)
+        {
+            int pointsTextBox = int.Parse((sender as TextBox).Text);
+
+            MettreAJourMaximumNumericUpDown(gbMental, pointsTextBox);
+        }
+
+        private void txtBxComSoc_TextChanged(object sender, EventArgs e)
+        {
+            int pointsTextBox = int.Parse((sender as TextBox).Text);
+
+            MettreAJourMaximumNumericUpDown(gbSocial, pointsTextBox);
         }
     }
 }
