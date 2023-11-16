@@ -25,6 +25,7 @@ namespace maFichePersonnageJDR.Model
         private int escamotage;
         private int force;
         private int fouille;
+        private int lutte;
         private int natation;
         private int reflexes;
         private int vigueur;
@@ -44,6 +45,7 @@ namespace maFichePersonnageJDR.Model
         public int Escamotage { get => escamotage; set => escamotage = value; }
         public int Force { get => force; set => force = value; }
         public int Fouille { get => fouille; set => fouille = value; }
+        public int Lutte { get => lutte; set => lutte = value; }
         public int Natation { get => natation; set => natation = value; }
         public int Reflexes { get => reflexes; set => reflexes = value; }
         public int Vigueur { get => vigueur; set => vigueur = value; }
@@ -64,16 +66,16 @@ namespace maFichePersonnageJDR.Model
         /// <param name="reflexes"></param>
         /// <param name="vigueur"></param>
         public void SaveCompetencePhysiquePersonnage(int idPersonnage, int agilite, int artisanat, int crochetage, int discretion, int equilibre, int equitation, 
-            int escalade, int escamotage, int force, int fouille, int natation, int reflexes, int vigueur)
+            int escalade, int escamotage, int force, int fouille, int lutte, int natation, int reflexes, int vigueur)
         {
             try
             {
                 // Commande
                 SQLiteCommand command = new SQLiteCommand(
                     "INSERT INTO COMPETENCE_PHYSIQUE_PERSONNAGE (id_personnage, agilite, artisanat, crochetage, discretion, equilibre, equitation, " +
-                    "escalade, escamotage, force, fouille, natation, reflexes, vigueur) " +
+                    "escalade, escamotage, force, fouille, lutte, natation, reflexes, vigueur) " +
                     "VALUES (@idPersonnage, @agilite, @artisanat, @crochetage, @discretion, @equilibre, @equitation, @escalade, @escamotage, @force," +
-                    "@fouille, @natation, @reflexes, @vigueur)", 
+                    "@fouille, @lutte, @natation, @reflexes, @vigueur)", 
                     DatabaseConnection.Instance.GetConnection());
 
                 command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
@@ -87,6 +89,7 @@ namespace maFichePersonnageJDR.Model
                 command.Parameters.AddWithValue("@escamotage", escamotage);
                 command.Parameters.AddWithValue("@force", force);
                 command.Parameters.AddWithValue("@fouille", fouille);
+                command.Parameters.AddWithValue("@lutte", lutte);
                 command.Parameters.AddWithValue("@natation", natation);
                 command.Parameters.AddWithValue("@reflexes", reflexes);
                 command.Parameters.AddWithValue("@vigueur", vigueur);

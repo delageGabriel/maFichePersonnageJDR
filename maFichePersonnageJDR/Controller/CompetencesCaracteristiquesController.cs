@@ -28,7 +28,7 @@ namespace maFichePersonnageJDR.Controller
         /// <param name="perception"></param>
         /// <param name="perspicacite"></param>
         /// <param name="volonte"></param>
-        public static void SaveCompetenceMentalPersonnage(int idPersonnage, int concentration, int connGeo, int connHis, int connMag, int connNat, int connRel, int decryptage,
+        public static void SaveCompetenceMentalPersonnage(int idPersonnage, int concentration, int connGeo, int connHis, int connMag, int connNat, int connRel,
             int esprit, int explosifs, int mecanique, int medecine, int memoire, int orientation, int perception, int volonte)
         {
             Console.WriteLine(string.Format("########### Méthode SaveCompetenceMentalPersonnage — Personnage créé : idPersonnage : {0} ###########", idPersonnage.ToString()));
@@ -38,7 +38,7 @@ namespace maFichePersonnageJDR.Controller
             try
             {
                 // On envoie les informations du personnage à sauvegarder
-                competenceMental.SaveCompetenceMentalPersonnage(idPersonnage, concentration, connGeo, connHis, connMag, connNat, connRel, decryptage, esprit, explosifs, mecanique,
+                competenceMental.SaveCompetenceMentalPersonnage(idPersonnage, concentration, connGeo, connHis, connMag, connNat, connRel, esprit, explosifs, mecanique,
                     medecine, memoire, orientation, perception, volonte);
             }
             catch (Exception e)
@@ -63,7 +63,7 @@ namespace maFichePersonnageJDR.Controller
         /// <param name="reflexes"></param>
         /// <param name="vigueur"></param>
         public static void SaveCompetencePhysiquePersonnage(int idPersonnage, int agilite, int artisanat, int crochetage, int discretion, int equilibre, int equitation, 
-            int escalade, int escamotage, int force, int fouille, int natation, int reflexes, int vigueur)
+            int escalade, int escamotage, int force, int fouille, int lutte, int natation, int reflexes, int vigueur)
         {
             Console.WriteLine(string.Format("########### Méthode SaveCompetencePhysiquePersonnage — Personnage créé : idPersonnage : {0} ###########", idPersonnage.ToString()));
 
@@ -72,7 +72,7 @@ namespace maFichePersonnageJDR.Controller
             try
             {
                 competencePhysique.SaveCompetencePhysiquePersonnage(idPersonnage, agilite, artisanat, crochetage, discretion, equilibre, equitation,
-                    escalade, escamotage, force, fouille, natation, reflexes, vigueur);
+                    escalade, escamotage, force, fouille, lutte, natation, reflexes, vigueur);
             }
             catch (Exception e)
             {
@@ -235,8 +235,8 @@ namespace maFichePersonnageJDR.Controller
                     competencePhysiquePersonnageModel.Agilite, competencePhysiquePersonnageModel.Artisanat, 
                     competencePhysiquePersonnageModel.Crochetage, competencePhysiquePersonnageModel.Discretion, competencePhysiquePersonnageModel.Equilibre, 
                     competencePhysiquePersonnageModel.Equitation, competencePhysiquePersonnageModel.Escalade, competencePhysiquePersonnageModel.Escamotage,
-                    competencePhysiquePersonnageModel.Force, competencePhysiquePersonnageModel.Fouille, competencePhysiquePersonnageModel.Natation, 
-                    competencePhysiquePersonnageModel.Reflexes, competencePhysiquePersonnageModel.Vigueur};
+                    competencePhysiquePersonnageModel.Force, competencePhysiquePersonnageModel.Fouille, competencePhysiquePersonnageModel.Lutte,
+                    competencePhysiquePersonnageModel.Natation, competencePhysiquePersonnageModel.Reflexes, competencePhysiquePersonnageModel.Vigueur};
 
                 return listBaseCompPhy;
             }
@@ -265,10 +265,10 @@ namespace maFichePersonnageJDR.Controller
                 int[] listBaseCompMen = {
                     competenceMentalPersonnageModel.Concentration, competenceMentalPersonnageModel.ConnaissanceGeographiques, 
                     competenceMentalPersonnageModel.ConnaissanceHistoriques, competenceMentalPersonnageModel.ConnaissanceMagiques, 
-                    competenceMentalPersonnageModel.ConnaissanceNatures, competenceMentalPersonnageModel.ConnaissanceReligieuses, 
-                    competenceMentalPersonnageModel.Decryptage, competenceMentalPersonnageModel.Esprit, competenceMentalPersonnageModel.Explosifs, 
-                    competenceMentalPersonnageModel.Mecanique, competenceMentalPersonnageModel.Medecine, competenceMentalPersonnageModel.Memoire, 
-                    competenceMentalPersonnageModel.Orientation, competenceMentalPersonnageModel.Perception, competenceMentalPersonnageModel.Volonte};
+                    competenceMentalPersonnageModel.ConnaissanceNatures, competenceMentalPersonnageModel.ConnaissanceReligieuses,
+                    competenceMentalPersonnageModel.Esprit, competenceMentalPersonnageModel.Explosifs, competenceMentalPersonnageModel.Mecanique, 
+                    competenceMentalPersonnageModel.Medecine, competenceMentalPersonnageModel.Memoire, competenceMentalPersonnageModel.Orientation, 
+                    competenceMentalPersonnageModel.Perception, competenceMentalPersonnageModel.Volonte};
 
                 return listBaseCompMen;
             }

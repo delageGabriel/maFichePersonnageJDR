@@ -83,7 +83,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.cbbTrier.FormattingEnabled = true;
             this.cbbTrier.Items.AddRange(new object[] {
             "Ordre alphabétique(A-Z)",
-            "Ordre alphabétique(Z-A)",
             "Type(s)",
             "Défaut"});
             this.cbbTrier.Location = new System.Drawing.Point(109, 6);

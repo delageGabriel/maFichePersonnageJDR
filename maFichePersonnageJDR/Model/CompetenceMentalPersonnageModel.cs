@@ -70,7 +70,7 @@ namespace maFichePersonnageJDR.Model
         /// <param name="memoire"></param>
         /// <param name="perception"></param>
         /// <param name="volonte"></param>
-        public void SaveCompetenceMentalPersonnage(int idPersonnage, int concentration, int connGeo, int connHis, int connMag, int connNat, int connRel, int decryptage,
+        public void SaveCompetenceMentalPersonnage(int idPersonnage, int concentration, int connGeo, int connHis, int connMag, int connNat, int connRel,
             int esprit, int explosifs, int mecanique, int medecine, int memoire, int orientation, int perception, int volonte)
         {
             try
@@ -78,8 +78,8 @@ namespace maFichePersonnageJDR.Model
                 // Commande
                 SQLiteCommand command = new SQLiteCommand(
                     "INSERT INTO COMPETENCE_MENTAL_PERSONNAGE (id_personnage, concentration, connaissance_geographiques, " +
-                    "connaissance_historiques, connaissance_magiques, connaissance_natures, connaissance_religieuses, decryptage, " +
-                    "esprit, explosifs, mecanique, medecine, memoire, orientation, perception, volonte) " +
+                    "connaissance_historiques, connaissance_magiques, connaissance_natures, connaissance_religieuses, esprit, " +
+                    "explosifs, mecanique, medecine, memoire, orientation, perception, volonte) " +
                     "VALUES (@idPersonnage, @concentration, @connGeo, @connHis, @connMag, @connNat, @connRel, @decryptage, " +
                     "@esprit, @explosifs, @mecanique, @medecine, @memoire, @orientation, @perception, @volonte)", 
                     DatabaseConnection.Instance.GetConnection());
@@ -91,7 +91,6 @@ namespace maFichePersonnageJDR.Model
                 command.Parameters.AddWithValue("@connMag", connMag);
                 command.Parameters.AddWithValue("@connNat", connNat);
                 command.Parameters.AddWithValue("@connRel", connRel);
-                command.Parameters.AddWithValue("@decryptage", decryptage);
                 command.Parameters.AddWithValue("@esprit", esprit);
                 command.Parameters.AddWithValue("@explosifs", explosifs);
                 command.Parameters.AddWithValue("@mecanique", mecanique);

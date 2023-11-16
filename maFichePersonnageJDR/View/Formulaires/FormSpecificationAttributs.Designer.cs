@@ -323,6 +323,11 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.nudPourcentage.Enabled = false;
             this.nudPourcentage.Location = new System.Drawing.Point(19, 176);
+            this.nudPourcentage.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
             this.nudPourcentage.Name = "nudPourcentage";
             this.nudPourcentage.Size = new System.Drawing.Size(258, 20);
             this.nudPourcentage.TabIndex = 9;

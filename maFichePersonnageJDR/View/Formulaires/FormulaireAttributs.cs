@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using maFichePersonnageJDR.Classe;
 using maFichePersonnageJDR.Controller;
@@ -13,20 +14,9 @@ namespace maFichePersonnageJDR.View.Formulaires
 {
     public partial class FormulaireAttributs : Form
     {
-        private string[] lstAttributsCheck = {
-            "Alifère",
-            "Armure naturelle",
-            "Avantage du terrain",
-            "Canaliseur",
-            "Frigifugé",
-            "Gigantisme",
-            "Ignifugé",
-            "Magicien",
-            "Porteur de charges lourdes"
-        };
-
         private Dictionary<Control, Rectangle> dictionaryControlOriginalSize = new Dictionary<Control, Rectangle>();
         private Dictionary<int, Tuple<string, string, string, string>> dictionaryAttributes = new Dictionary<int, Tuple<string, string, string, string>>();
+        private Dictionary<string, string> dictionaryOfSpecificationsAttributes = new Dictionary<string, string>();
 
         public FormulaireAttributs()
         {
@@ -35,7 +25,8 @@ namespace maFichePersonnageJDR.View.Formulaires
 
         private void FormulaireAttributs_Load(object sender, EventArgs e)
         {
-            GetAttributs();
+            DisplayAttributes();
+            dictionaryOfSpecificationsAttributes = AttributsController.GetAttributesWithSpecification();
 
             dictionaryControlOriginalSize.Add(this, new Rectangle(this.Location, this.Size));
             dictionaryControlOriginalSize.Add(tbControlAttributs, new Rectangle(tbControlAttributs.Location, tbControlAttributs.Size));
@@ -51,9 +42,9 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// <summary>
         /// Remplit chaque TabPages du TabControl Armes avec les armes correspondantes.
         /// </summary>
-        public void GetAttributs()
+        public void DisplayAttributes()
         {
-            Console.WriteLine("########### Classe : FormulaireAttributs; Méthode : GetAttributs; ###########");
+            Console.WriteLine("########### Classe : FormulaireAttributs; Méthode : DisplayAttributes; ###########");
             dictionaryAttributes = AttributsController.GetAttributes();
 
             // Coordonnées contrôles
@@ -111,64 +102,8 @@ namespace maFichePersonnageJDR.View.Formulaires
                             Name = "lnkLbl" + premiereValeur,
                             Location = new Point(x, y),
                             Text = premiereValeur,
-                            Tag = premiereValeur
-                        };
-
-                        linkLabel.LinkClicked += linkLabelAttribut_LinkClicked;
-
-                        pageCorrespondante.Controls.Add(linkLabel);
-
-                        x = initialX;
-                        y += decalageY;
-                    }
-                }
-            }
-            // CAS TRI Z-A
-            else if (cbbTrier.SelectedIndex == 1)
-            {
-                var dictionaryTrie = dictionaryAttributes.OrderByDescending(kvp => kvp.Value.Item1);
-
-                foreach (KeyValuePair<int, Tuple<string, string, string, string>> item in dictionaryTrie)
-                {
-                    string premiereValeur = item.Value.Item1;
-                    char premiereLettre = premiereValeur[0];
-
-                    // Réinitialisation du Y si on change de page
-                    if (lettreCheck != premiereLettre)
-                    {
-                        y = initialY;
-                        lettreCheck = premiereLettre;
-                    }
-
-                    string tabPageName = "page" + premiereLettre.ToString().ToUpper();
-                    TabPage pageCorrespondante = tbControlAttributs.TabPages[tabPageName];
-
-                    if (pageCorrespondante != null)
-                    {
-                        // Création d'une CheckBox
-                        CheckBox checkBox = new CheckBox
-                        {
-                            Name = "chck" + premiereValeur,
-                            Location = new Point(x, y),
-                            Width = 20,
                             Tag = premiereValeur,
-                            Checked = CheckIfAttributeIsInRichTextBox(premiereValeur),
-                            Enabled = GlobaleVariables.IsEdit ? false : true
-                        };
-
-                        checkBox.Click += checkBox_Click;
-
-                        pageCorrespondante.Controls.Add(checkBox);
-
-                        x += checkBox.Width;
-                        y += 5;
-
-                        LinkLabel linkLabel = new LinkLabel
-                        {
-                            Name = "lnkLbl" + premiereValeur,
-                            Location = new Point(x, y),
-                            Text = premiereValeur,
-                            Tag = premiereValeur
+                            AutoSize = true
                         };
 
                         linkLabel.LinkClicked += linkLabelAttribut_LinkClicked;
@@ -180,7 +115,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                     }
                 }
             }
-            else if (cbbTrier.SelectedIndex == 2)
+            else if (cbbTrier.SelectedIndex == 1)
             {
                 var dictionaryTrie = dictionaryAttributes.OrderBy(kvp => kvp.Value.Item3).ThenBy(kvp => kvp.Value.Item1);
 
@@ -224,7 +159,8 @@ namespace maFichePersonnageJDR.View.Formulaires
                             Name = "lnkLbl" + premiereValeur,
                             Location = new Point(x, y),
                             Text = premiereValeur,
-                            Tag = premiereValeur
+                            Tag = premiereValeur,
+                            AutoSize = true
                         };
 
                         linkLabel.LinkClicked += linkLabelAttribut_LinkClicked;
@@ -281,7 +217,8 @@ namespace maFichePersonnageJDR.View.Formulaires
                             Name = "lnkLbl" + premiereValeur,
                             Location = new Point(x, y),
                             Text = premiereValeur,
-                            Tag = premiereValeur
+                            Tag = premiereValeur,
+                            AutoSize = true
                         };
 
                         linkLabel.LinkClicked += linkLabelAttribut_LinkClicked;
@@ -326,7 +263,7 @@ namespace maFichePersonnageJDR.View.Formulaires
 
             if (checkBox.Checked)
             {
-                if (lstAttributsCheck.Contains(attribut))
+                if (dictionaryOfSpecificationsAttributes.ContainsKey(attribut))
                 {
                     attribut += AttributesSpecifications(attribut);
                 }
@@ -505,6 +442,9 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// <returns></returns>
         private string AttributesSpecifications(string nameAttribut)
         {
+            string patternI = @"\bi\b";
+            string patternX = @"\bx\b";
+
             using (FormSpecificationAttributs formSpecification = new FormSpecificationAttributs())
             {
 
@@ -512,24 +452,75 @@ namespace maFichePersonnageJDR.View.Formulaires
                 formSpecification.PanelMagies.Enabled = false;
                 formSpecification.NumericUpDownPourcentage.Enabled = false;
 
-                if (nameAttribut == "Magicien")
+                switch (nameAttribut)
                 {
-                    formSpecification.TextInput.Enabled = false;
-                    formSpecification.PanelMagies.Enabled = true;
+                    case "Apnée prolongée":
+                        formSpecification.TextInput.Enabled = false;
+                        formSpecification.NumericUpDownPourcentage.Enabled = true;
+                        break;
+                    case "Armure naturelle":
+                        formSpecification.TextInput.Enabled = false;
+                        formSpecification.NumericUpDownPourcentage.Enabled = true;
+                        break;
+                    case "Canaliseur":
+                        patternX = @"x(?=%)";
+                        formSpecification.TextInput.Enabled = false;
+                        formSpecification.NumericUpDownPourcentage.Enabled = true;
+                        break;
+                    case "Coagulation":
+                        break;
+                    case "Etoile montante":
+                        break;
+                    case "Hyperesthésie":
+                        patternX = @"x(?=%)";
+                        formSpecification.TextInput.Enabled = false;
+                        formSpecification.NumericUpDownPourcentage.Enabled = true;
+                        break;
+                    case "Immuno-maladie":
+                        patternX = @"x(?=%)";
+                        formSpecification.TextInput.Enabled = false;
+                        formSpecification.NumericUpDownPourcentage.Enabled = true;
+                        break;
+                    case "Magicien":
+                        formSpecification.TextInput.Enabled = false;
+                        formSpecification.PanelMagies.Enabled = true;
+                        break;
+                    case "Mithridatisation":
+                        patternX = @"x(?=%)";
+                        formSpecification.TextInput.Enabled = false;
+                        formSpecification.NumericUpDownPourcentage.Enabled = true;
+                        break;
+                    case "Porteur de charges lourdes":
+                        formSpecification.TextInput.Enabled = false;
+                        formSpecification.NumericUpDownPourcentage.Enabled = true;
+                        break;
+                    case "Sac d'énergie":
+                        patternX = @"x(?=%)";
+                        formSpecification.TextInput.Enabled = false;
+                        formSpecification.NumericUpDownPourcentage.Enabled = true;
+                        break;
+                    case "Tolérance au froid":
+                        patternX = @"(?<=-)x";
+                        formSpecification.TextInput.Enabled = false;
+                        formSpecification.NumericUpDownPourcentage.Enabled = true;
+                        break;
+                    case "Tolérance à la chaleur":
+                        patternX = @"(?<=-)x";
+                        formSpecification.TextInput.Enabled = false;
+                        formSpecification.NumericUpDownPourcentage.Enabled = true;
+                        break;
+                    default:
+                        break;
                 }
-                else if (nameAttribut == "Avantage du terrain")
-                {
-                    formSpecification.TextInput.Enabled = false;
-                    formSpecification.PanelAvantageTerrains.Enabled = true;
-                }
-                else if (nameAttribut == "Porteur de charges lourdes")
-                {
-                    formSpecification.TextInput.Enabled = false;
-                    formSpecification.NumericUpDownPourcentage.Enabled = true;
-                }
+
                 if (formSpecification.ShowDialog() == DialogResult.OK)
                 {
-                    return "; " + formSpecification.UserInput;
+                    string valueKey = string.Empty;
+                    dictionaryOfSpecificationsAttributes.TryGetValue(nameAttribut, out valueKey);
+                    valueKey = Regex.Replace(valueKey, patternI, PersonnageController.GetPrenomPersonnage(GlobaleVariables.IdPersonnage));
+                    valueKey = Regex.Replace(valueKey, patternX, formSpecification.UserInput);
+
+                    return ": " + valueKey;
                 }
             }
 
@@ -607,26 +598,8 @@ namespace maFichePersonnageJDR.View.Formulaires
 
                 tbControlAttributs.TabPages.AddRange(pages.ToArray());
             }
-            // Tri (Z-A)
-            else if ((sender as ComboBox).SelectedIndex == 1)
-            {
-                for (char letter = 'Z'; letter >= 'A'; letter--)
-                {
-                    TabPage tabPage = new TabPage
-                    {
-                        Text = letter.ToString(),
-                        Name = "page" + letter,
-                        AutoScroll = true,
-                        BackColor = Color.White
-                    };
-
-                    pages.Add(tabPage);
-                }
-
-                tbControlAttributs.TabPages.AddRange(pages.ToArray());
-            }
             // Tri Type
-            else if ((sender as ComboBox).SelectedIndex == 2)
+            else if ((sender as ComboBox).SelectedIndex == 1)
             {
                 TabPage pagePhysique = new TabPage();
                 pagePhysique.Text = "Physique";
@@ -664,7 +637,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                 tbControlAttributs.TabPages.Add(tabPage);
             }
 
-            GetAttributs();
+            DisplayAttributes();
         }
 
 

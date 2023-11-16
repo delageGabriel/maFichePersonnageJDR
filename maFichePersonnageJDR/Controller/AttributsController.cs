@@ -82,6 +82,10 @@ namespace maFichePersonnageJDR.Controller
             }
         }
 
+        public static Dictionary<string, string> GetAttributesWithSpecification()
+        {
+            return AttributsModel.GetAttributesWithSpecifications();
+        }
         /// <summary>
         /// Permet d'ajouter un nouvelle attribut à un personnage
         /// </summary>

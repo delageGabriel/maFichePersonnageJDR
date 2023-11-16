@@ -427,7 +427,7 @@ namespace maFichePersonnageJDR.Classe
             #region Initialisation des variables
             int[] baseCompPhys = Controller.CompetencesCaracteristiquesController.GetBaseCompetencePhysique(idPersonnage);
             string[] listeCompPhy = { "Agilité", "Artisanat", "Crochetage", "Discrétion", "Équilibre","Équitation", "Escalade", "Escamotage", "Force", "Fouille", 
-                "Natation", "Réflexes", "Vigueur" };
+                "Lutte", "Natation", "Réflexes", "Vigueur" };
 
             #endregion
 
@@ -456,7 +456,7 @@ namespace maFichePersonnageJDR.Classe
             #region Initialisation des variables
             int[] baseCompMen = Controller.CompetencesCaracteristiquesController.GetBaseCompetenceMental(idPersonnage);
             string[] listeCompMen = { "Concentration", "Connaissance géographiques", "Connaissance historiques", "Connaissance magiques",
-                "Connaissance natures", "Connaissance religieuses", "Décryptage", "Esprit", "Explosifs", "Mécanique", "Médecine", "Mémoire", "Orientation",
+                "Connaissance natures", "Connaissance religieuses", "Esprit", "Explosifs", "Mécanique", "Médecine", "Mémoire", "Orientation",
                 "Perception", "Volonté" };
 
             #endregion
