@@ -167,5 +167,30 @@ namespace maFichePersonnageJDR.Model
                 throw e;
             }
         }
+
+        public List<string> GetListDescrMagie(int idPersonnage)
+        {
+            List<string> listDescrMagie = new List<string>();
+
+            SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+
+            SQLiteCommand command = new SQLiteCommand("SELECT descr_magie " +
+                "FROM MAGIE " +
+                "INNER JOIN MAGIE_PERSONNAGE ON MAGIE.id_magie = MAGIE_PERSONNAGE.id_magie " +
+                "WHERE MAGIE_PERSONNAGE.id_personnage = @idPersonnage", connection);
+            command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
+
+            using (SQLiteDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    // On vérifie si une ligne existe déjà avec le nom prénom du personnage
+                    string value = reader["descr_magie"].ToString();
+                    listDescrMagie.Add(value);
+                }
+            }
+
+            return listDescrMagie;
+        }
     }
 }

@@ -208,5 +208,27 @@ namespace maFichePersonnageJDR.Controller
                 throw e;
             }
         }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static List<string> GetListDescrMagie(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListDescrMagie — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            MagiePersonnageModel magiePersonnage = new MagiePersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return magiePersonnage.GetListDescrMagie(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

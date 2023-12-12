@@ -438,8 +438,7 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 if (!String.IsNullOrEmpty(line))
                 {
-                    string[] substring = line.Split(';');
-                    AptitudesController.AddNewAptitudeToPersonnage(AptitudesController.GetIdAptitudeByName(Utils.DeleteCharacterFromString(line, "\n", " ")),
+                    AptitudesController.AddNewAptitudeToPersonnage(AptitudesController.GetIdAptitudeByName(line),
                     GlobaleVariables.IdPersonnage);
                 }
             }
