@@ -236,6 +236,14 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else
             {
+                int indexDelete = Utils.GetLineNumberToDelete(nomMagie, rtbMagies);
+
+                List<string> lines = new List<string>(rtbMagies.Lines);
+
+                lines.RemoveAt(indexDelete);
+
+                rtbMagies.Lines = lines.ToArray();
+                    
                 DisableOrCheckBox(tbCntlAptitudes, tbCntlMagie);
             }
         }
@@ -259,6 +267,14 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else
             {
+                int indexDelete = Utils.GetLineNumberToDelete(nomAptitude, rtbAptitudes);
+
+                List<string> lines = new List<string>(rtbAptitudes.Lines);
+
+                lines.RemoveAt(indexDelete);
+
+                rtbAptitudes.Lines = lines.ToArray();
+
                 DisableOrCheckBox(tbCntlAptitudes, tbCntlMagie);
             }
         }
