@@ -406,6 +406,46 @@ namespace maFichePersonnageJDR.Model
         /// </summary>
         /// <param name="idPersonnage"></param>
         /// <returns></returns>
+        public List<int> GetListQuantitiesArmes(int idPersonnage)
+        {
+            #region Initialisation des variables
+            List<int> listQuantities = new List<int>();
+            #endregion
+
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT quantite " +
+                    "FROM INVENTAIRE_ARMES_PERSONNAGES " +
+                    "WHERE INVENTAIRE_ARMES_PERSONNAGES.id_personnage = @id_personnage", connection);
+                command.Parameters.AddWithValue("@id_personnage", idPersonnage);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
+
+                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
+                        int value = Convert.ToInt32(reader["quantite"]);
+                        listQuantities.Add(value);
+                    }
+                }
+
+                return listQuantities;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// Retourne un personnage par son ID
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
         public List<string> GetListDescriptionArmes(int idPersonnage)
         {
             #region Initialisation des variables

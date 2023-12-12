@@ -209,7 +209,45 @@ namespace maFichePersonnageJDR.Model
                 throw e;
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public List<int> GetListQuantitiesArmures(int idPersonnage)
+        {
+            #region Initialisation des variables
+            List<int> listQuantityArmure = new List<int>();
+            #endregion
 
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT quantite " +
+                    "FROM INVENTAIRE_ARMURES_PERSONNAGES " +
+                    "WHERE INVENTAIRE_ARMURES_PERSONNAGES.id_personnage = @idPersonnage", connection);
+                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        InventaireArmuresPersonnageModel inventaireArmuresPersonnages = new InventaireArmuresPersonnageModel();
+
+                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
+                        int value = Convert.ToInt32(reader["quantite"]);
+                        listQuantityArmure.Add(value);
+                    }
+                }
+
+                return listQuantityArmure;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
         /// <summary>
         /// Retourne un personnage par son ID
         /// </summary>
@@ -244,47 +282,6 @@ namespace maFichePersonnageJDR.Model
                 }
 
                 return listProtectionArmure;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// Retourne un personnage par son ID
-        /// </summary>
-        /// <param name="idPersonnage"></param>
-        /// <returns></returns>
-        public List<string> GetListBonusArmures(int idPersonnage)
-        {
-            #region Initialisation des variables
-            List<string> listBonusArmure = new List<string>();
-            #endregion
-
-            try
-            {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
-                // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT protection_armure " +
-                    "FROM ARMURES " +
-                    "INNER JOIN INVENTAIRE_ARMURES_PERSONNAGES ON ARMURES.id_armure = INVENTAIRE_ARMURES_PERSONNAGES.id_armure " +
-                    "WHERE INVENTAIRE_ARMURES_PERSONNAGES.id_personnage = @idPersonnage", connection);
-                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
-
-                using (SQLiteDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        InventaireArmuresPersonnageModel inventaireArmuresPersonnages = new InventaireArmuresPersonnageModel();
-
-                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
-                        string value = reader["bonus_armure"].ToString();
-                        listBonusArmure.Add(value);
-                    }
-                }
-
-                return listBonusArmure;
             }
             catch (Exception e)
             {

@@ -375,7 +375,6 @@ namespace maFichePersonnageJDR.Classe
             List<double> poidsArmures = Controller.EquipmentController.GetListPoidsArmures(idPersonnage);
             List<string> valeurArmures = Controller.EquipmentController.GetListValeurArmures(idPersonnage);
             List<string> protectionsArmures = Controller.EquipmentController.GetListProtectionArmures(idPersonnage);
-            List<string> bonusArmures = Controller.EquipmentController.GetListBonusArmures(idPersonnage);
             List<string> specialsArmures = Controller.EquipmentController.GetListSpecialArmures(idPersonnage);
             #endregion
 
@@ -399,7 +398,6 @@ namespace maFichePersonnageJDR.Classe
                 armuresTable.AddCell(poidsArmures[i].ToString() + " kg");
                 armuresTable.AddCell(valeurArmures[i]);
                 armuresTable.AddCell(protectionsArmures[i]);
-                armuresTable.AddCell(bonusArmures[i]);
             }
 
             document.Add(armuresTable);

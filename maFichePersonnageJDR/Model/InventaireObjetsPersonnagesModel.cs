@@ -291,7 +291,45 @@ namespace maFichePersonnageJDR.Model
                 throw e;
             }
         }
+        /// <summary>
+        /// Retourne un personnage par son ID
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public List<int> GetListQuantities(int idPersonnage)
+        {
+            #region Initialisation des variables
+            List<int> listQuantityObjets = new List<int>();
+            #endregion
 
+            try
+            {
+                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
+                // Commande
+                SQLiteCommand command = new SQLiteCommand("SELECT quantite " +
+                    "FROM INVENTAIRE_OBJETS_PERSONNAGES " +
+                    "WHERE INVENTAIRE_OBJETS_PERSONNAGES.id_personnage = @idPersonnage", connection);
+                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
+
+                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
+                        int value = Convert.ToInt32(reader["quantite"]);
+                        listQuantityObjets.Add(value);
+                    }
+                }
+
+                return listQuantityObjets;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
         /// <summary>
         /// Méthode qui permet de supprimer un objet de l'inventaire du personnage
         /// </summary>
