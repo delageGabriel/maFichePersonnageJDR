@@ -557,7 +557,7 @@ namespace maFichePersonnageJDR.Classe
             List<double> poidsArmures = Controller.EquipmentController.GetListPoidsArmures(idPersonnage);
             List<string> valeurArmures = Controller.EquipmentController.GetListValeurArmures(idPersonnage);
             List<string> protectionsArmures = Controller.EquipmentController.GetListProtectionArmures(idPersonnage);
-            List<string> bonusArmures = Controller.EquipmentController.GetListBonusArmures(idPersonnage);
+            //List<string> bonusArmures = Controller.EquipmentController.GetListBonusArmures(idPersonnage);
             List<string> specialsArmures = Controller.EquipmentController.GetListSpecialArmures(idPersonnage);
             #endregion
 
@@ -570,7 +570,7 @@ namespace maFichePersonnageJDR.Classe
                     $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{poidsArmures[i]}</td>\n" +
                     $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{valeurArmures[i]}</td>\n" +
                     $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{protectionsArmures[i]}</td>\n" +
-                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{bonusArmures[i]}</td>\n" +
+                    //$"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{bonusArmures[i]}</td>\n" +
                     $"                          </tr>\n";
             }
 

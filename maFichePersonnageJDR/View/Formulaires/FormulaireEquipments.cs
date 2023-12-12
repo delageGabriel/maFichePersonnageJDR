@@ -68,7 +68,8 @@ namespace maFichePersonnageJDR.Formulaires
             }
             catch (Exception e)
             {
-                throw e;
+                Console.WriteLine(e.Message);
+                throw;
             }
 
             Console.WriteLine("########### FIN Méthode GetArmes ###########");

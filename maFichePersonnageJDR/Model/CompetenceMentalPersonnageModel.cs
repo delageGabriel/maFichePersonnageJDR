@@ -80,7 +80,7 @@ namespace maFichePersonnageJDR.Model
                     "INSERT INTO COMPETENCE_MENTAL_PERSONNAGE (id_personnage, concentration, connaissance_geographiques, " +
                     "connaissance_historiques, connaissance_magiques, connaissance_natures, connaissance_religieuses, esprit, " +
                     "explosifs, mecanique, medecine, memoire, orientation, perception, volonte) " +
-                    "VALUES (@idPersonnage, @concentration, @connGeo, @connHis, @connMag, @connNat, @connRel, @decryptage, " +
+                    "VALUES (@idPersonnage, @concentration, @connGeo, @connHis, @connMag, @connNat, @connRel," +
                     "@esprit, @explosifs, @mecanique, @medecine, @memoire, @orientation, @perception, @volonte)", 
                     DatabaseConnection.Instance.GetConnection());
 

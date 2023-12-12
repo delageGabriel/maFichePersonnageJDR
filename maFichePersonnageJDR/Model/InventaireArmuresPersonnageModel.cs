@@ -266,7 +266,7 @@ namespace maFichePersonnageJDR.Model
             {
                 SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT bonus_armure " +
+                SQLiteCommand command = new SQLiteCommand("SELECT protection_armure " +
                     "FROM ARMURES " +
                     "INNER JOIN INVENTAIRE_ARMURES_PERSONNAGES ON ARMURES.id_armure = INVENTAIRE_ARMURES_PERSONNAGES.id_armure " +
                     "WHERE INVENTAIRE_ARMURES_PERSONNAGES.id_personnage = @idPersonnage", connection);

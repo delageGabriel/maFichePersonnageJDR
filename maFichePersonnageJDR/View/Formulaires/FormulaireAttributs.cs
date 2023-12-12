@@ -202,7 +202,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                             Width = 20,
                             Tag = premiereValeur,
                             Checked = CheckIfAttributeIsInRichTextBox(premiereValeur),
-                            Enabled = GlobaleVariables .IsEdit ? false : true
+                            Enabled = GlobaleVariables.IsEdit ? false : true
                         };
 
                         checkBox.Click += checkBox_Click;
@@ -254,32 +254,47 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// Gère le clic sur une CheckBox pour ajouter ou retirer dynamiquement 
         /// l'attribut correspondant de la RichTextBox
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">L'objet CheckBox qui a déclenché l'événement de clic.</param>
+        /// <param name="e">Les arguments de l'événement de clic.</param>
         public void checkBox_Click(object sender, EventArgs e)
         {
+            // Récupère la CheckBox qui a été cliquée
             CheckBox checkBox = sender as CheckBox;
+
+            // Obtient le nom de l'attribut à partir du nom de la CheckBox
             string attribut = AttributsController.GetAttributByName(checkBox.Name.Substring(4));
 
+            // Si la CheckBox est cochée
             if (checkBox.Checked)
             {
+                // Vérifie si l'attribut est déjà présent dans la RichTextBox
                 if (dictionaryOfSpecificationsAttributes.ContainsKey(attribut))
                 {
+                    // Ajoute les spécifications de l'attribut à son nom
                     attribut += AttributesSpecifications(attribut);
                 }
 
+                // Ajoute l'attribut à la RichTextBox, en commençant par une nouvelle ligne si nécessaire
                 rtbAttributs.Text += rtbAttributs.Lines.Length > 0 ? Environment.NewLine + attribut : attribut;
+
+                // Active ou désactive les CheckBox en fonction de la sélection
                 EnableOrDisableCheckBoxes();
             }
             else
             {
+                // Obtient l'index de la ligne contenant l'attribut à supprimer
                 int indexToDelete = Utils.GetLineNumberToDelete(attribut, rtbAttributs);
 
+                // Copie les lignes actuelles de la RichTextBox dans une liste
                 List<string> lines = new List<string>(rtbAttributs.Lines);
 
+                // Supprime la ligne contenant l'attribut à partir de la liste
                 lines.RemoveAt(indexToDelete);
 
+                // Met à jour le contenu de la RichTextBox avec les lignes modifiées
                 rtbAttributs.Lines = lines.ToArray();
+
+                // Active ou désactive les CheckBox en fonction de la sélection
                 EnableOrDisableCheckBoxes();
             }
         }
@@ -389,7 +404,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                     return;
                 }
 
-                foreach(string line in rtbAttributs.Lines)
+                foreach (string line in rtbAttributs.Lines)
                 {
                     string[] lineSplited = line.Split(':');
                     int idAttribut = AttributsController.GetIdAttributByName(lineSplited[0]);
@@ -407,7 +422,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                     string nameAttribut = keyValue.Value.Item1;
                     string specificationsAttr = keyValue.Value.Item2;
 
-                    if(!AttributsController.CheckIfPersonnageHaveAttribut(GlobaleVariables.IdPersonnage, idAttribut))
+                    if (!AttributsController.CheckIfPersonnageHaveAttribut(GlobaleVariables.IdPersonnage, idAttribut))
                     {
                         AttributsController.AddNewAttributToPersonnage(idAttribut, GlobaleVariables.IdPersonnage, specificationsAttr);
                     }
@@ -416,7 +431,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                 MessageBox.Show("Attributs sauvegardés");
                 GlobaleVariables.IsClosedProgrammatically = true;
 
-                if(GlobaleVariables.IsEdit)
+                if (GlobaleVariables.IsEdit)
                 {
                     FormEditMenu formEditMenu = new FormEditMenu();
                     formEditMenu.Show();
@@ -436,22 +451,25 @@ namespace maFichePersonnageJDR.View.Formulaires
         }
 
         /// <summary>
-        /// Permet de spécifier une information lié à un attribut coché
+        /// Permet de spécifier une information liée à un attribut coché
         /// </summary>
-        /// <param name="nameAttribut"></param>
-        /// <returns></returns>
+        /// <param name="nameAttribut">Le nom de l'attribut à spécifier.</param>
+        /// <returns>Une chaîne de caractères spécifiant l'information liée à l'attribut.</returns>
         private string AttributesSpecifications(string nameAttribut)
         {
+            // Modèles de motifs de recherche utilisés pour la manipulation de texte
             string patternI = @"\bi\b";
             string patternX = @"\bx\b";
 
+            // Crée une nouvelle instance du formulaire de spécification d'attributs
             using (FormSpecificationAttributs formSpecification = new FormSpecificationAttributs())
             {
-
+                // Désactive certains éléments du formulaire par défaut
                 formSpecification.PanelAvantageTerrains.Enabled = false;
                 formSpecification.PanelMagies.Enabled = false;
                 formSpecification.NumericUpDownPourcentage.Enabled = false;
 
+                // Effectue des actions spécifiques en fonction du nom de l'attribut
                 switch (nameAttribut)
                 {
                     case "Apnée prolongée":
@@ -513,18 +531,26 @@ namespace maFichePersonnageJDR.View.Formulaires
                         break;
                 }
 
+                // Affiche le formulaire de spécification et attend la réponse de l'utilisateur
                 if (formSpecification.ShowDialog() == DialogResult.OK)
                 {
+                    // Obtient la valeur actuelle de l'attribut depuis le dictionnaire
                     string valueKey = string.Empty;
                     dictionaryOfSpecificationsAttributes.TryGetValue(nameAttribut, out valueKey);
+
+                    // Effectue des remplacements de motifs dans la valeur de l'attribut
                     valueKey = Regex.Replace(valueKey, patternI, PersonnageController.GetPrenomPersonnage(GlobaleVariables.IdPersonnage));
                     valueKey = Regex.Replace(valueKey, patternX, formSpecification.UserInput);
 
+                    // Retourne la chaîne de caractères spécifiant l'information de l'attribut
                     return ": " + valueKey;
                 }
+                else
+                {
+                    // Si l'utilisateur annule la spécification, retourne une chaîne vide
+                    return string.Empty;
+                }
             }
-
-            return string.Empty;
         }
 
         /// <summary>

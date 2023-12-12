@@ -17,7 +17,7 @@ namespace maFichePersonnageJDR.Controller
         /// <param name="typeMagie">le type de l'arme</param>
         /// <param name="controlParent">le TabControl parent</param>
         /// <param name="tabPage">la page où ajouter toutes les armes</param>
-        public static void GetMagiesByType(string typeMagie, TabControl controlParent, TabPage tabPage)
+        public static void GetMagiesByType(string typeMagie, TabControl controlParent, TabPage tabPage, int niveauPersonnage)
         {
             Console.WriteLine(string.Format("########### Méthode GetMagiesByType — Type de magie : {0} ###########", typeMagie));
             
@@ -26,7 +26,7 @@ namespace maFichePersonnageJDR.Controller
 
             try
             {
-                List<MagieModel> magieList = magieObjet.GetMagieModels(typeMagie);
+                List<MagieModel> magieList = magieObjet.GetMagieModelsByTypeAndNiveau(typeMagie, niveauPersonnage);
 
                 if (magieObjet != null)
                 {

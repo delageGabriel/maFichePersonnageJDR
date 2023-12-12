@@ -29,7 +29,7 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 foreach (TabPage page in tbCntlMagie.TabPages)
                 {
-                    Controller.MagieController.GetMagiesByType(page.Text, tbCntlMagie, page);
+                    Controller.MagieController.GetMagiesByType(page.Text, tbCntlMagie, page, Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage));
                 }
             }
             catch (Exception e)
