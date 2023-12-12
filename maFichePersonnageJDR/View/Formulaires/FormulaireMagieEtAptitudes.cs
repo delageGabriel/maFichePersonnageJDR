@@ -282,7 +282,7 @@ namespace maFichePersonnageJDR.Formulaires
         public void DisableOrCheckBox(TabControl tbControlAptitudes, TabControl tbControlMagies)
         {
             int nbCheckBoxChecked = 0;
-            int nbAttributParNiveau = MagieAptitudesLimitationByLevel(GlobaleVariables.IdPersonnage);
+            int nbAttributParNiveau = MagieAptitudesLimitationByLevel(PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage));
 
             /// Parcours des aptitudes
             foreach (TabPage page in tbControlAptitudes.TabPages)

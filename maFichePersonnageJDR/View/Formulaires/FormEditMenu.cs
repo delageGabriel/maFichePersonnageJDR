@@ -36,18 +36,21 @@ namespace maFichePersonnageJDR.View.Formulaires
         {
             FormulaireCompetencesCaracteristiques formulaireCompetencesCaracteristiques = new FormulaireCompetencesCaracteristiques();
             formulaireCompetencesCaracteristiques.Show();
+            this.Hide();
         }
 
         private void btnEquipement_Click(object sender, EventArgs e)
         {
             FormulaireEquipments formulaireEquipments = new FormulaireEquipments();
             formulaireEquipments.Show();
+            this.Hide();
         }
 
         private void btnMagiesAptitudes_Click(object sender, EventArgs e)
         {
             FormulaireMagieEtAptitudes formulaireMagieEtAptitudes = new FormulaireMagieEtAptitudes();
             formulaireMagieEtAptitudes.Show();
+            this.Hide();
         }
 
         private void btnRetour_Click(object sender, EventArgs e)

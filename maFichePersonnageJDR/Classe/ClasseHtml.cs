@@ -637,8 +637,8 @@ namespace maFichePersonnageJDR.Classe
             string tableMagiesHtml = string.Empty;
 
             #region Initialisation des variables
-            List<string> typesMagies = Controller.MagieController.GetListNomMagie(idPersonnage);
-            List<string> nomsMagies = Controller.MagieController.GetListTypeMagie(idPersonnage);
+            List<string> typesMagies = Controller.MagieController.GetListTypeMagie(idPersonnage);
+            List<string> nomsMagies = Controller.MagieController.GetListNomMagie(idPersonnage);
             List<int> coutsMagies = Controller.MagieController.GetListCoutMagie(idPersonnage);
             List<string> descrMagies = Controller.MagieController.GetListDescrMagie(idPersonnage);
             #endregion
