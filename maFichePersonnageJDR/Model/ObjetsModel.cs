@@ -18,6 +18,7 @@ namespace maFichePersonnageJDR.Model
         private double poidsObjet;
         private int valeurObjet;
         private string descriptionObjet;
+        private string descriptionCourteObjet;
         private string typeObjet;
         private string consommableObjet;
         private string specialObjet;
@@ -30,6 +31,7 @@ namespace maFichePersonnageJDR.Model
         public double PoidsObjet { get => poidsObjet; set => poidsObjet = value; }
         public int ValeurObjet { get => valeurObjet; set => valeurObjet = value; }
         public string DescriptionObjet { get => descriptionObjet; set => descriptionObjet = value; }
+        public string DescriptionCourteObjet { get => descriptionCourteObjet; set => descriptionCourteObjet = value; }
         public string TypeObjet { get => typeObjet; set => typeObjet = value; }
         public string ConsommationObjet { get => consommableObjet; set => consommableObjet = value; }
         public string SpecialObjet { get => specialObjet; set => specialObjet = value; }
@@ -56,9 +58,10 @@ namespace maFichePersonnageJDR.Model
                         objetsModel.PoidsObjet = reader.GetDouble(2);
                         objetsModel.ValeurObjet = reader.GetInt32(3);
                         objetsModel.DescriptionObjet = reader.GetString(4);
-                        objetsModel.TypeObjet = reader.GetString(5);
-                        objetsModel.ConsommationObjet = reader.GetString(6);
-                        objetsModel.SpecialObjet = reader.GetString(7);
+                        objetsModel.DescriptionCourteObjet = reader.GetString(5);
+                        objetsModel.TypeObjet = reader.GetString(6);
+                        objetsModel.ConsommationObjet = reader.GetString(7);
+                        objetsModel.SpecialObjet = reader.GetString(8);
 
                         objetsModels.Add(objetsModel);
                     }

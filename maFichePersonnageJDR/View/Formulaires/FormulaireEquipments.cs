@@ -68,7 +68,8 @@ namespace maFichePersonnageJDR.Formulaires
             }
             catch (Exception e)
             {
-                throw e;
+                Console.WriteLine(e.Message);
+                throw;
             }
 
             Console.WriteLine("########### FIN Méthode GetArmes ###########");
@@ -554,7 +555,7 @@ namespace maFichePersonnageJDR.Formulaires
                 lblPoidsEnPlusObjets.Text = poids.ToString();
 
                 int indexToDelete = Utils.GetLineNumberToDelete(idObjet, rTxtBxObjets);
-                int indexToDeleteApercuObjet = Utils.GetLineNumberToDelete(nomObjet, rTxtBxObjets);
+                int indexToDeleteApercuObjet = Utils.GetLineNumberToDelete(nomObjet, rtbAcheterObjets);
 
                 // FR : On récupère toutes les lignes sous la forme d'une liste
                 // EN : All rows are retrieved in the form of a list

@@ -29,7 +29,7 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 foreach (TabPage page in tbCntlMagie.TabPages)
                 {
-                    Controller.MagieController.GetMagiesByType(page.Text, tbCntlMagie, page);
+                    Controller.MagieController.GetMagiesByType(page.Text, tbCntlMagie, page, Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage));
                 }
             }
             catch (Exception e)
@@ -236,6 +236,14 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else
             {
+                int indexDelete = Utils.GetLineNumberToDelete(nomMagie, rtbMagies);
+
+                List<string> lines = new List<string>(rtbMagies.Lines);
+
+                lines.RemoveAt(indexDelete);
+
+                rtbMagies.Lines = lines.ToArray();
+                    
                 DisableOrCheckBox(tbCntlAptitudes, tbCntlMagie);
             }
         }
@@ -259,6 +267,14 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else
             {
+                int indexDelete = Utils.GetLineNumberToDelete(nomAptitude, rtbAptitudes);
+
+                List<string> lines = new List<string>(rtbAptitudes.Lines);
+
+                lines.RemoveAt(indexDelete);
+
+                rtbAptitudes.Lines = lines.ToArray();
+
                 DisableOrCheckBox(tbCntlAptitudes, tbCntlMagie);
             }
         }
@@ -266,7 +282,7 @@ namespace maFichePersonnageJDR.Formulaires
         public void DisableOrCheckBox(TabControl tbControlAptitudes, TabControl tbControlMagies)
         {
             int nbCheckBoxChecked = 0;
-            int nbAttributParNiveau = MagieAptitudesLimitationByLevel(GlobaleVariables.IdPersonnage);
+            int nbAttributParNiveau = MagieAptitudesLimitationByLevel(PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage));
 
             /// Parcours des aptitudes
             foreach (TabPage page in tbControlAptitudes.TabPages)
@@ -438,8 +454,7 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 if (!String.IsNullOrEmpty(line))
                 {
-                    string[] substring = line.Split(';');
-                    AptitudesController.AddNewAptitudeToPersonnage(AptitudesController.GetIdAptitudeByName(Utils.DeleteCharacterFromString(line, "\n", " ")),
+                    AptitudesController.AddNewAptitudeToPersonnage(AptitudesController.GetIdAptitudeByName(line),
                     GlobaleVariables.IdPersonnage);
                 }
             }

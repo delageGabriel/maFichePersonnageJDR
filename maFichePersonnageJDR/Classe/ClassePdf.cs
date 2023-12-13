@@ -196,7 +196,7 @@ namespace maFichePersonnageJDR.Classe
             List<string> nomsAttribut = Controller.AttributsController.GetListNomAttributs(idPersonnage);
             List<string> descriptionsAttribut = Controller.AttributsController.GetListDescriptionAttributs(idPersonnage);
             List<string> typesAttribut = Controller.AttributsController.GetListTypeAttributs(idPersonnage);
-            List<string> notesAttributs = Controller.AttributsController.GetListNoteAttributs(idPersonnage);
+            List<string> notesAttributs = Controller.AttributsController.GetListSpecificationsAttributs(idPersonnage);
             #endregion
 
             PdfPTable attributesTable = new PdfPTable(4);
@@ -375,7 +375,6 @@ namespace maFichePersonnageJDR.Classe
             List<double> poidsArmures = Controller.EquipmentController.GetListPoidsArmures(idPersonnage);
             List<string> valeurArmures = Controller.EquipmentController.GetListValeurArmures(idPersonnage);
             List<string> protectionsArmures = Controller.EquipmentController.GetListProtectionArmures(idPersonnage);
-            List<string> bonusArmures = Controller.EquipmentController.GetListBonusArmures(idPersonnage);
             List<string> specialsArmures = Controller.EquipmentController.GetListSpecialArmures(idPersonnage);
             #endregion
 
@@ -399,7 +398,6 @@ namespace maFichePersonnageJDR.Classe
                 armuresTable.AddCell(poidsArmures[i].ToString() + " kg");
                 armuresTable.AddCell(valeurArmures[i]);
                 armuresTable.AddCell(protectionsArmures[i]);
-                armuresTable.AddCell(bonusArmures[i]);
             }
 
             document.Add(armuresTable);

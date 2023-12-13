@@ -20,6 +20,7 @@ namespace maFichePersonnageJDR.Model
         private string degatsArmes;
         private int valeurArme;
         private string descriptionArme;
+        private string descriptionCourteArme;
         private string specialArme;
 
         /// <summary>
@@ -35,6 +36,7 @@ namespace maFichePersonnageJDR.Model
         public string DegatsArmes { get => degatsArmes; set => degatsArmes = value; }
         public int ValeurArme { get => valeurArme; set => valeurArme = value; }
         public string DescriptionArme { get => descriptionArme; set => descriptionArme = value; }
+        public string DescriptionCourteArme { get => descriptionCourteArme; set => descriptionCourteArme = value; }
         public string SpecialArme { get => specialArme; set => specialArme = value; }
 
         /// <summary>
@@ -70,7 +72,8 @@ namespace maFichePersonnageJDR.Model
                         armeModel.DegatsArmes = reader.GetString(7);
                         armeModel.ValeurArme = reader.GetInt32(8);
                         armeModel.DescriptionArme = reader.GetString(9);
-                        armeModel.SpecialArme = reader.GetString(10);
+                        armeModel.DescriptionCourteArme = reader.GetString(10);
+                        armeModel.SpecialArme = reader.GetString(11);
 
                         armesModels.Add(armeModel);
                     }
@@ -114,7 +117,8 @@ namespace maFichePersonnageJDR.Model
                         arme.DegatsArmes = reader.GetString(7);
                         arme.ValeurArme = reader.GetInt32(8);
                         arme.DescriptionArme = reader.GetString(9);
-                        arme.SpecialArme = reader.GetString(10);
+                        arme.DescriptionCourteArme = reader.GetString(10);
+                        arme.SpecialArme = reader.GetString(11);
 
                         armeModel = arme;
                     }

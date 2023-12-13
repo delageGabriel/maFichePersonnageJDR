@@ -33,7 +33,8 @@ namespace maFichePersonnageJDR.Model
         /// </summary>
         /// <param name="typeMagie">le type d'arme</param>
         /// <returns>la liste d'armes</returns>
-        public List<MagieModel> GetMagieModels(string typeMagie)
+
+        public List<MagieModel> GetMagieModelsByTypeAndNiveau(string typeMagie, int niveauPersonnage)
         {
             #region Initialisation variables
             List<MagieModel> magieModels = new List<MagieModel>();
@@ -42,8 +43,10 @@ namespace maFichePersonnageJDR.Model
             try
             {
                 // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT * FROM MAGIE WHERE type_magie = @typeMagie", DatabaseConnection.Instance.GetConnection());
+                SQLiteCommand command = new SQLiteCommand("SELECT id_magie, nom_magie, type_magie, descr_magie, cout_magie, niveau_magie " +
+                    "FROM MAGIE WHERE type_magie = @typeMagie AND niveau_magie <= @niveauPersonnage", DatabaseConnection.Instance.GetConnection());
                 command.Parameters.AddWithValue("@typeMagie", typeMagie);
+                command.Parameters.AddWithValue("@niveauPersonnage", niveauPersonnage);
 
                 using (SQLiteDataReader reader = command.ExecuteReader())
                 {

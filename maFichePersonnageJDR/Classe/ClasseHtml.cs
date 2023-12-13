@@ -254,6 +254,8 @@ namespace maFichePersonnageJDR.Classe
                             <th style=""white-space:nowrap"">Type(s) de dégât(s)</th>
                             <th style=""white-space:nowrap"">Dégâts</th>
                             <th style=""white-space:nowrap"">Valeur monétaire</th>
+                            <th style=""white-space:nowrap"">Spécial</th>
+                            <th style=""white-space:nowrap"">Quantité</th>
                         </tr>
                     </thead>
                     <tbody>{23}
@@ -268,7 +270,8 @@ namespace maFichePersonnageJDR.Classe
                             <th style=""white-space:nowrap"">Poids(kg)</th>
                             <th style=""white-space:nowrap"">Valeur monétaire</th>
                             <th style=""white-space:nowrap"">Protection</th>
-                            <th style=""white-space:nowrap"">Bonus</th>
+                            <th style=""white-space:nowrap"">Spécial</th>
+                            <th style=""white-space:nowrap"">Quantité</th>
                         </tr>
                     </thead>
                     <tbody>{24}
@@ -283,6 +286,8 @@ namespace maFichePersonnageJDR.Classe
                             <th style=""white-space:nowrap"">Poids(kg)</th>
                             <th style=""white-space:nowrap"">Valeur monétaire</th>
                             <th style=""white-space:nowrap"">Consommable</th>
+                            <th style=""white-space:nowrap"">Spécial</th>
+                            <th style=""white-space:nowrap"">Quantité</th>
                         </tr>
                     </thead>
                     <tbody>{25}
@@ -317,6 +322,7 @@ namespace maFichePersonnageJDR.Classe
                             <th style=""white-space:nowrap"">Type</th>
                             <th style=""white-space:nowrap"">Nom</th>
                             <th style=""white-space:nowrap"">Coût (moyen)</th>
+                            <th style=""white-space:nowrap"">Description</th>
                         </tr>
                     </thead>
                     <tbody>{28}
@@ -329,6 +335,7 @@ namespace maFichePersonnageJDR.Classe
                             <th style=""white-space:nowrap"">Type</th>
                             <th style=""white-space:nowrap"">Nom</th>
                             <th style=""white-space:nowrap"">Coût (moyen)</th>
+                            <th style=""white-space:nowrap"">Description</th>
                         </tr>
                     </thead>
                     <tbody>{29}
@@ -396,7 +403,7 @@ namespace maFichePersonnageJDR.Classe
             List<string> nomsAttribut = Controller.AttributsController.GetListNomAttributs(idPersonnage);
             List<string> descriptionsAttribut = Controller.AttributsController.GetListDescriptionAttributs(idPersonnage);
             List<string> typesAttribut = Controller.AttributsController.GetListTypeAttributs(idPersonnage);
-            List<string> notesAttributs = Controller.AttributsController.GetListNoteAttributs(idPersonnage);
+            List<string> specificationsAttribut = Controller.AttributsController.GetListSpecificationsAttributs(idPersonnage);
             #endregion
 
             // Pour chaque attribut on créait une ligne dans le tableau
@@ -407,7 +414,7 @@ namespace maFichePersonnageJDR.Classe
                     $"                          <td style=\"border:1px solid #dddddd;padding:8px;white-space:nowrap\">{nomsAttribut[i]}</td>\n" +
                     $"                          <td style=\"border:1px solid #dddddd;padding:8px;white-space:nowrap\">{descriptionsAttribut[i]}</td>\n" +
                     $"                          <td style=\"border:1px solid #dddddd;padding:8px;white-space:nowrap\">{typesAttribut[i]}</td>\n" +
-                    $"                          <td style=\"border:1px solid #dddddd;padding:8px;white-space:nowrap\">{notesAttributs[i]}</td>\n" +
+                    $"                          <td style=\"border:1px solid #dddddd;padding:8px;white-space:nowrap\">{specificationsAttribut[i]}</td>\n" +
                     $"                      </tr>\n";
             }
 
@@ -427,7 +434,7 @@ namespace maFichePersonnageJDR.Classe
             #region Initialisation des variables
             int[] baseCompPhys = Controller.CompetencesCaracteristiquesController.GetBaseCompetencePhysique(idPersonnage);
             string[] listeCompPhy = { "Agilité", "Artisanat", "Crochetage", "Discrétion", "Équilibre","Équitation", "Escalade", "Escamotage", "Force", "Fouille", 
-                "Natation", "Réflexes", "Vigueur" };
+                "Lutte", "Natation", "Réflexes", "Vigueur" };
 
             #endregion
 
@@ -456,7 +463,7 @@ namespace maFichePersonnageJDR.Classe
             #region Initialisation des variables
             int[] baseCompMen = Controller.CompetencesCaracteristiquesController.GetBaseCompetenceMental(idPersonnage);
             string[] listeCompMen = { "Concentration", "Connaissance géographiques", "Connaissance historiques", "Connaissance magiques",
-                "Connaissance natures", "Connaissance religieuses", "Décryptage", "Esprit", "Explosifs", "Mécanique", "Médecine", "Mémoire", "Orientation",
+                "Connaissance natures", "Connaissance religieuses", "Esprit", "Explosifs", "Mécanique", "Médecine", "Mémoire", "Orientation",
                 "Perception", "Volonté" };
 
             #endregion
@@ -521,6 +528,8 @@ namespace maFichePersonnageJDR.Classe
             List<string> typesDegatsArmes = Controller.EquipmentController.GetListTypeDegatsArmes(idPersonnage);
             List<string> degatsArmes = Controller.EquipmentController.GetListDegatsArmes(idPersonnage);
             List<string> valeurArmes = Controller.EquipmentController.GetListValeurArmes(idPersonnage);
+            List<string> specialArmes = Controller.EquipmentController.GetListSpecialArmes(idPersonnage);
+            List<int> quantities = Controller.EquipmentController.GetListQuantityArmes(idPersonnage);
             #endregion
 
             for (int i = 0; i < typesArmes.Count; i++)
@@ -535,6 +544,8 @@ namespace maFichePersonnageJDR.Classe
                     $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{typesDegatsArmes[i]}</td>\n" +
                     $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">[[/r {degatsArmes[i]}]]</td>\n" +
                     $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{valeurArmes[i]}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">[[/r 0 #{specialArmes[i]}]]</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{quantities[i]}</td>\n" +
                     $"                          </tr>\n";
             }
 
@@ -557,8 +568,8 @@ namespace maFichePersonnageJDR.Classe
             List<double> poidsArmures = Controller.EquipmentController.GetListPoidsArmures(idPersonnage);
             List<string> valeurArmures = Controller.EquipmentController.GetListValeurArmures(idPersonnage);
             List<string> protectionsArmures = Controller.EquipmentController.GetListProtectionArmures(idPersonnage);
-            List<string> bonusArmures = Controller.EquipmentController.GetListBonusArmures(idPersonnage);
             List<string> specialsArmures = Controller.EquipmentController.GetListSpecialArmures(idPersonnage);
+            List<int> quantities = Controller.EquipmentController.GetListQuantityArmures(idPersonnage);
             #endregion
 
             for (int i = 0; i < typesArmures.Count; i++)
@@ -570,7 +581,8 @@ namespace maFichePersonnageJDR.Classe
                     $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{poidsArmures[i]}</td>\n" +
                     $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{valeurArmures[i]}</td>\n" +
                     $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{protectionsArmures[i]}</td>\n" +
-                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{bonusArmures[i]}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">[[/r 0 #{specialsArmures[i]}]]</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{quantities[i]}</td>\n" +
                     $"                          </tr>\n";
             }
 
@@ -593,6 +605,8 @@ namespace maFichePersonnageJDR.Classe
             List<double> poidsObjets = Controller.EquipmentController.GetListPoidsObjets(idPersonnage);
             List<string> valeursObjets = Controller.EquipmentController.GetListValeurObjets(idPersonnage);
             List<string> consommablesObjets = Controller.EquipmentController.GetListConsommableObjets(idPersonnage);
+            List<string> specialObjets = Controller.EquipmentController.GetListSpecialObjets(idPersonnage);
+            List<int> quantiteObjets = Controller.EquipmentController.GetListQuantityItems(idPersonnage);
             #endregion
 
             for (int i = 0; i < typesObjets.Count; i++)
@@ -604,6 +618,8 @@ namespace maFichePersonnageJDR.Classe
                     $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{poidsObjets[i]}</td>\n" +
                     $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{valeursObjets[i]}</td>\n" +
                     $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{consommablesObjets[i]}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">[[/r 0 #{specialObjets[i]}]]</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{quantiteObjets[i]}</td>\n" +
                     $"                          </tr>\n";
             }
 
@@ -621,9 +637,10 @@ namespace maFichePersonnageJDR.Classe
             string tableMagiesHtml = string.Empty;
 
             #region Initialisation des variables
-            List<string> typesMagies = Controller.MagieController.GetListNomMagie(idPersonnage);
-            List<string> nomsMagies = Controller.MagieController.GetListTypeMagie(idPersonnage);
+            List<string> typesMagies = Controller.MagieController.GetListTypeMagie(idPersonnage);
+            List<string> nomsMagies = Controller.MagieController.GetListNomMagie(idPersonnage);
             List<int> coutsMagies = Controller.MagieController.GetListCoutMagie(idPersonnage);
+            List<string> descrMagies = Controller.MagieController.GetListDescrMagie(idPersonnage);
             #endregion
 
             for (int i = 0; i < typesMagies.Count; i++)
@@ -633,6 +650,7 @@ namespace maFichePersonnageJDR.Classe
                     $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{typesMagies[i]}</td>\n" +
                     $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{nomsMagies[i]}</td>\n" +
                     $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{coutsMagies[i]}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">[[/r 0 #{descrMagies[i]}]]</td>\n" +
                     $"                          </tr>\n";
             }
 
@@ -653,6 +671,7 @@ namespace maFichePersonnageJDR.Classe
             List<string> typesAptitudes = Controller.AptitudesController.GetListTypeAptitude(idPersonnage);
             List<string> nomsAptitudes = Controller.AptitudesController.GetListNomAptitude(idPersonnage);
             List<int> coutsAptitudes = Controller.AptitudesController.GetListCoutAptitude(idPersonnage);
+            List<string> descrAptitudes = Controller.AptitudesController.GetListDescrAptitude(idPersonnage);
             #endregion
 
             for (int i = 0; i < typesAptitudes.Count; i++)
@@ -662,6 +681,7 @@ namespace maFichePersonnageJDR.Classe
                     $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{typesAptitudes[i]}</td>\n" +
                     $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{nomsAptitudes[i]}</td>\n" +
                     $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{coutsAptitudes[i]}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">[[/r 0 #{descrAptitudes[i]}]]</td>\n" +
                     $"                          </tr>\n";
             }
 

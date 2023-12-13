@@ -42,20 +42,20 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.chkCeleste = new System.Windows.Forms.CheckBox();
             this.chkIgnee = new System.Windows.Forms.CheckBox();
             this.chkAquatique = new System.Windows.Forms.CheckBox();
-            this.pnlAvntgeTerrains = new System.Windows.Forms.Panel();
-            this.chkGrotte = new System.Windows.Forms.CheckBox();
-            this.chkVolcanique = new System.Windows.Forms.CheckBox();
-            this.chkMarecageux = new System.Windows.Forms.CheckBox();
-            this.chkInonde = new System.Windows.Forms.CheckBox();
-            this.chkGele = new System.Windows.Forms.CheckBox();
-            this.chkPluvieux = new System.Windows.Forms.CheckBox();
-            this.chkRuines = new System.Windows.Forms.CheckBox();
-            this.chkMontagneux = new System.Windows.Forms.CheckBox();
-            this.chkForestier = new System.Windows.Forms.CheckBox();
-            this.nudPourcentage = new System.Windows.Forms.NumericUpDown();
+            this.pnlPourcentage = new System.Windows.Forms.Panel();
+            this.chkCinquante = new System.Windows.Forms.CheckBox();
+            this.chkQuaranteCinq = new System.Windows.Forms.CheckBox();
+            this.chkQuarante = new System.Windows.Forms.CheckBox();
+            this.chkTrenteCinq = new System.Windows.Forms.CheckBox();
+            this.chkVingt = new System.Windows.Forms.CheckBox();
+            this.chkTrente = new System.Windows.Forms.CheckBox();
+            this.chkQuinze = new System.Windows.Forms.CheckBox();
+            this.chkVingtCinq = new System.Windows.Forms.CheckBox();
+            this.chkDix = new System.Windows.Forms.CheckBox();
+            this.nudNombre = new System.Windows.Forms.NumericUpDown();
             this.pnlMgie.SuspendLayout();
-            this.pnlAvntgeTerrains.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPourcentage)).BeginInit();
+            this.pnlPourcentage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNombre)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSpec
@@ -77,6 +77,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(155, 235);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
@@ -195,147 +196,153 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.chkAquatique.UseVisualStyleBackColor = true;
             this.chkAquatique.Click += new System.EventHandler(this.CheckBox_Click);
             // 
-            // pnlAvntgeTerrains
+            // pnlPourcentage
             // 
-            this.pnlAvntgeTerrains.BackColor = System.Drawing.Color.White;
-            this.pnlAvntgeTerrains.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlAvntgeTerrains.Controls.Add(this.chkGrotte);
-            this.pnlAvntgeTerrains.Controls.Add(this.chkVolcanique);
-            this.pnlAvntgeTerrains.Controls.Add(this.chkMarecageux);
-            this.pnlAvntgeTerrains.Controls.Add(this.chkInonde);
-            this.pnlAvntgeTerrains.Controls.Add(this.chkGele);
-            this.pnlAvntgeTerrains.Controls.Add(this.chkPluvieux);
-            this.pnlAvntgeTerrains.Controls.Add(this.chkRuines);
-            this.pnlAvntgeTerrains.Controls.Add(this.chkMontagneux);
-            this.pnlAvntgeTerrains.Controls.Add(this.chkForestier);
-            this.pnlAvntgeTerrains.Location = new System.Drawing.Point(19, 93);
-            this.pnlAvntgeTerrains.Name = "pnlAvntgeTerrains";
-            this.pnlAvntgeTerrains.Size = new System.Drawing.Size(258, 77);
-            this.pnlAvntgeTerrains.TabIndex = 8;
+            this.pnlPourcentage.BackColor = System.Drawing.Color.White;
+            this.pnlPourcentage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlPourcentage.Controls.Add(this.chkCinquante);
+            this.pnlPourcentage.Controls.Add(this.chkQuaranteCinq);
+            this.pnlPourcentage.Controls.Add(this.chkQuarante);
+            this.pnlPourcentage.Controls.Add(this.chkTrenteCinq);
+            this.pnlPourcentage.Controls.Add(this.chkVingt);
+            this.pnlPourcentage.Controls.Add(this.chkTrente);
+            this.pnlPourcentage.Controls.Add(this.chkQuinze);
+            this.pnlPourcentage.Controls.Add(this.chkVingtCinq);
+            this.pnlPourcentage.Controls.Add(this.chkDix);
+            this.pnlPourcentage.Location = new System.Drawing.Point(19, 93);
+            this.pnlPourcentage.Name = "pnlPourcentage";
+            this.pnlPourcentage.Size = new System.Drawing.Size(258, 77);
+            this.pnlPourcentage.TabIndex = 8;
             // 
-            // chkGrotte
+            // chkCinquante
             // 
-            this.chkGrotte.AccessibleDescription = "";
-            this.chkGrotte.AutoSize = true;
-            this.chkGrotte.Enabled = false;
-            this.chkGrotte.Location = new System.Drawing.Point(170, 49);
-            this.chkGrotte.Name = "chkGrotte";
-            this.chkGrotte.Size = new System.Drawing.Size(55, 17);
-            this.chkGrotte.TabIndex = 8;
-            this.chkGrotte.Text = "Grotte";
-            this.chkGrotte.UseVisualStyleBackColor = true;
-            this.chkGrotte.Visible = false;
-            this.chkGrotte.Click += new System.EventHandler(this.CheckBox_Click);
+            this.chkCinquante.AccessibleDescription = "";
+            this.chkCinquante.AutoSize = true;
+            this.chkCinquante.Enabled = false;
+            this.chkCinquante.Location = new System.Drawing.Point(170, 49);
+            this.chkCinquante.Name = "chkCinquante";
+            this.chkCinquante.Size = new System.Drawing.Size(38, 17);
+            this.chkCinquante.TabIndex = 8;
+            this.chkCinquante.Text = "50";
+            this.chkCinquante.UseVisualStyleBackColor = true;
+            this.chkCinquante.Visible = false;
+            this.chkCinquante.Click += new System.EventHandler(this.CheckBox_Click);
             // 
-            // chkVolcanique
+            // chkQuaranteCinq
             // 
-            this.chkVolcanique.AccessibleDescription = "";
-            this.chkVolcanique.AutoSize = true;
-            this.chkVolcanique.Location = new System.Drawing.Point(91, 49);
-            this.chkVolcanique.Name = "chkVolcanique";
-            this.chkVolcanique.Size = new System.Drawing.Size(79, 17);
-            this.chkVolcanique.TabIndex = 7;
-            this.chkVolcanique.Text = "Volcanique";
-            this.chkVolcanique.UseVisualStyleBackColor = true;
-            this.chkVolcanique.Click += new System.EventHandler(this.CheckBox_Click);
+            this.chkQuaranteCinq.AccessibleDescription = "";
+            this.chkQuaranteCinq.AutoSize = true;
+            this.chkQuaranteCinq.Location = new System.Drawing.Point(91, 49);
+            this.chkQuaranteCinq.Name = "chkQuaranteCinq";
+            this.chkQuaranteCinq.Size = new System.Drawing.Size(38, 17);
+            this.chkQuaranteCinq.TabIndex = 7;
+            this.chkQuaranteCinq.Text = "45";
+            this.chkQuaranteCinq.UseVisualStyleBackColor = true;
+            this.chkQuaranteCinq.Click += new System.EventHandler(this.CheckBox_Click);
             // 
-            // chkMarecageux
+            // chkQuarante
             // 
-            this.chkMarecageux.AutoSize = true;
-            this.chkMarecageux.Location = new System.Drawing.Point(3, 49);
-            this.chkMarecageux.Name = "chkMarecageux";
-            this.chkMarecageux.Size = new System.Drawing.Size(85, 17);
-            this.chkMarecageux.TabIndex = 6;
-            this.chkMarecageux.Text = "Marécageux";
-            this.chkMarecageux.UseVisualStyleBackColor = true;
-            this.chkMarecageux.Click += new System.EventHandler(this.CheckBox_Click);
+            this.chkQuarante.AutoSize = true;
+            this.chkQuarante.Location = new System.Drawing.Point(3, 49);
+            this.chkQuarante.Name = "chkQuarante";
+            this.chkQuarante.Size = new System.Drawing.Size(38, 17);
+            this.chkQuarante.TabIndex = 6;
+            this.chkQuarante.Text = "40";
+            this.chkQuarante.UseVisualStyleBackColor = true;
+            this.chkQuarante.Click += new System.EventHandler(this.CheckBox_Click);
             // 
-            // chkInonde
+            // chkTrenteCinq
             // 
-            this.chkInonde.AccessibleDescription = "";
-            this.chkInonde.AutoSize = true;
-            this.chkInonde.Location = new System.Drawing.Point(170, 26);
-            this.chkInonde.Name = "chkInonde";
-            this.chkInonde.Size = new System.Drawing.Size(59, 17);
-            this.chkInonde.TabIndex = 5;
-            this.chkInonde.Text = "Inondé";
-            this.chkInonde.UseVisualStyleBackColor = true;
-            this.chkInonde.Click += new System.EventHandler(this.CheckBox_Click);
+            this.chkTrenteCinq.AccessibleDescription = "";
+            this.chkTrenteCinq.AutoSize = true;
+            this.chkTrenteCinq.Location = new System.Drawing.Point(170, 26);
+            this.chkTrenteCinq.Name = "chkTrenteCinq";
+            this.chkTrenteCinq.Size = new System.Drawing.Size(38, 17);
+            this.chkTrenteCinq.TabIndex = 5;
+            this.chkTrenteCinq.Text = "35";
+            this.chkTrenteCinq.UseVisualStyleBackColor = true;
+            this.chkTrenteCinq.Click += new System.EventHandler(this.CheckBox_Click);
             // 
-            // chkGele
+            // chkVingt
             // 
-            this.chkGele.AccessibleDescription = "";
-            this.chkGele.AutoSize = true;
-            this.chkGele.Location = new System.Drawing.Point(170, 3);
-            this.chkGele.Name = "chkGele";
-            this.chkGele.Size = new System.Drawing.Size(48, 17);
-            this.chkGele.TabIndex = 4;
-            this.chkGele.Text = "Gelé";
-            this.chkGele.UseVisualStyleBackColor = true;
-            this.chkGele.Click += new System.EventHandler(this.CheckBox_Click);
+            this.chkVingt.AccessibleDescription = "";
+            this.chkVingt.AutoSize = true;
+            this.chkVingt.Location = new System.Drawing.Point(170, 3);
+            this.chkVingt.Name = "chkVingt";
+            this.chkVingt.Size = new System.Drawing.Size(38, 17);
+            this.chkVingt.TabIndex = 4;
+            this.chkVingt.Text = "20";
+            this.chkVingt.UseVisualStyleBackColor = true;
+            this.chkVingt.Click += new System.EventHandler(this.CheckBox_Click);
             // 
-            // chkPluvieux
+            // chkTrente
             // 
-            this.chkPluvieux.AccessibleDescription = "";
-            this.chkPluvieux.AutoSize = true;
-            this.chkPluvieux.Location = new System.Drawing.Point(91, 26);
-            this.chkPluvieux.Name = "chkPluvieux";
-            this.chkPluvieux.Size = new System.Drawing.Size(66, 17);
-            this.chkPluvieux.TabIndex = 3;
-            this.chkPluvieux.Text = "Pluvieux";
-            this.chkPluvieux.UseVisualStyleBackColor = true;
-            this.chkPluvieux.Click += new System.EventHandler(this.CheckBox_Click);
+            this.chkTrente.AccessibleDescription = "";
+            this.chkTrente.AutoSize = true;
+            this.chkTrente.Location = new System.Drawing.Point(91, 26);
+            this.chkTrente.Name = "chkTrente";
+            this.chkTrente.Size = new System.Drawing.Size(38, 17);
+            this.chkTrente.TabIndex = 3;
+            this.chkTrente.Text = "30";
+            this.chkTrente.UseVisualStyleBackColor = true;
+            this.chkTrente.Click += new System.EventHandler(this.CheckBox_Click);
             // 
-            // chkRuines
+            // chkQuinze
             // 
-            this.chkRuines.AutoSize = true;
-            this.chkRuines.Location = new System.Drawing.Point(91, 3);
-            this.chkRuines.Name = "chkRuines";
-            this.chkRuines.Size = new System.Drawing.Size(59, 17);
-            this.chkRuines.TabIndex = 2;
-            this.chkRuines.Text = "Ruines";
-            this.chkRuines.UseVisualStyleBackColor = true;
-            this.chkRuines.Click += new System.EventHandler(this.CheckBox_Click);
+            this.chkQuinze.AutoSize = true;
+            this.chkQuinze.Location = new System.Drawing.Point(91, 3);
+            this.chkQuinze.Name = "chkQuinze";
+            this.chkQuinze.Size = new System.Drawing.Size(38, 17);
+            this.chkQuinze.TabIndex = 2;
+            this.chkQuinze.Text = "15";
+            this.chkQuinze.UseVisualStyleBackColor = true;
+            this.chkQuinze.Click += new System.EventHandler(this.CheckBox_Click);
             // 
-            // chkMontagneux
+            // chkVingtCinq
             // 
-            this.chkMontagneux.AutoSize = true;
-            this.chkMontagneux.Location = new System.Drawing.Point(3, 26);
-            this.chkMontagneux.Name = "chkMontagneux";
-            this.chkMontagneux.Size = new System.Drawing.Size(85, 17);
-            this.chkMontagneux.TabIndex = 1;
-            this.chkMontagneux.Text = "Montagneux";
-            this.chkMontagneux.UseVisualStyleBackColor = true;
-            this.chkMontagneux.Click += new System.EventHandler(this.CheckBox_Click);
+            this.chkVingtCinq.AutoSize = true;
+            this.chkVingtCinq.Location = new System.Drawing.Point(3, 26);
+            this.chkVingtCinq.Name = "chkVingtCinq";
+            this.chkVingtCinq.Size = new System.Drawing.Size(38, 17);
+            this.chkVingtCinq.TabIndex = 1;
+            this.chkVingtCinq.Text = "25";
+            this.chkVingtCinq.UseVisualStyleBackColor = true;
+            this.chkVingtCinq.Click += new System.EventHandler(this.CheckBox_Click);
             // 
-            // chkForestier
+            // chkDix
             // 
-            this.chkForestier.AutoSize = true;
-            this.chkForestier.Location = new System.Drawing.Point(3, 3);
-            this.chkForestier.Name = "chkForestier";
-            this.chkForestier.Size = new System.Drawing.Size(66, 17);
-            this.chkForestier.TabIndex = 0;
-            this.chkForestier.Text = "Forestier";
-            this.chkForestier.UseVisualStyleBackColor = true;
-            this.chkForestier.Click += new System.EventHandler(this.CheckBox_Click);
+            this.chkDix.AutoSize = true;
+            this.chkDix.Location = new System.Drawing.Point(3, 3);
+            this.chkDix.Name = "chkDix";
+            this.chkDix.Size = new System.Drawing.Size(38, 17);
+            this.chkDix.TabIndex = 0;
+            this.chkDix.Text = "10";
+            this.chkDix.UseVisualStyleBackColor = true;
+            this.chkDix.Click += new System.EventHandler(this.CheckBox_Click);
             // 
-            // nudPourcentage
+            // nudNombre
             // 
-            this.nudPourcentage.Enabled = false;
-            this.nudPourcentage.Location = new System.Drawing.Point(19, 176);
-            this.nudPourcentage.Name = "nudPourcentage";
-            this.nudPourcentage.Size = new System.Drawing.Size(258, 20);
-            this.nudPourcentage.TabIndex = 9;
-            this.nudPourcentage.ValueChanged += new System.EventHandler(this.nudPourcentage_ValueChanged);
+            this.nudNombre.Enabled = false;
+            this.nudNombre.Location = new System.Drawing.Point(19, 176);
+            this.nudNombre.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.nudNombre.Name = "nudNombre";
+            this.nudNombre.Size = new System.Drawing.Size(258, 20);
+            this.nudNombre.TabIndex = 9;
+            this.nudNombre.ValueChanged += new System.EventHandler(this.nudPourcentage_ValueChanged);
             // 
             // FormSpecificationAttributs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(293, 270);
-            this.Controls.Add(this.nudPourcentage);
-            this.Controls.Add(this.pnlAvntgeTerrains);
+            this.Controls.Add(this.nudNombre);
+            this.Controls.Add(this.pnlPourcentage);
             this.Controls.Add(this.pnlMgie);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
@@ -347,9 +354,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.Resize += new System.EventHandler(this.FormSpecificationAttributs_Resize);
             this.pnlMgie.ResumeLayout(false);
             this.pnlMgie.PerformLayout();
-            this.pnlAvntgeTerrains.ResumeLayout(false);
-            this.pnlAvntgeTerrains.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPourcentage)).EndInit();
+            this.pnlPourcentage.ResumeLayout(false);
+            this.pnlPourcentage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudNombre)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,16 +376,16 @@ namespace maFichePersonnageJDR.View.Formulaires
         private System.Windows.Forms.CheckBox chkCorrompue;
         private System.Windows.Forms.CheckBox chkNature;
         private System.Windows.Forms.CheckBox chkTerrestre;
-        private System.Windows.Forms.Panel pnlAvntgeTerrains;
-        private System.Windows.Forms.CheckBox chkVolcanique;
-        private System.Windows.Forms.CheckBox chkMarecageux;
-        private System.Windows.Forms.CheckBox chkInonde;
-        private System.Windows.Forms.CheckBox chkGele;
-        private System.Windows.Forms.CheckBox chkPluvieux;
-        private System.Windows.Forms.CheckBox chkRuines;
-        private System.Windows.Forms.CheckBox chkMontagneux;
-        private System.Windows.Forms.CheckBox chkForestier;
-        private System.Windows.Forms.CheckBox chkGrotte;
-        private System.Windows.Forms.NumericUpDown nudPourcentage;
+        private System.Windows.Forms.Panel pnlPourcentage;
+        private System.Windows.Forms.CheckBox chkQuaranteCinq;
+        private System.Windows.Forms.CheckBox chkQuarante;
+        private System.Windows.Forms.CheckBox chkTrenteCinq;
+        private System.Windows.Forms.CheckBox chkVingt;
+        private System.Windows.Forms.CheckBox chkTrente;
+        private System.Windows.Forms.CheckBox chkQuinze;
+        private System.Windows.Forms.CheckBox chkVingtCinq;
+        private System.Windows.Forms.CheckBox chkDix;
+        private System.Windows.Forms.CheckBox chkCinquante;
+        private System.Windows.Forms.NumericUpDown nudNombre;
     }
 }

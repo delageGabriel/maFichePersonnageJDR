@@ -90,8 +90,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.lblEsprit = new System.Windows.Forms.Label();
             this.nudCncention = new System.Windows.Forms.NumericUpDown();
             this.lblCncention = new System.Windows.Forms.Label();
-            this.nudDecryptage = new System.Windows.Forms.NumericUpDown();
-            this.lblDecryptage = new System.Windows.Forms.Label();
             this.nudConnReligieuses = new System.Windows.Forms.NumericUpDown();
             this.lblConnReligieuses = new System.Windows.Forms.Label();
             this.nudMagiques = new System.Windows.Forms.NumericUpDown();
@@ -135,6 +133,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.lblNbRepartitionComp = new System.Windows.Forms.Label();
             this.pnlPvEnergie = new System.Windows.Forms.Panel();
             this.pnlCaracteristiques = new System.Windows.Forms.Panel();
+            this.nudLutte = new System.Windows.Forms.NumericUpDown();
+            this.lblLutte = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudEnergie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSocial)).BeginInit();
@@ -164,7 +164,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.nudExplosifs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEsprit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCncention)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDecryptage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudConnReligieuses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMagiques)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudConnHistoriques)).BeginInit();
@@ -184,6 +183,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.nudCharme)).BeginInit();
             this.pnlPvEnergie.SuspendLayout();
             this.pnlCaracteristiques.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudLutte)).BeginInit();
             this.SuspendLayout();
             // 
             // nudEnergie
@@ -330,6 +330,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             // gbPhysique
             // 
             this.gbPhysique.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.gbPhysique.Controls.Add(this.nudLutte);
+            this.gbPhysique.Controls.Add(this.lblLutte);
             this.gbPhysique.Controls.Add(this.nudEquitation);
             this.gbPhysique.Controls.Add(this.lblEquitation);
             this.gbPhysique.Controls.Add(this.nudFouille);
@@ -394,7 +396,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudFouille
             // 
-            this.nudFouille.Location = new System.Drawing.Point(185, 25);
+            this.nudFouille.Location = new System.Drawing.Point(187, 25);
             this.nudFouille.Maximum = new decimal(new int[] {
             15,
             0,
@@ -414,7 +416,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // lblFouille
             // 
             this.lblFouille.AutoSize = true;
-            this.lblFouille.Location = new System.Drawing.Point(132, 26);
+            this.lblFouille.Location = new System.Drawing.Point(132, 27);
             this.lblFouille.Name = "lblFouille";
             this.lblFouille.Size = new System.Drawing.Size(37, 13);
             this.lblFouille.TabIndex = 86;
@@ -422,7 +424,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudVigueur
             // 
-            this.nudVigueur.Location = new System.Drawing.Point(185, 100);
+            this.nudVigueur.Location = new System.Drawing.Point(187, 125);
             this.nudVigueur.Maximum = new decimal(new int[] {
             15,
             0,
@@ -442,7 +444,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // lblVigueur
             // 
             this.lblVigueur.AutoSize = true;
-            this.lblVigueur.Location = new System.Drawing.Point(132, 102);
+            this.lblVigueur.Location = new System.Drawing.Point(134, 127);
             this.lblVigueur.Name = "lblVigueur";
             this.lblVigueur.Size = new System.Drawing.Size(43, 13);
             this.lblVigueur.TabIndex = 84;
@@ -450,7 +452,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudReflexes
             // 
-            this.nudReflexes.Location = new System.Drawing.Point(185, 75);
+            this.nudReflexes.Location = new System.Drawing.Point(187, 100);
             this.nudReflexes.Maximum = new decimal(new int[] {
             15,
             0,
@@ -470,7 +472,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // lblReflexes
             // 
             this.lblReflexes.AutoSize = true;
-            this.lblReflexes.Location = new System.Drawing.Point(130, 77);
+            this.lblReflexes.Location = new System.Drawing.Point(132, 102);
             this.lblReflexes.Name = "lblReflexes";
             this.lblReflexes.Size = new System.Drawing.Size(48, 13);
             this.lblReflexes.TabIndex = 82;
@@ -478,7 +480,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudNatation
             // 
-            this.nudNatation.Location = new System.Drawing.Point(185, 50);
+            this.nudNatation.Location = new System.Drawing.Point(187, 75);
             this.nudNatation.Maximum = new decimal(new int[] {
             15,
             0,
@@ -498,7 +500,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // lblNatation
             // 
             this.lblNatation.AutoSize = true;
-            this.lblNatation.Location = new System.Drawing.Point(130, 52);
+            this.lblNatation.Location = new System.Drawing.Point(132, 77);
             this.lblNatation.Name = "lblNatation";
             this.lblNatation.Size = new System.Drawing.Size(47, 13);
             this.lblNatation.TabIndex = 80;
@@ -749,8 +751,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.gbMental.Controls.Add(this.lblEsprit);
             this.gbMental.Controls.Add(this.nudCncention);
             this.gbMental.Controls.Add(this.lblCncention);
-            this.gbMental.Controls.Add(this.nudDecryptage);
-            this.gbMental.Controls.Add(this.lblDecryptage);
             this.gbMental.Controls.Add(this.nudConnReligieuses);
             this.gbMental.Controls.Add(this.lblConnReligieuses);
             this.gbMental.Controls.Add(this.nudMagiques);
@@ -911,7 +911,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudMecanique
             // 
-            this.nudMecanique.Location = new System.Drawing.Point(165, 250);
+            this.nudMecanique.Location = new System.Drawing.Point(165, 225);
             this.nudMecanique.Maximum = new decimal(new int[] {
             15,
             0,
@@ -931,7 +931,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // lblMecanique
             // 
             this.lblMecanique.AutoSize = true;
-            this.lblMecanique.Location = new System.Drawing.Point(6, 252);
+            this.lblMecanique.Location = new System.Drawing.Point(6, 227);
             this.lblMecanique.Name = "lblMecanique";
             this.lblMecanique.Size = new System.Drawing.Size(60, 13);
             this.lblMecanique.TabIndex = 84;
@@ -939,7 +939,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudExplosifs
             // 
-            this.nudExplosifs.Location = new System.Drawing.Point(165, 225);
+            this.nudExplosifs.Location = new System.Drawing.Point(165, 200);
             this.nudExplosifs.Maximum = new decimal(new int[] {
             15,
             0,
@@ -959,7 +959,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // lblExplosifs
             // 
             this.lblExplosifs.AutoSize = true;
-            this.lblExplosifs.Location = new System.Drawing.Point(5, 227);
+            this.lblExplosifs.Location = new System.Drawing.Point(5, 202);
             this.lblExplosifs.Name = "lblExplosifs";
             this.lblExplosifs.Size = new System.Drawing.Size(48, 13);
             this.lblExplosifs.TabIndex = 82;
@@ -967,7 +967,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // nudEsprit
             // 
-            this.nudEsprit.Location = new System.Drawing.Point(165, 200);
+            this.nudEsprit.Location = new System.Drawing.Point(165, 175);
             this.nudEsprit.Maximum = new decimal(new int[] {
             15,
             0,
@@ -987,7 +987,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // lblEsprit
             // 
             this.lblEsprit.AutoSize = true;
-            this.lblEsprit.Location = new System.Drawing.Point(5, 202);
+            this.lblEsprit.Location = new System.Drawing.Point(5, 177);
             this.lblEsprit.Name = "lblEsprit";
             this.lblEsprit.Size = new System.Drawing.Size(33, 13);
             this.lblEsprit.TabIndex = 80;
@@ -1020,34 +1020,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.lblCncention.Size = new System.Drawing.Size(73, 13);
             this.lblCncention.TabIndex = 78;
             this.lblCncention.Text = "Concentration";
-            // 
-            // nudDecryptage
-            // 
-            this.nudDecryptage.Location = new System.Drawing.Point(165, 175);
-            this.nudDecryptage.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.nudDecryptage.Minimum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            -2147483648});
-            this.nudDecryptage.Name = "nudDecryptage";
-            this.nudDecryptage.Size = new System.Drawing.Size(41, 20);
-            this.nudDecryptage.TabIndex = 75;
-            this.nudDecryptage.Tag = "Mental";
-            this.nudDecryptage.ValueChanged += new System.EventHandler(this.nudCompMen_ValueChanged);
-            // 
-            // lblDecryptage
-            // 
-            this.lblDecryptage.AutoSize = true;
-            this.lblDecryptage.Location = new System.Drawing.Point(5, 177);
-            this.lblDecryptage.Name = "lblDecryptage";
-            this.lblDecryptage.Size = new System.Drawing.Size(62, 13);
-            this.lblDecryptage.TabIndex = 77;
-            this.lblDecryptage.Text = "Décryptage";
             // 
             // nudConnReligieuses
             // 
@@ -1191,7 +1163,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // gbSocial
             // 
-            this.gbSocial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.gbSocial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.gbSocial.Controls.Add(this.nudRepresentation);
             this.gbSocial.Controls.Add(this.nudCommandement);
             this.gbSocial.Controls.Add(this.lblRepresentation);
@@ -1578,7 +1550,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.btnAddPtsPhy.Name = "btnAddPtsPhy";
             this.btnAddPtsPhy.Size = new System.Drawing.Size(90, 23);
             this.btnAddPtsPhy.TabIndex = 51;
-            this.btnAddPtsPhy.Text = "Ajouter 5 points";
+            this.btnAddPtsPhy.Text = "Ajouter 6 points";
             this.btnAddPtsPhy.UseVisualStyleBackColor = true;
             this.btnAddPtsPhy.Visible = false;
             this.btnAddPtsPhy.Click += new System.EventHandler(this.btnAddPtsPhy_Click);
@@ -1646,6 +1618,33 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.pnlCaracteristiques.Size = new System.Drawing.Size(200, 73);
             this.pnlCaracteristiques.TabIndex = 56;
             // 
+            // nudLutte
+            // 
+            this.nudLutte.Location = new System.Drawing.Point(187, 50);
+            this.nudLutte.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.nudLutte.Minimum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            -2147483648});
+            this.nudLutte.Name = "nudLutte";
+            this.nudLutte.Size = new System.Drawing.Size(41, 20);
+            this.nudLutte.TabIndex = 89;
+            this.nudLutte.Tag = "Physique";
+            // 
+            // lblLutte
+            // 
+            this.lblLutte.AutoSize = true;
+            this.lblLutte.Location = new System.Drawing.Point(132, 52);
+            this.lblLutte.Name = "lblLutte";
+            this.lblLutte.Size = new System.Drawing.Size(31, 13);
+            this.lblLutte.TabIndex = 90;
+            this.lblLutte.Text = "Lutte";
+            // 
             // FormulaireCompetencesCaracteristiques
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1701,7 +1700,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.nudExplosifs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEsprit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCncention)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDecryptage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudConnReligieuses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMagiques)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudConnHistoriques)).EndInit();
@@ -1724,6 +1722,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.pnlPvEnergie.PerformLayout();
             this.pnlCaracteristiques.ResumeLayout(false);
             this.pnlCaracteristiques.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudLutte)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1771,8 +1770,6 @@ namespace maFichePersonnageJDR.View.Formulaires
         private System.Windows.Forms.Label lblVigueur;
         private System.Windows.Forms.NumericUpDown nudCncention;
         private System.Windows.Forms.Label lblCncention;
-        private System.Windows.Forms.NumericUpDown nudDecryptage;
-        private System.Windows.Forms.Label lblDecryptage;
         private System.Windows.Forms.NumericUpDown nudConnReligieuses;
         private System.Windows.Forms.Label lblConnReligieuses;
         private System.Windows.Forms.NumericUpDown nudMagiques;
@@ -1836,5 +1833,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         private System.Windows.Forms.Label lblCommandement;
         private System.Windows.Forms.NumericUpDown nudEquitation;
         private System.Windows.Forms.Label lblEquitation;
+        private System.Windows.Forms.NumericUpDown nudLutte;
+        private System.Windows.Forms.Label lblLutte;
     }
 }

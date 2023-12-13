@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using maFichePersonnageJDR.Classe;
 using maFichePersonnageJDR.Controller;
@@ -13,20 +14,9 @@ namespace maFichePersonnageJDR.View.Formulaires
 {
     public partial class FormulaireAttributs : Form
     {
-        private string[] lstAttributsCheck = {
-            "Alifère",
-            "Armure naturelle",
-            "Avantage du terrain",
-            "Canaliseur",
-            "Frigifugé",
-            "Gigantisme",
-            "Ignifugé",
-            "Magicien",
-            "Porteur de charges lourdes"
-        };
-
         private Dictionary<Control, Rectangle> dictionaryControlOriginalSize = new Dictionary<Control, Rectangle>();
         private Dictionary<int, Tuple<string, string, string, string>> dictionaryAttributes = new Dictionary<int, Tuple<string, string, string, string>>();
+        private Dictionary<string, string> dictionaryOfSpecificationsAttributes = new Dictionary<string, string>();
 
         public FormulaireAttributs()
         {
@@ -35,7 +25,8 @@ namespace maFichePersonnageJDR.View.Formulaires
 
         private void FormulaireAttributs_Load(object sender, EventArgs e)
         {
-            GetAttributs();
+            DisplayAttributes();
+            dictionaryOfSpecificationsAttributes = AttributsController.GetAttributesWithSpecification();
 
             dictionaryControlOriginalSize.Add(this, new Rectangle(this.Location, this.Size));
             dictionaryControlOriginalSize.Add(tbControlAttributs, new Rectangle(tbControlAttributs.Location, tbControlAttributs.Size));
@@ -51,9 +42,9 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// <summary>
         /// Remplit chaque TabPages du TabControl Armes avec les armes correspondantes.
         /// </summary>
-        public void GetAttributs()
+        public void DisplayAttributes()
         {
-            Console.WriteLine("########### Classe : FormulaireAttributs; Méthode : GetAttributs; ###########");
+            Console.WriteLine("########### Classe : FormulaireAttributs; Méthode : DisplayAttributes; ###########");
             dictionaryAttributes = AttributsController.GetAttributes();
 
             // Coordonnées contrôles
@@ -111,64 +102,8 @@ namespace maFichePersonnageJDR.View.Formulaires
                             Name = "lnkLbl" + premiereValeur,
                             Location = new Point(x, y),
                             Text = premiereValeur,
-                            Tag = premiereValeur
-                        };
-
-                        linkLabel.LinkClicked += linkLabelAttribut_LinkClicked;
-
-                        pageCorrespondante.Controls.Add(linkLabel);
-
-                        x = initialX;
-                        y += decalageY;
-                    }
-                }
-            }
-            // CAS TRI Z-A
-            else if (cbbTrier.SelectedIndex == 1)
-            {
-                var dictionaryTrie = dictionaryAttributes.OrderByDescending(kvp => kvp.Value.Item1);
-
-                foreach (KeyValuePair<int, Tuple<string, string, string, string>> item in dictionaryTrie)
-                {
-                    string premiereValeur = item.Value.Item1;
-                    char premiereLettre = premiereValeur[0];
-
-                    // Réinitialisation du Y si on change de page
-                    if (lettreCheck != premiereLettre)
-                    {
-                        y = initialY;
-                        lettreCheck = premiereLettre;
-                    }
-
-                    string tabPageName = "page" + premiereLettre.ToString().ToUpper();
-                    TabPage pageCorrespondante = tbControlAttributs.TabPages[tabPageName];
-
-                    if (pageCorrespondante != null)
-                    {
-                        // Création d'une CheckBox
-                        CheckBox checkBox = new CheckBox
-                        {
-                            Name = "chck" + premiereValeur,
-                            Location = new Point(x, y),
-                            Width = 20,
                             Tag = premiereValeur,
-                            Checked = CheckIfAttributeIsInRichTextBox(premiereValeur),
-                            Enabled = GlobaleVariables.IsEdit ? false : true
-                        };
-
-                        checkBox.Click += checkBox_Click;
-
-                        pageCorrespondante.Controls.Add(checkBox);
-
-                        x += checkBox.Width;
-                        y += 5;
-
-                        LinkLabel linkLabel = new LinkLabel
-                        {
-                            Name = "lnkLbl" + premiereValeur,
-                            Location = new Point(x, y),
-                            Text = premiereValeur,
-                            Tag = premiereValeur
+                            AutoSize = true
                         };
 
                         linkLabel.LinkClicked += linkLabelAttribut_LinkClicked;
@@ -180,7 +115,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                     }
                 }
             }
-            else if (cbbTrier.SelectedIndex == 2)
+            else if (cbbTrier.SelectedIndex == 1)
             {
                 var dictionaryTrie = dictionaryAttributes.OrderBy(kvp => kvp.Value.Item3).ThenBy(kvp => kvp.Value.Item1);
 
@@ -224,7 +159,8 @@ namespace maFichePersonnageJDR.View.Formulaires
                             Name = "lnkLbl" + premiereValeur,
                             Location = new Point(x, y),
                             Text = premiereValeur,
-                            Tag = premiereValeur
+                            Tag = premiereValeur,
+                            AutoSize = true
                         };
 
                         linkLabel.LinkClicked += linkLabelAttribut_LinkClicked;
@@ -266,7 +202,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                             Width = 20,
                             Tag = premiereValeur,
                             Checked = CheckIfAttributeIsInRichTextBox(premiereValeur),
-                            Enabled = GlobaleVariables .IsEdit ? false : true
+                            Enabled = GlobaleVariables.IsEdit ? false : true
                         };
 
                         checkBox.Click += checkBox_Click;
@@ -281,7 +217,8 @@ namespace maFichePersonnageJDR.View.Formulaires
                             Name = "lnkLbl" + premiereValeur,
                             Location = new Point(x, y),
                             Text = premiereValeur,
-                            Tag = premiereValeur
+                            Tag = premiereValeur,
+                            AutoSize = true
                         };
 
                         linkLabel.LinkClicked += linkLabelAttribut_LinkClicked;
@@ -317,32 +254,55 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// Gère le clic sur une CheckBox pour ajouter ou retirer dynamiquement 
         /// l'attribut correspondant de la RichTextBox
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">L'objet CheckBox qui a déclenché l'événement de clic.</param>
+        /// <param name="e">Les arguments de l'événement de clic.</param>
         public void checkBox_Click(object sender, EventArgs e)
         {
+            // Récupère la CheckBox qui a été cliquée
             CheckBox checkBox = sender as CheckBox;
+
+            // Obtient le nom de l'attribut à partir du nom de la CheckBox
             string attribut = AttributsController.GetAttributByName(checkBox.Name.Substring(4));
 
+            // Si la CheckBox est cochée
             if (checkBox.Checked)
             {
-                if (lstAttributsCheck.Contains(attribut))
+                // Vérifie si l'attribut est déjà présent dans la RichTextBox
+                if (dictionaryOfSpecificationsAttributes.ContainsKey(attribut))
                 {
-                    attribut += AttributesSpecifications(attribut);
+                    string specificationAttribute = AttributesSpecifications(attribut);
+
+                    if (!String.IsNullOrEmpty(specificationAttribute))
+                    {
+                        attribut += specificationAttribute;
+
+                        // Ajoute l'attribut à la RichTextBox, en commençant par une nouvelle ligne si nécessaire
+                        rtbAttributs.Text += rtbAttributs.Lines.Length > 0 ? Environment.NewLine + attribut : attribut;
+                    }
+                    else
+                    {
+                        checkBox.Checked = false;
+                    }
                 }
 
-                rtbAttributs.Text += rtbAttributs.Lines.Length > 0 ? Environment.NewLine + attribut : attribut;
+                // Active ou désactive les CheckBox en fonction de la sélection
                 EnableOrDisableCheckBoxes();
             }
             else
             {
+                // Obtient l'index de la ligne contenant l'attribut à supprimer
                 int indexToDelete = Utils.GetLineNumberToDelete(attribut, rtbAttributs);
 
+                // Copie les lignes actuelles de la RichTextBox dans une liste
                 List<string> lines = new List<string>(rtbAttributs.Lines);
 
+                // Supprime la ligne contenant l'attribut à partir de la liste
                 lines.RemoveAt(indexToDelete);
 
+                // Met à jour le contenu de la RichTextBox avec les lignes modifiées
                 rtbAttributs.Lines = lines.ToArray();
+
+                // Active ou désactive les CheckBox en fonction de la sélection
                 EnableOrDisableCheckBoxes();
             }
         }
@@ -429,7 +389,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             Dictionary<int, Tuple<string, string>> dictionnaireIdSpecificationsAttribut = new Dictionary<int, Tuple<string, string>>();
             FormulaireCompetencesCaracteristiques formulaireCompetencesCaracteristiques = new FormulaireCompetencesCaracteristiques();
             int nbCaseCocher = 0;
-            string specifications = string.Empty;
             #endregion
 
             try
@@ -452,7 +411,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                     return;
                 }
 
-                foreach(string line in rtbAttributs.Lines)
+                foreach (string line in rtbAttributs.Lines)
                 {
                     string[] lineSplited = line.Split(':');
                     int idAttribut = AttributsController.GetIdAttributByName(lineSplited[0]);
@@ -470,7 +429,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                     string nameAttribut = keyValue.Value.Item1;
                     string specificationsAttr = keyValue.Value.Item2;
 
-                    if(!AttributsController.CheckIfPersonnageHaveAttribut(GlobaleVariables.IdPersonnage, idAttribut))
+                    if (!AttributsController.CheckIfPersonnageHaveAttribut(GlobaleVariables.IdPersonnage, idAttribut))
                     {
                         AttributsController.AddNewAttributToPersonnage(idAttribut, GlobaleVariables.IdPersonnage, specificationsAttr);
                     }
@@ -479,7 +438,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                 MessageBox.Show("Attributs sauvegardés");
                 GlobaleVariables.IsClosedProgrammatically = true;
 
-                if(GlobaleVariables.IsEdit)
+                if (GlobaleVariables.IsEdit)
                 {
                     FormEditMenu formEditMenu = new FormEditMenu();
                     formEditMenu.Show();
@@ -499,41 +458,106 @@ namespace maFichePersonnageJDR.View.Formulaires
         }
 
         /// <summary>
-        /// Permet de spécifier une information lié à un attribut coché
+        /// Permet de spécifier une information liée à un attribut coché
         /// </summary>
-        /// <param name="nameAttribut"></param>
-        /// <returns></returns>
+        /// <param name="nameAttribut">Le nom de l'attribut à spécifier.</param>
+        /// <returns>Une chaîne de caractères spécifiant l'information liée à l'attribut.</returns>
         private string AttributesSpecifications(string nameAttribut)
         {
+            // Modèles de motifs de recherche utilisés pour la manipulation de texte
+            string patternI = @"\bi\b";
+            string patternX = @"\bx\b";
+
+            // Crée une nouvelle instance du formulaire de spécification d'attributs
             using (FormSpecificationAttributs formSpecification = new FormSpecificationAttributs())
             {
-
-                formSpecification.PanelAvantageTerrains.Enabled = false;
+                // Désactive certains éléments du formulaire par défaut
+                formSpecification.PanelPourcentage.Enabled = false;
                 formSpecification.PanelMagies.Enabled = false;
-                formSpecification.NumericUpDownPourcentage.Enabled = false;
+                formSpecification.NudNombre.Enabled = false;
 
-                if (nameAttribut == "Magicien")
+                // Effectue des actions spécifiques en fonction du nom de l'attribut
+                switch (nameAttribut)
                 {
-                    formSpecification.TextInput.Enabled = false;
-                    formSpecification.PanelMagies.Enabled = true;
+                    case "Apnée prolongée":
+                        formSpecification.TextInput.Enabled = false;
+                        formSpecification.NudNombre.Enabled = true;
+                        break;
+                    case "Armure naturelle":
+                        formSpecification.TextInput.Enabled = false;
+                        formSpecification.NudNombre.Enabled = true;
+                        break;
+                    case "Canaliseur":
+                        patternX = @"x(?=%)";
+                        formSpecification.TextInput.Enabled = false;
+                        formSpecification.PanelPourcentage.Enabled = true;
+                        break;
+                    case "Coagulation":
+                        break;
+                    case "Etoile montante":
+                        break;
+                    case "Hyperesthésie":
+                        patternX = @"x(?=%)";
+                        formSpecification.TextInput.Enabled = false;
+                        formSpecification.PanelPourcentage.Enabled = true;
+                        break;
+                    case "Immuno-maladie":
+                        patternX = @"x(?=%)";
+                        formSpecification.TextInput.Enabled = false;
+                        formSpecification.PanelPourcentage.Enabled = true;
+                        break;
+                    case "Magicien":
+                        formSpecification.TextInput.Enabled = false;
+                        formSpecification.PanelMagies.Enabled = true;
+                        break;
+                    case "Mithridatisation":
+                        patternX = @"x(?=%)";
+                        formSpecification.TextInput.Enabled = false;
+                        formSpecification.PanelPourcentage.Enabled = true;
+                        break;
+                    case "Porteur de charges lourdes":
+                        formSpecification.TextInput.Enabled = false;
+                        formSpecification.NudNombre.Enabled = true;
+                        break;
+                    case "Sac d'énergie":
+                        patternX = @"x(?=%)";
+                        formSpecification.TextInput.Enabled = false;
+                        formSpecification.PanelPourcentage.Enabled = true;
+                        break;
+                    case "Tolérance au froid":
+                        patternX = @"(?<=-)x";
+                        formSpecification.TextInput.Enabled = false;
+                        formSpecification.NudNombre.Enabled = true;
+                        break;
+                    case "Tolérance à la chaleur":
+                        patternX = @"(?<=-)x";
+                        formSpecification.TextInput.Enabled = false;
+                        formSpecification.NudNombre.Enabled = true;
+                        break;
+                    default:
+                        break;
                 }
-                else if (nameAttribut == "Avantage du terrain")
-                {
-                    formSpecification.TextInput.Enabled = false;
-                    formSpecification.PanelAvantageTerrains.Enabled = true;
-                }
-                else if (nameAttribut == "Porteur de charges lourdes")
-                {
-                    formSpecification.TextInput.Enabled = false;
-                    formSpecification.NumericUpDownPourcentage.Enabled = true;
-                }
+
+                // Affiche le formulaire de spécification et attend la réponse de l'utilisateur
                 if (formSpecification.ShowDialog() == DialogResult.OK)
                 {
-                    return "; " + formSpecification.UserInput;
+                    // Obtient la valeur actuelle de l'attribut depuis le dictionnaire
+                    string valueKey = string.Empty;
+                    dictionaryOfSpecificationsAttributes.TryGetValue(nameAttribut, out valueKey);
+
+                    // Effectue des remplacements de motifs dans la valeur de l'attribut
+                    valueKey = Regex.Replace(valueKey, patternI, PersonnageController.GetPrenomPersonnage(GlobaleVariables.IdPersonnage));
+                    valueKey = Regex.Replace(valueKey, patternX, formSpecification.UserInput);
+
+                    // Retourne la chaîne de caractères spécifiant l'information de l'attribut
+                    return ": " + valueKey;
+                }
+                else
+                {
+                    // Si l'utilisateur annule la spécification, retourne une chaîne vide
+                    return string.Empty;
                 }
             }
-
-            return string.Empty;
         }
 
         /// <summary>
@@ -607,26 +631,8 @@ namespace maFichePersonnageJDR.View.Formulaires
 
                 tbControlAttributs.TabPages.AddRange(pages.ToArray());
             }
-            // Tri (Z-A)
-            else if ((sender as ComboBox).SelectedIndex == 1)
-            {
-                for (char letter = 'Z'; letter >= 'A'; letter--)
-                {
-                    TabPage tabPage = new TabPage
-                    {
-                        Text = letter.ToString(),
-                        Name = "page" + letter,
-                        AutoScroll = true,
-                        BackColor = Color.White
-                    };
-
-                    pages.Add(tabPage);
-                }
-
-                tbControlAttributs.TabPages.AddRange(pages.ToArray());
-            }
             // Tri Type
-            else if ((sender as ComboBox).SelectedIndex == 2)
+            else if ((sender as ComboBox).SelectedIndex == 1)
             {
                 TabPage pagePhysique = new TabPage();
                 pagePhysique.Text = "Physique";
@@ -664,7 +670,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                 tbControlAttributs.TabPages.Add(tabPage);
             }
 
-            GetAttributs();
+            DisplayAttributes();
         }
 
 

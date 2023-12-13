@@ -17,8 +17,8 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// <summary>
         /// Champs des points à répartir dans les trois type compétences
         /// </summary>
-        private int compPhysique = 39;
-        private int compMentale = 45;
+        private int compPhysique = 42;
+        private int compMentale = 42;
         private int compSociale = 33;
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// Champs du nombre de points qu'on peut ajouter dans chaque
         /// compétences une fois le niveau suivant atteint
         /// </summary>
-        private const int pointsPhysique = 5;
+        private const int pointsPhysique = 6;
         private const int pointsMental = 6;
         private const int pointsSocial = 4;
 
@@ -182,15 +182,14 @@ namespace maFichePersonnageJDR.View.Formulaires
             // Ajout des compétences mentales
             Controller.CompetencesCaracteristiquesController.SaveCompetenceMentalPersonnage(GlobaleVariables.IdPersonnage, Convert.ToInt32(nudCncention.Value), Convert.ToInt32(nudConnGeographiques.Value),
                 Convert.ToInt32(nudConnHistoriques.Value), Convert.ToInt32(nudMagiques.Value), Convert.ToInt32(nudConnNatures.Value), Convert.ToInt32(nudConnReligieuses.Value),
-                Convert.ToInt32(nudDecryptage.Value), Convert.ToInt32(nudEsprit.Value), Convert.ToInt32(nudExplosifs.Value), Convert.ToInt32(nudMecanique.Value),
-                Convert.ToInt32(nudMedecine.Value), Convert.ToInt32(nudMemoire.Value), Convert.ToInt32(nudOrientation.Value), Convert.ToInt32(nudPerception.Value),
-                Convert.ToInt32(nudVolonte.Value));
+                Convert.ToInt32(nudEsprit.Value), Convert.ToInt32(nudExplosifs.Value), Convert.ToInt32(nudMecanique.Value), Convert.ToInt32(nudMedecine.Value), 
+                Convert.ToInt32(nudMemoire.Value), Convert.ToInt32(nudOrientation.Value), Convert.ToInt32(nudPerception.Value), Convert.ToInt32(nudVolonte.Value));
 
             // Ajout des compétences physiques
             Controller.CompetencesCaracteristiquesController.SaveCompetencePhysiquePersonnage(GlobaleVariables.IdPersonnage, Convert.ToInt32(nudAgilite.Value), Convert.ToInt32(nudArtisanat.Value),
                 Convert.ToInt32(nudCrochetage.Value), Convert.ToInt32(nudDiscretion.Value), Convert.ToInt32(nudEqlibre.Value), Convert.ToInt32(nudEquitation.Value), Convert.ToInt32(nudEscalade.Value),
-                Convert.ToInt32(nudEscamotage.Value), Convert.ToInt32(nudForce.Value), Convert.ToInt32(nudFouille.Value), Convert.ToInt32(nudNatation.Value), Convert.ToInt32(nudReflexes.Value),
-                Convert.ToInt32(nudVigueur.Value));
+                Convert.ToInt32(nudEscamotage.Value), Convert.ToInt32(nudForce.Value), Convert.ToInt32(nudFouille.Value), Convert.ToInt32(nudLutte.Value), 
+                Convert.ToInt32(nudNatation.Value), Convert.ToInt32(nudReflexes.Value), Convert.ToInt32(nudVigueur.Value));
 
             // Ajout des compétences sociales
             Controller.CompetencesCaracteristiquesController.SaveCompetenceSocialPersonnage(GlobaleVariables.IdPersonnage, Convert.ToInt32(nudBaratinage.Value),
@@ -607,7 +606,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             nudPhysique.Value = Controller.CompetencesCaracteristiquesController.GetPhysiquePersonnage(GlobaleVariables.IdPersonnage);
             nudMental.Value = Controller.CompetencesCaracteristiquesController.GetMentalPersonnage(GlobaleVariables.IdPersonnage);
             nudSocial.Value = Controller.CompetencesCaracteristiquesController.GetSocialPersonnage(GlobaleVariables.IdPersonnage);
-
             /**
              * COMP PHYSIQUE
              */
@@ -624,7 +622,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             nudNatation.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "natation", GlobaleVariables.IdPersonnage);
             nudReflexes.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "reflexes", GlobaleVariables.IdPersonnage);
             nudVigueur.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "vigueur", GlobaleVariables.IdPersonnage);
-
             /**
              * COMP MENTAL
              */
@@ -634,7 +631,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             nudMagiques.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "connaissance_magiques", GlobaleVariables.IdPersonnage);
             nudConnNatures.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "connaissance_natures", GlobaleVariables.IdPersonnage);
             nudConnReligieuses.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "connaissance_religieuses", GlobaleVariables.IdPersonnage);
-            nudDecryptage.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "decryptage", GlobaleVariables.IdPersonnage);
             nudEsprit.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "esprit", GlobaleVariables.IdPersonnage);
             nudExplosifs.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "explosifs", GlobaleVariables.IdPersonnage);
             nudMecanique.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "mecanique", GlobaleVariables.IdPersonnage);
@@ -643,7 +639,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             nudOrientation.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "orientation", GlobaleVariables.IdPersonnage);
             nudPerception.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "perception", GlobaleVariables.IdPersonnage);
             nudVolonte.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "volonte", GlobaleVariables.IdPersonnage);
-
             /**
              * COMP SOCIAL
              */

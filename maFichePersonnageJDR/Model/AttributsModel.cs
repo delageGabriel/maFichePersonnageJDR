@@ -15,6 +15,7 @@ namespace maFichePersonnageJDR.Model
         private string descriptionAttribut;
         private string typeAttribut;
         private string noteAttribut;
+        private string texteDisplayAttribut;
 
         /// <summary>
         /// Accesseurs et Mutateurs
@@ -24,6 +25,7 @@ namespace maFichePersonnageJDR.Model
         public string DescriptionAttribut { get => descriptionAttribut; set => descriptionAttribut = value; }
         public string TypeAttribut { get => typeAttribut; set => typeAttribut = value; }
         public string NoteAttribut { get => noteAttribut; set => noteAttribut = value; }
+        public string TexteDisplayAttribut { get => texteDisplayAttribut; set => texteDisplayAttribut = value; }
 
         /// <summary>
         /// Obtient la liste de tous les attributs
@@ -37,7 +39,7 @@ namespace maFichePersonnageJDR.Model
 
             try
             {
-                SQLiteCommand command = new SQLiteCommand("SELECT id_attribut, nom_attribut, description_attribut, type_attribut, note_attribut FROM ATTRIBUTS", 
+                SQLiteCommand command = new SQLiteCommand("SELECT id_attribut, nom_attribut, description_attribut, type_attribut, note_attribut FROM ATTRIBUTS",
                     DatabaseConnection.Instance.GetConnection());
 
                 using (SQLiteDataReader reader = command.ExecuteReader())
@@ -87,7 +89,7 @@ namespace maFichePersonnageJDR.Model
                         AttributsModel attributs = new AttributsModel();
 
                         attributs.IdAttribut = reader.GetInt32(0);
-                        attributs.NomAttribut = reader.GetString(1);                        
+                        attributs.NomAttribut = reader.GetString(1);
                         attributs.DescriptionAttribut = reader.GetString(2);
                         attributs.TypeAttribut = reader.GetString(3);
                         attributs.NoteAttribut = reader.GetString(4);
@@ -136,6 +138,26 @@ namespace maFichePersonnageJDR.Model
             {
                 throw e;
             }
+        }
+
+        public static Dictionary<string, string> GetAttributesWithSpecifications()
+        {
+            Dictionary<string, string> dictionaryAttributesSpecifications = new Dictionary<string, string>();
+
+            SQLiteCommand command = new SQLiteCommand("" +
+                "SELECT nom_attribut, texte_display_attribut " +
+                "FROM ATTRIBUTS " +
+                "WHERE texte_display_attribut IS NOT NULL", DatabaseConnection.Instance.GetConnection());
+
+            using (SQLiteDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    dictionaryAttributesSpecifications.Add(reader["nom_attribut"].ToString(), reader["texte_display_attribut"].ToString());
+                }
+            }
+
+            return dictionaryAttributesSpecifications;
         }
     }
 }

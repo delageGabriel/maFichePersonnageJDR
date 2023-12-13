@@ -17,7 +17,7 @@ namespace maFichePersonnageJDR.Controller
         /// <param name="typeMagie">le type de l'arme</param>
         /// <param name="controlParent">le TabControl parent</param>
         /// <param name="tabPage">la page où ajouter toutes les armes</param>
-        public static void GetMagiesByType(string typeMagie, TabControl controlParent, TabPage tabPage)
+        public static void GetMagiesByType(string typeMagie, TabControl controlParent, TabPage tabPage, int niveauPersonnage)
         {
             Console.WriteLine(string.Format("########### Méthode GetMagiesByType — Type de magie : {0} ###########", typeMagie));
             
@@ -26,7 +26,7 @@ namespace maFichePersonnageJDR.Controller
 
             try
             {
-                List<MagieModel> magieList = magieObjet.GetMagieModels(typeMagie);
+                List<MagieModel> magieList = magieObjet.GetMagieModelsByTypeAndNiveau(typeMagie, niveauPersonnage);
 
                 if (magieObjet != null)
                 {
@@ -202,6 +202,28 @@ namespace maFichePersonnageJDR.Controller
             {
                 // On envoie les informations du personnage à sauvegarder
                 return magiePersonnage.GetListCoutMagie(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static List<string> GetListDescrMagie(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListDescrMagie — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            MagiePersonnageModel magiePersonnage = new MagiePersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return magiePersonnage.GetListDescrMagie(idPersonnage);
             }
             catch (Exception e)
             {

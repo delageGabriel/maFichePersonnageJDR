@@ -95,6 +95,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlArmesAchatVentePoids = new System.Windows.Forms.Panel();
             this.pnlArmuresAchatVentePoids = new System.Windows.Forms.Panel();
             this.pnlObjetsAchatVentePoids = new System.Windows.Forms.Panel();
+            this.tbPgeMateriau = new System.Windows.Forms.TabPage();
             this.tbCntlArmes.SuspendLayout();
             this.tbCntlArmures.SuspendLayout();
             this.tbCntlObjets.SuspendLayout();
@@ -285,6 +286,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbCntlObjets.Controls.Add(this.tbPgeObjNormaux);
             this.tbCntlObjets.Controls.Add(this.tbPgeObjRares);
             this.tbCntlObjets.Controls.Add(this.tbPgeObjMunition);
+            this.tbCntlObjets.Controls.Add(this.tbPgeMateriau);
             this.tbCntlObjets.Location = new System.Drawing.Point(670, 16);
             this.tbCntlObjets.Name = "tbCntlObjets";
             this.tbCntlObjets.SelectedIndex = 0;
@@ -810,6 +812,15 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlObjetsAchatVentePoids.Size = new System.Drawing.Size(279, 68);
             this.pnlObjetsAchatVentePoids.TabIndex = 47;
             // 
+            // tbPgeMateriau
+            // 
+            this.tbPgeMateriau.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeMateriau.Name = "tbPgeMateriau";
+            this.tbPgeMateriau.Size = new System.Drawing.Size(272, 142);
+            this.tbPgeMateriau.TabIndex = 3;
+            this.tbPgeMateriau.Text = "Matériau";
+            this.tbPgeMateriau.UseVisualStyleBackColor = true;
+            // 
             // FormulaireEquipments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -938,5 +949,6 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Panel pnlArmesAchatVentePoids;
         private System.Windows.Forms.Panel pnlArmuresAchatVentePoids;
         private System.Windows.Forms.Panel pnlObjetsAchatVentePoids;
+        private System.Windows.Forms.TabPage tbPgeMateriau;
     }
 }

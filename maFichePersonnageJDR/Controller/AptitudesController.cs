@@ -208,5 +208,27 @@ namespace maFichePersonnageJDR.Controller
                 throw e;
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static List<string> GetListDescrAptitude(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListDescrAptitude — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            AptitudesPersonnageModel aptitudesPersonnage = new AptitudesPersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return aptitudesPersonnage.GetListDescrAptitude(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

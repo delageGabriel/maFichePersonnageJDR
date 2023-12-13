@@ -107,7 +107,7 @@ namespace maFichePersonnageJDR.Controller
             }
             catch (Exception e)
             {
-                throw e;
+                throw;
             }
         }
 
@@ -544,6 +544,28 @@ namespace maFichePersonnageJDR.Controller
             {
                 // On envoie les informations du personnage à sauvegarder
                 return inventaireArmesPersonnages.GetListSpecialArmes(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static List<int> GetListQuantityArmes(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListQuantityArmes — Personnage recherchée : ID : {0} ###########", idPersonnage));
+
+            InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return inventaireArmesPersonnages.GetListQuantitiesArmes(idPersonnage);
             }
             catch (Exception e)
             {
@@ -1064,29 +1086,6 @@ namespace maFichePersonnageJDR.Controller
                 throw e;
             }
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="idPersonnage"></param>
-        /// <returns></returns>
-        public static List<string> GetListBonusArmures(int idPersonnage)
-        {
-            Console.WriteLine(string.Format("########### Méthode GetListBonusArmures — Personnage recherchée : ID : {0} ###########", idPersonnage));
-
-            InventaireArmuresPersonnageModel inventaireArmuresPersonnage = new InventaireArmuresPersonnageModel();
-
-            try
-            {
-                // On envoie les informations du personnage à sauvegarder
-                return inventaireArmuresPersonnage.GetListBonusArmures(idPersonnage);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
         /// <summary>
         /// 
         /// </summary>
@@ -1108,7 +1107,27 @@ namespace maFichePersonnageJDR.Controller
                 throw e;
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static List<int> GetListQuantityArmures(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListQuantityArmures — Personnage recherchée : ID : {0} ###########", idPersonnage));
 
+            InventaireArmuresPersonnageModel inventaireArmuresPersonnage = new InventaireArmuresPersonnageModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return inventaireArmuresPersonnage.GetListQuantitiesArmures(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
         /// <summary>
         /// Méthode qui permet de supprimer une armure de l'inventaire du personnage
         /// </summary>
@@ -1129,7 +1148,6 @@ namespace maFichePersonnageJDR.Controller
                 throw e;
             }
         }
-
         /// <summary>
         /// Méthode qui renvoie le poids total d'armes que le personnage porte sur lui
         /// </summary>
@@ -1629,7 +1647,27 @@ namespace maFichePersonnageJDR.Controller
                 throw e;
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idPersonnage"></param>
+        /// <returns></returns>
+        public static List<int> GetListQuantityItems(int idPersonnage)
+        {
+            Console.WriteLine(string.Format("########### Méthode GetListQuantityItems — Personnage recherchée : ID : {0} ###########", idPersonnage));
 
+            InventaireObjetsPersonnagesModel inventaireObjetsPersonnages = new InventaireObjetsPersonnagesModel();
+
+            try
+            {
+                // On envoie les informations du personnage à sauvegarder
+                return inventaireObjetsPersonnages.GetListQuantities(idPersonnage);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
         /// <summary>
         /// Méthode qui permet de supprimer une armure de l'inventaire du personnage
         /// </summary>
