@@ -185,7 +185,7 @@ namespace maFichePersonnageJDR.Controller
             }
         }
 
-        public static List<string> GetListNoteAttributs(int idPersonnage)
+        public static List<string> GetListSpecificationsAttributs(int idPersonnage)
         {
             Console.WriteLine(string.Format("########### Méthode GetListNoteAttributs — Personnage recherchée : ID : {0} ###########", idPersonnage));
 
@@ -194,7 +194,7 @@ namespace maFichePersonnageJDR.Controller
             try
             {
                 // On envoie les informations du personnage à sauvegarder
-                return attributsPersonnageModel.GetListeNotesAttributsPersonnage(idPersonnage);
+                return attributsPersonnageModel.GetListSpecificationsAttributsPersonnage(idPersonnage);
             }
             catch (Exception e)
             {

@@ -196,7 +196,7 @@ namespace maFichePersonnageJDR.Classe
             List<string> nomsAttribut = Controller.AttributsController.GetListNomAttributs(idPersonnage);
             List<string> descriptionsAttribut = Controller.AttributsController.GetListDescriptionAttributs(idPersonnage);
             List<string> typesAttribut = Controller.AttributsController.GetListTypeAttributs(idPersonnage);
-            List<string> notesAttributs = Controller.AttributsController.GetListNoteAttributs(idPersonnage);
+            List<string> notesAttributs = Controller.AttributsController.GetListSpecificationsAttributs(idPersonnage);
             #endregion
 
             PdfPTable attributesTable = new PdfPTable(4);

@@ -403,7 +403,7 @@ namespace maFichePersonnageJDR.Classe
             List<string> nomsAttribut = Controller.AttributsController.GetListNomAttributs(idPersonnage);
             List<string> descriptionsAttribut = Controller.AttributsController.GetListDescriptionAttributs(idPersonnage);
             List<string> typesAttribut = Controller.AttributsController.GetListTypeAttributs(idPersonnage);
-            List<string> notesAttributs = Controller.AttributsController.GetListNoteAttributs(idPersonnage);
+            List<string> specificationsAttribut = Controller.AttributsController.GetListSpecificationsAttributs(idPersonnage);
             #endregion
 
             // Pour chaque attribut on créait une ligne dans le tableau
@@ -414,7 +414,7 @@ namespace maFichePersonnageJDR.Classe
                     $"                          <td style=\"border:1px solid #dddddd;padding:8px;white-space:nowrap\">{nomsAttribut[i]}</td>\n" +
                     $"                          <td style=\"border:1px solid #dddddd;padding:8px;white-space:nowrap\">{descriptionsAttribut[i]}</td>\n" +
                     $"                          <td style=\"border:1px solid #dddddd;padding:8px;white-space:nowrap\">{typesAttribut[i]}</td>\n" +
-                    $"                          <td style=\"border:1px solid #dddddd;padding:8px;white-space:nowrap\">{notesAttributs[i]}</td>\n" +
+                    $"                          <td style=\"border:1px solid #dddddd;padding:8px;white-space:nowrap\">{specificationsAttribut[i]}</td>\n" +
                     $"                      </tr>\n";
             }
 

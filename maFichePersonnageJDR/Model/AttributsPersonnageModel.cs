@@ -175,7 +175,7 @@ namespace maFichePersonnageJDR.Model
         /// </summary>
         /// <param name="idPersonnage"></param>
         /// <returns></returns>
-        public List<string> GetListeNotesAttributsPersonnage(int idPersonnage)
+        public List<string> GetListSpecificationsAttributsPersonnage(int idPersonnage)
         {
             #region Initialisation des variables
             List<string> listeTypeAttributsPersonnage = new List<string>();
@@ -185,8 +185,8 @@ namespace maFichePersonnageJDR.Model
             {
                 SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
                 // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT note_attribut FROM ATTRIBUTS " +
-                    "INNER JOIN ATTRIBUTS_PERSONNAGE ON ATTRIBUTS.id_attribut = ATTRIBUTS_PERSONNAGE.id_attribut " +
+                SQLiteCommand command = new SQLiteCommand("SELECT specifications " +
+                    "FROM ATTRIBUTS_PERSONNAGE " +
                     "WHERE ATTRIBUTS_PERSONNAGE.id_personnage = @id_personnage", connection);
                 command.Parameters.AddWithValue("@id_personnage", idPersonnage);
 
@@ -197,7 +197,7 @@ namespace maFichePersonnageJDR.Model
                         AttributsPersonnageModel attributsPersonnageModel = new AttributsPersonnageModel();
 
                         // On vérifie si une ligne existe déjà avec le nom prénom du personnage
-                        string value = reader["note_attribut"].ToString();
+                        string value = reader["specifications"].ToString();
                         listeTypeAttributsPersonnage.Add(value);
                     }
                 }

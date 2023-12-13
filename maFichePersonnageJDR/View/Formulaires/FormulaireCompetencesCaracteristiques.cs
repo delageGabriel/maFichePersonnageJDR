@@ -606,7 +606,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             nudPhysique.Value = Controller.CompetencesCaracteristiquesController.GetPhysiquePersonnage(GlobaleVariables.IdPersonnage);
             nudMental.Value = Controller.CompetencesCaracteristiquesController.GetMentalPersonnage(GlobaleVariables.IdPersonnage);
             nudSocial.Value = Controller.CompetencesCaracteristiquesController.GetSocialPersonnage(GlobaleVariables.IdPersonnage);
-
             /**
              * COMP PHYSIQUE
              */
@@ -623,7 +622,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             nudNatation.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "natation", GlobaleVariables.IdPersonnage);
             nudReflexes.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "reflexes", GlobaleVariables.IdPersonnage);
             nudVigueur.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "vigueur", GlobaleVariables.IdPersonnage);
-
             /**
              * COMP MENTAL
              */
@@ -641,7 +639,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             nudOrientation.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "orientation", GlobaleVariables.IdPersonnage);
             nudPerception.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "perception", GlobaleVariables.IdPersonnage);
             nudVolonte.Value = Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "volonte", GlobaleVariables.IdPersonnage);
-
             /**
              * COMP SOCIAL
              */

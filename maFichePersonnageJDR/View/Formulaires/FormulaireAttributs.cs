@@ -270,12 +270,20 @@ namespace maFichePersonnageJDR.View.Formulaires
                 // Vérifie si l'attribut est déjà présent dans la RichTextBox
                 if (dictionaryOfSpecificationsAttributes.ContainsKey(attribut))
                 {
-                    // Ajoute les spécifications de l'attribut à son nom
-                    attribut += AttributesSpecifications(attribut);
-                }
+                    string specificationAttribute = AttributesSpecifications(attribut);
 
-                // Ajoute l'attribut à la RichTextBox, en commençant par une nouvelle ligne si nécessaire
-                rtbAttributs.Text += rtbAttributs.Lines.Length > 0 ? Environment.NewLine + attribut : attribut;
+                    if (!String.IsNullOrEmpty(specificationAttribute))
+                    {
+                        attribut += specificationAttribute;
+
+                        // Ajoute l'attribut à la RichTextBox, en commençant par une nouvelle ligne si nécessaire
+                        rtbAttributs.Text += rtbAttributs.Lines.Length > 0 ? Environment.NewLine + attribut : attribut;
+                    }
+                    else
+                    {
+                        checkBox.Checked = false;
+                    }
+                }
 
                 // Active ou désactive les CheckBox en fonction de la sélection
                 EnableOrDisableCheckBoxes();
@@ -381,7 +389,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             Dictionary<int, Tuple<string, string>> dictionnaireIdSpecificationsAttribut = new Dictionary<int, Tuple<string, string>>();
             FormulaireCompetencesCaracteristiques formulaireCompetencesCaracteristiques = new FormulaireCompetencesCaracteristiques();
             int nbCaseCocher = 0;
-            string specifications = string.Empty;
             #endregion
 
             try
@@ -465,25 +472,25 @@ namespace maFichePersonnageJDR.View.Formulaires
             using (FormSpecificationAttributs formSpecification = new FormSpecificationAttributs())
             {
                 // Désactive certains éléments du formulaire par défaut
-                formSpecification.PanelAvantageTerrains.Enabled = false;
+                formSpecification.PanelPourcentage.Enabled = false;
                 formSpecification.PanelMagies.Enabled = false;
-                formSpecification.NumericUpDownPourcentage.Enabled = false;
+                formSpecification.NudNombre.Enabled = false;
 
                 // Effectue des actions spécifiques en fonction du nom de l'attribut
                 switch (nameAttribut)
                 {
                     case "Apnée prolongée":
                         formSpecification.TextInput.Enabled = false;
-                        formSpecification.NumericUpDownPourcentage.Enabled = true;
+                        formSpecification.NudNombre.Enabled = true;
                         break;
                     case "Armure naturelle":
                         formSpecification.TextInput.Enabled = false;
-                        formSpecification.NumericUpDownPourcentage.Enabled = true;
+                        formSpecification.NudNombre.Enabled = true;
                         break;
                     case "Canaliseur":
                         patternX = @"x(?=%)";
                         formSpecification.TextInput.Enabled = false;
-                        formSpecification.NumericUpDownPourcentage.Enabled = true;
+                        formSpecification.PanelPourcentage.Enabled = true;
                         break;
                     case "Coagulation":
                         break;
@@ -492,12 +499,12 @@ namespace maFichePersonnageJDR.View.Formulaires
                     case "Hyperesthésie":
                         patternX = @"x(?=%)";
                         formSpecification.TextInput.Enabled = false;
-                        formSpecification.NumericUpDownPourcentage.Enabled = true;
+                        formSpecification.PanelPourcentage.Enabled = true;
                         break;
                     case "Immuno-maladie":
                         patternX = @"x(?=%)";
                         formSpecification.TextInput.Enabled = false;
-                        formSpecification.NumericUpDownPourcentage.Enabled = true;
+                        formSpecification.PanelPourcentage.Enabled = true;
                         break;
                     case "Magicien":
                         formSpecification.TextInput.Enabled = false;
@@ -506,26 +513,26 @@ namespace maFichePersonnageJDR.View.Formulaires
                     case "Mithridatisation":
                         patternX = @"x(?=%)";
                         formSpecification.TextInput.Enabled = false;
-                        formSpecification.NumericUpDownPourcentage.Enabled = true;
+                        formSpecification.PanelPourcentage.Enabled = true;
                         break;
                     case "Porteur de charges lourdes":
                         formSpecification.TextInput.Enabled = false;
-                        formSpecification.NumericUpDownPourcentage.Enabled = true;
+                        formSpecification.NudNombre.Enabled = true;
                         break;
                     case "Sac d'énergie":
                         patternX = @"x(?=%)";
                         formSpecification.TextInput.Enabled = false;
-                        formSpecification.NumericUpDownPourcentage.Enabled = true;
+                        formSpecification.PanelPourcentage.Enabled = true;
                         break;
                     case "Tolérance au froid":
                         patternX = @"(?<=-)x";
                         formSpecification.TextInput.Enabled = false;
-                        formSpecification.NumericUpDownPourcentage.Enabled = true;
+                        formSpecification.NudNombre.Enabled = true;
                         break;
                     case "Tolérance à la chaleur":
                         patternX = @"(?<=-)x";
                         formSpecification.TextInput.Enabled = false;
-                        formSpecification.NumericUpDownPourcentage.Enabled = true;
+                        formSpecification.NudNombre.Enabled = true;
                         break;
                     default:
                         break;
