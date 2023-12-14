@@ -45,6 +45,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.lblMental = new System.Windows.Forms.Label();
             this.lblPhysique = new System.Windows.Forms.Label();
             this.gbPhysique = new System.Windows.Forms.GroupBox();
+            this.nudLutte = new System.Windows.Forms.NumericUpDown();
+            this.lblLutte = new System.Windows.Forms.Label();
             this.nudEquitation = new System.Windows.Forms.NumericUpDown();
             this.lblEquitation = new System.Windows.Forms.Label();
             this.nudFouille = new System.Windows.Forms.NumericUpDown();
@@ -133,14 +135,13 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.lblNbRepartitionComp = new System.Windows.Forms.Label();
             this.pnlPvEnergie = new System.Windows.Forms.Panel();
             this.pnlCaracteristiques = new System.Windows.Forms.Panel();
-            this.nudLutte = new System.Windows.Forms.NumericUpDown();
-            this.lblLutte = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudEnergie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSocial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMental)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPhysique)).BeginInit();
             this.gbPhysique.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudLutte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEquitation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudFouille)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudVigueur)).BeginInit();
@@ -183,7 +184,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.nudCharme)).BeginInit();
             this.pnlPvEnergie.SuspendLayout();
             this.pnlCaracteristiques.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudLutte)).BeginInit();
             this.SuspendLayout();
             // 
             // nudEnergie
@@ -365,6 +365,34 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.gbPhysique.TabIndex = 44;
             this.gbPhysique.TabStop = false;
             this.gbPhysique.Text = "Physique";
+            // 
+            // nudLutte
+            // 
+            this.nudLutte.Location = new System.Drawing.Point(187, 50);
+            this.nudLutte.Maximum = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.nudLutte.Minimum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            -2147483648});
+            this.nudLutte.Name = "nudLutte";
+            this.nudLutte.Size = new System.Drawing.Size(41, 20);
+            this.nudLutte.TabIndex = 89;
+            this.nudLutte.Tag = "Physique";
+            this.nudLutte.ValueChanged += new System.EventHandler(this.nudCompPhy_ValueChanged);
+            // 
+            // lblLutte
+            // 
+            this.lblLutte.AutoSize = true;
+            this.lblLutte.Location = new System.Drawing.Point(132, 52);
+            this.lblLutte.Name = "lblLutte";
+            this.lblLutte.Size = new System.Drawing.Size(31, 13);
+            this.lblLutte.TabIndex = 90;
+            this.lblLutte.Text = "Lutte";
             // 
             // nudEquitation
             // 
@@ -1618,33 +1646,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.pnlCaracteristiques.Size = new System.Drawing.Size(200, 73);
             this.pnlCaracteristiques.TabIndex = 56;
             // 
-            // nudLutte
-            // 
-            this.nudLutte.Location = new System.Drawing.Point(187, 50);
-            this.nudLutte.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.nudLutte.Minimum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            -2147483648});
-            this.nudLutte.Name = "nudLutte";
-            this.nudLutte.Size = new System.Drawing.Size(41, 20);
-            this.nudLutte.TabIndex = 89;
-            this.nudLutte.Tag = "Physique";
-            // 
-            // lblLutte
-            // 
-            this.lblLutte.AutoSize = true;
-            this.lblLutte.Location = new System.Drawing.Point(132, 52);
-            this.lblLutte.Name = "lblLutte";
-            this.lblLutte.Size = new System.Drawing.Size(31, 13);
-            this.lblLutte.TabIndex = 90;
-            this.lblLutte.Text = "Lutte";
-            // 
             // FormulaireCompetencesCaracteristiques
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1676,6 +1677,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.nudPhysique)).EndInit();
             this.gbPhysique.ResumeLayout(false);
             this.gbPhysique.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudLutte)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudEquitation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudFouille)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudVigueur)).EndInit();
@@ -1722,7 +1724,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.pnlPvEnergie.PerformLayout();
             this.pnlCaracteristiques.ResumeLayout(false);
             this.pnlCaracteristiques.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudLutte)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

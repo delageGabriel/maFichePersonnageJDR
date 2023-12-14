@@ -275,16 +275,16 @@ namespace maFichePersonnageJDR.View.Formulaires
                     if (!String.IsNullOrEmpty(specificationAttribute))
                     {
                         attribut += specificationAttribute;
-
-                        // Ajoute l'attribut à la RichTextBox, en commençant par une nouvelle ligne si nécessaire
-                        rtbAttributs.Text += rtbAttributs.Lines.Length > 0 ? Environment.NewLine + attribut : attribut;
                     }
                     else
                     {
                         checkBox.Checked = false;
+                        return;
                     }
                 }
 
+                // Ajoute l'attribut à la RichTextBox, en commençant par une nouvelle ligne si nécessaire
+                rtbAttributs.Text += rtbAttributs.Lines.Length > 0 ? Environment.NewLine + attribut : attribut;
                 // Active ou désactive les CheckBox en fonction de la sélection
                 EnableOrDisableCheckBoxes();
             }
@@ -541,6 +541,8 @@ namespace maFichePersonnageJDR.View.Formulaires
                 // Affiche le formulaire de spécification et attend la réponse de l'utilisateur
                 if (formSpecification.ShowDialog() == DialogResult.OK)
                 {
+                    if (nameAttribut == "Porteur de charges lourdes")
+                        GlobaleVariables.PoidsPorteurChargeLibre = formSpecification.UserInput;
                     // Obtient la valeur actuelle de l'attribut depuis le dictionnaire
                     string valueKey = string.Empty;
                     dictionaryOfSpecificationsAttributes.TryGetValue(nameAttribut, out valueKey);

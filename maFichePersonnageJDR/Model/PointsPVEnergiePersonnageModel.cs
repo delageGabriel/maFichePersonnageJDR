@@ -15,16 +15,16 @@ namespace maFichePersonnageJDR.Model
         /// </summary>
         private int idPointsCaracteristiquesPersonnage;
         private int idPersonnage;
-        private int nombrePV;
-        private int nombreEnergie;
+        private string nombrePV;
+        private string nombreEnergie;
 
         /// <summary>
         /// Accesseurs et mutateurs
         /// </summary>
         public int IdPointsCaracteristiquesPersonnage { get => idPointsCaracteristiquesPersonnage; set => idPointsCaracteristiquesPersonnage = value; }
         public int IdPersonnage { get => idPersonnage; set => idPersonnage = value; }
-        public int NombrePV { get => nombrePV; set => nombrePV = value; }
-        public int NombreEnergie { get => nombreEnergie; set => nombreEnergie = value; }
+        public string NombrePV { get => nombrePV; set => nombrePV = value; }
+        public string NombreEnergie { get => nombreEnergie; set => nombreEnergie = value; }
 
         /// <summary>
         /// 
@@ -32,13 +32,17 @@ namespace maFichePersonnageJDR.Model
         /// <param name="idPersonnage"></param>
         /// <param name="nombrePV"></param>
         /// <param name="nombreEnergie"></param>
-        public void SavePVEnergiePersonnage(int idPersonnage, int nombrePV, int nombreEnergie)
+        public void SavePVEnergiePersonnage(int idPersonnage, string nombrePV, string nombreEnergie)
         {
             try
             {
                 // Commande
-                SQLiteCommand command = new SQLiteCommand(string.Format("INSERT INTO POINTS_PV_ENERGIE_PERSONNAGE (id_personnage, nombre_points_energie, nombre_points_pv) " +
-                    "VALUES ({0}, {1}, {2})", idPersonnage, nombreEnergie, nombrePV), DatabaseConnection.Instance.GetConnection());
+                SQLiteCommand command = new SQLiteCommand("INSERT INTO POINTS_PV_ENERGIE_PERSONNAGE " +
+                    "(id_personnage, nombre_points_pv, nombre_points_energie) " +
+                    "VALUES (@idPersonnage, @PV, @Energie)", DatabaseConnection.Instance.GetConnection());
+                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
+                command.Parameters.AddWithValue("@PV", nombrePV);
+                command.Parameters.AddWithValue("@Energie", nombreEnergie);
 
                 int rowsAffected = command.ExecuteNonQuery();
             }
@@ -48,9 +52,9 @@ namespace maFichePersonnageJDR.Model
             }
         }
 
-        public static int GetValuePVEnergie(string nomColonne, int idPersonnage)
+        public static string GetValuePVEnergie(string nomColonne, int idPersonnage)
         {
-            int defautValue = 0;
+            string defautValue = "0";
 
             try
             {
@@ -64,7 +68,7 @@ namespace maFichePersonnageJDR.Model
                 {
                     while (reader.Read())
                     {
-                        return reader.GetInt32(0);
+                        return reader.GetString(0);
                     }
                 }
 

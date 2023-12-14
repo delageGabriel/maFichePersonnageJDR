@@ -139,7 +139,7 @@ namespace maFichePersonnageJDR.Controller
         /// <param name="idPersonnage"></param>
         /// <param name="nombreEnergie"></param>
         /// <param name="nombrePV"></param>
-        public static void SavePVAndEnergie(int idPersonnage, int nombreEnergie, int nombrePV)
+        public static void SavePVAndEnergie(int idPersonnage, string nombreEnergie, string nombrePV)
         {
             Console.WriteLine(string.Format("########### Méthode SavePVAndEnergie — Personnage créé : idPersonnage : {0} ###########", idPersonnage.ToString()));
 
@@ -387,9 +387,9 @@ namespace maFichePersonnageJDR.Controller
             }
         }
 
-        public static int GetValuePvEnergie(string pvOrEnergie, string nomColonne, int idPersonnage)
+        public static string GetValuePvEnergie(string pvOrEnergie, string nomColonne, int idPersonnage)
         {
-            int defautValue = 0;
+            string defautValue = "0";
 
             if (pvOrEnergie == "pv")
             {

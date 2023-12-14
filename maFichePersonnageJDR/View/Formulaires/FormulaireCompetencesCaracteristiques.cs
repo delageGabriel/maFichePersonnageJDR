@@ -172,9 +172,6 @@ namespace maFichePersonnageJDR.View.Formulaires
 
             FormulaireEquipments formulaireEquipments = new FormulaireEquipments();
 
-            // Ajout des PV et Energie
-            Controller.CompetencesCaracteristiquesController.SavePVAndEnergie(GlobaleVariables.IdPersonnage, Convert.ToInt32(nudPV.Value), Convert.ToInt32(nudEnergie.Value));
-
             // Ajout des caractéristiques
             Controller.CompetencesCaracteristiquesController.SaveCaracteristiques(GlobaleVariables.IdPersonnage, Convert.ToInt32(nudPhysique.Value), Convert.ToInt32(nudMental.Value),
                 Convert.ToInt32(nudSocial.Value));
@@ -182,13 +179,13 @@ namespace maFichePersonnageJDR.View.Formulaires
             // Ajout des compétences mentales
             Controller.CompetencesCaracteristiquesController.SaveCompetenceMentalPersonnage(GlobaleVariables.IdPersonnage, Convert.ToInt32(nudCncention.Value), Convert.ToInt32(nudConnGeographiques.Value),
                 Convert.ToInt32(nudConnHistoriques.Value), Convert.ToInt32(nudMagiques.Value), Convert.ToInt32(nudConnNatures.Value), Convert.ToInt32(nudConnReligieuses.Value),
-                Convert.ToInt32(nudEsprit.Value), Convert.ToInt32(nudExplosifs.Value), Convert.ToInt32(nudMecanique.Value), Convert.ToInt32(nudMedecine.Value), 
+                Convert.ToInt32(nudEsprit.Value), Convert.ToInt32(nudExplosifs.Value), Convert.ToInt32(nudMecanique.Value), Convert.ToInt32(nudMedecine.Value),
                 Convert.ToInt32(nudMemoire.Value), Convert.ToInt32(nudOrientation.Value), Convert.ToInt32(nudPerception.Value), Convert.ToInt32(nudVolonte.Value));
 
             // Ajout des compétences physiques
             Controller.CompetencesCaracteristiquesController.SaveCompetencePhysiquePersonnage(GlobaleVariables.IdPersonnage, Convert.ToInt32(nudAgilite.Value), Convert.ToInt32(nudArtisanat.Value),
                 Convert.ToInt32(nudCrochetage.Value), Convert.ToInt32(nudDiscretion.Value), Convert.ToInt32(nudEqlibre.Value), Convert.ToInt32(nudEquitation.Value), Convert.ToInt32(nudEscalade.Value),
-                Convert.ToInt32(nudEscamotage.Value), Convert.ToInt32(nudForce.Value), Convert.ToInt32(nudFouille.Value), Convert.ToInt32(nudLutte.Value), 
+                Convert.ToInt32(nudEscamotage.Value), Convert.ToInt32(nudForce.Value), Convert.ToInt32(nudFouille.Value), Convert.ToInt32(nudLutte.Value),
                 Convert.ToInt32(nudNatation.Value), Convert.ToInt32(nudReflexes.Value), Convert.ToInt32(nudVigueur.Value));
 
             // Ajout des compétences sociales
@@ -196,6 +193,13 @@ namespace maFichePersonnageJDR.View.Formulaires
                 Convert.ToInt32(nudCharme.Value), Convert.ToInt32(nudCmedie.Value), Convert.ToInt32(nudCommandement.Value), Convert.ToInt32(nudDiplomatie.Value),
                 Convert.ToInt32(nudDressage.Value), Convert.ToInt32(nudIntimidation.Value), Convert.ToInt32(nudMarchandage.Value), Convert.ToInt32(nudPrestance.Value),
                 Convert.ToInt32(nudProvocation.Value), Convert.ToInt32(nudRepresentation.Value));
+
+            // Ajout des PV et Energie
+            Controller.CompetencesCaracteristiquesController.SavePVAndEnergie(
+                GlobaleVariables.IdPersonnage, nudPV.Value.ToString() +
+                CalculPointsVieEnergieSupplementaire(Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "vigueur", GlobaleVariables.IdPersonnage)),
+                nudEnergie.Value.ToString() +
+                CalculPointsVieEnergieSupplementaire(Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "esprit", GlobaleVariables.IdPersonnage)));
 
             MessageBox.Show("Compétences et caractéristiques sauvegardées");
             GlobaleVariables.IsClosedProgrammatically = true;
@@ -294,7 +298,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                 string[] lblSplited = lblNbRepartitionComp.Text.Split(':');
                 string newStringLabelNbRepartComp = $"{lblSplited[0]}: {Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage) - 1}";
                 lblNbRepartitionComp.Text = newStringLabelNbRepartComp;
-                
+
                 EnableOrDisableTextBoxButtonRepartitionPoints(true);
             }
         }
@@ -594,11 +598,13 @@ namespace maFichePersonnageJDR.View.Formulaires
 
         private void EditUpdateCompCarac()
         {
+            string[] splitPv = Controller.CompetencesCaracteristiquesController.GetValuePvEnergie("pv", "nombre_points_pv", GlobaleVariables.IdPersonnage).Split('+');
+            string[] splitEnrgie = Controller.CompetencesCaracteristiquesController.GetValuePvEnergie("energie", "nombre_points_energie", GlobaleVariables.IdPersonnage).Split('+');
             /**
              * PV ET ENERGIE
              */
-            nudPV.Value = Controller.CompetencesCaracteristiquesController.GetValuePvEnergie("pv", "nombre_points_pv", GlobaleVariables.IdPersonnage);
-            nudEnergie.Value = Controller.CompetencesCaracteristiquesController.GetValuePvEnergie("energie", "nombre_points_energie", GlobaleVariables.IdPersonnage);
+            nudPV.Value = decimal.Parse(splitPv[0]);
+            nudEnergie.Value = decimal.Parse(splitEnrgie[0]);
 
             /**
              * CARACTERISTIQUE
@@ -707,6 +713,62 @@ namespace maFichePersonnageJDR.View.Formulaires
             int pointsTextBox = int.Parse((sender as TextBox).Text);
 
             MettreAJourMaximumNumericUpDown(gbSocial, pointsTextBox);
+        }
+
+        private string CalculPointsVieEnergieSupplementaire(int valueComp)
+        {
+            int valueResult = 0;
+
+            // Cas ou le personnage a son niveau supérieur à 1
+            if (Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage) > 1)
+            {
+                int drawNumber = Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage) - 1;
+                int facesDe = 0;
+                int countValueDiceDraw = 0;
+
+                // On cherche le nombre de face du dé à lancer 
+                // par rapport à la valeur de sa compétence
+                if (valueComp <= 0)
+                {
+                    facesDe = 4;
+                }
+                else if (valueComp <= 5)
+                {
+                    facesDe = 6;
+                }
+                else if (valueComp <= 10)
+                {
+                    facesDe = 8;
+                }
+                else if (valueComp <= 15)
+                {
+                    facesDe = 10;
+                }
+                else
+                {
+                    facesDe = 12;
+                }
+
+                // On effectue le lancer n fois par rapport au niveau du personnage
+                for (int i = 0; i < drawNumber; i++)
+                {
+                    Random random = new Random();
+                    countValueDiceDraw += random.Next(1, facesDe);
+                }
+
+                valueResult += (valueComp / 3) + countValueDiceDraw;
+            }
+            else
+            {
+                // Dans le cas où le personnage est bien niveau 1 et que sa compétence
+                // est bien supérieur à 0, on lui ajoute des points.
+                if (valueComp > 0)
+                {
+                    valueResult += (valueComp / 3);
+                }
+            }
+
+            return "+" + valueResult.ToString();
         }
     }
 }

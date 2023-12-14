@@ -358,11 +358,11 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else if (niveauPersonnage <= 4)
             {
-                return 3;
+                return 4;
             }
             else if (niveauPersonnage == 5)
             {
-                return 4;
+                return 5;
             }
             else if (niveauPersonnage == 6)
             {
