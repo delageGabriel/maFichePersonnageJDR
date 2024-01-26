@@ -123,12 +123,14 @@ namespace maFichePersonnageJDR.Model
                         competenceSocial.Baratinage = reader.GetInt32(2);
                         competenceSocial.Charme = reader.GetInt32(3);
                         competenceSocial.Comedie = reader.GetInt32(4);
-                        competenceSocial.Diplomatie = reader.GetInt32(5);
-                        competenceSocial.Dressage = reader.GetInt32(6);
-                        competenceSocial.Intimidation = reader.GetInt32(7);
-                        competenceSocial.Marchandage = reader.GetInt32(8);
-                        competenceSocial.Prestance = reader.GetInt32(9);
-                        competenceSocial.Provocation = reader.GetInt32(10);
+                        competenceSocial.Commandement = reader.GetInt32(5);
+                        competenceSocial.Diplomatie = reader.GetInt32(6);
+                        competenceSocial.Dressage = reader.GetInt32(7);
+                        competenceSocial.Intimidation = reader.GetInt32(8);
+                        competenceSocial.Marchandage = reader.GetInt32(9);
+                        competenceSocial.Prestance = reader.GetInt32(10);
+                        competenceSocial.Provocation = reader.GetInt32(11);
+                        competenceSocial.Representation = reader.GetInt32(12);
 
                         competenceSocialPersonnage = competenceSocial;
                     }

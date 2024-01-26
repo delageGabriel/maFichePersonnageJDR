@@ -37,7 +37,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbPgeHache = new System.Windows.Forms.TabPage();
             this.tbPgeMasse = new System.Windows.Forms.TabPage();
             this.tbPgeArmTrt = new System.Windows.Forms.TabPage();
-            this.tbPgeChaines = new System.Windows.Forms.TabPage();
+            this.tbPgeAutre = new System.Windows.Forms.TabPage();
             this.tbPgeBaton = new System.Windows.Forms.TabPage();
             this.tbCntlArmures = new System.Windows.Forms.TabControl();
             this.tbPgeCasque = new System.Windows.Forms.TabPage();
@@ -50,6 +50,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbPgeObjNormaux = new System.Windows.Forms.TabPage();
             this.tbPgeObjRares = new System.Windows.Forms.TabPage();
             this.tbPgeObjMunition = new System.Windows.Forms.TabPage();
+            this.tbPgeMateriau = new System.Windows.Forms.TabPage();
             this.rTxtBxArmes = new System.Windows.Forms.RichTextBox();
             this.rTxtBxArmures = new System.Windows.Forms.RichTextBox();
             this.rTxtBxObjets = new System.Windows.Forms.RichTextBox();
@@ -95,7 +96,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlArmesAchatVentePoids = new System.Windows.Forms.Panel();
             this.pnlArmuresAchatVentePoids = new System.Windows.Forms.Panel();
             this.pnlObjetsAchatVentePoids = new System.Windows.Forms.Panel();
-            this.tbPgeMateriau = new System.Windows.Forms.TabPage();
             this.tbCntlArmes.SuspendLayout();
             this.tbCntlArmures.SuspendLayout();
             this.tbCntlObjets.SuspendLayout();
@@ -115,7 +115,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbCntlArmes.Controls.Add(this.tbPgeHache);
             this.tbCntlArmes.Controls.Add(this.tbPgeMasse);
             this.tbCntlArmes.Controls.Add(this.tbPgeArmTrt);
-            this.tbCntlArmes.Controls.Add(this.tbPgeChaines);
+            this.tbCntlArmes.Controls.Add(this.tbPgeAutre);
             this.tbCntlArmes.Controls.Add(this.tbPgeBaton);
             this.tbCntlArmes.Location = new System.Drawing.Point(32, 16);
             this.tbCntlArmes.Name = "tbCntlArmes";
@@ -185,15 +185,15 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbPgeArmTrt.Text = "Arme de trait";
             this.tbPgeArmTrt.UseVisualStyleBackColor = true;
             // 
-            // tbPgeChaines
+            // tbPgeAutre
             // 
-            this.tbPgeChaines.AutoScroll = true;
-            this.tbPgeChaines.Location = new System.Drawing.Point(4, 22);
-            this.tbPgeChaines.Name = "tbPgeChaines";
-            this.tbPgeChaines.Size = new System.Drawing.Size(272, 142);
-            this.tbPgeChaines.TabIndex = 6;
-            this.tbPgeChaines.Text = "Chaînes";
-            this.tbPgeChaines.UseVisualStyleBackColor = true;
+            this.tbPgeAutre.AutoScroll = true;
+            this.tbPgeAutre.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeAutre.Name = "tbPgeAutre";
+            this.tbPgeAutre.Size = new System.Drawing.Size(272, 142);
+            this.tbPgeAutre.TabIndex = 6;
+            this.tbPgeAutre.Text = "Autre";
+            this.tbPgeAutre.UseVisualStyleBackColor = true;
             // 
             // tbPgeBaton
             // 
@@ -325,6 +325,15 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbPgeObjMunition.TabIndex = 2;
             this.tbPgeObjMunition.Text = "Munition";
             this.tbPgeObjMunition.UseVisualStyleBackColor = true;
+            // 
+            // tbPgeMateriau
+            // 
+            this.tbPgeMateriau.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeMateriau.Name = "tbPgeMateriau";
+            this.tbPgeMateriau.Size = new System.Drawing.Size(272, 142);
+            this.tbPgeMateriau.TabIndex = 3;
+            this.tbPgeMateriau.Text = "Matériau";
+            this.tbPgeMateriau.UseVisualStyleBackColor = true;
             // 
             // rTxtBxArmes
             // 
@@ -812,15 +821,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlObjetsAchatVentePoids.Size = new System.Drawing.Size(279, 68);
             this.pnlObjetsAchatVentePoids.TabIndex = 47;
             // 
-            // tbPgeMateriau
-            // 
-            this.tbPgeMateriau.Location = new System.Drawing.Point(4, 22);
-            this.tbPgeMateriau.Name = "tbPgeMateriau";
-            this.tbPgeMateriau.Size = new System.Drawing.Size(272, 142);
-            this.tbPgeMateriau.TabIndex = 3;
-            this.tbPgeMateriau.Text = "Matériau";
-            this.tbPgeMateriau.UseVisualStyleBackColor = true;
-            // 
             // FormulaireEquipments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -891,7 +891,7 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.TabPage tbPgeHache;
         private System.Windows.Forms.TabPage tbPgeMasse;
         private System.Windows.Forms.TabPage tbPgeArmTrt;
-        private System.Windows.Forms.TabPage tbPgeChaines;
+        private System.Windows.Forms.TabPage tbPgeAutre;
         private System.Windows.Forms.TabPage tbPgeBaton;
         private System.Windows.Forms.TabControl tbCntlArmures;
         private System.Windows.Forms.TabPage tbPgeCasque;

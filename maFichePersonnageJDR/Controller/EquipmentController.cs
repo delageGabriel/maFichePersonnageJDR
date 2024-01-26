@@ -1353,6 +1353,7 @@ namespace maFichePersonnageJDR.Controller
             }
             catch (Exception e)
             {
+                Console.WriteLine(e.Message + "#" + e.StackTrace);
                 throw e;
             }
         }

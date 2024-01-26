@@ -13,6 +13,8 @@ namespace maFichePersonnageJDR.Classe
         public void CreatePersonnageHtml()
         {
             #region Initialisation des variables
+            string[] splitPv = Controller.CompetencesCaracteristiquesController.GetValuePvEnergie("pv", "nombre_points_pv", GlobaleVariables.IdPersonnage).Split('+');
+            string[] splitEnrgie = Controller.CompetencesCaracteristiquesController.GetValuePvEnergie("energie", "nombre_points_energie", GlobaleVariables.IdPersonnage).Split('+');
             string prenomPersonnage = PersonnageController.GetPrenomPersonnage(GlobaleVariables.IdPersonnage);
             string nomPersonnage = PersonnageController.GetNomPersonnage(GlobaleVariables.IdPersonnage);
             string racePersonnage = PersonnageController.GetRacePersonnage(GlobaleVariables.IdPersonnage);
@@ -341,6 +343,7 @@ namespace maFichePersonnageJDR.Classe
                     <tbody>{29}
                     </tbody>
                 </table>
+                <p>PV: {30} ; Energie: {31}</p>
             </details>
             <h1>Notes</h1>
             ",
@@ -373,7 +376,9 @@ namespace maFichePersonnageJDR.Classe
                PersonnageController.GetChargePortee(GlobaleVariables.IdPersonnage),
                PersonnageController.GetChargeTotale(GlobaleVariables.IdPersonnage),
                htmlTableMagiePersonnage,
-               htmlTableAptitudesPersonnage
+               htmlTableAptitudesPersonnage,
+               splitPv[0],
+               splitEnrgie[1]
                );
 
             string cheminDuFichier = string.Format(@"Templates\{0}_{1}.html", prenomPersonnage, nomPersonnage);

@@ -225,7 +225,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.chkCinquante.TabIndex = 8;
             this.chkCinquante.Text = "50";
             this.chkCinquante.UseVisualStyleBackColor = true;
-            this.chkCinquante.Visible = false;
             this.chkCinquante.Click += new System.EventHandler(this.CheckBox_Click);
             // 
             // chkQuaranteCinq

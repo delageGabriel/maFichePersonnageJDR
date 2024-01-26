@@ -183,10 +183,11 @@ namespace maFichePersonnageJDR.View.Formulaires
                 Convert.ToInt32(nudMemoire.Value), Convert.ToInt32(nudOrientation.Value), Convert.ToInt32(nudPerception.Value), Convert.ToInt32(nudVolonte.Value));
 
             // Ajout des compétences physiques
-            Controller.CompetencesCaracteristiquesController.SaveCompetencePhysiquePersonnage(GlobaleVariables.IdPersonnage, Convert.ToInt32(nudAgilite.Value), Convert.ToInt32(nudArtisanat.Value),
-                Convert.ToInt32(nudCrochetage.Value), Convert.ToInt32(nudDiscretion.Value), Convert.ToInt32(nudEqlibre.Value), Convert.ToInt32(nudEquitation.Value), Convert.ToInt32(nudEscalade.Value),
-                Convert.ToInt32(nudEscamotage.Value), Convert.ToInt32(nudForce.Value), Convert.ToInt32(nudFouille.Value), Convert.ToInt32(nudLutte.Value),
-                Convert.ToInt32(nudNatation.Value), Convert.ToInt32(nudReflexes.Value), Convert.ToInt32(nudVigueur.Value));
+            Controller.CompetencesCaracteristiquesController.SaveCompetencePhysiquePersonnage(GlobaleVariables.IdPersonnage, Convert.ToInt32(nudAgilite.Value), 
+                Convert.ToInt32(nudArtisanat.Value), Convert.ToInt32(nudCrochetage.Value), Convert.ToInt32(nudDiscretion.Value), Convert.ToInt32(nudEqlibre.Value), 
+                Convert.ToInt32(nudEquitation.Value), Convert.ToInt32(nudEscalade.Value), Convert.ToInt32(nudEscamotage.Value), Convert.ToInt32(nudForce.Value), 
+                Convert.ToInt32(nudFouille.Value), Convert.ToInt32(nudLutte.Value), Convert.ToInt32(nudNatation.Value), Convert.ToInt32(nudReflexes.Value), 
+                Convert.ToInt32(nudVigueur.Value));
 
             // Ajout des compétences sociales
             Controller.CompetencesCaracteristiquesController.SaveCompetenceSocialPersonnage(GlobaleVariables.IdPersonnage, Convert.ToInt32(nudBaratinage.Value),

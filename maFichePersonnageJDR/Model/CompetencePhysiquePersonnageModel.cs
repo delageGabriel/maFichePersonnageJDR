@@ -161,13 +161,15 @@ namespace maFichePersonnageJDR.Model
                         competencePhysique.Crochetage = reader.GetInt32(4);
                         competencePhysique.Discretion = reader.GetInt32(5);
                         competencePhysique.Equilibre = reader.GetInt32(6);
-                        competencePhysique.Escalade = reader.GetInt32(7);
-                        competencePhysique.Escamotage = reader.GetInt32(8);
-                        competencePhysique.Force = reader.GetInt32(9);
-                        competencePhysique.Fouille = reader.GetInt32(10);
-                        competencePhysique.Natation = reader.GetInt32(11);
-                        competencePhysique.Reflexes = reader.GetInt32(12);
-                        competencePhysique.Vigueur = reader.GetInt32(13);
+                        competencePhysique.Equitation = reader.GetInt32(7);
+                        competencePhysique.Escalade = reader.GetInt32(8);
+                        competencePhysique.Escamotage = reader.GetInt32(9);
+                        competencePhysique.Force = reader.GetInt32(10);
+                        competencePhysique.Fouille = reader.GetInt32(11);
+                        competencePhysique.Lutte = reader.GetInt32(12);
+                        competencePhysique.Natation = reader.GetInt32(13);
+                        competencePhysique.Reflexes = reader.GetInt32(14);
+                        competencePhysique.Vigueur = reader.GetInt32(15);
 
                         competencePhysiquePersonnage = competencePhysique;
                     }
