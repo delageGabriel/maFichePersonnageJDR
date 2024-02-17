@@ -254,8 +254,8 @@ namespace maFichePersonnageJDR.Classe
                             <th style=""white-space:nowrap"">Allonge</th>
                             <th style=""white-space:nowrap"">Main(s)</th>
                             <th style=""white-space:nowrap"">Type(s) de dégât(s)</th>
-                            <th style=""white-space:nowrap"">Dégâts</th>
                             <th style=""white-space:nowrap"">Valeur monétaire</th>
+                            <th style=""white-space:nowrap"">Description</th>
                             <th style=""white-space:nowrap"">Spécial</th>
                             <th style=""white-space:nowrap"">Quantité</th>
                         </tr>
@@ -525,32 +525,51 @@ namespace maFichePersonnageJDR.Classe
             string tableArmeHtmlPersonnage = string.Empty;
 
             #region Initialisation des variables
-            List<string> typesArmes = Controller.EquipmentController.GetListTypeArmes(idPersonnage);
-            List<string> nomArmes = Controller.EquipmentController.GetListNomArmes(idPersonnage);
-            List<double> poidsArmes = Controller.EquipmentController.GetListPoidsArmes(idPersonnage);
-            List<string> allongeArmes = Controller.EquipmentController.GetListAllongeArmes(idPersonnage);
-            List<string> mainsArmes = Controller.EquipmentController.GetListMainsArmes(idPersonnage);
-            List<string> typesDegatsArmes = Controller.EquipmentController.GetListTypeDegatsArmes(idPersonnage);
-            List<string> degatsArmes = Controller.EquipmentController.GetListDegatsArmes(idPersonnage);
-            List<string> valeurArmes = Controller.EquipmentController.GetListValeurArmes(idPersonnage);
-            List<string> specialArmes = Controller.EquipmentController.GetListSpecialArmes(idPersonnage);
-            List<int> quantities = Controller.EquipmentController.GetListQuantityArmes(idPersonnage);
+            Dictionary<int, Tuple<Model.ArmesModel, int>> dictionaryInfosArmes = EquipmentController.GetArmesPersonnagesByIdPersonnage(idPersonnage);
             #endregion
 
-            for (int i = 0; i < typesArmes.Count; i++)
+            foreach(KeyValuePair<int, Tuple<Model.ArmesModel, int>> keyValue in dictionaryInfosArmes)
             {
+                Tuple<Model.ArmesModel, int> valeur = keyValue.Value;
                 tableArmeHtmlPersonnage +=
                     $"                          \n<tr>\n" +
-                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{typesArmes[i]}</td>\n" +
-                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{nomArmes[i]}</td>\n" +
-                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{poidsArmes[i]}</td>\n" +
-                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{allongeArmes[i]}</td>\n" +
-                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{mainsArmes[i]}</td>\n" +
-                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{typesDegatsArmes[i]}</td>\n" +
-                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">[[/r {degatsArmes[i]}]]</td>\n" +
-                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{valeurArmes[i]}</td>\n" +
-                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">[[/r 0 #{specialArmes[i]}]]</td>\n" +
-                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{quantities[i]}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{valeur.Item1.TypeArme}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{valeur.Item1.NomArme}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{valeur.Item1.PoidsArmes}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{valeur.Item1.AllongeArmes}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{valeur.Item1.MainArmes}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">" +
+                    $"                                  <table border=\"1\" style=\"width:100%\">" +
+                    $"                                      <tr>" +
+                    $"                                          <th>Tranchant</th>" +
+                    $"                                          <th>Contondant</th>" +
+                    $"                                          <th>Perforant</th>" +
+                    $"                                      </tr>" +
+                    $"                                      <tr>" +
+                    $"                                          <td>[[/r {valeur.Item1.DegTranchant}]]</td>" +
+                    $"                                          <td>[[/r {valeur.Item1.DegContondant}]]</td>" +
+                    $"                                          <td>[[/r {valeur.Item1.DegPerforant}]]</td>" +
+                    $"                                      </tr>" +
+                    $"                                  </table>" +
+                    $"                                  <table border=\"1\" style=\"width:100%\">" +
+                    $"                                      <tr>" +
+                    $"                                          <th style=\"background-color: red; color: white;\">Ignée</th>" +
+                    $"                                          <th style=\"background-color: blue; color: white;\">Aquatique</th>" +
+                    $"                                          <th style=\"background-color: green; color: white;\">Céleste</th>" +
+                    $"                                          <th style=\"background-color: goldenrod; color: white;\">Terrestre</th>" +
+                    $"                                      </tr>" +
+                    $"                                      <tr>" +
+                    $"                                          <td>{valeur.Item1.DegIgnee}</td>" +
+                    $"                                          <td>{valeur.Item1.DegAquatique}</td>" +
+                    $"                                          <td>{valeur.Item1.DegCeleste}</td>" +
+                    $"                                          <td>{valeur.Item1.DegTerrestre}</td>" +
+                    $"                                      </tr>" +
+                    $"                                  </table>" +
+                    $"                              </td>" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{Utils.ConvertMoneyWithValue(valeur.Item1.ValeurArme)}</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">[[/r 0 #{valeur.Item1.DescriptionCourteArme}]]</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">[[/r 0 #{valeur.Item1.SpecialArme}]]</td>\n" +
+                    $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{valeur.Item2}</td>\n" +
                     $"                          </tr>\n";
             }
 

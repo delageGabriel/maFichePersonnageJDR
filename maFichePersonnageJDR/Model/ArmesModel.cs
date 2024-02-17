@@ -16,8 +16,15 @@ namespace maFichePersonnageJDR.Model
         private double poidsArmes;
         private string allongeArmes;
         private string mainArmes;
-        private string typeDegatsArmes;
-        private string degatsArmes;
+        //private string typeDegatsArmes;
+        //private string degatsArmes;
+        private string degTranchant;
+        private string degContondant;
+        private string degPerforant;
+        private string degIgnee;
+        private string degAquatique;
+        private string degCeleste;
+        private string degTerrestre;
         private int valeurArme;
         private string descriptionArme;
         private string descriptionCourteArme;
@@ -32,8 +39,14 @@ namespace maFichePersonnageJDR.Model
         public double PoidsArmes { get => poidsArmes; set => poidsArmes = value; }
         public string AllongeArmes { get => allongeArmes; set => allongeArmes = value; }
         public string MainArmes { get => mainArmes; set => mainArmes = value; }
-        public string TypeDegatsArmes { get => typeDegatsArmes; set => typeDegatsArmes = value; }
-        public string DegatsArmes { get => degatsArmes; set => degatsArmes = value; }
+        public string DegTranchant { get => degTranchant; set => degTranchant = value; }
+        public string DegContondant { get => degContondant; set => degContondant = value; }
+        public string DegPerforant { get => degPerforant; set => degPerforant = value; }
+        public string DegIgnee { get => degIgnee; set => degIgnee = value; }
+        public string DegAquatique { get => degAquatique; set => degAquatique = value; }
+        public string DegCeleste { get => degCeleste; set => degCeleste = value; }
+        public string DegTerrestre { get => degTerrestre; set => degTerrestre = value; }
+
         public int ValeurArme { get => valeurArme; set => valeurArme = value; }
         public string DescriptionArme { get => descriptionArme; set => descriptionArme = value; }
         public string DescriptionCourteArme { get => descriptionCourteArme; set => descriptionCourteArme = value; }
@@ -44,55 +57,82 @@ namespace maFichePersonnageJDR.Model
         /// </summary>
         /// <param name="typeArme">le type d'arme</param>
         /// <returns>la liste d'armes</returns>
-        public List<ArmesModel> GetListArmesByTypes(string typeArme)
+        public Dictionary<int, ArmesModel> GetListArmesByTypes(string typeArme)
         {
             #region Initialisation variables
-            List<ArmesModel> armesModels = new List<ArmesModel>();
+            Dictionary<int, ArmesModel> dictionaryArmes = new Dictionary<int, ArmesModel>();
             #endregion
 
             try
             {
                 // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT * FROM ARMES WHERE type_arme = @typeArme", DatabaseConnection.Instance.GetConnection());
+                SQLiteCommand command = new SQLiteCommand("SELECT ARMES.id_armes," +
+                        " ARMES.type_arme," +
+                        " ARMES.nom_arme," +
+                        " ARMES.poids_arme," +
+                        " ARMES.allonge_arme," +
+                        " ARMES.main_arme," +
+                        " ARMES.deg_tranchant," +
+                        " ARMES.deg_contondant," +
+                        " ARMES.deg_perforant," +
+                        " ARMES.deg_ignee," +
+                        " ARMES.deg_aqua, " +
+                        " ARMES.deg_celeste," +
+                        " ARMES.deg_terrestre," +
+                        " ARMES.valeur_arme," +
+                        " ARMES.description_arme," +
+                        " ARMES.description_courte_arme," +
+                        " ARMES.special_arme " +
+                    "FROM ARMES " +
+                    "WHERE type_arme = @typeArme", DatabaseConnection.Instance.GetConnection());
                 command.Parameters.AddWithValue("@typeArme", typeArme);
 
                 using (SQLiteDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        ArmesModel armeModel = new ArmesModel();
+                        ArmesModel arme = new ArmesModel();
 
-                        armeModel.IdArme = reader.GetInt32(0);
-                        armeModel.TypeArme = reader.GetString(1);
-                        armeModel.NomArme = reader.GetString(2);
-                        armeModel.PoidsArmes = reader.GetDouble(3);
-                        armeModel.AllongeArmes = reader.GetString(4);
-                        armeModel.MainArmes = reader.GetString(5);
-                        armeModel.TypeDegatsArmes = reader.GetString(6);
-                        armeModel.DegatsArmes = reader.GetString(7);
-                        armeModel.ValeurArme = reader.GetInt32(8);
-                        armeModel.DescriptionArme = reader.GetString(9);
-                        armeModel.DescriptionCourteArme = reader.GetString(10);
-                        armeModel.SpecialArme = reader.GetString(11);
+                        int idArme = reader.IsDBNull(0) ? 0 : reader.GetInt32(0);
+                        arme.TypeArme = reader.IsDBNull(1) ? "null" : reader.GetString(1);
+                        arme.NomArme = reader.IsDBNull(2) ? "null" : reader.GetString(2);
+                        arme.PoidsArmes = reader.IsDBNull(3) ? 0.0 : reader.GetDouble(3);
+                        arme.AllongeArmes = reader.IsDBNull(4) ? "null" : reader.GetString(4);
+                        arme.MainArmes = reader.IsDBNull(5) ? "null" : reader.GetString(5);
+                        arme.DegTranchant = reader.IsDBNull(6) ? "null" : reader.GetString(6);
+                        arme.DegContondant = reader.IsDBNull(7) ? "null" : reader.GetString(7);
+                        arme.DegPerforant = reader.IsDBNull(8) ? "null" : reader.GetString(8);
+                        arme.DegIgnee = reader.IsDBNull(9) ? "null" : reader.GetString(9);
+                        arme.DegAquatique = reader.IsDBNull(10) ? "null" : reader.GetString(10);
+                        arme.DegCeleste = reader.IsDBNull(11) ? "null" : reader.GetString(11);
+                        arme.DegTerrestre = reader.IsDBNull(12) ? "null" : reader.GetString(12);
+                        arme.ValeurArme = reader.IsDBNull(13) ? 0 : reader.GetInt32(13);
+                        arme.DescriptionArme = reader.IsDBNull(14) ? "null" : reader.GetString(14);
+                        arme.DescriptionCourteArme = reader.IsDBNull(15) ? "null" : reader.GetString(15);
+                        arme.SpecialArme = reader.IsDBNull(16) ? "null" : reader.GetString(16);
 
-                        armesModels.Add(armeModel);
+                        dictionaryArmes.Add(idArme, arme);
                     }
                 }
 
-                return armesModels;
+                return dictionaryArmes;
             }
             catch (Exception e)
             {
-                throw e;
+                Console.WriteLine("Une erreur s'est produite !" + e.Message);
+                throw;
+            }
+            finally
+            {
+                DatabaseConnection.Instance.CloseConnection();
             }
         }
-
         /// <summary>
         /// Permet d'obtenir une arme par rapport à son nom
         /// </summary>
         /// <param name="nomArme"></param>
         /// <returns></returns>
-        public ArmesModel GetArmeByName(string nomArme)
+        public static ArmesModel GetArmeByName(string nomArme)
         {
             ArmesModel armeModel = new ArmesModel();
             try
@@ -107,18 +147,23 @@ namespace maFichePersonnageJDR.Model
                     {
                         ArmesModel arme = new ArmesModel();
 
-                        arme.IdArme = reader.GetInt32(0);
-                        arme.TypeArme = reader.GetString(1);
-                        arme.NomArme = reader.GetString(2);
-                        arme.PoidsArmes = reader.GetDouble(3);
-                        arme.AllongeArmes = reader.GetString(4);
-                        arme.MainArmes = reader.GetString(5);
-                        arme.TypeDegatsArmes = reader.GetString(6);
-                        arme.DegatsArmes = reader.GetString(7);
-                        arme.ValeurArme = reader.GetInt32(8);
-                        arme.DescriptionArme = reader.GetString(9);
-                        arme.DescriptionCourteArme = reader.GetString(10);
-                        arme.SpecialArme = reader.GetString(11);
+                        arme.IdArme = reader.IsDBNull(0) ? 0 : reader.GetInt32(0);
+                        arme.TypeArme = reader.IsDBNull(1) ? "null" : reader.GetString(1);
+                        arme.NomArme = reader.IsDBNull(2) ? "null" : reader.GetString(2);
+                        arme.PoidsArmes = reader.IsDBNull(3) ? 0.0 : reader.GetDouble(3);
+                        arme.AllongeArmes = reader.IsDBNull(4) ? "null" : reader.GetString(4);
+                        arme.MainArmes = reader.IsDBNull(5) ? "null" : reader.GetString(5);
+                        arme.DegTranchant = reader.IsDBNull(6) ? "null" : reader.GetString(6);
+                        arme.DegContondant = reader.IsDBNull(7) ? "null" : reader.GetString(7);
+                        arme.DegPerforant = reader.IsDBNull(8) ? "null" : reader.GetString(8);
+                        arme.DegIgnee = reader.IsDBNull(9) ? "null" : reader.GetString(9);
+                        arme.DegAquatique = reader.IsDBNull(10) ? "null" : reader.GetString(10);
+                        arme.DegCeleste = reader.IsDBNull(11) ? "null" : reader.GetString(11);
+                        arme.DegTerrestre = reader.IsDBNull(12) ? "null" : reader.GetString(12);
+                        arme.ValeurArme = reader.IsDBNull(13) ? 0 : reader.GetInt32(13);
+                        arme.DescriptionArme = reader.IsDBNull(14) ? "null" : reader.GetString(14);
+                        arme.DescriptionCourteArme = reader.IsDBNull(15) ? "null" : reader.GetString(15);
+                        arme.SpecialArme = reader.IsDBNull(16) ? "null" : reader.GetString(16);
 
                         armeModel = arme;
                     }
@@ -128,7 +173,12 @@ namespace maFichePersonnageJDR.Model
             }
             catch (Exception e)
             {
-                throw e;
+                Console.WriteLine("Une erreur s'est produite !" + e.Message);
+                throw;
+            }
+            finally
+            {
+                DatabaseConnection.Instance.CloseConnection();
             }
         }
 

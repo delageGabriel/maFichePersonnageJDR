@@ -74,455 +74,84 @@ namespace maFichePersonnageJDR.Model
                 transaction?.Dispose();
             }
         }
-
         /// <summary>
-        /// Retourne un personnage par son ID
+        /// Méthode qui permet de collecter la totalité des armes que le personnage
+        /// possède.
         /// </summary>
-        /// <param name="idPersonnage"></param>
-        /// <returns></returns>
-        public List<string> GetListNomArmes(int idPersonnage)
+        /// <param name="idPersonnage">L'ID du personnage dont il faut extraire les armes.</param>
+        /// <returns>Le dictionnaire qui contient toutes les informations de toutes les armes du personnage</returns>
+        public Dictionary<int, Tuple<ArmesModel, int>> GetArmesPersonnagesByIdPersonnage(int idPersonnage)
         {
-            #region Initialisation des variables
-            List<string> listNomArmes = new List<string>();
-            #endregion
+            Dictionary<int, Tuple<ArmesModel, int>> dictionaryArmesPersonnage = new Dictionary<int, Tuple<ArmesModel, int>>();
 
             try
             {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
-                // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT nom_arme " +
-                    "FROM ARMES " +
-                    "INNER JOIN INVENTAIRE_ARMES_PERSONNAGES ON ARMES.id_armes = INVENTAIRE_ARMES_PERSONNAGES.id_arme " +
-                    "WHERE INVENTAIRE_ARMES_PERSONNAGES.id_personnage = @id_personnage", connection);
+                SQLiteCommand command = new SQLiteCommand("SELECT ARMES.id_armes," +
+                    " ARMES.type_arme," +
+                    " ARMES.nom_arme," +
+                    " ARMES.poids_arme," +
+                    " ARMES.allonge_arme," +
+                    " ARMES.main_arme," +
+                    " ARMES.deg_tranchant," +
+                    " ARMES.deg_contondant," +
+                    " ARMES.deg_perforant," +
+                    " ARMES.deg_ignee," +
+                    " ARMES.deg_aqua, " +
+                    " ARMES.deg_celeste," +
+                    " ARMES.deg_terrestre," +
+                    " ARMES.valeur_arme," +
+                    " ARMES.description_arme," +
+                    " ARMES.description_courte_arme," +
+                    " ARMES.special_arme," +
+                    " INVENTAIRE_ARMES_PERSONNAGES.quantite FROM ARMES " +
+                    " INNER JOIN INVENTAIRE_ARMES_PERSONNAGES ON ARMES.id_armes = INVENTAIRE_ARMES_PERSONNAGES.id_arme " +
+                    " WHERE INVENTAIRE_ARMES_PERSONNAGES.id_personnage = @id_personnage", DatabaseConnection.Instance.GetConnection()
+                    );
                 command.Parameters.AddWithValue("@id_personnage", idPersonnage);
 
                 using (SQLiteDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
+                        ArmesModel armesCaracteristiques = new ArmesModel();
 
-                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
-                        string value = reader["nom_arme"].ToString();
-                        listNomArmes.Add(value);
+                        int idArme = reader.IsDBNull(0) ? 0 : reader.GetInt32(0);
+                        armesCaracteristiques.TypeArme = reader.IsDBNull(1) ? "null" : reader.GetString(1);
+                        armesCaracteristiques.NomArme = reader.IsDBNull(2) ? "null" : reader.GetString(2);
+                        armesCaracteristiques.PoidsArmes = reader.IsDBNull(3) ? 0.0 : reader.GetDouble(3);
+                        armesCaracteristiques.AllongeArmes = reader.IsDBNull(4) ? "null" : reader.GetString(4);
+                        armesCaracteristiques.MainArmes = reader.IsDBNull(5) ? "null" : reader.GetString(5);
+                        armesCaracteristiques.DegTranchant = reader.IsDBNull(6) ? "null" : reader.GetString(6);
+                        armesCaracteristiques.DegContondant = reader.IsDBNull(7) ? "null" : reader.GetString(7);
+                        armesCaracteristiques.DegPerforant = reader.IsDBNull(8) ? "null" : reader.GetString(8);
+                        armesCaracteristiques.DegIgnee = reader.IsDBNull(9) ? "null" : reader.GetString(9);
+                        armesCaracteristiques.DegAquatique = reader.IsDBNull(10) ? "null" : reader.GetString(10);
+                        armesCaracteristiques.DegCeleste = reader.IsDBNull(11) ? "null" : reader.GetString(11);
+                        armesCaracteristiques.DegTerrestre = reader.IsDBNull(12) ? "null" : reader.GetString(12);
+                        armesCaracteristiques.ValeurArme = reader.IsDBNull(13) ? 0 : reader.GetInt32(13);
+                        armesCaracteristiques.DescriptionArme = reader.IsDBNull(14) ? "null" : reader.GetString(14);
+                        armesCaracteristiques.DescriptionCourteArme = reader.IsDBNull(15) ? "null" : reader.GetString(15);
+                        armesCaracteristiques.SpecialArme = reader.IsDBNull(16) ? "null" : reader.GetString(16);
+                        int quantite = reader.IsDBNull(17) ? 0 : reader.GetInt32(17);
+
+                        Tuple<ArmesModel, int> tupleArmes = new Tuple<ArmesModel, int>(armesCaracteristiques, quantite);
+
+                        dictionaryArmesPersonnage.Add(idArme, tupleArmes);
                     }
                 }
 
-                return listNomArmes;
+                return dictionaryArmesPersonnage;
             }
-            catch (Exception e)
+            catch(Exception ex)
             {
-                throw e;
+                Console.WriteLine("Une erreur s'est produite !" + ex.Message);
+                throw;
+            }
+            finally
+            {
+                DatabaseConnection.Instance.CloseConnection();
             }
         }
-
-        /// <summary>
-        /// Retourne un personnage par son ID
-        /// </summary>
-        /// <param name="idPersonnage"></param>
-        /// <returns></returns>
-        public List<string> GetListTypeArmes(int idPersonnage)
-        {
-            #region Initialisation des variables
-            List<string> listTypeArmes = new List<string>();
-            #endregion
-
-            try
-            {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
-                // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT type_arme " +
-                    "FROM ARMES " +
-                    "INNER JOIN INVENTAIRE_ARMES_PERSONNAGES ON ARMES.id_armes = INVENTAIRE_ARMES_PERSONNAGES.id_arme " +
-                    "WHERE INVENTAIRE_ARMES_PERSONNAGES.id_personnage = @id_personnage", connection);
-                command.Parameters.AddWithValue("@id_personnage", idPersonnage);
-
-                using (SQLiteDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
-
-                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
-                        string value = reader["type_arme"].ToString();
-                        listTypeArmes.Add(value);
-                    }
-                }
-
-                return listTypeArmes;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="idPersonnage"></param>
-        /// <returns></returns>
-        public List<double> GetListPoidsArmes(int idPersonnage)
-        {
-            #region Initialisation des variables
-            List<double> listPoidsArmes = new List<double>();
-            #endregion
-
-            try
-            {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
-                // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT ARMES.poids_arme * INVENTAIRE_ARMES_PERSONNAGES.quantite AS resultat FROM ARMES INNER JOIN INVENTAIRE_ARMES_PERSONNAGES ON ARMES.id_armes = INVENTAIRE_ARMES_PERSONNAGES.id_arme WHERE INVENTAIRE_ARMES_PERSONNAGES.id_personnage = @idPersonnage", connection);
-                command.Parameters.AddWithValue("@idPersonnage", idPersonnage);
-
-                using (SQLiteDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
-
-                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
-                        double value = Convert.ToDouble(reader["resultat"]);
-                        listPoidsArmes.Add(value);
-                    }
-                }
-
-                return listPoidsArmes;
-            }
-            catch (SQLiteException e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// Retourne un personnage par son ID
-        /// </summary>
-        /// <param name="idPersonnage"></param>
-        /// <returns></returns>
-        public List<string> GetListAllongeArmes(int idPersonnage)
-        {
-            #region Initialisation des variables
-            List<string> listAllongeArmes = new List<string>();
-            #endregion
-
-            try
-            {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
-                // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT allonge_arme " +
-                    "FROM ARMES " +
-                    "INNER JOIN INVENTAIRE_ARMES_PERSONNAGES ON ARMES.id_armes = INVENTAIRE_ARMES_PERSONNAGES.id_arme " +
-                    "WHERE INVENTAIRE_ARMES_PERSONNAGES.id_personnage = @id_personnage", connection);
-                command.Parameters.AddWithValue("@id_personnage", idPersonnage);
-
-                using (SQLiteDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
-
-                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
-                        string value = reader["allonge_arme"].ToString();
-                        listAllongeArmes.Add(value);
-                    }
-                }
-
-                return listAllongeArmes;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// Retourne un personnage par son ID
-        /// </summary>
-        /// <param name="idPersonnage"></param>
-        /// <returns></returns>
-        public List<string> GetListMainsArmes(int idPersonnage)
-        {
-            #region Initialisation des variables
-            List<string> listMainsArmes = new List<string>();
-            #endregion
-
-            try
-            {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
-                // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT main_arme " +
-                    "FROM ARMES " +
-                    "INNER JOIN INVENTAIRE_ARMES_PERSONNAGES ON ARMES.id_armes = INVENTAIRE_ARMES_PERSONNAGES.id_arme " +
-                    "WHERE INVENTAIRE_ARMES_PERSONNAGES.id_personnage = @id_personnage", connection);
-                command.Parameters.AddWithValue("@id_personnage", idPersonnage);
-
-                using (SQLiteDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
-
-                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
-                        string value = reader["main_arme"].ToString();
-                        listMainsArmes.Add(value);
-                    }
-                }
-
-                return listMainsArmes;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// Retourne un personnage par son ID
-        /// </summary>
-        /// <param name="idPersonnage"></param>
-        /// <returns></returns>
-        public List<string> GetListTypeDegatsArmes(int idPersonnage)
-        {
-            #region Initialisation des variables
-            List<string> listTypeDegatsArmes = new List<string>();
-            #endregion
-
-            try
-            {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
-                // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT type_degats_arme " +
-                    "FROM ARMES " +
-                    "INNER JOIN INVENTAIRE_ARMES_PERSONNAGES ON ARMES.id_armes = INVENTAIRE_ARMES_PERSONNAGES.id_arme " +
-                    "WHERE INVENTAIRE_ARMES_PERSONNAGES.id_personnage = @id_personnage", connection);
-                command.Parameters.AddWithValue("@id_personnage", idPersonnage);
-
-                using (SQLiteDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
-
-                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
-                        string value = reader["type_degats_arme"].ToString();
-                        listTypeDegatsArmes.Add(value);
-                    }
-                }
-
-                return listTypeDegatsArmes;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// Retourne un personnage par son ID
-        /// </summary>
-        /// <param name="idPersonnage"></param>
-        /// <returns></returns>
-        public List<string> GetListDegatsArmes(int idPersonnage)
-        {
-            #region Initialisation des variables
-            List<string> listDegatsArmes = new List<string>();
-            #endregion
-
-            try
-            {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
-                // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT degats_arme " +
-                    "FROM ARMES " +
-                    "INNER JOIN INVENTAIRE_ARMES_PERSONNAGES ON ARMES.id_armes = INVENTAIRE_ARMES_PERSONNAGES.id_arme " +
-                    "WHERE INVENTAIRE_ARMES_PERSONNAGES.id_personnage = @id_personnage", connection);
-                command.Parameters.AddWithValue("@id_personnage", idPersonnage);
-
-                using (SQLiteDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
-
-                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
-                        string value = reader["degats_arme"].ToString();
-                        listDegatsArmes.Add(value);
-                    }
-                }
-
-                return listDegatsArmes;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// Retourne un personnage par son ID
-        /// </summary>
-        /// <param name="idPersonnage"></param>
-        /// <returns></returns>
-        public List<string> GetListValeurArmes(int idPersonnage)
-        {
-            #region Initialisation des variables
-            List<string> listValeurArmes = new List<string>();
-            #endregion
-
-            try
-            {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
-                // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT valeur_arme " +
-                    "FROM ARMES " +
-                    "INNER JOIN INVENTAIRE_ARMES_PERSONNAGES ON ARMES.id_armes = INVENTAIRE_ARMES_PERSONNAGES.id_arme " +
-                    "WHERE INVENTAIRE_ARMES_PERSONNAGES.id_personnage = @id_personnage", connection);
-                command.Parameters.AddWithValue("@id_personnage", idPersonnage);
-
-                using (SQLiteDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
-
-                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
-                        string value = reader["valeur_arme"].ToString();
-                        value = Utils.ConvertMoneyWithValue(int.Parse(value));
-                        listValeurArmes.Add(value);
-                    }
-                }
-
-                return listValeurArmes;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// Retourne un personnage par son ID
-        /// </summary>
-        /// <param name="idPersonnage"></param>
-        /// <returns></returns>
-        public List<int> GetListQuantitiesArmes(int idPersonnage)
-        {
-            #region Initialisation des variables
-            List<int> listQuantities = new List<int>();
-            #endregion
-
-            try
-            {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
-                // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT quantite " +
-                    "FROM INVENTAIRE_ARMES_PERSONNAGES " +
-                    "WHERE INVENTAIRE_ARMES_PERSONNAGES.id_personnage = @id_personnage", connection);
-                command.Parameters.AddWithValue("@id_personnage", idPersonnage);
-
-                using (SQLiteDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
-
-                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
-                        int value = Convert.ToInt32(reader["quantite"]);
-                        listQuantities.Add(value);
-                    }
-                }
-
-                return listQuantities;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// Retourne un personnage par son ID
-        /// </summary>
-        /// <param name="idPersonnage"></param>
-        /// <returns></returns>
-        public List<string> GetListDescriptionArmes(int idPersonnage)
-        {
-            #region Initialisation des variables
-            List<string> listDescriptionArmes = new List<string>();
-            #endregion
-
-            try
-            {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
-                // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT description_arme " +
-                    "FROM ARMES " +
-                    "INNER JOIN INVENTAIRE_ARMES_PERSONNAGES ON ARMES.id_armes = INVENTAIRE_ARMES_PERSONNAGES.id_arme " +
-                    "WHERE INVENTAIRE_ARMES_PERSONNAGES.id_personnage = @id_personnage", connection);
-                command.Parameters.AddWithValue("@id_personnage", idPersonnage);
-
-                using (SQLiteDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
-
-                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
-                        string value = reader["description_arme"].ToString();
-                        listDescriptionArmes.Add(value);
-                    }
-                }
-
-                return listDescriptionArmes;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// Retourne un personnage par son ID
-        /// </summary>
-        /// <param name="idPersonnage"></param>
-        /// <returns></returns>
-        public List<string> GetListSpecialArmes(int idPersonnage)
-        {
-            #region Initialisation des variables
-            List<string> listSpecialArmes = new List<string>();
-            #endregion
-
-            try
-            {
-                SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
-                // Commande
-                SQLiteCommand command = new SQLiteCommand("SELECT special_arme " +
-                    "FROM ARMES " +
-                    "INNER JOIN INVENTAIRE_ARMES_PERSONNAGES ON ARMES.id_armes = INVENTAIRE_ARMES_PERSONNAGES.id_arme " +
-                    "WHERE INVENTAIRE_ARMES_PERSONNAGES.id_personnage = @id_personnage", connection);
-                command.Parameters.AddWithValue("@id_personnage", idPersonnage);
-
-                using (SQLiteDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
-
-                        // On vérifie si une ligne existe déjà avec le nom prénom du personnage
-                        string value = reader["special_arme"].ToString();
-                        listSpecialArmes.Add(value);
-                    }
-                }
-
-                return listSpecialArmes;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
         /// <summary>
         /// Supprime une arme de l'inventaire du personnage
         /// </summary>

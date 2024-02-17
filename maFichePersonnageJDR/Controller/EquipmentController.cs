@@ -36,78 +36,25 @@ namespace maFichePersonnageJDR.Controller
         }
 
         /// <summary>
-        /// Méthode qui se connecte à la base de données pour trouver toutes les armes et les ajouter
-        /// à chaque pages du TabControl parent en fonction du type de l'arme
+        /// 
         /// </summary>
-        /// <param name="typeArme">le type de l'arme</param>
-        /// <param name="controlParent">le TabControl parent</param>
-        /// <param name="tabPage">la page où ajouter toutes les armes</param>
-        public static void GetArmesByType(string typeArme, TabControl controlParent, TabPage tabPage)
+        /// <param name="typeArme"></param>
+        /// <returns></returns>
+        public static Dictionary<int, ArmesModel> GetArmesByType(string typeArme)
         {
             Console.WriteLine(string.Format("########### Méthode GetArmesByType — Type d'arme : {0} ###########", typeArme));
-            FormulaireEquipments formulaireEquipments = new FormulaireEquipments();
             ArmesModel armesModel = new ArmesModel();
 
-            try
+            Dictionary<int, ArmesModel> dictionnaireDArmes = armesModel.GetListArmesByTypes(typeArme);
+
+            if (armesModel != null)
             {
-                List<ArmesModel> armesModels = armesModel.GetListArmesByTypes(typeArme);
-
-                if (armesModel != null)
-                {
-                    /// Les coordonnées qui gèrent tout les localisation
-                    /// Et l'index de la tabpage
-                    int y = 10;
-                    int x = 10;
-                    int indexOfTabPage = controlParent.TabPages.IndexOfKey(tabPage.Name);
-
-                    // Label nom
-                    Label lblNom = new Label();
-                    lblNom.Name = "lblNom" + tabPage.Text;
-                    lblNom.Location = new Point(x + 25, y);
-                    lblNom.Text = "Nom";
-                    lblNom.Font = new Font(lblNom.Font, FontStyle.Underline);
-
-                    // Label Quantité
-                    Label lblQte = new Label();
-                    lblQte.Name = "lblQte" + tabPage.Text;
-                    lblQte.Location = new Point(x + (lblNom.Width + 25), y);
-                    lblQte.Text = "Quantité";
-                    lblQte.Font = new Font(lblNom.Font, FontStyle.Underline);
-
-                    controlParent.TabPages[indexOfTabPage].Controls.Add(lblNom);
-                    controlParent.TabPages[indexOfTabPage].Controls.Add(lblQte);
-
-                    y += 30;
-
-                    /// Pour chaque type d'arme on les ajoute dans les tabpages
-                    foreach (ArmesModel armes in armesModels)
-                    {
-                        LinkLabel linkLabel = new LinkLabel();
-                        linkLabel.Text = armes.NomArme;
-                        linkLabel.Name = ("lnkLbl" + armes.NomArme).Trim();
-                        linkLabel.Location = new Point(x + 25, y);
-                        linkLabel.AutoSize = true;
-                        linkLabel.LinkClicked += formulaireEquipments.linkLabelArme_LinkClicked;
-                        linkLabel.Tag = armes.NomArme;
-
-                        int largeurLinkLabel = TextRenderer.MeasureText(linkLabel.Text, linkLabel.Font).Width;
-                        NumericUpDown numericUpDown = new NumericUpDown();
-                        numericUpDown.Location = new Point(x + (largeurLinkLabel + 50), y - 3);
-                        numericUpDown.Maximum = 99;
-                        numericUpDown.Minimum = 1;
-                        numericUpDown.Width = 40;
-                        numericUpDown.Tag = armes.NomArme;
-
-                        controlParent.TabPages[indexOfTabPage].Controls.Add(linkLabel);
-                        controlParent.TabPages[indexOfTabPage].Controls.Add(numericUpDown);
-
-                        y += 25;
-                    }
-                }
+                return dictionnaireDArmes;
             }
-            catch (Exception e)
+            else
             {
-                throw;
+                Console.WriteLine("Dictionnaire vide !");
+                return null;
             }
         }
 
@@ -187,33 +134,33 @@ namespace maFichePersonnageJDR.Controller
         /// </summary>
         /// <param name="formulaire">le formulaire à sauvegarder</param>
         /// <param name="nomArme">le nom de l'arme à modifier</param>
-        public static void GetApercuArmes(FormulaireApercuEquipement formulaire, string nomArme)
+        public static FormApercuArme GetApercuArmes(string nomArme)
         {
             #region Initialisation des variables
-            ArmesModel armesModel = new ArmesModel();
+            ArmesModel armeToGet = ArmesModel.GetArmeByName(nomArme);
+            FormApercuArme formApercuArme = new FormApercuArme();
             #endregion
 
             try
             {
-                // On commence par rendre visible les différentes label liés aux armes
-                formulaire.LabelAllonge.Visible = true;
-                formulaire.TextLblAllonge.Visible = true;
-                formulaire.LabelMains.Visible = true;
-                formulaire.TextLblMains.Visible = true;
-                formulaire.TextLblDegats.Visible = true;
-                formulaire.LabelDegats.Visible = true;
-
                 // Puis on y ajoute les valeurs de l'arme sélectionnée.
-                ArmesModel armeToGet = armesModel.GetArmeByName(nomArme);
-                formulaire.TextLblNom = armeToGet.NomArme;
-                formulaire.TextLblType = armeToGet.TypeArme;
-                formulaire.TextLblPoids = armeToGet.PoidsArmes.ToString() + " kg";
-                formulaire.TextLblValeur = Utils.ConvertMoneyWithValue(armeToGet.ValeurArme);
-                formulaire.TextLblDescription = armeToGet.DescriptionArme;
-                formulaire.TextLblAllonge.Text = armeToGet.AllongeArmes;
-                formulaire.TextLblMains.Text = armeToGet.MainArmes;
-                formulaire.TextLblDegats.Text = armeToGet.DegatsArmes;
-                formulaire.TextLblSpecial = armeToGet.SpecialArme;
+                formApercuArme.LabelTypeArme = armeToGet.TypeArme;
+                formApercuArme.LabelNomArme = armeToGet.NomArme;
+                formApercuArme.LabelPoidsArme = armeToGet.PoidsArmes.ToString() + " kg";
+                formApercuArme.LabelAllongeArme = armeToGet.AllongeArmes;
+                formApercuArme.LabelMainsArme = armeToGet.MainArmes;
+                formApercuArme.RichTextBoxSpecial = armeToGet.SpecialArme;
+                formApercuArme.RichTextBoxDescription = armeToGet.DescriptionArme;
+                formApercuArme.LabelValeurArme = Utils.ConvertMoneyWithValue(armeToGet.ValeurArme);
+                formApercuArme.TextBoxDegatsTranchant = armeToGet.DegTranchant;
+                formApercuArme.TextBoxDegatsContondant = armeToGet.DegContondant;
+                formApercuArme.TextBoxDegatsPerforant = armeToGet.DegPerforant;
+                formApercuArme.TextBoxDegatsIgnee = armeToGet.DegIgnee;
+                formApercuArme.TextBoxDegatsAquatique = armeToGet.DegAquatique;
+                formApercuArme.TextBoxDegatsCeleste = armeToGet.DegCeleste;
+                formApercuArme.TextBoxDegatsTerrestre = armeToGet.DegTerrestre;
+
+                return formApercuArme;
             }
             catch (Exception e)
             {
@@ -234,7 +181,7 @@ namespace maFichePersonnageJDR.Controller
 
             try
             {
-                ArmesModel armes = armesModel.GetArmeByName(nomArme);
+                ArmesModel armes = ArmesModel.GetArmeByName(nomArme);
                 return armes.IdArme.ToString() + ";";
             }
             catch (Exception e)
@@ -300,7 +247,7 @@ namespace maFichePersonnageJDR.Controller
 
             try
             {
-                ArmesModel armes = armesModel.GetArmeByName(nomArme);
+                ArmesModel armes = ArmesModel.GetArmeByName(nomArme);
                 return armes.ValeurArme;
             }
             catch (Exception e)
@@ -322,7 +269,7 @@ namespace maFichePersonnageJDR.Controller
 
             try
             {
-                ArmesModel armes = armesModel.GetArmeByName(nomArme);
+                ArmesModel armes = ArmesModel.GetArmeByName(nomArme);
                 return armes.PoidsArmes;
             }
             catch (Exception e)
@@ -336,243 +283,22 @@ namespace maFichePersonnageJDR.Controller
         /// </summary>
         /// <param name="idPersonnage"></param>
         /// <returns></returns>
-        public static List<string> GetListNomArmes(int idPersonnage)
+        public static Dictionary<int, Tuple<ArmesModel, int>> GetArmesPersonnagesByIdPersonnage(int idPersonnage)
         {
-            Console.WriteLine(string.Format("########### Méthode GetListNomArmes — Personnage recherchée : ID : {0} ###########", idPersonnage));
+            Console.WriteLine(string.Format("########### Méthode GetArmesPersonnagesByIdPersonnage — Personnage recherchée : ID : {0} ###########", idPersonnage));
 
             InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
 
             try
             {
                 // On envoie les informations du personnage à sauvegarder
-                return inventaireArmesPersonnages.GetListNomArmes(idPersonnage);
+                return inventaireArmesPersonnages.GetArmesPersonnagesByIdPersonnage(idPersonnage);
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="idPersonnage"></param>
-        /// <returns></returns>
-        public static List<string> GetListTypeArmes(int idPersonnage)
-        {
-            Console.WriteLine(string.Format("########### Méthode GetListTypeArmes — Personnage recherchée : ID : {0} ###########", idPersonnage));
-
-            InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
-
-            try
-            {
-                // On envoie les informations du personnage à sauvegarder
-                return inventaireArmesPersonnages.GetListTypeArmes(idPersonnage);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="idPersonnage"></param>
-        /// <returns></returns>
-        public static List<double> GetListPoidsArmes(int idPersonnage)
-        {
-            Console.WriteLine(string.Format("########### Méthode GetListPoidsArmes — Personnage recherchée : ID : {0} ###########", idPersonnage));
-
-            InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
-
-            try
-            {
-                // On envoie les informations du personnage à sauvegarder
-                return inventaireArmesPersonnages.GetListPoidsArmes(idPersonnage);
-            }
-            catch (SQLiteException e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="idPersonnage"></param>
-        /// <returns></returns>
-        public static List<string> GetListAllongeArmes(int idPersonnage)
-        {
-            Console.WriteLine(string.Format("########### Méthode GetListAllongeArmes — Personnage recherchée : ID : {0} ###########", idPersonnage));
-
-            InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
-
-            try
-            {
-                // On envoie les informations du personnage à sauvegarder
-                return inventaireArmesPersonnages.GetListAllongeArmes(idPersonnage);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="idPersonnage"></param>
-        /// <returns></returns>
-        public static List<string> GetListMainsArmes(int idPersonnage)
-        {
-            Console.WriteLine(string.Format("########### Méthode GetListMainsArmes — Personnage recherchée : ID : {0} ###########", idPersonnage));
-
-            InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
-
-            try
-            {
-                // On envoie les informations du personnage à sauvegarder
-                return inventaireArmesPersonnages.GetListMainsArmes(idPersonnage);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="idPersonnage"></param>
-        /// <returns></returns>
-        public static List<string> GetListTypeDegatsArmes(int idPersonnage)
-        {
-            Console.WriteLine(string.Format("########### Méthode GetListTypeDegatsArmes — Personnage recherchée : ID : {0} ###########", idPersonnage));
-
-            InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
-
-            try
-            {
-                // On envoie les informations du personnage à sauvegarder
-                return inventaireArmesPersonnages.GetListTypeDegatsArmes(idPersonnage);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="idPersonnage"></param>
-        /// <returns></returns>
-        public static List<string> GetListDegatsArmes(int idPersonnage)
-        {
-            Console.WriteLine(string.Format("########### Méthode GetListDegatsArmes — Personnage recherchée : ID : {0} ###########", idPersonnage));
-
-            InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
-
-            try
-            {
-                // On envoie les informations du personnage à sauvegarder
-                return inventaireArmesPersonnages.GetListDegatsArmes(idPersonnage);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="idPersonnage"></param>
-        /// <returns></returns>
-        public static List<string> GetListValeurArmes(int idPersonnage)
-        {
-            Console.WriteLine(string.Format("########### Méthode GetListValeurArmes — Personnage recherchée : ID : {0} ###########", idPersonnage));
-
-            InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
-
-            try
-            {
-                // On envoie les informations du personnage à sauvegarder
-                return inventaireArmesPersonnages.GetListValeurArmes(idPersonnage);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="idPersonnage"></param>
-        /// <returns></returns>
-        public static List<string> GetListDescriptionArmes(int idPersonnage)
-        {
-            Console.WriteLine(string.Format("########### Méthode GetListDescriptionArmes — Personnage recherchée : ID : {0} ###########", idPersonnage));
-
-            InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
-
-            try
-            {
-                // On envoie les informations du personnage à sauvegarder
-                return inventaireArmesPersonnages.GetListDescriptionArmes(idPersonnage);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="idPersonnage"></param>
-        /// <returns></returns>
-        public static List<string> GetListSpecialArmes(int idPersonnage)
-        {
-            Console.WriteLine(string.Format("########### Méthode GetListSpecialArmes — Personnage recherchée : ID : {0} ###########", idPersonnage));
-
-            InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
-
-            try
-            {
-                // On envoie les informations du personnage à sauvegarder
-                return inventaireArmesPersonnages.GetListSpecialArmes(idPersonnage);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="idPersonnage"></param>
-        /// <returns></returns>
-        public static List<int> GetListQuantityArmes(int idPersonnage)
-        {
-            Console.WriteLine(string.Format("########### Méthode GetListQuantityArmes — Personnage recherchée : ID : {0} ###########", idPersonnage));
-
-            InventaireArmesPersonnagesModel inventaireArmesPersonnages = new InventaireArmesPersonnagesModel();
-
-            try
-            {
-                // On envoie les informations du personnage à sauvegarder
-                return inventaireArmesPersonnages.GetListQuantitiesArmes(idPersonnage);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-
         /// <summary>
         /// Méthode qui permet de supprimer une arme de l'inventaire du personnage
         /// </summary>

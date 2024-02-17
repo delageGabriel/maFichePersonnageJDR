@@ -63,7 +63,94 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 foreach (TabPage page in tbCntlArmes.TabPages)
                 {
-                    Controller.EquipmentController.GetArmesByType(page.Text.Trim('s'), tbCntlArmes, page);
+                    Dictionary<int, Model.ArmesModel> dictionnaireDArmes = EquipmentController.GetArmesByType(page.Text.Trim('s'));
+
+                    if (dictionnaireDArmes != null)
+                    {
+                        /// On récupère la longueur du plus grand texte pour 
+                        /// gérer les positions des différents Control
+
+                        /// Création des coordonnées X et Y
+                        int x = 10;
+                        int y = 10;
+                        // Index du TabPage dans lequel on créait les Control
+                        int indexOfTabPage = tbCntlArmes.TabPages.IndexOf(page);
+
+                        // NOM
+                        Label lblNom = new Label
+                        {
+                            Name = "lblNom" + page.Text,
+                            Location = new Point(x + 25, y),
+                            Text = "Nom",
+                            Height = 13,
+                            Tag = "Nom" + page.Text
+                        };
+
+                        // QUANTITE
+                        Label lblQte = new Label
+                        {
+                            Name = "lblQte" + page.Text,
+                            Location = new Point(x + (lblNom.Width + 25), y),
+                            Text = "Quantité",
+                            Tag = "Quantite" + page.Text
+                        };
+
+                        // On souligne les Label pour les distinguer
+                        lblNom.Font = new Font(lblNom.Font, FontStyle.Underline);
+                        lblQte.Font = new Font(lblQte.Font, FontStyle.Underline);
+
+                        // Ajout des deux contrôles à la TabPage
+                        tbCntlArmes.TabPages[indexOfTabPage].Controls.Add(lblNom);
+                        tbCntlArmes.TabPages[indexOfTabPage].Controls.Add(lblQte);
+
+                        // On place l'indice Y plus bas pour commencer à ajouter les
+                        // Controls
+                        y += 30;
+
+                        foreach (var armes in dictionnaireDArmes.Values)
+                        {
+                            CheckBox checkBoxArme = new CheckBox
+                            {
+                                Name = "chck" + armes.NomArme,
+                                Location = new Point(5, y),
+                                Text = string.Empty,
+                                Width = 80,
+                                AutoSize = true,
+                                Tag = armes.NomArme
+                            };
+
+                            LinkLabel linkLabelArme = new LinkLabel
+                            {
+                                Text = armes.NomArme,
+                                Name = armes.NomArme.Trim(),
+                                Location = new Point((x + 25), y),
+                                AutoSize = true,
+                                Tag = armes.NomArme
+                            };
+
+                            int longueurTexteArme = TextRenderer.MeasureText(linkLabelArme.Text, linkLabelArme.Font).Width;
+                            NumericUpDown numericUpDownArmes = new NumericUpDown
+                            {
+                                Name = armes.NomArme,
+                                Location = new Point(x + (longueurTexteArme + 50), y - 3),
+                                Maximum = 99,
+                                Minimum = 1,
+                                Width = 40,
+                                Tag = armes.NomArme
+                            };
+
+                            // On ajoute les événements aux Control
+                            // LinkLabel et CheckBox
+                            linkLabelArme.LinkClicked += linkLabelArme_LinkClicked;
+                            checkBoxArme.Click += checkBoxArme_Click;
+
+                            tbCntlArmes.TabPages[indexOfTabPage].Controls.Add(checkBoxArme);
+                            tbCntlArmes.TabPages[indexOfTabPage].Controls.Add(linkLabelArme);
+                            tbCntlArmes.TabPages[indexOfTabPage].Controls.Add(numericUpDownArmes);
+
+                            y += 25;
+                        }
+                    }
                 }
             }
             catch (Exception e)
@@ -124,7 +211,7 @@ namespace maFichePersonnageJDR.Formulaires
             GetArmes();
             GetArmures();
             GetObjets();
-            CreateCheckBoxArmes();
+            // CreateCheckBoxArmes();
             CreateCheckBoxArmures();
             CreateCheckBoxObjet();
             CalculChargeMaxPortable();
@@ -224,12 +311,10 @@ namespace maFichePersonnageJDR.Formulaires
 
         public void linkLabelArme_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormulaireApercuEquipement formulaireApercuEquipement = new FormulaireApercuEquipement();
-
             LinkLabel linkLabel = sender as LinkLabel;
 
-            EquipmentController.GetApercuArmes(formulaireApercuEquipement, linkLabel.Text);
-            formulaireApercuEquipement.Show();
+            FormApercuArme formApercuArme = EquipmentController.GetApercuArmes(linkLabel.Text);
+            formApercuArme.Show();
         }
 
         public void linkLabelArmure_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -627,36 +712,6 @@ namespace maFichePersonnageJDR.Formulaires
                 NumericToReturn(nomObjet, checkBox.Parent).Enabled = true;
             }
         }
-
-        /// <summary>
-        /// Créez les checkbox associées aux attributs
-        /// </summary>
-        public void CreateCheckBoxArmes()
-        {
-            // On parcourt toute la liste des armes
-            foreach (TabPage page in tbCntlArmes.TabPages)
-            {
-                int y = 35;
-
-                // A chaque linklabel on ajoute une checkbox
-                foreach (object controls in page.Controls)
-                {
-                    if (controls is LinkLabel)
-                    {
-                        LinkLabel linkLabel = controls as LinkLabel;
-
-                        CheckBox checkBox = new CheckBox();
-                        checkBox.Location = new Point(5, y);
-                        checkBox.Name = ("chck" + linkLabel.Name.Substring(6));
-                        checkBox.Click += checkBoxArme_Click;
-
-                        page.Controls.Add(checkBox);
-                        y += 25;
-                    }
-                }
-            }
-        }
-
         /// <summary>
         /// Créez les checkbox associées aux attributs
         /// </summary>
@@ -681,8 +736,6 @@ namespace maFichePersonnageJDR.Formulaires
                 }
             }
         }
-
-
         /// <summary>
         /// 
         /// </summary>
@@ -1492,7 +1545,7 @@ namespace maFichePersonnageJDR.Formulaires
             Random randomNumber = new Random();
 
             bool checkForce = AttributsController.CheckIfPersonnageHaveAttribut(GlobaleVariables.IdPersonnage, AttributsController.GetIdAttributByName("Force surhumaine"));
-            int baseCalcul = checkForce ? randomNumber.Next(150,200) : randomNumber.Next(75, 88);
+            int baseCalcul = checkForce ? randomNumber.Next(150, 200) : randomNumber.Next(75, 88);
             int forcePersonnage = CompetencesCaracteristiquesController.GetValueCompetence("Physique", "force", GlobaleVariables.IdPersonnage);
 
             if (!String.IsNullOrEmpty(AttributsController.GetPourcentagePorteurChargesLourdes(GlobaleVariables.IdPersonnage)))
