@@ -414,7 +414,7 @@ namespace maFichePersonnageJDR.Classe
             // Pour chaque attribut on créait une ligne dans le tableau
             for (int i = 0; i < nomsAttribut.Count; i++)
             {
-                attributesPersonnages += 
+                attributesPersonnages +=
                     $"                      \n<tr>\n" +
                     $"                          <td style=\"border:1px solid #dddddd;padding:8px;white-space:nowrap\">{nomsAttribut[i]}</td>\n" +
                     $"                          <td style=\"border:1px solid #dddddd;padding:8px;white-space:nowrap\">{descriptionsAttribut[i]}</td>\n" +
@@ -438,7 +438,7 @@ namespace maFichePersonnageJDR.Classe
 
             #region Initialisation des variables
             int[] baseCompPhys = Controller.CompetencesCaracteristiquesController.GetBaseCompetencePhysique(idPersonnage);
-            string[] listeCompPhy = { "Agilité", "Artisanat", "Crochetage", "Discrétion", "Équilibre","Équitation", "Escalade", "Escamotage", "Force", "Fouille", 
+            string[] listeCompPhy = { "Agilité", "Artisanat", "Crochetage", "Discrétion", "Équilibre","Équitation", "Escalade", "Escamotage", "Force", "Fouille",
                 "Lutte", "Natation", "Réflexes", "Vigueur" };
 
             #endregion
@@ -475,7 +475,7 @@ namespace maFichePersonnageJDR.Classe
 
             for (int i = 0; i < listeCompMen.Length; i++)
             {
-                compMenPersonnage += 
+                compMenPersonnage +=
                     $"                      \n<tr style=\"color:blue\">\n" +
                     $"                          <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{listeCompMen[i]}</td>\n" +
                     $"                          <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{baseCompMen[i]}</td>\n" +
@@ -528,9 +528,17 @@ namespace maFichePersonnageJDR.Classe
             Dictionary<int, Tuple<Model.ArmesModel, int>> dictionaryInfosArmes = EquipmentController.GetArmesPersonnagesByIdPersonnage(idPersonnage);
             #endregion
 
-            foreach(KeyValuePair<int, Tuple<Model.ArmesModel, int>> keyValue in dictionaryInfosArmes)
+            foreach (KeyValuePair<int, Tuple<Model.ArmesModel, int>> keyValue in dictionaryInfosArmes)
             {
                 Tuple<Model.ArmesModel, int> valeur = keyValue.Value;
+                string damageWeaponTranchant = GetDamageDice(valeur.Item1.DegTranchant);
+                string damageWeaponContondant = GetDamageDice(valeur.Item1.DegContondant);
+                string damageWeaponPerforant = GetDamageDice(valeur.Item1.DegPerforant);
+                string damageWeaponIgnee = GetDamageDice(valeur.Item1.DegIgnee);
+                string damageWeaponAquatique = GetDamageDice(valeur.Item1.DegAquatique);
+                string damageWeaponCeleste = GetDamageDice(valeur.Item1.DegCeleste);
+                string damageWeaponTerrestre = GetDamageDice(valeur.Item1.DegTerrestre);
+
                 tableArmeHtmlPersonnage +=
                     $"                          \n<tr>\n" +
                     $"                              <td style=\"border: 1px solid #dddddd;padding:8px;white-space:nowrap\">{valeur.Item1.TypeArme}</td>\n" +
@@ -546,9 +554,9 @@ namespace maFichePersonnageJDR.Classe
                     $"                                          <th>Perforant</th>" +
                     $"                                      </tr>" +
                     $"                                      <tr>" +
-                    $"                                          <td>[[/r {valeur.Item1.DegTranchant}]]</td>" +
-                    $"                                          <td>[[/r {valeur.Item1.DegContondant}]]</td>" +
-                    $"                                          <td>[[/r {valeur.Item1.DegPerforant}]]</td>" +
+                    $"                                          <td>{damageWeaponTranchant}</td>" +
+                    $"                                          <td>{damageWeaponContondant}</td>" +
+                    $"                                          <td>{damageWeaponPerforant}</td>" +
                     $"                                      </tr>" +
                     $"                                  </table>" +
                     $"                                  <table border=\"1\" style=\"width:100%\">" +
@@ -559,10 +567,10 @@ namespace maFichePersonnageJDR.Classe
                     $"                                          <th style=\"background-color: goldenrod; color: white;\">Terrestre</th>" +
                     $"                                      </tr>" +
                     $"                                      <tr>" +
-                    $"                                          <td>{valeur.Item1.DegIgnee}</td>" +
-                    $"                                          <td>{valeur.Item1.DegAquatique}</td>" +
-                    $"                                          <td>{valeur.Item1.DegCeleste}</td>" +
-                    $"                                          <td>{valeur.Item1.DegTerrestre}</td>" +
+                    $"                                          <td>{damageWeaponIgnee}</td>" +
+                    $"                                          <td>{damageWeaponAquatique}</td>" +
+                    $"                                          <td>{damageWeaponCeleste}</td>" +
+                    $"                                          <td>{damageWeaponTerrestre}</td>" +
                     $"                                      </tr>" +
                     $"                                  </table>" +
                     $"                              </td>" +
@@ -734,6 +742,27 @@ namespace maFichePersonnageJDR.Classe
             {
                 return "12";
             }
+        }
+
+        public string GetDamageDice(string diceDamage)
+        {
+            string damageDice = string.Empty;
+
+            if (diceDamage.Contains("/"))
+            {
+                string[] substringDamage = diceDamage.Split('/');
+
+                for (int i = 0; i < substringDamage.Length; i++)
+                {
+                    damageDice += "[[/r " + substringDamage[i] + "]] ";
+                }
+            }
+            else
+            {
+                damageDice += "[[/r " + diceDamage + "]]";
+            }
+
+            return damageDice;
         }
     }
 }

@@ -16,7 +16,7 @@ namespace maFichePersonnageJDR
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmPrincipal());
+            Application.Run(new maFichePersonnageJDR.View.Formulaires.FrmCreationArmure());
         }
     }
 }

@@ -35,6 +35,7 @@ namespace maFichePersonnageJDR
             this.lblEditPersonnage = new System.Windows.Forms.Label();
             this.lblDeletePersonnage = new System.Windows.Forms.Label();
             this.cbbDeletePersonnage = new System.Windows.Forms.ComboBox();
+            this.btnTestApercuArmure = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCreerPersonnage
@@ -87,11 +88,22 @@ namespace maFichePersonnageJDR
             this.cbbDeletePersonnage.Text = "Supprimer un personnage";
             this.cbbDeletePersonnage.SelectedIndexChanged += new System.EventHandler(this.cbbDeletePersonnage_SelectedIndexChanged);
             // 
+            // btnTestApercuArmure
+            // 
+            this.btnTestApercuArmure.Location = new System.Drawing.Point(45, 209);
+            this.btnTestApercuArmure.Name = "btnTestApercuArmure";
+            this.btnTestApercuArmure.Size = new System.Drawing.Size(119, 23);
+            this.btnTestApercuArmure.TabIndex = 10;
+            this.btnTestApercuArmure.Text = "Test Apercu Armure";
+            this.btnTestApercuArmure.UseVisualStyleBackColor = true;
+            this.btnTestApercuArmure.Click += new System.EventHandler(this.btnTestApercuArmure_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(217, 200);
+            this.ClientSize = new System.Drawing.Size(217, 276);
+            this.Controls.Add(this.btnTestApercuArmure);
             this.Controls.Add(this.lblDeletePersonnage);
             this.Controls.Add(this.cbbDeletePersonnage);
             this.Controls.Add(this.lblEditPersonnage);
@@ -113,6 +125,7 @@ namespace maFichePersonnageJDR
         private System.Windows.Forms.Label lblEditPersonnage;
         private System.Windows.Forms.Label lblDeletePersonnage;
         private System.Windows.Forms.ComboBox cbbDeletePersonnage;
+        private System.Windows.Forms.Button btnTestApercuArmure;
     }
 }
 

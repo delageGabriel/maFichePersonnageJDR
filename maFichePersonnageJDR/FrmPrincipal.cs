@@ -109,5 +109,11 @@ namespace maFichePersonnageJDR
             cbbEditPersonnage.Items.Clear();
             cbbEditPersonnage.Items.AddRange(PersonnageController.GetListPersonnage());
         }
+
+        private void btnTestApercuArmure_Click(object sender, EventArgs e)
+        {
+            FrmCreationArmure frmCreationArmure = new FrmCreationArmure();
+            frmCreationArmure.Show();
+        }
     }
 }

@@ -135,6 +135,7 @@ namespace maFichePersonnageJDR.Model
         public static ArmesModel GetArmeByName(string nomArme)
         {
             ArmesModel armeModel = new ArmesModel();
+            
             try
             {
                 // Commande

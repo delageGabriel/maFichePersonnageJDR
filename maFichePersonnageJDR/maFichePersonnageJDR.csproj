@@ -178,6 +178,12 @@
     <Compile Include="View\Formulaires\FormApercuArme.Designer.cs">
       <DependentUpon>FormApercuArme.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Formulaires\FormCreationArmure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Formulaires\FormCreationArmure.Designer.cs">
+      <DependentUpon>FormCreationArmure.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Formulaires\FormEditMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Formulaires\FormApercuArme.resx">
       <DependentUpon>FormApercuArme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Formulaires\FormCreationArmure.resx">
+      <DependentUpon>FormCreationArmure.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Formulaires\FormEditMenu.resx">
       <DependentUpon>FormEditMenu.cs</DependentUpon>
