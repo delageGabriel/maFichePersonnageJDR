@@ -144,6 +144,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Controller\MagieController.cs" />
+    <Compile Include="Controller\MateriauxController.cs" />
     <Compile Include="Controller\PersonnageController.cs" />
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
@@ -166,6 +167,7 @@
     <Compile Include="Model\InventaireObjetsPersonnagesModel.cs" />
     <Compile Include="Model\MagieModel.cs" />
     <Compile Include="Model\MagiePersonnageModel.cs" />
+    <Compile Include="Model\MateriauxModel.cs" />
     <Compile Include="Model\ObjetsModel.cs" />
     <Compile Include="Model\PersonnageModel.cs" />
     <Compile Include="Model\PointsCaracteristiquesModel.cs" />
@@ -302,6 +304,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="BDD\20221227_base_fiche_perso.sqbpro" />
+    <None Include="BDD\20231109_bdd_fiche_perso.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="BDD\base_fiche_perso.sqbpro" />
     <None Include="maFichePersonnageJDR_TemporaryKey.pfx" />
     <None Include="packages.config" />

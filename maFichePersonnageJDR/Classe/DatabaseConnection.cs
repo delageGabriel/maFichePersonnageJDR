@@ -15,7 +15,7 @@ namespace maFichePersonnageJDR.Classe
 
         private DatabaseConnection()
         {
-            connection = new SQLiteConnection(@"Data Source =BDD\20221227_base_fiche_perso.db; Version = 3;");
+            connection = new SQLiteConnection(@"Data Source =BDD\20231109_bdd_fiche_perso.db; Version = 3;");
         }
 
         public static DatabaseConnection Instance
