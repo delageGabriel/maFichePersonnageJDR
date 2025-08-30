@@ -55,6 +55,28 @@ namespace maFichePersonnageJDR.View.Formulaires
                 throw;
             }
         }
+        public string GetValueMateriauByNameAndQuality(int qualite, string nomMateriau)
+        { 
+            try
+            {
+                return MateriauxValeurController.GetValueMateriauByNameAndQuality(qualite, nomMateriau);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public string GetWeightMateriauByNameAndQuality(int qualite, string nomMateriau)
+        { 
+            try
+            {
+                return MateriauxPoidsController.GetWeightByNameAndQuality(qualite, nomMateriau);
+            }
+            catch
+            {
+                throw;
+            }
+        }
 
         public void GetMateriauxEffectsByNameAndQuality(int qualite, string nomMateriau)
         {
@@ -112,6 +134,9 @@ namespace maFichePersonnageJDR.View.Formulaires
                         {
                             Console.WriteLine(string.Format("Effet du matériau non reconnu ! Matériau : {0}", materiau[2]));
                         }
+
+                        txtBxValeur.Text = GetValueMateriauByNameAndQuality(qualite, nomMateriau);
+                        txtBxPoids.Text = GetWeightMateriauByNameAndQuality(qualite, nomMateriau);
                     }
                 }
             }
@@ -119,24 +144,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             {
                 throw;
             }
-        }
-
-        private void cmbBxQualiteMateriau_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ComboBox cbbQualite = (ComboBox)sender;
-            int qualite = cbbQualite.SelectedIndex;
-            string nomMateriau = string.Empty;
-
-            if (lstBxTransformes.SelectedItem != null)
-                nomMateriau = lstBxTransformes.SelectedItem.ToString();
-            else if (lstBxMetaux.SelectedItem != null)
-                nomMateriau = lstBxMetaux.SelectedItem.ToString();
-            else if (lstBxMinerais.SelectedItem != null)
-                nomMateriau = lstBxMinerais.SelectedItem.ToString();
-            else if (lstBxAnimaux.SelectedItem != null)
-                nomMateriau = lstBxAnimaux.SelectedItem.ToString();
-
-            GetMateriauxEffectsByNameAndQuality(qualite, nomMateriau);
         }
 
         private void lstBxTransformes_SelectedIndexChanged(object sender, EventArgs e)
@@ -169,6 +176,24 @@ namespace maFichePersonnageJDR.View.Formulaires
             ListBox nomMateriau = (ListBox)sender;
 
             GetMateriauxEffectsByNameAndQuality(qualite, nomMateriau.SelectedItem.ToString());
+        }
+
+        private void cmbBxQualiteMateriau_SelectedValueChanged(object sender, EventArgs e)
+        {
+            ComboBox cbbQualite = (ComboBox)sender;
+            int qualite = Convert.ToInt32(cbbQualite.SelectedItem);
+            string nomMateriau = string.Empty;
+
+            if (lstBxTransformes.SelectedItem != null)
+                nomMateriau = lstBxTransformes.SelectedItem.ToString();
+            else if (lstBxMetaux.SelectedItem != null)
+                nomMateriau = lstBxMetaux.SelectedItem.ToString();
+            else if (lstBxMinerais.SelectedItem != null)
+                nomMateriau = lstBxMinerais.SelectedItem.ToString();
+            else if (lstBxAnimaux.SelectedItem != null)
+                nomMateriau = lstBxAnimaux.SelectedItem.ToString();
+
+            GetMateriauxEffectsByNameAndQuality(qualite, nomMateriau);
         }
     }
 }

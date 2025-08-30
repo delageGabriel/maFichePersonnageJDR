@@ -146,6 +146,8 @@
     <Compile Include="Controller\MagieController.cs" />
     <Compile Include="Controller\MateriauxController.cs" />
     <Compile Include="Controller\MateriauxEffetsController.cs" />
+    <Compile Include="Controller\MateriauxPoidsController.cs" />
+    <Compile Include="Controller\MateriauxValeurController.cs" />
     <Compile Include="Controller\PersonnageController.cs" />
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
@@ -168,8 +170,10 @@
     <Compile Include="Model\InventaireObjetsPersonnagesModel.cs" />
     <Compile Include="Model\MagieModel.cs" />
     <Compile Include="Model\MagiePersonnageModel.cs" />
+    <Compile Include="Model\MateriauPoidsModel.cs" />
     <Compile Include="Model\MateriauxEffetsModel.cs" />
     <Compile Include="Model\MateriauxModel.cs" />
+    <Compile Include="Model\MateriauxValeurModel.cs" />
     <Compile Include="Model\ObjetsModel.cs" />
     <Compile Include="Model\PersonnageModel.cs" />
     <Compile Include="Model\PointsCaracteristiquesModel.cs" />

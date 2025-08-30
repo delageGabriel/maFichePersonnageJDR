@@ -1178,7 +1178,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.cmbBxQualiteMateriau.Name = "cmbBxQualiteMateriau";
             this.cmbBxQualiteMateriau.Size = new System.Drawing.Size(121, 21);
             this.cmbBxQualiteMateriau.TabIndex = 11;
-            this.cmbBxQualiteMateriau.SelectedIndexChanged += new System.EventHandler(this.cmbBxQualiteMateriau_SelectedIndexChanged);
+            this.cmbBxQualiteMateriau.SelectedValueChanged += new System.EventHandler(this.cmbBxQualiteMateriau_SelectedValueChanged);
             // 
             // lblQualiteMateriau
             // 
