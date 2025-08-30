@@ -42,9 +42,13 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.lblTrierMateriaux = new System.Windows.Forms.Label();
             this.tbCtrlMateriauxArmure = new System.Windows.Forms.TabControl();
             this.tbPgeTransformes = new System.Windows.Forms.TabPage();
+            this.lstBxTransformes = new System.Windows.Forms.ListBox();
             this.tbPgeMétaux = new System.Windows.Forms.TabPage();
+            this.lstBxMetaux = new System.Windows.Forms.ListBox();
             this.tbPgeMinerais = new System.Windows.Forms.TabPage();
+            this.lstBxMinerais = new System.Windows.Forms.ListBox();
             this.tbPgeAnimaux = new System.Windows.Forms.TabPage();
+            this.lstBxAnimaux = new System.Windows.Forms.ListBox();
             this.lblMateriauxBonus = new System.Windows.Forms.Label();
             this.txtBxTitleTranchant = new System.Windows.Forms.TextBox();
             this.txtBxTitleContondant = new System.Windows.Forms.TextBox();
@@ -174,10 +178,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtContondantModificationRecapitulatif = new System.Windows.Forms.TextBox();
             this.txtTranchantTitleFinale = new System.Windows.Forms.TextBox();
             this.btnCreerArmure = new System.Windows.Forms.Button();
-            this.lstBxTransformes = new System.Windows.Forms.ListBox();
-            this.lstBxMetaux = new System.Windows.Forms.ListBox();
-            this.lstBxMinerais = new System.Windows.Forms.ListBox();
-            this.lstBxAnimaux = new System.Windows.Forms.ListBox();
             this.pnlNomAndDescription.SuspendLayout();
             this.pnlMateriauxBonusArmure.SuspendLayout();
             this.tbCtrlMateriauxArmure.SuspendLayout();
@@ -379,6 +379,20 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.tbPgeTransformes.Text = "Transformés";
             this.tbPgeTransformes.UseVisualStyleBackColor = true;
             // 
+            // lstBxTransformes
+            // 
+            this.lstBxTransformes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstBxTransformes.FormattingEnabled = true;
+            this.lstBxTransformes.Items.AddRange(new object[] {
+            ""});
+            this.lstBxTransformes.Location = new System.Drawing.Point(0, 1);
+            this.lstBxTransformes.Name = "lstBxTransformes";
+            this.lstBxTransformes.Size = new System.Drawing.Size(347, 238);
+            this.lstBxTransformes.TabIndex = 11;
+            this.lstBxTransformes.SelectedIndexChanged += new System.EventHandler(this.lstBxTransformes_SelectedIndexChanged);
+            // 
             // tbPgeMétaux
             // 
             this.tbPgeMétaux.Controls.Add(this.lstBxMetaux);
@@ -390,6 +404,18 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.tbPgeMétaux.Text = "Métaux";
             this.tbPgeMétaux.UseVisualStyleBackColor = true;
             // 
+            // lstBxMetaux
+            // 
+            this.lstBxMetaux.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstBxMetaux.FormattingEnabled = true;
+            this.lstBxMetaux.Location = new System.Drawing.Point(3, 1);
+            this.lstBxMetaux.Name = "lstBxMetaux";
+            this.lstBxMetaux.Size = new System.Drawing.Size(344, 238);
+            this.lstBxMetaux.TabIndex = 0;
+            this.lstBxMetaux.SelectedIndexChanged += new System.EventHandler(this.lstBxMetaux_SelectedIndexChanged);
+            // 
             // tbPgeMinerais
             // 
             this.tbPgeMinerais.Controls.Add(this.lstBxMinerais);
@@ -400,6 +426,18 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.tbPgeMinerais.Text = "Minerais";
             this.tbPgeMinerais.UseVisualStyleBackColor = true;
             // 
+            // lstBxMinerais
+            // 
+            this.lstBxMinerais.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstBxMinerais.FormattingEnabled = true;
+            this.lstBxMinerais.Location = new System.Drawing.Point(3, 6);
+            this.lstBxMinerais.Name = "lstBxMinerais";
+            this.lstBxMinerais.Size = new System.Drawing.Size(341, 238);
+            this.lstBxMinerais.TabIndex = 0;
+            this.lstBxMinerais.SelectedIndexChanged += new System.EventHandler(this.lstBxMinerais_SelectedIndexChanged);
+            // 
             // tbPgeAnimaux
             // 
             this.tbPgeAnimaux.Controls.Add(this.lstBxAnimaux);
@@ -409,6 +447,18 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.tbPgeAnimaux.TabIndex = 3;
             this.tbPgeAnimaux.Text = "Animaux";
             this.tbPgeAnimaux.UseVisualStyleBackColor = true;
+            // 
+            // lstBxAnimaux
+            // 
+            this.lstBxAnimaux.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstBxAnimaux.FormattingEnabled = true;
+            this.lstBxAnimaux.Location = new System.Drawing.Point(3, 3);
+            this.lstBxAnimaux.Name = "lstBxAnimaux";
+            this.lstBxAnimaux.Size = new System.Drawing.Size(341, 238);
+            this.lstBxAnimaux.TabIndex = 0;
+            this.lstBxAnimaux.SelectedIndexChanged += new System.EventHandler(this.lstBxAnimaux_SelectedIndexChanged);
             // 
             // lblMateriauxBonus
             // 
@@ -1128,6 +1178,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.cmbBxQualiteMateriau.Name = "cmbBxQualiteMateriau";
             this.cmbBxQualiteMateriau.Size = new System.Drawing.Size(121, 21);
             this.cmbBxQualiteMateriau.TabIndex = 11;
+            this.cmbBxQualiteMateriau.SelectedIndexChanged += new System.EventHandler(this.cmbBxQualiteMateriau_SelectedIndexChanged);
             // 
             // lblQualiteMateriau
             // 
@@ -2024,52 +2075,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.btnCreerArmure.TabIndex = 63;
             this.btnCreerArmure.Text = "Créer l\'armure";
             this.btnCreerArmure.UseVisualStyleBackColor = true;
-            // 
-            // lstBxTransformes
-            // 
-            this.lstBxTransformes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lstBxTransformes.FormattingEnabled = true;
-            this.lstBxTransformes.Items.AddRange(new object[] {
-            ""});
-            this.lstBxTransformes.Location = new System.Drawing.Point(0, 1);
-            this.lstBxTransformes.Name = "lstBxTransformes";
-            this.lstBxTransformes.Size = new System.Drawing.Size(347, 238);
-            this.lstBxTransformes.TabIndex = 11;
-            // 
-            // lstBxMetaux
-            // 
-            this.lstBxMetaux.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lstBxMetaux.FormattingEnabled = true;
-            this.lstBxMetaux.Location = new System.Drawing.Point(3, 1);
-            this.lstBxMetaux.Name = "lstBxMetaux";
-            this.lstBxMetaux.Size = new System.Drawing.Size(344, 238);
-            this.lstBxMetaux.TabIndex = 0;
-            // 
-            // lstBxMinerais
-            // 
-            this.lstBxMinerais.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lstBxMinerais.FormattingEnabled = true;
-            this.lstBxMinerais.Location = new System.Drawing.Point(3, 6);
-            this.lstBxMinerais.Name = "lstBxMinerais";
-            this.lstBxMinerais.Size = new System.Drawing.Size(341, 238);
-            this.lstBxMinerais.TabIndex = 0;
-            // 
-            // lstBxAnimaux
-            // 
-            this.lstBxAnimaux.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lstBxAnimaux.FormattingEnabled = true;
-            this.lstBxAnimaux.Location = new System.Drawing.Point(3, 3);
-            this.lstBxAnimaux.Name = "lstBxAnimaux";
-            this.lstBxAnimaux.Size = new System.Drawing.Size(341, 238);
-            this.lstBxAnimaux.TabIndex = 0;
             // 
             // FrmCreationArmure
             // 
