@@ -56,7 +56,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             }
         }
         public string GetValueMateriauByNameAndQuality(int qualite, string nomMateriau)
-        { 
+        {
             try
             {
                 return MateriauxValeurController.GetValueMateriauByNameAndQuality(qualite, nomMateriau);
@@ -67,7 +67,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             }
         }
         public string GetWeightMateriauByNameAndQuality(int qualite, string nomMateriau)
-        { 
+        {
             try
             {
                 return MateriauxPoidsController.GetWeightByNameAndQuality(qualite, nomMateriau);
@@ -148,6 +148,11 @@ namespace maFichePersonnageJDR.View.Formulaires
 
         private void lstBxTransformes_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Eviter que le SelectedIndexChanged de chaque ListBox se lance après nettoyage de la liste, et créer un bug.
+            ListBox lb = (ListBox)sender;
+            if (!lb.Focus()) return;
+
+            DisableOtherSelectedIndex(lstBxMetaux, lstBxMinerais, lstBxAnimaux);
             int qualite = Convert.ToInt32(cmbBxQualiteMateriau.SelectedItem);
             ListBox nomMateriau = (ListBox)sender;
 
@@ -156,6 +161,11 @@ namespace maFichePersonnageJDR.View.Formulaires
 
         private void lstBxMetaux_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Eviter que le SelectedIndexChanged de chaque ListBox se lance après nettoyage de la liste, et créer un bug.
+            ListBox lb = (ListBox)sender;
+            if (!lb.Focus()) return;
+
+            DisableOtherSelectedIndex(lstBxTransformes, lstBxMinerais, lstBxAnimaux);
             int qualite = Convert.ToInt32(cmbBxQualiteMateriau.SelectedItem);
             ListBox nomMateriau = (ListBox)sender;
 
@@ -164,6 +174,11 @@ namespace maFichePersonnageJDR.View.Formulaires
 
         private void lstBxMinerais_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Eviter que le SelectedIndexChanged de chaque ListBox se lance après nettoyage de la liste, et créer un bug.
+            ListBox lb = (ListBox)sender;
+            if (!lb.Focus()) return;
+
+            DisableOtherSelectedIndex(lstBxTransformes, lstBxMetaux, lstBxAnimaux);
             int qualite = Convert.ToInt32(cmbBxQualiteMateriau.SelectedItem);
             ListBox nomMateriau = (ListBox)sender;
 
@@ -172,12 +187,22 @@ namespace maFichePersonnageJDR.View.Formulaires
 
         private void lstBxAnimaux_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Eviter que le SelectedIndexChanged de chaque ListBox se lance après nettoyage de la liste, et créer un bug.
+            ListBox lb = (ListBox)sender;
+            if (!lb.Focus()) return;
+
+            DisableOtherSelectedIndex(lstBxTransformes, lstBxMetaux, lstBxMinerais);
             int qualite = Convert.ToInt32(cmbBxQualiteMateriau.SelectedItem);
             ListBox nomMateriau = (ListBox)sender;
 
             GetMateriauxEffectsByNameAndQuality(qualite, nomMateriau.SelectedItem.ToString());
         }
 
+        /// <summary>
+        /// Choisir la qualité du matériau, pour l'ajout et pour voir ses informations
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbBxQualiteMateriau_SelectedValueChanged(object sender, EventArgs e)
         {
             ComboBox cbbQualite = (ComboBox)sender;
@@ -194,6 +219,112 @@ namespace maFichePersonnageJDR.View.Formulaires
                 nomMateriau = lstBxAnimaux.SelectedItem.ToString();
 
             GetMateriauxEffectsByNameAndQuality(qualite, nomMateriau);
+        }
+
+        /// <summary>
+        /// Désélectionne les sélections des autres ListBox pour éviter des bugs
+        /// sur le tableau des résistances.
+        /// </summary>
+        /// <param name="listBoxes">
+        /// Les ListBox dont il faut désélectionner l'item.
+        /// </param>
+        private void DisableOtherSelectedIndex(params ListBox[] listBoxes)
+        {
+            foreach (ListBox listBox in listBoxes)
+            {
+                listBox.ClearSelected();
+            }
+        }
+
+        /// <summary>
+        /// Ajout des matériaux dans la CheckListBox pour connaître la composition de l'armure.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAjouterMateriau_Click(object sender, EventArgs e)
+        {
+            // Au moins un matériau doit être sélectionné pour l'ajouter.
+            if (lstBxTransformes.SelectedItem != null ||
+                lstBxMetaux.SelectedItem != null ||
+                lstBxMinerais.SelectedItem != null ||
+                lstBxAnimaux.SelectedItem != null)
+            {
+                // Récupération de la qualité via la combobox et du nom via l'item de la listbox sélectionné
+                int qualite = Convert.ToInt32(cmbBxQualiteMateriau.SelectedItem);
+                string nomMateriau = string.Empty;
+
+                if (lstBxTransformes.SelectedItem != null)
+                    nomMateriau = lstBxTransformes.SelectedItem.ToString();
+                else if (lstBxMetaux.SelectedItem != null)
+                    nomMateriau = lstBxMetaux.SelectedItem.ToString();
+                else if (lstBxMinerais.SelectedItem != null)
+                    nomMateriau = lstBxMinerais.SelectedItem.ToString();
+                else if (lstBxAnimaux.SelectedItem != null)
+                    nomMateriau = lstBxAnimaux.SelectedItem.ToString();
+
+                if (chkLstBxCompositionArmure.Items.Count == 3)
+                    MessageBox.Show("Il y a déjà trois matériaux dans la fabrication de l'armure !");
+                else
+                {
+                    var result = MessageBox.Show(
+                    this,
+                    string.Format("Voulez-vous ajouter le matériau {0} de qualité {1} à la fabrication ? ", nomMateriau, qualite.ToString()),
+                    "Confirmation",
+                    MessageBoxButtons.YesNo
+                    );
+
+                    if (result == DialogResult.Yes)
+                    {
+                        chkLstBxCompositionArmure.Items.Add(string.Format("{0};qualité {1}", nomMateriau, qualite));
+                    }
+                }
+            }
+            else
+                MessageBox.Show("Veuillez sélectionner un matériau !");
+        }
+
+        private void btnRetirerMateriau_Click(object sender, EventArgs e)
+        {
+            if (chkLstBxCompositionArmure.CheckedItems.Count == 1)
+            {
+                string chkBx = chkLstBxCompositionArmure.CheckedItems[0].ToString();
+                chkLstBxCompositionArmure.Items.Remove(chkBx);
+                btnRetirerMateriau.Enabled = false;
+            }
+        }
+
+        /// <summary>
+        /// Utilisation de l'événement pour empêcher le cochage de plusieurs CheckBox
+        /// et activer/désactiver le bouton qui permet de retirer les matériaux.
+        /// simultanéments.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkLstBxCompositionArmure_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            /// Empêcher qu'il y ait plusieurs CheckBox cochés.
+            CheckedListBox checkedList = (CheckedListBox)sender;
+
+            // 1) Bloquer une 2e coche
+            if (e.NewValue == CheckState.Checked)
+            {
+                if (checkedList.CheckedItems.Count > 0)
+                {
+                    e.NewValue = CheckState.Unchecked;
+                    MessageBox.Show("Il faut sélectionner un matériau à la fois !");
+                }
+            }
+
+            // 2) Calculer le nombre COCHÉ APRÈS l'action courante
+            int nombreCase = 0;
+            if (e.NewValue == CheckState.Checked)
+                nombreCase = 1;
+            else if (e.NewValue == CheckState.Unchecked && checkedList.GetItemChecked(e.Index))
+                nombreCase = -1;
+
+            int newCount = checkedList.CheckedItems.Count + nombreCase;
+            // 3) Activer/désactiver le bouton
+            btnRetirerMateriau.Enabled = newCount == 1;
         }
     }
 }

@@ -291,6 +291,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.btnAjouterMateriau.TabIndex = 10;
             this.btnAjouterMateriau.Text = "Ajouter matériau";
             this.btnAjouterMateriau.UseVisualStyleBackColor = true;
+            this.btnAjouterMateriau.Click += new System.EventHandler(this.btnAjouterMateriau_Click);
             // 
             // chkBxDecroissant
             // 
@@ -1205,12 +1206,14 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             // btnRetirerMateriau
             // 
+            this.btnRetirerMateriau.Enabled = false;
             this.btnRetirerMateriau.Location = new System.Drawing.Point(252, 150);
             this.btnRetirerMateriau.Name = "btnRetirerMateriau";
             this.btnRetirerMateriau.Size = new System.Drawing.Size(98, 23);
             this.btnRetirerMateriau.TabIndex = 11;
             this.btnRetirerMateriau.Text = "Retirer matériau";
             this.btnRetirerMateriau.UseVisualStyleBackColor = true;
+            this.btnRetirerMateriau.Click += new System.EventHandler(this.btnRetirerMateriau_Click);
             // 
             // lblLimitesMateriaux
             // 
@@ -1230,6 +1233,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.chkLstBxCompositionArmure.Name = "chkLstBxCompositionArmure";
             this.chkLstBxCompositionArmure.Size = new System.Drawing.Size(571, 49);
             this.chkLstBxCompositionArmure.TabIndex = 62;
+            this.chkLstBxCompositionArmure.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.chkLstBxCompositionArmure_ItemCheck);
             // 
             // lblCompositionArmure
             // 
@@ -1341,7 +1345,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.lblModifResistance.Name = "lblModifResistance";
             this.lblModifResistance.Size = new System.Drawing.Size(277, 20);
             this.lblModifResistance.TabIndex = 109;
-            this.lblModifResistance.Text = "Modifier une résistance : 15 PO";
+            this.lblModifResistance.Text = "Modifier une résistance : 10 PO";
             // 
             // txtBxPoidsFinal
             // 
