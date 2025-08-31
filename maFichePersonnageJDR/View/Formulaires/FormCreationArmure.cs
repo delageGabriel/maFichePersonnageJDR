@@ -12,6 +12,10 @@ namespace maFichePersonnageJDR.View.Formulaires
 {
     public partial class FrmCreationArmure : Form
     {
+        private int valeurFirstMateriau = 0;
+        private int valeurSecondMateriau = 0;
+        private int valeurThirdMateriau = 0;
+
         public FrmCreationArmure()
         {
             InitializeComponent();
@@ -22,7 +26,10 @@ namespace maFichePersonnageJDR.View.Formulaires
             cmbBxQualiteMateriau.SelectedIndex = 2; // Valeur par défaut de la ComboBox pour éviter d'éventuels bugs.
             GetAllMateriauxByCategorie();
         }
-
+        /// <summary>
+        /// Obtenir tous les matériaux en les triant par leur catégorie,
+        /// pour les inclure dans les différentes ListBox du Control TabControl.
+        /// </summary>
         public void GetAllMateriauxByCategorie()
         {
             Console.WriteLine("########### Classe : FrmCreationArmure; Méthode : GetAllMateriauxByCategorie; ###########");
@@ -55,6 +62,19 @@ namespace maFichePersonnageJDR.View.Formulaires
                 throw;
             }
         }
+        /// <summary>
+        /// Retourne la valeur brute du matériau sélectionné, sans tenir compte de la
+        /// conversion en pièce d'or, argent, cuivre.
+        /// </summary>
+        /// <param name="qualite">
+        /// Qualité du matériau dont on cherche la valeur.
+        /// </param>
+        /// <param name="nomMateriau">
+        /// Nom du matériau dont on cherche la valeur.
+        /// </param>
+        /// <returns>
+        /// Valeur du matériau en string, pour un nom et une qualité donnée.
+        /// </returns>
         public string GetValueMateriauByNameAndQuality(int qualite, string nomMateriau)
         {
             try
@@ -66,6 +86,18 @@ namespace maFichePersonnageJDR.View.Formulaires
                 throw;
             }
         }
+        /// <summary>
+        /// Retourne le poids du matériau sélectionné.
+        /// </summary>
+        /// <param name="qualite">
+        /// Qualité du matériau dont on cherche la valeur.
+        /// </param>
+        /// <param name="nomMateriau">
+        /// Nom du matériau dont on cherche la valeur.
+        /// </param>
+        /// <returns>
+        /// Poids du matériau en string, pour un nom et une qualité donnée.
+        /// </returns>
         public string GetWeightMateriauByNameAndQuality(int qualite, string nomMateriau)
         {
             try
@@ -77,7 +109,16 @@ namespace maFichePersonnageJDR.View.Formulaires
                 throw;
             }
         }
-
+        /// <summary>
+        /// Obtient les effets du matériau sélectionné pour mettre à jour
+        /// chaque TextBox dans le panel de la composition de l'armure.
+        /// </summary>
+        /// <param name="qualite">
+        /// Qualité du matériau dont on cherche la valeur.
+        /// </param>
+        /// <param name="nomMateriau">
+        /// Nom du matériau dont on cherche la valeur.
+        /// </param>
         public void GetMateriauxEffectsByNameAndQuality(int qualite, string nomMateriau)
         {
             Console.WriteLine("########### Classe : FrmCreationArmure; Méthode : GetAllMateriauxByCategorie; ###########");
@@ -249,7 +290,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                 lstBxMinerais.SelectedItem != null ||
                 lstBxAnimaux.SelectedItem != null)
             {
-                // Récupération de la qualité via la combobox et du nom via l'item de la listbox sélectionné
+                // 1 Récupération de la qualité via la combobox et du nom via l'item de la listbox sélectionné
                 int qualite = Convert.ToInt32(cmbBxQualiteMateriau.SelectedItem);
                 string nomMateriau = string.Empty;
 
@@ -262,10 +303,12 @@ namespace maFichePersonnageJDR.View.Formulaires
                 else if (lstBxAnimaux.SelectedItem != null)
                     nomMateriau = lstBxAnimaux.SelectedItem.ToString();
 
+                // 2 Vérification qu'on puisse toujours ajouter un matériau avant de poursuivre
                 if (chkLstBxCompositionArmure.Items.Count == 3)
                     MessageBox.Show("Il y a déjà trois matériaux dans la fabrication de l'armure !");
                 else
                 {
+                    // 3 Demander confirmation à l'utilisateur de l'ajout du matériau et sa qualité
                     var result = MessageBox.Show(
                     this,
                     string.Format("Voulez-vous ajouter le matériau {0} de qualité {1} à la fabrication ? ", nomMateriau, qualite.ToString()),
@@ -277,6 +320,17 @@ namespace maFichePersonnageJDR.View.Formulaires
                     {
                         chkLstBxCompositionArmure.Items.Add(string.Format("{0};qualité {1}", nomMateriau, qualite));
                     }
+
+                    // 4 Assignation des valeurs de chacun des matériaux
+                    if (chkLstBxCompositionArmure.Items.Count == 1)
+                        valeurFirstMateriau = Convert.ToInt32(GetValueMateriauByNameAndQuality(qualite, nomMateriau));
+                    else if (chkLstBxCompositionArmure.Items.Count == 2)
+                        valeurSecondMateriau = Convert.ToInt32(GetValueMateriauByNameAndQuality(qualite, nomMateriau));
+                    else if (chkLstBxCompositionArmure.Items.Count == 3)
+                        valeurThirdMateriau = Convert.ToInt32(GetValueMateriauByNameAndQuality(qualite, nomMateriau));
+
+                    // 5 Mise à jour du coût total de l'armure
+                    UpdateCoutArmure();
                 }
             }
             else
@@ -285,11 +339,41 @@ namespace maFichePersonnageJDR.View.Formulaires
 
         private void btnRetirerMateriau_Click(object sender, EventArgs e)
         {
+            // Sécurité en cas de bug, si le bouton est activé malgré qu'il n'y ait rien de coché
+            if (chkLstBxCompositionArmure.CheckedIndices.Count != 1)
+            {
+                MessageBox.Show("Veuillez cocher un matériau à retirer.");
+            }
+
             if (chkLstBxCompositionArmure.CheckedItems.Count == 1)
             {
+
+                int index = chkLstBxCompositionArmure.CheckedIndices[0];
+
+                // 1 Retirer l'élément coché.
                 string chkBx = chkLstBxCompositionArmure.CheckedItems[0].ToString();
                 chkLstBxCompositionArmure.Items.Remove(chkBx);
                 btnRetirerMateriau.Enabled = false;
+
+                // 2 Décaler les valeurs pour être à jour.
+                switch (index)
+                {
+                    case 0:
+                        valeurFirstMateriau = valeurSecondMateriau;
+                        valeurSecondMateriau = valeurThirdMateriau;
+                        valeurThirdMateriau = 0;
+                        break;
+                    case 1:
+                        valeurSecondMateriau = valeurThirdMateriau;
+                        valeurThirdMateriau = 0;
+                        break;
+                    case 2:
+                        valeurThirdMateriau = 0;
+                        break;
+                }
+
+                // 3 Mise à jour du coût total de l'armure
+                UpdateCoutArmure();
             }
         }
 
@@ -325,6 +409,16 @@ namespace maFichePersonnageJDR.View.Formulaires
             int newCount = checkedList.CheckedItems.Count + nombreCase;
             // 3) Activer/désactiver le bouton
             btnRetirerMateriau.Enabled = newCount == 1;
+        }
+        /// <summary>
+        /// Mets à jour le label du coût de l'armure, en fonction : du nombre de matériau dans la composition,
+        /// du matériau et de sa qualité.
+        /// </summary>
+        private void UpdateCoutArmure()
+        {
+            int coutTotalArmure = valeurFirstMateriau + valeurSecondMateriau + valeurThirdMateriau;
+
+            lblNombreCoutArmure.Text = Utils.ConvertMoneyWithValue(coutTotalArmure);
         }
     }
 }

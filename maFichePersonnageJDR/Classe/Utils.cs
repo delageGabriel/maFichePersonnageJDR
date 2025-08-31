@@ -70,7 +70,7 @@ namespace maFichePersonnageJDR.Classe
         }
 
         /// <summary>
-        /// Méthode qui permet d'ajouter les valeurs monétaires
+        /// Méthode qui convertit un entier en valeur monétaire (PO, PA, PC)
         /// </summary>
         /// <param name="valueToConvert"></param>
         /// <returns></returns>
