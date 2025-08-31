@@ -189,6 +189,11 @@ namespace maFichePersonnageJDR.View.Formulaires
 
         private void lstBxTransformes_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmbBxTaille.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez sélectionner la taille de l'armure avant de choisir un matériau.");
+                return;
+            }
             // Eviter que le SelectedIndexChanged de chaque ListBox se lance après nettoyage de la liste, et créer un bug.
             ListBox lb = (ListBox)sender;
             if (!lb.Focus()) return;
@@ -202,6 +207,11 @@ namespace maFichePersonnageJDR.View.Formulaires
 
         private void lstBxMetaux_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmbBxTaille.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez sélectionner la taille de l'armure avant de choisir un matériau.");
+                return;
+            }
             // Eviter que le SelectedIndexChanged de chaque ListBox se lance après nettoyage de la liste, et créer un bug.
             ListBox lb = (ListBox)sender;
             if (!lb.Focus()) return;
@@ -215,6 +225,11 @@ namespace maFichePersonnageJDR.View.Formulaires
 
         private void lstBxMinerais_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmbBxTaille.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez sélectionner la taille de l'armure avant de choisir un matériau.");
+                return;
+            }
             // Eviter que le SelectedIndexChanged de chaque ListBox se lance après nettoyage de la liste, et créer un bug.
             ListBox lb = (ListBox)sender;
             if (!lb.Focus()) return;
@@ -228,6 +243,11 @@ namespace maFichePersonnageJDR.View.Formulaires
 
         private void lstBxAnimaux_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmbBxTaille.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez sélectionner la taille de l'armure avant de choisir un matériau.");
+                return;
+            }
             // Eviter que le SelectedIndexChanged de chaque ListBox se lance après nettoyage de la liste, et créer un bug.
             ListBox lb = (ListBox)sender;
             if (!lb.Focus()) return;
@@ -418,7 +438,29 @@ namespace maFichePersonnageJDR.View.Formulaires
         {
             int coutTotalArmure = valeurFirstMateriau + valeurSecondMateriau + valeurThirdMateriau;
 
+            if (cmbBxTaille.SelectedIndex == 0)
+                coutTotalArmure = Convert.ToInt32(coutTotalArmure * 0.5);
+            else if (cmbBxTaille.SelectedIndex == 1)
+                coutTotalArmure = Convert.ToInt32(coutTotalArmure * 0.8);
+            else if (cmbBxTaille.SelectedIndex == 2)
+                coutTotalArmure = Convert.ToInt32(coutTotalArmure * 1);
+            else if (cmbBxTaille.SelectedIndex == 3)
+                coutTotalArmure = Convert.ToInt32(coutTotalArmure * 1.2);
+            else if (cmbBxTaille.SelectedIndex == 4)
+                coutTotalArmure = Convert.ToInt32(coutTotalArmure * 1.8);
+            else if (cmbBxTaille.SelectedIndex == 5)
+                coutTotalArmure = Convert.ToInt32(coutTotalArmure * 3);
+
             lblNombreCoutArmure.Text = Utils.ConvertMoneyWithValue(coutTotalArmure);
+        }
+        /// <summary>
+        /// En fonction de la taille choisit, le prix (et le poids) n'est pas le même.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbBxTaille_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateCoutArmure();
         }
     }
 }

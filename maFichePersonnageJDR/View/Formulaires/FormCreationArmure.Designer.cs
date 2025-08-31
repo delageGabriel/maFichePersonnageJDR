@@ -1044,9 +1044,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.lblNombrePorteMonnaie.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombrePorteMonnaie.Location = new System.Drawing.Point(564, 36);
             this.lblNombrePorteMonnaie.Name = "lblNombrePorteMonnaie";
-            this.lblNombrePorteMonnaie.Size = new System.Drawing.Size(22, 22);
+            this.lblNombrePorteMonnaie.Size = new System.Drawing.Size(50, 22);
             this.lblNombrePorteMonnaie.TabIndex = 5;
-            this.lblNombrePorteMonnaie.Text = "X";
+            this.lblNombrePorteMonnaie.Text = "0 PC";
             // 
             // lblPorteMonnaie
             // 
@@ -1066,9 +1066,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.lblNombreCoutArmure.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreCoutArmure.Location = new System.Drawing.Point(323, 36);
             this.lblNombreCoutArmure.Name = "lblNombreCoutArmure";
-            this.lblNombreCoutArmure.Size = new System.Drawing.Size(22, 22);
+            this.lblNombreCoutArmure.Size = new System.Drawing.Size(50, 22);
             this.lblNombreCoutArmure.TabIndex = 3;
-            this.lblNombreCoutArmure.Text = "X";
+            this.lblNombreCoutArmure.Text = "0 PC";
             // 
             // lblCoutArmure
             // 
@@ -1096,7 +1096,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.cmbBxTaille.Name = "cmbBxTaille";
             this.cmbBxTaille.Size = new System.Drawing.Size(121, 21);
             this.cmbBxTaille.TabIndex = 0;
-            this.cmbBxTaille.Text = "Aucun";
+            this.cmbBxTaille.SelectedIndexChanged += new System.EventHandler(this.cmbBxTaille_SelectedIndexChanged);
             // 
             // lblTailleArmure
             // 
