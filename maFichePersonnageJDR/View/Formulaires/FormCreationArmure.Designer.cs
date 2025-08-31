@@ -288,7 +288,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.btnAjouterMateriau.Location = new System.Drawing.Point(135, 405);
             this.btnAjouterMateriau.Name = "btnAjouterMateriau";
             this.btnAjouterMateriau.Size = new System.Drawing.Size(98, 23);
-            this.btnAjouterMateriau.TabIndex = 10;
+            this.btnAjouterMateriau.TabIndex = 6;
             this.btnAjouterMateriau.Text = "Ajouter matériau";
             this.btnAjouterMateriau.UseVisualStyleBackColor = true;
             this.btnAjouterMateriau.Click += new System.EventHandler(this.btnAjouterMateriau_Click);
@@ -299,7 +299,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.chkBxDecroissant.Location = new System.Drawing.Point(260, 85);
             this.chkBxDecroissant.Name = "chkBxDecroissant";
             this.chkBxDecroissant.Size = new System.Drawing.Size(82, 17);
-            this.chkBxDecroissant.TabIndex = 9;
+            this.chkBxDecroissant.TabIndex = 2;
             this.chkBxDecroissant.Text = "Décroissant";
             this.chkBxDecroissant.UseVisualStyleBackColor = true;
             // 
@@ -309,7 +309,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.chkBxCroissant.Location = new System.Drawing.Point(164, 85);
             this.chkBxCroissant.Name = "chkBxCroissant";
             this.chkBxCroissant.Size = new System.Drawing.Size(69, 17);
-            this.chkBxCroissant.TabIndex = 8;
+            this.chkBxCroissant.TabIndex = 1;
             this.chkBxCroissant.Text = "Croissant";
             this.chkBxCroissant.UseVisualStyleBackColor = true;
             // 
@@ -342,7 +342,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.cmbBxTypeResistance.Location = new System.Drawing.Point(17, 83);
             this.cmbBxTypeResistance.Name = "cmbBxTypeResistance";
             this.cmbBxTypeResistance.Size = new System.Drawing.Size(121, 21);
-            this.cmbBxTypeResistance.TabIndex = 7;
+            this.cmbBxTypeResistance.TabIndex = 0;
             // 
             // lblTrierMateriaux
             // 
@@ -367,7 +367,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.tbCtrlMateriauxArmure.Name = "tbCtrlMateriauxArmure";
             this.tbCtrlMateriauxArmure.SelectedIndex = 0;
             this.tbCtrlMateriauxArmure.Size = new System.Drawing.Size(355, 270);
-            this.tbCtrlMateriauxArmure.TabIndex = 5;
+            this.tbCtrlMateriauxArmure.TabIndex = 6;
             // 
             // tbPgeTransformes
             // 
@@ -391,7 +391,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.lstBxTransformes.Location = new System.Drawing.Point(0, 1);
             this.lstBxTransformes.Name = "lstBxTransformes";
             this.lstBxTransformes.Size = new System.Drawing.Size(347, 238);
-            this.lstBxTransformes.TabIndex = 11;
+            this.lstBxTransformes.TabIndex = 0;
             this.lstBxTransformes.SelectedIndexChanged += new System.EventHandler(this.lstBxTransformes_SelectedIndexChanged);
             // 
             // tbPgeMétaux
@@ -476,12 +476,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitleTranchant.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitleTranchant.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitleTranchant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleTranchant.Enabled = false;
             this.txtBxTitleTranchant.Location = new System.Drawing.Point(18, 85);
             this.txtBxTitleTranchant.Name = "txtBxTitleTranchant";
+            this.txtBxTitleTranchant.ReadOnly = true;
             this.txtBxTitleTranchant.Size = new System.Drawing.Size(75, 20);
             this.txtBxTitleTranchant.TabIndex = 16;
-            this.txtBxTitleTranchant.Text = "Tranchant";
+            this.txtBxTitleTranchant.Text = "Tranchant%";
             this.txtBxTitleTranchant.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBxTitleContondant
@@ -489,12 +489,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitleContondant.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitleContondant.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitleContondant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleContondant.Enabled = false;
             this.txtBxTitleContondant.Location = new System.Drawing.Point(92, 85);
             this.txtBxTitleContondant.Name = "txtBxTitleContondant";
+            this.txtBxTitleContondant.ReadOnly = true;
             this.txtBxTitleContondant.Size = new System.Drawing.Size(76, 20);
             this.txtBxTitleContondant.TabIndex = 17;
-            this.txtBxTitleContondant.Text = "Contondant";
+            this.txtBxTitleContondant.Text = "Contondant%";
             this.txtBxTitleContondant.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBxTitlePerforant
@@ -502,12 +502,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitlePerforant.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitlePerforant.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitlePerforant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitlePerforant.Enabled = false;
             this.txtBxTitlePerforant.Location = new System.Drawing.Point(167, 85);
             this.txtBxTitlePerforant.Name = "txtBxTitlePerforant";
+            this.txtBxTitlePerforant.ReadOnly = true;
             this.txtBxTitlePerforant.Size = new System.Drawing.Size(71, 20);
             this.txtBxTitlePerforant.TabIndex = 18;
-            this.txtBxTitlePerforant.Text = "Perforant";
+            this.txtBxTitlePerforant.Text = "Perforant%";
             this.txtBxTitlePerforant.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBxTitleIgnee
@@ -515,12 +515,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitleIgnee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitleIgnee.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitleIgnee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleIgnee.Enabled = false;
             this.txtBxTitleIgnee.Location = new System.Drawing.Point(237, 85);
             this.txtBxTitleIgnee.Name = "txtBxTitleIgnee";
+            this.txtBxTitleIgnee.ReadOnly = true;
             this.txtBxTitleIgnee.Size = new System.Drawing.Size(51, 20);
             this.txtBxTitleIgnee.TabIndex = 19;
-            this.txtBxTitleIgnee.Text = "Ignée";
+            this.txtBxTitleIgnee.Text = "Ignée%";
             this.txtBxTitleIgnee.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBxTitleAquatique
@@ -528,12 +528,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitleAquatique.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitleAquatique.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitleAquatique.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleAquatique.Enabled = false;
             this.txtBxTitleAquatique.Location = new System.Drawing.Point(287, 85);
             this.txtBxTitleAquatique.Name = "txtBxTitleAquatique";
+            this.txtBxTitleAquatique.ReadOnly = true;
             this.txtBxTitleAquatique.Size = new System.Drawing.Size(72, 20);
             this.txtBxTitleAquatique.TabIndex = 20;
-            this.txtBxTitleAquatique.Text = "Aquatique";
+            this.txtBxTitleAquatique.Text = "Aquatique%";
             this.txtBxTitleAquatique.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBxTitleCeleste
@@ -541,12 +541,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitleCeleste.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitleCeleste.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitleCeleste.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleCeleste.Enabled = false;
             this.txtBxTitleCeleste.Location = new System.Drawing.Point(358, 85);
             this.txtBxTitleCeleste.Name = "txtBxTitleCeleste";
+            this.txtBxTitleCeleste.ReadOnly = true;
             this.txtBxTitleCeleste.Size = new System.Drawing.Size(61, 20);
             this.txtBxTitleCeleste.TabIndex = 21;
-            this.txtBxTitleCeleste.Text = "Céleste";
+            this.txtBxTitleCeleste.Text = "Céleste%";
             this.txtBxTitleCeleste.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBxTitleTerrestre
@@ -554,12 +554,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitleTerrestre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitleTerrestre.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitleTerrestre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleTerrestre.Enabled = false;
             this.txtBxTitleTerrestre.Location = new System.Drawing.Point(418, 85);
             this.txtBxTitleTerrestre.Name = "txtBxTitleTerrestre";
+            this.txtBxTitleTerrestre.ReadOnly = true;
             this.txtBxTitleTerrestre.Size = new System.Drawing.Size(61, 20);
             this.txtBxTitleTerrestre.TabIndex = 22;
-            this.txtBxTitleTerrestre.Text = "Terrestre";
+            this.txtBxTitleTerrestre.Text = "Terrestre%";
             this.txtBxTitleTerrestre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBxTitlePoison
@@ -567,12 +567,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitlePoison.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitlePoison.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitlePoison.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitlePoison.Enabled = false;
             this.txtBxTitlePoison.Location = new System.Drawing.Point(478, 85);
             this.txtBxTitlePoison.Name = "txtBxTitlePoison";
+            this.txtBxTitlePoison.ReadOnly = true;
             this.txtBxTitlePoison.Size = new System.Drawing.Size(50, 20);
             this.txtBxTitlePoison.TabIndex = 23;
-            this.txtBxTitlePoison.Text = "Poison";
+            this.txtBxTitlePoison.Text = "Poison%";
             this.txtBxTitlePoison.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBxTitleParalysie
@@ -580,12 +580,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitleParalysie.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitleParalysie.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitleParalysie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleParalysie.Enabled = false;
             this.txtBxTitleParalysie.Location = new System.Drawing.Point(527, 85);
             this.txtBxTitleParalysie.Name = "txtBxTitleParalysie";
+            this.txtBxTitleParalysie.ReadOnly = true;
             this.txtBxTitleParalysie.Size = new System.Drawing.Size(62, 20);
             this.txtBxTitleParalysie.TabIndex = 24;
-            this.txtBxTitleParalysie.Text = "Paralysie";
+            this.txtBxTitleParalysie.Text = "Paralysie%";
             this.txtBxTitleParalysie.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBxTranchant
@@ -593,9 +593,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTranchant.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTranchant.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxTranchant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTranchant.Enabled = false;
             this.txtBxTranchant.Location = new System.Drawing.Point(18, 104);
             this.txtBxTranchant.Name = "txtBxTranchant";
+            this.txtBxTranchant.ReadOnly = true;
             this.txtBxTranchant.Size = new System.Drawing.Size(75, 20);
             this.txtBxTranchant.TabIndex = 25;
             this.txtBxTranchant.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -605,9 +605,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxContondant.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxContondant.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxContondant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxContondant.Enabled = false;
             this.txtBxContondant.Location = new System.Drawing.Point(92, 104);
             this.txtBxContondant.Name = "txtBxContondant";
+            this.txtBxContondant.ReadOnly = true;
             this.txtBxContondant.Size = new System.Drawing.Size(76, 20);
             this.txtBxContondant.TabIndex = 26;
             this.txtBxContondant.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -617,9 +617,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxPerforant.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxPerforant.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxPerforant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxPerforant.Enabled = false;
             this.txtBxPerforant.Location = new System.Drawing.Point(167, 104);
             this.txtBxPerforant.Name = "txtBxPerforant";
+            this.txtBxPerforant.ReadOnly = true;
             this.txtBxPerforant.Size = new System.Drawing.Size(71, 20);
             this.txtBxPerforant.TabIndex = 27;
             this.txtBxPerforant.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -629,9 +629,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxIgnee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxIgnee.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxIgnee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxIgnee.Enabled = false;
             this.txtBxIgnee.Location = new System.Drawing.Point(237, 104);
             this.txtBxIgnee.Name = "txtBxIgnee";
+            this.txtBxIgnee.ReadOnly = true;
             this.txtBxIgnee.Size = new System.Drawing.Size(51, 20);
             this.txtBxIgnee.TabIndex = 28;
             this.txtBxIgnee.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -641,9 +641,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxAquatique.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxAquatique.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxAquatique.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxAquatique.Enabled = false;
             this.txtBxAquatique.Location = new System.Drawing.Point(287, 104);
             this.txtBxAquatique.Name = "txtBxAquatique";
+            this.txtBxAquatique.ReadOnly = true;
             this.txtBxAquatique.Size = new System.Drawing.Size(72, 20);
             this.txtBxAquatique.TabIndex = 29;
             this.txtBxAquatique.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -653,9 +653,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxCeleste.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxCeleste.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxCeleste.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxCeleste.Enabled = false;
             this.txtBxCeleste.Location = new System.Drawing.Point(358, 104);
             this.txtBxCeleste.Name = "txtBxCeleste";
+            this.txtBxCeleste.ReadOnly = true;
             this.txtBxCeleste.Size = new System.Drawing.Size(61, 20);
             this.txtBxCeleste.TabIndex = 30;
             this.txtBxCeleste.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -665,9 +665,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTerrestre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTerrestre.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxTerrestre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTerrestre.Enabled = false;
             this.txtBxTerrestre.Location = new System.Drawing.Point(418, 104);
             this.txtBxTerrestre.Name = "txtBxTerrestre";
+            this.txtBxTerrestre.ReadOnly = true;
             this.txtBxTerrestre.Size = new System.Drawing.Size(61, 20);
             this.txtBxTerrestre.TabIndex = 31;
             this.txtBxTerrestre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -677,9 +677,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxPoison.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxPoison.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxPoison.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxPoison.Enabled = false;
             this.txtBxPoison.Location = new System.Drawing.Point(478, 104);
             this.txtBxPoison.Name = "txtBxPoison";
+            this.txtBxPoison.ReadOnly = true;
             this.txtBxPoison.Size = new System.Drawing.Size(50, 20);
             this.txtBxPoison.TabIndex = 32;
             this.txtBxPoison.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -689,9 +689,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxParalysie.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxParalysie.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxParalysie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxParalysie.Enabled = false;
             this.txtBxParalysie.Location = new System.Drawing.Point(527, 104);
             this.txtBxParalysie.Name = "txtBxParalysie";
+            this.txtBxParalysie.ReadOnly = true;
             this.txtBxParalysie.Size = new System.Drawing.Size(62, 20);
             this.txtBxParalysie.TabIndex = 33;
             this.txtBxParalysie.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -701,12 +701,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitleMaledictions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitleMaledictions.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitleMaledictions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleMaledictions.Enabled = false;
             this.txtBxTitleMaledictions.Location = new System.Drawing.Point(18, 123);
             this.txtBxTitleMaledictions.Name = "txtBxTitleMaledictions";
+            this.txtBxTitleMaledictions.ReadOnly = true;
             this.txtBxTitleMaledictions.Size = new System.Drawing.Size(75, 20);
             this.txtBxTitleMaledictions.TabIndex = 35;
-            this.txtBxTitleMaledictions.Text = "Malédictions";
+            this.txtBxTitleMaledictions.Text = "Malédictions%";
             this.txtBxTitleMaledictions.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBxTitleSaignement
@@ -714,12 +714,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitleSaignement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitleSaignement.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitleSaignement.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleSaignement.Enabled = false;
             this.txtBxTitleSaignement.Location = new System.Drawing.Point(92, 123);
             this.txtBxTitleSaignement.Name = "txtBxTitleSaignement";
+            this.txtBxTitleSaignement.ReadOnly = true;
             this.txtBxTitleSaignement.Size = new System.Drawing.Size(76, 20);
             this.txtBxTitleSaignement.TabIndex = 36;
-            this.txtBxTitleSaignement.Text = "Saignement";
+            this.txtBxTitleSaignement.Text = "Saignement%";
             this.txtBxTitleSaignement.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBxTitleChoc
@@ -727,12 +727,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitleChoc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitleChoc.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitleChoc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleChoc.Enabled = false;
             this.txtBxTitleChoc.Location = new System.Drawing.Point(167, 123);
             this.txtBxTitleChoc.Name = "txtBxTitleChoc";
+            this.txtBxTitleChoc.ReadOnly = true;
             this.txtBxTitleChoc.Size = new System.Drawing.Size(71, 20);
             this.txtBxTitleChoc.TabIndex = 37;
-            this.txtBxTitleChoc.Text = "Choc";
+            this.txtBxTitleChoc.Text = "Choc%";
             this.txtBxTitleChoc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBxTitleMaladies
@@ -740,12 +740,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitleMaladies.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitleMaladies.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitleMaladies.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleMaladies.Enabled = false;
             this.txtBxTitleMaladies.Location = new System.Drawing.Point(287, 123);
             this.txtBxTitleMaladies.Name = "txtBxTitleMaladies";
+            this.txtBxTitleMaladies.ReadOnly = true;
             this.txtBxTitleMaladies.Size = new System.Drawing.Size(72, 20);
             this.txtBxTitleMaladies.TabIndex = 38;
-            this.txtBxTitleMaladies.Text = "Maladies";
+            this.txtBxTitleMaladies.Text = "Maladies%";
             this.txtBxTitleMaladies.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBxTitleAcide
@@ -753,12 +753,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitleAcide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitleAcide.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitleAcide.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleAcide.Enabled = false;
             this.txtBxTitleAcide.Location = new System.Drawing.Point(237, 123);
             this.txtBxTitleAcide.Name = "txtBxTitleAcide";
+            this.txtBxTitleAcide.ReadOnly = true;
             this.txtBxTitleAcide.Size = new System.Drawing.Size(51, 20);
             this.txtBxTitleAcide.TabIndex = 39;
-            this.txtBxTitleAcide.Text = "Acide";
+            this.txtBxTitleAcide.Text = "Acide%";
             this.txtBxTitleAcide.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBxTitleChute
@@ -766,12 +766,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitleChute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitleChute.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitleChute.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleChute.Enabled = false;
             this.txtBxTitleChute.Location = new System.Drawing.Point(358, 123);
             this.txtBxTitleChute.Name = "txtBxTitleChute";
+            this.txtBxTitleChute.ReadOnly = true;
             this.txtBxTitleChute.Size = new System.Drawing.Size(61, 20);
             this.txtBxTitleChute.TabIndex = 40;
-            this.txtBxTitleChute.Text = "Chute";
+            this.txtBxTitleChute.Text = "Chute%";
             this.txtBxTitleChute.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBxTitlePression
@@ -779,12 +779,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitlePression.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitlePression.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitlePression.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitlePression.Enabled = false;
             this.txtBxTitlePression.Location = new System.Drawing.Point(418, 123);
             this.txtBxTitlePression.Name = "txtBxTitlePression";
+            this.txtBxTitlePression.ReadOnly = true;
             this.txtBxTitlePression.Size = new System.Drawing.Size(61, 20);
             this.txtBxTitlePression.TabIndex = 41;
-            this.txtBxTitlePression.Text = "Pression";
+            this.txtBxTitlePression.Text = "Pression%";
             this.txtBxTitlePression.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBxTitleChaleur
@@ -792,12 +792,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitleChaleur.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitleChaleur.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitleChaleur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleChaleur.Enabled = false;
             this.txtBxTitleChaleur.Location = new System.Drawing.Point(478, 123);
             this.txtBxTitleChaleur.Name = "txtBxTitleChaleur";
+            this.txtBxTitleChaleur.ReadOnly = true;
             this.txtBxTitleChaleur.Size = new System.Drawing.Size(50, 20);
             this.txtBxTitleChaleur.TabIndex = 42;
-            this.txtBxTitleChaleur.Text = "Chaleur";
+            this.txtBxTitleChaleur.Text = "Chaleur°";
             this.txtBxTitleChaleur.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBxTitleFroid
@@ -805,12 +805,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitleFroid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitleFroid.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitleFroid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleFroid.Enabled = false;
             this.txtBxTitleFroid.Location = new System.Drawing.Point(527, 123);
             this.txtBxTitleFroid.Name = "txtBxTitleFroid";
+            this.txtBxTitleFroid.ReadOnly = true;
             this.txtBxTitleFroid.Size = new System.Drawing.Size(62, 20);
             this.txtBxTitleFroid.TabIndex = 43;
-            this.txtBxTitleFroid.Text = "Froid";
+            this.txtBxTitleFroid.Text = "Froid°";
             this.txtBxTitleFroid.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBxFroid
@@ -818,9 +818,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxFroid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxFroid.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxFroid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxFroid.Enabled = false;
             this.txtBxFroid.Location = new System.Drawing.Point(527, 142);
             this.txtBxFroid.Name = "txtBxFroid";
+            this.txtBxFroid.ReadOnly = true;
             this.txtBxFroid.Size = new System.Drawing.Size(62, 20);
             this.txtBxFroid.TabIndex = 52;
             this.txtBxFroid.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -830,9 +830,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxChaleur.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxChaleur.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxChaleur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxChaleur.Enabled = false;
             this.txtBxChaleur.Location = new System.Drawing.Point(478, 142);
             this.txtBxChaleur.Name = "txtBxChaleur";
+            this.txtBxChaleur.ReadOnly = true;
             this.txtBxChaleur.Size = new System.Drawing.Size(50, 20);
             this.txtBxChaleur.TabIndex = 51;
             this.txtBxChaleur.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -842,9 +842,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxPression.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxPression.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxPression.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxPression.Enabled = false;
             this.txtBxPression.Location = new System.Drawing.Point(418, 142);
             this.txtBxPression.Name = "txtBxPression";
+            this.txtBxPression.ReadOnly = true;
             this.txtBxPression.Size = new System.Drawing.Size(61, 20);
             this.txtBxPression.TabIndex = 50;
             this.txtBxPression.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -854,9 +854,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxChute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxChute.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxChute.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxChute.Enabled = false;
             this.txtBxChute.Location = new System.Drawing.Point(358, 142);
             this.txtBxChute.Name = "txtBxChute";
+            this.txtBxChute.ReadOnly = true;
             this.txtBxChute.Size = new System.Drawing.Size(61, 20);
             this.txtBxChute.TabIndex = 49;
             this.txtBxChute.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -866,9 +866,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxMaladies.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxMaladies.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxMaladies.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxMaladies.Enabled = false;
             this.txtBxMaladies.Location = new System.Drawing.Point(287, 142);
             this.txtBxMaladies.Name = "txtBxMaladies";
+            this.txtBxMaladies.ReadOnly = true;
             this.txtBxMaladies.Size = new System.Drawing.Size(72, 20);
             this.txtBxMaladies.TabIndex = 48;
             this.txtBxMaladies.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -878,9 +878,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxAcide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxAcide.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxAcide.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxAcide.Enabled = false;
             this.txtBxAcide.Location = new System.Drawing.Point(237, 142);
             this.txtBxAcide.Name = "txtBxAcide";
+            this.txtBxAcide.ReadOnly = true;
             this.txtBxAcide.Size = new System.Drawing.Size(51, 20);
             this.txtBxAcide.TabIndex = 47;
             this.txtBxAcide.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -890,9 +890,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxChoc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxChoc.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxChoc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxChoc.Enabled = false;
             this.txtBxChoc.Location = new System.Drawing.Point(167, 142);
             this.txtBxChoc.Name = "txtBxChoc";
+            this.txtBxChoc.ReadOnly = true;
             this.txtBxChoc.Size = new System.Drawing.Size(71, 20);
             this.txtBxChoc.TabIndex = 46;
             this.txtBxChoc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -902,9 +902,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxSaignement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxSaignement.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxSaignement.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxSaignement.Enabled = false;
             this.txtBxSaignement.Location = new System.Drawing.Point(92, 142);
             this.txtBxSaignement.Name = "txtBxSaignement";
+            this.txtBxSaignement.ReadOnly = true;
             this.txtBxSaignement.Size = new System.Drawing.Size(76, 20);
             this.txtBxSaignement.TabIndex = 45;
             this.txtBxSaignement.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -914,9 +914,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxMaledictions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxMaledictions.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxMaledictions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxMaledictions.Enabled = false;
             this.txtBxMaledictions.Location = new System.Drawing.Point(18, 142);
             this.txtBxMaledictions.Name = "txtBxMaledictions";
+            this.txtBxMaledictions.ReadOnly = true;
             this.txtBxMaledictions.Size = new System.Drawing.Size(75, 20);
             this.txtBxMaledictions.TabIndex = 44;
             this.txtBxMaledictions.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -926,9 +926,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxPoids.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxPoids.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxPoids.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxPoids.Enabled = false;
             this.txtBxPoids.Location = new System.Drawing.Point(237, 180);
             this.txtBxPoids.Name = "txtBxPoids";
+            this.txtBxPoids.ReadOnly = true;
             this.txtBxPoids.Size = new System.Drawing.Size(51, 20);
             this.txtBxPoids.TabIndex = 60;
             this.txtBxPoids.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -938,9 +938,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxValeur.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxValeur.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxValeur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxValeur.Enabled = false;
             this.txtBxValeur.Location = new System.Drawing.Point(167, 180);
             this.txtBxValeur.Name = "txtBxValeur";
+            this.txtBxValeur.ReadOnly = true;
             this.txtBxValeur.Size = new System.Drawing.Size(71, 20);
             this.txtBxValeur.TabIndex = 59;
             this.txtBxValeur.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -950,9 +950,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxDeplacement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxDeplacement.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxDeplacement.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxDeplacement.Enabled = false;
             this.txtBxDeplacement.Location = new System.Drawing.Point(92, 180);
             this.txtBxDeplacement.Name = "txtBxDeplacement";
+            this.txtBxDeplacement.ReadOnly = true;
             this.txtBxDeplacement.Size = new System.Drawing.Size(76, 20);
             this.txtBxDeplacement.TabIndex = 58;
             this.txtBxDeplacement.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -962,9 +962,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxBonusInitiative.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxBonusInitiative.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxBonusInitiative.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxBonusInitiative.Enabled = false;
             this.txtBxBonusInitiative.Location = new System.Drawing.Point(18, 180);
             this.txtBxBonusInitiative.Name = "txtBxBonusInitiative";
+            this.txtBxBonusInitiative.ReadOnly = true;
             this.txtBxBonusInitiative.Size = new System.Drawing.Size(75, 20);
             this.txtBxBonusInitiative.TabIndex = 57;
             this.txtBxBonusInitiative.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -974,12 +974,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitlePoids.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitlePoids.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitlePoids.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitlePoids.Enabled = false;
             this.txtBxTitlePoids.Location = new System.Drawing.Point(237, 161);
             this.txtBxTitlePoids.Name = "txtBxTitlePoids";
+            this.txtBxTitlePoids.ReadOnly = true;
             this.txtBxTitlePoids.Size = new System.Drawing.Size(51, 20);
             this.txtBxTitlePoids.TabIndex = 56;
-            this.txtBxTitlePoids.Text = "Poids";
+            this.txtBxTitlePoids.Text = "Poids(kg)";
             this.txtBxTitlePoids.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBxTitleValeur
@@ -987,9 +987,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitleValeur.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitleValeur.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitleValeur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleValeur.Enabled = false;
             this.txtBxTitleValeur.Location = new System.Drawing.Point(167, 161);
             this.txtBxTitleValeur.Name = "txtBxTitleValeur";
+            this.txtBxTitleValeur.ReadOnly = true;
             this.txtBxTitleValeur.Size = new System.Drawing.Size(71, 20);
             this.txtBxTitleValeur.TabIndex = 55;
             this.txtBxTitleValeur.Text = "Valeur";
@@ -1000,12 +1000,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitleDeplacement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitleDeplacement.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitleDeplacement.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleDeplacement.Enabled = false;
             this.txtBxTitleDeplacement.Location = new System.Drawing.Point(92, 161);
             this.txtBxTitleDeplacement.Name = "txtBxTitleDeplacement";
+            this.txtBxTitleDeplacement.ReadOnly = true;
             this.txtBxTitleDeplacement.Size = new System.Drawing.Size(76, 20);
             this.txtBxTitleDeplacement.TabIndex = 54;
-            this.txtBxTitleDeplacement.Text = "Vitesse";
+            this.txtBxTitleDeplacement.Text = "Vitesse(m)";
             this.txtBxTitleDeplacement.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBxTitleInitiative
@@ -1013,12 +1013,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitleInitiative.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitleInitiative.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitleInitiative.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleInitiative.Enabled = false;
             this.txtBxTitleInitiative.Location = new System.Drawing.Point(18, 161);
             this.txtBxTitleInitiative.Name = "txtBxTitleInitiative";
+            this.txtBxTitleInitiative.ReadOnly = true;
             this.txtBxTitleInitiative.Size = new System.Drawing.Size(75, 20);
             this.txtBxTitleInitiative.TabIndex = 53;
-            this.txtBxTitleInitiative.Text = "B. Initiative";
+            this.txtBxTitleInitiative.Text = "B. Initiative+";
             this.txtBxTitleInitiative.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pnlTailleArmurePrix
@@ -1035,7 +1035,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.pnlTailleArmurePrix.Location = new System.Drawing.Point(12, 12);
             this.pnlTailleArmurePrix.Name = "pnlTailleArmurePrix";
             this.pnlTailleArmurePrix.Size = new System.Drawing.Size(1018, 80);
-            this.pnlTailleArmurePrix.TabIndex = 6;
+            this.pnlTailleArmurePrix.TabIndex = 0;
             // 
             // lblNombrePorteMonnaie
             // 
@@ -1095,7 +1095,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.cmbBxTaille.Location = new System.Drawing.Point(17, 36);
             this.cmbBxTaille.Name = "cmbBxTaille";
             this.cmbBxTaille.Size = new System.Drawing.Size(121, 21);
-            this.cmbBxTaille.TabIndex = 1;
+            this.cmbBxTaille.TabIndex = 0;
             this.cmbBxTaille.Text = "Aucun";
             // 
             // lblTailleArmure
@@ -1106,7 +1106,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.lblTailleArmure.Location = new System.Drawing.Point(12, 7);
             this.lblTailleArmure.Name = "lblTailleArmure";
             this.lblTailleArmure.Size = new System.Drawing.Size(177, 26);
-            this.lblTailleArmure.TabIndex = 0;
+            this.lblTailleArmure.TabIndex = 1;
             this.lblTailleArmure.Text = "Taille de l\'armure";
             // 
             // pnlResumeResistanceMateriau
@@ -1352,9 +1352,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxPoidsFinal.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtBxPoidsFinal.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxPoidsFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxPoidsFinal.Enabled = false;
             this.txtBxPoidsFinal.Location = new System.Drawing.Point(126, 137);
             this.txtBxPoidsFinal.Name = "txtBxPoidsFinal";
+            this.txtBxPoidsFinal.ReadOnly = true;
             this.txtBxPoidsFinal.Size = new System.Drawing.Size(74, 20);
             this.txtBxPoidsFinal.TabIndex = 107;
             this.txtBxPoidsFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1380,9 +1380,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxValeurFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtBxValeurFinale.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxValeurFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxValeurFinale.Enabled = false;
             this.txtBxValeurFinale.Location = new System.Drawing.Point(17, 137);
             this.txtBxValeurFinale.Name = "txtBxValeurFinale";
+            this.txtBxValeurFinale.ReadOnly = true;
             this.txtBxValeurFinale.Size = new System.Drawing.Size(74, 20);
             this.txtBxValeurFinale.TabIndex = 106;
             this.txtBxValeurFinale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1424,9 +1424,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtFroidTitleFinal.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtFroidTitleFinal.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtFroidTitleFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFroidTitleFinal.Enabled = false;
             this.txtFroidTitleFinal.Location = new System.Drawing.Point(902, 80);
             this.txtFroidTitleFinal.Name = "txtFroidTitleFinal";
+            this.txtFroidTitleFinal.ReadOnly = true;
             this.txtFroidTitleFinal.Size = new System.Drawing.Size(73, 20);
             this.txtFroidTitleFinal.TabIndex = 90;
             this.txtFroidTitleFinal.Text = "Froid";
@@ -1437,9 +1437,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtChaleurTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtChaleurTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtChaleurTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtChaleurTitleFinale.Enabled = false;
             this.txtChaleurTitleFinale.Location = new System.Drawing.Point(808, 80);
             this.txtChaleurTitleFinale.Name = "txtChaleurTitleFinale";
+            this.txtChaleurTitleFinale.ReadOnly = true;
             this.txtChaleurTitleFinale.Size = new System.Drawing.Size(61, 20);
             this.txtChaleurTitleFinale.TabIndex = 89;
             this.txtChaleurTitleFinale.Text = "Chaleur";
@@ -1450,9 +1450,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtPoidsTitleFinal.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPoidsTitleFinal.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtPoidsTitleFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPoidsTitleFinal.Enabled = false;
             this.txtPoidsTitleFinal.Location = new System.Drawing.Point(126, 118);
             this.txtPoidsTitleFinal.Name = "txtPoidsTitleFinal";
+            this.txtPoidsTitleFinal.ReadOnly = true;
             this.txtPoidsTitleFinal.Size = new System.Drawing.Size(74, 20);
             this.txtPoidsTitleFinal.TabIndex = 103;
             this.txtPoidsTitleFinal.Text = "Poids";
@@ -1463,9 +1463,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtFroidModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtFroidModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
             this.txtFroidModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFroidModificationRecapitulatif.Enabled = false;
             this.txtFroidModificationRecapitulatif.Location = new System.Drawing.Point(902, 99);
             this.txtFroidModificationRecapitulatif.Name = "txtFroidModificationRecapitulatif";
+            this.txtFroidModificationRecapitulatif.ReadOnly = true;
             this.txtFroidModificationRecapitulatif.Size = new System.Drawing.Size(73, 20);
             this.txtFroidModificationRecapitulatif.TabIndex = 99;
             this.txtFroidModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1475,9 +1475,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtValeurTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtValeurTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtValeurTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtValeurTitleFinale.Enabled = false;
             this.txtValeurTitleFinale.Location = new System.Drawing.Point(17, 118);
             this.txtValeurTitleFinale.Name = "txtValeurTitleFinale";
+            this.txtValeurTitleFinale.ReadOnly = true;
             this.txtValeurTitleFinale.Size = new System.Drawing.Size(74, 20);
             this.txtValeurTitleFinale.TabIndex = 102;
             this.txtValeurTitleFinale.Text = "Valeur";
@@ -1496,9 +1496,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtVitesseModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtVitesseModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
             this.txtVitesseModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtVitesseModificationRecapitulatif.Enabled = false;
             this.txtVitesseModificationRecapitulatif.Location = new System.Drawing.Point(724, 99);
             this.txtVitesseModificationRecapitulatif.Name = "txtVitesseModificationRecapitulatif";
+            this.txtVitesseModificationRecapitulatif.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtVitesseModificationRecapitulatif.Size = new System.Drawing.Size(50, 20);
             this.txtVitesseModificationRecapitulatif.TabIndex = 105;
             this.txtVitesseModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1524,9 +1524,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtPressionTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPressionTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtPressionTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPressionTitleFinale.Enabled = false;
             this.txtPressionTitleFinale.Location = new System.Drawing.Point(533, 80);
             this.txtPressionTitleFinale.Name = "txtPressionTitleFinale";
+            this.txtPressionTitleFinale.ReadOnly = true;
             this.txtPressionTitleFinale.Size = new System.Drawing.Size(62, 20);
             this.txtPressionTitleFinale.TabIndex = 88;
             this.txtPressionTitleFinale.Text = "Pression";
@@ -1537,9 +1537,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtChaleurModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtChaleurModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
             this.txtChaleurModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtChaleurModificationRecapitulatif.Enabled = false;
             this.txtChaleurModificationRecapitulatif.Location = new System.Drawing.Point(808, 99);
             this.txtChaleurModificationRecapitulatif.Name = "txtChaleurModificationRecapitulatif";
+            this.txtChaleurModificationRecapitulatif.ReadOnly = true;
             this.txtChaleurModificationRecapitulatif.Size = new System.Drawing.Size(61, 20);
             this.txtChaleurModificationRecapitulatif.TabIndex = 98;
             this.txtChaleurModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1549,9 +1549,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtMaladiesTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMaladiesTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtMaladiesTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMaladiesTitleFinale.Enabled = false;
             this.txtMaladiesTitleFinale.Location = new System.Drawing.Point(340, 80);
             this.txtMaladiesTitleFinale.Name = "txtMaladiesTitleFinale";
+            this.txtMaladiesTitleFinale.ReadOnly = true;
             this.txtMaladiesTitleFinale.Size = new System.Drawing.Size(52, 20);
             this.txtMaladiesTitleFinale.TabIndex = 85;
             this.txtMaladiesTitleFinale.Text = "Maladies";
@@ -1562,9 +1562,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtChuteTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtChuteTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtChuteTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtChuteTitleFinale.Enabled = false;
             this.txtChuteTitleFinale.Location = new System.Drawing.Point(426, 80);
             this.txtChuteTitleFinale.Name = "txtChuteTitleFinale";
+            this.txtChuteTitleFinale.ReadOnly = true;
             this.txtChuteTitleFinale.Size = new System.Drawing.Size(73, 20);
             this.txtChuteTitleFinale.TabIndex = 87;
             this.txtChuteTitleFinale.Text = "Chute";
@@ -1575,9 +1575,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtChocTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtChocTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtChocTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtChocTitleFinale.Enabled = false;
             this.txtChocTitleFinale.Location = new System.Drawing.Point(126, 80);
             this.txtChocTitleFinale.Name = "txtChocTitleFinale";
+            this.txtChocTitleFinale.ReadOnly = true;
             this.txtChocTitleFinale.Size = new System.Drawing.Size(75, 20);
             this.txtChocTitleFinale.TabIndex = 84;
             this.txtChocTitleFinale.Text = "Choc";
@@ -1596,9 +1596,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtInitiativeModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtInitiativeModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
             this.txtInitiativeModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtInitiativeModificationRecapitulatif.Enabled = false;
             this.txtInitiativeModificationRecapitulatif.Location = new System.Drawing.Point(629, 99);
             this.txtInitiativeModificationRecapitulatif.Name = "txtInitiativeModificationRecapitulatif";
+            this.txtInitiativeModificationRecapitulatif.ReadOnly = true;
             this.txtInitiativeModificationRecapitulatif.Size = new System.Drawing.Size(61, 20);
             this.txtInitiativeModificationRecapitulatif.TabIndex = 104;
             this.txtInitiativeModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1624,9 +1624,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtAcideTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtAcideTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtAcideTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAcideTitleFinale.Enabled = false;
             this.txtAcideTitleFinale.Location = new System.Drawing.Point(236, 80);
             this.txtAcideTitleFinale.Name = "txtAcideTitleFinale";
+            this.txtAcideTitleFinale.ReadOnly = true;
             this.txtAcideTitleFinale.Size = new System.Drawing.Size(70, 20);
             this.txtAcideTitleFinale.TabIndex = 86;
             this.txtAcideTitleFinale.Text = "Acide";
@@ -1637,9 +1637,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtVitesseTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtVitesseTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtVitesseTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtVitesseTitleFinale.Enabled = false;
             this.txtVitesseTitleFinale.Location = new System.Drawing.Point(724, 80);
             this.txtVitesseTitleFinale.Name = "txtVitesseTitleFinale";
+            this.txtVitesseTitleFinale.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtVitesseTitleFinale.Size = new System.Drawing.Size(50, 20);
             this.txtVitesseTitleFinale.TabIndex = 101;
             this.txtVitesseTitleFinale.Text = "Vitesse";
@@ -1650,9 +1650,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtSaignementTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSaignementTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtSaignementTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSaignementTitleFinale.Enabled = false;
             this.txtSaignementTitleFinale.Location = new System.Drawing.Point(17, 80);
             this.txtSaignementTitleFinale.Name = "txtSaignementTitleFinale";
+            this.txtSaignementTitleFinale.ReadOnly = true;
             this.txtSaignementTitleFinale.Size = new System.Drawing.Size(74, 20);
             this.txtSaignementTitleFinale.TabIndex = 83;
             this.txtSaignementTitleFinale.Text = "Saignement";
@@ -1679,9 +1679,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtInitiativeTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtInitiativeTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtInitiativeTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtInitiativeTitleFinale.Enabled = false;
             this.txtInitiativeTitleFinale.Location = new System.Drawing.Point(629, 80);
             this.txtInitiativeTitleFinale.Name = "txtInitiativeTitleFinale";
+            this.txtInitiativeTitleFinale.ReadOnly = true;
             this.txtInitiativeTitleFinale.Size = new System.Drawing.Size(61, 20);
             this.txtInitiativeTitleFinale.TabIndex = 100;
             this.txtInitiativeTitleFinale.Text = "B. Initiative";
@@ -1692,9 +1692,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtPressionModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPressionModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
             this.txtPressionModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPressionModificationRecapitulatif.Enabled = false;
             this.txtPressionModificationRecapitulatif.Location = new System.Drawing.Point(533, 99);
             this.txtPressionModificationRecapitulatif.Name = "txtPressionModificationRecapitulatif";
+            this.txtPressionModificationRecapitulatif.ReadOnly = true;
             this.txtPressionModificationRecapitulatif.Size = new System.Drawing.Size(62, 20);
             this.txtPressionModificationRecapitulatif.TabIndex = 97;
             this.txtPressionModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1728,9 +1728,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtMaledictionsTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMaledictionsTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtMaledictionsTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMaledictionsTitleFinale.Enabled = false;
             this.txtMaledictionsTitleFinale.Location = new System.Drawing.Point(901, 42);
             this.txtMaledictionsTitleFinale.Name = "txtMaledictionsTitleFinale";
+            this.txtMaledictionsTitleFinale.ReadOnly = true;
             this.txtMaledictionsTitleFinale.Size = new System.Drawing.Size(75, 20);
             this.txtMaledictionsTitleFinale.TabIndex = 82;
             this.txtMaledictionsTitleFinale.Text = "Malédictions";
@@ -1757,9 +1757,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtChuteModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtChuteModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
             this.txtChuteModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtChuteModificationRecapitulatif.Enabled = false;
             this.txtChuteModificationRecapitulatif.Location = new System.Drawing.Point(426, 99);
             this.txtChuteModificationRecapitulatif.Name = "txtChuteModificationRecapitulatif";
+            this.txtChuteModificationRecapitulatif.ReadOnly = true;
             this.txtChuteModificationRecapitulatif.Size = new System.Drawing.Size(73, 20);
             this.txtChuteModificationRecapitulatif.TabIndex = 96;
             this.txtChuteModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1788,9 +1788,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtTranchantModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTranchantModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
             this.txtTranchantModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTranchantModificationRecapitulatif.Enabled = false;
             this.txtTranchantModificationRecapitulatif.Location = new System.Drawing.Point(17, 61);
             this.txtTranchantModificationRecapitulatif.Name = "txtTranchantModificationRecapitulatif";
+            this.txtTranchantModificationRecapitulatif.ReadOnly = true;
             this.txtTranchantModificationRecapitulatif.Size = new System.Drawing.Size(75, 20);
             this.txtTranchantModificationRecapitulatif.TabIndex = 73;
             this.txtTranchantModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1800,9 +1800,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtPoisonModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPoisonModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
             this.txtPoisonModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPoisonModificationRecapitulatif.Enabled = false;
             this.txtPoisonModificationRecapitulatif.Location = new System.Drawing.Point(724, 61);
             this.txtPoisonModificationRecapitulatif.Name = "txtPoisonModificationRecapitulatif";
+            this.txtPoisonModificationRecapitulatif.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtPoisonModificationRecapitulatif.Size = new System.Drawing.Size(50, 20);
             this.txtPoisonModificationRecapitulatif.TabIndex = 80;
             this.txtPoisonModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1812,9 +1812,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtAquatiqueTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtAquatiqueTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtAquatiqueTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAquatiqueTitleFinale.Enabled = false;
             this.txtAquatiqueTitleFinale.Location = new System.Drawing.Point(427, 42);
             this.txtAquatiqueTitleFinale.Name = "txtAquatiqueTitleFinale";
+            this.txtAquatiqueTitleFinale.ReadOnly = true;
             this.txtAquatiqueTitleFinale.Size = new System.Drawing.Size(72, 20);
             this.txtAquatiqueTitleFinale.TabIndex = 68;
             this.txtAquatiqueTitleFinale.Text = "Aquatique";
@@ -1825,9 +1825,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtMaladiesModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMaladiesModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
             this.txtMaladiesModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMaladiesModificationRecapitulatif.Enabled = false;
             this.txtMaladiesModificationRecapitulatif.Location = new System.Drawing.Point(340, 99);
             this.txtMaladiesModificationRecapitulatif.Name = "txtMaladiesModificationRecapitulatif";
+            this.txtMaladiesModificationRecapitulatif.ReadOnly = true;
             this.txtMaladiesModificationRecapitulatif.Size = new System.Drawing.Size(52, 20);
             this.txtMaladiesModificationRecapitulatif.TabIndex = 95;
             this.txtMaladiesModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1837,9 +1837,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtTerrestreModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTerrestreModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
             this.txtTerrestreModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTerrestreModificationRecapitulatif.Enabled = false;
             this.txtTerrestreModificationRecapitulatif.Location = new System.Drawing.Point(629, 61);
             this.txtTerrestreModificationRecapitulatif.Name = "txtTerrestreModificationRecapitulatif";
+            this.txtTerrestreModificationRecapitulatif.ReadOnly = true;
             this.txtTerrestreModificationRecapitulatif.Size = new System.Drawing.Size(61, 20);
             this.txtTerrestreModificationRecapitulatif.TabIndex = 79;
             this.txtTerrestreModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1849,9 +1849,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtAcideModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtAcideModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
             this.txtAcideModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAcideModificationRecapitulatif.Enabled = false;
             this.txtAcideModificationRecapitulatif.Location = new System.Drawing.Point(236, 99);
             this.txtAcideModificationRecapitulatif.Name = "txtAcideModificationRecapitulatif";
+            this.txtAcideModificationRecapitulatif.ReadOnly = true;
             this.txtAcideModificationRecapitulatif.Size = new System.Drawing.Size(70, 20);
             this.txtAcideModificationRecapitulatif.TabIndex = 94;
             this.txtAcideModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1861,9 +1861,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtCelesteTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCelesteTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtCelesteTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCelesteTitleFinale.Enabled = false;
             this.txtCelesteTitleFinale.Location = new System.Drawing.Point(534, 42);
             this.txtCelesteTitleFinale.Name = "txtCelesteTitleFinale";
+            this.txtCelesteTitleFinale.ReadOnly = true;
             this.txtCelesteTitleFinale.Size = new System.Drawing.Size(61, 20);
             this.txtCelesteTitleFinale.TabIndex = 69;
             this.txtCelesteTitleFinale.Text = "Céleste";
@@ -1874,9 +1874,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtIgneeTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtIgneeTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtIgneeTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIgneeTitleFinale.Enabled = false;
             this.txtIgneeTitleFinale.Location = new System.Drawing.Point(341, 42);
             this.txtIgneeTitleFinale.Name = "txtIgneeTitleFinale";
+            this.txtIgneeTitleFinale.ReadOnly = true;
             this.txtIgneeTitleFinale.Size = new System.Drawing.Size(51, 20);
             this.txtIgneeTitleFinale.TabIndex = 67;
             this.txtIgneeTitleFinale.Text = "Ignée";
@@ -1887,9 +1887,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtCelesteModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCelesteModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
             this.txtCelesteModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCelesteModificationRecapitulatif.Enabled = false;
             this.txtCelesteModificationRecapitulatif.Location = new System.Drawing.Point(534, 61);
             this.txtCelesteModificationRecapitulatif.Name = "txtCelesteModificationRecapitulatif";
+            this.txtCelesteModificationRecapitulatif.ReadOnly = true;
             this.txtCelesteModificationRecapitulatif.Size = new System.Drawing.Size(61, 20);
             this.txtCelesteModificationRecapitulatif.TabIndex = 78;
             this.txtCelesteModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1899,9 +1899,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtChocModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtChocModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
             this.txtChocModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtChocModificationRecapitulatif.Enabled = false;
             this.txtChocModificationRecapitulatif.Location = new System.Drawing.Point(126, 99);
             this.txtChocModificationRecapitulatif.Name = "txtChocModificationRecapitulatif";
+            this.txtChocModificationRecapitulatif.ReadOnly = true;
             this.txtChocModificationRecapitulatif.Size = new System.Drawing.Size(75, 20);
             this.txtChocModificationRecapitulatif.TabIndex = 93;
             this.txtChocModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1911,9 +1911,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtSaignementModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSaignementModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
             this.txtSaignementModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSaignementModificationRecapitulatif.Enabled = false;
             this.txtSaignementModificationRecapitulatif.Location = new System.Drawing.Point(17, 99);
             this.txtSaignementModificationRecapitulatif.Name = "txtSaignementModificationRecapitulatif";
+            this.txtSaignementModificationRecapitulatif.ReadOnly = true;
             this.txtSaignementModificationRecapitulatif.Size = new System.Drawing.Size(74, 20);
             this.txtSaignementModificationRecapitulatif.TabIndex = 92;
             this.txtSaignementModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1923,9 +1923,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtMaledictionsModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMaledictionsModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
             this.txtMaledictionsModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMaledictionsModificationRecapitulatif.Enabled = false;
             this.txtMaledictionsModificationRecapitulatif.Location = new System.Drawing.Point(901, 61);
             this.txtMaledictionsModificationRecapitulatif.Name = "txtMaledictionsModificationRecapitulatif";
+            this.txtMaledictionsModificationRecapitulatif.ReadOnly = true;
             this.txtMaledictionsModificationRecapitulatif.Size = new System.Drawing.Size(75, 20);
             this.txtMaledictionsModificationRecapitulatif.TabIndex = 91;
             this.txtMaledictionsModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1935,9 +1935,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtParalysieModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtParalysieModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
             this.txtParalysieModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtParalysieModificationRecapitulatif.Enabled = false;
             this.txtParalysieModificationRecapitulatif.Location = new System.Drawing.Point(807, 61);
             this.txtParalysieModificationRecapitulatif.Name = "txtParalysieModificationRecapitulatif";
+            this.txtParalysieModificationRecapitulatif.ReadOnly = true;
             this.txtParalysieModificationRecapitulatif.Size = new System.Drawing.Size(62, 20);
             this.txtParalysieModificationRecapitulatif.TabIndex = 81;
             this.txtParalysieModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1947,9 +1947,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtContondantTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtContondantTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtContondantTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtContondantTitleFinale.Enabled = false;
             this.txtContondantTitleFinale.Location = new System.Drawing.Point(126, 42);
             this.txtContondantTitleFinale.Name = "txtContondantTitleFinale";
+            this.txtContondantTitleFinale.ReadOnly = true;
             this.txtContondantTitleFinale.Size = new System.Drawing.Size(76, 20);
             this.txtContondantTitleFinale.TabIndex = 65;
             this.txtContondantTitleFinale.Text = "Contondant";
@@ -1960,9 +1960,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtTerrestreTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTerrestreTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtTerrestreTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTerrestreTitleFinale.Enabled = false;
             this.txtTerrestreTitleFinale.Location = new System.Drawing.Point(629, 42);
             this.txtTerrestreTitleFinale.Name = "txtTerrestreTitleFinale";
+            this.txtTerrestreTitleFinale.ReadOnly = true;
             this.txtTerrestreTitleFinale.Size = new System.Drawing.Size(61, 20);
             this.txtTerrestreTitleFinale.TabIndex = 70;
             this.txtTerrestreTitleFinale.Text = "Terrestre";
@@ -1973,9 +1973,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtAquatiqueModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtAquatiqueModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
             this.txtAquatiqueModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAquatiqueModificationRecapitulatif.Enabled = false;
             this.txtAquatiqueModificationRecapitulatif.Location = new System.Drawing.Point(427, 61);
             this.txtAquatiqueModificationRecapitulatif.Name = "txtAquatiqueModificationRecapitulatif";
+            this.txtAquatiqueModificationRecapitulatif.ReadOnly = true;
             this.txtAquatiqueModificationRecapitulatif.Size = new System.Drawing.Size(72, 20);
             this.txtAquatiqueModificationRecapitulatif.TabIndex = 77;
             this.txtAquatiqueModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1985,9 +1985,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtPoisonTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPoisonTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtPoisonTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPoisonTitleFinale.Enabled = false;
             this.txtPoisonTitleFinale.Location = new System.Drawing.Point(724, 42);
             this.txtPoisonTitleFinale.Name = "txtPoisonTitleFinale";
+            this.txtPoisonTitleFinale.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtPoisonTitleFinale.Size = new System.Drawing.Size(50, 20);
             this.txtPoisonTitleFinale.TabIndex = 71;
             this.txtPoisonTitleFinale.Text = "Poison";
@@ -1998,9 +1998,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtPerforantTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPerforantTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtPerforantTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPerforantTitleFinale.Enabled = false;
             this.txtPerforantTitleFinale.Location = new System.Drawing.Point(236, 42);
             this.txtPerforantTitleFinale.Name = "txtPerforantTitleFinale";
+            this.txtPerforantTitleFinale.ReadOnly = true;
             this.txtPerforantTitleFinale.Size = new System.Drawing.Size(71, 20);
             this.txtPerforantTitleFinale.TabIndex = 66;
             this.txtPerforantTitleFinale.Text = "Perforant";
@@ -2011,9 +2011,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtIgneeModificationRecapitulation.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtIgneeModificationRecapitulation.BackColor = System.Drawing.SystemColors.Window;
             this.txtIgneeModificationRecapitulation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIgneeModificationRecapitulation.Enabled = false;
             this.txtIgneeModificationRecapitulation.Location = new System.Drawing.Point(341, 61);
             this.txtIgneeModificationRecapitulation.Name = "txtIgneeModificationRecapitulation";
+            this.txtIgneeModificationRecapitulation.ReadOnly = true;
             this.txtIgneeModificationRecapitulation.Size = new System.Drawing.Size(51, 20);
             this.txtIgneeModificationRecapitulation.TabIndex = 76;
             this.txtIgneeModificationRecapitulation.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -2023,9 +2023,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtParalysieTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtParalysieTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtParalysieTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtParalysieTitleFinale.Enabled = false;
             this.txtParalysieTitleFinale.Location = new System.Drawing.Point(807, 42);
             this.txtParalysieTitleFinale.Name = "txtParalysieTitleFinale";
+            this.txtParalysieTitleFinale.ReadOnly = true;
             this.txtParalysieTitleFinale.Size = new System.Drawing.Size(62, 20);
             this.txtParalysieTitleFinale.TabIndex = 72;
             this.txtParalysieTitleFinale.Text = "Paralysie";
@@ -2036,9 +2036,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtPerforantModificationRecapitulation.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPerforantModificationRecapitulation.BackColor = System.Drawing.SystemColors.Window;
             this.txtPerforantModificationRecapitulation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPerforantModificationRecapitulation.Enabled = false;
             this.txtPerforantModificationRecapitulation.Location = new System.Drawing.Point(236, 61);
             this.txtPerforantModificationRecapitulation.Name = "txtPerforantModificationRecapitulation";
+            this.txtPerforantModificationRecapitulation.ReadOnly = true;
             this.txtPerforantModificationRecapitulation.Size = new System.Drawing.Size(71, 20);
             this.txtPerforantModificationRecapitulation.TabIndex = 75;
             this.txtPerforantModificationRecapitulation.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -2048,9 +2048,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtContondantModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtContondantModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
             this.txtContondantModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtContondantModificationRecapitulatif.Enabled = false;
             this.txtContondantModificationRecapitulatif.Location = new System.Drawing.Point(126, 61);
             this.txtContondantModificationRecapitulatif.Name = "txtContondantModificationRecapitulatif";
+            this.txtContondantModificationRecapitulatif.ReadOnly = true;
             this.txtContondantModificationRecapitulatif.Size = new System.Drawing.Size(76, 20);
             this.txtContondantModificationRecapitulatif.TabIndex = 74;
             this.txtContondantModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -2060,9 +2060,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtTranchantTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTranchantTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtTranchantTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTranchantTitleFinale.Enabled = false;
             this.txtTranchantTitleFinale.Location = new System.Drawing.Point(17, 42);
             this.txtTranchantTitleFinale.Name = "txtTranchantTitleFinale";
+            this.txtTranchantTitleFinale.ReadOnly = true;
             this.txtTranchantTitleFinale.Size = new System.Drawing.Size(75, 20);
             this.txtTranchantTitleFinale.TabIndex = 64;
             this.txtTranchantTitleFinale.Text = "Tranchant";
