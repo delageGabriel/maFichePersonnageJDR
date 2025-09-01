@@ -1498,7 +1498,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtVitesseModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtVitesseModificationRecapitulatif.Location = new System.Drawing.Point(724, 99);
             this.txtVitesseModificationRecapitulatif.Name = "txtVitesseModificationRecapitulatif";
-            this.txtVitesseModificationRecapitulatif.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtVitesseModificationRecapitulatif.Size = new System.Drawing.Size(50, 20);
             this.txtVitesseModificationRecapitulatif.TabIndex = 105;
             this.txtVitesseModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1802,7 +1801,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtPoisonModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPoisonModificationRecapitulatif.Location = new System.Drawing.Point(724, 61);
             this.txtPoisonModificationRecapitulatif.Name = "txtPoisonModificationRecapitulatif";
-            this.txtPoisonModificationRecapitulatif.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtPoisonModificationRecapitulatif.Size = new System.Drawing.Size(50, 20);
             this.txtPoisonModificationRecapitulatif.TabIndex = 80;
             this.txtPoisonModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
