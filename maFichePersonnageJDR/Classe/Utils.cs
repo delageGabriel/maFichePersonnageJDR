@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 using maFichePersonnageJDR.Controller;
 
 namespace maFichePersonnageJDR.Classe
@@ -21,7 +22,7 @@ namespace maFichePersonnageJDR.Classe
         {
             for (int i = 0; i < richTextBox.Lines.Length; i++)
             {
-                if(richTextBox.Lines[i].Contains(textToRemove))
+                if (richTextBox.Lines[i].Contains(textToRemove))
                 {
                     return i;
                 }
@@ -183,6 +184,110 @@ namespace maFichePersonnageJDR.Classe
         public static short GetDizaineInteger(int caracteristique)
         {
             return Convert.ToInt16((caracteristique / 10) % 10);
+        }
+
+        /// <summary>
+        /// Fais la moyenne entre deux ou trois valeurs données en mettant le plus grand poids sur 
+        /// le chiffre le plus grand ou le plus petit en fonction de ce que l'on veut retourner comme
+        /// moyenne.
+        /// </summary>
+        /// <param name="firstValue">
+        /// Première valeur.
+        /// </param>
+        /// <param name="secondValue">
+        /// Deuxième valeur.
+        /// </param>
+        /// <param name="thirdValue">
+        /// Troisième valeur, il est nullable comme il peut n'y avoir que deux chiffres.
+        /// </param>
+        /// <param name="greaterValue">
+        /// true : poids plus grand sur les grands chiffres
+        /// false : poids plus grand sur les petits chiffres
+        /// </param>
+        /// <returns></returns>
+        public static int AverageEffectValueMaterials(int firstValue, int secondValue, int? thirdValue, bool greaterValue)
+        {
+            if (!thirdValue.HasValue)
+            {
+                int maxNumber = Math.Max(firstValue, secondValue);
+                int minNumber = Math.Min(firstValue, secondValue);
+
+                if (greaterValue)
+                    return Convert.ToInt32(((maxNumber * 2) + (minNumber * 1)) / (2 + 1));
+                else
+                    return Convert.ToInt32(((maxNumber * 1) + (minNumber * 2)) / (2 + 1));
+            }
+            else
+            {
+                int maxNumber = 0;
+                int midNumber = 0;
+                int minNumber = 0;
+
+                if (Math.Max(firstValue, secondValue) == firstValue)
+                {
+                    if (Math.Max(firstValue, thirdValue.Value) == firstValue)
+                    {
+                        maxNumber = firstValue;
+                        midNumber = Math.Max(secondValue, thirdValue.Value);
+                        minNumber = Math.Min(secondValue, thirdValue.Value);
+                    }
+                    else if (Math.Max(firstValue, thirdValue.Value) == thirdValue.Value)
+                    {
+                        maxNumber = thirdValue.Value;
+                        midNumber = Math.Max(secondValue, firstValue);
+                        minNumber = Math.Min(secondValue, firstValue);
+                    }
+                }
+                else if (Math.Max(firstValue, secondValue) == secondValue)
+                {
+                    if (Math.Max(secondValue, thirdValue.Value) == secondValue)
+                    {
+                        maxNumber = secondValue;
+                        midNumber = Math.Max(firstValue, thirdValue.Value);
+                        minNumber = Math.Min(firstValue, thirdValue.Value);
+                    }
+                    else if (Math.Max(firstValue, thirdValue.Value) == thirdValue.Value)
+                    {
+                        maxNumber = thirdValue.Value;
+                        midNumber = Math.Max(secondValue, firstValue);
+                        minNumber = Math.Min(secondValue, firstValue);
+                    }
+                }
+
+                if (greaterValue)
+                    return Convert.ToInt32(((maxNumber * 3) + (midNumber * 2) + (minNumber * 1)) / (3 + 2 + 1));
+                else
+                    return Convert.ToInt32(((maxNumber * 1) + (midNumber * 2) + (minNumber * 3)) / (3 + 2 + 1));
+            }
+        }
+
+        public static decimal AverageEffectValueMaterials(decimal firstValue, decimal secondValue, decimal? thirdValue, bool greaterValue)
+        {
+            if (!thirdValue.HasValue)
+            {
+                // 2 valeurs : on pèse 2/1 ou 1/2 selon greaterValue
+                var vals = new[] { firstValue, secondValue }.OrderByDescending(v => v).ToArray();
+                decimal wHigh = greaterValue ? 2m : 1m;
+                decimal wLow = greaterValue ? 1m : 2m;
+
+                decimal num = vals[0] * wHigh + vals[1] * wLow;
+                decimal den = wHigh + wLow;
+                return num / den; // ex. 1 colonne active => c'est juste la valeur
+            }
+            else
+            {
+                // 3 valeurs : on pèse 3/2/1 si greaterValue ; sinon 1/2/3
+                var vals = new[] { firstValue, secondValue, thirdValue.Value }
+                           .OrderByDescending(v => v).ToArray();
+
+                decimal wMax, wMid, wMin;
+                if (greaterValue) { wMax = 3m; wMid = 2m; wMin = 1m; }
+                else { wMax = 1m; wMid = 2m; wMin = 3m; }
+
+                decimal num = vals[0] * wMax + vals[1] * wMid + vals[2] * wMin;
+                decimal den = wMax + wMid + wMin; // 6
+                return num / den;
+            }
         }
     }
 }
