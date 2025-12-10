@@ -1,0 +1,63 @@
+STRATÉGIE – ÉQUIPE MYRIM
+(Résumé des tours et formations)
+
+TOUR 1 – Formation Tortue
+- Maëlle : incante un mur de flammes devant elle et Myrim.
+- Myrim : utilise la canalisation Thagoras
+- Arlong : tient la position (ou se buff si possible).
+- Magnus : se transforme en Arlong et tient la position.
+- Paola : invoque ses lames élémentaires.
+- Sparadrap : sparadrise (soins et soutien).
+
+TOUR 2 – Maintien de la défense
+- Myrim : invoque sa lame d’eau (attaque automatique en CàC).
+- Maëlle : cible Nero.
+- Arlong : reste en défense pour protéger Sparadrap.
+- Magnus : attaque sous forme de golem si Marguerite l’a invoqué.
+- Paola : tient la position.
+- Sparadrap : sparadrise.
+
+## SI LES DEUX CLASSES (A et B) ONT PRIS LA C POUR CIBLE ##
+
+TOUR 1’ / TOUR 2’ – Séquence alternative (rotation)
+Tour 1’ :
+- Myrim : immobilise les ennemis en face de lui avec une vague.
+- Maëlle : immobilise ceux face à Arlong.
+- Arlong, Magnus, Paola : attaquent les ennemis devant eux.
+- Sparadrap : sparadrise.
+
+Tour 2’ :
+- Maëlle, Myrim, Arlong, Magnus et Paola : attaquent leurs cibles directes.
+- Sparadrap : sparadrise.
+
+→ On alterne entre ces deux tours selon la situation.
+###########################################################
+
+TOUR 3 – Formation Triangle
+- Arlong et Magnus : attaquent ensemble Jacques ou Marco.
+- Myrim, Maëlle et Paola : changent de position selon la formation.
+- Sparadrap : sparadrise.
+
+(Formation triangle : Maëlle en avant, Myrim et Paola en soutien latéral, Sparadrap au centre arrière.)
+
+TOUR 4 jusqu’au dernier tour – Phase offensive
+- Arlong & Magnus : agissent en tandem pour éliminer les cibles prioritaires (les plus puissantes).
+- Myrim, Maëlle, Paola : attaquent à distance.
+  - Si un ennemi approche au corps-à-corps :
+    - Myrim l’immobilise avec une cage d’eau jusqu’à exécution par sa lame.
+    - Maëlle immobilise ceux face à Paola et attaque ceux face à elle.
+    - Paola gère sa zone d’attaque avec ses lames.
+- Sparadrap : continue de sparadriser (soutien constant).
+
+ANNEXE – En cas d’attaque simultanée de deux classes
+Arlong : “Et qu’en est-il s’ils font une stratégie où leurs classes se séparent pour attaquer les deux autres classes simultanément ?”
+Myrim : “Dans ce cas, on cible la classe qui a le plus de membres en priorité.
+Une fois les effectifs équilibrés, on termine les plus affaiblis avant de s’attaquer aux plus endurcis.”
+
+----------------------------------------------------
+INSTRUCTIONS À PARTIR DU TOUR 2 ET POUR TOUS LES TOURS SUIVANTS
+- Les cibles prioritaires sont : Edgard, Marguerite (/!\ après qu’elle ait invoqué le golem /!\), Nero, et Hibiscus.
+  Pour le reste, on vise en priorité les cibles les plus faibles jusqu’aux plus fortes.
+- Si l’occasion le permet, Myrim se soignera lui-même ou un allié affaibli en cas de besoin.
+- Si une cible est très affaiblie, elle devient prioritaire pour être achevée.
+----------------------------------------------------

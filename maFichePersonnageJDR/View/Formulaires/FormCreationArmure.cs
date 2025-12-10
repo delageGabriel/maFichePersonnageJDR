@@ -18,7 +18,6 @@ namespace maFichePersonnageJDR.View.Formulaires
 
         private string[,] tableauAverageMateriauEffect = new string[22, 3]; // Tableau de 22 lignes et 3 colonnes
         private string[] listTextBoxPreview;
-        private string[] previewNextImprovementArmor = new string[22];
 
         /// Création d'un tableau qui contiendra les valeurs des résistances et bonus de l'armure toute
         /// en une fois, afin qu'il serve aussi à afficher la preview.
@@ -41,14 +40,8 @@ namespace maFichePersonnageJDR.View.Formulaires
                 txtBxAquatique.Text,
                 txtBxCeleste.Text,
                 txtBxTerrestre.Text,
-                txtBxPoison.Text,
-                txtBxParalysie.Text,
-                txtBxMaledictions.Text,
-                txtBxSaignement.Text,
                 txtBxChoc.Text,
                 txtBxAcide.Text,
-                txtBxMaladies.Text,
-                txtBxChute.Text,
                 txtBxPression.Text,
                 txtBxChaleur.Text,
                 txtBxFroid.Text,
@@ -102,7 +95,7 @@ namespace maFichePersonnageJDR.View.Formulaires
                     foreach (var materiaux in dictionnaireMateriauxCateg.Values)
                     {
                         if (materiaux.Categorie == "Transformé")
-                            lstBxTransformes.Items.Add(materiaux.NomMateriau);
+                            lstBxOrganiques.Items.Add(materiaux.NomMateriau);
                         else if (materiaux.Categorie == "Métaux")
                             lstBxMetaux.Items.Add(materiaux.NomMateriau);
                         else if (materiaux.Categorie == "Minerai")
@@ -246,29 +239,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             }
         }
 
-        private void lstBxTransformes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbBxTaille.SelectedItem == null)
-            {
-                MessageBox.Show("Veuillez sélectionner la taille de l'armure avant de choisir un matériau.");
-                return;
-            }
-            // Eviter que le SelectedIndexChanged de chaque ListBox se lance après nettoyage de la liste, et créer un bug.
-            ListBox lb = (ListBox)sender;
-            if (!lb.Focus()) return;
-
-            DisableOtherSelectedIndex(lstBxMetaux, lstBxMinerais, lstBxAnimaux);
-            int qualite = Convert.ToInt32(cmbBxQualiteMateriau.SelectedItem);
-            ListBox nomMateriau = (ListBox)sender;
-
-            GetMateriauxEffectsByNameAndQuality(qualite, nomMateriau.SelectedItem.ToString());
-            GetTextInTextBoxMateriauPreview();
-
-            // Mettre à jour la preview des valeurs de résistances et bonus de l'armure avec
-            // l'ajout de ce matériau.
-            UpdateResistancesBonusArmorInformations();
-        }
-
         private void lstBxMetaux_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbBxTaille.SelectedItem == null)
@@ -280,7 +250,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             ListBox lb = (ListBox)sender;
             if (!lb.Focus()) return;
 
-            DisableOtherSelectedIndex(lstBxTransformes, lstBxMinerais, lstBxAnimaux);
+            DisableOtherSelectedIndex(lstBxOrganiques, lstBxMinerais, lstBxAnimaux);
             int qualite = Convert.ToInt32(cmbBxQualiteMateriau.SelectedItem);
             ListBox nomMateriau = (ListBox)sender;
 
@@ -303,7 +273,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             ListBox lb = (ListBox)sender;
             if (!lb.Focus()) return;
 
-            DisableOtherSelectedIndex(lstBxTransformes, lstBxMetaux, lstBxAnimaux);
+            DisableOtherSelectedIndex(lstBxOrganiques, lstBxMetaux, lstBxAnimaux);
             int qualite = Convert.ToInt32(cmbBxQualiteMateriau.SelectedItem);
             ListBox nomMateriau = (ListBox)sender;
 
@@ -326,7 +296,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             ListBox lb = (ListBox)sender;
             if (!lb.Focus()) return;
 
-            DisableOtherSelectedIndex(lstBxTransformes, lstBxMetaux, lstBxMinerais);
+            DisableOtherSelectedIndex(lstBxOrganiques, lstBxMetaux, lstBxMinerais);
             int qualite = Convert.ToInt32(cmbBxQualiteMateriau.SelectedItem);
             ListBox nomMateriau = (ListBox)sender;
 
@@ -349,8 +319,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             int qualite = Convert.ToInt32(cbbQualite.SelectedItem);
             string nomMateriau = string.Empty;
 
-            if (lstBxTransformes.SelectedItem != null)
-                nomMateriau = lstBxTransformes.SelectedItem.ToString();
+            if (lstBxOrganiques.SelectedItem != null)
+                nomMateriau = lstBxOrganiques.SelectedItem.ToString();
             else if (lstBxMetaux.SelectedItem != null)
                 nomMateriau = lstBxMetaux.SelectedItem.ToString();
             else if (lstBxMinerais.SelectedItem != null)
@@ -385,7 +355,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         private void btnAjouterMateriau_Click(object sender, EventArgs e)
         {
             // Au moins un matériau doit être sélectionné pour l'ajouter.
-            if (lstBxTransformes.SelectedItem != null ||
+            if (lstBxOrganiques.SelectedItem != null ||
                 lstBxMetaux.SelectedItem != null ||
                 lstBxMinerais.SelectedItem != null ||
                 lstBxAnimaux.SelectedItem != null)
@@ -394,8 +364,8 @@ namespace maFichePersonnageJDR.View.Formulaires
                 int qualite = Convert.ToInt32(cmbBxQualiteMateriau.SelectedItem);
                 string nomMateriau = string.Empty;
 
-                if (lstBxTransformes.SelectedItem != null)
-                    nomMateriau = lstBxTransformes.SelectedItem.ToString();
+                if (lstBxOrganiques.SelectedItem != null)
+                    nomMateriau = lstBxOrganiques.SelectedItem.ToString();
                 else if (lstBxMetaux.SelectedItem != null)
                     nomMateriau = lstBxMetaux.SelectedItem.ToString();
                 else if (lstBxMinerais.SelectedItem != null)
@@ -704,217 +674,217 @@ namespace maFichePersonnageJDR.View.Formulaires
                 // Vider toutes les TextBox
 
                 // Tranchant
-                txtTranchantModificationRecapitulatif.Text = string.Empty;
+                txtBxTranchantFinaleValue.Text = string.Empty;
                 // Contondant
-                txtContondantModificationRecapitulatif.Text = string.Empty;
+                txtBxContondantFinaleValue.Text = string.Empty;
                 // Perorant
-                txtPerforantModificationRecapitulation.Text = string.Empty;
+                txtBxPerforantFinaleValue.Text = string.Empty;
                 // Ignée
-                txtIgneeModificationRecapitulation.Text = string.Empty;
+                txtBxIgneeBxFinaleValue.Text = string.Empty;
                 // Aquatique
-                txtAquatiqueModificationRecapitulatif.Text = string.Empty;
+                txtBxAquatiqueFinaleValue.Text = string.Empty;
                 // Céleste
-                txtCelesteModificationRecapitulatif.Text = string.Empty;
+                txtBxCelesteFinaleValue.Text = string.Empty;
                 // Terrestre
-                txtTerrestreModificationRecapitulatif.Text = string.Empty;
+                txtBxTerrestreFinaleValue.Text = string.Empty;
                 // Poison
-                txtPoisonModificationRecapitulatif.Text = string.Empty;
+                txtBxPoisonFinaleValue.Text = string.Empty;
                 // Paralysie
-                txtParalysieModificationRecapitulatif.Text = string.Empty;
+                txtBxParalysieFinaleValue.Text = string.Empty;
                 // Malédictions
-                txtMaledictionsModificationRecapitulatif.Text = string.Empty;
+                txtBxMaledictionsFinaleValue.Text = string.Empty;
                 // Saignement
-                txtSaignementModificationRecapitulatif.Text = string.Empty;
+                txtBxSaignementFinaleValue.Text = string.Empty;
                 // Choc
-                txtChocModificationRecapitulatif.Text = string.Empty;
+                txtBxChocFinaleValue.Text = string.Empty;
                 // Acide
-                txtAcideModificationRecapitulatif.Text = string.Empty;
+                txtBxAcideFinaleValue.Text = string.Empty;
                 // Maladies
-                txtMaladiesModificationRecapitulatif.Text = string.Empty;
+                txtBxMaladiesFinaleValue.Text = string.Empty;
                 // Chute
-                txtChuteModificationRecapitulatif.Text = string.Empty;
+                txtBxChuteFinaleValue.Text = string.Empty;
                 // Chaleur
-                txtChaleurModificationRecapitulatif.Text = string.Empty;
+                txtBxChaleurFinaleValue.Text = string.Empty;
                 // Froid
-                txtFroidModificationRecapitulatif.Text = string.Empty;
+                txtBxFroidFinaleValue.Text = string.Empty;
                 // Initiative
-                txtInitiativeModificationRecapitulatif.Text = string.Empty;
+                txtBxInitiativeFinaleValue.Text = string.Empty;
                 // Vitesse
-                txtVitesseModificationRecapitulatif.Text = string.Empty;
+                txtBxVitesseFinaleValue.Text = string.Empty;
                 // Pression
-                txtPressionModificationRecapitulatif.Text = string.Empty;
+                txtBxPressionValueFinale.Text = string.Empty;
                 // Poids
-                txtBxPoidsFinal.Text = string.Empty;
+                txtBxPoidsFinaleValue.Text = string.Empty;
             }
             else if (activeCols.Count == 1)
             {
                 // Tranchant
-                txtTranchantModificationRecapitulatif.Text = tableauAverageMateriauEffect[1, activeCols[0]].ToString();
+                txtBxTranchantFinaleValue.Text = tableauAverageMateriauEffect[1, activeCols[0]].ToString();
                 // Contondant
-                txtContondantModificationRecapitulatif.Text = tableauAverageMateriauEffect[2, activeCols[0]].ToString();
+                txtBxContondantFinaleValue.Text = tableauAverageMateriauEffect[2, activeCols[0]].ToString();
                 // Perorant
-                txtPerforantModificationRecapitulation.Text = tableauAverageMateriauEffect[3, activeCols[0]].ToString();
+                txtBxPerforantFinaleValue.Text = tableauAverageMateriauEffect[3, activeCols[0]].ToString();
                 // Ignée
-                txtIgneeModificationRecapitulation.Text = tableauAverageMateriauEffect[4, activeCols[0]].ToString();
+                txtBxIgneeBxFinaleValue.Text = tableauAverageMateriauEffect[4, activeCols[0]].ToString();
                 // Aquatique
-                txtAquatiqueModificationRecapitulatif.Text = tableauAverageMateriauEffect[5, activeCols[0]].ToString();
+                txtBxAquatiqueFinaleValue.Text = tableauAverageMateriauEffect[5, activeCols[0]].ToString();
                 // Céleste
-                txtCelesteModificationRecapitulatif.Text = tableauAverageMateriauEffect[6, activeCols[0]].ToString();
+                txtBxCelesteFinaleValue.Text = tableauAverageMateriauEffect[6, activeCols[0]].ToString();
                 // Terrestre
-                txtTerrestreModificationRecapitulatif.Text = tableauAverageMateriauEffect[7, activeCols[0]].ToString();
+                txtBxTerrestreFinaleValue.Text = tableauAverageMateriauEffect[7, activeCols[0]].ToString();
                 // Poison
-                txtPoisonModificationRecapitulatif.Text = tableauAverageMateriauEffect[8, activeCols[0]].ToString();
+                txtBxPoisonFinaleValue.Text = tableauAverageMateriauEffect[8, activeCols[0]].ToString();
                 // Paralysie
-                txtParalysieModificationRecapitulatif.Text = tableauAverageMateriauEffect[9, activeCols[0]].ToString();
+                txtBxParalysieFinaleValue.Text = tableauAverageMateriauEffect[9, activeCols[0]].ToString();
                 // Malédictions
-                txtMaledictionsModificationRecapitulatif.Text = tableauAverageMateriauEffect[10, activeCols[0]].ToString();
+                txtBxMaledictionsFinaleValue.Text = tableauAverageMateriauEffect[10, activeCols[0]].ToString();
                 // Saignement
-                txtSaignementModificationRecapitulatif.Text = tableauAverageMateriauEffect[11, activeCols[0]].ToString();
+                txtBxSaignementFinaleValue.Text = tableauAverageMateriauEffect[11, activeCols[0]].ToString();
                 // Choc
-                txtChocModificationRecapitulatif.Text = tableauAverageMateriauEffect[12, activeCols[0]].ToString();
+                txtBxChocFinaleValue.Text = tableauAverageMateriauEffect[12, activeCols[0]].ToString();
                 // Acide
-                txtAcideModificationRecapitulatif.Text = tableauAverageMateriauEffect[13, activeCols[0]].ToString();
+                txtBxAcideFinaleValue.Text = tableauAverageMateriauEffect[13, activeCols[0]].ToString();
                 // Maladies
-                txtMaladiesModificationRecapitulatif.Text = tableauAverageMateriauEffect[14, activeCols[0]].ToString();
+                txtBxMaladiesFinaleValue.Text = tableauAverageMateriauEffect[14, activeCols[0]].ToString();
                 // Chute
-                txtChuteModificationRecapitulatif.Text = tableauAverageMateriauEffect[15, activeCols[0]].ToString();
+                txtBxChuteFinaleValue.Text = tableauAverageMateriauEffect[15, activeCols[0]].ToString();
                 // Chaleur
-                txtChaleurModificationRecapitulatif.Text = tableauAverageMateriauEffect[16, activeCols[0]].ToString();
+                txtBxChaleurFinaleValue.Text = tableauAverageMateriauEffect[16, activeCols[0]].ToString();
                 // Froid
-                txtFroidModificationRecapitulatif.Text = tableauAverageMateriauEffect[17, activeCols[0]].ToString();
+                txtBxFroidFinaleValue.Text = tableauAverageMateriauEffect[17, activeCols[0]].ToString();
                 // Initiative
-                txtInitiativeModificationRecapitulatif.Text = tableauAverageMateriauEffect[18, activeCols[0]].ToString();
+                txtBxInitiativeFinaleValue.Text = tableauAverageMateriauEffect[18, activeCols[0]].ToString();
                 // Vitesse
-                txtVitesseModificationRecapitulatif.Text = tableauAverageMateriauEffect[19, activeCols[0]].ToString();
+                txtBxVitesseFinaleValue.Text = tableauAverageMateriauEffect[19, activeCols[0]].ToString();
                 // Pression
-                txtPressionModificationRecapitulatif.Text = tableauAverageMateriauEffect[20, activeCols[0]].ToString();
+                txtBxPressionValueFinale.Text = tableauAverageMateriauEffect[20, activeCols[0]].ToString();
                 // Poids
-                txtBxPoidsFinal.Text = tableauAverageMateriauEffect[21, activeCols[0]].ToString();
+                txtBxPoidsFinaleValue.Text = tableauAverageMateriauEffect[21, activeCols[0]].ToString();
             }
             else if (activeCols.Count == 2)
             {
                 // Tranchant
-                txtTranchantModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxTranchantFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[1, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[1, 1]),
                     null,
                     false).ToString();
                 // Contondant
-                txtContondantModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxContondantFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[2, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[2, 1]),
                     null,
                     false).ToString();
                 // Perforant
-                txtPerforantModificationRecapitulation.Text = Utils.AverageEffectValueMaterials(
+                txtBxPerforantFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[3, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[3, 1]),
                     null,
                     false).ToString();
                 // Ignée
-                txtIgneeModificationRecapitulation.Text = Utils.AverageEffectValueMaterials(
+                txtBxIgneeBxFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[4, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[4, 1]),
                     null,
                     false).ToString();
                 // Aquatique
-                txtAquatiqueModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxAquatiqueFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[5, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[5, 1]),
                     null,
                     false).ToString();
                 // Céleste
-                txtCelesteModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxCelesteFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[6, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[6, 1]),
                     null,
                     false).ToString();
                 // Terrestre
-                txtTerrestreModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxTerrestreFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[7, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[7, 1]),
                     null,
                     false).ToString();
                 // Poison
-                txtPoisonModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxPoisonFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[8, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[8, 1]),
                     null,
                     false).ToString();
                 // Paralysie
-                txtParalysieModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxParalysieFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[9, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[9, 1]),
                     null,
                     false).ToString();
                 // Malédictions
-                txtMaledictionsModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxMaledictionsFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[10, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[10, 1]),
                     null,
                     false).ToString();
                 // Saignements
-                txtSaignementModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxSaignementFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[11, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[11, 1]),
                     null,
                     false).ToString();
                 // Choc
-                txtChocModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxChocFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[12, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[12, 1]),
                     null,
                     false).ToString();
                 // Acide
-                txtAcideModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxAcideFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[13, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[13, 1]),
                     null,
                     false).ToString();
                 // Maladies
-                txtMaladiesModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxMaladiesFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[14, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[14, 1]),
                     null,
                     false).ToString();
                 // Chute
-                txtChuteModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxChuteFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[15, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[15, 1]),
                     null,
                     false).ToString();
                 // Chaleur
-                txtChaleurModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxChaleurFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[16, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[16, 1]),
                     null,
                     true).ToString();
                 // Froid
-                txtFroidModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxFroidFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[17, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[17, 1]),
                     null,
                     false).ToString();
                 // Initiative
-                txtInitiativeModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxInitiativeFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[18, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[18, 1]),
                     null,
                     true).ToString();
                 // Vitesse
-                txtVitesseModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxVitesseFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[19, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[19, 1]),
                     null,
                     true).ToString();
                 // Pression
-                txtPressionModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxPressionValueFinale.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[20, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[20, 1]),
                     null,
                     false).ToString();
                 // Poids
-                txtBxPoidsFinal.Text = Utils.AverageEffectValueMaterials(
+                txtBxPoidsFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToDecimal(tableauAverageMateriauEffect[21, 0]),
                     Convert.ToDecimal(tableauAverageMateriauEffect[21, 1]),
                     null,
@@ -923,127 +893,127 @@ namespace maFichePersonnageJDR.View.Formulaires
             else if (activeCols.Count == 3)
             {
                 // Tranchant
-                txtTranchantModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxTranchantFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[1, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[1, 1]),
                     Convert.ToInt32(tableauAverageMateriauEffect[1, 2]),
                     false).ToString();
                 // Contondant
-                txtContondantModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxContondantFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[2, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[2, 1]),
                     Convert.ToInt32(tableauAverageMateriauEffect[2, 2]),
                     false).ToString();
                 // Perforant
-                txtPerforantModificationRecapitulation.Text = Utils.AverageEffectValueMaterials(
+                txtBxPerforantFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[3, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[3, 1]),
                     Convert.ToInt32(tableauAverageMateriauEffect[3, 2]),
                     false).ToString();
                 // Ignée
-                txtIgneeModificationRecapitulation.Text = Utils.AverageEffectValueMaterials(
+                txtBxIgneeBxFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[4, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[4, 1]),
                     Convert.ToInt32(tableauAverageMateriauEffect[4, 2]),
                     false).ToString();
                 // Aquatique
-                txtAquatiqueModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxAquatiqueFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[5, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[5, 1]),
                     Convert.ToInt32(tableauAverageMateriauEffect[5, 2]),
                     false).ToString();
                 // Céleste
-                txtCelesteModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxCelesteFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[6, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[6, 1]),
                     Convert.ToInt32(tableauAverageMateriauEffect[6, 2]),
                     false).ToString();
                 // Terrestre
-                txtTerrestreModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxTerrestreFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[7, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[7, 1]),
                     Convert.ToInt32(tableauAverageMateriauEffect[7, 2]),
                     false).ToString();
                 // Poison
-                txtPoisonModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxPoisonFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[8, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[8, 1]),
                     Convert.ToInt32(tableauAverageMateriauEffect[8, 2]),
                     false).ToString();
                 // Paralysie
-                txtParalysieModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxParalysieFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[9, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[9, 1]),
                     Convert.ToInt32(tableauAverageMateriauEffect[9, 2]),
                     false).ToString();
                 // Malédictions
-                txtMaledictionsModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxMaledictionsFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[10, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[10, 1]),
                     Convert.ToInt32(tableauAverageMateriauEffect[10, 2]),
                     false).ToString();
                 // Saignements
-                txtSaignementModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxSaignementFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[11, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[11, 1]),
                     Convert.ToInt32(tableauAverageMateriauEffect[11, 2]),
                     false).ToString();
                 // Choc
-                txtChocModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxChocFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[12, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[12, 1]),
                     Convert.ToInt32(tableauAverageMateriauEffect[12, 2]),
                     false).ToString();
                 // Acide
-                txtAcideModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxAcideFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[13, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[13, 1]),
                     Convert.ToInt32(tableauAverageMateriauEffect[13, 2]),
                     false).ToString();
                 // Maladies
-                txtMaladiesModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxMaladiesFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[14, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[14, 1]),
                     Convert.ToInt32(tableauAverageMateriauEffect[14, 2]),
                     false).ToString();
                 // Chute
-                txtChuteModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxChuteFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[15, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[15, 1]),
                     Convert.ToInt32(tableauAverageMateriauEffect[15, 2]),
                     false).ToString();
                 // Chaleur
-                txtChaleurModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxChaleurFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[16, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[16, 1]),
                     Convert.ToInt32(tableauAverageMateriauEffect[16, 2]),
                     true).ToString();
                 // Froid
-                txtFroidModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxFroidFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[17, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[17, 1]),
                     Convert.ToInt32(tableauAverageMateriauEffect[17, 2]),
                     false).ToString();
                 // Initiative
-                txtInitiativeModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxInitiativeFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[18, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[18, 1]),
                     Convert.ToInt32(tableauAverageMateriauEffect[18, 2]),
                     true).ToString();
                 // Vitesse
-                txtVitesseModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxVitesseFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[19, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[19, 1]),
                     Convert.ToInt32(tableauAverageMateriauEffect[19, 2]),
                     true).ToString();
                 // Pression
-                txtPressionModificationRecapitulatif.Text = Utils.AverageEffectValueMaterials(
+                txtBxPressionValueFinale.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[20, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[20, 1]),
                     Convert.ToInt32(tableauAverageMateriauEffect[20, 2]),
                     false).ToString();
                 // Poids
-                txtBxPoidsFinal.Text = Utils.AverageEffectValueMaterials(
+                txtBxPoidsFinaleValue.Text = Utils.AverageEffectValueMaterials(
                    Convert.ToDecimal(tableauAverageMateriauEffect[21, 0]),
                    Convert.ToDecimal(tableauAverageMateriauEffect[21, 1]),
                    Convert.ToDecimal(tableauAverageMateriauEffect[21, 2]),
@@ -1053,6 +1023,7 @@ namespace maFichePersonnageJDR.View.Formulaires
 
         /// <summary>
         /// Vider toutes les TextBox de preview des matériaux
+        /// et remet le texte en couleur noir pour les valeurs des caractéristiques de l'armure
         /// </summary>
         private void CleanAllPreviewTextBox()
         {
@@ -1078,8 +1049,38 @@ namespace maFichePersonnageJDR.View.Formulaires
             txtBxDeplacement.Text = string.Empty;
             txtBxValeur.Text = string.Empty;
             txtBxPoids.Text = string.Empty;
+
+            txtBxTranchantFinaleValue.ForeColor = Color.Black;
+            txtBxContondantFinaleValue.ForeColor = Color.Black;
+            txtBxPerforantFinaleValue.ForeColor = Color.Black;
+            txtBxIgneeBxFinaleValue.ForeColor = Color.Black;
+            txtBxAquatiqueFinaleValue.ForeColor = Color.Black;
+            txtBxCelesteFinaleValue.ForeColor = Color.Black;
+            txtBxTerrestreFinaleValue.ForeColor = Color.Black;
+            txtBxPoisonFinaleValue.ForeColor = Color.Black;
+            txtBxParalysieFinaleValue.ForeColor = Color.Black;
+            txtBxMaledictionsFinaleValue.ForeColor = Color.Black;
+            txtBxSaignementFinaleValue.ForeColor = Color.Black;
+            txtBxChocFinaleValue.ForeColor = Color.Black;
+            txtBxAcideFinaleValue.ForeColor = Color.Black;
+            txtBxMaladiesFinaleValue.ForeColor = Color.Black;
+            txtBxChuteFinaleValue.ForeColor = Color.Black;
+            txtBxPressionValueFinale.ForeColor = Color.Black;
+            txtBxInitiativeFinaleValue.ForeColor = Color.Black;
+            txtBxVitesseFinaleValue.ForeColor = Color.Black;
+            txtBxChaleurFinaleValue.ForeColor = Color.Black;
+            txtBxFroidFinaleValue.ForeColor = Color.Black;
+            txtBxPoidsFinaleValue.ForeColor = Color.Black;
         }
 
+        /// <summary>
+        /// Gère la logique de preview des nouvelles données de l'armure en fonction :
+        /// - De s'il n'y a pas de matériau
+        /// - S'il y en a un
+        /// - S'il y en a deux
+        /// En comparant les valeurs existantes avec les nouvelles valeurs, afin de permettre
+        /// de savoir si ce matériau améliorerait les valeurs de l'armure ou l'inverse.
+        /// </summary>
         private void UpdateResistancesBonusArmorInformations()
         {
             bool bestValue = false; // savoir si la nouvelle valeur est meilleure que la suivante. False par défaut.
@@ -1200,7 +1201,8 @@ namespace maFichePersonnageJDR.View.Formulaires
 
                             int lastValue = Convert.ToInt32(tableauAverageMateriauEffect[i, 0]);
 
-                            bestValue = Convert.ToInt32(valuesResistancesBonusArmor[i]) < lastValue;
+                            /// Rajout d'une condition, car pour rappel, aux indices 16, 18, 19 c'est mieux d'avoir une valeur supérieure qu'inférieure.
+                            bestValue = !indexCheck ? Convert.ToInt32(valuesResistancesBonusArmor[i]) < lastValue : Convert.ToInt32(valuesResistancesBonusArmor[i]) > lastValue;
 
                             /// 2) Comparer les valeurs du tableau si on ajoute le materiau sélectionné avec les valeurs des matériaux 
                             /// déjà présents dans la composition de l'armure. Et si jamais la nouvelle valeur est meilleure que celle
@@ -1308,7 +1310,8 @@ namespace maFichePersonnageJDR.View.Formulaires
 
                             int lastValue = Convert.ToInt32(tableauAverageMateriauEffect[i, 0]);
 
-                            bestValue = Convert.ToInt32(valuesResistancesBonusArmor[i]) < lastValue;
+                            /// Rajout d'une condition, car pour rappel, aux indices 16, 18, 19 c'est mieux d'avoir une valeur supérieure qu'inférieure.
+                            bestValue = !indexCheck ? Convert.ToInt32(valuesResistancesBonusArmor[i]) < lastValue : Convert.ToInt32(valuesResistancesBonusArmor[i]) > lastValue;
 
                             /// 2) Comparer les valeurs du tableau si on ajoute le materiau sélectionné avec les valeurs des matériaux 
                             /// déjà présents dans la composition de l'armure. Et si jamais la nouvelle valeur est meilleure que celle
@@ -1319,101 +1322,224 @@ namespace maFichePersonnageJDR.View.Formulaires
                     }
                 }
             }
-
         }
 
+        /// <summary>
+        /// Mets à jour l'UI des valeurs de résistances et bonus finales des TextBox.
+        /// En appliquant un changement de couleur pour savoir si la nouvelle valeur est meilleure
+        /// ou moins bien que l'ancienne.
+        /// </summary>
+        /// <param name="i">
+        /// Indice pour savoir de quelle caractéristique il faut changer la couleur de texte.
+        /// </param>
+        /// <param name="bestValue">
+        /// Booléen pour savoir si la nouvelle valeur est mieux que l'ancienne ou l'inverse.
+        /// true : mieux que l'ancienne
+        /// false : moins bien que l'ancienne
+        /// </param>
         private void UpdateUITextBoxesPreviewArmorValues(int i, bool bestValue)
         {
             switch (i)
             {
                 case 0:
-                    txtTranchantModificationRecapitulatif.Text = valuesResistancesBonusArmor[i];
-                    txtTranchantModificationRecapitulatif.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    lblPreviewNewValueTranchant.Text = valuesResistancesBonusArmor[i];
+                    lblPreviewNewValueTranchant.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    if (bestValue)
+                        imgBlueArrowTranchant.Visible = true;
+                    else
+                        imgRedArrowTranchant.Visible = true;
                     break;
                 case 1:
-                    txtContondantModificationRecapitulatif.Text = valuesResistancesBonusArmor[i];
-                    txtContondantModificationRecapitulatif.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    lblPreviewNewValueContondant.Text = valuesResistancesBonusArmor[i];
+                    lblPreviewNewValueContondant.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    if (bestValue)
+                        imgBlueArrowContondant.Visible = true;
+                    else
+                        imgRedArrowContondant.Visible = true;
                     break;
                 case 2:
-                    txtPerforantModificationRecapitulation.Text = valuesResistancesBonusArmor[i];
-                    txtPerforantModificationRecapitulation.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    lblPreviewNewValuePerforant.Text = valuesResistancesBonusArmor[i];
+                    lblPreviewNewValuePerforant.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    if (bestValue)
+                        imgBlueArrowPerforant.Visible = true;
+                    else
+                        imgRedArrowPerforant.Visible = true;
                     break;
                 case 3:
-                    txtIgneeModificationRecapitulation.Text = valuesResistancesBonusArmor[i];
-                    txtIgneeModificationRecapitulation.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    lblPreviewNewValueIgnee.Text = valuesResistancesBonusArmor[i];
+                    lblPreviewNewValueIgnee.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    if (bestValue)
+                        imgBlueArrowIgnee.Visible = true;
+                    else
+                        imgRedArrowIgnee.Visible = true;
                     break;
                 case 4:
-                    txtAquatiqueModificationRecapitulatif.Text = valuesResistancesBonusArmor[i];
-                    txtAquatiqueModificationRecapitulatif.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    lblPreviewNewValueAquatique.Text = valuesResistancesBonusArmor[i];
+                    lblPreviewNewValueAquatique.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    if (bestValue)
+                        imgBlueArrowAquatique.Visible = true;
+                    else
+                        imgRedArrowAquatique.Visible = true;
                     break;
                 case 5:
-                    txtCelesteModificationRecapitulatif.Text = valuesResistancesBonusArmor[i];
-                    txtCelesteModificationRecapitulatif.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    lblPreviewNewValueCeleste.Text = valuesResistancesBonusArmor[i];
+                    lblPreviewNewValueCeleste.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    if (bestValue)
+                        imgBlueArrowCeleste.Visible = true;
+                    else
+                        imgRedArrowCeleste.Visible = true;
                     break;
                 case 6:
-                    txtTerrestreModificationRecapitulatif.Text = valuesResistancesBonusArmor[i];
-                    txtTerrestreModificationRecapitulatif.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    lblPreviewNewValueTerrestre.Text = valuesResistancesBonusArmor[i];
+                    lblPreviewNewValueTerrestre.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    if (bestValue)
+                        imgBlueArrowTerrestre.Visible = true;
+                    else
+                        imgRedArrowTerrestre.Visible = true;
                     break;
                 case 7:
-                    txtPoisonModificationRecapitulatif.Text = valuesResistancesBonusArmor[i];
-                    txtPoisonModificationRecapitulatif.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    lblPreviewNewValuePoison.Text = valuesResistancesBonusArmor[i];
+                    lblPreviewNewValuePoison.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    if (bestValue)
+                        imgBlueArrowPoison.Visible = true;
+                    else
+                        imgRedArrowPoison.Visible = true;
                     break;
                 case 8:
-                    txtParalysieModificationRecapitulatif.Text = valuesResistancesBonusArmor[i];
-                    txtParalysieModificationRecapitulatif.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    lblPreviewNewValueParalysie.Text = valuesResistancesBonusArmor[i];
+                    lblPreviewNewValueParalysie.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    if (bestValue)
+                        imgBlueArrowParalysie.Visible = true;
+                    else
+                        imgRedArrowParalysie.Visible = true;
                     break;
                 case 9:
-                    txtMaledictionsModificationRecapitulatif.Text = valuesResistancesBonusArmor[i];
-                    txtMaledictionsModificationRecapitulatif.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    lblPreviewNewValueMaledictions.Text = valuesResistancesBonusArmor[i];
+                    lblPreviewNewValueMaledictions.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    if (bestValue)
+                        imgBlueArrowMaledictions.Visible = true;
+                    else
+                        imgRedArrowMaledictions.Visible = true;
                     break;
                 case 10:
-                    txtSaignementModificationRecapitulatif.Text = valuesResistancesBonusArmor[i];
-                    txtSaignementModificationRecapitulatif.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    lblPreviewNewValueSaignement.Text = valuesResistancesBonusArmor[i];
+                    lblPreviewNewValueSaignement.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    if (bestValue)
+                        imgBlueArrowSaignement.Visible = true;
+                    else
+                        imgRedArrowSaignement.Visible = true;
                     break;
                 case 11:
-                    txtChocModificationRecapitulatif.Text = valuesResistancesBonusArmor[i];
-                    txtChocModificationRecapitulatif.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    lblPreviewNewValueChoc.Text = valuesResistancesBonusArmor[i];
+                    lblPreviewNewValueChoc.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    if (bestValue)
+                        imgBlueArrowChoc.Visible = true;
+                    else
+                        imgRedArrowChoc.Visible = true;
                     break;
                 case 12:
-                    txtAcideModificationRecapitulatif.Text = valuesResistancesBonusArmor[i];
-                    txtAcideModificationRecapitulatif.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    lblPreviewNewValueAcide.Text = valuesResistancesBonusArmor[i];
+                    lblPreviewNewValueAcide.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    if (bestValue)
+                        imgBlueArrowAcide.Visible = true;
+                    else
+                        imgRedArrowAcide.Visible = true;
                     break;
                 case 13:
-                    txtMaladiesModificationRecapitulatif.Text = valuesResistancesBonusArmor[i];
-                    txtMaladiesModificationRecapitulatif.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    lblPreviewNewValueMaladies.Text = valuesResistancesBonusArmor[i];
+                    lblPreviewNewValueMaladies.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    if (bestValue)
+                        imgBlueArrowMaladies.Visible = true;
+                    else
+                        imgRedArrowMaladies.Visible = true;
                     break;
                 case 14:
-                    txtChuteModificationRecapitulatif.Text = valuesResistancesBonusArmor[i];
-                    txtChuteModificationRecapitulatif.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    lblPreviewNewValueChute.Text = valuesResistancesBonusArmor[i];
+                    lblPreviewNewValueChute.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    if (bestValue)
+                        imgBlueArrowChute.Visible = true;
+                    else
+                        imgRedArrowChute.Visible = true;
                     break;
                 case 15:
-                    txtPressionModificationRecapitulatif.Text = valuesResistancesBonusArmor[i];
-                    txtPressionModificationRecapitulatif.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    lblPreviewNewValuePression.Text = valuesResistancesBonusArmor[i];
+                    lblPreviewNewValuePression.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    if (bestValue)
+                        imgBlueArrowChute.Visible = true;
+                    else
+                        imgRedArrowChute.Visible = true;
                     break;
                 case 16:
-                    txtChaleurModificationRecapitulatif.Text = valuesResistancesBonusArmor[i];
-                    txtChaleurModificationRecapitulatif.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    lblPreviewNewValueChaleur.Text = valuesResistancesBonusArmor[i];
+                    lblPreviewNewValueChaleur.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    if (bestValue)
+                        imgBlueArrowChute.Visible = true;
+                    else
+                        imgRedArrowChute.Visible = true;
                     break;
                 case 17:
-                    txtFroidModificationRecapitulatif.Text = valuesResistancesBonusArmor[i];
-                    txtFroidModificationRecapitulatif.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    lblPreviewNewValueFroid.Text = valuesResistancesBonusArmor[i];
+                    lblPreviewNewValueFroid.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    if (bestValue)
+                        imgBlueArrowFroid.Visible = true;
+                    else
+                        imgRedArrowFroid.Visible = true;
                     break;
                 case 18:
-                    txtInitiativeModificationRecapitulatif.Text = valuesResistancesBonusArmor[i];
-                    txtInitiativeModificationRecapitulatif.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    lblPreviewNewValueInitiative.Text = valuesResistancesBonusArmor[i];
+                    lblPreviewNewValueInitiative.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    if (bestValue)
+                        imgBlueArrowInitiative.Visible = true;
+                    else
+                        imgRedArrowInitiative.Visible = true;
                     break;
                 case 19:
-                    txtVitesseModificationRecapitulatif.Text = valuesResistancesBonusArmor[i];
-                    txtVitesseModificationRecapitulatif.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    lblPreviewNewValueVitesse.Text = valuesResistancesBonusArmor[i];
+                    lblPreviewNewValueVitesse.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    if (bestValue)
+                        imgBlueArrowVitesse.Visible = true;
+                    else
+                        imgRedArrowVitesse.Visible = true;
                     break;
                 case 21:
-                    txtBxPoidsFinal.Text = valuesResistancesBonusArmor[i - 1];
-                    txtBxPoidsFinal.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    lblPreviewNewValuePoids.Text = valuesResistancesBonusArmor[i - 1];
+                    lblPreviewNewValuePoids.ForeColor = bestValue ? Color.Blue : Color.Red;
+                    if (bestValue)
+                        imgBlueArrowPoids.Visible = true;
+                    else
+                        imgRedArrowPoids.Visible = true;
                     break;
                 default:
                     Console.WriteLine("Index inconnu");
                     break;
             }
+        }
+
+        private void lstBxOrganique_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            /// Une taille est nécessaire pour connaître le prix exact de l'armure.
+            if (cmbBxTaille.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez sélectionner la taille de l'armure avant de choisir un matériau.");
+                return;
+            }
+
+            /// Lancer la méthode "DisableOtherSelectedIndex" déclenchera l'événement "SelectedIndexChanged" de chaque ListBox utilisée.
+            /// Pour prévenir d'un bug, il faut s'assurer qu'elle ait le focus de l'utilisateur et non du programme.
+            ListBox lb = (ListBox)sender;
+            if (!lb.Focused) 
+                return;
+
+            DisableOtherSelectedIndex(lstBxOrganiques, lstBxMinerais, lstBxAnimaux);
+            int qualite = Convert.ToInt32(cmbBxQualiteMateriau.SelectedItem);
+            ListBox nomMateriau = (ListBox)sender;
+
+            GetMateriauxEffectsByNameAndQuality(qualite, nomMateriau.SelectedItem.ToString());
+            GetTextInTextBoxMateriauPreview();
+
+            // Mettre à jour la preview des valeurs de résistances et bonus de l'armure avec
+            // l'ajout de ce matériau.
+            UpdateResistancesBonusArmorInformations();
         }
     }
 }

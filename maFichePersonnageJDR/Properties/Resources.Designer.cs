@@ -59,5 +59,15 @@ namespace maFichePersonnageJDR.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap blue_arrow {
+            get {
+                object obj = ResourceManager.GetObject("blue-arrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

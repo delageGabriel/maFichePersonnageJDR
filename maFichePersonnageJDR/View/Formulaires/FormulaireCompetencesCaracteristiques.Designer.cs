@@ -30,10 +30,6 @@ namespace maFichePersonnageJDR.View.Formulaires
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormulaireCompetencesCaracteristiques));
-            this.nudEnergie = new System.Windows.Forms.NumericUpDown();
-            this.nudPV = new System.Windows.Forms.NumericUpDown();
-            this.lblEnergie = new System.Windows.Forms.Label();
-            this.lblPV = new System.Windows.Forms.Label();
             this.nudSocial = new System.Windows.Forms.NumericUpDown();
             this.nudMental = new System.Windows.Forms.NumericUpDown();
             this.nudPhysique = new System.Windows.Forms.NumericUpDown();
@@ -135,8 +131,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.lblNbRepartitionComp = new System.Windows.Forms.Label();
             this.pnlPvEnergie = new System.Windows.Forms.Panel();
             this.pnlCaracteristiques = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.nudEnergie)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSocial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMental)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPhysique)).BeginInit();
@@ -185,52 +179,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.pnlPvEnergie.SuspendLayout();
             this.pnlCaracteristiques.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // nudEnergie
-            // 
-            this.nudEnergie.Location = new System.Drawing.Point(143, 20);
-            this.nudEnergie.Maximum = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
-            this.nudEnergie.Name = "nudEnergie";
-            this.nudEnergie.Size = new System.Drawing.Size(54, 20);
-            this.nudEnergie.TabIndex = 33;
-            this.nudEnergie.Tag = "Energie";
-            this.nudEnergie.ValueChanged += new System.EventHandler(this.nudPVEnergie_ValueChanged);
-            // 
-            // nudPV
-            // 
-            this.nudPV.Location = new System.Drawing.Point(17, 20);
-            this.nudPV.Maximum = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
-            this.nudPV.Name = "nudPV";
-            this.nudPV.Size = new System.Drawing.Size(54, 20);
-            this.nudPV.TabIndex = 32;
-            this.nudPV.Tag = "PV";
-            this.nudPV.ValueChanged += new System.EventHandler(this.nudPVEnergie_ValueChanged);
-            // 
-            // lblEnergie
-            // 
-            this.lblEnergie.AutoSize = true;
-            this.lblEnergie.Location = new System.Drawing.Point(140, 4);
-            this.lblEnergie.Name = "lblEnergie";
-            this.lblEnergie.Size = new System.Drawing.Size(43, 13);
-            this.lblEnergie.TabIndex = 31;
-            this.lblEnergie.Text = "Énergie";
-            // 
-            // lblPV
-            // 
-            this.lblPV.AutoSize = true;
-            this.lblPV.Location = new System.Drawing.Point(14, 4);
-            this.lblPV.Name = "lblPV";
-            this.lblPV.Size = new System.Drawing.Size(68, 13);
-            this.lblPV.TabIndex = 30;
-            this.lblPV.Text = "Points de vie";
             // 
             // nudSocial
             // 
@@ -1619,10 +1567,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             // pnlPvEnergie
             // 
             this.pnlPvEnergie.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlPvEnergie.Controls.Add(this.lblPV);
-            this.pnlPvEnergie.Controls.Add(this.nudPV);
-            this.pnlPvEnergie.Controls.Add(this.lblEnergie);
-            this.pnlPvEnergie.Controls.Add(this.nudEnergie);
             this.pnlPvEnergie.Controls.Add(this.lblPntsRepartitionPVEnergie);
             this.pnlPvEnergie.Controls.Add(this.txtPntsPVEnergie);
             this.pnlPvEnergie.Location = new System.Drawing.Point(186, 5);
@@ -1670,8 +1614,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormulaireCompetencesCaracteristiques_FormClosing);
             this.Load += new System.EventHandler(this.FormulaireCompetencesCaracteristiques_Load);
             this.Resize += new System.EventHandler(this.FormulaireCompetencesCaracteristiques_Resize);
-            ((System.ComponentModel.ISupportInitialize)(this.nudEnergie)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSocial)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudMental)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPhysique)).EndInit();
@@ -1730,11 +1672,6 @@ namespace maFichePersonnageJDR.View.Formulaires
         }
 
         #endregion
-
-        private System.Windows.Forms.NumericUpDown nudEnergie;
-        private System.Windows.Forms.NumericUpDown nudPV;
-        private System.Windows.Forms.Label lblEnergie;
-        private System.Windows.Forms.Label lblPV;
         private System.Windows.Forms.NumericUpDown nudSocial;
         private System.Windows.Forms.NumericUpDown nudMental;
         private System.Windows.Forms.NumericUpDown nudPhysique;

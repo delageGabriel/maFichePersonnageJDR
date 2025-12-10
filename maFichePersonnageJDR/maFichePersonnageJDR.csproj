@@ -336,12 +336,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="book_icon.ico" />
+    <Content Include="Images\icon\blue-arrow-20x20.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\icon\blue-arrow.png" />
+    <Content Include="Images\icon\blue-arrow32x32.png" />
     <Content Include="Images\icon\book_icon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\icon\question_doc_icon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\icon\red-arrow-20x20.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\icon\red-arrow.png" />
     <Content Include="Images\icon\writing_icon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

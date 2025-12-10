@@ -29,6 +29,7 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCreationArmure));
             this.pnlNomAndDescription = new System.Windows.Forms.Panel();
             this.rchTxtBxDescription = new System.Windows.Forms.RichTextBox();
             this.lblDescriptionArmure = new System.Windows.Forms.Label();
@@ -41,13 +42,13 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.cmbBxTypeResistance = new System.Windows.Forms.ComboBox();
             this.lblTrierMateriaux = new System.Windows.Forms.Label();
             this.tbCtrlMateriauxArmure = new System.Windows.Forms.TabControl();
-            this.tbPgeTransformes = new System.Windows.Forms.TabPage();
-            this.lstBxTransformes = new System.Windows.Forms.ListBox();
-            this.tbPgeMétaux = new System.Windows.Forms.TabPage();
+            this.tbPgeOrganique = new System.Windows.Forms.TabPage();
+            this.lstBxOrganiques = new System.Windows.Forms.ListBox();
+            this.tbPgeNaturel = new System.Windows.Forms.TabPage();
             this.lstBxMetaux = new System.Windows.Forms.ListBox();
-            this.tbPgeMinerais = new System.Windows.Forms.TabPage();
+            this.tbPgeMetaux = new System.Windows.Forms.TabPage();
             this.lstBxMinerais = new System.Windows.Forms.ListBox();
-            this.tbPgeAnimaux = new System.Windows.Forms.TabPage();
+            this.tbPgeGemme = new System.Windows.Forms.TabPage();
             this.lstBxAnimaux = new System.Windows.Forms.ListBox();
             this.lblMateriauxBonus = new System.Windows.Forms.Label();
             this.txtBxTitleTranchant = new System.Windows.Forms.TextBox();
@@ -57,8 +58,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitleAquatique = new System.Windows.Forms.TextBox();
             this.txtBxTitleCeleste = new System.Windows.Forms.TextBox();
             this.txtBxTitleTerrestre = new System.Windows.Forms.TextBox();
-            this.txtBxTitlePoison = new System.Windows.Forms.TextBox();
-            this.txtBxTitleParalysie = new System.Windows.Forms.TextBox();
             this.txtBxTranchant = new System.Windows.Forms.TextBox();
             this.txtBxContondant = new System.Windows.Forms.TextBox();
             this.txtBxPerforant = new System.Windows.Forms.TextBox();
@@ -66,28 +65,16 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxAquatique = new System.Windows.Forms.TextBox();
             this.txtBxCeleste = new System.Windows.Forms.TextBox();
             this.txtBxTerrestre = new System.Windows.Forms.TextBox();
-            this.txtBxPoison = new System.Windows.Forms.TextBox();
-            this.txtBxParalysie = new System.Windows.Forms.TextBox();
-            this.txtBxTitleMaledictions = new System.Windows.Forms.TextBox();
-            this.txtBxTitleSaignement = new System.Windows.Forms.TextBox();
             this.txtBxTitleChoc = new System.Windows.Forms.TextBox();
-            this.txtBxTitleMaladies = new System.Windows.Forms.TextBox();
             this.txtBxTitleAcide = new System.Windows.Forms.TextBox();
-            this.txtBxTitleChute = new System.Windows.Forms.TextBox();
             this.txtBxTitlePression = new System.Windows.Forms.TextBox();
             this.txtBxTitleChaleur = new System.Windows.Forms.TextBox();
             this.txtBxTitleFroid = new System.Windows.Forms.TextBox();
             this.txtBxFroid = new System.Windows.Forms.TextBox();
             this.txtBxChaleur = new System.Windows.Forms.TextBox();
             this.txtBxPression = new System.Windows.Forms.TextBox();
-            this.txtBxChute = new System.Windows.Forms.TextBox();
-            this.txtBxMaladies = new System.Windows.Forms.TextBox();
             this.txtBxAcide = new System.Windows.Forms.TextBox();
             this.txtBxChoc = new System.Windows.Forms.TextBox();
-            this.txtBxSaignement = new System.Windows.Forms.TextBox();
-            this.txtBxMaledictions = new System.Windows.Forms.TextBox();
-            this.txtBxPoids = new System.Windows.Forms.TextBox();
-            this.txtBxValeur = new System.Windows.Forms.TextBox();
             this.txtBxDeplacement = new System.Windows.Forms.TextBox();
             this.txtBxBonusInitiative = new System.Windows.Forms.TextBox();
             this.txtBxTitlePoids = new System.Windows.Forms.TextBox();
@@ -102,7 +89,9 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.cmbBxTaille = new System.Windows.Forms.ComboBox();
             this.lblTailleArmure = new System.Windows.Forms.Label();
             this.pnlResumeResistanceMateriau = new System.Windows.Forms.Panel();
+            this.txtBxPoids = new System.Windows.Forms.TextBox();
             this.cmbBxQualiteMateriau = new System.Windows.Forms.ComboBox();
+            this.txtBxValeur = new System.Windows.Forms.TextBox();
             this.lblQualiteMateriau = new System.Windows.Forms.Label();
             this.pnlCompositionArmure = new System.Windows.Forms.Panel();
             this.btnRetirerMateriau = new System.Windows.Forms.Button();
@@ -110,105 +99,141 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.chkLstBxCompositionArmure = new System.Windows.Forms.CheckedListBox();
             this.lblCompositionArmure = new System.Windows.Forms.Label();
             this.pnlResumeModifications = new System.Windows.Forms.Panel();
+            this.lblPreviewNewValuePoids = new System.Windows.Forms.Label();
+            this.imgRedArrowPoids = new System.Windows.Forms.PictureBox();
+            this.imgBlueArrowPoids = new System.Windows.Forms.PictureBox();
+            this.lblPreviewNewValueFroid = new System.Windows.Forms.Label();
+            this.imgRedArrowFroid = new System.Windows.Forms.PictureBox();
+            this.imgBlueArrowFroid = new System.Windows.Forms.PictureBox();
+            this.lblPreviewNewValueChaleur = new System.Windows.Forms.Label();
+            this.imgRedArrowChaleur = new System.Windows.Forms.PictureBox();
+            this.imgBlueArrowChaleur = new System.Windows.Forms.PictureBox();
+            this.lblPreviewNewValueVitesse = new System.Windows.Forms.Label();
+            this.imgRedArrowVitesse = new System.Windows.Forms.PictureBox();
+            this.imgBlueArrowVitesse = new System.Windows.Forms.PictureBox();
+            this.lblPreviewNewValueInitiative = new System.Windows.Forms.Label();
+            this.imgRedArrowInitiative = new System.Windows.Forms.PictureBox();
+            this.imgBlueArrowInitiative = new System.Windows.Forms.PictureBox();
+            this.lblPreviewNewValuePression = new System.Windows.Forms.Label();
+            this.imgRedArrowPression = new System.Windows.Forms.PictureBox();
+            this.imgBlueArrowPression = new System.Windows.Forms.PictureBox();
+            this.lblPreviewNewValueChute = new System.Windows.Forms.Label();
+            this.lblPreviewNewValueMaladies = new System.Windows.Forms.Label();
+            this.lblPreviewNewValueAcide = new System.Windows.Forms.Label();
+            this.imgRedArrowAcide = new System.Windows.Forms.PictureBox();
+            this.imgBlueArrowAcide = new System.Windows.Forms.PictureBox();
+            this.lblPreviewNewValueChoc = new System.Windows.Forms.Label();
+            this.imgRedArrowChoc = new System.Windows.Forms.PictureBox();
+            this.imgBlueArrowChoc = new System.Windows.Forms.PictureBox();
+            this.lblPreviewNewValueSaignement = new System.Windows.Forms.Label();
+            this.lblPreviewNewValueMaledictions = new System.Windows.Forms.Label();
+            this.lblPreviewNewValueParalysie = new System.Windows.Forms.Label();
+            this.lblPreviewNewValuePoison = new System.Windows.Forms.Label();
+            this.lblPreviewNewValueTerrestre = new System.Windows.Forms.Label();
+            this.imgRedArrowTerrestre = new System.Windows.Forms.PictureBox();
+            this.imgBlueArrowTerrestre = new System.Windows.Forms.PictureBox();
+            this.lblPreviewNewValueCeleste = new System.Windows.Forms.Label();
+            this.imgRedArrowCeleste = new System.Windows.Forms.PictureBox();
+            this.imgBlueArrowCeleste = new System.Windows.Forms.PictureBox();
+            this.lblPreviewNewValueAquatique = new System.Windows.Forms.Label();
+            this.imgRedArrowAquatique = new System.Windows.Forms.PictureBox();
+            this.imgBlueArrowAquatique = new System.Windows.Forms.PictureBox();
+            this.lblPreviewNewValueIgnee = new System.Windows.Forms.Label();
+            this.imgRedArrowIgnee = new System.Windows.Forms.PictureBox();
+            this.imgBlueArrowIgnee = new System.Windows.Forms.PictureBox();
+            this.lblPreviewNewValuePerforant = new System.Windows.Forms.Label();
+            this.imgRedArrowPerforant = new System.Windows.Forms.PictureBox();
+            this.imgBlueArrowPerforant = new System.Windows.Forms.PictureBox();
+            this.lblPreviewNewValueContondant = new System.Windows.Forms.Label();
+            this.imgRedArrowContondant = new System.Windows.Forms.PictureBox();
+            this.imgBlueArrowContondant = new System.Windows.Forms.PictureBox();
+            this.lblPreviewNewValueTranchant = new System.Windows.Forms.Label();
+            this.imgRedArrowTranchant = new System.Windows.Forms.PictureBox();
+            this.imgBlueArrowTranchant = new System.Windows.Forms.PictureBox();
             this.lblWarning = new System.Windows.Forms.Label();
             this.lblModifResistance = new System.Windows.Forms.Label();
-            this.txtBxPoidsFinal = new System.Windows.Forms.TextBox();
-            this.numUpDownFroid = new System.Windows.Forms.NumericUpDown();
-            this.numUpDownChaleur = new System.Windows.Forms.NumericUpDown();
-            this.txtBxValeurFinale = new System.Windows.Forms.TextBox();
-            this.numUpDownVitesse = new System.Windows.Forms.NumericUpDown();
-            this.numUpDownInitiative = new System.Windows.Forms.NumericUpDown();
-            this.numUpDownPression = new System.Windows.Forms.NumericUpDown();
-            this.numUpDownChute = new System.Windows.Forms.NumericUpDown();
-            this.txtFroidTitleFinal = new System.Windows.Forms.TextBox();
-            this.txtChaleurTitleFinale = new System.Windows.Forms.TextBox();
-            this.txtPoidsTitleFinal = new System.Windows.Forms.TextBox();
-            this.txtFroidModificationRecapitulatif = new System.Windows.Forms.TextBox();
-            this.txtValeurTitleFinale = new System.Windows.Forms.TextBox();
-            this.numUpDownMaladies = new System.Windows.Forms.NumericUpDown();
-            this.txtVitesseModificationRecapitulatif = new System.Windows.Forms.TextBox();
-            this.numUpDownAcide = new System.Windows.Forms.NumericUpDown();
-            this.numUpDownChoc = new System.Windows.Forms.NumericUpDown();
-            this.txtPressionTitleFinale = new System.Windows.Forms.TextBox();
-            this.txtChaleurModificationRecapitulatif = new System.Windows.Forms.TextBox();
-            this.txtMaladiesTitleFinale = new System.Windows.Forms.TextBox();
-            this.txtChuteTitleFinale = new System.Windows.Forms.TextBox();
-            this.txtChocTitleFinale = new System.Windows.Forms.TextBox();
-            this.numUpDownSaignement = new System.Windows.Forms.NumericUpDown();
-            this.txtInitiativeModificationRecapitulatif = new System.Windows.Forms.TextBox();
-            this.numUpDownMalediction = new System.Windows.Forms.NumericUpDown();
-            this.numUpDownParalysie = new System.Windows.Forms.NumericUpDown();
-            this.txtAcideTitleFinale = new System.Windows.Forms.TextBox();
-            this.txtVitesseTitleFinale = new System.Windows.Forms.TextBox();
-            this.txtSaignementTitleFinale = new System.Windows.Forms.TextBox();
-            this.numUpDownPoison = new System.Windows.Forms.NumericUpDown();
-            this.numUpDownTerrestre = new System.Windows.Forms.NumericUpDown();
-            this.txtInitiativeTitleFinale = new System.Windows.Forms.TextBox();
-            this.txtPressionModificationRecapitulatif = new System.Windows.Forms.TextBox();
-            this.numUpDownCeleste = new System.Windows.Forms.NumericUpDown();
-            this.numUpDownAquatique = new System.Windows.Forms.NumericUpDown();
-            this.numUpDownIgnee = new System.Windows.Forms.NumericUpDown();
-            this.txtMaledictionsTitleFinale = new System.Windows.Forms.TextBox();
-            this.numUpDownPerforant = new System.Windows.Forms.NumericUpDown();
-            this.numUpDownContondant = new System.Windows.Forms.NumericUpDown();
-            this.txtChuteModificationRecapitulatif = new System.Windows.Forms.TextBox();
-            this.numUpDownTranchant = new System.Windows.Forms.NumericUpDown();
+            this.txtBxPoidsFinaleValue = new System.Windows.Forms.TextBox();
+            this.txtBxFroidTitleFinal = new System.Windows.Forms.TextBox();
+            this.txtBxChaleurTitleFinal = new System.Windows.Forms.TextBox();
+            this.txtBxPoidsTitleFinal = new System.Windows.Forms.TextBox();
+            this.txtBxFroidFinaleValue = new System.Windows.Forms.TextBox();
+            this.txtBxVitesseFinaleValue = new System.Windows.Forms.TextBox();
+            this.txtBxPressionTitleFinal = new System.Windows.Forms.TextBox();
+            this.txtBxChaleurFinaleValue = new System.Windows.Forms.TextBox();
+            this.txtBxChocTitleFinal = new System.Windows.Forms.TextBox();
+            this.txtBxInitiativeFinaleValue = new System.Windows.Forms.TextBox();
+            this.txtBxAcideTitleFinal = new System.Windows.Forms.TextBox();
+            this.txtBxVitesseTitleFinal = new System.Windows.Forms.TextBox();
+            this.txtBxInitiativeTitleFinal = new System.Windows.Forms.TextBox();
+            this.txtBxPressionValueFinale = new System.Windows.Forms.TextBox();
             this.lblResumeModifications = new System.Windows.Forms.Label();
-            this.txtTranchantModificationRecapitulatif = new System.Windows.Forms.TextBox();
-            this.txtPoisonModificationRecapitulatif = new System.Windows.Forms.TextBox();
-            this.txtAquatiqueTitleFinale = new System.Windows.Forms.TextBox();
-            this.txtMaladiesModificationRecapitulatif = new System.Windows.Forms.TextBox();
-            this.txtTerrestreModificationRecapitulatif = new System.Windows.Forms.TextBox();
-            this.txtAcideModificationRecapitulatif = new System.Windows.Forms.TextBox();
-            this.txtCelesteTitleFinale = new System.Windows.Forms.TextBox();
-            this.txtIgneeTitleFinale = new System.Windows.Forms.TextBox();
-            this.txtCelesteModificationRecapitulatif = new System.Windows.Forms.TextBox();
-            this.txtChocModificationRecapitulatif = new System.Windows.Forms.TextBox();
-            this.txtSaignementModificationRecapitulatif = new System.Windows.Forms.TextBox();
-            this.txtMaledictionsModificationRecapitulatif = new System.Windows.Forms.TextBox();
-            this.txtParalysieModificationRecapitulatif = new System.Windows.Forms.TextBox();
-            this.txtContondantTitleFinale = new System.Windows.Forms.TextBox();
-            this.txtTerrestreTitleFinale = new System.Windows.Forms.TextBox();
-            this.txtAquatiqueModificationRecapitulatif = new System.Windows.Forms.TextBox();
-            this.txtPoisonTitleFinale = new System.Windows.Forms.TextBox();
-            this.txtPerforantTitleFinale = new System.Windows.Forms.TextBox();
-            this.txtIgneeModificationRecapitulation = new System.Windows.Forms.TextBox();
-            this.txtParalysieTitleFinale = new System.Windows.Forms.TextBox();
-            this.txtPerforantModificationRecapitulation = new System.Windows.Forms.TextBox();
-            this.txtContondantModificationRecapitulatif = new System.Windows.Forms.TextBox();
-            this.txtTranchantTitleFinale = new System.Windows.Forms.TextBox();
+            this.txtBxTranchantFinaleValue = new System.Windows.Forms.TextBox();
+            this.txtBxAquatiqueTitleFinal = new System.Windows.Forms.TextBox();
+            this.txtBxTerrestreFinaleValue = new System.Windows.Forms.TextBox();
+            this.txtBxAcideFinaleValue = new System.Windows.Forms.TextBox();
+            this.txtBxCelesteTitleFinal = new System.Windows.Forms.TextBox();
+            this.txtbxIgneeTitleFinal = new System.Windows.Forms.TextBox();
+            this.txtBxCelesteFinaleValue = new System.Windows.Forms.TextBox();
+            this.txtBxChocFinaleValue = new System.Windows.Forms.TextBox();
+            this.txtBxContondantTitleFinal = new System.Windows.Forms.TextBox();
+            this.txtBxTerrestreTitleFinal = new System.Windows.Forms.TextBox();
+            this.txtBxAquatiqueFinaleValue = new System.Windows.Forms.TextBox();
+            this.txtBxPerforantTitleFinal = new System.Windows.Forms.TextBox();
+            this.txtBxIgneeBxFinaleValue = new System.Windows.Forms.TextBox();
+            this.txtBxPerforantFinaleValue = new System.Windows.Forms.TextBox();
+            this.txtBxContondantFinaleValue = new System.Windows.Forms.TextBox();
+            this.txtBxTranchantTitleFinal = new System.Windows.Forms.TextBox();
             this.btnCreerArmure = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBxTitleDexterite = new System.Windows.Forms.TextBox();
+            this.txtBxDexteriteFinaleValue = new System.Windows.Forms.TextBox();
+            this.txtBxDexteriteTitleFinal = new System.Windows.Forms.TextBox();
+            this.imgRedArrowDexterite = new System.Windows.Forms.PictureBox();
+            this.imgBlueArrowDexterite = new System.Windows.Forms.PictureBox();
+            this.tbPgeMythique = new System.Windows.Forms.TabPage();
             this.pnlNomAndDescription.SuspendLayout();
             this.pnlMateriauxBonusArmure.SuspendLayout();
             this.tbCtrlMateriauxArmure.SuspendLayout();
-            this.tbPgeTransformes.SuspendLayout();
-            this.tbPgeMétaux.SuspendLayout();
-            this.tbPgeMinerais.SuspendLayout();
-            this.tbPgeAnimaux.SuspendLayout();
+            this.tbPgeOrganique.SuspendLayout();
+            this.tbPgeNaturel.SuspendLayout();
+            this.tbPgeMetaux.SuspendLayout();
+            this.tbPgeGemme.SuspendLayout();
             this.pnlTailleArmurePrix.SuspendLayout();
             this.pnlResumeResistanceMateriau.SuspendLayout();
             this.pnlCompositionArmure.SuspendLayout();
             this.pnlResumeModifications.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownFroid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownChaleur)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownVitesse)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownInitiative)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownPression)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownChute)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownMaladies)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownAcide)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownChoc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownSaignement)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownMalediction)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownParalysie)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownPoison)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownTerrestre)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownCeleste)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownAquatique)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownIgnee)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownPerforant)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownContondant)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownTranchant)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowPoids)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowPoids)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowFroid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowFroid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowChaleur)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowChaleur)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowVitesse)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowVitesse)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowInitiative)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowInitiative)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowPression)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowPression)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowAcide)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowAcide)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowChoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowChoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowTerrestre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowTerrestre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowCeleste)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowCeleste)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowAquatique)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowAquatique)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowIgnee)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowIgnee)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowPerforant)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowPerforant)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowContondant)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowContondant)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowTranchant)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowTranchant)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowDexterite)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowDexterite)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlNomAndDescription
@@ -359,51 +384,52 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.tbCtrlMateriauxArmure.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbCtrlMateriauxArmure.Controls.Add(this.tbPgeTransformes);
-            this.tbCtrlMateriauxArmure.Controls.Add(this.tbPgeMétaux);
-            this.tbCtrlMateriauxArmure.Controls.Add(this.tbPgeMinerais);
-            this.tbCtrlMateriauxArmure.Controls.Add(this.tbPgeAnimaux);
+            this.tbCtrlMateriauxArmure.Controls.Add(this.tbPgeOrganique);
+            this.tbCtrlMateriauxArmure.Controls.Add(this.tbPgeNaturel);
+            this.tbCtrlMateriauxArmure.Controls.Add(this.tbPgeMetaux);
+            this.tbCtrlMateriauxArmure.Controls.Add(this.tbPgeGemme);
+            this.tbCtrlMateriauxArmure.Controls.Add(this.tbPgeMythique);
             this.tbCtrlMateriauxArmure.Location = new System.Drawing.Point(17, 119);
             this.tbCtrlMateriauxArmure.Name = "tbCtrlMateriauxArmure";
             this.tbCtrlMateriauxArmure.SelectedIndex = 0;
             this.tbCtrlMateriauxArmure.Size = new System.Drawing.Size(355, 270);
             this.tbCtrlMateriauxArmure.TabIndex = 6;
             // 
-            // tbPgeTransformes
+            // tbPgeOrganique
             // 
-            this.tbPgeTransformes.Controls.Add(this.lstBxTransformes);
-            this.tbPgeTransformes.Location = new System.Drawing.Point(4, 22);
-            this.tbPgeTransformes.Name = "tbPgeTransformes";
-            this.tbPgeTransformes.Padding = new System.Windows.Forms.Padding(3);
-            this.tbPgeTransformes.Size = new System.Drawing.Size(347, 244);
-            this.tbPgeTransformes.TabIndex = 0;
-            this.tbPgeTransformes.Text = "Transformés";
-            this.tbPgeTransformes.UseVisualStyleBackColor = true;
+            this.tbPgeOrganique.Controls.Add(this.lstBxOrganiques);
+            this.tbPgeOrganique.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeOrganique.Name = "tbPgeOrganique";
+            this.tbPgeOrganique.Padding = new System.Windows.Forms.Padding(3);
+            this.tbPgeOrganique.Size = new System.Drawing.Size(347, 244);
+            this.tbPgeOrganique.TabIndex = 0;
+            this.tbPgeOrganique.Text = "Organiques";
+            this.tbPgeOrganique.UseVisualStyleBackColor = true;
             // 
-            // lstBxTransformes
+            // lstBxOrganiques
             // 
-            this.lstBxTransformes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lstBxOrganiques.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lstBxTransformes.FormattingEnabled = true;
-            this.lstBxTransformes.Items.AddRange(new object[] {
+            this.lstBxOrganiques.FormattingEnabled = true;
+            this.lstBxOrganiques.Items.AddRange(new object[] {
             ""});
-            this.lstBxTransformes.Location = new System.Drawing.Point(0, 1);
-            this.lstBxTransformes.Name = "lstBxTransformes";
-            this.lstBxTransformes.Size = new System.Drawing.Size(347, 238);
-            this.lstBxTransformes.TabIndex = 0;
-            this.lstBxTransformes.SelectedIndexChanged += new System.EventHandler(this.lstBxTransformes_SelectedIndexChanged);
+            this.lstBxOrganiques.Location = new System.Drawing.Point(0, 1);
+            this.lstBxOrganiques.Name = "lstBxOrganiques";
+            this.lstBxOrganiques.Size = new System.Drawing.Size(347, 238);
+            this.lstBxOrganiques.TabIndex = 0;
+            this.lstBxOrganiques.SelectedIndexChanged += new System.EventHandler(this.lstBxOrganique_SelectedIndexChanged);
             // 
-            // tbPgeMétaux
+            // tbPgeNaturel
             // 
-            this.tbPgeMétaux.Controls.Add(this.lstBxMetaux);
-            this.tbPgeMétaux.Location = new System.Drawing.Point(4, 22);
-            this.tbPgeMétaux.Name = "tbPgeMétaux";
-            this.tbPgeMétaux.Padding = new System.Windows.Forms.Padding(3);
-            this.tbPgeMétaux.Size = new System.Drawing.Size(347, 244);
-            this.tbPgeMétaux.TabIndex = 1;
-            this.tbPgeMétaux.Text = "Métaux";
-            this.tbPgeMétaux.UseVisualStyleBackColor = true;
+            this.tbPgeNaturel.Controls.Add(this.lstBxMetaux);
+            this.tbPgeNaturel.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeNaturel.Name = "tbPgeNaturel";
+            this.tbPgeNaturel.Padding = new System.Windows.Forms.Padding(3);
+            this.tbPgeNaturel.Size = new System.Drawing.Size(347, 244);
+            this.tbPgeNaturel.TabIndex = 1;
+            this.tbPgeNaturel.Text = "Naturel";
+            this.tbPgeNaturel.UseVisualStyleBackColor = true;
             // 
             // lstBxMetaux
             // 
@@ -417,15 +443,15 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.lstBxMetaux.TabIndex = 0;
             this.lstBxMetaux.SelectedIndexChanged += new System.EventHandler(this.lstBxMetaux_SelectedIndexChanged);
             // 
-            // tbPgeMinerais
+            // tbPgeMetaux
             // 
-            this.tbPgeMinerais.Controls.Add(this.lstBxMinerais);
-            this.tbPgeMinerais.Location = new System.Drawing.Point(4, 22);
-            this.tbPgeMinerais.Name = "tbPgeMinerais";
-            this.tbPgeMinerais.Size = new System.Drawing.Size(347, 244);
-            this.tbPgeMinerais.TabIndex = 2;
-            this.tbPgeMinerais.Text = "Minerais";
-            this.tbPgeMinerais.UseVisualStyleBackColor = true;
+            this.tbPgeMetaux.Controls.Add(this.lstBxMinerais);
+            this.tbPgeMetaux.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeMetaux.Name = "tbPgeMetaux";
+            this.tbPgeMetaux.Size = new System.Drawing.Size(347, 244);
+            this.tbPgeMetaux.TabIndex = 2;
+            this.tbPgeMetaux.Text = "Métaux";
+            this.tbPgeMetaux.UseVisualStyleBackColor = true;
             // 
             // lstBxMinerais
             // 
@@ -439,15 +465,15 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.lstBxMinerais.TabIndex = 0;
             this.lstBxMinerais.SelectedIndexChanged += new System.EventHandler(this.lstBxMinerais_SelectedIndexChanged);
             // 
-            // tbPgeAnimaux
+            // tbPgeGemme
             // 
-            this.tbPgeAnimaux.Controls.Add(this.lstBxAnimaux);
-            this.tbPgeAnimaux.Location = new System.Drawing.Point(4, 22);
-            this.tbPgeAnimaux.Name = "tbPgeAnimaux";
-            this.tbPgeAnimaux.Size = new System.Drawing.Size(347, 244);
-            this.tbPgeAnimaux.TabIndex = 3;
-            this.tbPgeAnimaux.Text = "Animaux";
-            this.tbPgeAnimaux.UseVisualStyleBackColor = true;
+            this.tbPgeGemme.Controls.Add(this.lstBxAnimaux);
+            this.tbPgeGemme.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeGemme.Name = "tbPgeGemme";
+            this.tbPgeGemme.Size = new System.Drawing.Size(347, 244);
+            this.tbPgeGemme.TabIndex = 3;
+            this.tbPgeGemme.Text = "Gemme";
+            this.tbPgeGemme.UseVisualStyleBackColor = true;
             // 
             // lstBxAnimaux
             // 
@@ -562,32 +588,6 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitleTerrestre.Text = "Terrestre%";
             this.txtBxTitleTerrestre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtBxTitlePoison
-            // 
-            this.txtBxTitlePoison.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBxTitlePoison.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtBxTitlePoison.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitlePoison.Location = new System.Drawing.Point(478, 85);
-            this.txtBxTitlePoison.Name = "txtBxTitlePoison";
-            this.txtBxTitlePoison.ReadOnly = true;
-            this.txtBxTitlePoison.Size = new System.Drawing.Size(50, 20);
-            this.txtBxTitlePoison.TabIndex = 23;
-            this.txtBxTitlePoison.Text = "Poison%";
-            this.txtBxTitlePoison.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtBxTitleParalysie
-            // 
-            this.txtBxTitleParalysie.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBxTitleParalysie.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtBxTitleParalysie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleParalysie.Location = new System.Drawing.Point(527, 85);
-            this.txtBxTitleParalysie.Name = "txtBxTitleParalysie";
-            this.txtBxTitleParalysie.ReadOnly = true;
-            this.txtBxTitleParalysie.Size = new System.Drawing.Size(62, 20);
-            this.txtBxTitleParalysie.TabIndex = 24;
-            this.txtBxTitleParalysie.Text = "Paralysie%";
-            this.txtBxTitleParalysie.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // txtBxTranchant
             // 
             this.txtBxTranchant.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -672,117 +672,41 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTerrestre.TabIndex = 31;
             this.txtBxTerrestre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtBxPoison
-            // 
-            this.txtBxPoison.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBxPoison.BackColor = System.Drawing.SystemColors.Window;
-            this.txtBxPoison.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxPoison.Location = new System.Drawing.Point(478, 104);
-            this.txtBxPoison.Name = "txtBxPoison";
-            this.txtBxPoison.ReadOnly = true;
-            this.txtBxPoison.Size = new System.Drawing.Size(50, 20);
-            this.txtBxPoison.TabIndex = 32;
-            this.txtBxPoison.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtBxParalysie
-            // 
-            this.txtBxParalysie.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBxParalysie.BackColor = System.Drawing.SystemColors.Window;
-            this.txtBxParalysie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxParalysie.Location = new System.Drawing.Point(527, 104);
-            this.txtBxParalysie.Name = "txtBxParalysie";
-            this.txtBxParalysie.ReadOnly = true;
-            this.txtBxParalysie.Size = new System.Drawing.Size(62, 20);
-            this.txtBxParalysie.TabIndex = 33;
-            this.txtBxParalysie.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtBxTitleMaledictions
-            // 
-            this.txtBxTitleMaledictions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBxTitleMaledictions.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtBxTitleMaledictions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleMaledictions.Location = new System.Drawing.Point(18, 123);
-            this.txtBxTitleMaledictions.Name = "txtBxTitleMaledictions";
-            this.txtBxTitleMaledictions.ReadOnly = true;
-            this.txtBxTitleMaledictions.Size = new System.Drawing.Size(75, 20);
-            this.txtBxTitleMaledictions.TabIndex = 35;
-            this.txtBxTitleMaledictions.Text = "Malédictions%";
-            this.txtBxTitleMaledictions.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtBxTitleSaignement
-            // 
-            this.txtBxTitleSaignement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBxTitleSaignement.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtBxTitleSaignement.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleSaignement.Location = new System.Drawing.Point(92, 123);
-            this.txtBxTitleSaignement.Name = "txtBxTitleSaignement";
-            this.txtBxTitleSaignement.ReadOnly = true;
-            this.txtBxTitleSaignement.Size = new System.Drawing.Size(76, 20);
-            this.txtBxTitleSaignement.TabIndex = 36;
-            this.txtBxTitleSaignement.Text = "Saignement%";
-            this.txtBxTitleSaignement.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // txtBxTitleChoc
             // 
             this.txtBxTitleChoc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitleChoc.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitleChoc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleChoc.Location = new System.Drawing.Point(167, 123);
+            this.txtBxTitleChoc.Location = new System.Drawing.Point(18, 123);
             this.txtBxTitleChoc.Name = "txtBxTitleChoc";
             this.txtBxTitleChoc.ReadOnly = true;
-            this.txtBxTitleChoc.Size = new System.Drawing.Size(71, 20);
+            this.txtBxTitleChoc.Size = new System.Drawing.Size(75, 20);
             this.txtBxTitleChoc.TabIndex = 37;
             this.txtBxTitleChoc.Text = "Choc%";
             this.txtBxTitleChoc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtBxTitleMaladies
-            // 
-            this.txtBxTitleMaladies.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBxTitleMaladies.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtBxTitleMaladies.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleMaladies.Location = new System.Drawing.Point(287, 123);
-            this.txtBxTitleMaladies.Name = "txtBxTitleMaladies";
-            this.txtBxTitleMaladies.ReadOnly = true;
-            this.txtBxTitleMaladies.Size = new System.Drawing.Size(72, 20);
-            this.txtBxTitleMaladies.TabIndex = 38;
-            this.txtBxTitleMaladies.Text = "Maladies%";
-            this.txtBxTitleMaladies.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBxTitleAcide
             // 
             this.txtBxTitleAcide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitleAcide.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitleAcide.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleAcide.Location = new System.Drawing.Point(237, 123);
+            this.txtBxTitleAcide.Location = new System.Drawing.Point(92, 123);
             this.txtBxTitleAcide.Name = "txtBxTitleAcide";
             this.txtBxTitleAcide.ReadOnly = true;
-            this.txtBxTitleAcide.Size = new System.Drawing.Size(51, 20);
+            this.txtBxTitleAcide.Size = new System.Drawing.Size(76, 20);
             this.txtBxTitleAcide.TabIndex = 39;
             this.txtBxTitleAcide.Text = "Acide%";
             this.txtBxTitleAcide.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtBxTitleChute
-            // 
-            this.txtBxTitleChute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBxTitleChute.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtBxTitleChute.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleChute.Location = new System.Drawing.Point(358, 123);
-            this.txtBxTitleChute.Name = "txtBxTitleChute";
-            this.txtBxTitleChute.ReadOnly = true;
-            this.txtBxTitleChute.Size = new System.Drawing.Size(61, 20);
-            this.txtBxTitleChute.TabIndex = 40;
-            this.txtBxTitleChute.Text = "Chute%";
-            this.txtBxTitleChute.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBxTitlePression
             // 
             this.txtBxTitlePression.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitlePression.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitlePression.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitlePression.Location = new System.Drawing.Point(418, 123);
+            this.txtBxTitlePression.Location = new System.Drawing.Point(167, 123);
             this.txtBxTitlePression.Name = "txtBxTitlePression";
             this.txtBxTitlePression.ReadOnly = true;
-            this.txtBxTitlePression.Size = new System.Drawing.Size(61, 20);
+            this.txtBxTitlePression.Size = new System.Drawing.Size(71, 20);
             this.txtBxTitlePression.TabIndex = 41;
             this.txtBxTitlePression.Text = "Pression%";
             this.txtBxTitlePression.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -792,10 +716,10 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitleChaleur.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitleChaleur.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitleChaleur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleChaleur.Location = new System.Drawing.Point(478, 123);
+            this.txtBxTitleChaleur.Location = new System.Drawing.Point(287, 123);
             this.txtBxTitleChaleur.Name = "txtBxTitleChaleur";
             this.txtBxTitleChaleur.ReadOnly = true;
-            this.txtBxTitleChaleur.Size = new System.Drawing.Size(50, 20);
+            this.txtBxTitleChaleur.Size = new System.Drawing.Size(72, 20);
             this.txtBxTitleChaleur.TabIndex = 42;
             this.txtBxTitleChaleur.Text = "Chaleur°";
             this.txtBxTitleChaleur.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -805,10 +729,10 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitleFroid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitleFroid.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitleFroid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleFroid.Location = new System.Drawing.Point(527, 123);
+            this.txtBxTitleFroid.Location = new System.Drawing.Point(237, 123);
             this.txtBxTitleFroid.Name = "txtBxTitleFroid";
             this.txtBxTitleFroid.ReadOnly = true;
-            this.txtBxTitleFroid.Size = new System.Drawing.Size(62, 20);
+            this.txtBxTitleFroid.Size = new System.Drawing.Size(51, 20);
             this.txtBxTitleFroid.TabIndex = 43;
             this.txtBxTitleFroid.Text = "Froid°";
             this.txtBxTitleFroid.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -818,10 +742,10 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxFroid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxFroid.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxFroid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxFroid.Location = new System.Drawing.Point(527, 142);
+            this.txtBxFroid.Location = new System.Drawing.Point(237, 142);
             this.txtBxFroid.Name = "txtBxFroid";
             this.txtBxFroid.ReadOnly = true;
-            this.txtBxFroid.Size = new System.Drawing.Size(62, 20);
+            this.txtBxFroid.Size = new System.Drawing.Size(51, 20);
             this.txtBxFroid.TabIndex = 52;
             this.txtBxFroid.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -830,10 +754,10 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxChaleur.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxChaleur.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxChaleur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxChaleur.Location = new System.Drawing.Point(478, 142);
+            this.txtBxChaleur.Location = new System.Drawing.Point(287, 142);
             this.txtBxChaleur.Name = "txtBxChaleur";
             this.txtBxChaleur.ReadOnly = true;
-            this.txtBxChaleur.Size = new System.Drawing.Size(50, 20);
+            this.txtBxChaleur.Size = new System.Drawing.Size(72, 20);
             this.txtBxChaleur.TabIndex = 51;
             this.txtBxChaleur.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -842,46 +766,22 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxPression.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxPression.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxPression.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxPression.Location = new System.Drawing.Point(418, 142);
+            this.txtBxPression.Location = new System.Drawing.Point(167, 142);
             this.txtBxPression.Name = "txtBxPression";
             this.txtBxPression.ReadOnly = true;
-            this.txtBxPression.Size = new System.Drawing.Size(61, 20);
+            this.txtBxPression.Size = new System.Drawing.Size(71, 20);
             this.txtBxPression.TabIndex = 50;
             this.txtBxPression.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtBxChute
-            // 
-            this.txtBxChute.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBxChute.BackColor = System.Drawing.SystemColors.Window;
-            this.txtBxChute.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxChute.Location = new System.Drawing.Point(358, 142);
-            this.txtBxChute.Name = "txtBxChute";
-            this.txtBxChute.ReadOnly = true;
-            this.txtBxChute.Size = new System.Drawing.Size(61, 20);
-            this.txtBxChute.TabIndex = 49;
-            this.txtBxChute.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtBxMaladies
-            // 
-            this.txtBxMaladies.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBxMaladies.BackColor = System.Drawing.SystemColors.Window;
-            this.txtBxMaladies.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxMaladies.Location = new System.Drawing.Point(287, 142);
-            this.txtBxMaladies.Name = "txtBxMaladies";
-            this.txtBxMaladies.ReadOnly = true;
-            this.txtBxMaladies.Size = new System.Drawing.Size(72, 20);
-            this.txtBxMaladies.TabIndex = 48;
-            this.txtBxMaladies.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBxAcide
             // 
             this.txtBxAcide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxAcide.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxAcide.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxAcide.Location = new System.Drawing.Point(237, 142);
+            this.txtBxAcide.Location = new System.Drawing.Point(92, 142);
             this.txtBxAcide.Name = "txtBxAcide";
             this.txtBxAcide.ReadOnly = true;
-            this.txtBxAcide.Size = new System.Drawing.Size(51, 20);
+            this.txtBxAcide.Size = new System.Drawing.Size(76, 20);
             this.txtBxAcide.TabIndex = 47;
             this.txtBxAcide.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -890,70 +790,22 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxChoc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxChoc.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxChoc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxChoc.Location = new System.Drawing.Point(167, 142);
+            this.txtBxChoc.Location = new System.Drawing.Point(18, 142);
             this.txtBxChoc.Name = "txtBxChoc";
             this.txtBxChoc.ReadOnly = true;
-            this.txtBxChoc.Size = new System.Drawing.Size(71, 20);
+            this.txtBxChoc.Size = new System.Drawing.Size(75, 20);
             this.txtBxChoc.TabIndex = 46;
             this.txtBxChoc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtBxSaignement
-            // 
-            this.txtBxSaignement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBxSaignement.BackColor = System.Drawing.SystemColors.Window;
-            this.txtBxSaignement.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxSaignement.Location = new System.Drawing.Point(92, 142);
-            this.txtBxSaignement.Name = "txtBxSaignement";
-            this.txtBxSaignement.ReadOnly = true;
-            this.txtBxSaignement.Size = new System.Drawing.Size(76, 20);
-            this.txtBxSaignement.TabIndex = 45;
-            this.txtBxSaignement.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtBxMaledictions
-            // 
-            this.txtBxMaledictions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBxMaledictions.BackColor = System.Drawing.SystemColors.Window;
-            this.txtBxMaledictions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxMaledictions.Location = new System.Drawing.Point(18, 142);
-            this.txtBxMaledictions.Name = "txtBxMaledictions";
-            this.txtBxMaledictions.ReadOnly = true;
-            this.txtBxMaledictions.Size = new System.Drawing.Size(75, 20);
-            this.txtBxMaledictions.TabIndex = 44;
-            this.txtBxMaledictions.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtBxPoids
-            // 
-            this.txtBxPoids.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBxPoids.BackColor = System.Drawing.SystemColors.Window;
-            this.txtBxPoids.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxPoids.Location = new System.Drawing.Point(237, 180);
-            this.txtBxPoids.Name = "txtBxPoids";
-            this.txtBxPoids.ReadOnly = true;
-            this.txtBxPoids.Size = new System.Drawing.Size(51, 20);
-            this.txtBxPoids.TabIndex = 60;
-            this.txtBxPoids.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtBxValeur
-            // 
-            this.txtBxValeur.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBxValeur.BackColor = System.Drawing.SystemColors.Window;
-            this.txtBxValeur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxValeur.Location = new System.Drawing.Point(167, 180);
-            this.txtBxValeur.Name = "txtBxValeur";
-            this.txtBxValeur.ReadOnly = true;
-            this.txtBxValeur.Size = new System.Drawing.Size(71, 20);
-            this.txtBxValeur.TabIndex = 59;
-            this.txtBxValeur.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBxDeplacement
             // 
             this.txtBxDeplacement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxDeplacement.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxDeplacement.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxDeplacement.Location = new System.Drawing.Point(92, 180);
+            this.txtBxDeplacement.Location = new System.Drawing.Point(18, 180);
             this.txtBxDeplacement.Name = "txtBxDeplacement";
             this.txtBxDeplacement.ReadOnly = true;
-            this.txtBxDeplacement.Size = new System.Drawing.Size(76, 20);
+            this.txtBxDeplacement.Size = new System.Drawing.Size(75, 20);
             this.txtBxDeplacement.TabIndex = 58;
             this.txtBxDeplacement.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -962,10 +814,10 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxBonusInitiative.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxBonusInitiative.BackColor = System.Drawing.SystemColors.Window;
             this.txtBxBonusInitiative.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxBonusInitiative.Location = new System.Drawing.Point(18, 180);
+            this.txtBxBonusInitiative.Location = new System.Drawing.Point(92, 180);
             this.txtBxBonusInitiative.Name = "txtBxBonusInitiative";
             this.txtBxBonusInitiative.ReadOnly = true;
-            this.txtBxBonusInitiative.Size = new System.Drawing.Size(75, 20);
+            this.txtBxBonusInitiative.Size = new System.Drawing.Size(76, 20);
             this.txtBxBonusInitiative.TabIndex = 57;
             this.txtBxBonusInitiative.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -974,10 +826,10 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitlePoids.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitlePoids.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitlePoids.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitlePoids.Location = new System.Drawing.Point(237, 161);
+            this.txtBxTitlePoids.Location = new System.Drawing.Point(18, 199);
             this.txtBxTitlePoids.Name = "txtBxTitlePoids";
             this.txtBxTitlePoids.ReadOnly = true;
-            this.txtBxTitlePoids.Size = new System.Drawing.Size(51, 20);
+            this.txtBxTitlePoids.Size = new System.Drawing.Size(75, 20);
             this.txtBxTitlePoids.TabIndex = 56;
             this.txtBxTitlePoids.Text = "Poids(kg)";
             this.txtBxTitlePoids.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -987,10 +839,10 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitleValeur.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitleValeur.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitleValeur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleValeur.Location = new System.Drawing.Point(167, 161);
+            this.txtBxTitleValeur.Location = new System.Drawing.Point(92, 199);
             this.txtBxTitleValeur.Name = "txtBxTitleValeur";
             this.txtBxTitleValeur.ReadOnly = true;
-            this.txtBxTitleValeur.Size = new System.Drawing.Size(71, 20);
+            this.txtBxTitleValeur.Size = new System.Drawing.Size(76, 20);
             this.txtBxTitleValeur.TabIndex = 55;
             this.txtBxTitleValeur.Text = "Valeur";
             this.txtBxTitleValeur.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1000,10 +852,10 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitleDeplacement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitleDeplacement.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitleDeplacement.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleDeplacement.Location = new System.Drawing.Point(92, 161);
+            this.txtBxTitleDeplacement.Location = new System.Drawing.Point(18, 161);
             this.txtBxTitleDeplacement.Name = "txtBxTitleDeplacement";
             this.txtBxTitleDeplacement.ReadOnly = true;
-            this.txtBxTitleDeplacement.Size = new System.Drawing.Size(76, 20);
+            this.txtBxTitleDeplacement.Size = new System.Drawing.Size(75, 20);
             this.txtBxTitleDeplacement.TabIndex = 54;
             this.txtBxTitleDeplacement.Text = "Vitesse(m)";
             this.txtBxTitleDeplacement.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1013,12 +865,12 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.txtBxTitleInitiative.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBxTitleInitiative.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtBxTitleInitiative.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxTitleInitiative.Location = new System.Drawing.Point(18, 161);
+            this.txtBxTitleInitiative.Location = new System.Drawing.Point(92, 161);
             this.txtBxTitleInitiative.Name = "txtBxTitleInitiative";
             this.txtBxTitleInitiative.ReadOnly = true;
-            this.txtBxTitleInitiative.Size = new System.Drawing.Size(75, 20);
+            this.txtBxTitleInitiative.Size = new System.Drawing.Size(76, 20);
             this.txtBxTitleInitiative.TabIndex = 53;
-            this.txtBxTitleInitiative.Text = "B. Initiative+";
+            this.txtBxTitleInitiative.Text = "Initiative";
             this.txtBxTitleInitiative.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pnlTailleArmurePrix
@@ -1114,6 +966,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.pnlResumeResistanceMateriau.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlResumeResistanceMateriau.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pnlResumeResistanceMateriau.Controls.Add(this.textBox1);
+            this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxTitleDexterite);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxPoids);
             this.pnlResumeResistanceMateriau.Controls.Add(this.cmbBxQualiteMateriau);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxValeur);
@@ -1121,21 +975,15 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxTitleContondant);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxTitleChoc);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxDeplacement);
-            this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxTitleSaignement);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxBonusInitiative);
-            this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxTitleMaladies);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxTitleTranchant);
-            this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxTitleMaledictions);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxTitlePoids);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxTitleAcide);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxTitlePerforant);
-            this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxTitleChute);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxTitleValeur);
-            this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxParalysie);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxTitleIgnee);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxTitlePression);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxTitleDeplacement);
-            this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxPoison);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxTitleAquatique);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxTitleChaleur);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxTitleInitiative);
@@ -1145,25 +993,31 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxFroid);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxCeleste);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxTitleTerrestre);
-            this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxMaledictions);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxChaleur);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxAquatique);
-            this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxTitlePoison);
-            this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxSaignement);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxPression);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxIgnee);
-            this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxTitleParalysie);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxChoc);
-            this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxChute);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxPerforant);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxTranchant);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxAcide);
-            this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxMaladies);
             this.pnlResumeResistanceMateriau.Controls.Add(this.txtBxContondant);
             this.pnlResumeResistanceMateriau.Location = new System.Drawing.Point(413, 98);
             this.pnlResumeResistanceMateriau.Name = "pnlResumeResistanceMateriau";
             this.pnlResumeResistanceMateriau.Size = new System.Drawing.Size(617, 249);
             this.pnlResumeResistanceMateriau.TabIndex = 61;
+            // 
+            // txtBxPoids
+            // 
+            this.txtBxPoids.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBxPoids.BackColor = System.Drawing.SystemColors.Window;
+            this.txtBxPoids.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxPoids.Location = new System.Drawing.Point(18, 218);
+            this.txtBxPoids.Name = "txtBxPoids";
+            this.txtBxPoids.ReadOnly = true;
+            this.txtBxPoids.Size = new System.Drawing.Size(75, 20);
+            this.txtBxPoids.TabIndex = 60;
+            this.txtBxPoids.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cmbBxQualiteMateriau
             // 
@@ -1180,6 +1034,18 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.cmbBxQualiteMateriau.Size = new System.Drawing.Size(121, 21);
             this.cmbBxQualiteMateriau.TabIndex = 11;
             this.cmbBxQualiteMateriau.SelectedValueChanged += new System.EventHandler(this.cmbBxQualiteMateriau_SelectedValueChanged);
+            // 
+            // txtBxValeur
+            // 
+            this.txtBxValeur.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBxValeur.BackColor = System.Drawing.SystemColors.Window;
+            this.txtBxValeur.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxValeur.Location = new System.Drawing.Point(92, 218);
+            this.txtBxValeur.Name = "txtBxValeur";
+            this.txtBxValeur.ReadOnly = true;
+            this.txtBxValeur.Size = new System.Drawing.Size(76, 20);
+            this.txtBxValeur.TabIndex = 59;
+            this.txtBxValeur.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblQualiteMateriau
             // 
@@ -1249,77 +1115,617 @@ namespace maFichePersonnageJDR.View.Formulaires
             // 
             this.pnlResumeModifications.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlResumeModifications.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pnlResumeModifications.Controls.Add(this.imgBlueArrowDexterite);
+            this.pnlResumeModifications.Controls.Add(this.imgRedArrowDexterite);
+            this.pnlResumeModifications.Controls.Add(this.txtBxDexteriteFinaleValue);
+            this.pnlResumeModifications.Controls.Add(this.txtBxDexteriteTitleFinal);
+            this.pnlResumeModifications.Controls.Add(this.lblPreviewNewValuePoids);
+            this.pnlResumeModifications.Controls.Add(this.imgRedArrowPoids);
+            this.pnlResumeModifications.Controls.Add(this.imgBlueArrowPoids);
+            this.pnlResumeModifications.Controls.Add(this.lblPreviewNewValueFroid);
+            this.pnlResumeModifications.Controls.Add(this.imgRedArrowFroid);
+            this.pnlResumeModifications.Controls.Add(this.imgBlueArrowFroid);
+            this.pnlResumeModifications.Controls.Add(this.lblPreviewNewValueChaleur);
+            this.pnlResumeModifications.Controls.Add(this.imgRedArrowChaleur);
+            this.pnlResumeModifications.Controls.Add(this.imgBlueArrowChaleur);
+            this.pnlResumeModifications.Controls.Add(this.lblPreviewNewValueVitesse);
+            this.pnlResumeModifications.Controls.Add(this.imgRedArrowVitesse);
+            this.pnlResumeModifications.Controls.Add(this.imgBlueArrowVitesse);
+            this.pnlResumeModifications.Controls.Add(this.lblPreviewNewValueInitiative);
+            this.pnlResumeModifications.Controls.Add(this.imgRedArrowInitiative);
+            this.pnlResumeModifications.Controls.Add(this.imgBlueArrowInitiative);
+            this.pnlResumeModifications.Controls.Add(this.lblPreviewNewValuePression);
+            this.pnlResumeModifications.Controls.Add(this.imgRedArrowPression);
+            this.pnlResumeModifications.Controls.Add(this.imgBlueArrowPression);
+            this.pnlResumeModifications.Controls.Add(this.lblPreviewNewValueChute);
+            this.pnlResumeModifications.Controls.Add(this.lblPreviewNewValueMaladies);
+            this.pnlResumeModifications.Controls.Add(this.lblPreviewNewValueAcide);
+            this.pnlResumeModifications.Controls.Add(this.imgRedArrowAcide);
+            this.pnlResumeModifications.Controls.Add(this.imgBlueArrowAcide);
+            this.pnlResumeModifications.Controls.Add(this.lblPreviewNewValueChoc);
+            this.pnlResumeModifications.Controls.Add(this.imgRedArrowChoc);
+            this.pnlResumeModifications.Controls.Add(this.imgBlueArrowChoc);
+            this.pnlResumeModifications.Controls.Add(this.lblPreviewNewValueSaignement);
+            this.pnlResumeModifications.Controls.Add(this.lblPreviewNewValueMaledictions);
+            this.pnlResumeModifications.Controls.Add(this.lblPreviewNewValueParalysie);
+            this.pnlResumeModifications.Controls.Add(this.lblPreviewNewValuePoison);
+            this.pnlResumeModifications.Controls.Add(this.lblPreviewNewValueTerrestre);
+            this.pnlResumeModifications.Controls.Add(this.imgRedArrowTerrestre);
+            this.pnlResumeModifications.Controls.Add(this.imgBlueArrowTerrestre);
+            this.pnlResumeModifications.Controls.Add(this.lblPreviewNewValueCeleste);
+            this.pnlResumeModifications.Controls.Add(this.imgRedArrowCeleste);
+            this.pnlResumeModifications.Controls.Add(this.imgBlueArrowCeleste);
+            this.pnlResumeModifications.Controls.Add(this.lblPreviewNewValueAquatique);
+            this.pnlResumeModifications.Controls.Add(this.imgRedArrowAquatique);
+            this.pnlResumeModifications.Controls.Add(this.imgBlueArrowAquatique);
+            this.pnlResumeModifications.Controls.Add(this.lblPreviewNewValueIgnee);
+            this.pnlResumeModifications.Controls.Add(this.imgRedArrowIgnee);
+            this.pnlResumeModifications.Controls.Add(this.imgBlueArrowIgnee);
+            this.pnlResumeModifications.Controls.Add(this.lblPreviewNewValuePerforant);
+            this.pnlResumeModifications.Controls.Add(this.imgRedArrowPerforant);
+            this.pnlResumeModifications.Controls.Add(this.imgBlueArrowPerforant);
+            this.pnlResumeModifications.Controls.Add(this.lblPreviewNewValueContondant);
+            this.pnlResumeModifications.Controls.Add(this.imgRedArrowContondant);
+            this.pnlResumeModifications.Controls.Add(this.imgBlueArrowContondant);
+            this.pnlResumeModifications.Controls.Add(this.lblPreviewNewValueTranchant);
+            this.pnlResumeModifications.Controls.Add(this.imgRedArrowTranchant);
+            this.pnlResumeModifications.Controls.Add(this.imgBlueArrowTranchant);
             this.pnlResumeModifications.Controls.Add(this.lblWarning);
             this.pnlResumeModifications.Controls.Add(this.lblModifResistance);
-            this.pnlResumeModifications.Controls.Add(this.txtBxPoidsFinal);
-            this.pnlResumeModifications.Controls.Add(this.numUpDownFroid);
-            this.pnlResumeModifications.Controls.Add(this.numUpDownChaleur);
-            this.pnlResumeModifications.Controls.Add(this.txtBxValeurFinale);
-            this.pnlResumeModifications.Controls.Add(this.numUpDownVitesse);
-            this.pnlResumeModifications.Controls.Add(this.numUpDownInitiative);
-            this.pnlResumeModifications.Controls.Add(this.numUpDownPression);
-            this.pnlResumeModifications.Controls.Add(this.numUpDownChute);
-            this.pnlResumeModifications.Controls.Add(this.txtFroidTitleFinal);
-            this.pnlResumeModifications.Controls.Add(this.txtChaleurTitleFinale);
-            this.pnlResumeModifications.Controls.Add(this.txtPoidsTitleFinal);
-            this.pnlResumeModifications.Controls.Add(this.txtFroidModificationRecapitulatif);
-            this.pnlResumeModifications.Controls.Add(this.txtValeurTitleFinale);
-            this.pnlResumeModifications.Controls.Add(this.numUpDownMaladies);
-            this.pnlResumeModifications.Controls.Add(this.txtVitesseModificationRecapitulatif);
-            this.pnlResumeModifications.Controls.Add(this.numUpDownAcide);
-            this.pnlResumeModifications.Controls.Add(this.numUpDownChoc);
-            this.pnlResumeModifications.Controls.Add(this.txtPressionTitleFinale);
-            this.pnlResumeModifications.Controls.Add(this.txtChaleurModificationRecapitulatif);
-            this.pnlResumeModifications.Controls.Add(this.txtMaladiesTitleFinale);
-            this.pnlResumeModifications.Controls.Add(this.txtChuteTitleFinale);
-            this.pnlResumeModifications.Controls.Add(this.txtChocTitleFinale);
-            this.pnlResumeModifications.Controls.Add(this.numUpDownSaignement);
-            this.pnlResumeModifications.Controls.Add(this.txtInitiativeModificationRecapitulatif);
-            this.pnlResumeModifications.Controls.Add(this.numUpDownMalediction);
-            this.pnlResumeModifications.Controls.Add(this.numUpDownParalysie);
-            this.pnlResumeModifications.Controls.Add(this.txtAcideTitleFinale);
-            this.pnlResumeModifications.Controls.Add(this.txtVitesseTitleFinale);
-            this.pnlResumeModifications.Controls.Add(this.txtSaignementTitleFinale);
-            this.pnlResumeModifications.Controls.Add(this.numUpDownPoison);
-            this.pnlResumeModifications.Controls.Add(this.numUpDownTerrestre);
-            this.pnlResumeModifications.Controls.Add(this.txtInitiativeTitleFinale);
-            this.pnlResumeModifications.Controls.Add(this.txtPressionModificationRecapitulatif);
-            this.pnlResumeModifications.Controls.Add(this.numUpDownCeleste);
-            this.pnlResumeModifications.Controls.Add(this.numUpDownAquatique);
-            this.pnlResumeModifications.Controls.Add(this.numUpDownIgnee);
-            this.pnlResumeModifications.Controls.Add(this.txtMaledictionsTitleFinale);
-            this.pnlResumeModifications.Controls.Add(this.numUpDownPerforant);
-            this.pnlResumeModifications.Controls.Add(this.numUpDownContondant);
-            this.pnlResumeModifications.Controls.Add(this.txtChuteModificationRecapitulatif);
-            this.pnlResumeModifications.Controls.Add(this.numUpDownTranchant);
+            this.pnlResumeModifications.Controls.Add(this.txtBxPoidsFinaleValue);
+            this.pnlResumeModifications.Controls.Add(this.txtBxFroidTitleFinal);
+            this.pnlResumeModifications.Controls.Add(this.txtBxChaleurTitleFinal);
+            this.pnlResumeModifications.Controls.Add(this.txtBxPoidsTitleFinal);
+            this.pnlResumeModifications.Controls.Add(this.txtBxFroidFinaleValue);
+            this.pnlResumeModifications.Controls.Add(this.txtBxVitesseFinaleValue);
+            this.pnlResumeModifications.Controls.Add(this.txtBxPressionTitleFinal);
+            this.pnlResumeModifications.Controls.Add(this.txtBxChaleurFinaleValue);
+            this.pnlResumeModifications.Controls.Add(this.txtBxChocTitleFinal);
+            this.pnlResumeModifications.Controls.Add(this.txtBxInitiativeFinaleValue);
+            this.pnlResumeModifications.Controls.Add(this.txtBxAcideTitleFinal);
+            this.pnlResumeModifications.Controls.Add(this.txtBxVitesseTitleFinal);
+            this.pnlResumeModifications.Controls.Add(this.txtBxInitiativeTitleFinal);
+            this.pnlResumeModifications.Controls.Add(this.txtBxPressionValueFinale);
             this.pnlResumeModifications.Controls.Add(this.lblResumeModifications);
-            this.pnlResumeModifications.Controls.Add(this.txtTranchantModificationRecapitulatif);
-            this.pnlResumeModifications.Controls.Add(this.txtPoisonModificationRecapitulatif);
-            this.pnlResumeModifications.Controls.Add(this.txtAquatiqueTitleFinale);
-            this.pnlResumeModifications.Controls.Add(this.txtMaladiesModificationRecapitulatif);
-            this.pnlResumeModifications.Controls.Add(this.txtTerrestreModificationRecapitulatif);
-            this.pnlResumeModifications.Controls.Add(this.txtAcideModificationRecapitulatif);
-            this.pnlResumeModifications.Controls.Add(this.txtCelesteTitleFinale);
-            this.pnlResumeModifications.Controls.Add(this.txtIgneeTitleFinale);
-            this.pnlResumeModifications.Controls.Add(this.txtCelesteModificationRecapitulatif);
-            this.pnlResumeModifications.Controls.Add(this.txtChocModificationRecapitulatif);
-            this.pnlResumeModifications.Controls.Add(this.txtSaignementModificationRecapitulatif);
-            this.pnlResumeModifications.Controls.Add(this.txtMaledictionsModificationRecapitulatif);
-            this.pnlResumeModifications.Controls.Add(this.txtParalysieModificationRecapitulatif);
-            this.pnlResumeModifications.Controls.Add(this.txtContondantTitleFinale);
-            this.pnlResumeModifications.Controls.Add(this.txtTerrestreTitleFinale);
-            this.pnlResumeModifications.Controls.Add(this.txtAquatiqueModificationRecapitulatif);
-            this.pnlResumeModifications.Controls.Add(this.txtPoisonTitleFinale);
-            this.pnlResumeModifications.Controls.Add(this.txtPerforantTitleFinale);
-            this.pnlResumeModifications.Controls.Add(this.txtIgneeModificationRecapitulation);
-            this.pnlResumeModifications.Controls.Add(this.txtParalysieTitleFinale);
-            this.pnlResumeModifications.Controls.Add(this.txtPerforantModificationRecapitulation);
-            this.pnlResumeModifications.Controls.Add(this.txtContondantModificationRecapitulatif);
-            this.pnlResumeModifications.Controls.Add(this.txtTranchantTitleFinale);
+            this.pnlResumeModifications.Controls.Add(this.txtBxTranchantFinaleValue);
+            this.pnlResumeModifications.Controls.Add(this.txtBxAquatiqueTitleFinal);
+            this.pnlResumeModifications.Controls.Add(this.txtBxTerrestreFinaleValue);
+            this.pnlResumeModifications.Controls.Add(this.txtBxAcideFinaleValue);
+            this.pnlResumeModifications.Controls.Add(this.txtBxCelesteTitleFinal);
+            this.pnlResumeModifications.Controls.Add(this.txtbxIgneeTitleFinal);
+            this.pnlResumeModifications.Controls.Add(this.txtBxCelesteFinaleValue);
+            this.pnlResumeModifications.Controls.Add(this.txtBxChocFinaleValue);
+            this.pnlResumeModifications.Controls.Add(this.txtBxContondantTitleFinal);
+            this.pnlResumeModifications.Controls.Add(this.txtBxTerrestreTitleFinal);
+            this.pnlResumeModifications.Controls.Add(this.txtBxAquatiqueFinaleValue);
+            this.pnlResumeModifications.Controls.Add(this.txtBxPerforantTitleFinal);
+            this.pnlResumeModifications.Controls.Add(this.txtBxIgneeBxFinaleValue);
+            this.pnlResumeModifications.Controls.Add(this.txtBxPerforantFinaleValue);
+            this.pnlResumeModifications.Controls.Add(this.txtBxContondantFinaleValue);
+            this.pnlResumeModifications.Controls.Add(this.txtBxTranchantTitleFinal);
             this.pnlResumeModifications.Location = new System.Drawing.Point(12, 551);
             this.pnlResumeModifications.Name = "pnlResumeModifications";
             this.pnlResumeModifications.Size = new System.Drawing.Size(1018, 219);
             this.pnlResumeModifications.TabIndex = 63;
+            // 
+            // lblPreviewNewValuePoids
+            // 
+            this.lblPreviewNewValuePoids.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPreviewNewValuePoids.AutoSize = true;
+            this.lblPreviewNewValuePoids.Location = new System.Drawing.Point(355, 141);
+            this.lblPreviewNewValuePoids.Name = "lblPreviewNewValuePoids";
+            this.lblPreviewNewValuePoids.Size = new System.Drawing.Size(0, 13);
+            this.lblPreviewNewValuePoids.TabIndex = 172;
+            // 
+            // imgRedArrowPoids
+            // 
+            this.imgRedArrowPoids.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgRedArrowPoids.Image = ((System.Drawing.Image)(resources.GetObject("imgRedArrowPoids.Image")));
+            this.imgRedArrowPoids.Location = new System.Drawing.Point(333, 137);
+            this.imgRedArrowPoids.Name = "imgRedArrowPoids";
+            this.imgRedArrowPoids.Size = new System.Drawing.Size(20, 20);
+            this.imgRedArrowPoids.TabIndex = 171;
+            this.imgRedArrowPoids.TabStop = false;
+            this.imgRedArrowPoids.Visible = false;
+            // 
+            // imgBlueArrowPoids
+            // 
+            this.imgBlueArrowPoids.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgBlueArrowPoids.Image = ((System.Drawing.Image)(resources.GetObject("imgBlueArrowPoids.Image")));
+            this.imgBlueArrowPoids.Location = new System.Drawing.Point(333, 137);
+            this.imgBlueArrowPoids.Name = "imgBlueArrowPoids";
+            this.imgBlueArrowPoids.Size = new System.Drawing.Size(20, 20);
+            this.imgBlueArrowPoids.TabIndex = 170;
+            this.imgBlueArrowPoids.TabStop = false;
+            this.imgBlueArrowPoids.Visible = false;
+            // 
+            // lblPreviewNewValueFroid
+            // 
+            this.lblPreviewNewValueFroid.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPreviewNewValueFroid.AutoSize = true;
+            this.lblPreviewNewValueFroid.Location = new System.Drawing.Point(239, 141);
+            this.lblPreviewNewValueFroid.Name = "lblPreviewNewValueFroid";
+            this.lblPreviewNewValueFroid.Size = new System.Drawing.Size(0, 13);
+            this.lblPreviewNewValueFroid.TabIndex = 169;
+            // 
+            // imgRedArrowFroid
+            // 
+            this.imgRedArrowFroid.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgRedArrowFroid.Image = ((System.Drawing.Image)(resources.GetObject("imgRedArrowFroid.Image")));
+            this.imgRedArrowFroid.Location = new System.Drawing.Point(90, 137);
+            this.imgRedArrowFroid.Name = "imgRedArrowFroid";
+            this.imgRedArrowFroid.Size = new System.Drawing.Size(20, 20);
+            this.imgRedArrowFroid.TabIndex = 168;
+            this.imgRedArrowFroid.TabStop = false;
+            this.imgRedArrowFroid.Visible = false;
+            // 
+            // imgBlueArrowFroid
+            // 
+            this.imgBlueArrowFroid.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgBlueArrowFroid.Image = ((System.Drawing.Image)(resources.GetObject("imgBlueArrowFroid.Image")));
+            this.imgBlueArrowFroid.Location = new System.Drawing.Point(90, 137);
+            this.imgBlueArrowFroid.Name = "imgBlueArrowFroid";
+            this.imgBlueArrowFroid.Size = new System.Drawing.Size(20, 20);
+            this.imgBlueArrowFroid.TabIndex = 167;
+            this.imgBlueArrowFroid.TabStop = false;
+            this.imgBlueArrowFroid.Visible = false;
+            // 
+            // lblPreviewNewValueChaleur
+            // 
+            this.lblPreviewNewValueChaleur.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPreviewNewValueChaleur.AutoSize = true;
+            this.lblPreviewNewValueChaleur.Location = new System.Drawing.Point(113, 141);
+            this.lblPreviewNewValueChaleur.Name = "lblPreviewNewValueChaleur";
+            this.lblPreviewNewValueChaleur.Size = new System.Drawing.Size(0, 13);
+            this.lblPreviewNewValueChaleur.TabIndex = 166;
+            // 
+            // imgRedArrowChaleur
+            // 
+            this.imgRedArrowChaleur.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgRedArrowChaleur.Image = ((System.Drawing.Image)(resources.GetObject("imgRedArrowChaleur.Image")));
+            this.imgRedArrowChaleur.Location = new System.Drawing.Point(216, 137);
+            this.imgRedArrowChaleur.Name = "imgRedArrowChaleur";
+            this.imgRedArrowChaleur.Size = new System.Drawing.Size(20, 20);
+            this.imgRedArrowChaleur.TabIndex = 165;
+            this.imgRedArrowChaleur.TabStop = false;
+            this.imgRedArrowChaleur.Visible = false;
+            // 
+            // imgBlueArrowChaleur
+            // 
+            this.imgBlueArrowChaleur.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgBlueArrowChaleur.Image = ((System.Drawing.Image)(resources.GetObject("imgBlueArrowChaleur.Image")));
+            this.imgBlueArrowChaleur.Location = new System.Drawing.Point(216, 137);
+            this.imgBlueArrowChaleur.Name = "imgBlueArrowChaleur";
+            this.imgBlueArrowChaleur.Size = new System.Drawing.Size(20, 20);
+            this.imgBlueArrowChaleur.TabIndex = 164;
+            this.imgBlueArrowChaleur.TabStop = false;
+            this.imgBlueArrowChaleur.Visible = false;
+            // 
+            // lblPreviewNewValueVitesse
+            // 
+            this.lblPreviewNewValueVitesse.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPreviewNewValueVitesse.AutoSize = true;
+            this.lblPreviewNewValueVitesse.Location = new System.Drawing.Point(970, 103);
+            this.lblPreviewNewValueVitesse.Name = "lblPreviewNewValueVitesse";
+            this.lblPreviewNewValueVitesse.Size = new System.Drawing.Size(0, 13);
+            this.lblPreviewNewValueVitesse.TabIndex = 163;
+            // 
+            // imgRedArrowVitesse
+            // 
+            this.imgRedArrowVitesse.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgRedArrowVitesse.Image = ((System.Drawing.Image)(resources.GetObject("imgRedArrowVitesse.Image")));
+            this.imgRedArrowVitesse.Location = new System.Drawing.Point(426, 99);
+            this.imgRedArrowVitesse.Name = "imgRedArrowVitesse";
+            this.imgRedArrowVitesse.Size = new System.Drawing.Size(20, 20);
+            this.imgRedArrowVitesse.TabIndex = 162;
+            this.imgRedArrowVitesse.TabStop = false;
+            this.imgRedArrowVitesse.Visible = false;
+            // 
+            // imgBlueArrowVitesse
+            // 
+            this.imgBlueArrowVitesse.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgBlueArrowVitesse.Image = ((System.Drawing.Image)(resources.GetObject("imgBlueArrowVitesse.Image")));
+            this.imgBlueArrowVitesse.Location = new System.Drawing.Point(426, 99);
+            this.imgBlueArrowVitesse.Name = "imgBlueArrowVitesse";
+            this.imgBlueArrowVitesse.Size = new System.Drawing.Size(20, 20);
+            this.imgBlueArrowVitesse.TabIndex = 161;
+            this.imgBlueArrowVitesse.TabStop = false;
+            this.imgBlueArrowVitesse.Visible = false;
+            // 
+            // lblPreviewNewValueInitiative
+            // 
+            this.lblPreviewNewValueInitiative.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPreviewNewValueInitiative.AutoSize = true;
+            this.lblPreviewNewValueInitiative.Location = new System.Drawing.Point(865, 103);
+            this.lblPreviewNewValueInitiative.Name = "lblPreviewNewValueInitiative";
+            this.lblPreviewNewValueInitiative.Size = new System.Drawing.Size(0, 13);
+            this.lblPreviewNewValueInitiative.TabIndex = 160;
+            // 
+            // imgRedArrowInitiative
+            // 
+            this.imgRedArrowInitiative.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgRedArrowInitiative.Image = ((System.Drawing.Image)(resources.GetObject("imgRedArrowInitiative.Image")));
+            this.imgRedArrowInitiative.Location = new System.Drawing.Point(542, 99);
+            this.imgRedArrowInitiative.Name = "imgRedArrowInitiative";
+            this.imgRedArrowInitiative.Size = new System.Drawing.Size(20, 20);
+            this.imgRedArrowInitiative.TabIndex = 159;
+            this.imgRedArrowInitiative.TabStop = false;
+            this.imgRedArrowInitiative.Visible = false;
+            // 
+            // imgBlueArrowInitiative
+            // 
+            this.imgBlueArrowInitiative.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgBlueArrowInitiative.Image = ((System.Drawing.Image)(resources.GetObject("imgBlueArrowInitiative.Image")));
+            this.imgBlueArrowInitiative.Location = new System.Drawing.Point(542, 99);
+            this.imgBlueArrowInitiative.Name = "imgBlueArrowInitiative";
+            this.imgBlueArrowInitiative.Size = new System.Drawing.Size(20, 20);
+            this.imgBlueArrowInitiative.TabIndex = 158;
+            this.imgBlueArrowInitiative.TabStop = false;
+            this.imgBlueArrowInitiative.Visible = false;
+            // 
+            // lblPreviewNewValuePression
+            // 
+            this.lblPreviewNewValuePression.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPreviewNewValuePression.AutoSize = true;
+            this.lblPreviewNewValuePression.Location = new System.Drawing.Point(774, 103);
+            this.lblPreviewNewValuePression.Name = "lblPreviewNewValuePression";
+            this.lblPreviewNewValuePression.Size = new System.Drawing.Size(0, 13);
+            this.lblPreviewNewValuePression.TabIndex = 157;
+            // 
+            // imgRedArrowPression
+            // 
+            this.imgRedArrowPression.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgRedArrowPression.Image = ((System.Drawing.Image)(resources.GetObject("imgRedArrowPression.Image")));
+            this.imgRedArrowPression.Location = new System.Drawing.Point(333, 99);
+            this.imgRedArrowPression.Name = "imgRedArrowPression";
+            this.imgRedArrowPression.Size = new System.Drawing.Size(20, 20);
+            this.imgRedArrowPression.TabIndex = 156;
+            this.imgRedArrowPression.TabStop = false;
+            this.imgRedArrowPression.Visible = false;
+            // 
+            // imgBlueArrowPression
+            // 
+            this.imgBlueArrowPression.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgBlueArrowPression.Image = ((System.Drawing.Image)(resources.GetObject("imgBlueArrowPression.Image")));
+            this.imgBlueArrowPression.Location = new System.Drawing.Point(333, 99);
+            this.imgBlueArrowPression.Name = "imgBlueArrowPression";
+            this.imgBlueArrowPression.Size = new System.Drawing.Size(20, 20);
+            this.imgBlueArrowPression.TabIndex = 155;
+            this.imgBlueArrowPression.TabStop = false;
+            this.imgBlueArrowPression.Visible = false;
+            // 
+            // lblPreviewNewValueChute
+            // 
+            this.lblPreviewNewValueChute.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPreviewNewValueChute.AutoSize = true;
+            this.lblPreviewNewValueChute.Location = new System.Drawing.Point(669, 103);
+            this.lblPreviewNewValueChute.Name = "lblPreviewNewValueChute";
+            this.lblPreviewNewValueChute.Size = new System.Drawing.Size(0, 13);
+            this.lblPreviewNewValueChute.TabIndex = 154;
+            // 
+            // lblPreviewNewValueMaladies
+            // 
+            this.lblPreviewNewValueMaladies.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPreviewNewValueMaladies.AutoSize = true;
+            this.lblPreviewNewValueMaladies.Location = new System.Drawing.Point(564, 103);
+            this.lblPreviewNewValueMaladies.Name = "lblPreviewNewValueMaladies";
+            this.lblPreviewNewValueMaladies.Size = new System.Drawing.Size(0, 13);
+            this.lblPreviewNewValueMaladies.TabIndex = 151;
+            // 
+            // lblPreviewNewValueAcide
+            // 
+            this.lblPreviewNewValueAcide.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPreviewNewValueAcide.AutoSize = true;
+            this.lblPreviewNewValueAcide.Location = new System.Drawing.Point(448, 103);
+            this.lblPreviewNewValueAcide.Name = "lblPreviewNewValueAcide";
+            this.lblPreviewNewValueAcide.Size = new System.Drawing.Size(0, 13);
+            this.lblPreviewNewValueAcide.TabIndex = 148;
+            // 
+            // imgRedArrowAcide
+            // 
+            this.imgRedArrowAcide.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgRedArrowAcide.Image = ((System.Drawing.Image)(resources.GetObject("imgRedArrowAcide.Image")));
+            this.imgRedArrowAcide.Location = new System.Drawing.Point(216, 99);
+            this.imgRedArrowAcide.Name = "imgRedArrowAcide";
+            this.imgRedArrowAcide.Size = new System.Drawing.Size(20, 20);
+            this.imgRedArrowAcide.TabIndex = 147;
+            this.imgRedArrowAcide.TabStop = false;
+            this.imgRedArrowAcide.Visible = false;
+            // 
+            // imgBlueArrowAcide
+            // 
+            this.imgBlueArrowAcide.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgBlueArrowAcide.Image = ((System.Drawing.Image)(resources.GetObject("imgBlueArrowAcide.Image")));
+            this.imgBlueArrowAcide.Location = new System.Drawing.Point(216, 99);
+            this.imgBlueArrowAcide.Name = "imgBlueArrowAcide";
+            this.imgBlueArrowAcide.Size = new System.Drawing.Size(20, 20);
+            this.imgBlueArrowAcide.TabIndex = 146;
+            this.imgBlueArrowAcide.TabStop = false;
+            this.imgBlueArrowAcide.Visible = false;
+            // 
+            // lblPreviewNewValueChoc
+            // 
+            this.lblPreviewNewValueChoc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPreviewNewValueChoc.AutoSize = true;
+            this.lblPreviewNewValueChoc.Location = new System.Drawing.Point(355, 103);
+            this.lblPreviewNewValueChoc.Name = "lblPreviewNewValueChoc";
+            this.lblPreviewNewValueChoc.Size = new System.Drawing.Size(0, 13);
+            this.lblPreviewNewValueChoc.TabIndex = 145;
+            // 
+            // imgRedArrowChoc
+            // 
+            this.imgRedArrowChoc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgRedArrowChoc.Image = ((System.Drawing.Image)(resources.GetObject("imgRedArrowChoc.Image")));
+            this.imgRedArrowChoc.Location = new System.Drawing.Point(90, 99);
+            this.imgRedArrowChoc.Name = "imgRedArrowChoc";
+            this.imgRedArrowChoc.Size = new System.Drawing.Size(20, 20);
+            this.imgRedArrowChoc.TabIndex = 144;
+            this.imgRedArrowChoc.TabStop = false;
+            this.imgRedArrowChoc.Visible = false;
+            // 
+            // imgBlueArrowChoc
+            // 
+            this.imgBlueArrowChoc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgBlueArrowChoc.Image = ((System.Drawing.Image)(resources.GetObject("imgBlueArrowChoc.Image")));
+            this.imgBlueArrowChoc.Location = new System.Drawing.Point(90, 99);
+            this.imgBlueArrowChoc.Name = "imgBlueArrowChoc";
+            this.imgBlueArrowChoc.Size = new System.Drawing.Size(20, 20);
+            this.imgBlueArrowChoc.TabIndex = 143;
+            this.imgBlueArrowChoc.TabStop = false;
+            this.imgBlueArrowChoc.Visible = false;
+            // 
+            // lblPreviewNewValueSaignement
+            // 
+            this.lblPreviewNewValueSaignement.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPreviewNewValueSaignement.AutoSize = true;
+            this.lblPreviewNewValueSaignement.Location = new System.Drawing.Point(239, 103);
+            this.lblPreviewNewValueSaignement.Name = "lblPreviewNewValueSaignement";
+            this.lblPreviewNewValueSaignement.Size = new System.Drawing.Size(0, 13);
+            this.lblPreviewNewValueSaignement.TabIndex = 142;
+            // 
+            // lblPreviewNewValueMaledictions
+            // 
+            this.lblPreviewNewValueMaledictions.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPreviewNewValueMaledictions.AutoSize = true;
+            this.lblPreviewNewValueMaledictions.Location = new System.Drawing.Point(113, 103);
+            this.lblPreviewNewValueMaledictions.Name = "lblPreviewNewValueMaledictions";
+            this.lblPreviewNewValueMaledictions.Size = new System.Drawing.Size(0, 13);
+            this.lblPreviewNewValueMaledictions.TabIndex = 139;
+            // 
+            // lblPreviewNewValueParalysie
+            // 
+            this.lblPreviewNewValueParalysie.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPreviewNewValueParalysie.AutoSize = true;
+            this.lblPreviewNewValueParalysie.Location = new System.Drawing.Point(970, 65);
+            this.lblPreviewNewValueParalysie.Name = "lblPreviewNewValueParalysie";
+            this.lblPreviewNewValueParalysie.Size = new System.Drawing.Size(0, 13);
+            this.lblPreviewNewValueParalysie.TabIndex = 136;
+            // 
+            // lblPreviewNewValuePoison
+            // 
+            this.lblPreviewNewValuePoison.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPreviewNewValuePoison.AutoSize = true;
+            this.lblPreviewNewValuePoison.Location = new System.Drawing.Point(865, 65);
+            this.lblPreviewNewValuePoison.Name = "lblPreviewNewValuePoison";
+            this.lblPreviewNewValuePoison.Size = new System.Drawing.Size(0, 13);
+            this.lblPreviewNewValuePoison.TabIndex = 133;
+            // 
+            // lblPreviewNewValueTerrestre
+            // 
+            this.lblPreviewNewValueTerrestre.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPreviewNewValueTerrestre.AutoSize = true;
+            this.lblPreviewNewValueTerrestre.Location = new System.Drawing.Point(774, 65);
+            this.lblPreviewNewValueTerrestre.Name = "lblPreviewNewValueTerrestre";
+            this.lblPreviewNewValueTerrestre.Size = new System.Drawing.Size(0, 13);
+            this.lblPreviewNewValueTerrestre.TabIndex = 130;
+            // 
+            // imgRedArrowTerrestre
+            // 
+            this.imgRedArrowTerrestre.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgRedArrowTerrestre.Image = ((System.Drawing.Image)(resources.GetObject("imgRedArrowTerrestre.Image")));
+            this.imgRedArrowTerrestre.Location = new System.Drawing.Point(752, 61);
+            this.imgRedArrowTerrestre.Name = "imgRedArrowTerrestre";
+            this.imgRedArrowTerrestre.Size = new System.Drawing.Size(20, 20);
+            this.imgRedArrowTerrestre.TabIndex = 129;
+            this.imgRedArrowTerrestre.TabStop = false;
+            this.imgRedArrowTerrestre.Visible = false;
+            // 
+            // imgBlueArrowTerrestre
+            // 
+            this.imgBlueArrowTerrestre.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgBlueArrowTerrestre.Image = ((System.Drawing.Image)(resources.GetObject("imgBlueArrowTerrestre.Image")));
+            this.imgBlueArrowTerrestre.Location = new System.Drawing.Point(752, 61);
+            this.imgBlueArrowTerrestre.Name = "imgBlueArrowTerrestre";
+            this.imgBlueArrowTerrestre.Size = new System.Drawing.Size(20, 20);
+            this.imgBlueArrowTerrestre.TabIndex = 128;
+            this.imgBlueArrowTerrestre.TabStop = false;
+            this.imgBlueArrowTerrestre.Visible = false;
+            // 
+            // lblPreviewNewValueCeleste
+            // 
+            this.lblPreviewNewValueCeleste.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPreviewNewValueCeleste.AutoSize = true;
+            this.lblPreviewNewValueCeleste.Location = new System.Drawing.Point(669, 65);
+            this.lblPreviewNewValueCeleste.Name = "lblPreviewNewValueCeleste";
+            this.lblPreviewNewValueCeleste.Size = new System.Drawing.Size(0, 13);
+            this.lblPreviewNewValueCeleste.TabIndex = 127;
+            // 
+            // imgRedArrowCeleste
+            // 
+            this.imgRedArrowCeleste.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgRedArrowCeleste.Image = ((System.Drawing.Image)(resources.GetObject("imgRedArrowCeleste.Image")));
+            this.imgRedArrowCeleste.Location = new System.Drawing.Point(647, 61);
+            this.imgRedArrowCeleste.Name = "imgRedArrowCeleste";
+            this.imgRedArrowCeleste.Size = new System.Drawing.Size(20, 20);
+            this.imgRedArrowCeleste.TabIndex = 126;
+            this.imgRedArrowCeleste.TabStop = false;
+            this.imgRedArrowCeleste.Visible = false;
+            // 
+            // imgBlueArrowCeleste
+            // 
+            this.imgBlueArrowCeleste.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgBlueArrowCeleste.Image = ((System.Drawing.Image)(resources.GetObject("imgBlueArrowCeleste.Image")));
+            this.imgBlueArrowCeleste.Location = new System.Drawing.Point(647, 61);
+            this.imgBlueArrowCeleste.Name = "imgBlueArrowCeleste";
+            this.imgBlueArrowCeleste.Size = new System.Drawing.Size(20, 20);
+            this.imgBlueArrowCeleste.TabIndex = 125;
+            this.imgBlueArrowCeleste.TabStop = false;
+            this.imgBlueArrowCeleste.Visible = false;
+            // 
+            // lblPreviewNewValueAquatique
+            // 
+            this.lblPreviewNewValueAquatique.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPreviewNewValueAquatique.AutoSize = true;
+            this.lblPreviewNewValueAquatique.Location = new System.Drawing.Point(564, 65);
+            this.lblPreviewNewValueAquatique.Name = "lblPreviewNewValueAquatique";
+            this.lblPreviewNewValueAquatique.Size = new System.Drawing.Size(0, 13);
+            this.lblPreviewNewValueAquatique.TabIndex = 124;
+            // 
+            // imgRedArrowAquatique
+            // 
+            this.imgRedArrowAquatique.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgRedArrowAquatique.Image = ((System.Drawing.Image)(resources.GetObject("imgRedArrowAquatique.Image")));
+            this.imgRedArrowAquatique.Location = new System.Drawing.Point(542, 61);
+            this.imgRedArrowAquatique.Name = "imgRedArrowAquatique";
+            this.imgRedArrowAquatique.Size = new System.Drawing.Size(20, 20);
+            this.imgRedArrowAquatique.TabIndex = 123;
+            this.imgRedArrowAquatique.TabStop = false;
+            this.imgRedArrowAquatique.Visible = false;
+            // 
+            // imgBlueArrowAquatique
+            // 
+            this.imgBlueArrowAquatique.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgBlueArrowAquatique.Image = ((System.Drawing.Image)(resources.GetObject("imgBlueArrowAquatique.Image")));
+            this.imgBlueArrowAquatique.Location = new System.Drawing.Point(542, 61);
+            this.imgBlueArrowAquatique.Name = "imgBlueArrowAquatique";
+            this.imgBlueArrowAquatique.Size = new System.Drawing.Size(20, 20);
+            this.imgBlueArrowAquatique.TabIndex = 122;
+            this.imgBlueArrowAquatique.TabStop = false;
+            this.imgBlueArrowAquatique.Visible = false;
+            // 
+            // lblPreviewNewValueIgnee
+            // 
+            this.lblPreviewNewValueIgnee.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPreviewNewValueIgnee.AutoSize = true;
+            this.lblPreviewNewValueIgnee.Location = new System.Drawing.Point(448, 65);
+            this.lblPreviewNewValueIgnee.Name = "lblPreviewNewValueIgnee";
+            this.lblPreviewNewValueIgnee.Size = new System.Drawing.Size(0, 13);
+            this.lblPreviewNewValueIgnee.TabIndex = 121;
+            // 
+            // imgRedArrowIgnee
+            // 
+            this.imgRedArrowIgnee.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgRedArrowIgnee.Image = ((System.Drawing.Image)(resources.GetObject("imgRedArrowIgnee.Image")));
+            this.imgRedArrowIgnee.Location = new System.Drawing.Point(426, 61);
+            this.imgRedArrowIgnee.Name = "imgRedArrowIgnee";
+            this.imgRedArrowIgnee.Size = new System.Drawing.Size(20, 20);
+            this.imgRedArrowIgnee.TabIndex = 120;
+            this.imgRedArrowIgnee.TabStop = false;
+            this.imgRedArrowIgnee.Visible = false;
+            // 
+            // imgBlueArrowIgnee
+            // 
+            this.imgBlueArrowIgnee.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgBlueArrowIgnee.Image = ((System.Drawing.Image)(resources.GetObject("imgBlueArrowIgnee.Image")));
+            this.imgBlueArrowIgnee.Location = new System.Drawing.Point(426, 61);
+            this.imgBlueArrowIgnee.Name = "imgBlueArrowIgnee";
+            this.imgBlueArrowIgnee.Size = new System.Drawing.Size(20, 20);
+            this.imgBlueArrowIgnee.TabIndex = 119;
+            this.imgBlueArrowIgnee.TabStop = false;
+            this.imgBlueArrowIgnee.Visible = false;
+            // 
+            // lblPreviewNewValuePerforant
+            // 
+            this.lblPreviewNewValuePerforant.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPreviewNewValuePerforant.AutoSize = true;
+            this.lblPreviewNewValuePerforant.Location = new System.Drawing.Point(355, 65);
+            this.lblPreviewNewValuePerforant.Name = "lblPreviewNewValuePerforant";
+            this.lblPreviewNewValuePerforant.Size = new System.Drawing.Size(0, 13);
+            this.lblPreviewNewValuePerforant.TabIndex = 118;
+            // 
+            // imgRedArrowPerforant
+            // 
+            this.imgRedArrowPerforant.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgRedArrowPerforant.Image = ((System.Drawing.Image)(resources.GetObject("imgRedArrowPerforant.Image")));
+            this.imgRedArrowPerforant.Location = new System.Drawing.Point(333, 61);
+            this.imgRedArrowPerforant.Name = "imgRedArrowPerforant";
+            this.imgRedArrowPerforant.Size = new System.Drawing.Size(20, 20);
+            this.imgRedArrowPerforant.TabIndex = 117;
+            this.imgRedArrowPerforant.TabStop = false;
+            this.imgRedArrowPerforant.Visible = false;
+            // 
+            // imgBlueArrowPerforant
+            // 
+            this.imgBlueArrowPerforant.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgBlueArrowPerforant.Image = ((System.Drawing.Image)(resources.GetObject("imgBlueArrowPerforant.Image")));
+            this.imgBlueArrowPerforant.Location = new System.Drawing.Point(333, 61);
+            this.imgBlueArrowPerforant.Name = "imgBlueArrowPerforant";
+            this.imgBlueArrowPerforant.Size = new System.Drawing.Size(20, 20);
+            this.imgBlueArrowPerforant.TabIndex = 116;
+            this.imgBlueArrowPerforant.TabStop = false;
+            this.imgBlueArrowPerforant.Visible = false;
+            // 
+            // lblPreviewNewValueContondant
+            // 
+            this.lblPreviewNewValueContondant.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPreviewNewValueContondant.AutoSize = true;
+            this.lblPreviewNewValueContondant.Location = new System.Drawing.Point(239, 65);
+            this.lblPreviewNewValueContondant.Name = "lblPreviewNewValueContondant";
+            this.lblPreviewNewValueContondant.Size = new System.Drawing.Size(0, 13);
+            this.lblPreviewNewValueContondant.TabIndex = 115;
+            // 
+            // imgRedArrowContondant
+            // 
+            this.imgRedArrowContondant.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgRedArrowContondant.Image = ((System.Drawing.Image)(resources.GetObject("imgRedArrowContondant.Image")));
+            this.imgRedArrowContondant.Location = new System.Drawing.Point(217, 61);
+            this.imgRedArrowContondant.Name = "imgRedArrowContondant";
+            this.imgRedArrowContondant.Size = new System.Drawing.Size(20, 20);
+            this.imgRedArrowContondant.TabIndex = 114;
+            this.imgRedArrowContondant.TabStop = false;
+            this.imgRedArrowContondant.Visible = false;
+            // 
+            // imgBlueArrowContondant
+            // 
+            this.imgBlueArrowContondant.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgBlueArrowContondant.Image = ((System.Drawing.Image)(resources.GetObject("imgBlueArrowContondant.Image")));
+            this.imgBlueArrowContondant.Location = new System.Drawing.Point(217, 61);
+            this.imgBlueArrowContondant.Name = "imgBlueArrowContondant";
+            this.imgBlueArrowContondant.Size = new System.Drawing.Size(20, 20);
+            this.imgBlueArrowContondant.TabIndex = 113;
+            this.imgBlueArrowContondant.TabStop = false;
+            this.imgBlueArrowContondant.Visible = false;
+            // 
+            // lblPreviewNewValueTranchant
+            // 
+            this.lblPreviewNewValueTranchant.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPreviewNewValueTranchant.AutoSize = true;
+            this.lblPreviewNewValueTranchant.Location = new System.Drawing.Point(114, 65);
+            this.lblPreviewNewValueTranchant.Name = "lblPreviewNewValueTranchant";
+            this.lblPreviewNewValueTranchant.Size = new System.Drawing.Size(0, 13);
+            this.lblPreviewNewValueTranchant.TabIndex = 112;
+            // 
+            // imgRedArrowTranchant
+            // 
+            this.imgRedArrowTranchant.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgRedArrowTranchant.Image = ((System.Drawing.Image)(resources.GetObject("imgRedArrowTranchant.Image")));
+            this.imgRedArrowTranchant.Location = new System.Drawing.Point(90, 61);
+            this.imgRedArrowTranchant.Name = "imgRedArrowTranchant";
+            this.imgRedArrowTranchant.Size = new System.Drawing.Size(20, 20);
+            this.imgRedArrowTranchant.TabIndex = 111;
+            this.imgRedArrowTranchant.TabStop = false;
+            this.imgRedArrowTranchant.Visible = false;
+            // 
+            // imgBlueArrowTranchant
+            // 
+            this.imgBlueArrowTranchant.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgBlueArrowTranchant.Image = ((System.Drawing.Image)(resources.GetObject("imgBlueArrowTranchant.Image")));
+            this.imgBlueArrowTranchant.Location = new System.Drawing.Point(90, 61);
+            this.imgBlueArrowTranchant.Name = "imgBlueArrowTranchant";
+            this.imgBlueArrowTranchant.Size = new System.Drawing.Size(20, 20);
+            this.imgBlueArrowTranchant.TabIndex = 64;
+            this.imgBlueArrowTranchant.TabStop = false;
+            this.imgBlueArrowTranchant.Visible = false;
             // 
             // lblWarning
             // 
@@ -1347,429 +1753,180 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.lblModifResistance.TabIndex = 109;
             this.lblModifResistance.Text = "Modifier une résistance : 10 PO";
             // 
-            // txtBxPoidsFinal
-            // 
-            this.txtBxPoidsFinal.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtBxPoidsFinal.BackColor = System.Drawing.SystemColors.Window;
-            this.txtBxPoidsFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxPoidsFinal.Location = new System.Drawing.Point(126, 137);
-            this.txtBxPoidsFinal.Name = "txtBxPoidsFinal";
-            this.txtBxPoidsFinal.ReadOnly = true;
-            this.txtBxPoidsFinal.Size = new System.Drawing.Size(74, 20);
-            this.txtBxPoidsFinal.TabIndex = 107;
-            this.txtBxPoidsFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numUpDownFroid
-            // 
-            this.numUpDownFroid.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numUpDownFroid.Location = new System.Drawing.Point(974, 99);
-            this.numUpDownFroid.Name = "numUpDownFroid";
-            this.numUpDownFroid.Size = new System.Drawing.Size(36, 20);
-            this.numUpDownFroid.TabIndex = 108;
-            // 
-            // numUpDownChaleur
-            // 
-            this.numUpDownChaleur.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numUpDownChaleur.Location = new System.Drawing.Point(868, 99);
-            this.numUpDownChaleur.Name = "numUpDownChaleur";
-            this.numUpDownChaleur.Size = new System.Drawing.Size(36, 20);
-            this.numUpDownChaleur.TabIndex = 107;
-            // 
-            // txtBxValeurFinale
-            // 
-            this.txtBxValeurFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtBxValeurFinale.BackColor = System.Drawing.SystemColors.Window;
-            this.txtBxValeurFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBxValeurFinale.Location = new System.Drawing.Point(17, 137);
-            this.txtBxValeurFinale.Name = "txtBxValeurFinale";
-            this.txtBxValeurFinale.ReadOnly = true;
-            this.txtBxValeurFinale.Size = new System.Drawing.Size(74, 20);
-            this.txtBxValeurFinale.TabIndex = 106;
-            this.txtBxValeurFinale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numUpDownVitesse
-            // 
-            this.numUpDownVitesse.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numUpDownVitesse.Location = new System.Drawing.Point(773, 99);
-            this.numUpDownVitesse.Name = "numUpDownVitesse";
-            this.numUpDownVitesse.Size = new System.Drawing.Size(36, 20);
-            this.numUpDownVitesse.TabIndex = 106;
-            // 
-            // numUpDownInitiative
-            // 
-            this.numUpDownInitiative.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numUpDownInitiative.Location = new System.Drawing.Point(689, 99);
-            this.numUpDownInitiative.Name = "numUpDownInitiative";
-            this.numUpDownInitiative.Size = new System.Drawing.Size(36, 20);
-            this.numUpDownInitiative.TabIndex = 105;
-            // 
-            // numUpDownPression
-            // 
-            this.numUpDownPression.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numUpDownPression.Location = new System.Drawing.Point(594, 99);
-            this.numUpDownPression.Name = "numUpDownPression";
-            this.numUpDownPression.Size = new System.Drawing.Size(36, 20);
-            this.numUpDownPression.TabIndex = 98;
-            // 
-            // numUpDownChute
-            // 
-            this.numUpDownChute.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numUpDownChute.Location = new System.Drawing.Point(498, 99);
-            this.numUpDownChute.Name = "numUpDownChute";
-            this.numUpDownChute.Size = new System.Drawing.Size(36, 20);
-            this.numUpDownChute.TabIndex = 97;
-            // 
-            // txtFroidTitleFinal
-            // 
-            this.txtFroidTitleFinal.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtFroidTitleFinal.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtFroidTitleFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFroidTitleFinal.Location = new System.Drawing.Point(902, 80);
-            this.txtFroidTitleFinal.Name = "txtFroidTitleFinal";
-            this.txtFroidTitleFinal.ReadOnly = true;
-            this.txtFroidTitleFinal.Size = new System.Drawing.Size(73, 20);
-            this.txtFroidTitleFinal.TabIndex = 90;
-            this.txtFroidTitleFinal.Text = "Froid";
-            this.txtFroidTitleFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtChaleurTitleFinale
-            // 
-            this.txtChaleurTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtChaleurTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtChaleurTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtChaleurTitleFinale.Location = new System.Drawing.Point(808, 80);
-            this.txtChaleurTitleFinale.Name = "txtChaleurTitleFinale";
-            this.txtChaleurTitleFinale.ReadOnly = true;
-            this.txtChaleurTitleFinale.Size = new System.Drawing.Size(61, 20);
-            this.txtChaleurTitleFinale.TabIndex = 89;
-            this.txtChaleurTitleFinale.Text = "Chaleur";
-            this.txtChaleurTitleFinale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtPoidsTitleFinal
-            // 
-            this.txtPoidsTitleFinal.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPoidsTitleFinal.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtPoidsTitleFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPoidsTitleFinal.Location = new System.Drawing.Point(126, 118);
-            this.txtPoidsTitleFinal.Name = "txtPoidsTitleFinal";
-            this.txtPoidsTitleFinal.ReadOnly = true;
-            this.txtPoidsTitleFinal.Size = new System.Drawing.Size(74, 20);
-            this.txtPoidsTitleFinal.TabIndex = 103;
-            this.txtPoidsTitleFinal.Text = "Poids";
-            this.txtPoidsTitleFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtFroidModificationRecapitulatif
-            // 
-            this.txtFroidModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtFroidModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
-            this.txtFroidModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFroidModificationRecapitulatif.Location = new System.Drawing.Point(902, 99);
-            this.txtFroidModificationRecapitulatif.Name = "txtFroidModificationRecapitulatif";
-            this.txtFroidModificationRecapitulatif.ReadOnly = true;
-            this.txtFroidModificationRecapitulatif.Size = new System.Drawing.Size(73, 20);
-            this.txtFroidModificationRecapitulatif.TabIndex = 99;
-            this.txtFroidModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtValeurTitleFinale
-            // 
-            this.txtValeurTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtValeurTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtValeurTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtValeurTitleFinale.Location = new System.Drawing.Point(17, 118);
-            this.txtValeurTitleFinale.Name = "txtValeurTitleFinale";
-            this.txtValeurTitleFinale.ReadOnly = true;
-            this.txtValeurTitleFinale.Size = new System.Drawing.Size(74, 20);
-            this.txtValeurTitleFinale.TabIndex = 102;
-            this.txtValeurTitleFinale.Text = "Valeur";
-            this.txtValeurTitleFinale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numUpDownMaladies
-            // 
-            this.numUpDownMaladies.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numUpDownMaladies.Location = new System.Drawing.Point(391, 99);
-            this.numUpDownMaladies.Name = "numUpDownMaladies";
-            this.numUpDownMaladies.Size = new System.Drawing.Size(36, 20);
-            this.numUpDownMaladies.TabIndex = 96;
-            // 
-            // txtVitesseModificationRecapitulatif
-            // 
-            this.txtVitesseModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtVitesseModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
-            this.txtVitesseModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtVitesseModificationRecapitulatif.Location = new System.Drawing.Point(724, 99);
-            this.txtVitesseModificationRecapitulatif.Name = "txtVitesseModificationRecapitulatif";
-            this.txtVitesseModificationRecapitulatif.Size = new System.Drawing.Size(50, 20);
-            this.txtVitesseModificationRecapitulatif.TabIndex = 105;
-            this.txtVitesseModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numUpDownAcide
-            // 
-            this.numUpDownAcide.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numUpDownAcide.Location = new System.Drawing.Point(305, 99);
-            this.numUpDownAcide.Name = "numUpDownAcide";
-            this.numUpDownAcide.Size = new System.Drawing.Size(36, 20);
-            this.numUpDownAcide.TabIndex = 95;
-            // 
-            // numUpDownChoc
-            // 
-            this.numUpDownChoc.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numUpDownChoc.Location = new System.Drawing.Point(200, 99);
-            this.numUpDownChoc.Name = "numUpDownChoc";
-            this.numUpDownChoc.Size = new System.Drawing.Size(36, 20);
-            this.numUpDownChoc.TabIndex = 94;
-            // 
-            // txtPressionTitleFinale
-            // 
-            this.txtPressionTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPressionTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtPressionTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPressionTitleFinale.Location = new System.Drawing.Point(533, 80);
-            this.txtPressionTitleFinale.Name = "txtPressionTitleFinale";
-            this.txtPressionTitleFinale.ReadOnly = true;
-            this.txtPressionTitleFinale.Size = new System.Drawing.Size(62, 20);
-            this.txtPressionTitleFinale.TabIndex = 88;
-            this.txtPressionTitleFinale.Text = "Pression";
-            this.txtPressionTitleFinale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtChaleurModificationRecapitulatif
-            // 
-            this.txtChaleurModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtChaleurModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
-            this.txtChaleurModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtChaleurModificationRecapitulatif.Location = new System.Drawing.Point(808, 99);
-            this.txtChaleurModificationRecapitulatif.Name = "txtChaleurModificationRecapitulatif";
-            this.txtChaleurModificationRecapitulatif.ReadOnly = true;
-            this.txtChaleurModificationRecapitulatif.Size = new System.Drawing.Size(61, 20);
-            this.txtChaleurModificationRecapitulatif.TabIndex = 98;
-            this.txtChaleurModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtMaladiesTitleFinale
-            // 
-            this.txtMaladiesTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtMaladiesTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtMaladiesTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMaladiesTitleFinale.Location = new System.Drawing.Point(340, 80);
-            this.txtMaladiesTitleFinale.Name = "txtMaladiesTitleFinale";
-            this.txtMaladiesTitleFinale.ReadOnly = true;
-            this.txtMaladiesTitleFinale.Size = new System.Drawing.Size(52, 20);
-            this.txtMaladiesTitleFinale.TabIndex = 85;
-            this.txtMaladiesTitleFinale.Text = "Maladies";
-            this.txtMaladiesTitleFinale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtChuteTitleFinale
-            // 
-            this.txtChuteTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtChuteTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtChuteTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtChuteTitleFinale.Location = new System.Drawing.Point(426, 80);
-            this.txtChuteTitleFinale.Name = "txtChuteTitleFinale";
-            this.txtChuteTitleFinale.ReadOnly = true;
-            this.txtChuteTitleFinale.Size = new System.Drawing.Size(73, 20);
-            this.txtChuteTitleFinale.TabIndex = 87;
-            this.txtChuteTitleFinale.Text = "Chute";
-            this.txtChuteTitleFinale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtChocTitleFinale
-            // 
-            this.txtChocTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtChocTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtChocTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtChocTitleFinale.Location = new System.Drawing.Point(126, 80);
-            this.txtChocTitleFinale.Name = "txtChocTitleFinale";
-            this.txtChocTitleFinale.ReadOnly = true;
-            this.txtChocTitleFinale.Size = new System.Drawing.Size(75, 20);
-            this.txtChocTitleFinale.TabIndex = 84;
-            this.txtChocTitleFinale.Text = "Choc";
-            this.txtChocTitleFinale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numUpDownSaignement
-            // 
-            this.numUpDownSaignement.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numUpDownSaignement.Location = new System.Drawing.Point(90, 99);
-            this.numUpDownSaignement.Name = "numUpDownSaignement";
-            this.numUpDownSaignement.Size = new System.Drawing.Size(36, 20);
-            this.numUpDownSaignement.TabIndex = 93;
-            // 
-            // txtInitiativeModificationRecapitulatif
-            // 
-            this.txtInitiativeModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtInitiativeModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
-            this.txtInitiativeModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtInitiativeModificationRecapitulatif.Location = new System.Drawing.Point(629, 99);
-            this.txtInitiativeModificationRecapitulatif.Name = "txtInitiativeModificationRecapitulatif";
-            this.txtInitiativeModificationRecapitulatif.ReadOnly = true;
-            this.txtInitiativeModificationRecapitulatif.Size = new System.Drawing.Size(61, 20);
-            this.txtInitiativeModificationRecapitulatif.TabIndex = 104;
-            this.txtInitiativeModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numUpDownMalediction
-            // 
-            this.numUpDownMalediction.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numUpDownMalediction.Location = new System.Drawing.Point(975, 61);
-            this.numUpDownMalediction.Name = "numUpDownMalediction";
-            this.numUpDownMalediction.Size = new System.Drawing.Size(35, 20);
-            this.numUpDownMalediction.TabIndex = 92;
-            // 
-            // numUpDownParalysie
-            // 
-            this.numUpDownParalysie.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numUpDownParalysie.Location = new System.Drawing.Point(868, 61);
-            this.numUpDownParalysie.Name = "numUpDownParalysie";
-            this.numUpDownParalysie.Size = new System.Drawing.Size(35, 20);
-            this.numUpDownParalysie.TabIndex = 90;
-            // 
-            // txtAcideTitleFinale
-            // 
-            this.txtAcideTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtAcideTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtAcideTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAcideTitleFinale.Location = new System.Drawing.Point(236, 80);
-            this.txtAcideTitleFinale.Name = "txtAcideTitleFinale";
-            this.txtAcideTitleFinale.ReadOnly = true;
-            this.txtAcideTitleFinale.Size = new System.Drawing.Size(70, 20);
-            this.txtAcideTitleFinale.TabIndex = 86;
-            this.txtAcideTitleFinale.Text = "Acide";
-            this.txtAcideTitleFinale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtVitesseTitleFinale
-            // 
-            this.txtVitesseTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtVitesseTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtVitesseTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtVitesseTitleFinale.Location = new System.Drawing.Point(724, 80);
-            this.txtVitesseTitleFinale.Name = "txtVitesseTitleFinale";
-            this.txtVitesseTitleFinale.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtVitesseTitleFinale.Size = new System.Drawing.Size(50, 20);
-            this.txtVitesseTitleFinale.TabIndex = 101;
-            this.txtVitesseTitleFinale.Text = "Vitesse";
-            this.txtVitesseTitleFinale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtSaignementTitleFinale
-            // 
-            this.txtSaignementTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtSaignementTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtSaignementTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSaignementTitleFinale.Location = new System.Drawing.Point(17, 80);
-            this.txtSaignementTitleFinale.Name = "txtSaignementTitleFinale";
-            this.txtSaignementTitleFinale.ReadOnly = true;
-            this.txtSaignementTitleFinale.Size = new System.Drawing.Size(74, 20);
-            this.txtSaignementTitleFinale.TabIndex = 83;
-            this.txtSaignementTitleFinale.Text = "Saignement";
-            this.txtSaignementTitleFinale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numUpDownPoison
-            // 
-            this.numUpDownPoison.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numUpDownPoison.Location = new System.Drawing.Point(773, 61);
-            this.numUpDownPoison.Name = "numUpDownPoison";
-            this.numUpDownPoison.Size = new System.Drawing.Size(35, 20);
-            this.numUpDownPoison.TabIndex = 89;
-            // 
-            // numUpDownTerrestre
-            // 
-            this.numUpDownTerrestre.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numUpDownTerrestre.Location = new System.Drawing.Point(689, 61);
-            this.numUpDownTerrestre.Name = "numUpDownTerrestre";
-            this.numUpDownTerrestre.Size = new System.Drawing.Size(36, 20);
-            this.numUpDownTerrestre.TabIndex = 88;
-            // 
-            // txtInitiativeTitleFinale
-            // 
-            this.txtInitiativeTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtInitiativeTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtInitiativeTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtInitiativeTitleFinale.Location = new System.Drawing.Point(629, 80);
-            this.txtInitiativeTitleFinale.Name = "txtInitiativeTitleFinale";
-            this.txtInitiativeTitleFinale.ReadOnly = true;
-            this.txtInitiativeTitleFinale.Size = new System.Drawing.Size(61, 20);
-            this.txtInitiativeTitleFinale.TabIndex = 100;
-            this.txtInitiativeTitleFinale.Text = "B. Initiative";
-            this.txtInitiativeTitleFinale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtPressionModificationRecapitulatif
-            // 
-            this.txtPressionModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPressionModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
-            this.txtPressionModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPressionModificationRecapitulatif.Location = new System.Drawing.Point(533, 99);
-            this.txtPressionModificationRecapitulatif.Name = "txtPressionModificationRecapitulatif";
-            this.txtPressionModificationRecapitulatif.ReadOnly = true;
-            this.txtPressionModificationRecapitulatif.Size = new System.Drawing.Size(62, 20);
-            this.txtPressionModificationRecapitulatif.TabIndex = 97;
-            this.txtPressionModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numUpDownCeleste
-            // 
-            this.numUpDownCeleste.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numUpDownCeleste.Location = new System.Drawing.Point(594, 61);
-            this.numUpDownCeleste.Name = "numUpDownCeleste";
-            this.numUpDownCeleste.Size = new System.Drawing.Size(36, 20);
-            this.numUpDownCeleste.TabIndex = 87;
-            // 
-            // numUpDownAquatique
-            // 
-            this.numUpDownAquatique.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numUpDownAquatique.Location = new System.Drawing.Point(498, 61);
-            this.numUpDownAquatique.Name = "numUpDownAquatique";
-            this.numUpDownAquatique.Size = new System.Drawing.Size(37, 20);
-            this.numUpDownAquatique.TabIndex = 86;
-            // 
-            // numUpDownIgnee
-            // 
-            this.numUpDownIgnee.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numUpDownIgnee.Location = new System.Drawing.Point(391, 61);
-            this.numUpDownIgnee.Name = "numUpDownIgnee";
-            this.numUpDownIgnee.Size = new System.Drawing.Size(37, 20);
-            this.numUpDownIgnee.TabIndex = 85;
-            // 
-            // txtMaledictionsTitleFinale
-            // 
-            this.txtMaledictionsTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtMaledictionsTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtMaledictionsTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMaledictionsTitleFinale.Location = new System.Drawing.Point(901, 42);
-            this.txtMaledictionsTitleFinale.Name = "txtMaledictionsTitleFinale";
-            this.txtMaledictionsTitleFinale.ReadOnly = true;
-            this.txtMaledictionsTitleFinale.Size = new System.Drawing.Size(75, 20);
-            this.txtMaledictionsTitleFinale.TabIndex = 82;
-            this.txtMaledictionsTitleFinale.Text = "Malédictions";
-            this.txtMaledictionsTitleFinale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numUpDownPerforant
-            // 
-            this.numUpDownPerforant.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numUpDownPerforant.Location = new System.Drawing.Point(306, 61);
-            this.numUpDownPerforant.Name = "numUpDownPerforant";
-            this.numUpDownPerforant.Size = new System.Drawing.Size(36, 20);
-            this.numUpDownPerforant.TabIndex = 84;
-            // 
-            // numUpDownContondant
-            // 
-            this.numUpDownContondant.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numUpDownContondant.Location = new System.Drawing.Point(201, 61);
-            this.numUpDownContondant.Name = "numUpDownContondant";
-            this.numUpDownContondant.Size = new System.Drawing.Size(36, 20);
-            this.numUpDownContondant.TabIndex = 83;
-            // 
-            // txtChuteModificationRecapitulatif
-            // 
-            this.txtChuteModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtChuteModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
-            this.txtChuteModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtChuteModificationRecapitulatif.Location = new System.Drawing.Point(426, 99);
-            this.txtChuteModificationRecapitulatif.Name = "txtChuteModificationRecapitulatif";
-            this.txtChuteModificationRecapitulatif.ReadOnly = true;
-            this.txtChuteModificationRecapitulatif.Size = new System.Drawing.Size(73, 20);
-            this.txtChuteModificationRecapitulatif.TabIndex = 96;
-            this.txtChuteModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numUpDownTranchant
-            // 
-            this.numUpDownTranchant.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numUpDownTranchant.Location = new System.Drawing.Point(91, 61);
-            this.numUpDownTranchant.Name = "numUpDownTranchant";
-            this.numUpDownTranchant.Size = new System.Drawing.Size(36, 20);
-            this.numUpDownTranchant.TabIndex = 82;
+            // txtBxPoidsFinaleValue
+            // 
+            this.txtBxPoidsFinaleValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxPoidsFinaleValue.BackColor = System.Drawing.SystemColors.Window;
+            this.txtBxPoidsFinaleValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxPoidsFinaleValue.Location = new System.Drawing.Point(262, 137);
+            this.txtBxPoidsFinaleValue.Name = "txtBxPoidsFinaleValue";
+            this.txtBxPoidsFinaleValue.ReadOnly = true;
+            this.txtBxPoidsFinaleValue.Size = new System.Drawing.Size(71, 20);
+            this.txtBxPoidsFinaleValue.TabIndex = 107;
+            this.txtBxPoidsFinaleValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtBxFroidTitleFinal
+            // 
+            this.txtBxFroidTitleFinal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxFroidTitleFinal.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtBxFroidTitleFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxFroidTitleFinal.Location = new System.Drawing.Point(17, 118);
+            this.txtBxFroidTitleFinal.Name = "txtBxFroidTitleFinal";
+            this.txtBxFroidTitleFinal.ReadOnly = true;
+            this.txtBxFroidTitleFinal.Size = new System.Drawing.Size(74, 20);
+            this.txtBxFroidTitleFinal.TabIndex = 90;
+            this.txtBxFroidTitleFinal.Text = "Froid";
+            this.txtBxFroidTitleFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtBxChaleurTitleFinal
+            // 
+            this.txtBxChaleurTitleFinal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxChaleurTitleFinal.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtBxChaleurTitleFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxChaleurTitleFinal.Location = new System.Drawing.Point(141, 118);
+            this.txtBxChaleurTitleFinal.Name = "txtBxChaleurTitleFinal";
+            this.txtBxChaleurTitleFinal.ReadOnly = true;
+            this.txtBxChaleurTitleFinal.Size = new System.Drawing.Size(76, 20);
+            this.txtBxChaleurTitleFinal.TabIndex = 89;
+            this.txtBxChaleurTitleFinal.Text = "Chaleur";
+            this.txtBxChaleurTitleFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtBxPoidsTitleFinal
+            // 
+            this.txtBxPoidsTitleFinal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxPoidsTitleFinal.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtBxPoidsTitleFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxPoidsTitleFinal.Location = new System.Drawing.Point(262, 118);
+            this.txtBxPoidsTitleFinal.Name = "txtBxPoidsTitleFinal";
+            this.txtBxPoidsTitleFinal.ReadOnly = true;
+            this.txtBxPoidsTitleFinal.Size = new System.Drawing.Size(71, 20);
+            this.txtBxPoidsTitleFinal.TabIndex = 103;
+            this.txtBxPoidsTitleFinal.Text = "Poids";
+            this.txtBxPoidsTitleFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtBxFroidFinaleValue
+            // 
+            this.txtBxFroidFinaleValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxFroidFinaleValue.BackColor = System.Drawing.SystemColors.Window;
+            this.txtBxFroidFinaleValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxFroidFinaleValue.Location = new System.Drawing.Point(17, 137);
+            this.txtBxFroidFinaleValue.Name = "txtBxFroidFinaleValue";
+            this.txtBxFroidFinaleValue.ReadOnly = true;
+            this.txtBxFroidFinaleValue.Size = new System.Drawing.Size(74, 20);
+            this.txtBxFroidFinaleValue.TabIndex = 99;
+            this.txtBxFroidFinaleValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtBxVitesseFinaleValue
+            // 
+            this.txtBxVitesseFinaleValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxVitesseFinaleValue.BackColor = System.Drawing.SystemColors.Window;
+            this.txtBxVitesseFinaleValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxVitesseFinaleValue.Location = new System.Drawing.Point(375, 99);
+            this.txtBxVitesseFinaleValue.Name = "txtBxVitesseFinaleValue";
+            this.txtBxVitesseFinaleValue.Size = new System.Drawing.Size(51, 20);
+            this.txtBxVitesseFinaleValue.TabIndex = 105;
+            this.txtBxVitesseFinaleValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtBxPressionTitleFinal
+            // 
+            this.txtBxPressionTitleFinal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxPressionTitleFinal.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtBxPressionTitleFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxPressionTitleFinal.Location = new System.Drawing.Point(262, 80);
+            this.txtBxPressionTitleFinal.Name = "txtBxPressionTitleFinal";
+            this.txtBxPressionTitleFinal.ReadOnly = true;
+            this.txtBxPressionTitleFinal.Size = new System.Drawing.Size(71, 20);
+            this.txtBxPressionTitleFinal.TabIndex = 88;
+            this.txtBxPressionTitleFinal.Text = "Pression";
+            this.txtBxPressionTitleFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtBxChaleurFinaleValue
+            // 
+            this.txtBxChaleurFinaleValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxChaleurFinaleValue.BackColor = System.Drawing.SystemColors.Window;
+            this.txtBxChaleurFinaleValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxChaleurFinaleValue.Location = new System.Drawing.Point(141, 137);
+            this.txtBxChaleurFinaleValue.Name = "txtBxChaleurFinaleValue";
+            this.txtBxChaleurFinaleValue.ReadOnly = true;
+            this.txtBxChaleurFinaleValue.Size = new System.Drawing.Size(76, 20);
+            this.txtBxChaleurFinaleValue.TabIndex = 98;
+            this.txtBxChaleurFinaleValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtBxChocTitleFinal
+            // 
+            this.txtBxChocTitleFinal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxChocTitleFinal.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtBxChocTitleFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxChocTitleFinal.Location = new System.Drawing.Point(17, 80);
+            this.txtBxChocTitleFinal.Name = "txtBxChocTitleFinal";
+            this.txtBxChocTitleFinal.ReadOnly = true;
+            this.txtBxChocTitleFinal.Size = new System.Drawing.Size(74, 20);
+            this.txtBxChocTitleFinal.TabIndex = 84;
+            this.txtBxChocTitleFinal.Text = "Choc";
+            this.txtBxChocTitleFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtBxInitiativeFinaleValue
+            // 
+            this.txtBxInitiativeFinaleValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxInitiativeFinaleValue.BackColor = System.Drawing.SystemColors.Window;
+            this.txtBxInitiativeFinaleValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxInitiativeFinaleValue.Location = new System.Drawing.Point(470, 99);
+            this.txtBxInitiativeFinaleValue.Name = "txtBxInitiativeFinaleValue";
+            this.txtBxInitiativeFinaleValue.ReadOnly = true;
+            this.txtBxInitiativeFinaleValue.Size = new System.Drawing.Size(72, 20);
+            this.txtBxInitiativeFinaleValue.TabIndex = 104;
+            this.txtBxInitiativeFinaleValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtBxAcideTitleFinal
+            // 
+            this.txtBxAcideTitleFinal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxAcideTitleFinal.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtBxAcideTitleFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxAcideTitleFinal.Location = new System.Drawing.Point(141, 80);
+            this.txtBxAcideTitleFinal.Name = "txtBxAcideTitleFinal";
+            this.txtBxAcideTitleFinal.ReadOnly = true;
+            this.txtBxAcideTitleFinal.Size = new System.Drawing.Size(76, 20);
+            this.txtBxAcideTitleFinal.TabIndex = 86;
+            this.txtBxAcideTitleFinal.Text = "Acide";
+            this.txtBxAcideTitleFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtBxVitesseTitleFinal
+            // 
+            this.txtBxVitesseTitleFinal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxVitesseTitleFinal.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtBxVitesseTitleFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxVitesseTitleFinal.Location = new System.Drawing.Point(375, 80);
+            this.txtBxVitesseTitleFinal.Name = "txtBxVitesseTitleFinal";
+            this.txtBxVitesseTitleFinal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtBxVitesseTitleFinal.Size = new System.Drawing.Size(51, 20);
+            this.txtBxVitesseTitleFinal.TabIndex = 101;
+            this.txtBxVitesseTitleFinal.Text = "Vitesse";
+            this.txtBxVitesseTitleFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtBxInitiativeTitleFinal
+            // 
+            this.txtBxInitiativeTitleFinal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxInitiativeTitleFinal.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtBxInitiativeTitleFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxInitiativeTitleFinal.Location = new System.Drawing.Point(470, 80);
+            this.txtBxInitiativeTitleFinal.Name = "txtBxInitiativeTitleFinal";
+            this.txtBxInitiativeTitleFinal.ReadOnly = true;
+            this.txtBxInitiativeTitleFinal.Size = new System.Drawing.Size(72, 20);
+            this.txtBxInitiativeTitleFinal.TabIndex = 100;
+            this.txtBxInitiativeTitleFinal.Text = "Initiative";
+            this.txtBxInitiativeTitleFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtBxPressionValueFinale
+            // 
+            this.txtBxPressionValueFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxPressionValueFinale.BackColor = System.Drawing.SystemColors.Window;
+            this.txtBxPressionValueFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxPressionValueFinale.Location = new System.Drawing.Point(262, 99);
+            this.txtBxPressionValueFinale.Name = "txtBxPressionValueFinale";
+            this.txtBxPressionValueFinale.ReadOnly = true;
+            this.txtBxPressionValueFinale.Size = new System.Drawing.Size(71, 20);
+            this.txtBxPressionValueFinale.TabIndex = 97;
+            this.txtBxPressionValueFinale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblResumeModifications
             // 
@@ -1782,289 +1939,204 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.lblResumeModifications.TabIndex = 63;
             this.lblResumeModifications.Text = "Récapitulatif et modification";
             // 
-            // txtTranchantModificationRecapitulatif
+            // txtBxTranchantFinaleValue
             // 
-            this.txtTranchantModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtTranchantModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
-            this.txtTranchantModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTranchantModificationRecapitulatif.Location = new System.Drawing.Point(17, 61);
-            this.txtTranchantModificationRecapitulatif.Name = "txtTranchantModificationRecapitulatif";
-            this.txtTranchantModificationRecapitulatif.ReadOnly = true;
-            this.txtTranchantModificationRecapitulatif.Size = new System.Drawing.Size(75, 20);
-            this.txtTranchantModificationRecapitulatif.TabIndex = 73;
-            this.txtTranchantModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBxTranchantFinaleValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxTranchantFinaleValue.BackColor = System.Drawing.SystemColors.Window;
+            this.txtBxTranchantFinaleValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxTranchantFinaleValue.Location = new System.Drawing.Point(17, 61);
+            this.txtBxTranchantFinaleValue.Name = "txtBxTranchantFinaleValue";
+            this.txtBxTranchantFinaleValue.ReadOnly = true;
+            this.txtBxTranchantFinaleValue.Size = new System.Drawing.Size(74, 20);
+            this.txtBxTranchantFinaleValue.TabIndex = 73;
+            this.txtBxTranchantFinaleValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtPoisonModificationRecapitulatif
+            // txtBxAquatiqueTitleFinal
             // 
-            this.txtPoisonModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPoisonModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
-            this.txtPoisonModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPoisonModificationRecapitulatif.Location = new System.Drawing.Point(724, 61);
-            this.txtPoisonModificationRecapitulatif.Name = "txtPoisonModificationRecapitulatif";
-            this.txtPoisonModificationRecapitulatif.Size = new System.Drawing.Size(50, 20);
-            this.txtPoisonModificationRecapitulatif.TabIndex = 80;
-            this.txtPoisonModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBxAquatiqueTitleFinal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxAquatiqueTitleFinal.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtBxAquatiqueTitleFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxAquatiqueTitleFinal.Location = new System.Drawing.Point(470, 42);
+            this.txtBxAquatiqueTitleFinal.Name = "txtBxAquatiqueTitleFinal";
+            this.txtBxAquatiqueTitleFinal.ReadOnly = true;
+            this.txtBxAquatiqueTitleFinal.Size = new System.Drawing.Size(72, 20);
+            this.txtBxAquatiqueTitleFinal.TabIndex = 68;
+            this.txtBxAquatiqueTitleFinal.Text = "Aquatique";
+            this.txtBxAquatiqueTitleFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtAquatiqueTitleFinale
+            // txtBxTerrestreFinaleValue
             // 
-            this.txtAquatiqueTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtAquatiqueTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtAquatiqueTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAquatiqueTitleFinale.Location = new System.Drawing.Point(427, 42);
-            this.txtAquatiqueTitleFinale.Name = "txtAquatiqueTitleFinale";
-            this.txtAquatiqueTitleFinale.ReadOnly = true;
-            this.txtAquatiqueTitleFinale.Size = new System.Drawing.Size(72, 20);
-            this.txtAquatiqueTitleFinale.TabIndex = 68;
-            this.txtAquatiqueTitleFinale.Text = "Aquatique";
-            this.txtAquatiqueTitleFinale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBxTerrestreFinaleValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxTerrestreFinaleValue.BackColor = System.Drawing.SystemColors.Window;
+            this.txtBxTerrestreFinaleValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxTerrestreFinaleValue.Location = new System.Drawing.Point(691, 61);
+            this.txtBxTerrestreFinaleValue.Name = "txtBxTerrestreFinaleValue";
+            this.txtBxTerrestreFinaleValue.ReadOnly = true;
+            this.txtBxTerrestreFinaleValue.Size = new System.Drawing.Size(61, 20);
+            this.txtBxTerrestreFinaleValue.TabIndex = 79;
+            this.txtBxTerrestreFinaleValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtMaladiesModificationRecapitulatif
+            // txtBxAcideFinaleValue
             // 
-            this.txtMaladiesModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtMaladiesModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
-            this.txtMaladiesModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMaladiesModificationRecapitulatif.Location = new System.Drawing.Point(340, 99);
-            this.txtMaladiesModificationRecapitulatif.Name = "txtMaladiesModificationRecapitulatif";
-            this.txtMaladiesModificationRecapitulatif.ReadOnly = true;
-            this.txtMaladiesModificationRecapitulatif.Size = new System.Drawing.Size(52, 20);
-            this.txtMaladiesModificationRecapitulatif.TabIndex = 95;
-            this.txtMaladiesModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBxAcideFinaleValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxAcideFinaleValue.BackColor = System.Drawing.SystemColors.Window;
+            this.txtBxAcideFinaleValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxAcideFinaleValue.Location = new System.Drawing.Point(141, 99);
+            this.txtBxAcideFinaleValue.Name = "txtBxAcideFinaleValue";
+            this.txtBxAcideFinaleValue.ReadOnly = true;
+            this.txtBxAcideFinaleValue.Size = new System.Drawing.Size(76, 20);
+            this.txtBxAcideFinaleValue.TabIndex = 94;
+            this.txtBxAcideFinaleValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtTerrestreModificationRecapitulatif
+            // txtBxCelesteTitleFinal
             // 
-            this.txtTerrestreModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtTerrestreModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
-            this.txtTerrestreModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTerrestreModificationRecapitulatif.Location = new System.Drawing.Point(629, 61);
-            this.txtTerrestreModificationRecapitulatif.Name = "txtTerrestreModificationRecapitulatif";
-            this.txtTerrestreModificationRecapitulatif.ReadOnly = true;
-            this.txtTerrestreModificationRecapitulatif.Size = new System.Drawing.Size(61, 20);
-            this.txtTerrestreModificationRecapitulatif.TabIndex = 79;
-            this.txtTerrestreModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBxCelesteTitleFinal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxCelesteTitleFinal.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtBxCelesteTitleFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxCelesteTitleFinal.Location = new System.Drawing.Point(586, 42);
+            this.txtBxCelesteTitleFinal.Name = "txtBxCelesteTitleFinal";
+            this.txtBxCelesteTitleFinal.ReadOnly = true;
+            this.txtBxCelesteTitleFinal.Size = new System.Drawing.Size(61, 20);
+            this.txtBxCelesteTitleFinal.TabIndex = 69;
+            this.txtBxCelesteTitleFinal.Text = "Céleste";
+            this.txtBxCelesteTitleFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtAcideModificationRecapitulatif
+            // txtbxIgneeTitleFinal
             // 
-            this.txtAcideModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtAcideModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
-            this.txtAcideModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAcideModificationRecapitulatif.Location = new System.Drawing.Point(236, 99);
-            this.txtAcideModificationRecapitulatif.Name = "txtAcideModificationRecapitulatif";
-            this.txtAcideModificationRecapitulatif.ReadOnly = true;
-            this.txtAcideModificationRecapitulatif.Size = new System.Drawing.Size(70, 20);
-            this.txtAcideModificationRecapitulatif.TabIndex = 94;
-            this.txtAcideModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtbxIgneeTitleFinal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtbxIgneeTitleFinal.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtbxIgneeTitleFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtbxIgneeTitleFinal.Location = new System.Drawing.Point(375, 42);
+            this.txtbxIgneeTitleFinal.Name = "txtbxIgneeTitleFinal";
+            this.txtbxIgneeTitleFinal.ReadOnly = true;
+            this.txtbxIgneeTitleFinal.Size = new System.Drawing.Size(51, 20);
+            this.txtbxIgneeTitleFinal.TabIndex = 67;
+            this.txtbxIgneeTitleFinal.Text = "Ignée";
+            this.txtbxIgneeTitleFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtCelesteTitleFinale
+            // txtBxCelesteFinaleValue
             // 
-            this.txtCelesteTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCelesteTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtCelesteTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCelesteTitleFinale.Location = new System.Drawing.Point(534, 42);
-            this.txtCelesteTitleFinale.Name = "txtCelesteTitleFinale";
-            this.txtCelesteTitleFinale.ReadOnly = true;
-            this.txtCelesteTitleFinale.Size = new System.Drawing.Size(61, 20);
-            this.txtCelesteTitleFinale.TabIndex = 69;
-            this.txtCelesteTitleFinale.Text = "Céleste";
-            this.txtCelesteTitleFinale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBxCelesteFinaleValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxCelesteFinaleValue.BackColor = System.Drawing.SystemColors.Window;
+            this.txtBxCelesteFinaleValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxCelesteFinaleValue.Location = new System.Drawing.Point(586, 61);
+            this.txtBxCelesteFinaleValue.Name = "txtBxCelesteFinaleValue";
+            this.txtBxCelesteFinaleValue.ReadOnly = true;
+            this.txtBxCelesteFinaleValue.Size = new System.Drawing.Size(61, 20);
+            this.txtBxCelesteFinaleValue.TabIndex = 78;
+            this.txtBxCelesteFinaleValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtIgneeTitleFinale
+            // txtBxChocFinaleValue
             // 
-            this.txtIgneeTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtIgneeTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtIgneeTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIgneeTitleFinale.Location = new System.Drawing.Point(341, 42);
-            this.txtIgneeTitleFinale.Name = "txtIgneeTitleFinale";
-            this.txtIgneeTitleFinale.ReadOnly = true;
-            this.txtIgneeTitleFinale.Size = new System.Drawing.Size(51, 20);
-            this.txtIgneeTitleFinale.TabIndex = 67;
-            this.txtIgneeTitleFinale.Text = "Ignée";
-            this.txtIgneeTitleFinale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBxChocFinaleValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxChocFinaleValue.BackColor = System.Drawing.SystemColors.Window;
+            this.txtBxChocFinaleValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxChocFinaleValue.Location = new System.Drawing.Point(17, 99);
+            this.txtBxChocFinaleValue.Name = "txtBxChocFinaleValue";
+            this.txtBxChocFinaleValue.ReadOnly = true;
+            this.txtBxChocFinaleValue.Size = new System.Drawing.Size(74, 20);
+            this.txtBxChocFinaleValue.TabIndex = 93;
+            this.txtBxChocFinaleValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtCelesteModificationRecapitulatif
+            // txtBxContondantTitleFinal
             // 
-            this.txtCelesteModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtCelesteModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
-            this.txtCelesteModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCelesteModificationRecapitulatif.Location = new System.Drawing.Point(534, 61);
-            this.txtCelesteModificationRecapitulatif.Name = "txtCelesteModificationRecapitulatif";
-            this.txtCelesteModificationRecapitulatif.ReadOnly = true;
-            this.txtCelesteModificationRecapitulatif.Size = new System.Drawing.Size(61, 20);
-            this.txtCelesteModificationRecapitulatif.TabIndex = 78;
-            this.txtCelesteModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBxContondantTitleFinal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxContondantTitleFinal.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtBxContondantTitleFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxContondantTitleFinal.Location = new System.Drawing.Point(141, 42);
+            this.txtBxContondantTitleFinal.Name = "txtBxContondantTitleFinal";
+            this.txtBxContondantTitleFinal.ReadOnly = true;
+            this.txtBxContondantTitleFinal.Size = new System.Drawing.Size(76, 20);
+            this.txtBxContondantTitleFinal.TabIndex = 65;
+            this.txtBxContondantTitleFinal.Text = "Contondant";
+            this.txtBxContondantTitleFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtChocModificationRecapitulatif
+            // txtBxTerrestreTitleFinal
             // 
-            this.txtChocModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtChocModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
-            this.txtChocModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtChocModificationRecapitulatif.Location = new System.Drawing.Point(126, 99);
-            this.txtChocModificationRecapitulatif.Name = "txtChocModificationRecapitulatif";
-            this.txtChocModificationRecapitulatif.ReadOnly = true;
-            this.txtChocModificationRecapitulatif.Size = new System.Drawing.Size(75, 20);
-            this.txtChocModificationRecapitulatif.TabIndex = 93;
-            this.txtChocModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBxTerrestreTitleFinal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxTerrestreTitleFinal.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtBxTerrestreTitleFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxTerrestreTitleFinal.Location = new System.Drawing.Point(691, 42);
+            this.txtBxTerrestreTitleFinal.Name = "txtBxTerrestreTitleFinal";
+            this.txtBxTerrestreTitleFinal.ReadOnly = true;
+            this.txtBxTerrestreTitleFinal.Size = new System.Drawing.Size(61, 20);
+            this.txtBxTerrestreTitleFinal.TabIndex = 70;
+            this.txtBxTerrestreTitleFinal.Text = "Terrestre";
+            this.txtBxTerrestreTitleFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtSaignementModificationRecapitulatif
+            // txtBxAquatiqueFinaleValue
             // 
-            this.txtSaignementModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtSaignementModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
-            this.txtSaignementModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSaignementModificationRecapitulatif.Location = new System.Drawing.Point(17, 99);
-            this.txtSaignementModificationRecapitulatif.Name = "txtSaignementModificationRecapitulatif";
-            this.txtSaignementModificationRecapitulatif.ReadOnly = true;
-            this.txtSaignementModificationRecapitulatif.Size = new System.Drawing.Size(74, 20);
-            this.txtSaignementModificationRecapitulatif.TabIndex = 92;
-            this.txtSaignementModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBxAquatiqueFinaleValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxAquatiqueFinaleValue.BackColor = System.Drawing.SystemColors.Window;
+            this.txtBxAquatiqueFinaleValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxAquatiqueFinaleValue.Location = new System.Drawing.Point(470, 61);
+            this.txtBxAquatiqueFinaleValue.Name = "txtBxAquatiqueFinaleValue";
+            this.txtBxAquatiqueFinaleValue.ReadOnly = true;
+            this.txtBxAquatiqueFinaleValue.Size = new System.Drawing.Size(72, 20);
+            this.txtBxAquatiqueFinaleValue.TabIndex = 77;
+            this.txtBxAquatiqueFinaleValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtMaledictionsModificationRecapitulatif
+            // txtBxPerforantTitleFinal
             // 
-            this.txtMaledictionsModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtMaledictionsModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
-            this.txtMaledictionsModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMaledictionsModificationRecapitulatif.Location = new System.Drawing.Point(901, 61);
-            this.txtMaledictionsModificationRecapitulatif.Name = "txtMaledictionsModificationRecapitulatif";
-            this.txtMaledictionsModificationRecapitulatif.ReadOnly = true;
-            this.txtMaledictionsModificationRecapitulatif.Size = new System.Drawing.Size(75, 20);
-            this.txtMaledictionsModificationRecapitulatif.TabIndex = 91;
-            this.txtMaledictionsModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBxPerforantTitleFinal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxPerforantTitleFinal.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtBxPerforantTitleFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxPerforantTitleFinal.Location = new System.Drawing.Point(262, 42);
+            this.txtBxPerforantTitleFinal.Name = "txtBxPerforantTitleFinal";
+            this.txtBxPerforantTitleFinal.ReadOnly = true;
+            this.txtBxPerforantTitleFinal.Size = new System.Drawing.Size(71, 20);
+            this.txtBxPerforantTitleFinal.TabIndex = 66;
+            this.txtBxPerforantTitleFinal.Text = "Perforant";
+            this.txtBxPerforantTitleFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtParalysieModificationRecapitulatif
+            // txtBxIgneeBxFinaleValue
             // 
-            this.txtParalysieModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtParalysieModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
-            this.txtParalysieModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtParalysieModificationRecapitulatif.Location = new System.Drawing.Point(807, 61);
-            this.txtParalysieModificationRecapitulatif.Name = "txtParalysieModificationRecapitulatif";
-            this.txtParalysieModificationRecapitulatif.ReadOnly = true;
-            this.txtParalysieModificationRecapitulatif.Size = new System.Drawing.Size(62, 20);
-            this.txtParalysieModificationRecapitulatif.TabIndex = 81;
-            this.txtParalysieModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBxIgneeBxFinaleValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxIgneeBxFinaleValue.BackColor = System.Drawing.SystemColors.Window;
+            this.txtBxIgneeBxFinaleValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxIgneeBxFinaleValue.Location = new System.Drawing.Point(375, 61);
+            this.txtBxIgneeBxFinaleValue.Name = "txtBxIgneeBxFinaleValue";
+            this.txtBxIgneeBxFinaleValue.ReadOnly = true;
+            this.txtBxIgneeBxFinaleValue.Size = new System.Drawing.Size(51, 20);
+            this.txtBxIgneeBxFinaleValue.TabIndex = 76;
+            this.txtBxIgneeBxFinaleValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtContondantTitleFinale
+            // txtBxPerforantFinaleValue
             // 
-            this.txtContondantTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtContondantTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtContondantTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtContondantTitleFinale.Location = new System.Drawing.Point(126, 42);
-            this.txtContondantTitleFinale.Name = "txtContondantTitleFinale";
-            this.txtContondantTitleFinale.ReadOnly = true;
-            this.txtContondantTitleFinale.Size = new System.Drawing.Size(76, 20);
-            this.txtContondantTitleFinale.TabIndex = 65;
-            this.txtContondantTitleFinale.Text = "Contondant";
-            this.txtContondantTitleFinale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBxPerforantFinaleValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxPerforantFinaleValue.BackColor = System.Drawing.SystemColors.Window;
+            this.txtBxPerforantFinaleValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxPerforantFinaleValue.Location = new System.Drawing.Point(262, 61);
+            this.txtBxPerforantFinaleValue.Name = "txtBxPerforantFinaleValue";
+            this.txtBxPerforantFinaleValue.ReadOnly = true;
+            this.txtBxPerforantFinaleValue.Size = new System.Drawing.Size(71, 20);
+            this.txtBxPerforantFinaleValue.TabIndex = 75;
+            this.txtBxPerforantFinaleValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtTerrestreTitleFinale
+            // txtBxContondantFinaleValue
             // 
-            this.txtTerrestreTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtTerrestreTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtTerrestreTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTerrestreTitleFinale.Location = new System.Drawing.Point(629, 42);
-            this.txtTerrestreTitleFinale.Name = "txtTerrestreTitleFinale";
-            this.txtTerrestreTitleFinale.ReadOnly = true;
-            this.txtTerrestreTitleFinale.Size = new System.Drawing.Size(61, 20);
-            this.txtTerrestreTitleFinale.TabIndex = 70;
-            this.txtTerrestreTitleFinale.Text = "Terrestre";
-            this.txtTerrestreTitleFinale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBxContondantFinaleValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxContondantFinaleValue.BackColor = System.Drawing.SystemColors.Window;
+            this.txtBxContondantFinaleValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxContondantFinaleValue.Location = new System.Drawing.Point(141, 61);
+            this.txtBxContondantFinaleValue.Name = "txtBxContondantFinaleValue";
+            this.txtBxContondantFinaleValue.ReadOnly = true;
+            this.txtBxContondantFinaleValue.Size = new System.Drawing.Size(76, 20);
+            this.txtBxContondantFinaleValue.TabIndex = 74;
+            this.txtBxContondantFinaleValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtAquatiqueModificationRecapitulatif
+            // txtBxTranchantTitleFinal
             // 
-            this.txtAquatiqueModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtAquatiqueModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
-            this.txtAquatiqueModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAquatiqueModificationRecapitulatif.Location = new System.Drawing.Point(427, 61);
-            this.txtAquatiqueModificationRecapitulatif.Name = "txtAquatiqueModificationRecapitulatif";
-            this.txtAquatiqueModificationRecapitulatif.ReadOnly = true;
-            this.txtAquatiqueModificationRecapitulatif.Size = new System.Drawing.Size(72, 20);
-            this.txtAquatiqueModificationRecapitulatif.TabIndex = 77;
-            this.txtAquatiqueModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtPoisonTitleFinale
-            // 
-            this.txtPoisonTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPoisonTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtPoisonTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPoisonTitleFinale.Location = new System.Drawing.Point(724, 42);
-            this.txtPoisonTitleFinale.Name = "txtPoisonTitleFinale";
-            this.txtPoisonTitleFinale.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtPoisonTitleFinale.Size = new System.Drawing.Size(50, 20);
-            this.txtPoisonTitleFinale.TabIndex = 71;
-            this.txtPoisonTitleFinale.Text = "Poison";
-            this.txtPoisonTitleFinale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtPerforantTitleFinale
-            // 
-            this.txtPerforantTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPerforantTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtPerforantTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPerforantTitleFinale.Location = new System.Drawing.Point(236, 42);
-            this.txtPerforantTitleFinale.Name = "txtPerforantTitleFinale";
-            this.txtPerforantTitleFinale.ReadOnly = true;
-            this.txtPerforantTitleFinale.Size = new System.Drawing.Size(71, 20);
-            this.txtPerforantTitleFinale.TabIndex = 66;
-            this.txtPerforantTitleFinale.Text = "Perforant";
-            this.txtPerforantTitleFinale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtIgneeModificationRecapitulation
-            // 
-            this.txtIgneeModificationRecapitulation.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtIgneeModificationRecapitulation.BackColor = System.Drawing.SystemColors.Window;
-            this.txtIgneeModificationRecapitulation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIgneeModificationRecapitulation.Location = new System.Drawing.Point(341, 61);
-            this.txtIgneeModificationRecapitulation.Name = "txtIgneeModificationRecapitulation";
-            this.txtIgneeModificationRecapitulation.ReadOnly = true;
-            this.txtIgneeModificationRecapitulation.Size = new System.Drawing.Size(51, 20);
-            this.txtIgneeModificationRecapitulation.TabIndex = 76;
-            this.txtIgneeModificationRecapitulation.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtParalysieTitleFinale
-            // 
-            this.txtParalysieTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtParalysieTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtParalysieTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtParalysieTitleFinale.Location = new System.Drawing.Point(807, 42);
-            this.txtParalysieTitleFinale.Name = "txtParalysieTitleFinale";
-            this.txtParalysieTitleFinale.ReadOnly = true;
-            this.txtParalysieTitleFinale.Size = new System.Drawing.Size(62, 20);
-            this.txtParalysieTitleFinale.TabIndex = 72;
-            this.txtParalysieTitleFinale.Text = "Paralysie";
-            this.txtParalysieTitleFinale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtPerforantModificationRecapitulation
-            // 
-            this.txtPerforantModificationRecapitulation.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPerforantModificationRecapitulation.BackColor = System.Drawing.SystemColors.Window;
-            this.txtPerforantModificationRecapitulation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPerforantModificationRecapitulation.Location = new System.Drawing.Point(236, 61);
-            this.txtPerforantModificationRecapitulation.Name = "txtPerforantModificationRecapitulation";
-            this.txtPerforantModificationRecapitulation.ReadOnly = true;
-            this.txtPerforantModificationRecapitulation.Size = new System.Drawing.Size(71, 20);
-            this.txtPerforantModificationRecapitulation.TabIndex = 75;
-            this.txtPerforantModificationRecapitulation.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtContondantModificationRecapitulatif
-            // 
-            this.txtContondantModificationRecapitulatif.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtContondantModificationRecapitulatif.BackColor = System.Drawing.SystemColors.Window;
-            this.txtContondantModificationRecapitulatif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtContondantModificationRecapitulatif.Location = new System.Drawing.Point(126, 61);
-            this.txtContondantModificationRecapitulatif.Name = "txtContondantModificationRecapitulatif";
-            this.txtContondantModificationRecapitulatif.ReadOnly = true;
-            this.txtContondantModificationRecapitulatif.Size = new System.Drawing.Size(76, 20);
-            this.txtContondantModificationRecapitulatif.TabIndex = 74;
-            this.txtContondantModificationRecapitulatif.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtTranchantTitleFinale
-            // 
-            this.txtTranchantTitleFinale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtTranchantTitleFinale.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtTranchantTitleFinale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTranchantTitleFinale.Location = new System.Drawing.Point(17, 42);
-            this.txtTranchantTitleFinale.Name = "txtTranchantTitleFinale";
-            this.txtTranchantTitleFinale.ReadOnly = true;
-            this.txtTranchantTitleFinale.Size = new System.Drawing.Size(75, 20);
-            this.txtTranchantTitleFinale.TabIndex = 64;
-            this.txtTranchantTitleFinale.Text = "Tranchant";
-            this.txtTranchantTitleFinale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBxTranchantTitleFinal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxTranchantTitleFinal.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtBxTranchantTitleFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxTranchantTitleFinal.Location = new System.Drawing.Point(17, 42);
+            this.txtBxTranchantTitleFinal.Name = "txtBxTranchantTitleFinal";
+            this.txtBxTranchantTitleFinal.ReadOnly = true;
+            this.txtBxTranchantTitleFinal.Size = new System.Drawing.Size(74, 20);
+            this.txtBxTranchantTitleFinal.TabIndex = 64;
+            this.txtBxTranchantTitleFinal.Text = "Tranchant";
+            this.txtBxTranchantTitleFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnCreerArmure
             // 
@@ -2077,6 +2149,87 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.btnCreerArmure.TabIndex = 63;
             this.btnCreerArmure.Text = "Créer l\'armure";
             this.btnCreerArmure.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Location = new System.Drawing.Point(167, 180);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(71, 20);
+            this.textBox1.TabIndex = 62;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtBxTitleDexterite
+            // 
+            this.txtBxTitleDexterite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBxTitleDexterite.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtBxTitleDexterite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxTitleDexterite.Location = new System.Drawing.Point(167, 161);
+            this.txtBxTitleDexterite.Name = "txtBxTitleDexterite";
+            this.txtBxTitleDexterite.ReadOnly = true;
+            this.txtBxTitleDexterite.Size = new System.Drawing.Size(71, 20);
+            this.txtBxTitleDexterite.TabIndex = 61;
+            this.txtBxTitleDexterite.Text = "Dextérité";
+            this.txtBxTitleDexterite.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtBxDexteriteFinaleValue
+            // 
+            this.txtBxDexteriteFinaleValue.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxDexteriteFinaleValue.BackColor = System.Drawing.SystemColors.Window;
+            this.txtBxDexteriteFinaleValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxDexteriteFinaleValue.Location = new System.Drawing.Point(586, 99);
+            this.txtBxDexteriteFinaleValue.Name = "txtBxDexteriteFinaleValue";
+            this.txtBxDexteriteFinaleValue.ReadOnly = true;
+            this.txtBxDexteriteFinaleValue.Size = new System.Drawing.Size(61, 20);
+            this.txtBxDexteriteFinaleValue.TabIndex = 174;
+            this.txtBxDexteriteFinaleValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtBxDexteriteTitleFinal
+            // 
+            this.txtBxDexteriteTitleFinal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBxDexteriteTitleFinal.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtBxDexteriteTitleFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBxDexteriteTitleFinal.Location = new System.Drawing.Point(586, 80);
+            this.txtBxDexteriteTitleFinal.Name = "txtBxDexteriteTitleFinal";
+            this.txtBxDexteriteTitleFinal.ReadOnly = true;
+            this.txtBxDexteriteTitleFinal.Size = new System.Drawing.Size(61, 20);
+            this.txtBxDexteriteTitleFinal.TabIndex = 173;
+            this.txtBxDexteriteTitleFinal.Text = "Dextérité";
+            this.txtBxDexteriteTitleFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // imgRedArrowDexterite
+            // 
+            this.imgRedArrowDexterite.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgRedArrowDexterite.Image = ((System.Drawing.Image)(resources.GetObject("imgRedArrowDexterite.Image")));
+            this.imgRedArrowDexterite.Location = new System.Drawing.Point(647, 99);
+            this.imgRedArrowDexterite.Name = "imgRedArrowDexterite";
+            this.imgRedArrowDexterite.Size = new System.Drawing.Size(20, 20);
+            this.imgRedArrowDexterite.TabIndex = 175;
+            this.imgRedArrowDexterite.TabStop = false;
+            this.imgRedArrowDexterite.Visible = false;
+            // 
+            // imgBlueArrowDexterite
+            // 
+            this.imgBlueArrowDexterite.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgBlueArrowDexterite.Image = ((System.Drawing.Image)(resources.GetObject("imgBlueArrowDexterite.Image")));
+            this.imgBlueArrowDexterite.Location = new System.Drawing.Point(647, 99);
+            this.imgBlueArrowDexterite.Name = "imgBlueArrowDexterite";
+            this.imgBlueArrowDexterite.Size = new System.Drawing.Size(20, 20);
+            this.imgBlueArrowDexterite.TabIndex = 176;
+            this.imgBlueArrowDexterite.TabStop = false;
+            this.imgBlueArrowDexterite.Visible = false;
+            // 
+            // tbPgeMythique
+            // 
+            this.tbPgeMythique.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeMythique.Name = "tbPgeMythique";
+            this.tbPgeMythique.Size = new System.Drawing.Size(347, 244);
+            this.tbPgeMythique.TabIndex = 4;
+            this.tbPgeMythique.Text = "Mythique";
+            this.tbPgeMythique.UseVisualStyleBackColor = true;
             // 
             // FrmCreationArmure
             // 
@@ -2098,10 +2251,10 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.pnlMateriauxBonusArmure.ResumeLayout(false);
             this.pnlMateriauxBonusArmure.PerformLayout();
             this.tbCtrlMateriauxArmure.ResumeLayout(false);
-            this.tbPgeTransformes.ResumeLayout(false);
-            this.tbPgeMétaux.ResumeLayout(false);
-            this.tbPgeMinerais.ResumeLayout(false);
-            this.tbPgeAnimaux.ResumeLayout(false);
+            this.tbPgeOrganique.ResumeLayout(false);
+            this.tbPgeNaturel.ResumeLayout(false);
+            this.tbPgeMetaux.ResumeLayout(false);
+            this.tbPgeGemme.ResumeLayout(false);
             this.pnlTailleArmurePrix.ResumeLayout(false);
             this.pnlTailleArmurePrix.PerformLayout();
             this.pnlResumeResistanceMateriau.ResumeLayout(false);
@@ -2110,26 +2263,38 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.pnlCompositionArmure.PerformLayout();
             this.pnlResumeModifications.ResumeLayout(false);
             this.pnlResumeModifications.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownFroid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownChaleur)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownVitesse)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownInitiative)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownPression)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownChute)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownMaladies)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownAcide)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownChoc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownSaignement)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownMalediction)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownParalysie)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownPoison)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownTerrestre)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownCeleste)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownAquatique)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownIgnee)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownPerforant)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownContondant)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDownTranchant)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowPoids)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowPoids)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowFroid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowFroid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowChaleur)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowChaleur)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowVitesse)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowVitesse)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowInitiative)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowInitiative)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowPression)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowPression)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowAcide)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowAcide)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowChoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowChoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowTerrestre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowTerrestre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowCeleste)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowCeleste)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowAquatique)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowAquatique)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowIgnee)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowIgnee)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowPerforant)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowPerforant)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowContondant)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowContondant)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowTranchant)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowTranchant)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgRedArrowDexterite)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBlueArrowDexterite)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2143,13 +2308,11 @@ namespace maFichePersonnageJDR.View.Formulaires
         private System.Windows.Forms.RichTextBox rchTxtBxDescription;
         private System.Windows.Forms.Panel pnlMateriauxBonusArmure;
         private System.Windows.Forms.TabControl tbCtrlMateriauxArmure;
-        private System.Windows.Forms.TabPage tbPgeTransformes;
-        private System.Windows.Forms.TabPage tbPgeMétaux;
-        private System.Windows.Forms.TabPage tbPgeMinerais;
-        private System.Windows.Forms.TabPage tbPgeAnimaux;
+        private System.Windows.Forms.TabPage tbPgeOrganique;
+        private System.Windows.Forms.TabPage tbPgeNaturel;
+        private System.Windows.Forms.TabPage tbPgeMetaux;
+        private System.Windows.Forms.TabPage tbPgeGemme;
         private System.Windows.Forms.Label lblMateriauxBonus;
-        private System.Windows.Forms.TextBox txtBxPoids;
-        private System.Windows.Forms.TextBox txtBxValeur;
         private System.Windows.Forms.TextBox txtBxDeplacement;
         private System.Windows.Forms.TextBox txtBxBonusInitiative;
         private System.Windows.Forms.TextBox txtBxTitlePoids;
@@ -2159,23 +2322,13 @@ namespace maFichePersonnageJDR.View.Formulaires
         private System.Windows.Forms.TextBox txtBxFroid;
         private System.Windows.Forms.TextBox txtBxChaleur;
         private System.Windows.Forms.TextBox txtBxPression;
-        private System.Windows.Forms.TextBox txtBxChute;
-        private System.Windows.Forms.TextBox txtBxMaladies;
         private System.Windows.Forms.TextBox txtBxAcide;
         private System.Windows.Forms.TextBox txtBxChoc;
-        private System.Windows.Forms.TextBox txtBxSaignement;
-        private System.Windows.Forms.TextBox txtBxMaledictions;
         private System.Windows.Forms.TextBox txtBxTitleFroid;
         private System.Windows.Forms.TextBox txtBxTitleChaleur;
         private System.Windows.Forms.TextBox txtBxTitlePression;
-        private System.Windows.Forms.TextBox txtBxTitleChute;
         private System.Windows.Forms.TextBox txtBxTitleAcide;
-        private System.Windows.Forms.TextBox txtBxTitleMaladies;
         private System.Windows.Forms.TextBox txtBxTitleChoc;
-        private System.Windows.Forms.TextBox txtBxTitleSaignement;
-        private System.Windows.Forms.TextBox txtBxTitleMaledictions;
-        private System.Windows.Forms.TextBox txtBxParalysie;
-        private System.Windows.Forms.TextBox txtBxPoison;
         private System.Windows.Forms.TextBox txtBxTerrestre;
         private System.Windows.Forms.TextBox txtBxCeleste;
         private System.Windows.Forms.TextBox txtBxAquatique;
@@ -2183,8 +2336,6 @@ namespace maFichePersonnageJDR.View.Formulaires
         private System.Windows.Forms.TextBox txtBxPerforant;
         private System.Windows.Forms.TextBox txtBxContondant;
         private System.Windows.Forms.TextBox txtBxTranchant;
-        private System.Windows.Forms.TextBox txtBxTitleParalysie;
-        private System.Windows.Forms.TextBox txtBxTitlePoison;
         private System.Windows.Forms.TextBox txtBxTitleTerrestre;
         private System.Windows.Forms.TextBox txtBxTitleCeleste;
         private System.Windows.Forms.TextBox txtBxTitleAquatique;
@@ -2205,7 +2356,6 @@ namespace maFichePersonnageJDR.View.Formulaires
         private System.Windows.Forms.Label lblNombreCoutArmure;
         private System.Windows.Forms.Label lblCoutArmure;
         private System.Windows.Forms.Panel pnlResumeResistanceMateriau;
-        private System.Windows.Forms.ComboBox cmbBxQualiteMateriau;
         private System.Windows.Forms.Label lblQualiteMateriau;
         private System.Windows.Forms.Panel pnlCompositionArmure;
         private System.Windows.Forms.Button btnRetirerMateriau;
@@ -2214,76 +2364,103 @@ namespace maFichePersonnageJDR.View.Formulaires
         private System.Windows.Forms.Label lblCompositionArmure;
         private System.Windows.Forms.Panel pnlResumeModifications;
         private System.Windows.Forms.Label lblResumeModifications;
-        private System.Windows.Forms.NumericUpDown numUpDownPoison;
-        private System.Windows.Forms.NumericUpDown numUpDownTerrestre;
-        private System.Windows.Forms.NumericUpDown numUpDownCeleste;
-        private System.Windows.Forms.NumericUpDown numUpDownAquatique;
-        private System.Windows.Forms.NumericUpDown numUpDownIgnee;
-        private System.Windows.Forms.NumericUpDown numUpDownPerforant;
-        private System.Windows.Forms.NumericUpDown numUpDownContondant;
-        private System.Windows.Forms.NumericUpDown numUpDownTranchant;
-        private System.Windows.Forms.TextBox txtTranchantModificationRecapitulatif;
-        private System.Windows.Forms.TextBox txtPoisonModificationRecapitulatif;
-        private System.Windows.Forms.TextBox txtAquatiqueTitleFinale;
-        private System.Windows.Forms.TextBox txtTerrestreModificationRecapitulatif;
-        private System.Windows.Forms.TextBox txtCelesteTitleFinale;
-        private System.Windows.Forms.TextBox txtIgneeTitleFinale;
-        private System.Windows.Forms.TextBox txtCelesteModificationRecapitulatif;
-        private System.Windows.Forms.TextBox txtParalysieModificationRecapitulatif;
-        private System.Windows.Forms.TextBox txtContondantTitleFinale;
-        private System.Windows.Forms.TextBox txtTerrestreTitleFinale;
-        private System.Windows.Forms.TextBox txtAquatiqueModificationRecapitulatif;
-        private System.Windows.Forms.TextBox txtPoisonTitleFinale;
-        private System.Windows.Forms.TextBox txtPerforantTitleFinale;
-        private System.Windows.Forms.TextBox txtIgneeModificationRecapitulation;
-        private System.Windows.Forms.TextBox txtParalysieTitleFinale;
-        private System.Windows.Forms.TextBox txtPerforantModificationRecapitulation;
-        private System.Windows.Forms.TextBox txtContondantModificationRecapitulatif;
-        private System.Windows.Forms.TextBox txtTranchantTitleFinale;
-        private System.Windows.Forms.TextBox txtBxPoidsFinal;
-        private System.Windows.Forms.TextBox txtBxValeurFinale;
-        private System.Windows.Forms.TextBox txtChocTitleFinale;
-        private System.Windows.Forms.TextBox txtVitesseModificationRecapitulatif;
-        private System.Windows.Forms.TextBox txtSaignementTitleFinale;
-        private System.Windows.Forms.TextBox txtInitiativeModificationRecapitulatif;
-        private System.Windows.Forms.TextBox txtMaladiesTitleFinale;
-        private System.Windows.Forms.TextBox txtMaledictionsTitleFinale;
-        private System.Windows.Forms.TextBox txtPoidsTitleFinal;
-        private System.Windows.Forms.TextBox txtAcideTitleFinale;
-        private System.Windows.Forms.TextBox txtChuteTitleFinale;
-        private System.Windows.Forms.TextBox txtValeurTitleFinale;
-        private System.Windows.Forms.TextBox txtPressionTitleFinale;
-        private System.Windows.Forms.TextBox txtVitesseTitleFinale;
-        private System.Windows.Forms.TextBox txtChaleurTitleFinale;
-        private System.Windows.Forms.TextBox txtInitiativeTitleFinale;
-        private System.Windows.Forms.TextBox txtFroidTitleFinal;
-        private System.Windows.Forms.TextBox txtFroidModificationRecapitulatif;
-        private System.Windows.Forms.TextBox txtMaledictionsModificationRecapitulatif;
-        private System.Windows.Forms.TextBox txtChaleurModificationRecapitulatif;
-        private System.Windows.Forms.TextBox txtSaignementModificationRecapitulatif;
-        private System.Windows.Forms.TextBox txtPressionModificationRecapitulatif;
-        private System.Windows.Forms.TextBox txtChocModificationRecapitulatif;
-        private System.Windows.Forms.TextBox txtChuteModificationRecapitulatif;
-        private System.Windows.Forms.TextBox txtAcideModificationRecapitulatif;
-        private System.Windows.Forms.TextBox txtMaladiesModificationRecapitulatif;
-        private System.Windows.Forms.NumericUpDown numUpDownParalysie;
-        private System.Windows.Forms.NumericUpDown numUpDownVitesse;
-        private System.Windows.Forms.NumericUpDown numUpDownInitiative;
-        private System.Windows.Forms.NumericUpDown numUpDownPression;
-        private System.Windows.Forms.NumericUpDown numUpDownChute;
-        private System.Windows.Forms.NumericUpDown numUpDownMaladies;
-        private System.Windows.Forms.NumericUpDown numUpDownAcide;
-        private System.Windows.Forms.NumericUpDown numUpDownChoc;
-        private System.Windows.Forms.NumericUpDown numUpDownSaignement;
-        private System.Windows.Forms.NumericUpDown numUpDownMalediction;
-        private System.Windows.Forms.NumericUpDown numUpDownChaleur;
+        private System.Windows.Forms.TextBox txtBxTranchantFinaleValue;
+        private System.Windows.Forms.TextBox txtBxAquatiqueTitleFinal;
+        private System.Windows.Forms.TextBox txtBxTerrestreFinaleValue;
+        private System.Windows.Forms.TextBox txtBxCelesteTitleFinal;
+        private System.Windows.Forms.TextBox txtbxIgneeTitleFinal;
+        private System.Windows.Forms.TextBox txtBxCelesteFinaleValue;
+        private System.Windows.Forms.TextBox txtBxContondantTitleFinal;
+        private System.Windows.Forms.TextBox txtBxTerrestreTitleFinal;
+        private System.Windows.Forms.TextBox txtBxAquatiqueFinaleValue;
+        private System.Windows.Forms.TextBox txtBxPerforantTitleFinal;
+        private System.Windows.Forms.TextBox txtBxIgneeBxFinaleValue;
+        private System.Windows.Forms.TextBox txtBxPerforantFinaleValue;
+        private System.Windows.Forms.TextBox txtBxContondantFinaleValue;
+        private System.Windows.Forms.TextBox txtBxTranchantTitleFinal;
+        private System.Windows.Forms.TextBox txtBxPoidsFinaleValue;
+        private System.Windows.Forms.TextBox txtBxChocTitleFinal;
+        private System.Windows.Forms.TextBox txtBxVitesseFinaleValue;
+        private System.Windows.Forms.TextBox txtBxInitiativeFinaleValue;
+        private System.Windows.Forms.TextBox txtBxPoidsTitleFinal;
+        private System.Windows.Forms.TextBox txtBxAcideTitleFinal;
+        private System.Windows.Forms.TextBox txtBxPressionTitleFinal;
+        private System.Windows.Forms.TextBox txtBxVitesseTitleFinal;
+        private System.Windows.Forms.TextBox txtBxChaleurTitleFinal;
+        private System.Windows.Forms.TextBox txtBxInitiativeTitleFinal;
+        private System.Windows.Forms.TextBox txtBxFroidTitleFinal;
+        private System.Windows.Forms.TextBox txtBxFroidFinaleValue;
+        private System.Windows.Forms.TextBox txtBxChaleurFinaleValue;
+        private System.Windows.Forms.TextBox txtBxPressionValueFinale;
+        private System.Windows.Forms.TextBox txtBxChocFinaleValue;
+        private System.Windows.Forms.TextBox txtBxAcideFinaleValue;
         private System.Windows.Forms.Label lblWarning;
         private System.Windows.Forms.Label lblModifResistance;
-        private System.Windows.Forms.NumericUpDown numUpDownFroid;
         private System.Windows.Forms.Button btnCreerArmure;
-        private System.Windows.Forms.ListBox lstBxTransformes;
+        private System.Windows.Forms.ListBox lstBxOrganiques;
         private System.Windows.Forms.ListBox lstBxMetaux;
         private System.Windows.Forms.ListBox lstBxMinerais;
         private System.Windows.Forms.ListBox lstBxAnimaux;
+        private System.Windows.Forms.PictureBox imgBlueArrowTranchant;
+        private System.Windows.Forms.PictureBox imgRedArrowTranchant;
+        private System.Windows.Forms.Label lblPreviewNewValueTranchant;
+        private System.Windows.Forms.Label lblPreviewNewValueContondant;
+        private System.Windows.Forms.PictureBox imgRedArrowContondant;
+        private System.Windows.Forms.PictureBox imgBlueArrowContondant;
+        private System.Windows.Forms.Label lblPreviewNewValuePerforant;
+        private System.Windows.Forms.PictureBox imgRedArrowPerforant;
+        private System.Windows.Forms.PictureBox imgBlueArrowPerforant;
+        private System.Windows.Forms.Label lblPreviewNewValueIgnee;
+        private System.Windows.Forms.PictureBox imgRedArrowIgnee;
+        private System.Windows.Forms.PictureBox imgBlueArrowIgnee;
+        private System.Windows.Forms.Label lblPreviewNewValuePoison;
+        private System.Windows.Forms.Label lblPreviewNewValueTerrestre;
+        private System.Windows.Forms.PictureBox imgRedArrowTerrestre;
+        private System.Windows.Forms.PictureBox imgBlueArrowTerrestre;
+        private System.Windows.Forms.Label lblPreviewNewValueCeleste;
+        private System.Windows.Forms.PictureBox imgRedArrowCeleste;
+        private System.Windows.Forms.PictureBox imgBlueArrowCeleste;
+        private System.Windows.Forms.Label lblPreviewNewValueAquatique;
+        private System.Windows.Forms.PictureBox imgRedArrowAquatique;
+        private System.Windows.Forms.PictureBox imgBlueArrowAquatique;
+        private System.Windows.Forms.Label lblPreviewNewValueParalysie;
+        private System.Windows.Forms.Label lblPreviewNewValueMaledictions;
+        private System.Windows.Forms.Label lblPreviewNewValueSaignement;
+        private System.Windows.Forms.Label lblPreviewNewValueChoc;
+        private System.Windows.Forms.PictureBox imgRedArrowChoc;
+        private System.Windows.Forms.PictureBox imgBlueArrowChoc;
+        private System.Windows.Forms.Label lblPreviewNewValueChaleur;
+        private System.Windows.Forms.PictureBox imgRedArrowChaleur;
+        private System.Windows.Forms.PictureBox imgBlueArrowChaleur;
+        private System.Windows.Forms.Label lblPreviewNewValueVitesse;
+        private System.Windows.Forms.PictureBox imgRedArrowVitesse;
+        private System.Windows.Forms.PictureBox imgBlueArrowVitesse;
+        private System.Windows.Forms.Label lblPreviewNewValueInitiative;
+        private System.Windows.Forms.PictureBox imgRedArrowInitiative;
+        private System.Windows.Forms.PictureBox imgBlueArrowInitiative;
+        private System.Windows.Forms.Label lblPreviewNewValuePression;
+        private System.Windows.Forms.PictureBox imgRedArrowPression;
+        private System.Windows.Forms.PictureBox imgBlueArrowPression;
+        private System.Windows.Forms.Label lblPreviewNewValueChute;
+        private System.Windows.Forms.Label lblPreviewNewValueMaladies;
+        private System.Windows.Forms.Label lblPreviewNewValueAcide;
+        private System.Windows.Forms.PictureBox imgRedArrowAcide;
+        private System.Windows.Forms.PictureBox imgBlueArrowAcide;
+        private System.Windows.Forms.Label lblPreviewNewValueFroid;
+        private System.Windows.Forms.PictureBox imgRedArrowFroid;
+        private System.Windows.Forms.PictureBox imgBlueArrowFroid;
+        private System.Windows.Forms.Label lblPreviewNewValuePoids;
+        private System.Windows.Forms.PictureBox imgRedArrowPoids;
+        private System.Windows.Forms.PictureBox imgBlueArrowPoids;
+        private System.Windows.Forms.TextBox txtBxPoids;
+        private System.Windows.Forms.ComboBox cmbBxQualiteMateriau;
+        private System.Windows.Forms.TextBox txtBxValeur;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBxTitleDexterite;
+        private System.Windows.Forms.PictureBox imgBlueArrowDexterite;
+        private System.Windows.Forms.PictureBox imgRedArrowDexterite;
+        private System.Windows.Forms.TextBox txtBxDexteriteFinaleValue;
+        private System.Windows.Forms.TextBox txtBxDexteriteTitleFinal;
+        private System.Windows.Forms.TabPage tbPgeMythique;
     }
 }
