@@ -459,5 +459,10 @@ namespace maFichePersonnageJDR.Formulaires
                 GlobaleVariables.IsClosedProgrammatically = false;
             }
         }
+
+        private void lblNiveau_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
