@@ -170,6 +170,18 @@ namespace maFichePersonnageJDR.Formulaires
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblJeuxSortsAptitudes = new System.Windows.Forms.Label();
             this.pnlJeuSortsAptitudesPersonnage = new System.Windows.Forms.Panel();
+            this.pnlArme = new System.Windows.Forms.Panel();
+            this.lblArmes = new System.Windows.Forms.Label();
+            this.pnlArmures = new System.Windows.Forms.Panel();
+            this.lblArmures = new System.Windows.Forms.Label();
+            this.pnlObjets = new System.Windows.Forms.Panel();
+            this.lblObjets = new System.Windows.Forms.Label();
+            this.pnlInventaire = new System.Windows.Forms.Panel();
+            this.lblInventaire = new System.Windows.Forms.Label();
+            this.tbCtrlInventaire = new System.Windows.Forms.TabControl();
+            this.tbPgeArmes = new System.Windows.Forms.TabPage();
+            this.tbPgeArmures = new System.Windows.Forms.TabPage();
+            this.tbPgeObjets = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.nudNiveau)).BeginInit();
             this.tabCtrlGeneral.SuspendLayout();
             this.tabPgeInfosGenerales.SuspendLayout();
@@ -189,6 +201,7 @@ namespace maFichePersonnageJDR.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnPtsEsprit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnPtsCorps)).BeginInit();
             this.tabPgeSortsAptitudes.SuspendLayout();
+            this.tabPgeEquipement.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             this.pnlCompetencesCorps.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnAgilite)).BeginInit();
@@ -220,6 +233,11 @@ namespace maFichePersonnageJDR.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnProvocation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnApaisement)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnTromperie)).BeginInit();
+            this.pnlArme.SuspendLayout();
+            this.pnlArmures.SuspendLayout();
+            this.pnlObjets.SuspendLayout();
+            this.pnlInventaire.SuspendLayout();
+            this.tbCtrlInventaire.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblPrenom
@@ -318,9 +336,9 @@ namespace maFichePersonnageJDR.Formulaires
             // btnSaveInfos
             // 
             this.btnSaveInfos.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnSaveInfos.Location = new System.Drawing.Point(0, 692);
+            this.btnSaveInfos.Location = new System.Drawing.Point(0, 845);
             this.btnSaveInfos.Name = "btnSaveInfos";
-            this.btnSaveInfos.Size = new System.Drawing.Size(822, 50);
+            this.btnSaveInfos.Size = new System.Drawing.Size(824, 50);
             this.btnSaveInfos.TabIndex = 24;
             this.btnSaveInfos.Text = "Sauvegarder";
             this.btnSaveInfos.UseVisualStyleBackColor = true;
@@ -355,7 +373,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tabCtrlGeneral.Controls.Add(this.tabPgeCaracteristiquesCompetences);
             this.tabCtrlGeneral.Controls.Add(this.tabPgeSortsAptitudes);
             this.tabCtrlGeneral.Controls.Add(this.tabPgeEquipement);
-            this.tabCtrlGeneral.Location = new System.Drawing.Point(0, 89);
+            this.tabCtrlGeneral.Location = new System.Drawing.Point(2, 89);
             this.tabCtrlGeneral.Name = "tabCtrlGeneral";
             this.tabCtrlGeneral.SelectedIndex = 0;
             this.tabCtrlGeneral.Size = new System.Drawing.Size(819, 597);
@@ -995,6 +1013,10 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tabPgeEquipement
             // 
+            this.tabPgeEquipement.Controls.Add(this.pnlInventaire);
+            this.tabPgeEquipement.Controls.Add(this.pnlObjets);
+            this.tabPgeEquipement.Controls.Add(this.pnlArmures);
+            this.tabPgeEquipement.Controls.Add(this.pnlArme);
             this.tabPgeEquipement.Location = new System.Drawing.Point(4, 22);
             this.tabPgeEquipement.Name = "tabPgeEquipement";
             this.tabPgeEquipement.Size = new System.Drawing.Size(811, 571);
@@ -1029,7 +1051,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(822, 108);
+            this.pnlHeader.Size = new System.Drawing.Size(824, 105);
             this.pnlHeader.TabIndex = 48;
             // 
             // lblTaille
@@ -2137,11 +2159,128 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlJeuSortsAptitudesPersonnage.Size = new System.Drawing.Size(786, 141);
             this.pnlJeuSortsAptitudesPersonnage.TabIndex = 24;
             // 
+            // pnlArme
+            // 
+            this.pnlArme.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlArme.Controls.Add(this.lblArmes);
+            this.pnlArme.Location = new System.Drawing.Point(3, 0);
+            this.pnlArme.Name = "pnlArme";
+            this.pnlArme.Size = new System.Drawing.Size(264, 299);
+            this.pnlArme.TabIndex = 24;
+            // 
+            // lblArmes
+            // 
+            this.lblArmes.AutoSize = true;
+            this.lblArmes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblArmes.Location = new System.Drawing.Point(3, 3);
+            this.lblArmes.Name = "lblArmes";
+            this.lblArmes.Size = new System.Drawing.Size(55, 20);
+            this.lblArmes.TabIndex = 22;
+            this.lblArmes.Text = "Armes";
+            // 
+            // pnlArmures
+            // 
+            this.pnlArmures.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlArmures.Controls.Add(this.lblArmures);
+            this.pnlArmures.Location = new System.Drawing.Point(273, 0);
+            this.pnlArmures.Name = "pnlArmures";
+            this.pnlArmures.Size = new System.Drawing.Size(264, 299);
+            this.pnlArmures.TabIndex = 25;
+            // 
+            // lblArmures
+            // 
+            this.lblArmures.AutoSize = true;
+            this.lblArmures.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblArmures.Location = new System.Drawing.Point(3, 3);
+            this.lblArmures.Name = "lblArmures";
+            this.lblArmures.Size = new System.Drawing.Size(69, 20);
+            this.lblArmures.TabIndex = 22;
+            this.lblArmures.Text = "Armures";
+            // 
+            // pnlObjets
+            // 
+            this.pnlObjets.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlObjets.Controls.Add(this.lblObjets);
+            this.pnlObjets.Location = new System.Drawing.Point(543, 0);
+            this.pnlObjets.Name = "pnlObjets";
+            this.pnlObjets.Size = new System.Drawing.Size(264, 299);
+            this.pnlObjets.TabIndex = 26;
+            // 
+            // lblObjets
+            // 
+            this.lblObjets.AutoSize = true;
+            this.lblObjets.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblObjets.Location = new System.Drawing.Point(3, 3);
+            this.lblObjets.Name = "lblObjets";
+            this.lblObjets.Size = new System.Drawing.Size(55, 20);
+            this.lblObjets.TabIndex = 22;
+            this.lblObjets.Text = "Objets";
+            // 
+            // pnlInventaire
+            // 
+            this.pnlInventaire.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlInventaire.Controls.Add(this.tbCtrlInventaire);
+            this.pnlInventaire.Controls.Add(this.lblInventaire);
+            this.pnlInventaire.Location = new System.Drawing.Point(3, 304);
+            this.pnlInventaire.Name = "pnlInventaire";
+            this.pnlInventaire.Size = new System.Drawing.Size(804, 264);
+            this.pnlInventaire.TabIndex = 25;
+            // 
+            // lblInventaire
+            // 
+            this.lblInventaire.AutoSize = true;
+            this.lblInventaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInventaire.Location = new System.Drawing.Point(3, 3);
+            this.lblInventaire.Name = "lblInventaire";
+            this.lblInventaire.Size = new System.Drawing.Size(79, 20);
+            this.lblInventaire.TabIndex = 22;
+            this.lblInventaire.Text = "Inventaire";
+            // 
+            // tbCtrlInventaire
+            // 
+            this.tbCtrlInventaire.Controls.Add(this.tbPgeArmes);
+            this.tbCtrlInventaire.Controls.Add(this.tbPgeArmures);
+            this.tbCtrlInventaire.Controls.Add(this.tbPgeObjets);
+            this.tbCtrlInventaire.Location = new System.Drawing.Point(8, 27);
+            this.tbCtrlInventaire.Name = "tbCtrlInventaire";
+            this.tbCtrlInventaire.SelectedIndex = 0;
+            this.tbCtrlInventaire.Size = new System.Drawing.Size(707, 234);
+            this.tbCtrlInventaire.TabIndex = 23;
+            // 
+            // tbPgeArmes
+            // 
+            this.tbPgeArmes.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeArmes.Name = "tbPgeArmes";
+            this.tbPgeArmes.Padding = new System.Windows.Forms.Padding(3);
+            this.tbPgeArmes.Size = new System.Drawing.Size(699, 208);
+            this.tbPgeArmes.TabIndex = 0;
+            this.tbPgeArmes.Text = "Armes";
+            this.tbPgeArmes.UseVisualStyleBackColor = true;
+            // 
+            // tbPgeArmures
+            // 
+            this.tbPgeArmures.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeArmures.Name = "tbPgeArmures";
+            this.tbPgeArmures.Padding = new System.Windows.Forms.Padding(3);
+            this.tbPgeArmures.Size = new System.Drawing.Size(699, 208);
+            this.tbPgeArmures.TabIndex = 1;
+            this.tbPgeArmures.Text = "Armures";
+            this.tbPgeArmures.UseVisualStyleBackColor = true;
+            // 
+            // tbPgeObjets
+            // 
+            this.tbPgeObjets.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeObjets.Name = "tbPgeObjets";
+            this.tbPgeObjets.Size = new System.Drawing.Size(699, 208);
+            this.tbPgeObjets.TabIndex = 2;
+            this.tbPgeObjets.Text = "Objets";
+            this.tbPgeObjets.UseVisualStyleBackColor = true;
+            // 
             // FormulaireInfosGenerales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(822, 742);
+            this.ClientSize = new System.Drawing.Size(824, 895);
             this.Controls.Add(this.btnSaveInfos);
             this.Controls.Add(this.tabCtrlGeneral);
             this.Controls.Add(this.pnlHeader);
@@ -2177,6 +2316,7 @@ namespace maFichePersonnageJDR.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnPtsCorps)).EndInit();
             this.tabPgeSortsAptitudes.ResumeLayout(false);
             this.tabPgeSortsAptitudes.PerformLayout();
+            this.tabPgeEquipement.ResumeLayout(false);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlCompetencesCorps.ResumeLayout(false);
@@ -2212,6 +2352,15 @@ namespace maFichePersonnageJDR.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnProvocation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnApaisement)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnTromperie)).EndInit();
+            this.pnlArme.ResumeLayout(false);
+            this.pnlArme.PerformLayout();
+            this.pnlArmures.ResumeLayout(false);
+            this.pnlArmures.PerformLayout();
+            this.pnlObjets.ResumeLayout(false);
+            this.pnlObjets.PerformLayout();
+            this.pnlInventaire.ResumeLayout(false);
+            this.pnlInventaire.PerformLayout();
+            this.tbCtrlInventaire.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2358,5 +2507,17 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Panel pnlJeuSortsAptitudesPersonnage;
         private System.Windows.Forms.Label lblJeuxSortsAptitudes;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlArme;
+        private System.Windows.Forms.Panel pnlObjets;
+        private System.Windows.Forms.Label lblObjets;
+        private System.Windows.Forms.Panel pnlArmures;
+        private System.Windows.Forms.Label lblArmures;
+        private System.Windows.Forms.Label lblArmes;
+        private System.Windows.Forms.Panel pnlInventaire;
+        private System.Windows.Forms.TabControl tbCtrlInventaire;
+        private System.Windows.Forms.TabPage tbPgeArmes;
+        private System.Windows.Forms.TabPage tbPgeArmures;
+        private System.Windows.Forms.Label lblInventaire;
+        private System.Windows.Forms.TabPage tbPgeObjets;
     }
 }
