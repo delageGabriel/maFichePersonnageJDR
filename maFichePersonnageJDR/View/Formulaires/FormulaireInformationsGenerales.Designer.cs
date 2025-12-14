@@ -71,76 +71,13 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnEffacerHistoire = new System.Windows.Forms.Button();
             this.txtBxLanguesParlees = new System.Windows.Forms.TextBox();
             this.tabPgeCaracteristiquesCompetences = new System.Windows.Forms.TabPage();
-            this.pnlCompetencesSpeciales = new System.Windows.Forms.Panel();
-            this.numUpDwnDeplacement = new System.Windows.Forms.NumericUpDown();
-            this.numUpDwnInitiative = new System.Windows.Forms.NumericUpDown();
-            this.numUpDwnDexterite = new System.Windows.Forms.NumericUpDown();
-            this.lblDeplacement = new System.Windows.Forms.Label();
-            this.lblInitiative = new System.Windows.Forms.Label();
-            this.lblDexterite = new System.Windows.Forms.Label();
-            this.pnlCaracteristiques = new System.Windows.Forms.Panel();
-            this.lblPtsRestantsRepartitionsPVEnergie = new System.Windows.Forms.Label();
-            this.numUpDwnPtsEnergie = new System.Windows.Forms.NumericUpDown();
-            this.numUpDwnPtsVie = new System.Windows.Forms.NumericUpDown();
-            this.lblPointsEnergie = new System.Windows.Forms.Label();
-            this.lblPointsVie = new System.Windows.Forms.Label();
-            this.pnlPointsVieEnergie = new System.Windows.Forms.Panel();
-            this.lblPtsRestantsRepartitionsCaracteristiques = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numUpDwnPtsEsprit = new System.Windows.Forms.NumericUpDown();
-            this.numUpDwnPtsCorps = new System.Windows.Forms.NumericUpDown();
-            this.lblRelationnel = new System.Windows.Forms.Label();
-            this.lblEsprit = new System.Windows.Forms.Label();
-            this.lblCorps = new System.Windows.Forms.Label();
-            this.tabPgeSortsAptitudes = new System.Windows.Forms.TabPage();
-            this.tabPgeEquipement = new System.Windows.Forms.TabPage();
-            this.lblSexe = new System.Windows.Forms.Label();
-            this.pnlHeader = new System.Windows.Forms.Panel();
-            this.lblTaille = new System.Windows.Forms.Label();
-            this.cbBxTaille = new System.Windows.Forms.ComboBox();
-            this.txtBxSexe = new System.Windows.Forms.TextBox();
-            this.lblPtsRestantsRepartitionsCompetencesSpeciales = new System.Windows.Forms.Label();
-            this.pnlCompetencesCorps = new System.Windows.Forms.Panel();
-            this.lblAgilite = new System.Windows.Forms.Label();
-            this.numUpDwnAgilite = new System.Windows.Forms.NumericUpDown();
-            this.numUpDwnFouilles = new System.Windows.Forms.NumericUpDown();
-            this.lblFouilles = new System.Windows.Forms.Label();
-            this.numUpDwnLancer = new System.Windows.Forms.NumericUpDown();
-            this.lblLancer = new System.Windows.Forms.Label();
-            this.numUpDwnCourse = new System.Windows.Forms.NumericUpDown();
-            this.lblCourse = new System.Windows.Forms.Label();
-            this.numUpDwnNatation = new System.Windows.Forms.NumericUpDown();
-            this.lblNatation = new System.Windows.Forms.Label();
-            this.numUpDwnEquilibre = new System.Windows.Forms.NumericUpDown();
-            this.lblEquilibre = new System.Windows.Forms.Label();
-            this.numUpDwnLutte = new System.Windows.Forms.NumericUpDown();
-            this.lblLutte = new System.Windows.Forms.Label();
-            this.numUpDwnDiscretion = new System.Windows.Forms.NumericUpDown();
-            this.lblDiscretion = new System.Windows.Forms.Label();
-            this.numUpDwnVigueur = new System.Windows.Forms.NumericUpDown();
-            this.numUpDwnForce = new System.Windows.Forms.NumericUpDown();
-            this.lblForce = new System.Windows.Forms.Label();
-            this.numUpDwnReflexes = new System.Windows.Forms.NumericUpDown();
-            this.lblReflexes = new System.Windows.Forms.Label();
-            this.numUpDwnEscalade = new System.Windows.Forms.NumericUpDown();
-            this.lblEscalade = new System.Windows.Forms.Label();
-            this.lblVigueur = new System.Windows.Forms.Label();
-            this.pnlCompetencesEsprits = new System.Windows.Forms.Panel();
-            this.numUpDwnPerception = new System.Windows.Forms.NumericUpDown();
-            this.lblPerception = new System.Windows.Forms.Label();
-            this.numUpDwnOrientation = new System.Windows.Forms.NumericUpDown();
-            this.lblOrientation = new System.Windows.Forms.Label();
-            this.numUpDwnMemoire = new System.Windows.Forms.NumericUpDown();
-            this.lblMemoire = new System.Windows.Forms.Label();
-            this.numUpDwnLogique = new System.Windows.Forms.NumericUpDown();
-            this.lblLogique = new System.Windows.Forms.Label();
-            this.numUpDwnEssence = new System.Windows.Forms.NumericUpDown();
-            this.lblEssence = new System.Windows.Forms.Label();
-            this.numUpDwnVolonte = new System.Windows.Forms.NumericUpDown();
-            this.lblVolonte = new System.Windows.Forms.Label();
-            this.numUpDwnConcentration = new System.Windows.Forms.NumericUpDown();
-            this.lblConcentration = new System.Windows.Forms.Label();
+            this.cbBxTriSpecialites = new System.Windows.Forms.ComboBox();
+            this.pnlSpecialites = new System.Windows.Forms.Panel();
+            this.lblSpecialites = new System.Windows.Forms.Label();
             this.pnlCompetencesRelationnelles = new System.Windows.Forms.Panel();
+            this.lblPtsRestantsRepartitionsCompetencesRelationnelles = new System.Windows.Forms.Label();
+            this.numUpDwnTromperie = new System.Windows.Forms.NumericUpDown();
+            this.lblTromperie = new System.Windows.Forms.Label();
             this.numUpDwnPerspicacite = new System.Windows.Forms.NumericUpDown();
             this.lblPerspicacite = new System.Windows.Forms.Label();
             this.numUpDwnIntimidation = new System.Windows.Forms.NumericUpDown();
@@ -155,33 +92,107 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblProvocation = new System.Windows.Forms.Label();
             this.numUpDwnApaisement = new System.Windows.Forms.NumericUpDown();
             this.lblApaisement = new System.Windows.Forms.Label();
-            this.numUpDwnTromperie = new System.Windows.Forms.NumericUpDown();
-            this.lblTromperie = new System.Windows.Forms.Label();
-            this.lblPtsRestantsRepartitionsCompetencesCorps = new System.Windows.Forms.Label();
+            this.pnlCompetencesEsprits = new System.Windows.Forms.Panel();
             this.lblPtsRestantsRepartitionsCompetencesEsprit = new System.Windows.Forms.Label();
-            this.lblPtsRestantsRepartitionsCompetencesRelationnelles = new System.Windows.Forms.Label();
-            this.lblSpecialites = new System.Windows.Forms.Label();
-            this.pnlSpecialites = new System.Windows.Forms.Panel();
-            this.cbBxTriSpecialites = new System.Windows.Forms.ComboBox();
-            this.lblAptitudes = new System.Windows.Forms.Label();
-            this.lblSorts = new System.Windows.Forms.Label();
-            this.pnlListeSetAptitudes = new System.Windows.Forms.Panel();
-            this.pnlSetSorts = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblJeuxSortsAptitudes = new System.Windows.Forms.Label();
+            this.numUpDwnPerception = new System.Windows.Forms.NumericUpDown();
+            this.lblPerception = new System.Windows.Forms.Label();
+            this.numUpDwnOrientation = new System.Windows.Forms.NumericUpDown();
+            this.lblOrientation = new System.Windows.Forms.Label();
+            this.numUpDwnMemoire = new System.Windows.Forms.NumericUpDown();
+            this.lblMemoire = new System.Windows.Forms.Label();
+            this.numUpDwnLogique = new System.Windows.Forms.NumericUpDown();
+            this.lblLogique = new System.Windows.Forms.Label();
+            this.numUpDwnEssence = new System.Windows.Forms.NumericUpDown();
+            this.lblEssence = new System.Windows.Forms.Label();
+            this.numUpDwnVolonte = new System.Windows.Forms.NumericUpDown();
+            this.lblVolonte = new System.Windows.Forms.Label();
+            this.numUpDwnConcentration = new System.Windows.Forms.NumericUpDown();
+            this.lblConcentration = new System.Windows.Forms.Label();
+            this.pnlCompetencesCorps = new System.Windows.Forms.Panel();
+            this.lblPtsRestantsRepartitionsCompetencesCorps = new System.Windows.Forms.Label();
+            this.numUpDwnVigueur = new System.Windows.Forms.NumericUpDown();
+            this.lblVigueur = new System.Windows.Forms.Label();
+            this.numUpDwnForce = new System.Windows.Forms.NumericUpDown();
+            this.lblForce = new System.Windows.Forms.Label();
+            this.numUpDwnReflexes = new System.Windows.Forms.NumericUpDown();
+            this.lblReflexes = new System.Windows.Forms.Label();
+            this.numUpDwnEscalade = new System.Windows.Forms.NumericUpDown();
+            this.lblEscalade = new System.Windows.Forms.Label();
+            this.numUpDwnNatation = new System.Windows.Forms.NumericUpDown();
+            this.lblNatation = new System.Windows.Forms.Label();
+            this.numUpDwnEquilibre = new System.Windows.Forms.NumericUpDown();
+            this.lblEquilibre = new System.Windows.Forms.Label();
+            this.numUpDwnLutte = new System.Windows.Forms.NumericUpDown();
+            this.lblLutte = new System.Windows.Forms.Label();
+            this.numUpDwnDiscretion = new System.Windows.Forms.NumericUpDown();
+            this.lblDiscretion = new System.Windows.Forms.Label();
+            this.numUpDwnLancer = new System.Windows.Forms.NumericUpDown();
+            this.lblLancer = new System.Windows.Forms.Label();
+            this.numUpDwnCourse = new System.Windows.Forms.NumericUpDown();
+            this.lblCourse = new System.Windows.Forms.Label();
+            this.numUpDwnFouilles = new System.Windows.Forms.NumericUpDown();
+            this.lblFouilles = new System.Windows.Forms.Label();
+            this.numUpDwnAgilite = new System.Windows.Forms.NumericUpDown();
+            this.lblAgilite = new System.Windows.Forms.Label();
+            this.pnlCompetencesSpeciales = new System.Windows.Forms.Panel();
+            this.lblPtsRestantsRepartitionsCompetencesSpeciales = new System.Windows.Forms.Label();
+            this.numUpDwnDeplacement = new System.Windows.Forms.NumericUpDown();
+            this.numUpDwnInitiative = new System.Windows.Forms.NumericUpDown();
+            this.numUpDwnDexterite = new System.Windows.Forms.NumericUpDown();
+            this.lblDeplacement = new System.Windows.Forms.Label();
+            this.lblInitiative = new System.Windows.Forms.Label();
+            this.lblDexterite = new System.Windows.Forms.Label();
+            this.pnlCaracteristiques = new System.Windows.Forms.Panel();
+            this.lblRepartitionPvEnergie = new System.Windows.Forms.Label();
+            this.lblPtsRestantsRepartitionsPVEnergie = new System.Windows.Forms.Label();
+            this.numUpDwnPtsEnergie = new System.Windows.Forms.NumericUpDown();
+            this.numUpDwnPtsVie = new System.Windows.Forms.NumericUpDown();
+            this.lblPointsEnergie = new System.Windows.Forms.Label();
+            this.lblPointsVie = new System.Windows.Forms.Label();
+            this.pnlPointsVieEnergie = new System.Windows.Forms.Panel();
+            this.lblPtsRestantsRepartitionsCaracteristiques = new System.Windows.Forms.Label();
+            this.numUpDwnPtsRelationnel = new System.Windows.Forms.NumericUpDown();
+            this.numUpDwnPtsEsprit = new System.Windows.Forms.NumericUpDown();
+            this.numUpDwnPtsCorps = new System.Windows.Forms.NumericUpDown();
+            this.lblRelationnel = new System.Windows.Forms.Label();
+            this.lblEsprit = new System.Windows.Forms.Label();
+            this.lblCorps = new System.Windows.Forms.Label();
+            this.tabPgeSortsAptitudes = new System.Windows.Forms.TabPage();
             this.pnlJeuSortsAptitudesPersonnage = new System.Windows.Forms.Panel();
-            this.pnlArme = new System.Windows.Forms.Panel();
-            this.lblArmes = new System.Windows.Forms.Label();
-            this.pnlArmures = new System.Windows.Forms.Panel();
-            this.lblArmures = new System.Windows.Forms.Label();
-            this.pnlObjets = new System.Windows.Forms.Panel();
-            this.lblObjets = new System.Windows.Forms.Label();
+            this.lblJeuxSortsAptitudes = new System.Windows.Forms.Label();
+            this.pnlSortileges = new System.Windows.Forms.Panel();
+            this.pnlSetSorts = new System.Windows.Forms.Panel();
+            this.pnlListeSetAptitudes = new System.Windows.Forms.Panel();
+            this.lblSorts = new System.Windows.Forms.Label();
+            this.lblAptitudes = new System.Windows.Forms.Label();
+            this.tabPgeEquipement = new System.Windows.Forms.TabPage();
             this.pnlInventaire = new System.Windows.Forms.Panel();
-            this.lblInventaire = new System.Windows.Forms.Label();
             this.tbCtrlInventaire = new System.Windows.Forms.TabControl();
             this.tbPgeArmes = new System.Windows.Forms.TabPage();
             this.tbPgeArmures = new System.Windows.Forms.TabPage();
             this.tbPgeObjets = new System.Windows.Forms.TabPage();
+            this.lblInventaire = new System.Windows.Forms.Label();
+            this.pnlObjets = new System.Windows.Forms.Panel();
+            this.lblObjets = new System.Windows.Forms.Label();
+            this.pnlArmures = new System.Windows.Forms.Panel();
+            this.lblArmures = new System.Windows.Forms.Label();
+            this.pnlArme = new System.Windows.Forms.Panel();
+            this.lblArmes = new System.Windows.Forms.Label();
+            this.lblSexe = new System.Windows.Forms.Label();
+            this.pnlHeader = new System.Windows.Forms.Panel();
+            this.lblTaille = new System.Windows.Forms.Label();
+            this.cbBxTaille = new System.Windows.Forms.ComboBox();
+            this.txtBxSexe = new System.Windows.Forms.TextBox();
+            this.pnlMonnaie = new System.Windows.Forms.Panel();
+            this.btnAjouter = new System.Windows.Forms.Button();
+            this.txtBxCuivre = new System.Windows.Forms.TextBox();
+            this.txtBxArgent = new System.Windows.Forms.TextBox();
+            this.txtPieceOr = new System.Windows.Forms.TextBox();
+            this.txtBxDevise = new System.Windows.Forms.TextBox();
+            this.lblMonnaie = new System.Windows.Forms.Label();
+            this.pnlPoids = new System.Windows.Forms.Panel();
+            this.pnlCarres = new System.Windows.Forms.Panel();
+            this.lblPoids = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudNiveau)).BeginInit();
             this.tabCtrlGeneral.SuspendLayout();
             this.tabPgeInfosGenerales.SuspendLayout();
@@ -189,33 +200,15 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbCtrlAttribut.SuspendLayout();
             this.pnlInfosGenerales.SuspendLayout();
             this.tabPgeCaracteristiquesCompetences.SuspendLayout();
-            this.pnlCompetencesSpeciales.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnDeplacement)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnInitiative)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnDexterite)).BeginInit();
-            this.pnlCaracteristiques.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnPtsEnergie)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnPtsVie)).BeginInit();
-            this.pnlPointsVieEnergie.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnPtsEsprit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnPtsCorps)).BeginInit();
-            this.tabPgeSortsAptitudes.SuspendLayout();
-            this.tabPgeEquipement.SuspendLayout();
-            this.pnlHeader.SuspendLayout();
-            this.pnlCompetencesCorps.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnAgilite)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnFouilles)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnLancer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnCourse)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnNatation)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnEquilibre)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnLutte)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnDiscretion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnVigueur)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnForce)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnReflexes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnEscalade)).BeginInit();
+            this.pnlCompetencesRelationnelles.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnTromperie)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnPerspicacite)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnIntimidation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnCommandement)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnComedie)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnCharme)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnProvocation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnApaisement)).BeginInit();
             this.pnlCompetencesEsprits.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnPerception)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnOrientation)).BeginInit();
@@ -224,20 +217,40 @@ namespace maFichePersonnageJDR.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnEssence)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnVolonte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnConcentration)).BeginInit();
-            this.pnlCompetencesRelationnelles.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnPerspicacite)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnIntimidation)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnCommandement)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnComedie)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnCharme)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnProvocation)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnApaisement)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnTromperie)).BeginInit();
-            this.pnlArme.SuspendLayout();
-            this.pnlArmures.SuspendLayout();
-            this.pnlObjets.SuspendLayout();
+            this.pnlCompetencesCorps.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnVigueur)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnForce)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnReflexes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnEscalade)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnNatation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnEquilibre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnLutte)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnDiscretion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnLancer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnCourse)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnFouilles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnAgilite)).BeginInit();
+            this.pnlCompetencesSpeciales.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnDeplacement)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnInitiative)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnDexterite)).BeginInit();
+            this.pnlCaracteristiques.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnPtsEnergie)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnPtsVie)).BeginInit();
+            this.pnlPointsVieEnergie.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnPtsRelationnel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnPtsEsprit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnPtsCorps)).BeginInit();
+            this.tabPgeSortsAptitudes.SuspendLayout();
+            this.tabPgeEquipement.SuspendLayout();
             this.pnlInventaire.SuspendLayout();
             this.tbCtrlInventaire.SuspendLayout();
+            this.pnlObjets.SuspendLayout();
+            this.pnlArmures.SuspendLayout();
+            this.pnlArme.SuspendLayout();
+            this.pnlHeader.SuspendLayout();
+            this.pnlMonnaie.SuspendLayout();
+            this.pnlPoids.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblPrenom
@@ -301,7 +314,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblNiveau.Size = new System.Drawing.Size(52, 17);
             this.lblNiveau.TabIndex = 9;
             this.lblNiveau.Text = "Niveau";
-            this.lblNiveau.Click += new System.EventHandler(this.lblNiveau_Click);
             // 
             // rtbHistoire
             // 
@@ -336,7 +348,7 @@ namespace maFichePersonnageJDR.Formulaires
             // btnSaveInfos
             // 
             this.btnSaveInfos.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnSaveInfos.Location = new System.Drawing.Point(0, 845);
+            this.btnSaveInfos.Location = new System.Drawing.Point(0, 803);
             this.btnSaveInfos.Name = "btnSaveInfos";
             this.btnSaveInfos.Size = new System.Drawing.Size(824, 50);
             this.btnSaveInfos.TabIndex = 24;
@@ -376,7 +388,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tabCtrlGeneral.Location = new System.Drawing.Point(2, 89);
             this.tabCtrlGeneral.Name = "tabCtrlGeneral";
             this.tabCtrlGeneral.SelectedIndex = 0;
-            this.tabCtrlGeneral.Size = new System.Drawing.Size(819, 597);
+            this.tabCtrlGeneral.Size = new System.Drawing.Size(819, 558);
             this.tabCtrlGeneral.TabIndex = 47;
             // 
             // tabPgeInfosGenerales
@@ -387,7 +399,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tabPgeInfosGenerales.Location = new System.Drawing.Point(4, 22);
             this.tabPgeInfosGenerales.Name = "tabPgeInfosGenerales";
             this.tabPgeInfosGenerales.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPgeInfosGenerales.Size = new System.Drawing.Size(811, 571);
+            this.tabPgeInfosGenerales.Size = new System.Drawing.Size(811, 532);
             this.tabPgeInfosGenerales.TabIndex = 0;
             this.tabPgeInfosGenerales.Text = "Informations générales";
             // 
@@ -404,7 +416,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlAttributsPersonnalites.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlAttributsPersonnalites.Location = new System.Drawing.Point(409, 3);
             this.pnlAttributsPersonnalites.Name = "pnlAttributsPersonnalites";
-            this.pnlAttributsPersonnalites.Size = new System.Drawing.Size(399, 565);
+            this.pnlAttributsPersonnalites.Size = new System.Drawing.Size(399, 526);
             this.pnlAttributsPersonnalites.TabIndex = 42;
             // 
             // txtBxOmbre
@@ -555,7 +567,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlInfosGenerales.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlInfosGenerales.Location = new System.Drawing.Point(3, 3);
             this.pnlInfosGenerales.Name = "pnlInfosGenerales";
-            this.pnlInfosGenerales.Size = new System.Drawing.Size(401, 565);
+            this.pnlInfosGenerales.Size = new System.Drawing.Size(401, 526);
             this.pnlInfosGenerales.TabIndex = 2;
             // 
             // txtBxObjctfMajeur
@@ -671,1094 +683,36 @@ namespace maFichePersonnageJDR.Formulaires
             this.tabPgeCaracteristiquesCompetences.Controls.Add(this.pnlPointsVieEnergie);
             this.tabPgeCaracteristiquesCompetences.Location = new System.Drawing.Point(4, 22);
             this.tabPgeCaracteristiquesCompetences.Name = "tabPgeCaracteristiquesCompetences";
-            this.tabPgeCaracteristiquesCompetences.Size = new System.Drawing.Size(811, 571);
+            this.tabPgeCaracteristiquesCompetences.Size = new System.Drawing.Size(811, 532);
             this.tabPgeCaracteristiquesCompetences.TabIndex = 2;
             this.tabPgeCaracteristiquesCompetences.Text = "Caractéristiques & Compétences";
             this.tabPgeCaracteristiquesCompetences.UseVisualStyleBackColor = true;
             // 
-            // pnlCompetencesSpeciales
-            // 
-            this.pnlCompetencesSpeciales.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlCompetencesSpeciales.Controls.Add(this.lblPtsRestantsRepartitionsCompetencesSpeciales);
-            this.pnlCompetencesSpeciales.Controls.Add(this.numUpDwnDeplacement);
-            this.pnlCompetencesSpeciales.Controls.Add(this.numUpDwnInitiative);
-            this.pnlCompetencesSpeciales.Controls.Add(this.numUpDwnDexterite);
-            this.pnlCompetencesSpeciales.Controls.Add(this.lblDeplacement);
-            this.pnlCompetencesSpeciales.Controls.Add(this.lblInitiative);
-            this.pnlCompetencesSpeciales.Controls.Add(this.lblDexterite);
-            this.pnlCompetencesSpeciales.Location = new System.Drawing.Point(0, 102);
-            this.pnlCompetencesSpeciales.Name = "pnlCompetencesSpeciales";
-            this.pnlCompetencesSpeciales.Size = new System.Drawing.Size(811, 86);
-            this.pnlCompetencesSpeciales.TabIndex = 2;
-            // 
-            // numUpDwnDeplacement
-            // 
-            this.numUpDwnDeplacement.Location = new System.Drawing.Point(601, 36);
-            this.numUpDwnDeplacement.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnDeplacement.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnDeplacement.Name = "numUpDwnDeplacement";
-            this.numUpDwnDeplacement.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnDeplacement.TabIndex = 54;
-            this.numUpDwnDeplacement.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // numUpDwnInitiative
-            // 
-            this.numUpDwnInitiative.Location = new System.Drawing.Point(350, 36);
-            this.numUpDwnInitiative.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnInitiative.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnInitiative.Name = "numUpDwnInitiative";
-            this.numUpDwnInitiative.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnInitiative.TabIndex = 53;
-            this.numUpDwnInitiative.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // numUpDwnDexterite
-            // 
-            this.numUpDwnDexterite.Location = new System.Drawing.Point(115, 36);
-            this.numUpDwnDexterite.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnDexterite.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnDexterite.Name = "numUpDwnDexterite";
-            this.numUpDwnDexterite.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnDexterite.TabIndex = 52;
-            this.numUpDwnDexterite.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblDeplacement
-            // 
-            this.lblDeplacement.AutoSize = true;
-            this.lblDeplacement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeplacement.Location = new System.Drawing.Point(570, 4);
-            this.lblDeplacement.Name = "lblDeplacement";
-            this.lblDeplacement.Size = new System.Drawing.Size(104, 20);
-            this.lblDeplacement.TabIndex = 51;
-            this.lblDeplacement.Text = "Déplacement";
-            // 
-            // lblInitiative
-            // 
-            this.lblInitiative.AutoSize = true;
-            this.lblInitiative.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInitiative.Location = new System.Drawing.Point(338, 4);
-            this.lblInitiative.Name = "lblInitiative";
-            this.lblInitiative.Size = new System.Drawing.Size(67, 20);
-            this.lblInitiative.TabIndex = 50;
-            this.lblInitiative.Text = "Initiative";
-            // 
-            // lblDexterite
-            // 
-            this.lblDexterite.AutoSize = true;
-            this.lblDexterite.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDexterite.Location = new System.Drawing.Point(100, 4);
-            this.lblDexterite.Name = "lblDexterite";
-            this.lblDexterite.Size = new System.Drawing.Size(73, 20);
-            this.lblDexterite.TabIndex = 49;
-            this.lblDexterite.Text = "Dextérité";
-            // 
-            // pnlCaracteristiques
-            // 
-            this.pnlCaracteristiques.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlCaracteristiques.Controls.Add(this.lblPtsRestantsRepartitionsPVEnergie);
-            this.pnlCaracteristiques.Controls.Add(this.numUpDwnPtsEnergie);
-            this.pnlCaracteristiques.Controls.Add(this.numUpDwnPtsVie);
-            this.pnlCaracteristiques.Controls.Add(this.lblPointsEnergie);
-            this.pnlCaracteristiques.Controls.Add(this.lblPointsVie);
-            this.pnlCaracteristiques.Location = new System.Drawing.Point(0, 0);
-            this.pnlCaracteristiques.Name = "pnlCaracteristiques";
-            this.pnlCaracteristiques.Size = new System.Drawing.Size(411, 103);
-            this.pnlCaracteristiques.TabIndex = 1;
-            // 
-            // lblPtsRestantsRepartitionsPVEnergie
-            // 
-            this.lblPtsRestantsRepartitionsPVEnergie.AutoSize = true;
-            this.lblPtsRestantsRepartitionsPVEnergie.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPtsRestantsRepartitionsPVEnergie.Location = new System.Drawing.Point(10, 79);
-            this.lblPtsRestantsRepartitionsPVEnergie.Name = "lblPtsRestantsRepartitionsPVEnergie";
-            this.lblPtsRestantsRepartitionsPVEnergie.Size = new System.Drawing.Size(185, 17);
-            this.lblPtsRestantsRepartitionsPVEnergie.TabIndex = 43;
-            this.lblPtsRestantsRepartitionsPVEnergie.Text = "Points restants à répartir : X";
-            // 
-            // numUpDwnPtsEnergie
-            // 
-            this.numUpDwnPtsEnergie.Location = new System.Drawing.Point(172, 44);
-            this.numUpDwnPtsEnergie.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnPtsEnergie.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnPtsEnergie.Name = "numUpDwnPtsEnergie";
-            this.numUpDwnPtsEnergie.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnPtsEnergie.TabIndex = 42;
-            this.numUpDwnPtsEnergie.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // numUpDwnPtsVie
-            // 
-            this.numUpDwnPtsVie.Location = new System.Drawing.Point(153, 9);
-            this.numUpDwnPtsVie.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnPtsVie.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnPtsVie.Name = "numUpDwnPtsVie";
-            this.numUpDwnPtsVie.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnPtsVie.TabIndex = 41;
-            this.numUpDwnPtsVie.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblPointsEnergie
-            // 
-            this.lblPointsEnergie.AutoSize = true;
-            this.lblPointsEnergie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPointsEnergie.Location = new System.Drawing.Point(10, 44);
-            this.lblPointsEnergie.Name = "lblPointsEnergie";
-            this.lblPointsEnergie.Size = new System.Drawing.Size(130, 20);
-            this.lblPointsEnergie.TabIndex = 21;
-            this.lblPointsEnergie.Text = "Points d\'énergie :";
-            // 
-            // lblPointsVie
-            // 
-            this.lblPointsVie.AutoSize = true;
-            this.lblPointsVie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPointsVie.Location = new System.Drawing.Point(10, 9);
-            this.lblPointsVie.Name = "lblPointsVie";
-            this.lblPointsVie.Size = new System.Drawing.Size(106, 20);
-            this.lblPointsVie.TabIndex = 20;
-            this.lblPointsVie.Text = "Points de vie :";
-            // 
-            // pnlPointsVieEnergie
-            // 
-            this.pnlPointsVieEnergie.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlPointsVieEnergie.Controls.Add(this.lblPtsRestantsRepartitionsCaracteristiques);
-            this.pnlPointsVieEnergie.Controls.Add(this.numericUpDown1);
-            this.pnlPointsVieEnergie.Controls.Add(this.numUpDwnPtsEsprit);
-            this.pnlPointsVieEnergie.Controls.Add(this.numUpDwnPtsCorps);
-            this.pnlPointsVieEnergie.Controls.Add(this.lblRelationnel);
-            this.pnlPointsVieEnergie.Controls.Add(this.lblEsprit);
-            this.pnlPointsVieEnergie.Controls.Add(this.lblCorps);
-            this.pnlPointsVieEnergie.Location = new System.Drawing.Point(410, 0);
-            this.pnlPointsVieEnergie.Name = "pnlPointsVieEnergie";
-            this.pnlPointsVieEnergie.Size = new System.Drawing.Size(401, 103);
-            this.pnlPointsVieEnergie.TabIndex = 0;
-            // 
-            // lblPtsRestantsRepartitionsCaracteristiques
-            // 
-            this.lblPtsRestantsRepartitionsCaracteristiques.AutoSize = true;
-            this.lblPtsRestantsRepartitionsCaracteristiques.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPtsRestantsRepartitionsCaracteristiques.Location = new System.Drawing.Point(7, 79);
-            this.lblPtsRestantsRepartitionsCaracteristiques.Name = "lblPtsRestantsRepartitionsCaracteristiques";
-            this.lblPtsRestantsRepartitionsCaracteristiques.Size = new System.Drawing.Size(185, 17);
-            this.lblPtsRestantsRepartitionsCaracteristiques.TabIndex = 44;
-            this.lblPtsRestantsRepartitionsCaracteristiques.Text = "Points restants à répartir : X";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(278, 44);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(43, 20);
-            this.numericUpDown1.TabIndex = 48;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // numUpDwnPtsEsprit
-            // 
-            this.numUpDwnPtsEsprit.Location = new System.Drawing.Point(151, 44);
-            this.numUpDwnPtsEsprit.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnPtsEsprit.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnPtsEsprit.Name = "numUpDwnPtsEsprit";
-            this.numUpDwnPtsEsprit.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnPtsEsprit.TabIndex = 47;
-            this.numUpDwnPtsEsprit.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // numUpDwnPtsCorps
-            // 
-            this.numUpDwnPtsCorps.Location = new System.Drawing.Point(42, 44);
-            this.numUpDwnPtsCorps.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnPtsCorps.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnPtsCorps.Name = "numUpDwnPtsCorps";
-            this.numUpDwnPtsCorps.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnPtsCorps.TabIndex = 44;
-            this.numUpDwnPtsCorps.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblRelationnel
-            // 
-            this.lblRelationnel.AutoSize = true;
-            this.lblRelationnel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRelationnel.Location = new System.Drawing.Point(255, 9);
-            this.lblRelationnel.Name = "lblRelationnel";
-            this.lblRelationnel.Size = new System.Drawing.Size(89, 20);
-            this.lblRelationnel.TabIndex = 46;
-            this.lblRelationnel.Text = "Relationnel";
-            // 
-            // lblEsprit
-            // 
-            this.lblEsprit.AutoSize = true;
-            this.lblEsprit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEsprit.Location = new System.Drawing.Point(147, 9);
-            this.lblEsprit.Name = "lblEsprit";
-            this.lblEsprit.Size = new System.Drawing.Size(50, 20);
-            this.lblEsprit.TabIndex = 45;
-            this.lblEsprit.Text = "Esprit";
-            // 
-            // lblCorps
-            // 
-            this.lblCorps.AutoSize = true;
-            this.lblCorps.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorps.Location = new System.Drawing.Point(38, 9);
-            this.lblCorps.Name = "lblCorps";
-            this.lblCorps.Size = new System.Drawing.Size(51, 20);
-            this.lblCorps.TabIndex = 44;
-            this.lblCorps.Text = "Corps";
-            // 
-            // tabPgeSortsAptitudes
-            // 
-            this.tabPgeSortsAptitudes.Controls.Add(this.pnlJeuSortsAptitudesPersonnage);
-            this.tabPgeSortsAptitudes.Controls.Add(this.lblJeuxSortsAptitudes);
-            this.tabPgeSortsAptitudes.Controls.Add(this.panel1);
-            this.tabPgeSortsAptitudes.Controls.Add(this.pnlSetSorts);
-            this.tabPgeSortsAptitudes.Controls.Add(this.pnlListeSetAptitudes);
-            this.tabPgeSortsAptitudes.Controls.Add(this.lblSorts);
-            this.tabPgeSortsAptitudes.Controls.Add(this.lblAptitudes);
-            this.tabPgeSortsAptitudes.Location = new System.Drawing.Point(4, 22);
-            this.tabPgeSortsAptitudes.Name = "tabPgeSortsAptitudes";
-            this.tabPgeSortsAptitudes.Size = new System.Drawing.Size(811, 571);
-            this.tabPgeSortsAptitudes.TabIndex = 3;
-            this.tabPgeSortsAptitudes.Text = "Sorts & Aptitudes";
-            this.tabPgeSortsAptitudes.UseVisualStyleBackColor = true;
-            // 
-            // tabPgeEquipement
-            // 
-            this.tabPgeEquipement.Controls.Add(this.pnlInventaire);
-            this.tabPgeEquipement.Controls.Add(this.pnlObjets);
-            this.tabPgeEquipement.Controls.Add(this.pnlArmures);
-            this.tabPgeEquipement.Controls.Add(this.pnlArme);
-            this.tabPgeEquipement.Location = new System.Drawing.Point(4, 22);
-            this.tabPgeEquipement.Name = "tabPgeEquipement";
-            this.tabPgeEquipement.Size = new System.Drawing.Size(811, 571);
-            this.tabPgeEquipement.TabIndex = 4;
-            this.tabPgeEquipement.Text = "Équipements";
-            this.tabPgeEquipement.UseVisualStyleBackColor = true;
-            // 
-            // lblSexe
-            // 
-            this.lblSexe.AutoSize = true;
-            this.lblSexe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSexe.Location = new System.Drawing.Point(327, 9);
-            this.lblSexe.Name = "lblSexe";
-            this.lblSexe.Size = new System.Drawing.Size(39, 17);
-            this.lblSexe.TabIndex = 42;
-            this.lblSexe.Text = "Sexe";
-            // 
-            // pnlHeader
-            // 
-            this.pnlHeader.Controls.Add(this.lblTaille);
-            this.pnlHeader.Controls.Add(this.cbBxTaille);
-            this.pnlHeader.Controls.Add(this.txtBxSexe);
-            this.pnlHeader.Controls.Add(this.nudNiveau);
-            this.pnlHeader.Controls.Add(this.txtBoxPrenom);
-            this.pnlHeader.Controls.Add(this.lblPrenom);
-            this.pnlHeader.Controls.Add(this.txtBoxNom);
-            this.pnlHeader.Controls.Add(this.lblSexe);
-            this.pnlHeader.Controls.Add(this.lblNom);
-            this.pnlHeader.Controls.Add(this.lblRace);
-            this.pnlHeader.Controls.Add(this.TxtBoxRace);
-            this.pnlHeader.Controls.Add(this.lblNiveau);
-            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(824, 105);
-            this.pnlHeader.TabIndex = 48;
-            // 
-            // lblTaille
-            // 
-            this.lblTaille.AutoSize = true;
-            this.lblTaille.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTaille.Location = new System.Drawing.Point(431, 9);
-            this.lblTaille.Name = "lblTaille";
-            this.lblTaille.Size = new System.Drawing.Size(42, 17);
-            this.lblTaille.TabIndex = 45;
-            this.lblTaille.Text = "Taille";
-            // 
-            // cbBxTaille
-            // 
-            this.cbBxTaille.FormattingEnabled = true;
-            this.cbBxTaille.Items.AddRange(new object[] {
-            "Minuscule",
-            "Petit",
-            "Moyen",
-            "Grand",
-            "Très grand",
-            "Gigantesque"});
-            this.cbBxTaille.Location = new System.Drawing.Point(431, 28);
-            this.cbBxTaille.Name = "cbBxTaille";
-            this.cbBxTaille.Size = new System.Drawing.Size(121, 21);
-            this.cbBxTaille.TabIndex = 44;
-            // 
-            // txtBxSexe
-            // 
-            this.txtBxSexe.Location = new System.Drawing.Point(327, 29);
-            this.txtBxSexe.Name = "txtBxSexe";
-            this.txtBxSexe.Size = new System.Drawing.Size(81, 20);
-            this.txtBxSexe.TabIndex = 43;
-            // 
-            // lblPtsRestantsRepartitionsCompetencesSpeciales
-            // 
-            this.lblPtsRestantsRepartitionsCompetencesSpeciales.AutoSize = true;
-            this.lblPtsRestantsRepartitionsCompetencesSpeciales.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPtsRestantsRepartitionsCompetencesSpeciales.Location = new System.Drawing.Point(3, 66);
-            this.lblPtsRestantsRepartitionsCompetencesSpeciales.Name = "lblPtsRestantsRepartitionsCompetencesSpeciales";
-            this.lblPtsRestantsRepartitionsCompetencesSpeciales.Size = new System.Drawing.Size(185, 17);
-            this.lblPtsRestantsRepartitionsCompetencesSpeciales.TabIndex = 44;
-            this.lblPtsRestantsRepartitionsCompetencesSpeciales.Text = "Points restants à répartir : X";
-            // 
-            // pnlCompetencesCorps
-            // 
-            this.pnlCompetencesCorps.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.pnlCompetencesCorps.Controls.Add(this.lblPtsRestantsRepartitionsCompetencesCorps);
-            this.pnlCompetencesCorps.Controls.Add(this.numUpDwnVigueur);
-            this.pnlCompetencesCorps.Controls.Add(this.lblVigueur);
-            this.pnlCompetencesCorps.Controls.Add(this.numUpDwnForce);
-            this.pnlCompetencesCorps.Controls.Add(this.lblForce);
-            this.pnlCompetencesCorps.Controls.Add(this.numUpDwnReflexes);
-            this.pnlCompetencesCorps.Controls.Add(this.lblReflexes);
-            this.pnlCompetencesCorps.Controls.Add(this.numUpDwnEscalade);
-            this.pnlCompetencesCorps.Controls.Add(this.lblEscalade);
-            this.pnlCompetencesCorps.Controls.Add(this.numUpDwnNatation);
-            this.pnlCompetencesCorps.Controls.Add(this.lblNatation);
-            this.pnlCompetencesCorps.Controls.Add(this.numUpDwnEquilibre);
-            this.pnlCompetencesCorps.Controls.Add(this.lblEquilibre);
-            this.pnlCompetencesCorps.Controls.Add(this.numUpDwnLutte);
-            this.pnlCompetencesCorps.Controls.Add(this.lblLutte);
-            this.pnlCompetencesCorps.Controls.Add(this.numUpDwnDiscretion);
-            this.pnlCompetencesCorps.Controls.Add(this.lblDiscretion);
-            this.pnlCompetencesCorps.Controls.Add(this.numUpDwnLancer);
-            this.pnlCompetencesCorps.Controls.Add(this.lblLancer);
-            this.pnlCompetencesCorps.Controls.Add(this.numUpDwnCourse);
-            this.pnlCompetencesCorps.Controls.Add(this.lblCourse);
-            this.pnlCompetencesCorps.Controls.Add(this.numUpDwnFouilles);
-            this.pnlCompetencesCorps.Controls.Add(this.lblFouilles);
-            this.pnlCompetencesCorps.Controls.Add(this.numUpDwnAgilite);
-            this.pnlCompetencesCorps.Controls.Add(this.lblAgilite);
-            this.pnlCompetencesCorps.Location = new System.Drawing.Point(0, 187);
-            this.pnlCompetencesCorps.Name = "pnlCompetencesCorps";
-            this.pnlCompetencesCorps.Size = new System.Drawing.Size(278, 209);
-            this.pnlCompetencesCorps.TabIndex = 55;
-            // 
-            // lblAgilite
-            // 
-            this.lblAgilite.AutoSize = true;
-            this.lblAgilite.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAgilite.Location = new System.Drawing.Point(8, 4);
-            this.lblAgilite.Name = "lblAgilite";
-            this.lblAgilite.Size = new System.Drawing.Size(46, 17);
-            this.lblAgilite.TabIndex = 55;
-            this.lblAgilite.Text = "Agilité";
-            // 
-            // numUpDwnAgilite
-            // 
-            this.numUpDwnAgilite.Location = new System.Drawing.Point(67, 4);
-            this.numUpDwnAgilite.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnAgilite.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnAgilite.Name = "numUpDwnAgilite";
-            this.numUpDwnAgilite.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnAgilite.TabIndex = 55;
-            this.numUpDwnAgilite.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // numUpDwnFouilles
-            // 
-            this.numUpDwnFouilles.Location = new System.Drawing.Point(208, 4);
-            this.numUpDwnFouilles.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnFouilles.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnFouilles.Name = "numUpDwnFouilles";
-            this.numUpDwnFouilles.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnFouilles.TabIndex = 56;
-            this.numUpDwnFouilles.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblFouilles
-            // 
-            this.lblFouilles.AutoSize = true;
-            this.lblFouilles.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFouilles.Location = new System.Drawing.Point(150, 4);
-            this.lblFouilles.Name = "lblFouilles";
-            this.lblFouilles.Size = new System.Drawing.Size(56, 17);
-            this.lblFouilles.TabIndex = 57;
-            this.lblFouilles.Text = "Fouilles";
-            // 
-            // numUpDwnLancer
-            // 
-            this.numUpDwnLancer.Location = new System.Drawing.Point(208, 35);
-            this.numUpDwnLancer.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnLancer.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnLancer.Name = "numUpDwnLancer";
-            this.numUpDwnLancer.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnLancer.TabIndex = 60;
-            this.numUpDwnLancer.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblLancer
-            // 
-            this.lblLancer.AutoSize = true;
-            this.lblLancer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLancer.Location = new System.Drawing.Point(150, 35);
-            this.lblLancer.Name = "lblLancer";
-            this.lblLancer.Size = new System.Drawing.Size(52, 17);
-            this.lblLancer.TabIndex = 61;
-            this.lblLancer.Text = "Lancer";
-            // 
-            // numUpDwnCourse
-            // 
-            this.numUpDwnCourse.Location = new System.Drawing.Point(67, 35);
-            this.numUpDwnCourse.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnCourse.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnCourse.Name = "numUpDwnCourse";
-            this.numUpDwnCourse.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnCourse.TabIndex = 58;
-            this.numUpDwnCourse.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblCourse
-            // 
-            this.lblCourse.AutoSize = true;
-            this.lblCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCourse.Location = new System.Drawing.Point(8, 35);
-            this.lblCourse.Name = "lblCourse";
-            this.lblCourse.Size = new System.Drawing.Size(53, 17);
-            this.lblCourse.TabIndex = 59;
-            this.lblCourse.Text = "Course";
-            // 
-            // numUpDwnNatation
-            // 
-            this.numUpDwnNatation.Location = new System.Drawing.Point(212, 97);
-            this.numUpDwnNatation.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnNatation.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnNatation.Name = "numUpDwnNatation";
-            this.numUpDwnNatation.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnNatation.TabIndex = 68;
-            this.numUpDwnNatation.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblNatation
-            // 
-            this.lblNatation.AutoSize = true;
-            this.lblNatation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNatation.Location = new System.Drawing.Point(150, 97);
-            this.lblNatation.Name = "lblNatation";
-            this.lblNatation.Size = new System.Drawing.Size(61, 17);
-            this.lblNatation.TabIndex = 69;
-            this.lblNatation.Text = "Natation";
-            // 
-            // numUpDwnEquilibre
-            // 
-            this.numUpDwnEquilibre.Location = new System.Drawing.Point(77, 97);
-            this.numUpDwnEquilibre.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnEquilibre.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnEquilibre.Name = "numUpDwnEquilibre";
-            this.numUpDwnEquilibre.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnEquilibre.TabIndex = 66;
-            this.numUpDwnEquilibre.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblEquilibre
-            // 
-            this.lblEquilibre.AutoSize = true;
-            this.lblEquilibre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEquilibre.Location = new System.Drawing.Point(8, 97);
-            this.lblEquilibre.Name = "lblEquilibre";
-            this.lblEquilibre.Size = new System.Drawing.Size(63, 17);
-            this.lblEquilibre.TabIndex = 67;
-            this.lblEquilibre.Text = "Équilibre";
-            // 
-            // numUpDwnLutte
-            // 
-            this.numUpDwnLutte.Location = new System.Drawing.Point(196, 66);
-            this.numUpDwnLutte.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnLutte.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnLutte.Name = "numUpDwnLutte";
-            this.numUpDwnLutte.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnLutte.TabIndex = 64;
-            this.numUpDwnLutte.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblLutte
-            // 
-            this.lblLutte.AutoSize = true;
-            this.lblLutte.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLutte.Location = new System.Drawing.Point(150, 66);
-            this.lblLutte.Name = "lblLutte";
-            this.lblLutte.Size = new System.Drawing.Size(40, 17);
-            this.lblLutte.TabIndex = 65;
-            this.lblLutte.Text = "Lutte";
-            // 
-            // numUpDwnDiscretion
-            // 
-            this.numUpDwnDiscretion.Location = new System.Drawing.Point(85, 66);
-            this.numUpDwnDiscretion.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnDiscretion.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnDiscretion.Name = "numUpDwnDiscretion";
-            this.numUpDwnDiscretion.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnDiscretion.TabIndex = 62;
-            this.numUpDwnDiscretion.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblDiscretion
-            // 
-            this.lblDiscretion.AutoSize = true;
-            this.lblDiscretion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiscretion.Location = new System.Drawing.Point(8, 66);
-            this.lblDiscretion.Name = "lblDiscretion";
-            this.lblDiscretion.Size = new System.Drawing.Size(71, 17);
-            this.lblDiscretion.TabIndex = 63;
-            this.lblDiscretion.Text = "Discrétion";
-            // 
-            // numUpDwnVigueur
-            // 
-            this.numUpDwnVigueur.Location = new System.Drawing.Point(212, 159);
-            this.numUpDwnVigueur.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnVigueur.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnVigueur.Name = "numUpDwnVigueur";
-            this.numUpDwnVigueur.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnVigueur.TabIndex = 78;
-            this.numUpDwnVigueur.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // numUpDwnForce
-            // 
-            this.numUpDwnForce.Location = new System.Drawing.Point(58, 159);
-            this.numUpDwnForce.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnForce.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnForce.Name = "numUpDwnForce";
-            this.numUpDwnForce.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnForce.TabIndex = 74;
-            this.numUpDwnForce.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblForce
-            // 
-            this.lblForce.AutoSize = true;
-            this.lblForce.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblForce.Location = new System.Drawing.Point(8, 159);
-            this.lblForce.Name = "lblForce";
-            this.lblForce.Size = new System.Drawing.Size(44, 17);
-            this.lblForce.TabIndex = 75;
-            this.lblForce.Text = "Force";
-            // 
-            // numUpDwnReflexes
-            // 
-            this.numUpDwnReflexes.Location = new System.Drawing.Point(217, 128);
-            this.numUpDwnReflexes.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnReflexes.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnReflexes.Name = "numUpDwnReflexes";
-            this.numUpDwnReflexes.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnReflexes.TabIndex = 72;
-            this.numUpDwnReflexes.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblReflexes
-            // 
-            this.lblReflexes.AutoSize = true;
-            this.lblReflexes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReflexes.Location = new System.Drawing.Point(150, 128);
-            this.lblReflexes.Name = "lblReflexes";
-            this.lblReflexes.Size = new System.Drawing.Size(62, 17);
-            this.lblReflexes.TabIndex = 73;
-            this.lblReflexes.Text = "Réflexes";
-            // 
-            // numUpDwnEscalade
-            // 
-            this.numUpDwnEscalade.Location = new System.Drawing.Point(77, 128);
-            this.numUpDwnEscalade.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnEscalade.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnEscalade.Name = "numUpDwnEscalade";
-            this.numUpDwnEscalade.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnEscalade.TabIndex = 70;
-            this.numUpDwnEscalade.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblEscalade
-            // 
-            this.lblEscalade.AutoSize = true;
-            this.lblEscalade.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEscalade.Location = new System.Drawing.Point(8, 128);
-            this.lblEscalade.Name = "lblEscalade";
-            this.lblEscalade.Size = new System.Drawing.Size(66, 17);
-            this.lblEscalade.TabIndex = 71;
-            this.lblEscalade.Text = "Escalade";
-            // 
-            // lblVigueur
-            // 
-            this.lblVigueur.AutoSize = true;
-            this.lblVigueur.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVigueur.Location = new System.Drawing.Point(150, 159);
-            this.lblVigueur.Name = "lblVigueur";
-            this.lblVigueur.Size = new System.Drawing.Size(57, 17);
-            this.lblVigueur.TabIndex = 79;
-            this.lblVigueur.Text = "Vigueur";
-            // 
-            // pnlCompetencesEsprits
-            // 
-            this.pnlCompetencesEsprits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.pnlCompetencesEsprits.Controls.Add(this.lblPtsRestantsRepartitionsCompetencesEsprit);
-            this.pnlCompetencesEsprits.Controls.Add(this.numUpDwnPerception);
-            this.pnlCompetencesEsprits.Controls.Add(this.lblPerception);
-            this.pnlCompetencesEsprits.Controls.Add(this.numUpDwnOrientation);
-            this.pnlCompetencesEsprits.Controls.Add(this.lblOrientation);
-            this.pnlCompetencesEsprits.Controls.Add(this.numUpDwnMemoire);
-            this.pnlCompetencesEsprits.Controls.Add(this.lblMemoire);
-            this.pnlCompetencesEsprits.Controls.Add(this.numUpDwnLogique);
-            this.pnlCompetencesEsprits.Controls.Add(this.lblLogique);
-            this.pnlCompetencesEsprits.Controls.Add(this.numUpDwnEssence);
-            this.pnlCompetencesEsprits.Controls.Add(this.lblEssence);
-            this.pnlCompetencesEsprits.Controls.Add(this.numUpDwnVolonte);
-            this.pnlCompetencesEsprits.Controls.Add(this.lblVolonte);
-            this.pnlCompetencesEsprits.Controls.Add(this.numUpDwnConcentration);
-            this.pnlCompetencesEsprits.Controls.Add(this.lblConcentration);
-            this.pnlCompetencesEsprits.Location = new System.Drawing.Point(277, 187);
-            this.pnlCompetencesEsprits.Name = "pnlCompetencesEsprits";
-            this.pnlCompetencesEsprits.Size = new System.Drawing.Size(261, 209);
-            this.pnlCompetencesEsprits.TabIndex = 80;
-            // 
-            // numUpDwnPerception
-            // 
-            this.numUpDwnPerception.Location = new System.Drawing.Point(89, 162);
-            this.numUpDwnPerception.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnPerception.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnPerception.Name = "numUpDwnPerception";
-            this.numUpDwnPerception.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnPerception.TabIndex = 74;
-            this.numUpDwnPerception.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblPerception
-            // 
-            this.lblPerception.AutoSize = true;
-            this.lblPerception.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPerception.Location = new System.Drawing.Point(8, 162);
-            this.lblPerception.Name = "lblPerception";
-            this.lblPerception.Size = new System.Drawing.Size(76, 17);
-            this.lblPerception.TabIndex = 75;
-            this.lblPerception.Text = "Perception";
-            // 
-            // numUpDwnOrientation
-            // 
-            this.numUpDwnOrientation.Location = new System.Drawing.Point(89, 130);
-            this.numUpDwnOrientation.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnOrientation.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnOrientation.Name = "numUpDwnOrientation";
-            this.numUpDwnOrientation.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnOrientation.TabIndex = 70;
-            this.numUpDwnOrientation.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblOrientation
-            // 
-            this.lblOrientation.AutoSize = true;
-            this.lblOrientation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrientation.Location = new System.Drawing.Point(8, 130);
-            this.lblOrientation.Name = "lblOrientation";
-            this.lblOrientation.Size = new System.Drawing.Size(78, 17);
-            this.lblOrientation.TabIndex = 71;
-            this.lblOrientation.Text = "Orientation";
-            // 
-            // numUpDwnMemoire
-            // 
-            this.numUpDwnMemoire.Location = new System.Drawing.Point(77, 100);
-            this.numUpDwnMemoire.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnMemoire.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnMemoire.Name = "numUpDwnMemoire";
-            this.numUpDwnMemoire.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnMemoire.TabIndex = 66;
-            this.numUpDwnMemoire.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblMemoire
-            // 
-            this.lblMemoire.AutoSize = true;
-            this.lblMemoire.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMemoire.Location = new System.Drawing.Point(8, 100);
-            this.lblMemoire.Name = "lblMemoire";
-            this.lblMemoire.Size = new System.Drawing.Size(62, 17);
-            this.lblMemoire.TabIndex = 67;
-            this.lblMemoire.Text = "Mémoire";
-            // 
-            // numUpDwnLogique
-            // 
-            this.numUpDwnLogique.Location = new System.Drawing.Point(74, 68);
-            this.numUpDwnLogique.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnLogique.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnLogique.Name = "numUpDwnLogique";
-            this.numUpDwnLogique.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnLogique.TabIndex = 62;
-            this.numUpDwnLogique.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblLogique
-            // 
-            this.lblLogique.AutoSize = true;
-            this.lblLogique.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogique.Location = new System.Drawing.Point(8, 68);
-            this.lblLogique.Name = "lblLogique";
-            this.lblLogique.Size = new System.Drawing.Size(59, 17);
-            this.lblLogique.TabIndex = 63;
-            this.lblLogique.Text = "Logique";
-            // 
-            // numUpDwnEssence
-            // 
-            this.numUpDwnEssence.Location = new System.Drawing.Point(74, 35);
-            this.numUpDwnEssence.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnEssence.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnEssence.Name = "numUpDwnEssence";
-            this.numUpDwnEssence.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnEssence.TabIndex = 58;
-            this.numUpDwnEssence.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblEssence
-            // 
-            this.lblEssence.AutoSize = true;
-            this.lblEssence.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEssence.Location = new System.Drawing.Point(8, 36);
-            this.lblEssence.Name = "lblEssence";
-            this.lblEssence.Size = new System.Drawing.Size(62, 17);
-            this.lblEssence.TabIndex = 59;
-            this.lblEssence.Text = "Essence";
-            // 
-            // numUpDwnVolonte
-            // 
-            this.numUpDwnVolonte.Location = new System.Drawing.Point(208, 4);
-            this.numUpDwnVolonte.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnVolonte.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnVolonte.Name = "numUpDwnVolonte";
-            this.numUpDwnVolonte.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnVolonte.TabIndex = 56;
-            this.numUpDwnVolonte.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblVolonte
-            // 
-            this.lblVolonte.AutoSize = true;
-            this.lblVolonte.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVolonte.Location = new System.Drawing.Point(150, 4);
-            this.lblVolonte.Name = "lblVolonte";
-            this.lblVolonte.Size = new System.Drawing.Size(56, 17);
-            this.lblVolonte.TabIndex = 57;
-            this.lblVolonte.Text = "Volonté";
-            // 
-            // numUpDwnConcentration
-            // 
-            this.numUpDwnConcentration.Location = new System.Drawing.Point(101, 4);
-            this.numUpDwnConcentration.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnConcentration.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnConcentration.Name = "numUpDwnConcentration";
-            this.numUpDwnConcentration.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnConcentration.TabIndex = 55;
-            this.numUpDwnConcentration.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblConcentration
-            // 
-            this.lblConcentration.AutoSize = true;
-            this.lblConcentration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConcentration.Location = new System.Drawing.Point(8, 4);
-            this.lblConcentration.Name = "lblConcentration";
-            this.lblConcentration.Size = new System.Drawing.Size(96, 17);
-            this.lblConcentration.TabIndex = 55;
-            this.lblConcentration.Text = "Concentration";
+            // cbBxTriSpecialites
+            // 
+            this.cbBxTriSpecialites.FormattingEnabled = true;
+            this.cbBxTriSpecialites.Location = new System.Drawing.Point(95, 406);
+            this.cbBxTriSpecialites.Name = "cbBxTriSpecialites";
+            this.cbBxTriSpecialites.Size = new System.Drawing.Size(121, 21);
+            this.cbBxTriSpecialites.TabIndex = 85;
+            // 
+            // pnlSpecialites
+            // 
+            this.pnlSpecialites.AutoScroll = true;
+            this.pnlSpecialites.Location = new System.Drawing.Point(0, 433);
+            this.pnlSpecialites.Name = "pnlSpecialites";
+            this.pnlSpecialites.Size = new System.Drawing.Size(811, 135);
+            this.pnlSpecialites.TabIndex = 83;
+            // 
+            // lblSpecialites
+            // 
+            this.lblSpecialites.AutoSize = true;
+            this.lblSpecialites.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSpecialites.Location = new System.Drawing.Point(3, 407);
+            this.lblSpecialites.Name = "lblSpecialites";
+            this.lblSpecialites.Size = new System.Drawing.Size(86, 20);
+            this.lblSpecialites.TabIndex = 82;
+            this.lblSpecialites.Text = "Spécialités";
             // 
             // pnlCompetencesRelationnelles
             // 
@@ -1784,6 +738,48 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlCompetencesRelationnelles.Name = "pnlCompetencesRelationnelles";
             this.pnlCompetencesRelationnelles.Size = new System.Drawing.Size(277, 209);
             this.pnlCompetencesRelationnelles.TabIndex = 81;
+            // 
+            // lblPtsRestantsRepartitionsCompetencesRelationnelles
+            // 
+            this.lblPtsRestantsRepartitionsCompetencesRelationnelles.AutoSize = true;
+            this.lblPtsRestantsRepartitionsCompetencesRelationnelles.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPtsRestantsRepartitionsCompetencesRelationnelles.Location = new System.Drawing.Point(8, 189);
+            this.lblPtsRestantsRepartitionsCompetencesRelationnelles.Name = "lblPtsRestantsRepartitionsCompetencesRelationnelles";
+            this.lblPtsRestantsRepartitionsCompetencesRelationnelles.Size = new System.Drawing.Size(215, 17);
+            this.lblPtsRestantsRepartitionsCompetencesRelationnelles.TabIndex = 82;
+            this.lblPtsRestantsRepartitionsCompetencesRelationnelles.Text = "Points restants à répartir : X";
+            // 
+            // numUpDwnTromperie
+            // 
+            this.numUpDwnTromperie.Location = new System.Drawing.Point(229, 36);
+            this.numUpDwnTromperie.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnTromperie.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnTromperie.Name = "numUpDwnTromperie";
+            this.numUpDwnTromperie.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnTromperie.TabIndex = 76;
+            this.numUpDwnTromperie.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblTromperie
+            // 
+            this.lblTromperie.AutoSize = true;
+            this.lblTromperie.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTromperie.Location = new System.Drawing.Point(150, 36);
+            this.lblTromperie.Name = "lblTromperie";
+            this.lblTromperie.Size = new System.Drawing.Size(73, 17);
+            this.lblTromperie.TabIndex = 77;
+            this.lblTromperie.Text = "Tromperie";
             // 
             // numUpDwnPerspicacite
             // 
@@ -2009,103 +1005,1069 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblApaisement.TabIndex = 55;
             this.lblApaisement.Text = "Apaisement";
             // 
-            // numUpDwnTromperie
+            // pnlCompetencesEsprits
             // 
-            this.numUpDwnTromperie.Location = new System.Drawing.Point(229, 36);
-            this.numUpDwnTromperie.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numUpDwnTromperie.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numUpDwnTromperie.Name = "numUpDwnTromperie";
-            this.numUpDwnTromperie.Size = new System.Drawing.Size(43, 20);
-            this.numUpDwnTromperie.TabIndex = 76;
-            this.numUpDwnTromperie.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblTromperie
-            // 
-            this.lblTromperie.AutoSize = true;
-            this.lblTromperie.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTromperie.Location = new System.Drawing.Point(150, 36);
-            this.lblTromperie.Name = "lblTromperie";
-            this.lblTromperie.Size = new System.Drawing.Size(73, 17);
-            this.lblTromperie.TabIndex = 77;
-            this.lblTromperie.Text = "Tromperie";
-            // 
-            // lblPtsRestantsRepartitionsCompetencesCorps
-            // 
-            this.lblPtsRestantsRepartitionsCompetencesCorps.AutoSize = true;
-            this.lblPtsRestantsRepartitionsCompetencesCorps.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPtsRestantsRepartitionsCompetencesCorps.Location = new System.Drawing.Point(8, 189);
-            this.lblPtsRestantsRepartitionsCompetencesCorps.Name = "lblPtsRestantsRepartitionsCompetencesCorps";
-            this.lblPtsRestantsRepartitionsCompetencesCorps.Size = new System.Drawing.Size(185, 17);
-            this.lblPtsRestantsRepartitionsCompetencesCorps.TabIndex = 80;
-            this.lblPtsRestantsRepartitionsCompetencesCorps.Text = "Points restants à répartir : X";
+            this.pnlCompetencesEsprits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.pnlCompetencesEsprits.Controls.Add(this.lblPtsRestantsRepartitionsCompetencesEsprit);
+            this.pnlCompetencesEsprits.Controls.Add(this.numUpDwnPerception);
+            this.pnlCompetencesEsprits.Controls.Add(this.lblPerception);
+            this.pnlCompetencesEsprits.Controls.Add(this.numUpDwnOrientation);
+            this.pnlCompetencesEsprits.Controls.Add(this.lblOrientation);
+            this.pnlCompetencesEsprits.Controls.Add(this.numUpDwnMemoire);
+            this.pnlCompetencesEsprits.Controls.Add(this.lblMemoire);
+            this.pnlCompetencesEsprits.Controls.Add(this.numUpDwnLogique);
+            this.pnlCompetencesEsprits.Controls.Add(this.lblLogique);
+            this.pnlCompetencesEsprits.Controls.Add(this.numUpDwnEssence);
+            this.pnlCompetencesEsprits.Controls.Add(this.lblEssence);
+            this.pnlCompetencesEsprits.Controls.Add(this.numUpDwnVolonte);
+            this.pnlCompetencesEsprits.Controls.Add(this.lblVolonte);
+            this.pnlCompetencesEsprits.Controls.Add(this.numUpDwnConcentration);
+            this.pnlCompetencesEsprits.Controls.Add(this.lblConcentration);
+            this.pnlCompetencesEsprits.Location = new System.Drawing.Point(277, 187);
+            this.pnlCompetencesEsprits.Name = "pnlCompetencesEsprits";
+            this.pnlCompetencesEsprits.Size = new System.Drawing.Size(261, 209);
+            this.pnlCompetencesEsprits.TabIndex = 80;
             // 
             // lblPtsRestantsRepartitionsCompetencesEsprit
             // 
             this.lblPtsRestantsRepartitionsCompetencesEsprit.AutoSize = true;
-            this.lblPtsRestantsRepartitionsCompetencesEsprit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPtsRestantsRepartitionsCompetencesEsprit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPtsRestantsRepartitionsCompetencesEsprit.Location = new System.Drawing.Point(8, 189);
             this.lblPtsRestantsRepartitionsCompetencesEsprit.Name = "lblPtsRestantsRepartitionsCompetencesEsprit";
-            this.lblPtsRestantsRepartitionsCompetencesEsprit.Size = new System.Drawing.Size(185, 17);
+            this.lblPtsRestantsRepartitionsCompetencesEsprit.Size = new System.Drawing.Size(215, 17);
             this.lblPtsRestantsRepartitionsCompetencesEsprit.TabIndex = 81;
             this.lblPtsRestantsRepartitionsCompetencesEsprit.Text = "Points restants à répartir : X";
             // 
-            // lblPtsRestantsRepartitionsCompetencesRelationnelles
+            // numUpDwnPerception
             // 
-            this.lblPtsRestantsRepartitionsCompetencesRelationnelles.AutoSize = true;
-            this.lblPtsRestantsRepartitionsCompetencesRelationnelles.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPtsRestantsRepartitionsCompetencesRelationnelles.Location = new System.Drawing.Point(8, 189);
-            this.lblPtsRestantsRepartitionsCompetencesRelationnelles.Name = "lblPtsRestantsRepartitionsCompetencesRelationnelles";
-            this.lblPtsRestantsRepartitionsCompetencesRelationnelles.Size = new System.Drawing.Size(185, 17);
-            this.lblPtsRestantsRepartitionsCompetencesRelationnelles.TabIndex = 82;
-            this.lblPtsRestantsRepartitionsCompetencesRelationnelles.Text = "Points restants à répartir : X";
+            this.numUpDwnPerception.Location = new System.Drawing.Point(89, 162);
+            this.numUpDwnPerception.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnPerception.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnPerception.Name = "numUpDwnPerception";
+            this.numUpDwnPerception.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnPerception.TabIndex = 74;
+            this.numUpDwnPerception.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // lblSpecialites
+            // lblPerception
             // 
-            this.lblSpecialites.AutoSize = true;
-            this.lblSpecialites.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSpecialites.Location = new System.Drawing.Point(3, 407);
-            this.lblSpecialites.Name = "lblSpecialites";
-            this.lblSpecialites.Size = new System.Drawing.Size(86, 20);
-            this.lblSpecialites.TabIndex = 82;
-            this.lblSpecialites.Text = "Spécialités";
+            this.lblPerception.AutoSize = true;
+            this.lblPerception.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPerception.Location = new System.Drawing.Point(8, 162);
+            this.lblPerception.Name = "lblPerception";
+            this.lblPerception.Size = new System.Drawing.Size(76, 17);
+            this.lblPerception.TabIndex = 75;
+            this.lblPerception.Text = "Perception";
             // 
-            // pnlSpecialites
+            // numUpDwnOrientation
             // 
-            this.pnlSpecialites.AutoScroll = true;
-            this.pnlSpecialites.Location = new System.Drawing.Point(0, 433);
-            this.pnlSpecialites.Name = "pnlSpecialites";
-            this.pnlSpecialites.Size = new System.Drawing.Size(811, 135);
-            this.pnlSpecialites.TabIndex = 83;
+            this.numUpDwnOrientation.Location = new System.Drawing.Point(89, 130);
+            this.numUpDwnOrientation.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnOrientation.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnOrientation.Name = "numUpDwnOrientation";
+            this.numUpDwnOrientation.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnOrientation.TabIndex = 70;
+            this.numUpDwnOrientation.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // cbBxTriSpecialites
+            // lblOrientation
             // 
-            this.cbBxTriSpecialites.FormattingEnabled = true;
-            this.cbBxTriSpecialites.Location = new System.Drawing.Point(95, 406);
-            this.cbBxTriSpecialites.Name = "cbBxTriSpecialites";
-            this.cbBxTriSpecialites.Size = new System.Drawing.Size(121, 21);
-            this.cbBxTriSpecialites.TabIndex = 85;
+            this.lblOrientation.AutoSize = true;
+            this.lblOrientation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrientation.Location = new System.Drawing.Point(8, 130);
+            this.lblOrientation.Name = "lblOrientation";
+            this.lblOrientation.Size = new System.Drawing.Size(78, 17);
+            this.lblOrientation.TabIndex = 71;
+            this.lblOrientation.Text = "Orientation";
             // 
-            // lblAptitudes
+            // numUpDwnMemoire
             // 
-            this.lblAptitudes.AutoSize = true;
-            this.lblAptitudes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAptitudes.Location = new System.Drawing.Point(11, 9);
-            this.lblAptitudes.Name = "lblAptitudes";
-            this.lblAptitudes.Size = new System.Drawing.Size(77, 20);
-            this.lblAptitudes.TabIndex = 21;
-            this.lblAptitudes.Text = "Aptitudes";
+            this.numUpDwnMemoire.Location = new System.Drawing.Point(77, 100);
+            this.numUpDwnMemoire.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnMemoire.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnMemoire.Name = "numUpDwnMemoire";
+            this.numUpDwnMemoire.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnMemoire.TabIndex = 66;
+            this.numUpDwnMemoire.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblMemoire
+            // 
+            this.lblMemoire.AutoSize = true;
+            this.lblMemoire.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMemoire.Location = new System.Drawing.Point(8, 100);
+            this.lblMemoire.Name = "lblMemoire";
+            this.lblMemoire.Size = new System.Drawing.Size(62, 17);
+            this.lblMemoire.TabIndex = 67;
+            this.lblMemoire.Text = "Mémoire";
+            // 
+            // numUpDwnLogique
+            // 
+            this.numUpDwnLogique.Location = new System.Drawing.Point(74, 68);
+            this.numUpDwnLogique.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnLogique.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnLogique.Name = "numUpDwnLogique";
+            this.numUpDwnLogique.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnLogique.TabIndex = 62;
+            this.numUpDwnLogique.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblLogique
+            // 
+            this.lblLogique.AutoSize = true;
+            this.lblLogique.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogique.Location = new System.Drawing.Point(8, 68);
+            this.lblLogique.Name = "lblLogique";
+            this.lblLogique.Size = new System.Drawing.Size(59, 17);
+            this.lblLogique.TabIndex = 63;
+            this.lblLogique.Text = "Logique";
+            // 
+            // numUpDwnEssence
+            // 
+            this.numUpDwnEssence.Location = new System.Drawing.Point(74, 35);
+            this.numUpDwnEssence.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnEssence.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnEssence.Name = "numUpDwnEssence";
+            this.numUpDwnEssence.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnEssence.TabIndex = 58;
+            this.numUpDwnEssence.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblEssence
+            // 
+            this.lblEssence.AutoSize = true;
+            this.lblEssence.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEssence.Location = new System.Drawing.Point(8, 36);
+            this.lblEssence.Name = "lblEssence";
+            this.lblEssence.Size = new System.Drawing.Size(69, 17);
+            this.lblEssence.TabIndex = 59;
+            this.lblEssence.Text = "Essence";
+            // 
+            // numUpDwnVolonte
+            // 
+            this.numUpDwnVolonte.Location = new System.Drawing.Point(208, 4);
+            this.numUpDwnVolonte.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnVolonte.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnVolonte.Name = "numUpDwnVolonte";
+            this.numUpDwnVolonte.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnVolonte.TabIndex = 56;
+            this.numUpDwnVolonte.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblVolonte
+            // 
+            this.lblVolonte.AutoSize = true;
+            this.lblVolonte.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVolonte.Location = new System.Drawing.Point(150, 4);
+            this.lblVolonte.Name = "lblVolonte";
+            this.lblVolonte.Size = new System.Drawing.Size(56, 17);
+            this.lblVolonte.TabIndex = 57;
+            this.lblVolonte.Text = "Volonté";
+            // 
+            // numUpDwnConcentration
+            // 
+            this.numUpDwnConcentration.Location = new System.Drawing.Point(101, 4);
+            this.numUpDwnConcentration.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnConcentration.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnConcentration.Name = "numUpDwnConcentration";
+            this.numUpDwnConcentration.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnConcentration.TabIndex = 55;
+            this.numUpDwnConcentration.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblConcentration
+            // 
+            this.lblConcentration.AutoSize = true;
+            this.lblConcentration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConcentration.Location = new System.Drawing.Point(8, 4);
+            this.lblConcentration.Name = "lblConcentration";
+            this.lblConcentration.Size = new System.Drawing.Size(96, 17);
+            this.lblConcentration.TabIndex = 55;
+            this.lblConcentration.Text = "Concentration";
+            // 
+            // pnlCompetencesCorps
+            // 
+            this.pnlCompetencesCorps.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.pnlCompetencesCorps.Controls.Add(this.lblPtsRestantsRepartitionsCompetencesCorps);
+            this.pnlCompetencesCorps.Controls.Add(this.numUpDwnVigueur);
+            this.pnlCompetencesCorps.Controls.Add(this.lblVigueur);
+            this.pnlCompetencesCorps.Controls.Add(this.numUpDwnForce);
+            this.pnlCompetencesCorps.Controls.Add(this.lblForce);
+            this.pnlCompetencesCorps.Controls.Add(this.numUpDwnReflexes);
+            this.pnlCompetencesCorps.Controls.Add(this.lblReflexes);
+            this.pnlCompetencesCorps.Controls.Add(this.numUpDwnEscalade);
+            this.pnlCompetencesCorps.Controls.Add(this.lblEscalade);
+            this.pnlCompetencesCorps.Controls.Add(this.numUpDwnNatation);
+            this.pnlCompetencesCorps.Controls.Add(this.lblNatation);
+            this.pnlCompetencesCorps.Controls.Add(this.numUpDwnEquilibre);
+            this.pnlCompetencesCorps.Controls.Add(this.lblEquilibre);
+            this.pnlCompetencesCorps.Controls.Add(this.numUpDwnLutte);
+            this.pnlCompetencesCorps.Controls.Add(this.lblLutte);
+            this.pnlCompetencesCorps.Controls.Add(this.numUpDwnDiscretion);
+            this.pnlCompetencesCorps.Controls.Add(this.lblDiscretion);
+            this.pnlCompetencesCorps.Controls.Add(this.numUpDwnLancer);
+            this.pnlCompetencesCorps.Controls.Add(this.lblLancer);
+            this.pnlCompetencesCorps.Controls.Add(this.numUpDwnCourse);
+            this.pnlCompetencesCorps.Controls.Add(this.lblCourse);
+            this.pnlCompetencesCorps.Controls.Add(this.numUpDwnFouilles);
+            this.pnlCompetencesCorps.Controls.Add(this.lblFouilles);
+            this.pnlCompetencesCorps.Controls.Add(this.numUpDwnAgilite);
+            this.pnlCompetencesCorps.Controls.Add(this.lblAgilite);
+            this.pnlCompetencesCorps.Location = new System.Drawing.Point(0, 187);
+            this.pnlCompetencesCorps.Name = "pnlCompetencesCorps";
+            this.pnlCompetencesCorps.Size = new System.Drawing.Size(278, 209);
+            this.pnlCompetencesCorps.TabIndex = 55;
+            // 
+            // lblPtsRestantsRepartitionsCompetencesCorps
+            // 
+            this.lblPtsRestantsRepartitionsCompetencesCorps.AutoSize = true;
+            this.lblPtsRestantsRepartitionsCompetencesCorps.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPtsRestantsRepartitionsCompetencesCorps.Location = new System.Drawing.Point(8, 189);
+            this.lblPtsRestantsRepartitionsCompetencesCorps.Name = "lblPtsRestantsRepartitionsCompetencesCorps";
+            this.lblPtsRestantsRepartitionsCompetencesCorps.Size = new System.Drawing.Size(215, 17);
+            this.lblPtsRestantsRepartitionsCompetencesCorps.TabIndex = 80;
+            this.lblPtsRestantsRepartitionsCompetencesCorps.Text = "Points restants à répartir : X";
+            // 
+            // numUpDwnVigueur
+            // 
+            this.numUpDwnVigueur.Location = new System.Drawing.Point(212, 159);
+            this.numUpDwnVigueur.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnVigueur.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnVigueur.Name = "numUpDwnVigueur";
+            this.numUpDwnVigueur.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnVigueur.TabIndex = 78;
+            this.numUpDwnVigueur.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblVigueur
+            // 
+            this.lblVigueur.AutoSize = true;
+            this.lblVigueur.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVigueur.Location = new System.Drawing.Point(150, 159);
+            this.lblVigueur.Name = "lblVigueur";
+            this.lblVigueur.Size = new System.Drawing.Size(64, 17);
+            this.lblVigueur.TabIndex = 79;
+            this.lblVigueur.Text = "Vigueur";
+            // 
+            // numUpDwnForce
+            // 
+            this.numUpDwnForce.Location = new System.Drawing.Point(58, 159);
+            this.numUpDwnForce.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnForce.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnForce.Name = "numUpDwnForce";
+            this.numUpDwnForce.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnForce.TabIndex = 74;
+            this.numUpDwnForce.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblForce
+            // 
+            this.lblForce.AutoSize = true;
+            this.lblForce.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblForce.Location = new System.Drawing.Point(8, 159);
+            this.lblForce.Name = "lblForce";
+            this.lblForce.Size = new System.Drawing.Size(49, 17);
+            this.lblForce.TabIndex = 75;
+            this.lblForce.Text = "Force";
+            // 
+            // numUpDwnReflexes
+            // 
+            this.numUpDwnReflexes.Location = new System.Drawing.Point(217, 128);
+            this.numUpDwnReflexes.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnReflexes.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnReflexes.Name = "numUpDwnReflexes";
+            this.numUpDwnReflexes.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnReflexes.TabIndex = 72;
+            this.numUpDwnReflexes.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblReflexes
+            // 
+            this.lblReflexes.AutoSize = true;
+            this.lblReflexes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReflexes.Location = new System.Drawing.Point(150, 128);
+            this.lblReflexes.Name = "lblReflexes";
+            this.lblReflexes.Size = new System.Drawing.Size(62, 17);
+            this.lblReflexes.TabIndex = 73;
+            this.lblReflexes.Text = "Réflexes";
+            // 
+            // numUpDwnEscalade
+            // 
+            this.numUpDwnEscalade.Location = new System.Drawing.Point(77, 128);
+            this.numUpDwnEscalade.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnEscalade.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnEscalade.Name = "numUpDwnEscalade";
+            this.numUpDwnEscalade.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnEscalade.TabIndex = 70;
+            this.numUpDwnEscalade.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblEscalade
+            // 
+            this.lblEscalade.AutoSize = true;
+            this.lblEscalade.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEscalade.Location = new System.Drawing.Point(8, 128);
+            this.lblEscalade.Name = "lblEscalade";
+            this.lblEscalade.Size = new System.Drawing.Size(66, 17);
+            this.lblEscalade.TabIndex = 71;
+            this.lblEscalade.Text = "Escalade";
+            // 
+            // numUpDwnNatation
+            // 
+            this.numUpDwnNatation.Location = new System.Drawing.Point(212, 97);
+            this.numUpDwnNatation.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnNatation.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnNatation.Name = "numUpDwnNatation";
+            this.numUpDwnNatation.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnNatation.TabIndex = 68;
+            this.numUpDwnNatation.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblNatation
+            // 
+            this.lblNatation.AutoSize = true;
+            this.lblNatation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNatation.Location = new System.Drawing.Point(150, 97);
+            this.lblNatation.Name = "lblNatation";
+            this.lblNatation.Size = new System.Drawing.Size(61, 17);
+            this.lblNatation.TabIndex = 69;
+            this.lblNatation.Text = "Natation";
+            // 
+            // numUpDwnEquilibre
+            // 
+            this.numUpDwnEquilibre.Location = new System.Drawing.Point(77, 97);
+            this.numUpDwnEquilibre.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnEquilibre.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnEquilibre.Name = "numUpDwnEquilibre";
+            this.numUpDwnEquilibre.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnEquilibre.TabIndex = 66;
+            this.numUpDwnEquilibre.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblEquilibre
+            // 
+            this.lblEquilibre.AutoSize = true;
+            this.lblEquilibre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEquilibre.Location = new System.Drawing.Point(8, 97);
+            this.lblEquilibre.Name = "lblEquilibre";
+            this.lblEquilibre.Size = new System.Drawing.Size(63, 17);
+            this.lblEquilibre.TabIndex = 67;
+            this.lblEquilibre.Text = "Équilibre";
+            // 
+            // numUpDwnLutte
+            // 
+            this.numUpDwnLutte.Location = new System.Drawing.Point(196, 66);
+            this.numUpDwnLutte.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnLutte.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnLutte.Name = "numUpDwnLutte";
+            this.numUpDwnLutte.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnLutte.TabIndex = 64;
+            this.numUpDwnLutte.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblLutte
+            // 
+            this.lblLutte.AutoSize = true;
+            this.lblLutte.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLutte.Location = new System.Drawing.Point(150, 66);
+            this.lblLutte.Name = "lblLutte";
+            this.lblLutte.Size = new System.Drawing.Size(40, 17);
+            this.lblLutte.TabIndex = 65;
+            this.lblLutte.Text = "Lutte";
+            // 
+            // numUpDwnDiscretion
+            // 
+            this.numUpDwnDiscretion.Location = new System.Drawing.Point(85, 66);
+            this.numUpDwnDiscretion.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnDiscretion.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnDiscretion.Name = "numUpDwnDiscretion";
+            this.numUpDwnDiscretion.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnDiscretion.TabIndex = 62;
+            this.numUpDwnDiscretion.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblDiscretion
+            // 
+            this.lblDiscretion.AutoSize = true;
+            this.lblDiscretion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDiscretion.Location = new System.Drawing.Point(8, 66);
+            this.lblDiscretion.Name = "lblDiscretion";
+            this.lblDiscretion.Size = new System.Drawing.Size(71, 17);
+            this.lblDiscretion.TabIndex = 63;
+            this.lblDiscretion.Text = "Discrétion";
+            // 
+            // numUpDwnLancer
+            // 
+            this.numUpDwnLancer.Location = new System.Drawing.Point(208, 35);
+            this.numUpDwnLancer.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnLancer.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnLancer.Name = "numUpDwnLancer";
+            this.numUpDwnLancer.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnLancer.TabIndex = 60;
+            this.numUpDwnLancer.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblLancer
+            // 
+            this.lblLancer.AutoSize = true;
+            this.lblLancer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLancer.Location = new System.Drawing.Point(150, 35);
+            this.lblLancer.Name = "lblLancer";
+            this.lblLancer.Size = new System.Drawing.Size(52, 17);
+            this.lblLancer.TabIndex = 61;
+            this.lblLancer.Text = "Lancer";
+            // 
+            // numUpDwnCourse
+            // 
+            this.numUpDwnCourse.Location = new System.Drawing.Point(67, 35);
+            this.numUpDwnCourse.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnCourse.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnCourse.Name = "numUpDwnCourse";
+            this.numUpDwnCourse.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnCourse.TabIndex = 58;
+            this.numUpDwnCourse.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblCourse
+            // 
+            this.lblCourse.AutoSize = true;
+            this.lblCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCourse.Location = new System.Drawing.Point(8, 35);
+            this.lblCourse.Name = "lblCourse";
+            this.lblCourse.Size = new System.Drawing.Size(53, 17);
+            this.lblCourse.TabIndex = 59;
+            this.lblCourse.Text = "Course";
+            // 
+            // numUpDwnFouilles
+            // 
+            this.numUpDwnFouilles.Location = new System.Drawing.Point(208, 4);
+            this.numUpDwnFouilles.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnFouilles.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnFouilles.Name = "numUpDwnFouilles";
+            this.numUpDwnFouilles.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnFouilles.TabIndex = 56;
+            this.numUpDwnFouilles.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblFouilles
+            // 
+            this.lblFouilles.AutoSize = true;
+            this.lblFouilles.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFouilles.Location = new System.Drawing.Point(150, 4);
+            this.lblFouilles.Name = "lblFouilles";
+            this.lblFouilles.Size = new System.Drawing.Size(56, 17);
+            this.lblFouilles.TabIndex = 57;
+            this.lblFouilles.Text = "Fouilles";
+            // 
+            // numUpDwnAgilite
+            // 
+            this.numUpDwnAgilite.Location = new System.Drawing.Point(67, 4);
+            this.numUpDwnAgilite.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnAgilite.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnAgilite.Name = "numUpDwnAgilite";
+            this.numUpDwnAgilite.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnAgilite.TabIndex = 55;
+            this.numUpDwnAgilite.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblAgilite
+            // 
+            this.lblAgilite.AutoSize = true;
+            this.lblAgilite.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAgilite.Location = new System.Drawing.Point(8, 4);
+            this.lblAgilite.Name = "lblAgilite";
+            this.lblAgilite.Size = new System.Drawing.Size(46, 17);
+            this.lblAgilite.TabIndex = 55;
+            this.lblAgilite.Text = "Agilité";
+            // 
+            // pnlCompetencesSpeciales
+            // 
+            this.pnlCompetencesSpeciales.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlCompetencesSpeciales.Controls.Add(this.lblPtsRestantsRepartitionsCompetencesSpeciales);
+            this.pnlCompetencesSpeciales.Controls.Add(this.numUpDwnDeplacement);
+            this.pnlCompetencesSpeciales.Controls.Add(this.numUpDwnInitiative);
+            this.pnlCompetencesSpeciales.Controls.Add(this.numUpDwnDexterite);
+            this.pnlCompetencesSpeciales.Controls.Add(this.lblDeplacement);
+            this.pnlCompetencesSpeciales.Controls.Add(this.lblInitiative);
+            this.pnlCompetencesSpeciales.Controls.Add(this.lblDexterite);
+            this.pnlCompetencesSpeciales.Location = new System.Drawing.Point(0, 102);
+            this.pnlCompetencesSpeciales.Name = "pnlCompetencesSpeciales";
+            this.pnlCompetencesSpeciales.Size = new System.Drawing.Size(811, 86);
+            this.pnlCompetencesSpeciales.TabIndex = 2;
+            // 
+            // lblPtsRestantsRepartitionsCompetencesSpeciales
+            // 
+            this.lblPtsRestantsRepartitionsCompetencesSpeciales.AutoSize = true;
+            this.lblPtsRestantsRepartitionsCompetencesSpeciales.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPtsRestantsRepartitionsCompetencesSpeciales.Location = new System.Drawing.Point(3, 66);
+            this.lblPtsRestantsRepartitionsCompetencesSpeciales.Name = "lblPtsRestantsRepartitionsCompetencesSpeciales";
+            this.lblPtsRestantsRepartitionsCompetencesSpeciales.Size = new System.Drawing.Size(215, 17);
+            this.lblPtsRestantsRepartitionsCompetencesSpeciales.TabIndex = 44;
+            this.lblPtsRestantsRepartitionsCompetencesSpeciales.Text = "Points restants à répartir : X";
+            // 
+            // numUpDwnDeplacement
+            // 
+            this.numUpDwnDeplacement.Location = new System.Drawing.Point(601, 36);
+            this.numUpDwnDeplacement.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnDeplacement.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnDeplacement.Name = "numUpDwnDeplacement";
+            this.numUpDwnDeplacement.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnDeplacement.TabIndex = 54;
+            this.numUpDwnDeplacement.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // numUpDwnInitiative
+            // 
+            this.numUpDwnInitiative.Location = new System.Drawing.Point(350, 36);
+            this.numUpDwnInitiative.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnInitiative.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnInitiative.Name = "numUpDwnInitiative";
+            this.numUpDwnInitiative.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnInitiative.TabIndex = 53;
+            this.numUpDwnInitiative.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // numUpDwnDexterite
+            // 
+            this.numUpDwnDexterite.Location = new System.Drawing.Point(115, 36);
+            this.numUpDwnDexterite.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnDexterite.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnDexterite.Name = "numUpDwnDexterite";
+            this.numUpDwnDexterite.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnDexterite.TabIndex = 52;
+            this.numUpDwnDexterite.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblDeplacement
+            // 
+            this.lblDeplacement.AutoSize = true;
+            this.lblDeplacement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeplacement.Location = new System.Drawing.Point(570, 4);
+            this.lblDeplacement.Name = "lblDeplacement";
+            this.lblDeplacement.Size = new System.Drawing.Size(104, 20);
+            this.lblDeplacement.TabIndex = 51;
+            this.lblDeplacement.Text = "Déplacement";
+            // 
+            // lblInitiative
+            // 
+            this.lblInitiative.AutoSize = true;
+            this.lblInitiative.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInitiative.Location = new System.Drawing.Point(338, 4);
+            this.lblInitiative.Name = "lblInitiative";
+            this.lblInitiative.Size = new System.Drawing.Size(67, 20);
+            this.lblInitiative.TabIndex = 50;
+            this.lblInitiative.Text = "Initiative";
+            // 
+            // lblDexterite
+            // 
+            this.lblDexterite.AutoSize = true;
+            this.lblDexterite.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDexterite.Location = new System.Drawing.Point(100, 4);
+            this.lblDexterite.Name = "lblDexterite";
+            this.lblDexterite.Size = new System.Drawing.Size(73, 20);
+            this.lblDexterite.TabIndex = 49;
+            this.lblDexterite.Text = "Dextérité";
+            // 
+            // pnlCaracteristiques
+            // 
+            this.pnlCaracteristiques.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlCaracteristiques.Controls.Add(this.lblRepartitionPvEnergie);
+            this.pnlCaracteristiques.Controls.Add(this.lblPtsRestantsRepartitionsPVEnergie);
+            this.pnlCaracteristiques.Controls.Add(this.numUpDwnPtsEnergie);
+            this.pnlCaracteristiques.Controls.Add(this.numUpDwnPtsVie);
+            this.pnlCaracteristiques.Controls.Add(this.lblPointsEnergie);
+            this.pnlCaracteristiques.Controls.Add(this.lblPointsVie);
+            this.pnlCaracteristiques.Location = new System.Drawing.Point(0, 0);
+            this.pnlCaracteristiques.Name = "pnlCaracteristiques";
+            this.pnlCaracteristiques.Size = new System.Drawing.Size(411, 103);
+            this.pnlCaracteristiques.TabIndex = 1;
+            // 
+            // lblRepartitionPvEnergie
+            // 
+            this.lblRepartitionPvEnergie.AutoSize = true;
+            this.lblRepartitionPvEnergie.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRepartitionPvEnergie.Location = new System.Drawing.Point(211, 79);
+            this.lblRepartitionPvEnergie.Name = "lblRepartitionPvEnergie";
+            this.lblRepartitionPvEnergie.Size = new System.Drawing.Size(17, 17);
+            this.lblRepartitionPvEnergie.TabIndex = 44;
+            this.lblRepartitionPvEnergie.Text = "0";
+            // 
+            // lblPtsRestantsRepartitionsPVEnergie
+            // 
+            this.lblPtsRestantsRepartitionsPVEnergie.AutoSize = true;
+            this.lblPtsRestantsRepartitionsPVEnergie.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPtsRestantsRepartitionsPVEnergie.Location = new System.Drawing.Point(10, 79);
+            this.lblPtsRestantsRepartitionsPVEnergie.Name = "lblPtsRestantsRepartitionsPVEnergie";
+            this.lblPtsRestantsRepartitionsPVEnergie.Size = new System.Drawing.Size(205, 17);
+            this.lblPtsRestantsRepartitionsPVEnergie.TabIndex = 43;
+            this.lblPtsRestantsRepartitionsPVEnergie.Text = "Points restants à répartir : ";
+            // 
+            // numUpDwnPtsEnergie
+            // 
+            this.numUpDwnPtsEnergie.Location = new System.Drawing.Point(172, 44);
+            this.numUpDwnPtsEnergie.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.numUpDwnPtsEnergie.Name = "numUpDwnPtsEnergie";
+            this.numUpDwnPtsEnergie.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnPtsEnergie.TabIndex = 42;
+            this.numUpDwnPtsEnergie.ValueChanged += new System.EventHandler(this.numUpDwnPtsEnergie_ValueChanged);
+            // 
+            // numUpDwnPtsVie
+            // 
+            this.numUpDwnPtsVie.Location = new System.Drawing.Point(153, 9);
+            this.numUpDwnPtsVie.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.numUpDwnPtsVie.Name = "numUpDwnPtsVie";
+            this.numUpDwnPtsVie.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnPtsVie.TabIndex = 41;
+            this.numUpDwnPtsVie.ValueChanged += new System.EventHandler(this.numUpDwnPtsVie_ValueChanged);
+            // 
+            // lblPointsEnergie
+            // 
+            this.lblPointsEnergie.AutoSize = true;
+            this.lblPointsEnergie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPointsEnergie.Location = new System.Drawing.Point(10, 44);
+            this.lblPointsEnergie.Name = "lblPointsEnergie";
+            this.lblPointsEnergie.Size = new System.Drawing.Size(130, 20);
+            this.lblPointsEnergie.TabIndex = 21;
+            this.lblPointsEnergie.Text = "Points d\'énergie :";
+            // 
+            // lblPointsVie
+            // 
+            this.lblPointsVie.AutoSize = true;
+            this.lblPointsVie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPointsVie.Location = new System.Drawing.Point(10, 9);
+            this.lblPointsVie.Name = "lblPointsVie";
+            this.lblPointsVie.Size = new System.Drawing.Size(106, 20);
+            this.lblPointsVie.TabIndex = 20;
+            this.lblPointsVie.Text = "Points de vie :";
+            // 
+            // pnlPointsVieEnergie
+            // 
+            this.pnlPointsVieEnergie.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlPointsVieEnergie.Controls.Add(this.lblPtsRestantsRepartitionsCaracteristiques);
+            this.pnlPointsVieEnergie.Controls.Add(this.numUpDwnPtsRelationnel);
+            this.pnlPointsVieEnergie.Controls.Add(this.numUpDwnPtsEsprit);
+            this.pnlPointsVieEnergie.Controls.Add(this.numUpDwnPtsCorps);
+            this.pnlPointsVieEnergie.Controls.Add(this.lblRelationnel);
+            this.pnlPointsVieEnergie.Controls.Add(this.lblEsprit);
+            this.pnlPointsVieEnergie.Controls.Add(this.lblCorps);
+            this.pnlPointsVieEnergie.Location = new System.Drawing.Point(410, 0);
+            this.pnlPointsVieEnergie.Name = "pnlPointsVieEnergie";
+            this.pnlPointsVieEnergie.Size = new System.Drawing.Size(401, 103);
+            this.pnlPointsVieEnergie.TabIndex = 0;
+            // 
+            // lblPtsRestantsRepartitionsCaracteristiques
+            // 
+            this.lblPtsRestantsRepartitionsCaracteristiques.AutoSize = true;
+            this.lblPtsRestantsRepartitionsCaracteristiques.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPtsRestantsRepartitionsCaracteristiques.Location = new System.Drawing.Point(7, 79);
+            this.lblPtsRestantsRepartitionsCaracteristiques.Name = "lblPtsRestantsRepartitionsCaracteristiques";
+            this.lblPtsRestantsRepartitionsCaracteristiques.Size = new System.Drawing.Size(215, 17);
+            this.lblPtsRestantsRepartitionsCaracteristiques.TabIndex = 44;
+            this.lblPtsRestantsRepartitionsCaracteristiques.Text = "Points restants à répartir : X";
+            // 
+            // numUpDwnPtsRelationnel
+            // 
+            this.numUpDwnPtsRelationnel.Location = new System.Drawing.Point(278, 44);
+            this.numUpDwnPtsRelationnel.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnPtsRelationnel.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnPtsRelationnel.Name = "numUpDwnPtsRelationnel";
+            this.numUpDwnPtsRelationnel.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnPtsRelationnel.TabIndex = 48;
+            this.numUpDwnPtsRelationnel.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // numUpDwnPtsEsprit
+            // 
+            this.numUpDwnPtsEsprit.Location = new System.Drawing.Point(151, 44);
+            this.numUpDwnPtsEsprit.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnPtsEsprit.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnPtsEsprit.Name = "numUpDwnPtsEsprit";
+            this.numUpDwnPtsEsprit.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnPtsEsprit.TabIndex = 47;
+            this.numUpDwnPtsEsprit.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // numUpDwnPtsCorps
+            // 
+            this.numUpDwnPtsCorps.Location = new System.Drawing.Point(42, 44);
+            this.numUpDwnPtsCorps.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numUpDwnPtsCorps.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUpDwnPtsCorps.Name = "numUpDwnPtsCorps";
+            this.numUpDwnPtsCorps.Size = new System.Drawing.Size(43, 20);
+            this.numUpDwnPtsCorps.TabIndex = 44;
+            this.numUpDwnPtsCorps.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblRelationnel
+            // 
+            this.lblRelationnel.AutoSize = true;
+            this.lblRelationnel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRelationnel.Location = new System.Drawing.Point(255, 9);
+            this.lblRelationnel.Name = "lblRelationnel";
+            this.lblRelationnel.Size = new System.Drawing.Size(89, 20);
+            this.lblRelationnel.TabIndex = 46;
+            this.lblRelationnel.Text = "Relationnel";
+            // 
+            // lblEsprit
+            // 
+            this.lblEsprit.AutoSize = true;
+            this.lblEsprit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEsprit.Location = new System.Drawing.Point(147, 9);
+            this.lblEsprit.Name = "lblEsprit";
+            this.lblEsprit.Size = new System.Drawing.Size(50, 20);
+            this.lblEsprit.TabIndex = 45;
+            this.lblEsprit.Text = "Esprit";
+            // 
+            // lblCorps
+            // 
+            this.lblCorps.AutoSize = true;
+            this.lblCorps.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorps.Location = new System.Drawing.Point(38, 9);
+            this.lblCorps.Name = "lblCorps";
+            this.lblCorps.Size = new System.Drawing.Size(51, 20);
+            this.lblCorps.TabIndex = 44;
+            this.lblCorps.Text = "Corps";
+            // 
+            // tabPgeSortsAptitudes
+            // 
+            this.tabPgeSortsAptitudes.Controls.Add(this.pnlJeuSortsAptitudesPersonnage);
+            this.tabPgeSortsAptitudes.Controls.Add(this.lblJeuxSortsAptitudes);
+            this.tabPgeSortsAptitudes.Controls.Add(this.pnlSortileges);
+            this.tabPgeSortsAptitudes.Controls.Add(this.pnlSetSorts);
+            this.tabPgeSortsAptitudes.Controls.Add(this.pnlListeSetAptitudes);
+            this.tabPgeSortsAptitudes.Controls.Add(this.lblSorts);
+            this.tabPgeSortsAptitudes.Controls.Add(this.lblAptitudes);
+            this.tabPgeSortsAptitudes.Location = new System.Drawing.Point(4, 22);
+            this.tabPgeSortsAptitudes.Name = "tabPgeSortsAptitudes";
+            this.tabPgeSortsAptitudes.Size = new System.Drawing.Size(811, 532);
+            this.tabPgeSortsAptitudes.TabIndex = 3;
+            this.tabPgeSortsAptitudes.Text = "Sorts & Aptitudes";
+            this.tabPgeSortsAptitudes.UseVisualStyleBackColor = true;
+            // 
+            // pnlJeuSortsAptitudesPersonnage
+            // 
+            this.pnlJeuSortsAptitudesPersonnage.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlJeuSortsAptitudesPersonnage.Location = new System.Drawing.Point(11, 412);
+            this.pnlJeuSortsAptitudesPersonnage.Name = "pnlJeuSortsAptitudesPersonnage";
+            this.pnlJeuSortsAptitudesPersonnage.Size = new System.Drawing.Size(786, 113);
+            this.pnlJeuSortsAptitudesPersonnage.TabIndex = 24;
+            // 
+            // lblJeuxSortsAptitudes
+            // 
+            this.lblJeuxSortsAptitudes.AutoSize = true;
+            this.lblJeuxSortsAptitudes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJeuxSortsAptitudes.Location = new System.Drawing.Point(11, 389);
+            this.lblJeuxSortsAptitudes.Name = "lblJeuxSortsAptitudes";
+            this.lblJeuxSortsAptitudes.Size = new System.Drawing.Size(184, 20);
+            this.lblJeuxSortsAptitudes.TabIndex = 25;
+            this.lblJeuxSortsAptitudes.Text = "Jeu de sorts et aptitudes";
+            // 
+            // pnlSortileges
+            // 
+            this.pnlSortileges.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlSortileges.Location = new System.Drawing.Point(409, 32);
+            this.pnlSortileges.Name = "pnlSortileges";
+            this.pnlSortileges.Size = new System.Drawing.Size(388, 349);
+            this.pnlSortileges.TabIndex = 24;
+            // 
+            // pnlSetSorts
+            // 
+            this.pnlSetSorts.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlSetSorts.Location = new System.Drawing.Point(409, 32);
+            this.pnlSetSorts.Name = "pnlSetSorts";
+            this.pnlSetSorts.Size = new System.Drawing.Size(388, 349);
+            this.pnlSetSorts.TabIndex = 24;
+            // 
+            // pnlListeSetAptitudes
+            // 
+            this.pnlListeSetAptitudes.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlListeSetAptitudes.Location = new System.Drawing.Point(11, 32);
+            this.pnlListeSetAptitudes.Name = "pnlListeSetAptitudes";
+            this.pnlListeSetAptitudes.Size = new System.Drawing.Size(388, 349);
+            this.pnlListeSetAptitudes.TabIndex = 23;
             // 
             // lblSorts
             // 
@@ -2117,85 +2079,88 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblSorts.TabIndex = 22;
             this.lblSorts.Text = "Sortilèges";
             // 
-            // pnlListeSetAptitudes
+            // lblAptitudes
             // 
-            this.pnlListeSetAptitudes.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlListeSetAptitudes.Location = new System.Drawing.Point(11, 32);
-            this.pnlListeSetAptitudes.Name = "pnlListeSetAptitudes";
-            this.pnlListeSetAptitudes.Size = new System.Drawing.Size(388, 349);
-            this.pnlListeSetAptitudes.TabIndex = 23;
+            this.lblAptitudes.AutoSize = true;
+            this.lblAptitudes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAptitudes.Location = new System.Drawing.Point(11, 9);
+            this.lblAptitudes.Name = "lblAptitudes";
+            this.lblAptitudes.Size = new System.Drawing.Size(77, 20);
+            this.lblAptitudes.TabIndex = 21;
+            this.lblAptitudes.Text = "Aptitudes";
             // 
-            // pnlSetSorts
+            // tabPgeEquipement
             // 
-            this.pnlSetSorts.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlSetSorts.Location = new System.Drawing.Point(409, 32);
-            this.pnlSetSorts.Name = "pnlSetSorts";
-            this.pnlSetSorts.Size = new System.Drawing.Size(388, 349);
-            this.pnlSetSorts.TabIndex = 24;
+            this.tabPgeEquipement.Controls.Add(this.pnlInventaire);
+            this.tabPgeEquipement.Controls.Add(this.pnlObjets);
+            this.tabPgeEquipement.Controls.Add(this.pnlArmures);
+            this.tabPgeEquipement.Controls.Add(this.pnlArme);
+            this.tabPgeEquipement.Location = new System.Drawing.Point(4, 22);
+            this.tabPgeEquipement.Name = "tabPgeEquipement";
+            this.tabPgeEquipement.Size = new System.Drawing.Size(811, 532);
+            this.tabPgeEquipement.TabIndex = 4;
+            this.tabPgeEquipement.Text = "Équipements";
+            this.tabPgeEquipement.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // pnlInventaire
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Location = new System.Drawing.Point(409, 32);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(388, 349);
-            this.panel1.TabIndex = 24;
+            this.pnlInventaire.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlInventaire.Controls.Add(this.tbCtrlInventaire);
+            this.pnlInventaire.Controls.Add(this.lblInventaire);
+            this.pnlInventaire.Location = new System.Drawing.Point(3, 304);
+            this.pnlInventaire.Name = "pnlInventaire";
+            this.pnlInventaire.Size = new System.Drawing.Size(804, 264);
+            this.pnlInventaire.TabIndex = 25;
             // 
-            // lblJeuxSortsAptitudes
+            // tbCtrlInventaire
             // 
-            this.lblJeuxSortsAptitudes.AutoSize = true;
-            this.lblJeuxSortsAptitudes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJeuxSortsAptitudes.Location = new System.Drawing.Point(11, 393);
-            this.lblJeuxSortsAptitudes.Name = "lblJeuxSortsAptitudes";
-            this.lblJeuxSortsAptitudes.Size = new System.Drawing.Size(184, 20);
-            this.lblJeuxSortsAptitudes.TabIndex = 25;
-            this.lblJeuxSortsAptitudes.Text = "Jeu de sorts et aptitudes";
+            this.tbCtrlInventaire.Controls.Add(this.tbPgeArmes);
+            this.tbCtrlInventaire.Controls.Add(this.tbPgeArmures);
+            this.tbCtrlInventaire.Controls.Add(this.tbPgeObjets);
+            this.tbCtrlInventaire.Location = new System.Drawing.Point(8, 27);
+            this.tbCtrlInventaire.Name = "tbCtrlInventaire";
+            this.tbCtrlInventaire.SelectedIndex = 0;
+            this.tbCtrlInventaire.Size = new System.Drawing.Size(779, 189);
+            this.tbCtrlInventaire.TabIndex = 23;
             // 
-            // pnlJeuSortsAptitudesPersonnage
+            // tbPgeArmes
             // 
-            this.pnlJeuSortsAptitudesPersonnage.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlJeuSortsAptitudesPersonnage.Location = new System.Drawing.Point(11, 416);
-            this.pnlJeuSortsAptitudesPersonnage.Name = "pnlJeuSortsAptitudesPersonnage";
-            this.pnlJeuSortsAptitudesPersonnage.Size = new System.Drawing.Size(786, 141);
-            this.pnlJeuSortsAptitudesPersonnage.TabIndex = 24;
+            this.tbPgeArmes.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeArmes.Name = "tbPgeArmes";
+            this.tbPgeArmes.Padding = new System.Windows.Forms.Padding(3);
+            this.tbPgeArmes.Size = new System.Drawing.Size(771, 163);
+            this.tbPgeArmes.TabIndex = 0;
+            this.tbPgeArmes.Text = "Armes";
+            this.tbPgeArmes.UseVisualStyleBackColor = true;
             // 
-            // pnlArme
+            // tbPgeArmures
             // 
-            this.pnlArme.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlArme.Controls.Add(this.lblArmes);
-            this.pnlArme.Location = new System.Drawing.Point(3, 0);
-            this.pnlArme.Name = "pnlArme";
-            this.pnlArme.Size = new System.Drawing.Size(264, 299);
-            this.pnlArme.TabIndex = 24;
+            this.tbPgeArmures.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeArmures.Name = "tbPgeArmures";
+            this.tbPgeArmures.Padding = new System.Windows.Forms.Padding(3);
+            this.tbPgeArmures.Size = new System.Drawing.Size(771, 163);
+            this.tbPgeArmures.TabIndex = 1;
+            this.tbPgeArmures.Text = "Armures";
+            this.tbPgeArmures.UseVisualStyleBackColor = true;
             // 
-            // lblArmes
+            // tbPgeObjets
             // 
-            this.lblArmes.AutoSize = true;
-            this.lblArmes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArmes.Location = new System.Drawing.Point(3, 3);
-            this.lblArmes.Name = "lblArmes";
-            this.lblArmes.Size = new System.Drawing.Size(55, 20);
-            this.lblArmes.TabIndex = 22;
-            this.lblArmes.Text = "Armes";
+            this.tbPgeObjets.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeObjets.Name = "tbPgeObjets";
+            this.tbPgeObjets.Size = new System.Drawing.Size(771, 163);
+            this.tbPgeObjets.TabIndex = 2;
+            this.tbPgeObjets.Text = "Objets";
+            this.tbPgeObjets.UseVisualStyleBackColor = true;
             // 
-            // pnlArmures
+            // lblInventaire
             // 
-            this.pnlArmures.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlArmures.Controls.Add(this.lblArmures);
-            this.pnlArmures.Location = new System.Drawing.Point(273, 0);
-            this.pnlArmures.Name = "pnlArmures";
-            this.pnlArmures.Size = new System.Drawing.Size(264, 299);
-            this.pnlArmures.TabIndex = 25;
-            // 
-            // lblArmures
-            // 
-            this.lblArmures.AutoSize = true;
-            this.lblArmures.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArmures.Location = new System.Drawing.Point(3, 3);
-            this.lblArmures.Name = "lblArmures";
-            this.lblArmures.Size = new System.Drawing.Size(69, 20);
-            this.lblArmures.TabIndex = 22;
-            this.lblArmures.Text = "Armures";
+            this.lblInventaire.AutoSize = true;
+            this.lblInventaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInventaire.Location = new System.Drawing.Point(3, 3);
+            this.lblInventaire.Name = "lblInventaire";
+            this.lblInventaire.Size = new System.Drawing.Size(79, 20);
+            this.lblInventaire.TabIndex = 22;
+            this.lblInventaire.Text = "Inventaire";
             // 
             // pnlObjets
             // 
@@ -2216,71 +2181,212 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblObjets.TabIndex = 22;
             this.lblObjets.Text = "Objets";
             // 
-            // pnlInventaire
+            // pnlArmures
             // 
-            this.pnlInventaire.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlInventaire.Controls.Add(this.tbCtrlInventaire);
-            this.pnlInventaire.Controls.Add(this.lblInventaire);
-            this.pnlInventaire.Location = new System.Drawing.Point(3, 304);
-            this.pnlInventaire.Name = "pnlInventaire";
-            this.pnlInventaire.Size = new System.Drawing.Size(804, 264);
-            this.pnlInventaire.TabIndex = 25;
+            this.pnlArmures.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlArmures.Controls.Add(this.lblArmures);
+            this.pnlArmures.Location = new System.Drawing.Point(273, 0);
+            this.pnlArmures.Name = "pnlArmures";
+            this.pnlArmures.Size = new System.Drawing.Size(264, 299);
+            this.pnlArmures.TabIndex = 25;
             // 
-            // lblInventaire
+            // lblArmures
             // 
-            this.lblInventaire.AutoSize = true;
-            this.lblInventaire.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInventaire.Location = new System.Drawing.Point(3, 3);
-            this.lblInventaire.Name = "lblInventaire";
-            this.lblInventaire.Size = new System.Drawing.Size(79, 20);
-            this.lblInventaire.TabIndex = 22;
-            this.lblInventaire.Text = "Inventaire";
+            this.lblArmures.AutoSize = true;
+            this.lblArmures.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblArmures.Location = new System.Drawing.Point(3, 3);
+            this.lblArmures.Name = "lblArmures";
+            this.lblArmures.Size = new System.Drawing.Size(69, 20);
+            this.lblArmures.TabIndex = 22;
+            this.lblArmures.Text = "Armures";
             // 
-            // tbCtrlInventaire
+            // pnlArme
             // 
-            this.tbCtrlInventaire.Controls.Add(this.tbPgeArmes);
-            this.tbCtrlInventaire.Controls.Add(this.tbPgeArmures);
-            this.tbCtrlInventaire.Controls.Add(this.tbPgeObjets);
-            this.tbCtrlInventaire.Location = new System.Drawing.Point(8, 27);
-            this.tbCtrlInventaire.Name = "tbCtrlInventaire";
-            this.tbCtrlInventaire.SelectedIndex = 0;
-            this.tbCtrlInventaire.Size = new System.Drawing.Size(707, 234);
-            this.tbCtrlInventaire.TabIndex = 23;
+            this.pnlArme.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlArme.Controls.Add(this.lblArmes);
+            this.pnlArme.Location = new System.Drawing.Point(3, 0);
+            this.pnlArme.Name = "pnlArme";
+            this.pnlArme.Size = new System.Drawing.Size(264, 299);
+            this.pnlArme.TabIndex = 24;
             // 
-            // tbPgeArmes
+            // lblArmes
             // 
-            this.tbPgeArmes.Location = new System.Drawing.Point(4, 22);
-            this.tbPgeArmes.Name = "tbPgeArmes";
-            this.tbPgeArmes.Padding = new System.Windows.Forms.Padding(3);
-            this.tbPgeArmes.Size = new System.Drawing.Size(699, 208);
-            this.tbPgeArmes.TabIndex = 0;
-            this.tbPgeArmes.Text = "Armes";
-            this.tbPgeArmes.UseVisualStyleBackColor = true;
+            this.lblArmes.AutoSize = true;
+            this.lblArmes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblArmes.Location = new System.Drawing.Point(3, 3);
+            this.lblArmes.Name = "lblArmes";
+            this.lblArmes.Size = new System.Drawing.Size(55, 20);
+            this.lblArmes.TabIndex = 22;
+            this.lblArmes.Text = "Armes";
             // 
-            // tbPgeArmures
+            // lblSexe
             // 
-            this.tbPgeArmures.Location = new System.Drawing.Point(4, 22);
-            this.tbPgeArmures.Name = "tbPgeArmures";
-            this.tbPgeArmures.Padding = new System.Windows.Forms.Padding(3);
-            this.tbPgeArmures.Size = new System.Drawing.Size(699, 208);
-            this.tbPgeArmures.TabIndex = 1;
-            this.tbPgeArmures.Text = "Armures";
-            this.tbPgeArmures.UseVisualStyleBackColor = true;
+            this.lblSexe.AutoSize = true;
+            this.lblSexe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSexe.Location = new System.Drawing.Point(327, 9);
+            this.lblSexe.Name = "lblSexe";
+            this.lblSexe.Size = new System.Drawing.Size(39, 17);
+            this.lblSexe.TabIndex = 42;
+            this.lblSexe.Text = "Sexe";
             // 
-            // tbPgeObjets
+            // pnlHeader
             // 
-            this.tbPgeObjets.Location = new System.Drawing.Point(4, 22);
-            this.tbPgeObjets.Name = "tbPgeObjets";
-            this.tbPgeObjets.Size = new System.Drawing.Size(699, 208);
-            this.tbPgeObjets.TabIndex = 2;
-            this.tbPgeObjets.Text = "Objets";
-            this.tbPgeObjets.UseVisualStyleBackColor = true;
+            this.pnlHeader.Controls.Add(this.lblTaille);
+            this.pnlHeader.Controls.Add(this.cbBxTaille);
+            this.pnlHeader.Controls.Add(this.txtBxSexe);
+            this.pnlHeader.Controls.Add(this.nudNiveau);
+            this.pnlHeader.Controls.Add(this.txtBoxPrenom);
+            this.pnlHeader.Controls.Add(this.lblPrenom);
+            this.pnlHeader.Controls.Add(this.txtBoxNom);
+            this.pnlHeader.Controls.Add(this.lblSexe);
+            this.pnlHeader.Controls.Add(this.lblNom);
+            this.pnlHeader.Controls.Add(this.lblRace);
+            this.pnlHeader.Controls.Add(this.TxtBoxRace);
+            this.pnlHeader.Controls.Add(this.lblNiveau);
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Size = new System.Drawing.Size(824, 105);
+            this.pnlHeader.TabIndex = 48;
+            // 
+            // lblTaille
+            // 
+            this.lblTaille.AutoSize = true;
+            this.lblTaille.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTaille.Location = new System.Drawing.Point(431, 9);
+            this.lblTaille.Name = "lblTaille";
+            this.lblTaille.Size = new System.Drawing.Size(42, 17);
+            this.lblTaille.TabIndex = 45;
+            this.lblTaille.Text = "Taille";
+            // 
+            // cbBxTaille
+            // 
+            this.cbBxTaille.FormattingEnabled = true;
+            this.cbBxTaille.Items.AddRange(new object[] {
+            "Minuscule",
+            "Petit",
+            "Moyen",
+            "Grand",
+            "Très grand",
+            "Gigantesque"});
+            this.cbBxTaille.Location = new System.Drawing.Point(431, 28);
+            this.cbBxTaille.Name = "cbBxTaille";
+            this.cbBxTaille.Size = new System.Drawing.Size(121, 21);
+            this.cbBxTaille.TabIndex = 44;
+            this.cbBxTaille.SelectedIndexChanged += new System.EventHandler(this.cbBxTaille_SelectedIndexChanged);
+            // 
+            // txtBxSexe
+            // 
+            this.txtBxSexe.Location = new System.Drawing.Point(327, 29);
+            this.txtBxSexe.Name = "txtBxSexe";
+            this.txtBxSexe.Size = new System.Drawing.Size(81, 20);
+            this.txtBxSexe.TabIndex = 43;
+            // 
+            // pnlMonnaie
+            // 
+            this.pnlMonnaie.AutoScroll = true;
+            this.pnlMonnaie.Controls.Add(this.btnAjouter);
+            this.pnlMonnaie.Controls.Add(this.txtBxCuivre);
+            this.pnlMonnaie.Controls.Add(this.txtBxArgent);
+            this.pnlMonnaie.Controls.Add(this.txtPieceOr);
+            this.pnlMonnaie.Controls.Add(this.txtBxDevise);
+            this.pnlMonnaie.Controls.Add(this.lblMonnaie);
+            this.pnlMonnaie.Location = new System.Drawing.Point(6, 649);
+            this.pnlMonnaie.Name = "pnlMonnaie";
+            this.pnlMonnaie.Size = new System.Drawing.Size(404, 151);
+            this.pnlMonnaie.TabIndex = 49;
+            // 
+            // btnAjouter
+            // 
+            this.btnAjouter.Location = new System.Drawing.Point(18, 33);
+            this.btnAjouter.Name = "btnAjouter";
+            this.btnAjouter.Size = new System.Drawing.Size(75, 23);
+            this.btnAjouter.TabIndex = 58;
+            this.btnAjouter.Text = "Ajouter";
+            this.btnAjouter.UseVisualStyleBackColor = true;
+            // 
+            // txtBxCuivre
+            // 
+            this.txtBxCuivre.Location = new System.Drawing.Point(300, 35);
+            this.txtBxCuivre.Name = "txtBxCuivre";
+            this.txtBxCuivre.Size = new System.Drawing.Size(55, 20);
+            this.txtBxCuivre.TabIndex = 57;
+            this.txtBxCuivre.Text = "Cuivre";
+            this.txtBxCuivre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtBxArgent
+            // 
+            this.txtBxArgent.Location = new System.Drawing.Point(244, 35);
+            this.txtBxArgent.Name = "txtBxArgent";
+            this.txtBxArgent.Size = new System.Drawing.Size(57, 20);
+            this.txtBxArgent.TabIndex = 56;
+            this.txtBxArgent.Text = "Argent";
+            this.txtBxArgent.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtPieceOr
+            // 
+            this.txtPieceOr.Location = new System.Drawing.Point(193, 35);
+            this.txtPieceOr.Name = "txtPieceOr";
+            this.txtPieceOr.Size = new System.Drawing.Size(52, 20);
+            this.txtPieceOr.TabIndex = 55;
+            this.txtPieceOr.Text = "Or";
+            this.txtPieceOr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtBxDevise
+            // 
+            this.txtBxDevise.Location = new System.Drawing.Point(111, 35);
+            this.txtBxDevise.Name = "txtBxDevise";
+            this.txtBxDevise.Size = new System.Drawing.Size(83, 20);
+            this.txtBxDevise.TabIndex = 54;
+            this.txtBxDevise.Text = "Devise";
+            this.txtBxDevise.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblMonnaie
+            // 
+            this.lblMonnaie.AutoSize = true;
+            this.lblMonnaie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMonnaie.Location = new System.Drawing.Point(3, 1);
+            this.lblMonnaie.Name = "lblMonnaie";
+            this.lblMonnaie.Size = new System.Drawing.Size(70, 20);
+            this.lblMonnaie.TabIndex = 53;
+            this.lblMonnaie.Text = "Monnaie";
+            // 
+            // pnlPoids
+            // 
+            this.pnlPoids.AutoScroll = true;
+            this.pnlPoids.Controls.Add(this.pnlCarres);
+            this.pnlPoids.Controls.Add(this.lblPoids);
+            this.pnlPoids.Location = new System.Drawing.Point(415, 649);
+            this.pnlPoids.Name = "pnlPoids";
+            this.pnlPoids.Size = new System.Drawing.Size(402, 151);
+            this.pnlPoids.TabIndex = 50;
+            // 
+            // pnlCarres
+            // 
+            this.pnlCarres.AutoScroll = true;
+            this.pnlCarres.BackColor = System.Drawing.Color.Transparent;
+            this.pnlCarres.Location = new System.Drawing.Point(7, 25);
+            this.pnlCarres.Name = "pnlCarres";
+            this.pnlCarres.Size = new System.Drawing.Size(390, 100);
+            this.pnlCarres.TabIndex = 55;
+            // 
+            // lblPoids
+            // 
+            this.lblPoids.AutoSize = true;
+            this.lblPoids.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPoids.Location = new System.Drawing.Point(3, 1);
+            this.lblPoids.Name = "lblPoids";
+            this.lblPoids.Size = new System.Drawing.Size(48, 20);
+            this.lblPoids.TabIndex = 54;
+            this.lblPoids.Text = "Poids";
             // 
             // FormulaireInfosGenerales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(824, 895);
+            this.ClientSize = new System.Drawing.Size(824, 853);
+            this.Controls.Add(this.pnlPoids);
+            this.Controls.Add(this.pnlMonnaie);
             this.Controls.Add(this.btnSaveInfos);
             this.Controls.Add(this.tabCtrlGeneral);
             this.Controls.Add(this.pnlHeader);
@@ -2300,6 +2406,39 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlInfosGenerales.PerformLayout();
             this.tabPgeCaracteristiquesCompetences.ResumeLayout(false);
             this.tabPgeCaracteristiquesCompetences.PerformLayout();
+            this.pnlCompetencesRelationnelles.ResumeLayout(false);
+            this.pnlCompetencesRelationnelles.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnTromperie)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnPerspicacite)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnIntimidation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnCommandement)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnComedie)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnCharme)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnProvocation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnApaisement)).EndInit();
+            this.pnlCompetencesEsprits.ResumeLayout(false);
+            this.pnlCompetencesEsprits.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnPerception)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnOrientation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnMemoire)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnLogique)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnEssence)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnVolonte)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnConcentration)).EndInit();
+            this.pnlCompetencesCorps.ResumeLayout(false);
+            this.pnlCompetencesCorps.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnVigueur)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnForce)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnReflexes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnEscalade)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnNatation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnEquilibre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnLutte)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnDiscretion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnLancer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnCourse)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnFouilles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnAgilite)).EndInit();
             this.pnlCompetencesSpeciales.ResumeLayout(false);
             this.pnlCompetencesSpeciales.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnDeplacement)).EndInit();
@@ -2311,56 +2450,27 @@ namespace maFichePersonnageJDR.Formulaires
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnPtsVie)).EndInit();
             this.pnlPointsVieEnergie.ResumeLayout(false);
             this.pnlPointsVieEnergie.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnPtsRelationnel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnPtsEsprit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnPtsCorps)).EndInit();
             this.tabPgeSortsAptitudes.ResumeLayout(false);
             this.tabPgeSortsAptitudes.PerformLayout();
             this.tabPgeEquipement.ResumeLayout(false);
-            this.pnlHeader.ResumeLayout(false);
-            this.pnlHeader.PerformLayout();
-            this.pnlCompetencesCorps.ResumeLayout(false);
-            this.pnlCompetencesCorps.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnAgilite)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnFouilles)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnLancer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnCourse)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnNatation)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnEquilibre)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnLutte)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnDiscretion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnVigueur)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnForce)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnReflexes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnEscalade)).EndInit();
-            this.pnlCompetencesEsprits.ResumeLayout(false);
-            this.pnlCompetencesEsprits.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnPerception)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnOrientation)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnMemoire)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnLogique)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnEssence)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnVolonte)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnConcentration)).EndInit();
-            this.pnlCompetencesRelationnelles.ResumeLayout(false);
-            this.pnlCompetencesRelationnelles.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnPerspicacite)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnIntimidation)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnCommandement)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnComedie)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnCharme)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnProvocation)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnApaisement)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numUpDwnTromperie)).EndInit();
-            this.pnlArme.ResumeLayout(false);
-            this.pnlArme.PerformLayout();
-            this.pnlArmures.ResumeLayout(false);
-            this.pnlArmures.PerformLayout();
-            this.pnlObjets.ResumeLayout(false);
-            this.pnlObjets.PerformLayout();
             this.pnlInventaire.ResumeLayout(false);
             this.pnlInventaire.PerformLayout();
             this.tbCtrlInventaire.ResumeLayout(false);
+            this.pnlObjets.ResumeLayout(false);
+            this.pnlObjets.PerformLayout();
+            this.pnlArmures.ResumeLayout(false);
+            this.pnlArmures.PerformLayout();
+            this.pnlArme.ResumeLayout(false);
+            this.pnlArme.PerformLayout();
+            this.pnlHeader.ResumeLayout(false);
+            this.pnlHeader.PerformLayout();
+            this.pnlMonnaie.ResumeLayout(false);
+            this.pnlMonnaie.PerformLayout();
+            this.pnlPoids.ResumeLayout(false);
+            this.pnlPoids.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2422,7 +2532,7 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.NumericUpDown numUpDwnPtsVie;
         private System.Windows.Forms.Label lblPointsEnergie;
         private System.Windows.Forms.Label lblPointsVie;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numUpDwnPtsRelationnel;
         private System.Windows.Forms.NumericUpDown numUpDwnPtsEsprit;
         private System.Windows.Forms.NumericUpDown numUpDwnPtsCorps;
         private System.Windows.Forms.Label lblRelationnel;
@@ -2506,7 +2616,7 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Panel pnlSetSorts;
         private System.Windows.Forms.Panel pnlJeuSortsAptitudesPersonnage;
         private System.Windows.Forms.Label lblJeuxSortsAptitudes;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlSortileges;
         private System.Windows.Forms.Panel pnlArme;
         private System.Windows.Forms.Panel pnlObjets;
         private System.Windows.Forms.Label lblObjets;
@@ -2519,5 +2629,16 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.TabPage tbPgeArmures;
         private System.Windows.Forms.Label lblInventaire;
         private System.Windows.Forms.TabPage tbPgeObjets;
+        private System.Windows.Forms.Panel pnlMonnaie;
+        private System.Windows.Forms.TextBox txtBxCuivre;
+        private System.Windows.Forms.TextBox txtBxArgent;
+        private System.Windows.Forms.TextBox txtPieceOr;
+        private System.Windows.Forms.TextBox txtBxDevise;
+        private System.Windows.Forms.Label lblMonnaie;
+        private System.Windows.Forms.Panel pnlPoids;
+        private System.Windows.Forms.Panel pnlCarres;
+        private System.Windows.Forms.Label lblPoids;
+        private System.Windows.Forms.Button btnAjouter;
+        private System.Windows.Forms.Label lblRepartitionPvEnergie;
     }
 }

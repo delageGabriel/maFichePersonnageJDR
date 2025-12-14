@@ -195,12 +195,12 @@ namespace maFichePersonnageJDR.View.Formulaires
                 Convert.ToInt32(nudDressage.Value), Convert.ToInt32(nudIntimidation.Value), Convert.ToInt32(nudMarchandage.Value), Convert.ToInt32(nudPrestance.Value),
                 Convert.ToInt32(nudProvocation.Value), Convert.ToInt32(nudRepresentation.Value));
 
-            // Ajout des PV et Energie
-            Controller.CompetencesCaracteristiquesController.SavePVAndEnergie(
-                GlobaleVariables.IdPersonnage, nudPV.Value.ToString() +
-                CalculPointsVieEnergieSupplementaire(Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "vigueur", GlobaleVariables.IdPersonnage)),
-                nudEnergie.Value.ToString() +
-                CalculPointsVieEnergieSupplementaire(Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "esprit", GlobaleVariables.IdPersonnage)));
+            //// Ajout des PV et Energie
+            //Controller.CompetencesCaracteristiquesController.SavePVAndEnergie(
+            //    GlobaleVariables.IdPersonnage, nudPV.Value.ToString() +
+            //    CalculPointsVieEnergieSupplementaire(Controller.CompetencesCaracteristiquesController.GetValueCompetence("Physique", "vigueur", GlobaleVariables.IdPersonnage)),
+            //    nudEnergie.Value.ToString() +
+            //    CalculPointsVieEnergieSupplementaire(Controller.CompetencesCaracteristiquesController.GetValueCompetence("Mental", "esprit", GlobaleVariables.IdPersonnage)));
 
             MessageBox.Show("Compétences et caractéristiques sauvegardées");
             GlobaleVariables.IsClosedProgrammatically = true;
@@ -215,8 +215,8 @@ namespace maFichePersonnageJDR.View.Formulaires
         {
             int maximum = Controller.CompetencesCaracteristiquesController.GetPointPvEnergieRepartition(Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage));
             txtPntsPVEnergie.Text = maximum.ToString();
-            nudPV.Maximum = maximum;
-            nudEnergie.Maximum = maximum;
+            //nudPV.Maximum = maximum;
+            //nudEnergie.Maximum = maximum;
         }
 
         /// <summary>
@@ -313,21 +313,21 @@ namespace maFichePersonnageJDR.View.Formulaires
         private void nudPVEnergie_ValueChanged(object sender, EventArgs e)
         {
             // Récupérer la valeur actuelle des points de vie et d'énergie
-            int pointsPV = (int)nudPV.Value;
-            int pointsEnergie = (int)nudEnergie.Value;
+            //int pointsPV = (int)nudPV.Value;
+            //int pointsEnergie = (int)nudEnergie.Value;
 
             // Calculer le total des points disponibles
             int totalPoints = Controller.CompetencesCaracteristiquesController.GetPointPvEnergieRepartition(Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage));
 
-            // Calculer le nombre de points disponibles pour l'autre attribut
-            int pointsRestantsPV = totalPoints - pointsEnergie;
-            int pointsRestantsEnergie = totalPoints - pointsPV;
+            //// Calculer le nombre de points disponibles pour l'autre attribut
+            //int pointsRestantsPV = totalPoints - pointsEnergie;
+            //int pointsRestantsEnergie = totalPoints - pointsPV;
 
-            // Mettre à jour la valeur maximale des deux contrôles NumericUpDown
-            nudPV.Maximum = pointsRestantsPV;
-            nudEnergie.Maximum = pointsRestantsEnergie;
+            //// Mettre à jour la valeur maximale des deux contrôles NumericUpDown
+            //nudPV.Maximum = pointsRestantsPV;
+            //nudEnergie.Maximum = pointsRestantsEnergie;
 
-            txtPntsPVEnergie.Text = (totalPoints - ((int)nudPV.Value + (int)nudEnergie.Value)).ToString();
+            //txtPntsPVEnergie.Text = (totalPoints - ((int)nudPV.Value + (int)nudEnergie.Value)).ToString();
         }
 
         /// <summary>
@@ -604,8 +604,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             /**
              * PV ET ENERGIE
              */
-            nudPV.Value = decimal.Parse(splitPv[0]);
-            nudEnergie.Value = decimal.Parse(splitEnrgie[0]);
+            //nudPV.Value = decimal.Parse(splitPv[0]);
+            //nudEnergie.Value = decimal.Parse(splitEnrgie[0]);
 
             /**
              * CARACTERISTIQUE

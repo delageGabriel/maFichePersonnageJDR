@@ -12,20 +12,20 @@ namespace maFichePersonnageJDR.Controller
 {
     class MateriauxController
     {
-        public static Dictionary<string, MateriauxModel> GetAllMateriauNameAndCategorie()
-        {
-            Console.WriteLine(string.Format("########### Méthode GetAllMateriauNameAndCategorie ###########"));
-            MateriauxModel materiauxModel = new MateriauxModel();
+        //public static Dictionary<string, MateriauxModel> GetAllMateriauNameAndCategorie()
+        //{
+        //    //Console.WriteLine(string.Format("########### Méthode GetAllMateriauNameAndCategorie ###########"));
+        //    //MateriauxModel materiauxModel = new MateriauxModel();
 
-            Dictionary<string, MateriauxModel> dictionnairesMateriaux = materiauxModel.GetNameMateriauAndCategorie();
+        //    ////Dictionary<string, MateriauxModel> dictionnairesMateriaux = materiauxModel.GetNameMateriauAndCategorie();
 
-            if (materiauxModel != null)
-                return dictionnairesMateriaux;
-            else
-            {
-                Console.WriteLine("Dictionnaire Vide !");
-                return null;
-            }
-        }
+        //    //if (materiauxModel != null)
+        //    //    return dictionnairesMateriaux;
+        //    //else
+        //    //{
+        //    //    Console.WriteLine("Dictionnaire Vide !");
+        //    //    return null;
+        //    //}
+        //}
     }
 }

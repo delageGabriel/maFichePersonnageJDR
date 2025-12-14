@@ -10,7 +10,6 @@ namespace maFichePersonnageJDR.Formulaires
 {
     public partial class FormulaireInfosGenerales : Form
     {
-
         /// <summary>
         /// Accesseurs et Mutateurs
         /// </summary>
@@ -18,89 +17,31 @@ namespace maFichePersonnageJDR.Formulaires
         public string NomPersonnage { get => txtBoxNom.Text; set => txtBoxNom.Text = value; }
         public string RacePersonnage { get => TxtBoxRace.Text; set => TxtBoxRace.Text = value; }
         public int NiveauPersonnage { get => Convert.ToInt32(nudNiveau.Value); set => nudNiveau.Value = value; }
-        public string HommePersonnage { get => rdbHomme.Text; set => rdbHomme.Text = value; }
-        public string FemmePersonnage { get => rdbFemme.Text; set => rdbFemme.Text = value; }
-        public string AutrePersonnage { get => rdbAutre.Text; set => rdbAutre.Text = value; }
-        public int ExperiencePersonnage { get => Convert.ToInt32(nudExpériencePersonnage.Value); set => nudExpériencePersonnage.Value = value; }
-        public string CourbeProgressionPersonnage { get => cbbProgressionXp.Text; }
-        public int NiveauSuivantPersonnage { get => int.Parse(Utils.DeleteCharacterFromString(lblPointsRestants.Text, "/")); }
-        public string AvatarPersonnage { get => ptbAvatar.ImageLocation; set => ptbAvatar.ImageLocation = value; }
-        public string LanguesPersonnage { get => rtbLangues.Text; set => rtbLangues.Text = value; }
+        //public int ExperiencePersonnage { get => Convert.ToInt32(nudExpériencePersonnage.Value); set => nudExpériencePersonnage.Value = value; }
         public string HistoirePersonnage { get => rtbHistoire.Text; set => rtbHistoire.Text = value; }
 
-        private int[] tableauBaseRapideExp =
+        private int[] pointsPvEnergie =
         {
-            0,
-            2000,
-            5325,
-            9745,
-            15625,
-            23450,
-            33855,
-            47690,
-            66095,
-            90570,
-            123125,
-            166420,
-            224005,
-            300595,
-            402455,
-            537930,
-            718115,
-            957760,
-            1276485,
-            1700390,
-            0,
-        };
-
-        private int[] tableauBaseNormaleExp =
-        {
-            0,
-            3000,
-            9650,
-            18490,
-            30255,
-            45900,
-            66710,
-            94385,
-            131190,
-            180145,
-            245250,
-            331845,
-            447015,
-            600190,
-            803915,
-            1074865,
-            1435235,
-            1914520,
-            2551975,
-            3399785,
-            0
-        };
-
-        private int[] tableauBaseLenteExp =
-        {
-            0,
-            4000,
-            13975,
-            27240,
-            44885,
-            68350,
-            99565,
-            141075,
-            196285,
-            269715,
-            367380,
-            497270,
-            670025,
-            899785,
-            1205370,
-            1611800,
-            2152350,
-            2871285,
-            3827460,
-            5099180,
-            0
+            22,
+            27,
+            33,
+            40,
+            48,
+            57,
+            67,
+            78,
+            90,
+            103,
+            117,
+            131,
+            145,
+            158,
+            170,
+            181,
+            191,
+            200,
+            208,
+            215
         };
 
         private Dictionary<Control, Rectangle> dictionaryControlOriginalSize = new Dictionary<Control, Rectangle>();
@@ -111,6 +52,12 @@ namespace maFichePersonnageJDR.Formulaires
             InitializeComponent();
         }
 
+        #region EVENEMENTS
+        /***********************************************
+         * 
+         * EVENEMENTS
+         * 
+         **********************************************/
         private void FormulaireInfosGenerales_Load(object sender, EventArgs e)
         {
             dictionaryControlOriginalSize.Add(this, new Rectangle(this.Location, this.Size));
@@ -152,7 +99,7 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 if (GlobaleVariables.IsEdit)
                 {
-                    string niveauSuivant = Utils.DeleteCharacterFromString(lblPointsRestants.Text, "/");
+                    //string niveauSuivant = Utils.DeleteCharacterFromString(lblPointsRestants.Text, "/");
 
                     // Mise à jour du niveau du personnage
                     if (nudNiveau.Value != Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage))
@@ -161,16 +108,16 @@ namespace maFichePersonnageJDR.Formulaires
                     }
 
                     // Mise à jour du nombre de points à atteindre pour le niveau suivant du personnage
-                    if (int.Parse(niveauSuivant) != Controller.PersonnageController.GetNiveauSuivantPersonnage(GlobaleVariables.IdPersonnage))
-                    {
-                        Controller.PersonnageController.SetValueField("niveau_suivant_personnage", GlobaleVariables.IdPersonnage, niveauSuivant);
-                    }
+                    //if (int.Parse(niveauSuivant) != Controller.PersonnageController.GetNiveauSuivantPersonnage(GlobaleVariables.IdPersonnage))
+                    //{
+                    //    Controller.PersonnageController.SetValueField("niveau_suivant_personnage", GlobaleVariables.IdPersonnage, niveauSuivant);
+                    //}
 
                     // Mise à jour du nombre de points d'expérience acquis par le personnage
-                    if (nudExpériencePersonnage.Value != Controller.PersonnageController.GetExperiencePersonnage(GlobaleVariables.IdPersonnage))
-                    {
-                        Controller.PersonnageController.SetValueField("experience_personnage", GlobaleVariables.IdPersonnage, nudExpériencePersonnage.Value);
-                    }
+                    //if (nudExpériencePersonnage.Value != Controller.PersonnageController.GetExperiencePersonnage(GlobaleVariables.IdPersonnage))
+                    //{
+                    //    Controller.PersonnageController.SetValueField("experience_personnage", GlobaleVariables.IdPersonnage, nudExpériencePersonnage.Value);
+                    //}
 
                     // Mise à jour l'histoire du personnage
                     if (rtbHistoire.Text != Controller.PersonnageController.GetHistoirePersonnage(GlobaleVariables.IdPersonnage))
@@ -179,10 +126,10 @@ namespace maFichePersonnageJDR.Formulaires
                     }
 
                     // Mise à jour des langues parlées par le personnage
-                    if (rtbLangues.Text != Controller.PersonnageController.GetLanguesPersonnage(GlobaleVariables.IdPersonnage))
-                    {
-                        Controller.PersonnageController.SetValueField("langues_personnage", GlobaleVariables.IdPersonnage, rtbLangues.Text);
-                    }
+                    //if (rtbLangues.Text != Controller.PersonnageController.GetLanguesPersonnage(GlobaleVariables.IdPersonnage))
+                    //{
+                    //    Controller.PersonnageController.SetValueField("langues_personnage", GlobaleVariables.IdPersonnage, rtbLangues.Text);
+                    //}
 
                     formEditMenu.Show();
                 }
@@ -218,44 +165,6 @@ namespace maFichePersonnageJDR.Formulaires
                     }
 
                     /**
-                     * Test SEXE
-                     */
-                    if (rdbHomme.Checked == true)
-                    {
-                        sexe = HommePersonnage;
-                    }
-                    else if (rdbFemme.Checked == true)
-                    {
-                        sexe = FemmePersonnage;
-                    }
-                    else if (rdbAutre.Checked == true)
-                    {
-                        sexe = AutrePersonnage;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Veuillez cocher un sexe pour le personnage !");
-                        return;
-                    }
-
-                    /**
-                     * Test COURBE PROGRESSION
-                     */
-                    if (cbbProgressionXp.Text == "Progression")
-                    {
-                        MessageBox.Show("Veuillez sélectionner une courbe de progression pour le personnage !");
-                        return;
-                    }
-                    /**
-                     * Test LANGUES
-                     */
-                    if (String.IsNullOrEmpty(rtbLangues.Text))
-                    {
-                        MessageBox.Show("Le champ « Langues » doit être rempli !");
-                        return;
-                    }
-
-                    /**
                      * Test PERSONNAGE EXISTE DEJA
                      */
                     if (!Controller.PersonnageController.CheckPersonnageExist(NomPersonnage, PrenomPersonnage))
@@ -265,8 +174,8 @@ namespace maFichePersonnageJDR.Formulaires
                     }
 
                     // Si tout est bon, on sauvegarde les informations et on créait le personnage
-                    Controller.PersonnageController.SaveInformationsPersonnage(PrenomPersonnage, NomPersonnage, RacePersonnage, NiveauPersonnage,
-                        sexe, ExperiencePersonnage, CourbeProgressionPersonnage, NiveauSuivantPersonnage, LanguesPersonnage, AvatarPersonnage, HistoirePersonnage);
+                    //Controller.PersonnageController.SaveInformationsPersonnage(PrenomPersonnage, NomPersonnage, RacePersonnage, NiveauPersonnage,
+                    //    sexe, HistoirePersonnage);
 
                     GlobaleVariables.IdPersonnage = Controller.PersonnageController.GetIdPersonnageByNameAndSurname(NomPersonnage,
                         PrenomPersonnage);
@@ -285,13 +194,112 @@ namespace maFichePersonnageJDR.Formulaires
 
             Console.WriteLine("########### FIN Méthode btnSaveInfos_Click ###########");
         }
-
         private void btnAjouterImage_Click(object sender, EventArgs e)
         {
             string pathImg = GetPathImage();
-            ptbAvatar.Image = GetUneImage(pathImg);
         }
 
+        /// <summary>
+        /// Vide la RichTextBoxHistoire
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnViderHistoire_Click(object sender, EventArgs e)
+        {
+            rtbHistoire.Text = rtbHistoire.Text.Remove(0, rtbHistoire.TextLength);
+        }
+
+        private void nudNiveau_ValueChanged(object sender, EventArgs e)
+        {
+            /// Simple sécurité pour éviter d'avoir un surplus de points de vie
+            /// ou énergie.
+            if (numUpDwnPtsVie.Value > 0 || numUpDwnPtsEnergie.Value > 0)
+            {
+                numUpDwnPtsVie.Value = 0;
+                numUpDwnPtsEnergie.Value = 0;
+            }
+
+            GetPointsVieEnergieByLevelAndSize();
+        }
+
+        private void FormulaireInfosGenerales_Resize(object sender, EventArgs e)
+        {
+            float xRatio = (float)this.Width / dictionaryControlOriginalSize[this].Width;
+            float yRatio = (float)this.Height / dictionaryControlOriginalSize[this].Height;
+
+            foreach (KeyValuePair<Label, Tuple<Rectangle, float>> entry in dictionaryLabelOriginalSize)
+            {
+                Utils.AdjustLabelSizeAndPosition(entry.Key, entry.Value.Item1, entry.Value.Item2, xRatio, yRatio);
+            }
+            foreach (KeyValuePair<Control, Rectangle> entry in dictionaryControlOriginalSize)
+            {
+                Utils.AdjustControlSizeAndPosition(entry.Key, entry.Value, xRatio, yRatio);
+            }
+
+            this.Refresh();
+        }
+        private void cbBxTaille_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            /// Simple sécurité pour éviter d'avoir un surplus de points de vie
+            /// ou énergie.
+            if (numUpDwnPtsVie.Value > 0 || numUpDwnPtsEnergie.Value > 0)
+            {
+                numUpDwnPtsVie.Value = 0;
+                numUpDwnPtsEnergie.Value = 0;
+            }
+
+            GetPointsVieEnergieByLevelAndSize();
+        }
+
+        private void numUpDwnPtsVie_ValueChanged(object sender, EventArgs e)
+        {
+            CalculPVEnergie();
+        }
+
+        private void numUpDwnPtsEnergie_ValueChanged(object sender, EventArgs e)
+        {
+            CalculPVEnergie();
+        }
+
+        private void FormulaireInfosGenerales_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!GlobaleVariables.IsClosedProgrammatically)
+            {
+                string msg = GlobaleVariables.IsEdit ? "Voulez-vous annuler l'édition du personnage ?" : "Voulez-vous annuler la création du personnage ?";
+                DialogResult result = MessageBox.Show(msg, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                // Vérifier la réponse de l'utilisateur
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    if (GlobaleVariables.IsEdit)
+                    {
+                        FormEditMenu formEditMenu = new FormEditMenu();
+                        formEditMenu.Show();
+                    }
+                    else
+                    {
+                        FrmPrincipal frmPrincipal = new FrmPrincipal();
+                        frmPrincipal.Show();
+                    }
+                }
+            }
+            else
+            {
+                GlobaleVariables.IsClosedProgrammatically = false;
+            }
+        }
+        #endregion
+
+        #region METHODES
+        /********************************************
+         * 
+         * METHODES
+         * 
+         *******************************************/
         public static Bitmap GetUneImage(string cheminDeLImage)
         {
             string cheminImageARecuperer = !String.IsNullOrEmpty(cheminDeLImage) ? cheminDeLImage : Path.GetFullPath(@"Images\roto.png");
@@ -329,140 +337,106 @@ namespace maFichePersonnageJDR.Formulaires
         }
 
         /// <summary>
-        /// Vide la RichTextBoxHistoire
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnViderHistoire_Click(object sender, EventArgs e)
-        {
-            rtbHistoire.Text = rtbHistoire.Text.Remove(0, rtbHistoire.TextLength);
-        }
-
-        private void nudNiveau_ValueChanged(object sender, EventArgs e)
-        {
-            if (cbbProgressionXp.SelectedItem as string == "Rapide")
-            {
-                lblPointsRestants.Text = "/" + tableauBaseRapideExp[Convert.ToInt32((sender as NumericUpDown).Value)].ToString();
-            }
-            else if (cbbProgressionXp.SelectedItem as string == "Normale")
-            {
-                lblPointsRestants.Text = "/" + tableauBaseNormaleExp[Convert.ToInt32((sender as NumericUpDown).Value)].ToString();
-            }
-            else if (cbbProgressionXp.SelectedItem as string == "Lente")
-            {
-                lblPointsRestants.Text = "/" + tableauBaseLenteExp[Convert.ToInt32((sender as NumericUpDown).Value)].ToString();
-            }
-        }
-
-        private void cbbProgressionXp_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if ((sender as ComboBox).SelectedItem as string == "Rapide")
-            {
-                lblPointsRestants.Text = "/" + tableauBaseRapideExp[Convert.ToInt32(nudNiveau.Value)].ToString();
-            }
-            else if ((sender as ComboBox).SelectedItem as string == "Normale")
-            {
-                lblPointsRestants.Text = "/" + tableauBaseNormaleExp[Convert.ToInt32(nudNiveau.Value)].ToString();
-            }
-            else if ((sender as ComboBox).SelectedItem as string == "Lente")
-            {
-                lblPointsRestants.Text = "/" + tableauBaseLenteExp[Convert.ToInt32(nudNiveau.Value)].ToString();
-            }
-        }
-
-        private void FormulaireInfosGenerales_Resize(object sender, EventArgs e)
-        {
-            float xRatio = (float)this.Width / dictionaryControlOriginalSize[this].Width;
-            float yRatio = (float)this.Height / dictionaryControlOriginalSize[this].Height;
-
-            foreach (KeyValuePair<Label, Tuple<Rectangle, float>> entry in dictionaryLabelOriginalSize)
-            {
-                Utils.AdjustLabelSizeAndPosition(entry.Key, entry.Value.Item1, entry.Value.Item2, xRatio, yRatio);
-            }
-            foreach (KeyValuePair<Control, Rectangle> entry in dictionaryControlOriginalSize)
-            {
-                Utils.AdjustControlSizeAndPosition(entry.Key, entry.Value, xRatio, yRatio);
-            }
-
-            this.Refresh();
-        }
-
-        /// <summary>
         /// Méthode qui assigne les valeurs pour un personnage déjà existant
         /// </summary>
         private void EditPersonnage()
         {
             string sexe = Controller.PersonnageController.GetSexePersonnage(GlobaleVariables.IdPersonnage);
 
-            switch (sexe)
-            {
-                case "Masculin":
-                    rdbHomme.Checked = true;
-                    break;
-                case "Féminin":
-                    rdbFemme.Checked = true;
-                    break;
-                case "Autre":
-                    rdbAutre.Checked = true;
-                    break;
-                default:
-                    break;
-            }
-
             // On bloque les controls qui changerait des informations trop importante
             txtBoxPrenom.Enabled = false;
             txtBoxNom.Enabled = false;
             TxtBoxRace.Enabled = false;
-            rdbHomme.Enabled = false;
-            rdbFemme.Enabled = false;
-            rdbAutre.Enabled = false;
-            cbbProgressionXp.Enabled = false;
+            //rdbHomme.Enabled = false;
+            //rdbFemme.Enabled = false;
+            //rdbAutre.Enabled = false;
+            //cbbProgressionXp.Enabled = false;
 
             // On remet les valeurs à jour dans les controls du formulaire
             txtBoxPrenom.Text = Controller.PersonnageController.GetPrenomPersonnage(GlobaleVariables.IdPersonnage);
             txtBoxNom.Text = Controller.PersonnageController.GetNomPersonnage(GlobaleVariables.IdPersonnage);
             TxtBoxRace.Text = Controller.PersonnageController.GetRacePersonnage(GlobaleVariables.IdPersonnage);
             nudNiveau.Value = Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage);
-            cbbProgressionXp.SelectedItem = Controller.PersonnageController.GetCourbeProgressionPersonnage(GlobaleVariables.IdPersonnage);
+            //cbbProgressionXp.SelectedItem = Controller.PersonnageController.GetCourbeProgressionPersonnage(GlobaleVariables.IdPersonnage);
             rtbHistoire.Text = Controller.PersonnageController.GetHistoirePersonnage(GlobaleVariables.IdPersonnage);
-            rtbLangues.Text = Controller.PersonnageController.GetLanguesPersonnage(GlobaleVariables.IdPersonnage);
+            //rtbLangues.Text = Controller.PersonnageController.GetLanguesPersonnage(GlobaleVariables.IdPersonnage);
         }
 
-        private void FormulaireInfosGenerales_FormClosing(object sender, FormClosingEventArgs e)
+        /// <summary>
+        /// Gère le nombre de points total à répartir, entre les points de vie et énergie
+        /// en fonction du niveau et de la taille de la créature.
+        /// </summary>
+        private int GetPointsVieEnergieByLevelAndSize()
         {
-            if (!GlobaleVariables.IsClosedProgrammatically)
-            {
-                string msg = GlobaleVariables.IsEdit ? "Voulez-vous annuler l'édition du personnage ?" : "Voulez-vous annuler la création du personnage ?";
-                DialogResult result = MessageBox.Show(msg, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            int niveau = (int)nudNiveau.Value;
+            double multiplicateur = 0.0;
 
-                // Vérifier la réponse de l'utilisateur
-                if (result == DialogResult.No)
-                {
-                    e.Cancel = true;
-                }
-                else
-                {
-                    if (GlobaleVariables.IsEdit)
-                    {
-                        FormEditMenu formEditMenu = new FormEditMenu();
-                        formEditMenu.Show();
-                    }
-                    else
-                    {
-                        FrmPrincipal frmPrincipal = new FrmPrincipal();
-                        frmPrincipal.Show();
-                    }
-                }
+            /// Si aucune taille n'est sélectionnée on quitte la méthode
+            /// avec un message d'alerte pour éviter un bug.
+            if (cbBxTaille.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez choisir une taille");
+                return 0;
+            }
+
+            /// Changer le multiplicateur en fonction de la taille choisie
+            /// pour la créature.
+            switch (cbBxTaille.SelectedItem.ToString())
+            {
+                case "Minuscule":
+                    multiplicateur = 0.6;
+                    break;
+                case "Petit":
+                    multiplicateur = 1;
+                    break;
+                case "Moyen":
+                    multiplicateur = 1;
+                    break;
+                case "Grand":
+                    multiplicateur = 1.5;
+                    break;
+                case "Très grand":
+                    multiplicateur = 2;
+                    break;
+                case "Gigantesque":
+                    multiplicateur = 3;
+                    break;
+                default:
+                    multiplicateur = 1;
+                    break;
+            }
+
+            int resultat = (int)(pointsPvEnergie[niveau - 1] * multiplicateur);
+
+            lblRepartitionPvEnergie.Text = resultat.ToString();
+
+            return resultat;
+        }
+        /// <summary>
+        /// Fais le calcul de la répartition des points de vie et énergie et fixe
+        /// un maximum aux PV et énergie, une fois les points de répartition à 0
+        /// </summary>
+        private void CalculPVEnergie()
+        {
+            /// Récupération du nombre de points à répartir en fonction du niveau et de la taille,
+            /// puis le nombre de points restants à répartir
+            int valeurPointsPvEnergie = GetPointsVieEnergieByLevelAndSize();
+            valeurPointsPvEnergie = valeurPointsPvEnergie - ((int)numUpDwnPtsVie.Value + (int)numUpDwnPtsEnergie.Value);
+
+            /// On fixe le maximum ici en fonction du nombre de points restants
+            if (valeurPointsPvEnergie == 0)
+            {
+                numUpDwnPtsVie.Maximum = numUpDwnPtsVie.Value;
+                numUpDwnPtsEnergie.Maximum = numUpDwnPtsEnergie.Value;
             }
             else
             {
-                GlobaleVariables.IsClosedProgrammatically = false;
+                numUpDwnPtsVie.Maximum = 999;
+                numUpDwnPtsEnergie.Maximum = 999;
             }
-        }
 
-        private void lblNiveau_Click(object sender, EventArgs e)
-        {
-
+            lblRepartitionPvEnergie.Text = valeurPointsPvEnergie.ToString(); // On ré-affiche les points restants à répartir.
         }
+        #endregion
     }
 }

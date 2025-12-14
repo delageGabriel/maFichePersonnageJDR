@@ -84,35 +84,35 @@ namespace maFichePersonnageJDR.View.Formulaires
         /// </summary>
         public void GetAllMateriauxByCategorie()
         {
-            Console.WriteLine("########### Classe : FrmCreationArmure; Méthode : GetAllMateriauxByCategorie; ###########");
+            //Console.WriteLine("########### Classe : FrmCreationArmure; Méthode : GetAllMateriauxByCategorie; ###########");
 
-            try
-            {
-                Dictionary<string, Model.MateriauxModel> dictionnaireMateriauxCateg = MateriauxController.GetAllMateriauNameAndCategorie();
+            //try
+            //{
+            //    Dictionary<string, Model.MateriauxModel> dictionnaireMateriauxCateg = MateriauxController.GetAllMateriauNameAndCategorie();
 
-                if (dictionnaireMateriauxCateg != null)
-                {
-                    foreach (var materiaux in dictionnaireMateriauxCateg.Values)
-                    {
-                        if (materiaux.Categorie == "Transformé")
-                            lstBxOrganiques.Items.Add(materiaux.NomMateriau);
-                        else if (materiaux.Categorie == "Métaux")
-                            lstBxMetaux.Items.Add(materiaux.NomMateriau);
-                        else if (materiaux.Categorie == "Minerai")
-                            lstBxMinerais.Items.Add(materiaux.NomMateriau);
-                        else if (materiaux.Categorie == "Animal")
-                            lstBxAnimaux.Items.Add(materiaux.NomMateriau);
-                        else
-                        {
-                            Console.WriteLine(string.Format("Catégorie de matériau non reconnue ! Catégorie de matériau en question : {0}"), materiaux.Categorie);
-                        }
-                    }
-                }
-            }
-            catch
-            {
-                throw;
-            }
+            //    if (dictionnaireMateriauxCateg != null)
+            //    {
+            //        foreach (var materiaux in dictionnaireMateriauxCateg.Values)
+            //        {
+            //            if (materiaux.Categorie == "Transformé")
+            //                lstBxOrganiques.Items.Add(materiaux.NomMateriau);
+            //            else if (materiaux.Categorie == "Métaux")
+            //                lstBxMetaux.Items.Add(materiaux.NomMateriau);
+            //            else if (materiaux.Categorie == "Minerai")
+            //                lstBxMinerais.Items.Add(materiaux.NomMateriau);
+            //            else if (materiaux.Categorie == "Animal")
+            //                lstBxAnimaux.Items.Add(materiaux.NomMateriau);
+            //            else
+            //            {
+            //                Console.WriteLine(string.Format("Catégorie de matériau non reconnue ! Catégorie de matériau en question : {0}"), materiaux.Categorie);
+            //            }
+            //        }
+            //    }
+            //}
+            //catch
+            //{
+            //    throw;
+            //}
         }
         /// <summary>
         /// Retourne la valeur brute du matériau sélectionné, sans tenir compte de la
@@ -197,22 +197,6 @@ namespace maFichePersonnageJDR.View.Formulaires
                             txtBxCeleste.Text = materiau[2];
                         else if (materiau.Contains("terrestre"))
                             txtBxTerrestre.Text = materiau[2];
-                        else if (materiau.Contains("poisons"))
-                            txtBxPoison.Text = materiau[2];
-                        else if (materiau.Contains("paralysie"))
-                            txtBxParalysie.Text = materiau[2];
-                        else if (materiau.Contains("maledictions"))
-                            txtBxMaledictions.Text = materiau[2];
-                        else if (materiau.Contains("saignement"))
-                            txtBxSaignement.Text = materiau[2];
-                        else if (materiau.Contains("choc"))
-                            txtBxChoc.Text = materiau[2];
-                        else if (materiau.Contains("maladies"))
-                            txtBxMaladies.Text = materiau[2];
-                        else if (materiau.Contains("acide"))
-                            txtBxAcide.Text = materiau[2];
-                        else if (materiau.Contains("chute"))
-                            txtBxChute.Text = materiau[2];
                         else if (materiau.Contains("chaleur"))
                             txtBxChaleur.Text = materiau[2];
                         else if (materiau.Contains("froid"))
@@ -687,22 +671,12 @@ namespace maFichePersonnageJDR.View.Formulaires
                 txtBxCelesteFinaleValue.Text = string.Empty;
                 // Terrestre
                 txtBxTerrestreFinaleValue.Text = string.Empty;
-                // Poison
-                txtBxPoisonFinaleValue.Text = string.Empty;
-                // Paralysie
-                txtBxParalysieFinaleValue.Text = string.Empty;
-                // Malédictions
-                txtBxMaledictionsFinaleValue.Text = string.Empty;
-                // Saignement
-                txtBxSaignementFinaleValue.Text = string.Empty;
                 // Choc
                 txtBxChocFinaleValue.Text = string.Empty;
                 // Acide
                 txtBxAcideFinaleValue.Text = string.Empty;
                 // Maladies
-                txtBxMaladiesFinaleValue.Text = string.Empty;
                 // Chute
-                txtBxChuteFinaleValue.Text = string.Empty;
                 // Chaleur
                 txtBxChaleurFinaleValue.Text = string.Empty;
                 // Froid
@@ -733,21 +707,10 @@ namespace maFichePersonnageJDR.View.Formulaires
                 // Terrestre
                 txtBxTerrestreFinaleValue.Text = tableauAverageMateriauEffect[7, activeCols[0]].ToString();
                 // Poison
-                txtBxPoisonFinaleValue.Text = tableauAverageMateriauEffect[8, activeCols[0]].ToString();
-                // Paralysie
-                txtBxParalysieFinaleValue.Text = tableauAverageMateriauEffect[9, activeCols[0]].ToString();
-                // Malédictions
-                txtBxMaledictionsFinaleValue.Text = tableauAverageMateriauEffect[10, activeCols[0]].ToString();
-                // Saignement
-                txtBxSaignementFinaleValue.Text = tableauAverageMateriauEffect[11, activeCols[0]].ToString();
                 // Choc
                 txtBxChocFinaleValue.Text = tableauAverageMateriauEffect[12, activeCols[0]].ToString();
                 // Acide
                 txtBxAcideFinaleValue.Text = tableauAverageMateriauEffect[13, activeCols[0]].ToString();
-                // Maladies
-                txtBxMaladiesFinaleValue.Text = tableauAverageMateriauEffect[14, activeCols[0]].ToString();
-                // Chute
-                txtBxChuteFinaleValue.Text = tableauAverageMateriauEffect[15, activeCols[0]].ToString();
                 // Chaleur
                 txtBxChaleurFinaleValue.Text = tableauAverageMateriauEffect[16, activeCols[0]].ToString();
                 // Froid
@@ -805,30 +768,6 @@ namespace maFichePersonnageJDR.View.Formulaires
                     Convert.ToInt32(tableauAverageMateriauEffect[7, 1]),
                     null,
                     false).ToString();
-                // Poison
-                txtBxPoisonFinaleValue.Text = Utils.AverageEffectValueMaterials(
-                    Convert.ToInt32(tableauAverageMateriauEffect[8, 0]),
-                    Convert.ToInt32(tableauAverageMateriauEffect[8, 1]),
-                    null,
-                    false).ToString();
-                // Paralysie
-                txtBxParalysieFinaleValue.Text = Utils.AverageEffectValueMaterials(
-                    Convert.ToInt32(tableauAverageMateriauEffect[9, 0]),
-                    Convert.ToInt32(tableauAverageMateriauEffect[9, 1]),
-                    null,
-                    false).ToString();
-                // Malédictions
-                txtBxMaledictionsFinaleValue.Text = Utils.AverageEffectValueMaterials(
-                    Convert.ToInt32(tableauAverageMateriauEffect[10, 0]),
-                    Convert.ToInt32(tableauAverageMateriauEffect[10, 1]),
-                    null,
-                    false).ToString();
-                // Saignements
-                txtBxSaignementFinaleValue.Text = Utils.AverageEffectValueMaterials(
-                    Convert.ToInt32(tableauAverageMateriauEffect[11, 0]),
-                    Convert.ToInt32(tableauAverageMateriauEffect[11, 1]),
-                    null,
-                    false).ToString();
                 // Choc
                 txtBxChocFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[12, 0]),
@@ -839,18 +778,6 @@ namespace maFichePersonnageJDR.View.Formulaires
                 txtBxAcideFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[13, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[13, 1]),
-                    null,
-                    false).ToString();
-                // Maladies
-                txtBxMaladiesFinaleValue.Text = Utils.AverageEffectValueMaterials(
-                    Convert.ToInt32(tableauAverageMateriauEffect[14, 0]),
-                    Convert.ToInt32(tableauAverageMateriauEffect[14, 1]),
-                    null,
-                    false).ToString();
-                // Chute
-                txtBxChuteFinaleValue.Text = Utils.AverageEffectValueMaterials(
-                    Convert.ToInt32(tableauAverageMateriauEffect[15, 0]),
-                    Convert.ToInt32(tableauAverageMateriauEffect[15, 1]),
                     null,
                     false).ToString();
                 // Chaleur
@@ -934,30 +861,6 @@ namespace maFichePersonnageJDR.View.Formulaires
                     Convert.ToInt32(tableauAverageMateriauEffect[7, 1]),
                     Convert.ToInt32(tableauAverageMateriauEffect[7, 2]),
                     false).ToString();
-                // Poison
-                txtBxPoisonFinaleValue.Text = Utils.AverageEffectValueMaterials(
-                    Convert.ToInt32(tableauAverageMateriauEffect[8, 0]),
-                    Convert.ToInt32(tableauAverageMateriauEffect[8, 1]),
-                    Convert.ToInt32(tableauAverageMateriauEffect[8, 2]),
-                    false).ToString();
-                // Paralysie
-                txtBxParalysieFinaleValue.Text = Utils.AverageEffectValueMaterials(
-                    Convert.ToInt32(tableauAverageMateriauEffect[9, 0]),
-                    Convert.ToInt32(tableauAverageMateriauEffect[9, 1]),
-                    Convert.ToInt32(tableauAverageMateriauEffect[9, 2]),
-                    false).ToString();
-                // Malédictions
-                txtBxMaledictionsFinaleValue.Text = Utils.AverageEffectValueMaterials(
-                    Convert.ToInt32(tableauAverageMateriauEffect[10, 0]),
-                    Convert.ToInt32(tableauAverageMateriauEffect[10, 1]),
-                    Convert.ToInt32(tableauAverageMateriauEffect[10, 2]),
-                    false).ToString();
-                // Saignements
-                txtBxSaignementFinaleValue.Text = Utils.AverageEffectValueMaterials(
-                    Convert.ToInt32(tableauAverageMateriauEffect[11, 0]),
-                    Convert.ToInt32(tableauAverageMateriauEffect[11, 1]),
-                    Convert.ToInt32(tableauAverageMateriauEffect[11, 2]),
-                    false).ToString();
                 // Choc
                 txtBxChocFinaleValue.Text = Utils.AverageEffectValueMaterials(
                     Convert.ToInt32(tableauAverageMateriauEffect[12, 0]),
@@ -969,18 +872,6 @@ namespace maFichePersonnageJDR.View.Formulaires
                     Convert.ToInt32(tableauAverageMateriauEffect[13, 0]),
                     Convert.ToInt32(tableauAverageMateriauEffect[13, 1]),
                     Convert.ToInt32(tableauAverageMateriauEffect[13, 2]),
-                    false).ToString();
-                // Maladies
-                txtBxMaladiesFinaleValue.Text = Utils.AverageEffectValueMaterials(
-                    Convert.ToInt32(tableauAverageMateriauEffect[14, 0]),
-                    Convert.ToInt32(tableauAverageMateriauEffect[14, 1]),
-                    Convert.ToInt32(tableauAverageMateriauEffect[14, 2]),
-                    false).ToString();
-                // Chute
-                txtBxChuteFinaleValue.Text = Utils.AverageEffectValueMaterials(
-                    Convert.ToInt32(tableauAverageMateriauEffect[15, 0]),
-                    Convert.ToInt32(tableauAverageMateriauEffect[15, 1]),
-                    Convert.ToInt32(tableauAverageMateriauEffect[15, 2]),
                     false).ToString();
                 // Chaleur
                 txtBxChaleurFinaleValue.Text = Utils.AverageEffectValueMaterials(
@@ -1034,14 +925,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             txtBxAquatique.Text = string.Empty;
             txtBxCeleste.Text = string.Empty;
             txtBxTerrestre.Text = string.Empty;
-            txtBxPoison.Text = string.Empty;
-            txtBxParalysie.Text = string.Empty;
-            txtBxMaledictions.Text = string.Empty;
-            txtBxSaignement.Text = string.Empty;
             txtBxChoc.Text = string.Empty;
             txtBxAcide.Text = string.Empty;
-            txtBxMaladies.Text = string.Empty;
-            txtBxChute.Text = string.Empty;
             txtBxPression.Text = string.Empty;
             txtBxChaleur.Text = string.Empty;
             txtBxFroid.Text = string.Empty;
@@ -1057,14 +942,8 @@ namespace maFichePersonnageJDR.View.Formulaires
             txtBxAquatiqueFinaleValue.ForeColor = Color.Black;
             txtBxCelesteFinaleValue.ForeColor = Color.Black;
             txtBxTerrestreFinaleValue.ForeColor = Color.Black;
-            txtBxPoisonFinaleValue.ForeColor = Color.Black;
-            txtBxParalysieFinaleValue.ForeColor = Color.Black;
-            txtBxMaledictionsFinaleValue.ForeColor = Color.Black;
-            txtBxSaignementFinaleValue.ForeColor = Color.Black;
             txtBxChocFinaleValue.ForeColor = Color.Black;
             txtBxAcideFinaleValue.ForeColor = Color.Black;
-            txtBxMaladiesFinaleValue.ForeColor = Color.Black;
-            txtBxChuteFinaleValue.ForeColor = Color.Black;
             txtBxPressionValueFinale.ForeColor = Color.Black;
             txtBxInitiativeFinaleValue.ForeColor = Color.Black;
             txtBxVitesseFinaleValue.ForeColor = Color.Black;
@@ -1397,38 +1276,6 @@ namespace maFichePersonnageJDR.View.Formulaires
                     else
                         imgRedArrowTerrestre.Visible = true;
                     break;
-                case 7:
-                    lblPreviewNewValuePoison.Text = valuesResistancesBonusArmor[i];
-                    lblPreviewNewValuePoison.ForeColor = bestValue ? Color.Blue : Color.Red;
-                    if (bestValue)
-                        imgBlueArrowPoison.Visible = true;
-                    else
-                        imgRedArrowPoison.Visible = true;
-                    break;
-                case 8:
-                    lblPreviewNewValueParalysie.Text = valuesResistancesBonusArmor[i];
-                    lblPreviewNewValueParalysie.ForeColor = bestValue ? Color.Blue : Color.Red;
-                    if (bestValue)
-                        imgBlueArrowParalysie.Visible = true;
-                    else
-                        imgRedArrowParalysie.Visible = true;
-                    break;
-                case 9:
-                    lblPreviewNewValueMaledictions.Text = valuesResistancesBonusArmor[i];
-                    lblPreviewNewValueMaledictions.ForeColor = bestValue ? Color.Blue : Color.Red;
-                    if (bestValue)
-                        imgBlueArrowMaledictions.Visible = true;
-                    else
-                        imgRedArrowMaledictions.Visible = true;
-                    break;
-                case 10:
-                    lblPreviewNewValueSaignement.Text = valuesResistancesBonusArmor[i];
-                    lblPreviewNewValueSaignement.ForeColor = bestValue ? Color.Blue : Color.Red;
-                    if (bestValue)
-                        imgBlueArrowSaignement.Visible = true;
-                    else
-                        imgRedArrowSaignement.Visible = true;
-                    break;
                 case 11:
                     lblPreviewNewValueChoc.Text = valuesResistancesBonusArmor[i];
                     lblPreviewNewValueChoc.ForeColor = bestValue ? Color.Blue : Color.Red;
@@ -1444,38 +1291,6 @@ namespace maFichePersonnageJDR.View.Formulaires
                         imgBlueArrowAcide.Visible = true;
                     else
                         imgRedArrowAcide.Visible = true;
-                    break;
-                case 13:
-                    lblPreviewNewValueMaladies.Text = valuesResistancesBonusArmor[i];
-                    lblPreviewNewValueMaladies.ForeColor = bestValue ? Color.Blue : Color.Red;
-                    if (bestValue)
-                        imgBlueArrowMaladies.Visible = true;
-                    else
-                        imgRedArrowMaladies.Visible = true;
-                    break;
-                case 14:
-                    lblPreviewNewValueChute.Text = valuesResistancesBonusArmor[i];
-                    lblPreviewNewValueChute.ForeColor = bestValue ? Color.Blue : Color.Red;
-                    if (bestValue)
-                        imgBlueArrowChute.Visible = true;
-                    else
-                        imgRedArrowChute.Visible = true;
-                    break;
-                case 15:
-                    lblPreviewNewValuePression.Text = valuesResistancesBonusArmor[i];
-                    lblPreviewNewValuePression.ForeColor = bestValue ? Color.Blue : Color.Red;
-                    if (bestValue)
-                        imgBlueArrowChute.Visible = true;
-                    else
-                        imgRedArrowChute.Visible = true;
-                    break;
-                case 16:
-                    lblPreviewNewValueChaleur.Text = valuesResistancesBonusArmor[i];
-                    lblPreviewNewValueChaleur.ForeColor = bestValue ? Color.Blue : Color.Red;
-                    if (bestValue)
-                        imgBlueArrowChute.Visible = true;
-                    else
-                        imgRedArrowChute.Visible = true;
                     break;
                 case 17:
                     lblPreviewNewValueFroid.Text = valuesResistancesBonusArmor[i];
