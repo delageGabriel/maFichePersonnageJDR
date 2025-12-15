@@ -109,6 +109,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.numUpDwnConcentration = new System.Windows.Forms.NumericUpDown();
             this.lblConcentration = new System.Windows.Forms.Label();
             this.pnlCompetencesCorps = new System.Windows.Forms.Panel();
+            this.lblRepartitionCompetencesCorps = new System.Windows.Forms.Label();
             this.lblPtsRestantsRepartitionsCompetencesCorps = new System.Windows.Forms.Label();
             this.numUpDwnVigueur = new System.Windows.Forms.NumericUpDown();
             this.lblVigueur = new System.Windows.Forms.Label();
@@ -150,6 +151,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblPointsEnergie = new System.Windows.Forms.Label();
             this.lblPointsVie = new System.Windows.Forms.Label();
             this.pnlPointsVieEnergie = new System.Windows.Forms.Panel();
+            this.lblRepartitionCaracteristiques = new System.Windows.Forms.Label();
             this.lblPtsRestantsRepartitionsCaracteristiques = new System.Windows.Forms.Label();
             this.numUpDwnPtsRelationnel = new System.Windows.Forms.NumericUpDown();
             this.numUpDwnPtsEsprit = new System.Windows.Forms.NumericUpDown();
@@ -758,18 +760,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnTromperie.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnTromperie.Name = "numUpDwnTromperie";
             this.numUpDwnTromperie.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnTromperie.TabIndex = 76;
-            this.numUpDwnTromperie.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnTromperie.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesRelationnelles_ValueChanged);
             // 
             // lblTromperie
             // 
@@ -790,18 +788,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnPerspicacite.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnPerspicacite.Name = "numUpDwnPerspicacite";
             this.numUpDwnPerspicacite.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnPerspicacite.TabIndex = 74;
-            this.numUpDwnPerspicacite.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnPerspicacite.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesRelationnelles_ValueChanged);
             // 
             // lblPerspicacite
             // 
@@ -822,18 +816,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnIntimidation.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnIntimidation.Name = "numUpDwnIntimidation";
             this.numUpDwnIntimidation.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnIntimidation.TabIndex = 70;
-            this.numUpDwnIntimidation.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnIntimidation.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesRelationnelles_ValueChanged);
             // 
             // lblIntimidation
             // 
@@ -854,18 +844,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnCommandement.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnCommandement.Name = "numUpDwnCommandement";
             this.numUpDwnCommandement.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnCommandement.TabIndex = 66;
-            this.numUpDwnCommandement.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnCommandement.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesRelationnelles_ValueChanged);
             // 
             // lblCommandement
             // 
@@ -886,18 +872,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnComedie.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnComedie.Name = "numUpDwnComedie";
             this.numUpDwnComedie.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnComedie.TabIndex = 62;
-            this.numUpDwnComedie.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnComedie.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesRelationnelles_ValueChanged);
             // 
             // lblComedie
             // 
@@ -918,18 +900,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnCharme.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnCharme.Name = "numUpDwnCharme";
             this.numUpDwnCharme.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnCharme.TabIndex = 58;
-            this.numUpDwnCharme.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnCharme.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesRelationnelles_ValueChanged);
             // 
             // lblCharme
             // 
@@ -950,18 +928,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnProvocation.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnProvocation.Name = "numUpDwnProvocation";
             this.numUpDwnProvocation.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnProvocation.TabIndex = 56;
-            this.numUpDwnProvocation.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnProvocation.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesRelationnelles_ValueChanged);
             // 
             // lblProvocation
             // 
@@ -982,18 +956,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnApaisement.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnApaisement.Name = "numUpDwnApaisement";
             this.numUpDwnApaisement.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnApaisement.TabIndex = 55;
-            this.numUpDwnApaisement.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnApaisement.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesRelationnelles_ValueChanged);
             // 
             // lblApaisement
             // 
@@ -1047,18 +1017,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnPerception.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnPerception.Name = "numUpDwnPerception";
             this.numUpDwnPerception.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnPerception.TabIndex = 74;
-            this.numUpDwnPerception.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnPerception.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesEsprit_ValueChanged);
             // 
             // lblPerception
             // 
@@ -1079,18 +1045,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnOrientation.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnOrientation.Name = "numUpDwnOrientation";
             this.numUpDwnOrientation.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnOrientation.TabIndex = 70;
-            this.numUpDwnOrientation.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnOrientation.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesEsprit_ValueChanged);
             // 
             // lblOrientation
             // 
@@ -1111,18 +1073,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnMemoire.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnMemoire.Name = "numUpDwnMemoire";
             this.numUpDwnMemoire.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnMemoire.TabIndex = 66;
-            this.numUpDwnMemoire.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnMemoire.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesEsprit_ValueChanged);
             // 
             // lblMemoire
             // 
@@ -1143,18 +1101,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnLogique.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnLogique.Name = "numUpDwnLogique";
             this.numUpDwnLogique.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnLogique.TabIndex = 62;
-            this.numUpDwnLogique.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnLogique.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesEsprit_ValueChanged);
             // 
             // lblLogique
             // 
@@ -1175,18 +1129,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnEssence.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnEssence.Name = "numUpDwnEssence";
             this.numUpDwnEssence.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnEssence.TabIndex = 58;
-            this.numUpDwnEssence.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnEssence.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesEsprit_ValueChanged);
             // 
             // lblEssence
             // 
@@ -1207,18 +1157,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnVolonte.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnVolonte.Name = "numUpDwnVolonte";
             this.numUpDwnVolonte.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnVolonte.TabIndex = 56;
-            this.numUpDwnVolonte.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnVolonte.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesEsprit_ValueChanged);
             // 
             // lblVolonte
             // 
@@ -1239,18 +1185,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnConcentration.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnConcentration.Name = "numUpDwnConcentration";
             this.numUpDwnConcentration.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnConcentration.TabIndex = 55;
-            this.numUpDwnConcentration.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnConcentration.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesEsprit_ValueChanged);
             // 
             // lblConcentration
             // 
@@ -1265,6 +1207,7 @@ namespace maFichePersonnageJDR.Formulaires
             // pnlCompetencesCorps
             // 
             this.pnlCompetencesCorps.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.pnlCompetencesCorps.Controls.Add(this.lblRepartitionCompetencesCorps);
             this.pnlCompetencesCorps.Controls.Add(this.lblPtsRestantsRepartitionsCompetencesCorps);
             this.pnlCompetencesCorps.Controls.Add(this.numUpDwnVigueur);
             this.pnlCompetencesCorps.Controls.Add(this.lblVigueur);
@@ -1295,15 +1238,25 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlCompetencesCorps.Size = new System.Drawing.Size(278, 209);
             this.pnlCompetencesCorps.TabIndex = 55;
             // 
+            // lblRepartitionCompetencesCorps
+            // 
+            this.lblRepartitionCompetencesCorps.AutoSize = true;
+            this.lblRepartitionCompetencesCorps.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRepartitionCompetencesCorps.Location = new System.Drawing.Point(213, 189);
+            this.lblRepartitionCompetencesCorps.Name = "lblRepartitionCompetencesCorps";
+            this.lblRepartitionCompetencesCorps.Size = new System.Drawing.Size(17, 17);
+            this.lblRepartitionCompetencesCorps.TabIndex = 81;
+            this.lblRepartitionCompetencesCorps.Text = "0";
+            // 
             // lblPtsRestantsRepartitionsCompetencesCorps
             // 
             this.lblPtsRestantsRepartitionsCompetencesCorps.AutoSize = true;
             this.lblPtsRestantsRepartitionsCompetencesCorps.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPtsRestantsRepartitionsCompetencesCorps.Location = new System.Drawing.Point(8, 189);
             this.lblPtsRestantsRepartitionsCompetencesCorps.Name = "lblPtsRestantsRepartitionsCompetencesCorps";
-            this.lblPtsRestantsRepartitionsCompetencesCorps.Size = new System.Drawing.Size(215, 17);
+            this.lblPtsRestantsRepartitionsCompetencesCorps.Size = new System.Drawing.Size(200, 17);
             this.lblPtsRestantsRepartitionsCompetencesCorps.TabIndex = 80;
-            this.lblPtsRestantsRepartitionsCompetencesCorps.Text = "Points restants à répartir : X";
+            this.lblPtsRestantsRepartitionsCompetencesCorps.Text = "Points restants à répartir :";
             // 
             // numUpDwnVigueur
             // 
@@ -1314,18 +1267,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnVigueur.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnVigueur.Name = "numUpDwnVigueur";
             this.numUpDwnVigueur.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnVigueur.TabIndex = 78;
-            this.numUpDwnVigueur.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnVigueur.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesCorps_ValueChanged);
             // 
             // lblVigueur
             // 
@@ -1346,18 +1295,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnForce.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnForce.Name = "numUpDwnForce";
             this.numUpDwnForce.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnForce.TabIndex = 74;
-            this.numUpDwnForce.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnForce.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesCorps_ValueChanged);
             // 
             // lblForce
             // 
@@ -1378,18 +1323,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnReflexes.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnReflexes.Name = "numUpDwnReflexes";
             this.numUpDwnReflexes.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnReflexes.TabIndex = 72;
-            this.numUpDwnReflexes.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnReflexes.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesCorps_ValueChanged);
             // 
             // lblReflexes
             // 
@@ -1410,18 +1351,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnEscalade.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnEscalade.Name = "numUpDwnEscalade";
             this.numUpDwnEscalade.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnEscalade.TabIndex = 70;
-            this.numUpDwnEscalade.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnEscalade.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesCorps_ValueChanged);
             // 
             // lblEscalade
             // 
@@ -1442,18 +1379,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnNatation.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnNatation.Name = "numUpDwnNatation";
             this.numUpDwnNatation.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnNatation.TabIndex = 68;
-            this.numUpDwnNatation.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnNatation.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesCorps_ValueChanged);
             // 
             // lblNatation
             // 
@@ -1474,18 +1407,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnEquilibre.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnEquilibre.Name = "numUpDwnEquilibre";
             this.numUpDwnEquilibre.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnEquilibre.TabIndex = 66;
-            this.numUpDwnEquilibre.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnEquilibre.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesCorps_ValueChanged);
             // 
             // lblEquilibre
             // 
@@ -1506,18 +1435,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnLutte.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnLutte.Name = "numUpDwnLutte";
             this.numUpDwnLutte.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnLutte.TabIndex = 64;
-            this.numUpDwnLutte.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnLutte.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesCorps_ValueChanged);
             // 
             // lblLutte
             // 
@@ -1538,18 +1463,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnDiscretion.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnDiscretion.Name = "numUpDwnDiscretion";
             this.numUpDwnDiscretion.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnDiscretion.TabIndex = 62;
-            this.numUpDwnDiscretion.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnDiscretion.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesCorps_ValueChanged);
             // 
             // lblDiscretion
             // 
@@ -1570,18 +1491,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnLancer.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnLancer.Name = "numUpDwnLancer";
             this.numUpDwnLancer.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnLancer.TabIndex = 60;
-            this.numUpDwnLancer.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnLancer.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesCorps_ValueChanged);
             // 
             // lblLancer
             // 
@@ -1602,18 +1519,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnCourse.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnCourse.Name = "numUpDwnCourse";
             this.numUpDwnCourse.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnCourse.TabIndex = 58;
-            this.numUpDwnCourse.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnCourse.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesCorps_ValueChanged);
             // 
             // lblCourse
             // 
@@ -1634,18 +1547,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnFouilles.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnFouilles.Name = "numUpDwnFouilles";
             this.numUpDwnFouilles.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnFouilles.TabIndex = 56;
-            this.numUpDwnFouilles.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnFouilles.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesCorps_ValueChanged);
             // 
             // lblFouilles
             // 
@@ -1666,18 +1575,14 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0});
             this.numUpDwnAgilite.Minimum = new decimal(new int[] {
-            1,
+            20,
             0,
             0,
-            0});
+            -2147483648});
             this.numUpDwnAgilite.Name = "numUpDwnAgilite";
             this.numUpDwnAgilite.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnAgilite.TabIndex = 55;
-            this.numUpDwnAgilite.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numUpDwnAgilite.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesCorps_ValueChanged);
             // 
             // lblAgilite
             // 
@@ -1722,19 +1627,9 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0,
             0});
-            this.numUpDwnDeplacement.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.numUpDwnDeplacement.Name = "numUpDwnDeplacement";
             this.numUpDwnDeplacement.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnDeplacement.TabIndex = 54;
-            this.numUpDwnDeplacement.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // numUpDwnInitiative
             // 
@@ -1744,19 +1639,9 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0,
             0});
-            this.numUpDwnInitiative.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.numUpDwnInitiative.Name = "numUpDwnInitiative";
             this.numUpDwnInitiative.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnInitiative.TabIndex = 53;
-            this.numUpDwnInitiative.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // numUpDwnDexterite
             // 
@@ -1766,19 +1651,9 @@ namespace maFichePersonnageJDR.Formulaires
             0,
             0,
             0});
-            this.numUpDwnDexterite.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.numUpDwnDexterite.Name = "numUpDwnDexterite";
             this.numUpDwnDexterite.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnDexterite.TabIndex = 52;
-            this.numUpDwnDexterite.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // lblDeplacement
             // 
@@ -1893,6 +1768,7 @@ namespace maFichePersonnageJDR.Formulaires
             // pnlPointsVieEnergie
             // 
             this.pnlPointsVieEnergie.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlPointsVieEnergie.Controls.Add(this.lblRepartitionCaracteristiques);
             this.pnlPointsVieEnergie.Controls.Add(this.lblPtsRestantsRepartitionsCaracteristiques);
             this.pnlPointsVieEnergie.Controls.Add(this.numUpDwnPtsRelationnel);
             this.pnlPointsVieEnergie.Controls.Add(this.numUpDwnPtsEsprit);
@@ -1905,26 +1781,36 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlPointsVieEnergie.Size = new System.Drawing.Size(401, 103);
             this.pnlPointsVieEnergie.TabIndex = 0;
             // 
+            // lblRepartitionCaracteristiques
+            // 
+            this.lblRepartitionCaracteristiques.AutoSize = true;
+            this.lblRepartitionCaracteristiques.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRepartitionCaracteristiques.Location = new System.Drawing.Point(210, 79);
+            this.lblRepartitionCaracteristiques.Name = "lblRepartitionCaracteristiques";
+            this.lblRepartitionCaracteristiques.Size = new System.Drawing.Size(17, 17);
+            this.lblRepartitionCaracteristiques.TabIndex = 45;
+            this.lblRepartitionCaracteristiques.Text = "0";
+            // 
             // lblPtsRestantsRepartitionsCaracteristiques
             // 
             this.lblPtsRestantsRepartitionsCaracteristiques.AutoSize = true;
             this.lblPtsRestantsRepartitionsCaracteristiques.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPtsRestantsRepartitionsCaracteristiques.Location = new System.Drawing.Point(7, 79);
             this.lblPtsRestantsRepartitionsCaracteristiques.Name = "lblPtsRestantsRepartitionsCaracteristiques";
-            this.lblPtsRestantsRepartitionsCaracteristiques.Size = new System.Drawing.Size(215, 17);
+            this.lblPtsRestantsRepartitionsCaracteristiques.Size = new System.Drawing.Size(200, 17);
             this.lblPtsRestantsRepartitionsCaracteristiques.TabIndex = 44;
-            this.lblPtsRestantsRepartitionsCaracteristiques.Text = "Points restants à répartir : X";
+            this.lblPtsRestantsRepartitionsCaracteristiques.Text = "Points restants à répartir :";
             // 
             // numUpDwnPtsRelationnel
             // 
             this.numUpDwnPtsRelationnel.Location = new System.Drawing.Point(278, 44);
             this.numUpDwnPtsRelationnel.Maximum = new decimal(new int[] {
-            20,
+            70,
             0,
             0,
             0});
             this.numUpDwnPtsRelationnel.Minimum = new decimal(new int[] {
-            1,
+            25,
             0,
             0,
             0});
@@ -1932,21 +1818,22 @@ namespace maFichePersonnageJDR.Formulaires
             this.numUpDwnPtsRelationnel.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnPtsRelationnel.TabIndex = 48;
             this.numUpDwnPtsRelationnel.Value = new decimal(new int[] {
-            1,
+            25,
             0,
             0,
             0});
+            this.numUpDwnPtsRelationnel.ValueChanged += new System.EventHandler(this.numUpDwnPtsRelationnel_ValueChanged);
             // 
             // numUpDwnPtsEsprit
             // 
             this.numUpDwnPtsEsprit.Location = new System.Drawing.Point(151, 44);
             this.numUpDwnPtsEsprit.Maximum = new decimal(new int[] {
-            20,
+            70,
             0,
             0,
             0});
             this.numUpDwnPtsEsprit.Minimum = new decimal(new int[] {
-            1,
+            25,
             0,
             0,
             0});
@@ -1954,21 +1841,22 @@ namespace maFichePersonnageJDR.Formulaires
             this.numUpDwnPtsEsprit.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnPtsEsprit.TabIndex = 47;
             this.numUpDwnPtsEsprit.Value = new decimal(new int[] {
-            1,
+            25,
             0,
             0,
             0});
+            this.numUpDwnPtsEsprit.ValueChanged += new System.EventHandler(this.numUpDwnPtsEsprit_ValueChanged);
             // 
             // numUpDwnPtsCorps
             // 
             this.numUpDwnPtsCorps.Location = new System.Drawing.Point(42, 44);
             this.numUpDwnPtsCorps.Maximum = new decimal(new int[] {
-            20,
+            70,
             0,
             0,
             0});
             this.numUpDwnPtsCorps.Minimum = new decimal(new int[] {
-            1,
+            25,
             0,
             0,
             0});
@@ -1976,10 +1864,11 @@ namespace maFichePersonnageJDR.Formulaires
             this.numUpDwnPtsCorps.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnPtsCorps.TabIndex = 44;
             this.numUpDwnPtsCorps.Value = new decimal(new int[] {
-            1,
+            25,
             0,
             0,
             0});
+            this.numUpDwnPtsCorps.ValueChanged += new System.EventHandler(this.numUpDwnPtsCorps_ValueChanged);
             // 
             // lblRelationnel
             // 
@@ -2640,5 +2529,7 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblPoids;
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.Label lblRepartitionPvEnergie;
+        private System.Windows.Forms.Label lblRepartitionCaracteristiques;
+        private System.Windows.Forms.Label lblRepartitionCompetencesCorps;
     }
 }

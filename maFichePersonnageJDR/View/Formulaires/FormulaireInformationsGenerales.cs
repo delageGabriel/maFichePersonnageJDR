@@ -10,16 +10,11 @@ namespace maFichePersonnageJDR.Formulaires
 {
     public partial class FormulaireInfosGenerales : Form
     {
-        /// <summary>
-        /// Accesseurs et Mutateurs
-        /// </summary>
-        public string PrenomPersonnage { get => txtBoxPrenom.Text; set => txtBoxPrenom.Text = value; }
-        public string NomPersonnage { get => txtBoxNom.Text; set => txtBoxNom.Text = value; }
-        public string RacePersonnage { get => TxtBoxRace.Text; set => TxtBoxRace.Text = value; }
-        public int NiveauPersonnage { get => Convert.ToInt32(nudNiveau.Value); set => nudNiveau.Value = value; }
-        //public int ExperiencePersonnage { get => Convert.ToInt32(nudExpériencePersonnage.Value); set => nudExpériencePersonnage.Value = value; }
-        public string HistoirePersonnage { get => rtbHistoire.Text; set => rtbHistoire.Text = value; }
-
+        /**************************************************
+         * 
+         * ATTRIBUTS
+         * 
+         *************************************************/
         private int[] pointsPvEnergie =
         {
             22,
@@ -44,6 +39,111 @@ namespace maFichePersonnageJDR.Formulaires
             215
         };
 
+        private int[] pointsCaracteristiques =
+        {
+            115,
+            115,
+            115,
+            120,
+            120,
+            120,
+            128,
+            128,
+            128,
+            138,
+            138,
+            138,
+            150,
+            150,
+            150,
+            165,
+            165,
+            165,
+            178,
+            190
+        };
+
+        private int[] pointsCompetencesCorps =
+        {
+            20,
+            27,
+            34,
+            42,
+            49,
+            56,
+            64,
+            71,
+            78,
+            86,
+            93,
+            100,
+            108,
+            115,
+            122,
+            130,
+            137,
+            145,
+            152,
+            160
+        };
+
+        private int[] pointsCompetencesEsprit =
+        {
+            20,
+            24,
+            28,
+            32,
+            37,
+            41,
+            45,
+            49,
+            53,
+            58,
+            62,
+            66,
+            70,
+            74,
+            79,
+            83,
+            87,
+            91,
+            95,
+            100
+        };
+
+        private int[] pointsCompetencesRelationnel =
+        {
+            20,
+            25,
+            30,
+            36,
+            41,
+            46,
+            51,
+            57,
+            62,
+            67,
+            72,
+            78,
+            83,
+            88,
+            93,
+            99,
+            104,
+            109,
+            114,
+            120
+        };
+        /// <summary>
+        /// Accesseurs et Mutateurs
+        /// </summary>
+        public string PrenomPersonnage { get => txtBoxPrenom.Text; set => txtBoxPrenom.Text = value; }
+        public string NomPersonnage { get => txtBoxNom.Text; set => txtBoxNom.Text = value; }
+        public string RacePersonnage { get => TxtBoxRace.Text; set => TxtBoxRace.Text = value; }
+        public int NiveauPersonnage { get => Convert.ToInt32(nudNiveau.Value); set => nudNiveau.Value = value; }
+        //public int ExperiencePersonnage { get => Convert.ToInt32(nudExpériencePersonnage.Value); set => nudExpériencePersonnage.Value = value; }
+        public string HistoirePersonnage { get => rtbHistoire.Text; set => rtbHistoire.Text = value; }
+
         private Dictionary<Control, Rectangle> dictionaryControlOriginalSize = new Dictionary<Control, Rectangle>();
         private Dictionary<Label, Tuple<Rectangle, float>> dictionaryLabelOriginalSize = new Dictionary<Label, Tuple<Rectangle, float>>();
 
@@ -60,6 +160,12 @@ namespace maFichePersonnageJDR.Formulaires
          **********************************************/
         private void FormulaireInfosGenerales_Load(object sender, EventArgs e)
         {
+            /// Par défaut le personnage est niveau 1, donc on peut déjà faire le calcul.
+            CalculRepartitionCaracteristiques();
+            CalculRepartitionCompetencesCorps();
+            CalculRepartitionCompetencesEsprit();
+            CalculRepartitionCompetencesRelationnelles();
+
             dictionaryControlOriginalSize.Add(this, new Rectangle(this.Location, this.Size));
 
             foreach (Control ctrl in this.Controls)
@@ -213,13 +319,52 @@ namespace maFichePersonnageJDR.Formulaires
         {
             /// Simple sécurité pour éviter d'avoir un surplus de points de vie
             /// ou énergie.
-            if (numUpDwnPtsVie.Value > 0 || numUpDwnPtsEnergie.Value > 0)
+            numUpDwnPtsVie.Value = 0;
+            numUpDwnPtsEnergie.Value = 0;
+
+            /// Même logique avec les caractéristiques.
+            numUpDwnPtsCorps.Value = 25;
+            numUpDwnPtsEsprit.Value = 25;
+            numUpDwnPtsRelationnel.Value = 25;
+
+            /// Même logique...
+            foreach(Control ctrl in pnlCompetencesCorps.Controls)
             {
-                numUpDwnPtsVie.Value = 0;
-                numUpDwnPtsEnergie.Value = 0;
+                if (ctrl is NumericUpDown nud)
+                {
+                    if (nud.Maximum < 0)
+                        nud.Maximum = 20;
+                    nud.Value = 0;
+                }
+            }
+
+            /// ...
+            foreach(Control ctrl in pnlCompetencesEsprits.Controls)
+            {
+                if (ctrl is NumericUpDown nud)
+                {
+                    if (nud.Maximum < 0)
+                        nud.Maximum = 20;
+                    nud.Value = 0;
+                }
+            }
+
+            /// ...
+            foreach(Control ctrl in pnlCompetencesRelationnelles.Controls)
+            {
+                if (ctrl is NumericUpDown nud)
+                {
+                    if (nud.Maximum < 0)
+                        nud.Maximum = 20;
+                    nud.Value = 0;
+                }
             }
 
             GetPointsVieEnergieByLevelAndSize();
+            CalculRepartitionCaracteristiques();
+            CalculRepartitionCompetencesCorps();
+            CalculRepartitionCompetencesEsprit();
+            CalculRepartitionCompetencesRelationnelles();
         }
 
         private void FormulaireInfosGenerales_Resize(object sender, EventArgs e)
@@ -253,14 +398,42 @@ namespace maFichePersonnageJDR.Formulaires
 
         private void numUpDwnPtsVie_ValueChanged(object sender, EventArgs e)
         {
-            CalculPVEnergie();
+            CalculRepartitionPVEnergie();
         }
 
         private void numUpDwnPtsEnergie_ValueChanged(object sender, EventArgs e)
         {
-            CalculPVEnergie();
+            CalculRepartitionPVEnergie();
         }
 
+        private void numUpDwnPtsCorps_ValueChanged(object sender, EventArgs e)
+        {
+            CalculRepartitionCaracteristiques();
+        }
+
+        private void numUpDwnPtsEsprit_ValueChanged(object sender, EventArgs e)
+        {
+            CalculRepartitionCaracteristiques();
+        }
+
+        private void numUpDwnPtsRelationnel_ValueChanged(object sender, EventArgs e)
+        {
+            CalculRepartitionCaracteristiques();
+        }
+
+        private void numUpDwnCompetencesCorps_ValueChanged(object sender, EventArgs e)
+        {
+            CalculRepartitionCompetencesCorps();
+        }
+        private void numUpDwnCompetencesEsprit_ValueChanged(object sender, EventArgs e)
+        {
+            CalculRepartitionCompetencesEsprit();
+        }
+
+        private void numUpDwnCompetencesRelationnelles_ValueChanged(object sender, EventArgs e)
+        {
+            CalculRepartitionCompetencesRelationnelles();
+        }
         private void FormulaireInfosGenerales_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!GlobaleVariables.IsClosedProgrammatically)
@@ -347,21 +520,14 @@ namespace maFichePersonnageJDR.Formulaires
             txtBoxPrenom.Enabled = false;
             txtBoxNom.Enabled = false;
             TxtBoxRace.Enabled = false;
-            //rdbHomme.Enabled = false;
-            //rdbFemme.Enabled = false;
-            //rdbAutre.Enabled = false;
-            //cbbProgressionXp.Enabled = false;
 
             // On remet les valeurs à jour dans les controls du formulaire
             txtBoxPrenom.Text = Controller.PersonnageController.GetPrenomPersonnage(GlobaleVariables.IdPersonnage);
             txtBoxNom.Text = Controller.PersonnageController.GetNomPersonnage(GlobaleVariables.IdPersonnage);
             TxtBoxRace.Text = Controller.PersonnageController.GetRacePersonnage(GlobaleVariables.IdPersonnage);
             nudNiveau.Value = Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage);
-            //cbbProgressionXp.SelectedItem = Controller.PersonnageController.GetCourbeProgressionPersonnage(GlobaleVariables.IdPersonnage);
             rtbHistoire.Text = Controller.PersonnageController.GetHistoirePersonnage(GlobaleVariables.IdPersonnage);
-            //rtbLangues.Text = Controller.PersonnageController.GetLanguesPersonnage(GlobaleVariables.IdPersonnage);
         }
-
         /// <summary>
         /// Gère le nombre de points total à répartir, entre les points de vie et énergie
         /// en fonction du niveau et de la taille de la créature.
@@ -413,10 +579,58 @@ namespace maFichePersonnageJDR.Formulaires
             return resultat;
         }
         /// <summary>
-        /// Fais le calcul de la répartition des points de vie et énergie et fixe
-        /// un maximum aux PV et énergie, une fois les points de répartition à 0
+        /// Retourne le nombre de points de caractéristiques à répartir en fonction
+        /// du niveau du personnage.
         /// </summary>
-        private void CalculPVEnergie()
+        /// <returns>
+        /// Nombre de points de caractéristiques à répartir.
+        /// </returns>
+        private int GetPointsCaracteristiquesByLevel()
+        {
+            int pointsRepartir = pointsCaracteristiques[(int)nudNiveau.Value - 1]; // -1 pour avoir le bon index du tableau.
+
+            return pointsRepartir;
+        }
+        /// <summary>
+        /// Retourne le nombre de points de compétences de corps à répartir en fonction
+        /// du niveau du personnage.
+        /// </summary>
+        /// <returns>
+        /// Nombre de points de compétences de corps à répartir.
+        /// </returns>
+        private int GetPointsCompetencesCorpsByLevel()
+        {
+            return pointsCompetencesCorps[(int)nudNiveau.Value - 1];
+        }
+        /// <summary>
+        /// Retourne le nombre de points de compétences d'esprit à répartir en fonction
+        /// du niveau du personnage.
+        /// </summary>
+        /// <returns>
+        /// Nombre de points de compétences d'esprit à répartir.
+        /// </returns>
+        private int GetPointsCompetencesEspritByLevel()
+        {
+            return pointsCompetencesEsprit[(int)nudNiveau.Value - 1];
+        }
+        /// <summary>
+        /// Retourne le nombre de points de compétences de relationnel à répartir en fonction
+        /// du niveau du personnage.
+        /// </summary>
+        /// <returns>
+        /// Nombre de points de compétences de relationnel à répartir.
+        /// </returns>
+        private int GetPointsCompetencesRelationnelByLevel()
+        {
+            return pointsCompetencesRelationnel[(int)nudNiveau.Value - 1];
+        }
+
+        /// <summary>
+        /// Fais le calcul de la répartition des points de vie et énergie et fixe
+        /// un maximum aux PV et énergie, une fois les points de répartition à 0,
+        /// et mets à jour le nombre de points restants.
+        /// </summary>
+        private void CalculRepartitionPVEnergie()
         {
             /// Récupération du nombre de points à répartir en fonction du niveau et de la taille,
             /// puis le nombre de points restants à répartir
@@ -436,6 +650,150 @@ namespace maFichePersonnageJDR.Formulaires
             }
 
             lblRepartitionPvEnergie.Text = valeurPointsPvEnergie.ToString(); // On ré-affiche les points restants à répartir.
+        }
+        /// <summary>
+        /// Fais le calcul de la répartition des points de caractéristiques
+        /// un maximum aux caractéristiques, une fois les points de répartition à 0,
+        /// et mets à jour le nombre de points restants.
+        /// </summary>
+        private void CalculRepartitionCaracteristiques()
+        {
+            int valeurPointsCaracteristiques = GetPointsCaracteristiquesByLevel();
+            valeurPointsCaracteristiques = valeurPointsCaracteristiques - ((int)numUpDwnPtsCorps.Value + (int)numUpDwnPtsEsprit.Value
+                                                                            + (int)numUpDwnPtsRelationnel.Value);
+            if (valeurPointsCaracteristiques == 0)
+            {
+                numUpDwnPtsCorps.Maximum = numUpDwnPtsCorps.Value;
+                numUpDwnPtsEsprit.Maximum = numUpDwnPtsEsprit.Value;
+                numUpDwnPtsRelationnel.Maximum = numUpDwnPtsRelationnel.Value;
+            }
+            else
+            {
+                numUpDwnPtsCorps.Maximum = 70;
+                numUpDwnPtsEsprit.Maximum = 70;
+                numUpDwnPtsRelationnel.Maximum = 70;
+            }
+
+            lblRepartitionCaracteristiques.Text = valeurPointsCaracteristiques.ToString();
+        }
+        /// <summary>
+        /// Fais le calcul de la répartition des points de compétences de corps
+        /// mets à jour le maximum une fois les points de répartition à 0,
+        /// et mets à jour le nombre de points restants.
+        /// </summary>
+        private void CalculRepartitionCompetencesCorps()
+        {
+            int valeurPointsCompetencesCorps = GetPointsCompetencesCorpsByLevel();
+            valeurPointsCompetencesCorps = valeurPointsCompetencesCorps - ((int)numUpDwnAgilite.Value + (int)numUpDwnCourse.Value
+                                                                            + (int)numUpDwnDiscretion.Value + (int)numUpDwnEquilibre.Value
+                                                                            + (int)numUpDwnEscalade.Value + (int)numUpDwnForce.Value
+                                                                            + (int)numUpDwnFouilles.Value + (int)numUpDwnLancer.Value
+                                                                            + (int)numUpDwnLutte.Value + (int)numUpDwnNatation.Value
+                                                                            + (int)numUpDwnReflexes.Value + (int)numUpDwnVigueur.Value);
+            if (valeurPointsCompetencesCorps == 0)
+            {
+                numUpDwnAgilite.Maximum = numUpDwnAgilite.Value;
+                numUpDwnCourse.Maximum = numUpDwnCourse.Value;
+                numUpDwnDiscretion.Maximum = numUpDwnDiscretion.Value;
+                numUpDwnEquilibre.Maximum = numUpDwnEquilibre.Value;
+                numUpDwnEscalade.Maximum = numUpDwnEscalade.Value;
+                numUpDwnForce.Maximum = numUpDwnForce.Value;
+                numUpDwnFouilles.Maximum = numUpDwnFouilles.Value;
+                numUpDwnLancer.Maximum = numUpDwnLancer.Value;
+                numUpDwnLutte.Maximum = numUpDwnLutte.Value;
+                numUpDwnNatation.Maximum = numUpDwnNatation.Value;
+                numUpDwnReflexes.Maximum = numUpDwnReflexes.Value;
+                numUpDwnVigueur.Maximum = numUpDwnVigueur.Value;
+            }
+            else
+            {
+                numUpDwnAgilite.Maximum = 20;
+                numUpDwnCourse.Maximum = 20;
+                numUpDwnDiscretion.Maximum = 20;
+                numUpDwnEquilibre.Maximum = 20;
+                numUpDwnEscalade.Maximum = 20;
+                numUpDwnForce.Maximum = 20;
+                numUpDwnFouilles.Maximum = 20;
+                numUpDwnLancer.Maximum = 20;
+                numUpDwnLutte.Maximum = 20;
+                numUpDwnNatation.Maximum = 20;
+                numUpDwnReflexes.Maximum = 20;
+                numUpDwnVigueur.Maximum = 20;
+            }
+
+            lblRepartitionCompetencesCorps.Text = valeurPointsCompetencesCorps.ToString();
+        }
+        /// <summary>
+        /// Fais le calcul de la répartition des points de compétences d'esprit
+        /// mets à jour le maximum une fois les points de répartition à 0,
+        /// et mets à jour le nombre de points restants.
+        /// </summary>
+        private void CalculRepartitionCompetencesEsprit()
+        {
+            int valeurPointsCompetencesEsprit = GetPointsCompetencesEspritByLevel();
+            valeurPointsCompetencesEsprit = valeurPointsCompetencesEsprit - ((int)numUpDwnConcentration.Value + (int)numUpDwnEssence.Value
+                                                                            + (int)numUpDwnLogique.Value + (int)numUpDwnMemoire.Value
+                                                                            + (int)numUpDwnOrientation.Value + (int)numUpDwnPerception.Value
+                                                                            + (int)numUpDwnVolonte.Value);
+            if (valeurPointsCompetencesEsprit == 0)
+            {
+                numUpDwnConcentration.Maximum = numUpDwnConcentration.Value;
+                numUpDwnEssence.Maximum = numUpDwnEssence.Value;
+                numUpDwnLogique.Maximum = numUpDwnLogique.Value;
+                numUpDwnMemoire.Maximum = numUpDwnMemoire.Value;
+                numUpDwnOrientation.Maximum = numUpDwnOrientation.Value;
+                numUpDwnPerception.Maximum = numUpDwnPerception.Value;
+                numUpDwnVolonte.Maximum = numUpDwnVolonte.Value;
+            }
+            else
+            {
+                numUpDwnConcentration.Maximum = 20;
+                numUpDwnEssence.Maximum = 20;
+                numUpDwnLogique.Maximum = 20;
+                numUpDwnMemoire.Maximum = 20;
+                numUpDwnOrientation.Maximum = 20;
+                numUpDwnPerception.Maximum = 20;
+                numUpDwnVolonte.Maximum = 20;
+            }
+
+            lblPtsRestantsRepartitionsCompetencesEsprit.Text = "Points restants : " + valeurPointsCompetencesEsprit.ToString();
+        }
+        /// <summary>
+        /// Fais le calcul de la répartition des points de compétences de relationnel
+        /// mets à jour le maximum une fois les points de répartition à 0,
+        /// et mets à jour le nombre de points restants.
+        /// </summary>
+        private void CalculRepartitionCompetencesRelationnelles()
+        {
+            int valeurPointsCompetencesRelationnelles = GetPointsCompetencesRelationnelByLevel();
+            valeurPointsCompetencesRelationnelles = valeurPointsCompetencesRelationnelles - ((int)numUpDwnApaisement.Value + (int)numUpDwnCharme.Value
+                                                                                            + (int)numUpDwnComedie.Value + (int)numUpDwnCommandement.Value
+                                                                                            + (int)numUpDwnIntimidation.Value + (int)numUpDwnPerspicacite.Value
+                                                                                            + (int)numUpDwnProvocation.Value + (int)numUpDwnTromperie.Value);
+            if (valeurPointsCompetencesRelationnelles == 0)
+            {
+                numUpDwnApaisement.Maximum = numUpDwnApaisement.Value;
+                numUpDwnCharme.Maximum = numUpDwnCharme.Value;
+                numUpDwnComedie.Maximum = numUpDwnComedie.Value;
+                numUpDwnCommandement.Maximum = numUpDwnCommandement.Value;
+                numUpDwnIntimidation.Maximum = numUpDwnIntimidation.Value;
+                numUpDwnPerspicacite.Maximum = numUpDwnPerspicacite.Value;
+                numUpDwnProvocation.Maximum = numUpDwnProvocation.Value;
+                numUpDwnTromperie.Maximum = numUpDwnTromperie.Value;
+            }
+            else
+            {
+                numUpDwnApaisement.Maximum = 20;
+                numUpDwnCharme.Maximum = 20;
+                numUpDwnComedie.Maximum = 20;
+                numUpDwnCommandement.Maximum = 20;
+                numUpDwnIntimidation.Maximum = 20;
+                numUpDwnPerspicacite.Maximum = 20;
+                numUpDwnProvocation.Maximum = 20;
+                numUpDwnTromperie.Maximum = 20;
+            }
+
+            lblPtsRestantsRepartitionsCompetencesRelationnelles.Text = "Points restants : " + valeurPointsCompetencesRelationnelles.ToString();
         }
         #endregion
     }
