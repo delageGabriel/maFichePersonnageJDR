@@ -63,6 +63,30 @@ namespace maFichePersonnageJDR.Formulaires
             190
         };
 
+        private int[] pointsCompetencesCombats =
+        {
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            7,
+            7,
+            7,
+            10,
+            10,
+            10,
+            10,
+            12,
+            12,
+            12,
+            13,
+            13,
+            13,
+            16
+        };
+
         private int[] pointsCompetencesCorps =
         {
             20,
@@ -165,6 +189,7 @@ namespace maFichePersonnageJDR.Formulaires
             CalculRepartitionCompetencesCorps();
             CalculRepartitionCompetencesEsprit();
             CalculRepartitionCompetencesRelationnelles();
+            CalculRepartitionCompetencesCombats();
 
             dictionaryControlOriginalSize.Add(this, new Rectangle(this.Location, this.Size));
 
@@ -328,7 +353,18 @@ namespace maFichePersonnageJDR.Formulaires
             numUpDwnPtsRelationnel.Value = 25;
 
             /// Même logique...
-            foreach(Control ctrl in pnlCompetencesCorps.Controls)
+            foreach (Control ctrl in pnlCompetencesSpeciales.Controls)
+            {
+                if (ctrl is NumericUpDown nud)
+                {
+                    if (nud.Maximum < 0)
+                        nud.Maximum = 25;
+                    nud.Value = 0;
+                }
+            }
+
+            /// Même logique...
+            foreach (Control ctrl in pnlCompetencesCorps.Controls)
             {
                 if (ctrl is NumericUpDown nud)
                 {
@@ -339,7 +375,7 @@ namespace maFichePersonnageJDR.Formulaires
             }
 
             /// ...
-            foreach(Control ctrl in pnlCompetencesEsprits.Controls)
+            foreach (Control ctrl in pnlCompetencesEsprits.Controls)
             {
                 if (ctrl is NumericUpDown nud)
                 {
@@ -350,7 +386,7 @@ namespace maFichePersonnageJDR.Formulaires
             }
 
             /// ...
-            foreach(Control ctrl in pnlCompetencesRelationnelles.Controls)
+            foreach (Control ctrl in pnlCompetencesRelationnelles.Controls)
             {
                 if (ctrl is NumericUpDown nud)
                 {
@@ -365,6 +401,7 @@ namespace maFichePersonnageJDR.Formulaires
             CalculRepartitionCompetencesCorps();
             CalculRepartitionCompetencesEsprit();
             CalculRepartitionCompetencesRelationnelles();
+            CalculRepartitionCompetencesCombats();
         }
 
         private void FormulaireInfosGenerales_Resize(object sender, EventArgs e)
@@ -420,7 +457,10 @@ namespace maFichePersonnageJDR.Formulaires
         {
             CalculRepartitionCaracteristiques();
         }
-
+        private void numUpDwnCompetencesCombat_ValueChanged(object sender, EventArgs e)
+        {
+            CalculRepartitionCompetencesCombats();
+        }
         private void numUpDwnCompetencesCorps_ValueChanged(object sender, EventArgs e)
         {
             CalculRepartitionCompetencesCorps();
@@ -429,7 +469,6 @@ namespace maFichePersonnageJDR.Formulaires
         {
             CalculRepartitionCompetencesEsprit();
         }
-
         private void numUpDwnCompetencesRelationnelles_ValueChanged(object sender, EventArgs e)
         {
             CalculRepartitionCompetencesRelationnelles();
@@ -528,6 +567,8 @@ namespace maFichePersonnageJDR.Formulaires
             nudNiveau.Value = Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage);
             rtbHistoire.Text = Controller.PersonnageController.GetHistoirePersonnage(GlobaleVariables.IdPersonnage);
         }
+        /* PV ET ENERGIE
+         */
         /// <summary>
         /// Gère le nombre de points total à répartir, entre les points de vie et énergie
         /// en fonction du niveau et de la taille de la créature.
@@ -578,6 +619,8 @@ namespace maFichePersonnageJDR.Formulaires
 
             return resultat;
         }
+        /* CARACTERISTIQUES
+         */
         /// <summary>
         /// Retourne le nombre de points de caractéristiques à répartir en fonction
         /// du niveau du personnage.
@@ -591,6 +634,21 @@ namespace maFichePersonnageJDR.Formulaires
 
             return pointsRepartir;
         }
+        /* COMPETENCES COMBATS
+         */
+        /// <summary>
+        /// Retourne le nombre de points de compétences de relationnelles à répartir en fonction
+        /// du niveau du personnage.
+        /// </summary>
+        /// <returns>
+        /// Nombre de points de compétences de relationnelles à répartir.
+        /// </returns>
+        private int GetPointsCompetencesCombatByLevel()
+        {
+            return pointsCompetencesCombats[(int)nudNiveau.Value - 1];
+        }
+        /* COMPETENCES CORPS
+         */
         /// <summary>
         /// Retourne le nombre de points de compétences de corps à répartir en fonction
         /// du niveau du personnage.
@@ -602,6 +660,8 @@ namespace maFichePersonnageJDR.Formulaires
         {
             return pointsCompetencesCorps[(int)nudNiveau.Value - 1];
         }
+        /* COMPETENCES ESPRITS
+         */
         /// <summary>
         /// Retourne le nombre de points de compétences d'esprit à répartir en fonction
         /// du niveau du personnage.
@@ -613,6 +673,8 @@ namespace maFichePersonnageJDR.Formulaires
         {
             return pointsCompetencesEsprit[(int)nudNiveau.Value - 1];
         }
+        /* COMPETENCES RELATIONNELLES
+         */
         /// <summary>
         /// Retourne le nombre de points de compétences de relationnel à répartir en fonction
         /// du niveau du personnage.
@@ -624,7 +686,8 @@ namespace maFichePersonnageJDR.Formulaires
         {
             return pointsCompetencesRelationnel[(int)nudNiveau.Value - 1];
         }
-
+        /* PV ET ENERGIE
+         */
         /// <summary>
         /// Fais le calcul de la répartition des points de vie et énergie et fixe
         /// un maximum aux PV et énergie, une fois les points de répartition à 0,
@@ -651,6 +714,8 @@ namespace maFichePersonnageJDR.Formulaires
 
             lblRepartitionPvEnergie.Text = valeurPointsPvEnergie.ToString(); // On ré-affiche les points restants à répartir.
         }
+        /* CARACTERISTIQUES
+         */
         /// <summary>
         /// Fais le calcul de la répartition des points de caractéristiques
         /// un maximum aux caractéristiques, une fois les points de répartition à 0,
@@ -676,6 +741,36 @@ namespace maFichePersonnageJDR.Formulaires
 
             lblRepartitionCaracteristiques.Text = valeurPointsCaracteristiques.ToString();
         }
+        /* COMPETENCES COMBATS
+         */
+        /// <summary>
+        /// Fais le calcul de la répartition des points de compétences de corps
+        /// mets à jour le maximum une fois les points de répartition à 0,
+        /// et mets à jour le nombre de points restants.
+        /// </summary>
+        private void CalculRepartitionCompetencesCombats()
+        {
+            int valeurPointsCompetencesCombat = GetPointsCompetencesCombatByLevel();
+            valeurPointsCompetencesCombat = valeurPointsCompetencesCombat - ((int)numUpDwnDexterite.Value + (int)numUpDwnInitiative.Value
+                                                                            + (int)numUpDwnDeplacement.Value);
+
+            if (valeurPointsCompetencesCombat == 0)
+            {
+                numUpDwnDexterite.Maximum = numUpDwnDexterite.Value;
+                numUpDwnInitiative.Maximum = numUpDwnInitiative.Value;
+                numUpDwnDeplacement.Maximum = numUpDwnDeplacement.Value;
+            }
+            else
+            {
+                numUpDwnDexterite.Maximum = 25;
+                numUpDwnInitiative.Maximum = 25;
+                numUpDwnDeplacement.Maximum = 25;
+            }
+
+            lblPtsRestantsRepartitionsCompetencesSpeciales.Text = "Points restants : " + valeurPointsCompetencesCombat.ToString();
+        }
+        /* COMPETENCES CORPS
+         */
         /// <summary>
         /// Fais le calcul de la répartition des points de compétences de corps
         /// mets à jour le maximum une fois les points de répartition à 0,
@@ -723,6 +818,8 @@ namespace maFichePersonnageJDR.Formulaires
 
             lblRepartitionCompetencesCorps.Text = valeurPointsCompetencesCorps.ToString();
         }
+        /* COMPETENCES ESPRIT
+         */
         /// <summary>
         /// Fais le calcul de la répartition des points de compétences d'esprit
         /// mets à jour le maximum une fois les points de répartition à 0,
@@ -758,6 +855,8 @@ namespace maFichePersonnageJDR.Formulaires
 
             lblPtsRestantsRepartitionsCompetencesEsprit.Text = "Points restants : " + valeurPointsCompetencesEsprit.ToString();
         }
+        /* COMPETENCES RELATIONNELLES
+         */
         /// <summary>
         /// Fais le calcul de la répartition des points de compétences de relationnel
         /// mets à jour le maximum une fois les points de répartition à 0,

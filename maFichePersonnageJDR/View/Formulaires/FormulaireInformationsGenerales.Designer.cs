@@ -1623,13 +1623,14 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.numUpDwnDeplacement.Location = new System.Drawing.Point(601, 36);
             this.numUpDwnDeplacement.Maximum = new decimal(new int[] {
-            20,
+            25,
             0,
             0,
             0});
             this.numUpDwnDeplacement.Name = "numUpDwnDeplacement";
             this.numUpDwnDeplacement.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnDeplacement.TabIndex = 54;
+            this.numUpDwnDeplacement.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesCombat_ValueChanged);
             // 
             // numUpDwnInitiative
             // 
@@ -1642,6 +1643,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.numUpDwnInitiative.Name = "numUpDwnInitiative";
             this.numUpDwnInitiative.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnInitiative.TabIndex = 53;
+            this.numUpDwnInitiative.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesCombat_ValueChanged);
             // 
             // numUpDwnDexterite
             // 
@@ -1654,6 +1656,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.numUpDwnDexterite.Name = "numUpDwnDexterite";
             this.numUpDwnDexterite.Size = new System.Drawing.Size(43, 20);
             this.numUpDwnDexterite.TabIndex = 52;
+            this.numUpDwnDexterite.ValueChanged += new System.EventHandler(this.numUpDwnCompetencesCombat_ValueChanged);
             // 
             // lblDeplacement
             // 
@@ -1661,9 +1664,9 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblDeplacement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeplacement.Location = new System.Drawing.Point(570, 4);
             this.lblDeplacement.Name = "lblDeplacement";
-            this.lblDeplacement.Size = new System.Drawing.Size(104, 20);
+            this.lblDeplacement.Size = new System.Drawing.Size(131, 20);
             this.lblDeplacement.TabIndex = 51;
-            this.lblDeplacement.Text = "Déplacement";
+            this.lblDeplacement.Text = "Déplacement (m)";
             // 
             // lblInitiative
             // 
