@@ -17,7 +17,7 @@ namespace maFichePersonnageJDR.Controller
         //    //Console.WriteLine(string.Format("########### Méthode GetAllMateriauNameAndCategorie ###########"));
         //    //MateriauxModel materiauxModel = new MateriauxModel();
 
-        //    ////Dictionary<string, MateriauxModel> dictionnairesMateriaux = materiauxModel.GetNameMateriauAndCategorie();
+        // Dictionary<string, MateriauxModel> dictionnairesMateriaux = materiauxModel.GetNameMateriauAndCategorie();
 
         //    //if (materiauxModel != null)
         //    //    return dictionnairesMateriaux;

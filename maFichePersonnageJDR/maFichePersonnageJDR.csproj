@@ -149,6 +149,7 @@
     <Compile Include="Controller\MateriauxPoidsController.cs" />
     <Compile Include="Controller\MateriauxValeurController.cs" />
     <Compile Include="Controller\PersonnageController.cs" />
+    <Compile Include="Controller\SpecialitesController.cs" />
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +181,7 @@
     <Compile Include="Model\PointsCaracteristiquesPersonnageModel.cs" />
     <Compile Include="Model\PointsPVEnergieModel.cs" />
     <Compile Include="Model\PointsPVEnergiePersonnageModel.cs" />
+    <Compile Include="Model\SpecialitesModel.cs" />
     <Compile Include="View\Formulaires\FormApercuArme.cs">
       <SubType>Form</SubType>
     </Compile>

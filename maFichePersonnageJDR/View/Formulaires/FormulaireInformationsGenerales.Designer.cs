@@ -71,8 +71,19 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnEffacerHistoire = new System.Windows.Forms.Button();
             this.txtBxLanguesParlees = new System.Windows.Forms.TextBox();
             this.tabPgeCaracteristiquesCompetences = new System.Windows.Forms.TabPage();
-            this.cbBxTriSpecialites = new System.Windows.Forms.ComboBox();
+            this.lblPtsRepartitionSpecialites = new System.Windows.Forms.Label();
             this.pnlSpecialites = new System.Windows.Forms.Panel();
+            this.tbCtrlSpecialites = new System.Windows.Forms.TabControl();
+            this.tbPgeNature = new System.Windows.Forms.TabPage();
+            this.tbPgeSavoirs = new System.Windows.Forms.TabPage();
+            this.tbPgeSciences = new System.Windows.Forms.TabPage();
+            this.tbPgeMysticisme = new System.Windows.Forms.TabPage();
+            this.tbPgeArtisanat = new System.Windows.Forms.TabPage();
+            this.tbPgeArts = new System.Windows.Forms.TabPage();
+            this.tbPgeVieQuotidienne = new System.Windows.Forms.TabPage();
+            this.tbPgeVoyage = new System.Windows.Forms.TabPage();
+            this.tbPgeSocial = new System.Windows.Forms.TabPage();
+            this.tbPgeCrime = new System.Windows.Forms.TabPage();
             this.lblSpecialites = new System.Windows.Forms.Label();
             this.pnlCompetencesRelationnelles = new System.Windows.Forms.Panel();
             this.lblPtsRestantsRepartitionsCompetencesRelationnelles = new System.Windows.Forms.Label();
@@ -195,6 +206,16 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlPoids = new System.Windows.Forms.Panel();
             this.pnlCarres = new System.Windows.Forms.Panel();
             this.lblPoids = new System.Windows.Forms.Label();
+            this.flpNature = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpSavoirs = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpSciences = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpMysticisme = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpArtisanat = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpArts = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpVieQuotidienne = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpVoyage = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpSocial = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpCrime = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.nudNiveau)).BeginInit();
             this.tabCtrlGeneral.SuspendLayout();
             this.tabPgeInfosGenerales.SuspendLayout();
@@ -202,6 +223,18 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbCtrlAttribut.SuspendLayout();
             this.pnlInfosGenerales.SuspendLayout();
             this.tabPgeCaracteristiquesCompetences.SuspendLayout();
+            this.pnlSpecialites.SuspendLayout();
+            this.tbCtrlSpecialites.SuspendLayout();
+            this.tbPgeNature.SuspendLayout();
+            this.tbPgeSavoirs.SuspendLayout();
+            this.tbPgeSciences.SuspendLayout();
+            this.tbPgeMysticisme.SuspendLayout();
+            this.tbPgeArtisanat.SuspendLayout();
+            this.tbPgeArts.SuspendLayout();
+            this.tbPgeVieQuotidienne.SuspendLayout();
+            this.tbPgeVoyage.SuspendLayout();
+            this.tbPgeSocial.SuspendLayout();
+            this.tbPgeCrime.SuspendLayout();
             this.pnlCompetencesRelationnelles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnTromperie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnPerspicacite)).BeginInit();
@@ -408,6 +441,7 @@ namespace maFichePersonnageJDR.Formulaires
             // pnlAttributsPersonnalites
             // 
             this.pnlAttributsPersonnalites.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlAttributsPersonnalites.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlAttributsPersonnalites.Controls.Add(this.txtBxOmbre);
             this.pnlAttributsPersonnalites.Controls.Add(this.lblOmbre);
             this.pnlAttributsPersonnalites.Controls.Add(this.txtBxArchetype);
@@ -552,6 +586,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.pnlInfosGenerales.AutoScroll = true;
             this.pnlInfosGenerales.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlInfosGenerales.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlInfosGenerales.Controls.Add(this.txtBxObjctfMajeur);
             this.pnlInfosGenerales.Controls.Add(this.lblObjectifsMajeur);
             this.pnlInfosGenerales.Controls.Add(this.txtBxObjctfMoyen);
@@ -674,7 +709,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tabPgeCaracteristiquesCompetences
             // 
-            this.tabPgeCaracteristiquesCompetences.Controls.Add(this.cbBxTriSpecialites);
+            this.tabPgeCaracteristiquesCompetences.Controls.Add(this.lblPtsRepartitionSpecialites);
             this.tabPgeCaracteristiquesCompetences.Controls.Add(this.pnlSpecialites);
             this.tabPgeCaracteristiquesCompetences.Controls.Add(this.lblSpecialites);
             this.tabPgeCaracteristiquesCompetences.Controls.Add(this.pnlCompetencesRelationnelles);
@@ -690,27 +725,152 @@ namespace maFichePersonnageJDR.Formulaires
             this.tabPgeCaracteristiquesCompetences.Text = "Caractéristiques & Compétences";
             this.tabPgeCaracteristiquesCompetences.UseVisualStyleBackColor = true;
             // 
-            // cbBxTriSpecialites
+            // lblPtsRepartitionSpecialites
             // 
-            this.cbBxTriSpecialites.FormattingEnabled = true;
-            this.cbBxTriSpecialites.Location = new System.Drawing.Point(95, 406);
-            this.cbBxTriSpecialites.Name = "cbBxTriSpecialites";
-            this.cbBxTriSpecialites.Size = new System.Drawing.Size(121, 21);
-            this.cbBxTriSpecialites.TabIndex = 85;
+            this.lblPtsRepartitionSpecialites.AutoSize = true;
+            this.lblPtsRepartitionSpecialites.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPtsRepartitionSpecialites.Location = new System.Drawing.Point(110, 402);
+            this.lblPtsRepartitionSpecialites.Name = "lblPtsRepartitionSpecialites";
+            this.lblPtsRepartitionSpecialites.Size = new System.Drawing.Size(232, 17);
+            this.lblPtsRepartitionSpecialites.TabIndex = 84;
+            this.lblPtsRepartitionSpecialites.Text = "Points restants à répartir : 400";
             // 
             // pnlSpecialites
             // 
             this.pnlSpecialites.AutoScroll = true;
-            this.pnlSpecialites.Location = new System.Drawing.Point(0, 433);
+            this.pnlSpecialites.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlSpecialites.Controls.Add(this.tbCtrlSpecialites);
+            this.pnlSpecialites.Location = new System.Drawing.Point(0, 422);
             this.pnlSpecialites.Name = "pnlSpecialites";
-            this.pnlSpecialites.Size = new System.Drawing.Size(811, 135);
+            this.pnlSpecialites.Size = new System.Drawing.Size(811, 114);
             this.pnlSpecialites.TabIndex = 83;
+            // 
+            // tbCtrlSpecialites
+            // 
+            this.tbCtrlSpecialites.Controls.Add(this.tbPgeNature);
+            this.tbCtrlSpecialites.Controls.Add(this.tbPgeSavoirs);
+            this.tbCtrlSpecialites.Controls.Add(this.tbPgeSciences);
+            this.tbCtrlSpecialites.Controls.Add(this.tbPgeMysticisme);
+            this.tbCtrlSpecialites.Controls.Add(this.tbPgeArtisanat);
+            this.tbCtrlSpecialites.Controls.Add(this.tbPgeArts);
+            this.tbCtrlSpecialites.Controls.Add(this.tbPgeVieQuotidienne);
+            this.tbCtrlSpecialites.Controls.Add(this.tbPgeVoyage);
+            this.tbCtrlSpecialites.Controls.Add(this.tbPgeSocial);
+            this.tbCtrlSpecialites.Controls.Add(this.tbPgeCrime);
+            this.tbCtrlSpecialites.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbCtrlSpecialites.Location = new System.Drawing.Point(0, 0);
+            this.tbCtrlSpecialites.Name = "tbCtrlSpecialites";
+            this.tbCtrlSpecialites.SelectedIndex = 0;
+            this.tbCtrlSpecialites.Size = new System.Drawing.Size(809, 112);
+            this.tbCtrlSpecialites.TabIndex = 0;
+            // 
+            // tbPgeNature
+            // 
+            this.tbPgeNature.Controls.Add(this.flpNature);
+            this.tbPgeNature.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeNature.Name = "tbPgeNature";
+            this.tbPgeNature.Padding = new System.Windows.Forms.Padding(3);
+            this.tbPgeNature.Size = new System.Drawing.Size(801, 86);
+            this.tbPgeNature.TabIndex = 0;
+            this.tbPgeNature.Text = "Nature";
+            this.tbPgeNature.UseVisualStyleBackColor = true;
+            // 
+            // tbPgeSavoirs
+            // 
+            this.tbPgeSavoirs.Controls.Add(this.flpSavoirs);
+            this.tbPgeSavoirs.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeSavoirs.Name = "tbPgeSavoirs";
+            this.tbPgeSavoirs.Padding = new System.Windows.Forms.Padding(3);
+            this.tbPgeSavoirs.Size = new System.Drawing.Size(801, 86);
+            this.tbPgeSavoirs.TabIndex = 1;
+            this.tbPgeSavoirs.Text = "Savoirs théoriques";
+            this.tbPgeSavoirs.UseVisualStyleBackColor = true;
+            // 
+            // tbPgeSciences
+            // 
+            this.tbPgeSciences.Controls.Add(this.flpSciences);
+            this.tbPgeSciences.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeSciences.Name = "tbPgeSciences";
+            this.tbPgeSciences.Size = new System.Drawing.Size(801, 86);
+            this.tbPgeSciences.TabIndex = 2;
+            this.tbPgeSciences.Text = "Sciences";
+            this.tbPgeSciences.UseVisualStyleBackColor = true;
+            // 
+            // tbPgeMysticisme
+            // 
+            this.tbPgeMysticisme.Controls.Add(this.flpMysticisme);
+            this.tbPgeMysticisme.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeMysticisme.Name = "tbPgeMysticisme";
+            this.tbPgeMysticisme.Size = new System.Drawing.Size(801, 86);
+            this.tbPgeMysticisme.TabIndex = 3;
+            this.tbPgeMysticisme.Text = "Mysticisme";
+            this.tbPgeMysticisme.UseVisualStyleBackColor = true;
+            // 
+            // tbPgeArtisanat
+            // 
+            this.tbPgeArtisanat.Controls.Add(this.flpArtisanat);
+            this.tbPgeArtisanat.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeArtisanat.Name = "tbPgeArtisanat";
+            this.tbPgeArtisanat.Size = new System.Drawing.Size(801, 86);
+            this.tbPgeArtisanat.TabIndex = 4;
+            this.tbPgeArtisanat.Text = "Artisanat";
+            this.tbPgeArtisanat.UseVisualStyleBackColor = true;
+            // 
+            // tbPgeArts
+            // 
+            this.tbPgeArts.Controls.Add(this.flpArts);
+            this.tbPgeArts.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeArts.Name = "tbPgeArts";
+            this.tbPgeArts.Size = new System.Drawing.Size(801, 86);
+            this.tbPgeArts.TabIndex = 5;
+            this.tbPgeArts.Text = "Arts";
+            this.tbPgeArts.UseVisualStyleBackColor = true;
+            // 
+            // tbPgeVieQuotidienne
+            // 
+            this.tbPgeVieQuotidienne.Controls.Add(this.flpVieQuotidienne);
+            this.tbPgeVieQuotidienne.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeVieQuotidienne.Name = "tbPgeVieQuotidienne";
+            this.tbPgeVieQuotidienne.Size = new System.Drawing.Size(801, 86);
+            this.tbPgeVieQuotidienne.TabIndex = 6;
+            this.tbPgeVieQuotidienne.Text = "Vie Quotidienne";
+            this.tbPgeVieQuotidienne.UseVisualStyleBackColor = true;
+            // 
+            // tbPgeVoyage
+            // 
+            this.tbPgeVoyage.Controls.Add(this.flpVoyage);
+            this.tbPgeVoyage.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeVoyage.Name = "tbPgeVoyage";
+            this.tbPgeVoyage.Size = new System.Drawing.Size(801, 86);
+            this.tbPgeVoyage.TabIndex = 7;
+            this.tbPgeVoyage.Text = "Voyage";
+            this.tbPgeVoyage.UseVisualStyleBackColor = true;
+            // 
+            // tbPgeSocial
+            // 
+            this.tbPgeSocial.Controls.Add(this.flpSocial);
+            this.tbPgeSocial.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeSocial.Name = "tbPgeSocial";
+            this.tbPgeSocial.Size = new System.Drawing.Size(801, 86);
+            this.tbPgeSocial.TabIndex = 8;
+            this.tbPgeSocial.Text = "Social";
+            this.tbPgeSocial.UseVisualStyleBackColor = true;
+            // 
+            // tbPgeCrime
+            // 
+            this.tbPgeCrime.Controls.Add(this.flpCrime);
+            this.tbPgeCrime.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeCrime.Name = "tbPgeCrime";
+            this.tbPgeCrime.Size = new System.Drawing.Size(801, 86);
+            this.tbPgeCrime.TabIndex = 9;
+            this.tbPgeCrime.Text = "Crime";
+            this.tbPgeCrime.UseVisualStyleBackColor = true;
             // 
             // lblSpecialites
             // 
             this.lblSpecialites.AutoSize = true;
             this.lblSpecialites.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSpecialites.Location = new System.Drawing.Point(3, 407);
+            this.lblSpecialites.Location = new System.Drawing.Point(3, 399);
             this.lblSpecialites.Name = "lblSpecialites";
             this.lblSpecialites.Size = new System.Drawing.Size(86, 20);
             this.lblSpecialites.TabIndex = 82;
@@ -719,6 +879,7 @@ namespace maFichePersonnageJDR.Formulaires
             // pnlCompetencesRelationnelles
             // 
             this.pnlCompetencesRelationnelles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.pnlCompetencesRelationnelles.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlCompetencesRelationnelles.Controls.Add(this.lblPtsRestantsRepartitionsCompetencesRelationnelles);
             this.pnlCompetencesRelationnelles.Controls.Add(this.numUpDwnTromperie);
             this.pnlCompetencesRelationnelles.Controls.Add(this.lblTromperie);
@@ -978,6 +1139,7 @@ namespace maFichePersonnageJDR.Formulaires
             // pnlCompetencesEsprits
             // 
             this.pnlCompetencesEsprits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.pnlCompetencesEsprits.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlCompetencesEsprits.Controls.Add(this.lblPtsRestantsRepartitionsCompetencesEsprit);
             this.pnlCompetencesEsprits.Controls.Add(this.numUpDwnPerception);
             this.pnlCompetencesEsprits.Controls.Add(this.lblPerception);
@@ -1207,6 +1369,7 @@ namespace maFichePersonnageJDR.Formulaires
             // pnlCompetencesCorps
             // 
             this.pnlCompetencesCorps.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.pnlCompetencesCorps.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlCompetencesCorps.Controls.Add(this.lblRepartitionCompetencesCorps);
             this.pnlCompetencesCorps.Controls.Add(this.lblPtsRestantsRepartitionsCompetencesCorps);
             this.pnlCompetencesCorps.Controls.Add(this.numUpDwnVigueur);
@@ -1597,6 +1760,7 @@ namespace maFichePersonnageJDR.Formulaires
             // pnlCompetencesSpeciales
             // 
             this.pnlCompetencesSpeciales.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlCompetencesSpeciales.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlCompetencesSpeciales.Controls.Add(this.lblPtsRestantsRepartitionsCompetencesSpeciales);
             this.pnlCompetencesSpeciales.Controls.Add(this.numUpDwnDeplacement);
             this.pnlCompetencesSpeciales.Controls.Add(this.numUpDwnInitiative);
@@ -1691,6 +1855,7 @@ namespace maFichePersonnageJDR.Formulaires
             // pnlCaracteristiques
             // 
             this.pnlCaracteristiques.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlCaracteristiques.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlCaracteristiques.Controls.Add(this.lblRepartitionPvEnergie);
             this.pnlCaracteristiques.Controls.Add(this.lblPtsRestantsRepartitionsPVEnergie);
             this.pnlCaracteristiques.Controls.Add(this.numUpDwnPtsEnergie);
@@ -1771,6 +1936,7 @@ namespace maFichePersonnageJDR.Formulaires
             // pnlPointsVieEnergie
             // 
             this.pnlPointsVieEnergie.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlPointsVieEnergie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlPointsVieEnergie.Controls.Add(this.lblRepartitionCaracteristiques);
             this.pnlPointsVieEnergie.Controls.Add(this.lblPtsRestantsRepartitionsCaracteristiques);
             this.pnlPointsVieEnergie.Controls.Add(this.numUpDwnPtsRelationnel);
@@ -1905,6 +2071,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tabPgeSortsAptitudes
             // 
+            this.tabPgeSortsAptitudes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabPgeSortsAptitudes.Controls.Add(this.pnlJeuSortsAptitudesPersonnage);
             this.tabPgeSortsAptitudes.Controls.Add(this.lblJeuxSortsAptitudes);
             this.tabPgeSortsAptitudes.Controls.Add(this.pnlSortileges);
@@ -1922,6 +2089,7 @@ namespace maFichePersonnageJDR.Formulaires
             // pnlJeuSortsAptitudesPersonnage
             // 
             this.pnlJeuSortsAptitudesPersonnage.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlJeuSortsAptitudesPersonnage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlJeuSortsAptitudesPersonnage.Location = new System.Drawing.Point(11, 412);
             this.pnlJeuSortsAptitudesPersonnage.Name = "pnlJeuSortsAptitudesPersonnage";
             this.pnlJeuSortsAptitudesPersonnage.Size = new System.Drawing.Size(786, 113);
@@ -1940,6 +2108,7 @@ namespace maFichePersonnageJDR.Formulaires
             // pnlSortileges
             // 
             this.pnlSortileges.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlSortileges.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlSortileges.Location = new System.Drawing.Point(409, 32);
             this.pnlSortileges.Name = "pnlSortileges";
             this.pnlSortileges.Size = new System.Drawing.Size(388, 349);
@@ -1956,6 +2125,7 @@ namespace maFichePersonnageJDR.Formulaires
             // pnlListeSetAptitudes
             // 
             this.pnlListeSetAptitudes.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlListeSetAptitudes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlListeSetAptitudes.Location = new System.Drawing.Point(11, 32);
             this.pnlListeSetAptitudes.Name = "pnlListeSetAptitudes";
             this.pnlListeSetAptitudes.Size = new System.Drawing.Size(388, 349);
@@ -1997,11 +2167,12 @@ namespace maFichePersonnageJDR.Formulaires
             // pnlInventaire
             // 
             this.pnlInventaire.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlInventaire.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlInventaire.Controls.Add(this.tbCtrlInventaire);
             this.pnlInventaire.Controls.Add(this.lblInventaire);
             this.pnlInventaire.Location = new System.Drawing.Point(3, 304);
             this.pnlInventaire.Name = "pnlInventaire";
-            this.pnlInventaire.Size = new System.Drawing.Size(804, 264);
+            this.pnlInventaire.Size = new System.Drawing.Size(804, 225);
             this.pnlInventaire.TabIndex = 25;
             // 
             // tbCtrlInventaire
@@ -2017,6 +2188,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tbPgeArmes
             // 
+            this.tbPgeArmes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbPgeArmes.Location = new System.Drawing.Point(4, 22);
             this.tbPgeArmes.Name = "tbPgeArmes";
             this.tbPgeArmes.Padding = new System.Windows.Forms.Padding(3);
@@ -2027,6 +2199,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tbPgeArmures
             // 
+            this.tbPgeArmures.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbPgeArmures.Location = new System.Drawing.Point(4, 22);
             this.tbPgeArmures.Name = "tbPgeArmures";
             this.tbPgeArmures.Padding = new System.Windows.Forms.Padding(3);
@@ -2037,6 +2210,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // tbPgeObjets
             // 
+            this.tbPgeObjets.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbPgeObjets.Location = new System.Drawing.Point(4, 22);
             this.tbPgeObjets.Name = "tbPgeObjets";
             this.tbPgeObjets.Size = new System.Drawing.Size(771, 163);
@@ -2057,6 +2231,7 @@ namespace maFichePersonnageJDR.Formulaires
             // pnlObjets
             // 
             this.pnlObjets.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlObjets.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlObjets.Controls.Add(this.lblObjets);
             this.pnlObjets.Location = new System.Drawing.Point(543, 0);
             this.pnlObjets.Name = "pnlObjets";
@@ -2076,6 +2251,7 @@ namespace maFichePersonnageJDR.Formulaires
             // pnlArmures
             // 
             this.pnlArmures.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlArmures.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlArmures.Controls.Add(this.lblArmures);
             this.pnlArmures.Location = new System.Drawing.Point(273, 0);
             this.pnlArmures.Name = "pnlArmures";
@@ -2095,6 +2271,7 @@ namespace maFichePersonnageJDR.Formulaires
             // pnlArme
             // 
             this.pnlArme.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlArme.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlArme.Controls.Add(this.lblArmes);
             this.pnlArme.Location = new System.Drawing.Point(3, 0);
             this.pnlArme.Name = "pnlArme";
@@ -2123,6 +2300,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             // pnlHeader
             // 
+            this.pnlHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlHeader.Controls.Add(this.lblTaille);
             this.pnlHeader.Controls.Add(this.cbBxTaille);
             this.pnlHeader.Controls.Add(this.txtBxSexe);
@@ -2177,6 +2355,7 @@ namespace maFichePersonnageJDR.Formulaires
             // pnlMonnaie
             // 
             this.pnlMonnaie.AutoScroll = true;
+            this.pnlMonnaie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlMonnaie.Controls.Add(this.btnAjouter);
             this.pnlMonnaie.Controls.Add(this.txtBxCuivre);
             this.pnlMonnaie.Controls.Add(this.txtBxArgent);
@@ -2246,6 +2425,7 @@ namespace maFichePersonnageJDR.Formulaires
             // pnlPoids
             // 
             this.pnlPoids.AutoScroll = true;
+            this.pnlPoids.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlPoids.Controls.Add(this.pnlCarres);
             this.pnlPoids.Controls.Add(this.lblPoids);
             this.pnlPoids.Location = new System.Drawing.Point(415, 649);
@@ -2257,6 +2437,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.pnlCarres.AutoScroll = true;
             this.pnlCarres.BackColor = System.Drawing.Color.Transparent;
+            this.pnlCarres.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlCarres.Location = new System.Drawing.Point(7, 25);
             this.pnlCarres.Name = "pnlCarres";
             this.pnlCarres.Size = new System.Drawing.Size(390, 100);
@@ -2271,6 +2452,96 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblPoids.Size = new System.Drawing.Size(48, 20);
             this.lblPoids.TabIndex = 54;
             this.lblPoids.Text = "Poids";
+            // 
+            // flpNature
+            // 
+            this.flpNature.AutoScroll = true;
+            this.flpNature.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpNature.Location = new System.Drawing.Point(3, 3);
+            this.flpNature.Name = "flpNature";
+            this.flpNature.Size = new System.Drawing.Size(795, 80);
+            this.flpNature.TabIndex = 0;
+            // 
+            // flpSavoirs
+            // 
+            this.flpSavoirs.AutoScroll = true;
+            this.flpSavoirs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpSavoirs.Location = new System.Drawing.Point(3, 3);
+            this.flpSavoirs.Name = "flpSavoirs";
+            this.flpSavoirs.Size = new System.Drawing.Size(795, 80);
+            this.flpSavoirs.TabIndex = 1;
+            // 
+            // flpSciences
+            // 
+            this.flpSciences.AutoScroll = true;
+            this.flpSciences.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpSciences.Location = new System.Drawing.Point(0, 0);
+            this.flpSciences.Name = "flpSciences";
+            this.flpSciences.Size = new System.Drawing.Size(801, 86);
+            this.flpSciences.TabIndex = 2;
+            // 
+            // flpMysticisme
+            // 
+            this.flpMysticisme.AutoScroll = true;
+            this.flpMysticisme.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpMysticisme.Location = new System.Drawing.Point(0, 0);
+            this.flpMysticisme.Name = "flpMysticisme";
+            this.flpMysticisme.Size = new System.Drawing.Size(801, 86);
+            this.flpMysticisme.TabIndex = 3;
+            // 
+            // flpArtisanat
+            // 
+            this.flpArtisanat.AutoScroll = true;
+            this.flpArtisanat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpArtisanat.Location = new System.Drawing.Point(0, 0);
+            this.flpArtisanat.Name = "flpArtisanat";
+            this.flpArtisanat.Size = new System.Drawing.Size(801, 86);
+            this.flpArtisanat.TabIndex = 4;
+            // 
+            // flpArts
+            // 
+            this.flpArts.AutoScroll = true;
+            this.flpArts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpArts.Location = new System.Drawing.Point(0, 0);
+            this.flpArts.Name = "flpArts";
+            this.flpArts.Size = new System.Drawing.Size(801, 86);
+            this.flpArts.TabIndex = 4;
+            // 
+            // flpVieQuotidienne
+            // 
+            this.flpVieQuotidienne.AutoScroll = true;
+            this.flpVieQuotidienne.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpVieQuotidienne.Location = new System.Drawing.Point(0, 0);
+            this.flpVieQuotidienne.Name = "flpVieQuotidienne";
+            this.flpVieQuotidienne.Size = new System.Drawing.Size(801, 86);
+            this.flpVieQuotidienne.TabIndex = 5;
+            // 
+            // flpVoyage
+            // 
+            this.flpVoyage.AutoScroll = true;
+            this.flpVoyage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpVoyage.Location = new System.Drawing.Point(0, 0);
+            this.flpVoyage.Name = "flpVoyage";
+            this.flpVoyage.Size = new System.Drawing.Size(801, 86);
+            this.flpVoyage.TabIndex = 6;
+            // 
+            // flpSocial
+            // 
+            this.flpSocial.AutoScroll = true;
+            this.flpSocial.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpSocial.Location = new System.Drawing.Point(0, 0);
+            this.flpSocial.Name = "flpSocial";
+            this.flpSocial.Size = new System.Drawing.Size(801, 86);
+            this.flpSocial.TabIndex = 7;
+            // 
+            // flpCrime
+            // 
+            this.flpCrime.AutoScroll = true;
+            this.flpCrime.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpCrime.Location = new System.Drawing.Point(0, 0);
+            this.flpCrime.Name = "flpCrime";
+            this.flpCrime.Size = new System.Drawing.Size(801, 86);
+            this.flpCrime.TabIndex = 8;
             // 
             // FormulaireInfosGenerales
             // 
@@ -2298,6 +2569,18 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlInfosGenerales.PerformLayout();
             this.tabPgeCaracteristiquesCompetences.ResumeLayout(false);
             this.tabPgeCaracteristiquesCompetences.PerformLayout();
+            this.pnlSpecialites.ResumeLayout(false);
+            this.tbCtrlSpecialites.ResumeLayout(false);
+            this.tbPgeNature.ResumeLayout(false);
+            this.tbPgeSavoirs.ResumeLayout(false);
+            this.tbPgeSciences.ResumeLayout(false);
+            this.tbPgeMysticisme.ResumeLayout(false);
+            this.tbPgeArtisanat.ResumeLayout(false);
+            this.tbPgeArts.ResumeLayout(false);
+            this.tbPgeVieQuotidienne.ResumeLayout(false);
+            this.tbPgeVoyage.ResumeLayout(false);
+            this.tbPgeSocial.ResumeLayout(false);
+            this.tbPgeCrime.ResumeLayout(false);
             this.pnlCompetencesRelationnelles.ResumeLayout(false);
             this.pnlCompetencesRelationnelles.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDwnTromperie)).EndInit();
@@ -2501,7 +2784,6 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblTromperie;
         private System.Windows.Forms.Label lblPtsRestantsRepartitionsCompetencesEsprit;
         private System.Windows.Forms.Label lblPtsRestantsRepartitionsCompetencesCorps;
-        private System.Windows.Forms.ComboBox cbBxTriSpecialites;
         private System.Windows.Forms.Label lblSorts;
         private System.Windows.Forms.Label lblAptitudes;
         private System.Windows.Forms.Panel pnlListeSetAptitudes;
@@ -2534,5 +2816,27 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblRepartitionPvEnergie;
         private System.Windows.Forms.Label lblRepartitionCaracteristiques;
         private System.Windows.Forms.Label lblRepartitionCompetencesCorps;
+        private System.Windows.Forms.TabControl tbCtrlSpecialites;
+        private System.Windows.Forms.TabPage tbPgeNature;
+        private System.Windows.Forms.TabPage tbPgeSavoirs;
+        private System.Windows.Forms.Label lblPtsRepartitionSpecialites;
+        private System.Windows.Forms.TabPage tbPgeSciences;
+        private System.Windows.Forms.TabPage tbPgeMysticisme;
+        private System.Windows.Forms.TabPage tbPgeArtisanat;
+        private System.Windows.Forms.TabPage tbPgeArts;
+        private System.Windows.Forms.TabPage tbPgeVieQuotidienne;
+        private System.Windows.Forms.TabPage tbPgeVoyage;
+        private System.Windows.Forms.TabPage tbPgeSocial;
+        private System.Windows.Forms.TabPage tbPgeCrime;
+        private System.Windows.Forms.FlowLayoutPanel flpNature;
+        private System.Windows.Forms.FlowLayoutPanel flpSavoirs;
+        private System.Windows.Forms.FlowLayoutPanel flpSciences;
+        private System.Windows.Forms.FlowLayoutPanel flpMysticisme;
+        private System.Windows.Forms.FlowLayoutPanel flpArtisanat;
+        private System.Windows.Forms.FlowLayoutPanel flpArts;
+        private System.Windows.Forms.FlowLayoutPanel flpVieQuotidienne;
+        private System.Windows.Forms.FlowLayoutPanel flpVoyage;
+        private System.Windows.Forms.FlowLayoutPanel flpSocial;
+        private System.Windows.Forms.FlowLayoutPanel flpCrime;
     }
 }

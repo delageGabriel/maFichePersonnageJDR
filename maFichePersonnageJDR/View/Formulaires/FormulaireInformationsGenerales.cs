@@ -5,6 +5,7 @@ using System.IO;
 using System.Windows.Forms;
 using maFichePersonnageJDR.Classe;
 using maFichePersonnageJDR.View.Formulaires;
+using System.Linq;
 
 namespace maFichePersonnageJDR.Formulaires
 {
@@ -158,6 +159,9 @@ namespace maFichePersonnageJDR.Formulaires
             114,
             120
         };
+
+        private int pointsSpecialites = 400;
+
         /// <summary>
         /// Accesseurs et Mutateurs
         /// </summary>
@@ -190,6 +194,7 @@ namespace maFichePersonnageJDR.Formulaires
             CalculRepartitionCompetencesEsprit();
             CalculRepartitionCompetencesRelationnelles();
             CalculRepartitionCompetencesCombats();
+            GetAllSpecialites();
 
             dictionaryControlOriginalSize.Add(this, new Rectangle(this.Location, this.Size));
 
@@ -473,6 +478,12 @@ namespace maFichePersonnageJDR.Formulaires
         {
             CalculRepartitionCompetencesRelationnelles();
         }
+
+        private void numUpDwnSpecialites_ValueChanged(object sender, EventArgs e)
+        {
+            CalculRepartitionSpecialites();
+        }
+
         private void FormulaireInfosGenerales_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!GlobaleVariables.IsClosedProgrammatically)
@@ -686,6 +697,83 @@ namespace maFichePersonnageJDR.Formulaires
         {
             return pointsCompetencesRelationnel[(int)nudNiveau.Value - 1];
         }
+
+        private void GetAllSpecialites()
+        {
+            string oldName = string.Empty;
+
+            //int x = 10;
+            //int y = 10;
+
+            /// On remplit chaque page du controleur
+            foreach (TabPage pages in tbCtrlSpecialites.TabPages)
+            {
+                FlowLayoutPanel flp = pages.Controls.OfType<FlowLayoutPanel>().FirstOrDefault();
+
+                if (flp == null) return;
+
+                // Je veux réinitialiser si on change de page.
+                if (oldName != pages.Text)
+                {
+                    oldName = pages.Text;
+                    // x = 10;
+                }
+
+                string nomPage = pages.Text;
+
+                Dictionary<int, string> kVPSpecialites = Controller.SpecialitesController.GetSpecialitesByType(nomPage);
+
+                if (kVPSpecialites != null)
+                {
+                    /// Parcours des valeurs du dictionnaire
+                    foreach (string value in kVPSpecialites.Values)
+                    {
+                        /// Obligé de créer un container pour que ça s'imbrique parfaitement dans le flowlayoutpanel
+
+                        /// PANEL
+                        /// 
+                        TableLayoutPanel container = new TableLayoutPanel
+                        {
+                            AutoSize = true,
+                            ColumnCount = 2,
+                            Tag = value,
+                            Name = "pnl" + value
+                        };
+
+                        /// LABEL
+                        Label labelSpecialite = new Label
+                        {
+                            Text = value,
+                            Tag = value,
+                            Name = "lbl" + value,
+                            AutoSize = true
+                        };
+
+                        container.Controls.Add(labelSpecialite);
+
+                        NumericUpDown numUpDownSpecialite = new NumericUpDown
+                        {
+                            Minimum = 0,
+                            Maximum = 100,
+                            Value = 0,
+                            Tag = value,
+                            Name = "nud" + value,
+                            Size = new Size(43, 20)
+                        };
+
+                        numUpDownSpecialite.ValueChanged += numUpDwnSpecialites_ValueChanged;
+
+                        container.Controls.Add(numUpDownSpecialite);
+
+                        /// Ajout du panel avec le label et le numericupdown
+                        flp.Controls.Add(container);
+
+                        // Incrémentation des coordonnées X et Y
+                        // x = numUpDownSpecialite.Right + 20;
+                    }
+                }
+            }
+        }
         /* PV ET ENERGIE
          */
         /// <summary>
@@ -893,6 +981,100 @@ namespace maFichePersonnageJDR.Formulaires
             }
 
             lblPtsRestantsRepartitionsCompetencesRelationnelles.Text = "Points restants : " + valeurPointsCompetencesRelationnelles.ToString();
+        }
+
+        private void CalculRepartitionSpecialites()
+        {
+            int valeurPointsSpecialites = pointsSpecialites;
+            int count = 0;
+
+            foreach (TabPage pages in tbCtrlSpecialites.TabPages)
+            {
+                /// Je récupère le FlowLayoutPanel de la page sinon impossible
+                /// d'accéder aux NumericUpDown
+                FlowLayoutPanel flpPage = (FlowLayoutPanel)pages.Controls[0];
+
+                Console.WriteLine("ENTREE DANS LA PREMIERE BOUCLE POUR PARCOURIR LES PAGES");
+
+                foreach (Control ctrl in flpPage.Controls)
+                {
+                    Console.WriteLine("ENTREE DANS BOUCLE DE VERIFICATION DES CONTROLS");
+
+                    /// Pareil, je ne peux pas accéder aux NumericUpDown
+                    /// sans passer par les TableLayoutPanel
+                    if (ctrl is TableLayoutPanel tlp)
+                    {
+                        foreach (Control control in tlp.Controls)
+                        {
+                            Console.WriteLine("ENTREE DANS BOUCLE LORSQU'ON A TROUVE UN NUMERICUPDOWN");
+
+                            if (control is NumericUpDown nud)
+                                count += (int)nud.Value;
+                        }
+                    }
+                }
+            }
+
+            valeurPointsSpecialites = valeurPointsSpecialites - count;
+
+            /// Même logique de déplacement dans les boucles appliquée ici
+            /// sinon je n'ai pas accès aux NumericUpDown
+            if (valeurPointsSpecialites == 0)
+            {
+                foreach (TabPage pages in tbCtrlSpecialites.TabPages)
+                {
+                    /// Je récupère le FlowLayoutPanel de la page sinon impossible
+                    /// d'accéder aux NumericUpDown
+                    FlowLayoutPanel flpPage = (FlowLayoutPanel)pages.Controls[0];
+
+                    foreach (Control ctrl in flpPage.Controls)
+                    {
+
+                        /// Pareil, je ne peux pas accéder aux NumericUpDown
+                        /// sans passer par les TableLayoutPanel
+                        if (ctrl is TableLayoutPanel tlp)
+                        {
+                            foreach (Control control in tlp.Controls)
+                            {
+
+                                if (control is NumericUpDown nud)
+                                {
+                                    nud.Maximum = nud.Value;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                foreach (TabPage pages in tbCtrlSpecialites.TabPages)
+                {
+                    /// Je récupère le FlowLayoutPanel de la page sinon impossible
+                    /// d'accéder aux NumericUpDown
+                    FlowLayoutPanel flpPage = (FlowLayoutPanel)pages.Controls[0];
+
+                    foreach (Control ctrl in flpPage.Controls)
+                    {
+
+                        /// Pareil, je ne peux pas accéder aux NumericUpDown
+                        /// sans passer par les TableLayoutPanel
+                        if (ctrl is TableLayoutPanel tlp)
+                        {
+                            foreach (Control control in tlp.Controls)
+                            {
+
+                                if (control is NumericUpDown nud)
+                                {
+                                    nud.Maximum = 100;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            lblPtsRepartitionSpecialites.Text = "Points restants à répartir : " + valeurPointsSpecialites;
         }
         #endregion
     }
