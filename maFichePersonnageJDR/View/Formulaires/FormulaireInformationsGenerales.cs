@@ -881,6 +881,52 @@ namespace maFichePersonnageJDR.Formulaires
                 chkdLstBxJeuxSortsAptitudes.Items.Add(classe);
             }
         }
+
+        private void GetTreeSortsAptitudes(string name)
+        {
+            Dictionary<int, Controller.ClassesJeux> dictionaryClassesJeu = Controller.ClassesJeuxController.GetAptitudeOrSortSkillTree(name);
+
+            var indexZero = dictionaryClassesJeu[0];
+            var indexUn = dictionaryClassesJeu[1];
+            var indexDeux = dictionaryClassesJeu[2];
+            var indexTrois = dictionaryClassesJeu[3];
+            var indexQuatre = dictionaryClassesJeu[4];
+            var indexCinq = dictionaryClassesJeu[5];
+            var indexSix = dictionaryClassesJeu[6];
+            var indexSept = dictionaryClassesJeu[7];
+            var indexHuit = dictionaryClassesJeu[8];
+            var indexNeuf = dictionaryClassesJeu[9];
+
+            lnkLblCmptUne.Text = indexZero.Nom;
+            lblPtsCmptUn.Text = indexZero.Seuil.ToString();
+
+            lnkLblCmptDeux.Text = indexUn.Nom;
+            lblPtsCmptDeux.Text = indexUn.Seuil.ToString();
+
+            lnkLblCmptTrois.Text = indexDeux.Nom;
+            lblPtsCmptTrois.Text = indexDeux.Seuil.ToString();
+
+            lnkLblCmptQuatre.Text = indexTrois.Nom;
+            lblPtsCmptQuatre.Text = indexTrois.Seuil.ToString();
+
+            lnkLblCmptCinq.Text = indexQuatre.Nom;
+            lblPtsCmptCinq.Text = indexQuatre.Seuil.ToString();
+
+            lnkLblCmptSix.Text = indexCinq.Nom;
+            lblPtsCmptSix.Text = indexCinq.Seuil.ToString();
+
+            lnkLblCmptSept.Text = indexSix.Nom;
+            lblPtsCmptSept.Text = indexSix.Seuil.ToString();
+
+            lnkLblCmptHuit.Text = indexSept.Nom;
+            lblPtsCmptHuit.Text = indexSept.Seuil.ToString();
+
+            lnkLblCmptNeuf.Text = indexHuit.Nom;
+            lblPtsCmpNeuf.Text = indexHuit.Seuil.ToString();
+
+            lnkLblCmptDix.Text = indexNeuf.Nom;
+            lblPtsCmptDix.Text = indexNeuf.Seuil.ToString();
+        }
         /* PV ET ENERGIE
          */
         /// <summary>
@@ -1184,5 +1230,10 @@ namespace maFichePersonnageJDR.Formulaires
             lblPtsRepartitionSpecialites.Text = "Points restants à répartir : " + valeurPointsSpecialites;
         }
         #endregion
+
+        private void lstBxChoixSortsAptitudes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GetTreeSortsAptitudes(lstBxChoixSortsAptitudes.SelectedItem.ToString());
+        }
     }
 }

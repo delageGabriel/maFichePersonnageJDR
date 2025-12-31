@@ -34,18 +34,18 @@ namespace maFichePersonnageJDR.Controller
                 throw e;
             }
         }
-        public static Dictionary<string, ClassesJeux> GetAptitudeOrSortSkillTree(string name)
+        public static Dictionary<int, ClassesJeux> GetAptitudeOrSortSkillTree(string name)
         {
             Console.WriteLine("########### Méthode GetAptitudeOrSortSkillTree ###########");
 
-            Dictionary<string, ClassesJeux> classesJeuxTree = new Dictionary<string, ClassesJeux>();
+            Dictionary<int, ClassesJeux> classesJeuxTree = new Dictionary<int, ClassesJeux>();
             ClassesJeuxModel classesJeuxModel = new ClassesJeuxModel();
 
             List<string> capacitesClasse = classesJeuxModel.GetNameAptitudeSortByClasseName(name);
             List<int> seuilCapacitesClasse = classesJeuxModel.GetSeuilAptitudeSortByClasseName(name);
 
             /// Je fais ça comme ça pour les niveaux parce que j'en ai plus rien à foutre
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 10; i++)
             {
                 ClassesJeux classe = new ClassesJeux();
 
@@ -56,6 +56,7 @@ namespace maFichePersonnageJDR.Controller
                     classe.Nom = capacitesClasse[i];
 
                 classe.Seuil = seuilCapacitesClasse[i];
+                classesJeuxTree.Add(i, classe);
             }
 
             return classesJeuxTree;
