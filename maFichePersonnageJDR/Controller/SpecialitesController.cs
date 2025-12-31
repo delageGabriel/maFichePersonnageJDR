@@ -21,7 +21,7 @@ namespace maFichePersonnageJDR.Controller
             {
                 Dictionary<int, string> dictionarySpecialites = specialitesModel.GetNameSpecialitesModels(typeSpecialites);
 
-                if (specialitesModel != null)
+                if (dictionarySpecialites != null)
                 {
                     return dictionarySpecialites;
                 }

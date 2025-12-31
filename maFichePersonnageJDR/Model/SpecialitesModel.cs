@@ -23,7 +23,11 @@ namespace maFichePersonnageJDR.Model
             {
                 SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
 
-                SQLiteCommand command = new SQLiteCommand("SELECT id_specialites, nom_specialites, effet_specialites FROM SPECIALITES WHERE type_specialites LIKE @typeSpecialites", DatabaseConnection.Instance.GetConnection());
+                SQLiteCommand command = new SQLiteCommand("" +
+                    "SELECT id_specialites, nom_specialites, effet_specialites " +
+                    "FROM SPECIALITES " +
+                    "WHERE type_specialites LIKE @typeSpecialites", 
+                    DatabaseConnection.Instance.GetConnection());
                 command.Parameters.AddWithValue("@typeSpecialites", typeSpecialites);
 
                 using (SQLiteDataReader reader = command.ExecuteReader())

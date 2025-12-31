@@ -195,6 +195,7 @@ namespace maFichePersonnageJDR.Formulaires
             CalculRepartitionCompetencesRelationnelles();
             CalculRepartitionCompetencesCombats();
             GetAllSpecialites();
+            GetClassesSortsAptitudes();
 
             dictionaryControlOriginalSize.Add(this, new Rectangle(this.Location, this.Size));
 
@@ -330,11 +331,6 @@ namespace maFichePersonnageJDR.Formulaires
 
             Console.WriteLine("########### FIN Méthode btnSaveInfos_Click ###########");
         }
-        private void btnAjouterImage_Click(object sender, EventArgs e)
-        {
-            string pathImg = GetPathImage();
-        }
-
         /// <summary>
         /// Vide la RichTextBoxHistoire
         /// </summary>
@@ -427,6 +423,9 @@ namespace maFichePersonnageJDR.Formulaires
         }
         private void cbBxTaille_SelectedIndexChanged(object sender, EventArgs e)
         {
+            /***
+             * PAGE CARACTERISTIQUES COMPETENCES
+             */
             /// Simple sécurité pour éviter d'avoir un surplus de points de vie
             /// ou énergie.
             if (numUpDwnPtsVie.Value > 0 || numUpDwnPtsEnergie.Value > 0)
@@ -434,8 +433,74 @@ namespace maFichePersonnageJDR.Formulaires
                 numUpDwnPtsVie.Value = 0;
                 numUpDwnPtsEnergie.Value = 0;
             }
+            /// Simple sécurité pour éviter d'avoir un surplus de points de vie
+            /// ou énergie.
+            numUpDwnPtsVie.Value = 0;
+            numUpDwnPtsEnergie.Value = 0;
+
+            /// Même logique avec les caractéristiques.
+            numUpDwnPtsCorps.Value = 25;
+            numUpDwnPtsEsprit.Value = 25;
+            numUpDwnPtsRelationnel.Value = 25;
+
+            /// Même logique...
+            foreach (Control ctrl in pnlCompetencesSpeciales.Controls)
+            {
+                if (ctrl is NumericUpDown nud)
+                {
+                    if (nud.Maximum < 0)
+                        nud.Maximum = 25;
+                    nud.Value = 0;
+                }
+            }
+
+            /// Même logique...
+            foreach (Control ctrl in pnlCompetencesCorps.Controls)
+            {
+                if (ctrl is NumericUpDown nud)
+                {
+                    if (nud.Maximum < 0)
+                        nud.Maximum = 20;
+                    nud.Value = 0;
+                }
+            }
+
+            /// ...
+            foreach (Control ctrl in pnlCompetencesEsprits.Controls)
+            {
+                if (ctrl is NumericUpDown nud)
+                {
+                    if (nud.Maximum < 0)
+                        nud.Maximum = 20;
+                    nud.Value = 0;
+                }
+            }
+
+            /// ...
+            foreach (Control ctrl in pnlCompetencesRelationnelles.Controls)
+            {
+                if (ctrl is NumericUpDown nud)
+                {
+                    if (nud.Maximum < 0)
+                        nud.Maximum = 20;
+                    nud.Value = 0;
+                }
+            }
 
             GetPointsVieEnergieByLevelAndSize();
+            CalculRepartitionCaracteristiques();
+            CalculRepartitionCompetencesCorps();
+            CalculRepartitionCompetencesEsprit();
+            CalculRepartitionCompetencesRelationnelles();
+            CalculRepartitionCompetencesCombats();
+
+            /***
+             * PAGE SORTS ET APTITUDES
+             */
+            for (int i = 0; i < chkdLstBxJeuxSortsAptitudes.Items.Count; i++)
+            {
+                chkdLstBxJeuxSortsAptitudes.SetItemChecked(i, false);
+            }
         }
 
         private void numUpDwnPtsVie_ValueChanged(object sender, EventArgs e)
@@ -484,6 +549,70 @@ namespace maFichePersonnageJDR.Formulaires
             CalculRepartitionSpecialites();
         }
 
+        private void checkBoxJeuxSortsAptitude_ItemChecked(object sender, ItemCheckEventArgs e)
+        {
+            int limite = 0;
+
+            /// Si aucune taille n'est sélectionnée on quitte la méthode
+            /// avec un message d'alerte pour éviter un bug.
+            if (cbBxTaille.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez choisir une taille");
+                e.NewValue = CheckState.Unchecked;
+
+                return;
+            }
+
+            /// Changer le multiplicateur en fonction de la taille choisie
+            /// pour la créature.
+            switch (cbBxTaille.SelectedItem.ToString())
+            {
+                case "Minuscule":
+                    limite = 2;
+                    break;
+                case "Petit":
+                    limite = 3;
+                    break;
+                case "Moyen":
+                    limite = 3;
+                    break;
+                case "Grand":
+                    limite = 4;
+                    break;
+                case "Très grand":
+                    limite = 5;
+                    break;
+                case "Gigantesque":
+                    limite = 6;
+                    break;
+                default:
+                    limite = 0;
+                    Console.WriteLine("Pas de bonne taille !");
+                    break;
+            }
+
+            var checkedListBox = (CheckedListBox)sender;
+
+            // l’item concerné
+            string valeur = checkedListBox.Items[e.Index].ToString();
+
+            if (e.NewValue == CheckState.Checked)
+            {
+                /// On gère ici les limitations dû à la taille.
+                if (lstBxChoixSortsAptitudes.Items.Count == limite)
+                {
+                    MessageBox.Show("Vous ne pouvez choisir que " + limite.ToString() + " jeux de sorts et aptitudes !");
+                    e.NewValue = CheckState.Unchecked;
+
+                    return;
+                }
+                lstBxChoixSortsAptitudes.Items.Add(valeur);
+            }
+            else
+            {
+                lstBxChoixSortsAptitudes.Items.Remove(valeur);
+            }
+        }
         private void FormulaireInfosGenerales_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!GlobaleVariables.IsClosedProgrammatically)
@@ -523,42 +652,6 @@ namespace maFichePersonnageJDR.Formulaires
          * METHODES
          * 
          *******************************************/
-        public static Bitmap GetUneImage(string cheminDeLImage)
-        {
-            string cheminImageARecuperer = !String.IsNullOrEmpty(cheminDeLImage) ? cheminDeLImage : Path.GetFullPath(@"Images\roto.png");
-            Bitmap uneImage = new Bitmap(cheminImageARecuperer);
-            Bitmap imageRedimensionner = new Bitmap(uneImage, new Size(256, 6));
-            uneImage = imageRedimensionner;
-
-            return uneImage;
-        }
-
-        public string GetPathImage()
-        {
-            string cheminImage = string.Empty;
-
-            OpenFileDialog opf = new OpenFileDialog();
-            opf.Title = "Choisissez votre image";
-            opf.Filter = "Tous les formats(*.jpg, *.png, *.bmp)|*.jpg; *.png; *.bmp|JPEG|*.jpg|PNG|*.png|BMP|*.bmp";
-
-            if (opf.ShowDialog() == DialogResult.OK)
-            {
-                if (!String.IsNullOrEmpty(opf.FileName))
-                {
-                    cheminImage = opf.FileName;
-                }
-                else
-                {
-                    MessageBox.Show("Chemin d'accès non valide !");
-                }
-            }
-            else
-            {
-                cheminImage = Path.GetFullPath(@"Images\roto.png");
-            }
-            return cheminImage;
-        }
-
         /// <summary>
         /// Méthode qui assigne les valeurs pour un personnage déjà existant
         /// </summary>
@@ -697,13 +790,14 @@ namespace maFichePersonnageJDR.Formulaires
         {
             return pointsCompetencesRelationnel[(int)nudNiveau.Value - 1];
         }
-
+        /* SPECIALITES
+         */
+        /// <summary>
+        /// Retourne toutes les spécialités disponibles à apprendre dans le jeu.
+        /// </summary>
         private void GetAllSpecialites()
         {
             string oldName = string.Empty;
-
-            //int x = 10;
-            //int y = 10;
 
             /// On remplit chaque page du controleur
             foreach (TabPage pages in tbCtrlSpecialites.TabPages)
@@ -772,6 +866,19 @@ namespace maFichePersonnageJDR.Formulaires
                         // x = numUpDownSpecialite.Right + 20;
                     }
                 }
+            }
+        }
+        /// <summary>
+        /// Met la liste complète des sorts et aptitudes dans la checkedlistbox des jeux
+        /// de sorts et aptitudes
+        /// </summary>
+        private void GetClassesSortsAptitudes()
+        {
+            List<string> classes = Controller.ClassesJeuxController.GetClassesNames();
+
+            foreach (string classe in classes)
+            {
+                chkdLstBxJeuxSortsAptitudes.Items.Add(classe);
             }
         }
         /* PV ET ENERGIE

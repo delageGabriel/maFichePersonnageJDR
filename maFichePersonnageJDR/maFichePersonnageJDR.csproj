@@ -138,6 +138,7 @@
     <Compile Include="Classe\Utils.cs" />
     <Compile Include="Controller\AptitudesController.cs" />
     <Compile Include="Controller\AttributsController.cs" />
+    <Compile Include="Controller\ClassesJeuxController.cs" />
     <Compile Include="Controller\CompetencesCaracteristiquesController.cs" />
     <Compile Include="Controller\EquipmentController.cs" />
     <Compile Include="Controller\FicheSortieController.cs">
@@ -175,6 +176,7 @@
     <Compile Include="Model\MateriauxEffetsModel.cs" />
     <Compile Include="Model\MateriauxModel.cs" />
     <Compile Include="Model\MateriauxValeurModel.cs" />
+    <Compile Include="Model\ClassesJeuxModel.cs" />
     <Compile Include="Model\ObjetsModel.cs" />
     <Compile Include="Model\PersonnageModel.cs" />
     <Compile Include="Model\PointsCaracteristiquesModel.cs" />
