@@ -2422,6 +2422,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.lnkLblCmptDix.TabIndex = 19;
             this.lnkLblCmptDix.TabStop = true;
             this.lnkLblCmptDix.Text = ".";
+            this.lnkLblCmptDix.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAptitudeSort_LinkClicked);
             // 
             // lnkLblCmptNeuf
             // 
@@ -2433,6 +2434,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.lnkLblCmptNeuf.TabIndex = 18;
             this.lnkLblCmptNeuf.TabStop = true;
             this.lnkLblCmptNeuf.Text = ".";
+            this.lnkLblCmptNeuf.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAptitudeSort_LinkClicked);
             // 
             // lnkLblCmptHuit
             // 
@@ -2444,6 +2446,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.lnkLblCmptHuit.TabIndex = 17;
             this.lnkLblCmptHuit.TabStop = true;
             this.lnkLblCmptHuit.Text = ".";
+            this.lnkLblCmptHuit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAptitudeSort_LinkClicked);
             // 
             // lnkLblCmptSept
             // 
@@ -2455,6 +2458,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.lnkLblCmptSept.TabIndex = 16;
             this.lnkLblCmptSept.TabStop = true;
             this.lnkLblCmptSept.Text = ".";
+            this.lnkLblCmptSept.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAptitudeSort_LinkClicked);
             // 
             // lnkLblCmptSix
             // 
@@ -2466,6 +2470,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.lnkLblCmptSix.TabIndex = 15;
             this.lnkLblCmptSix.TabStop = true;
             this.lnkLblCmptSix.Text = ".";
+            this.lnkLblCmptSix.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAptitudeSort_LinkClicked);
             // 
             // lnkLblCmptCinq
             // 
@@ -2477,6 +2482,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.lnkLblCmptCinq.TabIndex = 14;
             this.lnkLblCmptCinq.TabStop = true;
             this.lnkLblCmptCinq.Text = ".";
+            this.lnkLblCmptCinq.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAptitudeSort_LinkClicked);
             // 
             // lnkLblCmptQuatre
             // 
@@ -2488,6 +2494,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.lnkLblCmptQuatre.TabIndex = 13;
             this.lnkLblCmptQuatre.TabStop = true;
             this.lnkLblCmptQuatre.Text = ".";
+            this.lnkLblCmptQuatre.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAptitudeSort_LinkClicked);
             // 
             // lnkLblCmptTrois
             // 
@@ -2499,6 +2506,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.lnkLblCmptTrois.TabIndex = 12;
             this.lnkLblCmptTrois.TabStop = true;
             this.lnkLblCmptTrois.Text = ".";
+            this.lnkLblCmptTrois.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAptitudeSort_LinkClicked);
             // 
             // lnkLblCmptDeux
             // 
@@ -2510,6 +2518,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.lnkLblCmptDeux.TabIndex = 11;
             this.lnkLblCmptDeux.TabStop = true;
             this.lnkLblCmptDeux.Text = ".";
+            this.lnkLblCmptDeux.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAptitudeSort_LinkClicked);
             // 
             // lnkLblCmptUne
             // 
@@ -2521,6 +2530,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.lnkLblCmptUne.TabIndex = 10;
             this.lnkLblCmptUne.TabStop = true;
             this.lnkLblCmptUne.Text = ".";
+            this.lnkLblCmptUne.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelAptitudeSort_LinkClicked);
             // 
             // lblNNeuf
             // 

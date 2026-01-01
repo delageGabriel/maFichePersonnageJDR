@@ -613,6 +613,38 @@ namespace maFichePersonnageJDR.Formulaires
                 lstBxChoixSortsAptitudes.Items.Remove(valeur);
             }
         }
+        private void lstBxChoixSortsAptitudes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstBxChoixSortsAptitudes.SelectedItem is null)
+            {
+                Console.WriteLine("Liste des choix vide !");
+                return;
+            }
+            else
+            {
+                string classeChoice = lstBxChoixSortsAptitudes.SelectedItem.ToString();
+
+                GetTreeSortsAptitudes(classeChoice);
+            }
+        }
+        private void linkLabelAptitudeSort_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            LinkLabel link = sender as LinkLabel;
+
+            FormAptitude formAptitude = new FormAptitude();
+            formAptitude.AptitudeValues = GetAptitude(link.Text);
+
+            /// Si Domaine est vide, le reste doit forcément l'être aussi
+            if (formAptitude.AptitudeValues["Domaine"] == string.Empty)
+            {
+                FormSorts formSorts = new FormSorts();
+                formSorts.SortValues = GetSort(link.Text);
+
+                formSorts.Show();
+            }
+            else
+                formAptitude.Show();
+        }
         private void FormulaireInfosGenerales_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!GlobaleVariables.IsClosedProgrammatically)
@@ -881,7 +913,13 @@ namespace maFichePersonnageJDR.Formulaires
                 chkdLstBxJeuxSortsAptitudes.Items.Add(classe);
             }
         }
-
+        /// <summary>
+        /// Permets d'obtenir toutes les aptitudes et/ou sorts d'une classe
+        /// ainsi que leur seuil de point à chaque niveau.
+        /// </summary>
+        /// <param name="name">
+        /// Le nom de la classe dont il faut récupérer l'arbre.
+        /// </param>
         private void GetTreeSortsAptitudes(string name)
         {
             Dictionary<int, Controller.ClassesJeux> dictionaryClassesJeu = Controller.ClassesJeuxController.GetAptitudeOrSortSkillTree(name);
@@ -926,6 +964,14 @@ namespace maFichePersonnageJDR.Formulaires
 
             lnkLblCmptDix.Text = indexNeuf.Nom;
             lblPtsCmptDix.Text = indexNeuf.Seuil.ToString();
+        }
+        private Dictionary<string, string> GetAptitude(string name)
+        {
+            return Controller.NewAptitudesController.GetAptitudeInformationsByName(name);
+        }
+        private Dictionary<string, string> GetSort(string name)
+        {
+            return Controller.SortsController.GetSortInformationsByName(name);
         }
         /* PV ET ENERGIE
          */
@@ -1230,10 +1276,5 @@ namespace maFichePersonnageJDR.Formulaires
             lblPtsRepartitionSpecialites.Text = "Points restants à répartir : " + valeurPointsSpecialites;
         }
         #endregion
-
-        private void lstBxChoixSortsAptitudes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            GetTreeSortsAptitudes(lstBxChoixSortsAptitudes.SelectedItem.ToString());
-        }
     }
 }
