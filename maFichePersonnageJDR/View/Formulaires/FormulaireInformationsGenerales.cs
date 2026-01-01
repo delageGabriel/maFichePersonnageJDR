@@ -162,6 +162,30 @@ namespace maFichePersonnageJDR.Formulaires
 
         private int pointsSpecialites = 400;
 
+        private int[] pointsRepartitionsSortsAptitudes =
+        {
+            25,
+            31,
+            39,
+            48,
+            58,
+            69,
+            81,
+            94,
+            108,
+            123,
+            137,
+            150,
+            162,
+            173,
+            183,
+            192,
+            200,
+            209,
+            219,
+            230
+        };
+
         /// <summary>
         /// Accesseurs et Mutateurs
         /// </summary>
@@ -563,7 +587,7 @@ namespace maFichePersonnageJDR.Formulaires
                 return;
             }
 
-            /// Changer le multiplicateur en fonction de la taille choisie
+            /// Changer la limite en fonction de la taille choisie
             /// pour la créature.
             switch (cbBxTaille.SelectedItem.ToString())
             {
@@ -644,6 +668,169 @@ namespace maFichePersonnageJDR.Formulaires
             }
             else
                 formAptitude.Show();
+        }
+        private void btnValiderSortsAptitudesPersonnage_Click(object sender, EventArgs e)
+        {
+            int niveau = (int)nudNiveau.Value;
+
+            DialogResult result = MessageBox.Show(
+                "Êtes-vous sûr de vouloir ces classes ? Une fois validé, aucun retour en arrière n'est possible.",
+                "Confirmation",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+                );
+
+            if (result == DialogResult.Yes)
+            {
+                nudRepartitionPointSortsAptitudes.Enabled = true;
+                btnValiderRepartitionPointsSortAptitude.Enabled = true;
+
+                double multiplicateur = 0.0;
+
+                /// Changer le multiplicateur en fonction de la taille choisie
+                /// pour la créature.
+                switch (cbBxTaille.SelectedItem.ToString())
+                {
+                    case "Minuscule":
+                        multiplicateur = 0.6;
+                        break;
+                    case "Petit":
+                        multiplicateur = 1;
+                        break;
+                    case "Moyen":
+                        multiplicateur = 1;
+                        break;
+                    case "Grand":
+                        multiplicateur = 1.5;
+                        break;
+                    case "Très grand":
+                        multiplicateur = 2;
+                        break;
+                    case "Gigantesque":
+                        multiplicateur = 3;
+                        break;
+                    default:
+                        multiplicateur = 2;
+                        Console.WriteLine("Pas de bonne taille !");
+                        break;
+                }
+
+                int ptsRepartitionSortsAptitudes = (int)(pointsRepartitionsSortsAptitudes[niveau - 1] * multiplicateur);
+
+                lblPointsRepartitionSortAptitude.Text = "Points restants : " + ptsRepartitionSortsAptitudes.ToString();
+                chkdLstBxJeuxSortsAptitudes.Enabled = false;
+            }
+        }
+
+        private void nudRepartitionPointSortsAptitudes_ValueChanged(object sender, EventArgs e)
+        {
+            CalculRepartitionPointsClasse();
+
+            int valeurPointsRepartis = (int)nudRepartitionPointSortsAptitudes.Value;
+            int seuilUn = int.Parse(lblPtsCmptUn.Text);
+            int seuilDeux = int.Parse(lblPtsCmptDeux.Text);
+            int seuilTrois = int.Parse(lblPtsCmptTrois.Text);
+            int seuilQuatre = int.Parse(lblPtsCmptQuatre.Text);
+            int seuilCinq = int.Parse(lblPtsCmptCinq.Text);
+            int seuilSix = int.Parse(lblPtsCmptSix.Text);
+            int seuilSept = int.Parse(lblPtsCmptSept.Text);
+            int seuilHuit = int.Parse(lblPtsCmptHuit.Text);
+            int seuilNeuf = int.Parse(lblPtsCmpNeuf.Text);
+            int seuilDix = int.Parse(lblPtsCmptDix.Text);
+
+            if (valeurPointsRepartis >= seuilUn)
+                lblPtsCmptUn.ForeColor = Color.Green;
+            if (valeurPointsRepartis >= seuilDeux)
+                lblPtsCmptDeux.ForeColor = Color.Green;
+            if (valeurPointsRepartis >= seuilTrois)
+                lblPtsCmptTrois.ForeColor = Color.Green;
+            if (valeurPointsRepartis >= seuilQuatre)
+                lblPtsCmptQuatre.ForeColor = Color.Green;
+            if (valeurPointsRepartis >= seuilCinq)
+                lblPtsCmptCinq.ForeColor = Color.Green;
+            if (valeurPointsRepartis >= seuilSix)
+                lblPtsCmptSix.ForeColor = Color.Green;
+            if (valeurPointsRepartis >= seuilSept)
+                lblPtsCmptSept.ForeColor = Color.Green;
+            if (valeurPointsRepartis >= seuilHuit)
+                lblPtsCmptHuit.ForeColor = Color.Green;
+            if (valeurPointsRepartis >= seuilNeuf)
+                lblPtsCmpNeuf.ForeColor = Color.Green;
+            if (valeurPointsRepartis >= seuilDix)
+                lblPtsCmptDix.ForeColor = Color.Green;
+        }
+
+        private void btnValiderRepartitionPointsSortAptitude_Click(object sender, EventArgs e)
+        {
+            if (lblPtsCmptUn.ForeColor == Color.Green)
+            {
+                Label labelCompetence = new Label();
+                labelCompetence.Text = lnkLblCmptUne.Text;
+                flpSortsAptitudesPersonnages.Controls.Add(labelCompetence);
+            }
+            if (lblPtsCmptDeux.ForeColor == Color.Green)
+            {
+                Label labelCompetence = new Label();
+                labelCompetence.Text = lnkLblCmptDeux.Text;
+                flpSortsAptitudesPersonnages.Controls.Add(labelCompetence);
+            }
+            if (lblPtsCmptTrois.ForeColor == Color.Green)
+            {
+                Label labelCompetence = new Label();
+                labelCompetence.Text = lnkLblCmptTrois.Text;
+                flpSortsAptitudesPersonnages.Controls.Add(labelCompetence);
+            }
+            if (lblPtsCmptQuatre.ForeColor == Color.Green)
+            {
+                Label labelCompetence = new Label();
+                labelCompetence.Text = lnkLblCmptQuatre.Text;
+                flpSortsAptitudesPersonnages.Controls.Add(labelCompetence);
+            }
+            if (lblPtsCmptCinq.ForeColor == Color.Green)
+            {
+                Label labelCompetence = new Label();
+                labelCompetence.Text = lnkLblCmptCinq.Text;
+                flpSortsAptitudesPersonnages.Controls.Add(labelCompetence);
+            }
+            if (lblPtsCmptSix.ForeColor == Color.Green)
+            {
+                Label labelCompetence = new Label();
+                labelCompetence.Text = lnkLblCmptSix.Text;
+                flpSortsAptitudesPersonnages.Controls.Add(labelCompetence);
+            }
+            if (lblPtsCmptSept.ForeColor == Color.Green)
+            {
+                Label labelCompetence = new Label();
+                labelCompetence.Text = lnkLblCmptSept.Text;
+                flpSortsAptitudesPersonnages.Controls.Add(labelCompetence);
+            }
+            if (lblPtsCmptHuit.ForeColor == Color.Green)
+            {
+                Label labelCompetence = new Label();
+                labelCompetence.Text = lnkLblCmptHuit.Text;
+                flpSortsAptitudesPersonnages.Controls.Add(labelCompetence);
+            }
+            if (lblPtsCmpNeuf.ForeColor == Color.Green)
+            {
+                Label labelCompetence = new Label();
+                labelCompetence.Text = lnkLblCmptNeuf.Text;
+                flpSortsAptitudesPersonnages.Controls.Add(labelCompetence);
+            }
+            if (lblPtsCmptDix.ForeColor == Color.Green)
+            {
+                Label labelCompetence = new Label();
+                labelCompetence.Text = lnkLblCmptDix.Text;
+                flpSortsAptitudesPersonnages.Controls.Add(labelCompetence);
+            }
+
+            /// Mise à jour de l'item sélectionné dans la listBox pour garder le décompte des points
+            int index = lstBxChoixSortsAptitudes.SelectedIndex;
+
+            if (index != -1)
+            {
+                string nom = lstBxChoixSortsAptitudes.SelectedItem.ToString();
+                lstBxChoixSortsAptitudes.Items[index] = $"{nom};{nudRepartitionPointSortsAptitudes.Value}";
+            }
         }
         private void FormulaireInfosGenerales_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -922,7 +1109,9 @@ namespace maFichePersonnageJDR.Formulaires
         /// </param>
         private void GetTreeSortsAptitudes(string name)
         {
-            Dictionary<int, Controller.ClassesJeux> dictionaryClassesJeu = Controller.ClassesJeuxController.GetAptitudeOrSortSkillTree(name);
+            string[] parts = name.Split(';');
+
+            Dictionary<int, Controller.ClassesJeux> dictionaryClassesJeu = Controller.ClassesJeuxController.GetAptitudeOrSortSkillTree(parts[0]);
 
             var indexZero = dictionaryClassesJeu[0];
             var indexUn = dictionaryClassesJeu[1];
@@ -1274,6 +1463,44 @@ namespace maFichePersonnageJDR.Formulaires
             }
 
             lblPtsRepartitionSpecialites.Text = "Points restants à répartir : " + valeurPointsSpecialites;
+        }
+
+        private void CalculRepartitionPointsClasse()
+        {
+            int niveau = (int)nudNiveau.Value;
+            double multiplicateur = 0.0;
+
+            switch (cbBxTaille.SelectedItem.ToString())
+            {
+                case "Minuscule":
+                    multiplicateur = 0.6;
+                    break;
+                case "Petit":
+                    multiplicateur = 1;
+                    break;
+                case "Moyen":
+                    multiplicateur = 1;
+                    break;
+                case "Grand":
+                    multiplicateur = 1.5;
+                    break;
+                case "Très grand":
+                    multiplicateur = 2;
+                    break;
+                case "Gigantesque":
+                    multiplicateur = 3;
+                    break;
+                default:
+                    multiplicateur = 2;
+                    Console.WriteLine("Pas de bonne taille !");
+                    break;
+            }
+
+            int ptsRepartitionSortsAptitudes = (int)(pointsRepartitionsSortsAptitudes[niveau - 1] * multiplicateur);
+
+            int valeurPointsRestants = ptsRepartitionSortsAptitudes - ((int)nudRepartitionPointSortsAptitudes.Value);
+
+            lblPointsRepartitionSortAptitude.Text = "Points restants : " + valeurPointsRestants.ToString();
         }
         #endregion
     }

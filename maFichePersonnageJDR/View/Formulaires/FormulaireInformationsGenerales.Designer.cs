@@ -185,9 +185,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblSelectionSortsAptitudes = new System.Windows.Forms.Label();
             this.pnlChoixSortsAptitudesPersonnage = new System.Windows.Forms.Panel();
             this.lstBxChoixSortsAptitudes = new System.Windows.Forms.ListBox();
-            this.pnlJeuSortsAptitudesPersonnage = new System.Windows.Forms.Panel();
             this.lblSortsAptitudesPersonnages = new System.Windows.Forms.Label();
             this.pnlSetSorts = new System.Windows.Forms.Panel();
+            this.btnValiderRepartitionPointsSortAptitude = new System.Windows.Forms.Button();
+            this.nudRepartitionPointSortsAptitudes = new System.Windows.Forms.NumericUpDown();
+            this.lblPointsRepartitionSortAptitude = new System.Windows.Forms.Label();
+            this.lblTitleSeuilPointsSortAptitude = new System.Windows.Forms.Label();
+            this.lblTitleNomSortAptitude = new System.Windows.Forms.Label();
+            this.lblTitleNiveauSortAptitude = new System.Windows.Forms.Label();
             this.lblPtsCmptDix = new System.Windows.Forms.Label();
             this.lblPtsCmpNeuf = new System.Windows.Forms.Label();
             this.lblPtsCmptHuit = new System.Windows.Forms.Label();
@@ -250,6 +255,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlPoids = new System.Windows.Forms.Panel();
             this.pnlCarres = new System.Windows.Forms.Panel();
             this.lblPoids = new System.Windows.Forms.Label();
+            this.flpSortsAptitudesPersonnages = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.nudNiveau)).BeginInit();
             this.tabCtrlGeneral.SuspendLayout();
             this.tabPgeInfosGenerales.SuspendLayout();
@@ -313,6 +319,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tabPgeSortsAptitudes.SuspendLayout();
             this.pnlChoixSortsAptitudesPersonnage.SuspendLayout();
             this.pnlSetSorts.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudRepartitionPointSortsAptitudes)).BeginInit();
             this.pnlListeSetAptitudes.SuspendLayout();
             this.tabPgeEquipement.SuspendLayout();
             this.pnlInventaire.SuspendLayout();
@@ -2199,10 +2206,10 @@ namespace maFichePersonnageJDR.Formulaires
             // tabPgeSortsAptitudes
             // 
             this.tabPgeSortsAptitudes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabPgeSortsAptitudes.Controls.Add(this.flpSortsAptitudesPersonnages);
             this.tabPgeSortsAptitudes.Controls.Add(this.btnValiderSortsAptitudesPersonnage);
             this.tabPgeSortsAptitudes.Controls.Add(this.lblSelectionSortsAptitudes);
             this.tabPgeSortsAptitudes.Controls.Add(this.pnlChoixSortsAptitudesPersonnage);
-            this.tabPgeSortsAptitudes.Controls.Add(this.pnlJeuSortsAptitudesPersonnage);
             this.tabPgeSortsAptitudes.Controls.Add(this.lblSortsAptitudesPersonnages);
             this.tabPgeSortsAptitudes.Controls.Add(this.pnlSetSorts);
             this.tabPgeSortsAptitudes.Controls.Add(this.pnlListeSetAptitudes);
@@ -2221,8 +2228,9 @@ namespace maFichePersonnageJDR.Formulaires
             this.btnValiderSortsAptitudesPersonnage.Name = "btnValiderSortsAptitudesPersonnage";
             this.btnValiderSortsAptitudesPersonnage.Size = new System.Drawing.Size(117, 23);
             this.btnValiderSortsAptitudesPersonnage.TabIndex = 28;
-            this.btnValiderSortsAptitudesPersonnage.Text = "Valider";
+            this.btnValiderSortsAptitudesPersonnage.Text = "Valider choix";
             this.btnValiderSortsAptitudesPersonnage.UseVisualStyleBackColor = true;
+            this.btnValiderSortsAptitudesPersonnage.Click += new System.EventHandler(this.btnValiderSortsAptitudesPersonnage_Click);
             // 
             // lblSelectionSortsAptitudes
             // 
@@ -2254,15 +2262,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.lstBxChoixSortsAptitudes.TabIndex = 0;
             this.lstBxChoixSortsAptitudes.SelectedIndexChanged += new System.EventHandler(this.lstBxChoixSortsAptitudes_SelectedIndexChanged);
             // 
-            // pnlJeuSortsAptitudesPersonnage
-            // 
-            this.pnlJeuSortsAptitudesPersonnage.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlJeuSortsAptitudesPersonnage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlJeuSortsAptitudesPersonnage.Location = new System.Drawing.Point(11, 342);
-            this.pnlJeuSortsAptitudesPersonnage.Name = "pnlJeuSortsAptitudesPersonnage";
-            this.pnlJeuSortsAptitudesPersonnage.Size = new System.Drawing.Size(306, 183);
-            this.pnlJeuSortsAptitudesPersonnage.TabIndex = 24;
-            // 
             // lblSortsAptitudesPersonnages
             // 
             this.lblSortsAptitudesPersonnages.AutoSize = true;
@@ -2277,6 +2276,12 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.pnlSetSorts.BackColor = System.Drawing.SystemColors.Control;
             this.pnlSetSorts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlSetSorts.Controls.Add(this.btnValiderRepartitionPointsSortAptitude);
+            this.pnlSetSorts.Controls.Add(this.nudRepartitionPointSortsAptitudes);
+            this.pnlSetSorts.Controls.Add(this.lblPointsRepartitionSortAptitude);
+            this.pnlSetSorts.Controls.Add(this.lblTitleSeuilPointsSortAptitude);
+            this.pnlSetSorts.Controls.Add(this.lblTitleNomSortAptitude);
+            this.pnlSetSorts.Controls.Add(this.lblTitleNiveauSortAptitude);
             this.pnlSetSorts.Controls.Add(this.lblPtsCmptDix);
             this.pnlSetSorts.Controls.Add(this.lblPtsCmpNeuf);
             this.pnlSetSorts.Controls.Add(this.lblPtsCmptHuit);
@@ -2312,11 +2317,71 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlSetSorts.Size = new System.Drawing.Size(459, 394);
             this.pnlSetSorts.TabIndex = 24;
             // 
+            // btnValiderRepartitionPointsSortAptitude
+            // 
+            this.btnValiderRepartitionPointsSortAptitude.Enabled = false;
+            this.btnValiderRepartitionPointsSortAptitude.Location = new System.Drawing.Point(285, 359);
+            this.btnValiderRepartitionPointsSortAptitude.Name = "btnValiderRepartitionPointsSortAptitude";
+            this.btnValiderRepartitionPointsSortAptitude.Size = new System.Drawing.Size(117, 23);
+            this.btnValiderRepartitionPointsSortAptitude.TabIndex = 35;
+            this.btnValiderRepartitionPointsSortAptitude.Text = "Valider répartition";
+            this.btnValiderRepartitionPointsSortAptitude.UseVisualStyleBackColor = true;
+            this.btnValiderRepartitionPointsSortAptitude.Click += new System.EventHandler(this.btnValiderRepartitionPointsSortAptitude_Click);
+            // 
+            // nudRepartitionPointSortsAptitudes
+            // 
+            this.nudRepartitionPointSortsAptitudes.Enabled = false;
+            this.nudRepartitionPointSortsAptitudes.Location = new System.Drawing.Point(203, 362);
+            this.nudRepartitionPointSortsAptitudes.Name = "nudRepartitionPointSortsAptitudes";
+            this.nudRepartitionPointSortsAptitudes.Size = new System.Drawing.Size(47, 20);
+            this.nudRepartitionPointSortsAptitudes.TabIndex = 34;
+            this.nudRepartitionPointSortsAptitudes.ValueChanged += new System.EventHandler(this.nudRepartitionPointSortsAptitudes_ValueChanged);
+            // 
+            // lblPointsRepartitionSortAptitude
+            // 
+            this.lblPointsRepartitionSortAptitude.AutoSize = true;
+            this.lblPointsRepartitionSortAptitude.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPointsRepartitionSortAptitude.Location = new System.Drawing.Point(14, 365);
+            this.lblPointsRepartitionSortAptitude.Name = "lblPointsRepartitionSortAptitude";
+            this.lblPointsRepartitionSortAptitude.Size = new System.Drawing.Size(114, 17);
+            this.lblPointsRepartitionSortAptitude.TabIndex = 33;
+            this.lblPointsRepartitionSortAptitude.Text = "Points restants : ";
+            // 
+            // lblTitleSeuilPointsSortAptitude
+            // 
+            this.lblTitleSeuilPointsSortAptitude.AutoSize = true;
+            this.lblTitleSeuilPointsSortAptitude.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitleSeuilPointsSortAptitude.Location = new System.Drawing.Point(354, 4);
+            this.lblTitleSeuilPointsSortAptitude.Name = "lblTitleSeuilPointsSortAptitude";
+            this.lblTitleSeuilPointsSortAptitude.Size = new System.Drawing.Size(39, 17);
+            this.lblTitleSeuilPointsSortAptitude.TabIndex = 32;
+            this.lblTitleSeuilPointsSortAptitude.Text = "Seuil";
+            // 
+            // lblTitleNomSortAptitude
+            // 
+            this.lblTitleNomSortAptitude.AutoSize = true;
+            this.lblTitleNomSortAptitude.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitleNomSortAptitude.Location = new System.Drawing.Point(66, 4);
+            this.lblTitleNomSortAptitude.Name = "lblTitleNomSortAptitude";
+            this.lblTitleNomSortAptitude.Size = new System.Drawing.Size(37, 17);
+            this.lblTitleNomSortAptitude.TabIndex = 31;
+            this.lblTitleNomSortAptitude.Text = "Nom";
+            // 
+            // lblTitleNiveauSortAptitude
+            // 
+            this.lblTitleNiveauSortAptitude.AutoSize = true;
+            this.lblTitleNiveauSortAptitude.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitleNiveauSortAptitude.Location = new System.Drawing.Point(14, 4);
+            this.lblTitleNiveauSortAptitude.Name = "lblTitleNiveauSortAptitude";
+            this.lblTitleNiveauSortAptitude.Size = new System.Drawing.Size(52, 17);
+            this.lblTitleNiveauSortAptitude.TabIndex = 30;
+            this.lblTitleNiveauSortAptitude.Text = "Niveau";
+            // 
             // lblPtsCmptDix
             // 
             this.lblPtsCmptDix.AutoSize = true;
             this.lblPtsCmptDix.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPtsCmptDix.Location = new System.Drawing.Point(354, 321);
+            this.lblPtsCmptDix.Location = new System.Drawing.Point(354, 334);
             this.lblPtsCmptDix.Name = "lblPtsCmptDix";
             this.lblPtsCmptDix.Size = new System.Drawing.Size(18, 18);
             this.lblPtsCmptDix.TabIndex = 29;
@@ -2326,7 +2391,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lblPtsCmpNeuf.AutoSize = true;
             this.lblPtsCmpNeuf.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPtsCmpNeuf.Location = new System.Drawing.Point(354, 287);
+            this.lblPtsCmpNeuf.Location = new System.Drawing.Point(354, 300);
             this.lblPtsCmpNeuf.Name = "lblPtsCmpNeuf";
             this.lblPtsCmpNeuf.Size = new System.Drawing.Size(18, 18);
             this.lblPtsCmpNeuf.TabIndex = 28;
@@ -2336,7 +2401,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lblPtsCmptHuit.AutoSize = true;
             this.lblPtsCmptHuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPtsCmptHuit.Location = new System.Drawing.Point(354, 253);
+            this.lblPtsCmptHuit.Location = new System.Drawing.Point(354, 266);
             this.lblPtsCmptHuit.Name = "lblPtsCmptHuit";
             this.lblPtsCmptHuit.Size = new System.Drawing.Size(18, 18);
             this.lblPtsCmptHuit.TabIndex = 27;
@@ -2346,7 +2411,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lblPtsCmptSept.AutoSize = true;
             this.lblPtsCmptSept.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPtsCmptSept.Location = new System.Drawing.Point(354, 219);
+            this.lblPtsCmptSept.Location = new System.Drawing.Point(354, 232);
             this.lblPtsCmptSept.Name = "lblPtsCmptSept";
             this.lblPtsCmptSept.Size = new System.Drawing.Size(18, 18);
             this.lblPtsCmptSept.TabIndex = 26;
@@ -2356,7 +2421,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lblPtsCmptSix.AutoSize = true;
             this.lblPtsCmptSix.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPtsCmptSix.Location = new System.Drawing.Point(354, 185);
+            this.lblPtsCmptSix.Location = new System.Drawing.Point(354, 198);
             this.lblPtsCmptSix.Name = "lblPtsCmptSix";
             this.lblPtsCmptSix.Size = new System.Drawing.Size(18, 18);
             this.lblPtsCmptSix.TabIndex = 25;
@@ -2366,7 +2431,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lblPtsCmptCinq.AutoSize = true;
             this.lblPtsCmptCinq.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPtsCmptCinq.Location = new System.Drawing.Point(354, 151);
+            this.lblPtsCmptCinq.Location = new System.Drawing.Point(354, 164);
             this.lblPtsCmptCinq.Name = "lblPtsCmptCinq";
             this.lblPtsCmptCinq.Size = new System.Drawing.Size(18, 18);
             this.lblPtsCmptCinq.TabIndex = 24;
@@ -2376,7 +2441,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lblPtsCmptQuatre.AutoSize = true;
             this.lblPtsCmptQuatre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPtsCmptQuatre.Location = new System.Drawing.Point(354, 117);
+            this.lblPtsCmptQuatre.Location = new System.Drawing.Point(354, 130);
             this.lblPtsCmptQuatre.Name = "lblPtsCmptQuatre";
             this.lblPtsCmptQuatre.Size = new System.Drawing.Size(18, 18);
             this.lblPtsCmptQuatre.TabIndex = 23;
@@ -2386,7 +2451,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lblPtsCmptTrois.AutoSize = true;
             this.lblPtsCmptTrois.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPtsCmptTrois.Location = new System.Drawing.Point(354, 83);
+            this.lblPtsCmptTrois.Location = new System.Drawing.Point(354, 96);
             this.lblPtsCmptTrois.Name = "lblPtsCmptTrois";
             this.lblPtsCmptTrois.Size = new System.Drawing.Size(18, 18);
             this.lblPtsCmptTrois.TabIndex = 22;
@@ -2396,7 +2461,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lblPtsCmptDeux.AutoSize = true;
             this.lblPtsCmptDeux.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPtsCmptDeux.Location = new System.Drawing.Point(354, 49);
+            this.lblPtsCmptDeux.Location = new System.Drawing.Point(354, 62);
             this.lblPtsCmptDeux.Name = "lblPtsCmptDeux";
             this.lblPtsCmptDeux.Size = new System.Drawing.Size(18, 18);
             this.lblPtsCmptDeux.TabIndex = 21;
@@ -2406,7 +2471,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lblPtsCmptUn.AutoSize = true;
             this.lblPtsCmptUn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPtsCmptUn.Location = new System.Drawing.Point(354, 15);
+            this.lblPtsCmptUn.Location = new System.Drawing.Point(354, 28);
             this.lblPtsCmptUn.Name = "lblPtsCmptUn";
             this.lblPtsCmptUn.Size = new System.Drawing.Size(18, 18);
             this.lblPtsCmptUn.TabIndex = 20;
@@ -2416,7 +2481,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lnkLblCmptDix.AutoSize = true;
             this.lnkLblCmptDix.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkLblCmptDix.Location = new System.Drawing.Point(66, 322);
+            this.lnkLblCmptDix.Location = new System.Drawing.Point(66, 335);
             this.lnkLblCmptDix.Name = "lnkLblCmptDix";
             this.lnkLblCmptDix.Size = new System.Drawing.Size(12, 17);
             this.lnkLblCmptDix.TabIndex = 19;
@@ -2428,7 +2493,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lnkLblCmptNeuf.AutoSize = true;
             this.lnkLblCmptNeuf.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkLblCmptNeuf.Location = new System.Drawing.Point(66, 288);
+            this.lnkLblCmptNeuf.Location = new System.Drawing.Point(66, 301);
             this.lnkLblCmptNeuf.Name = "lnkLblCmptNeuf";
             this.lnkLblCmptNeuf.Size = new System.Drawing.Size(12, 17);
             this.lnkLblCmptNeuf.TabIndex = 18;
@@ -2440,7 +2505,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lnkLblCmptHuit.AutoSize = true;
             this.lnkLblCmptHuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkLblCmptHuit.Location = new System.Drawing.Point(66, 254);
+            this.lnkLblCmptHuit.Location = new System.Drawing.Point(66, 267);
             this.lnkLblCmptHuit.Name = "lnkLblCmptHuit";
             this.lnkLblCmptHuit.Size = new System.Drawing.Size(12, 17);
             this.lnkLblCmptHuit.TabIndex = 17;
@@ -2452,7 +2517,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lnkLblCmptSept.AutoSize = true;
             this.lnkLblCmptSept.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkLblCmptSept.Location = new System.Drawing.Point(66, 220);
+            this.lnkLblCmptSept.Location = new System.Drawing.Point(66, 233);
             this.lnkLblCmptSept.Name = "lnkLblCmptSept";
             this.lnkLblCmptSept.Size = new System.Drawing.Size(12, 17);
             this.lnkLblCmptSept.TabIndex = 16;
@@ -2464,7 +2529,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lnkLblCmptSix.AutoSize = true;
             this.lnkLblCmptSix.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkLblCmptSix.Location = new System.Drawing.Point(66, 186);
+            this.lnkLblCmptSix.Location = new System.Drawing.Point(66, 199);
             this.lnkLblCmptSix.Name = "lnkLblCmptSix";
             this.lnkLblCmptSix.Size = new System.Drawing.Size(12, 17);
             this.lnkLblCmptSix.TabIndex = 15;
@@ -2476,7 +2541,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lnkLblCmptCinq.AutoSize = true;
             this.lnkLblCmptCinq.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkLblCmptCinq.Location = new System.Drawing.Point(66, 152);
+            this.lnkLblCmptCinq.Location = new System.Drawing.Point(66, 165);
             this.lnkLblCmptCinq.Name = "lnkLblCmptCinq";
             this.lnkLblCmptCinq.Size = new System.Drawing.Size(12, 17);
             this.lnkLblCmptCinq.TabIndex = 14;
@@ -2488,7 +2553,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lnkLblCmptQuatre.AutoSize = true;
             this.lnkLblCmptQuatre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkLblCmptQuatre.Location = new System.Drawing.Point(66, 118);
+            this.lnkLblCmptQuatre.Location = new System.Drawing.Point(66, 131);
             this.lnkLblCmptQuatre.Name = "lnkLblCmptQuatre";
             this.lnkLblCmptQuatre.Size = new System.Drawing.Size(12, 17);
             this.lnkLblCmptQuatre.TabIndex = 13;
@@ -2500,7 +2565,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lnkLblCmptTrois.AutoSize = true;
             this.lnkLblCmptTrois.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkLblCmptTrois.Location = new System.Drawing.Point(66, 84);
+            this.lnkLblCmptTrois.Location = new System.Drawing.Point(66, 97);
             this.lnkLblCmptTrois.Name = "lnkLblCmptTrois";
             this.lnkLblCmptTrois.Size = new System.Drawing.Size(12, 17);
             this.lnkLblCmptTrois.TabIndex = 12;
@@ -2512,7 +2577,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lnkLblCmptDeux.AutoSize = true;
             this.lnkLblCmptDeux.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkLblCmptDeux.Location = new System.Drawing.Point(66, 50);
+            this.lnkLblCmptDeux.Location = new System.Drawing.Point(66, 63);
             this.lnkLblCmptDeux.Name = "lnkLblCmptDeux";
             this.lnkLblCmptDeux.Size = new System.Drawing.Size(12, 17);
             this.lnkLblCmptDeux.TabIndex = 11;
@@ -2524,7 +2589,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lnkLblCmptUne.AutoSize = true;
             this.lnkLblCmptUne.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkLblCmptUne.Location = new System.Drawing.Point(66, 16);
+            this.lnkLblCmptUne.Location = new System.Drawing.Point(66, 29);
             this.lnkLblCmptUne.Name = "lnkLblCmptUne";
             this.lnkLblCmptUne.Size = new System.Drawing.Size(12, 17);
             this.lnkLblCmptUne.TabIndex = 10;
@@ -2536,7 +2601,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lblNNeuf.AutoSize = true;
             this.lblNNeuf.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNNeuf.Location = new System.Drawing.Point(14, 321);
+            this.lblNNeuf.Location = new System.Drawing.Point(14, 334);
             this.lblNNeuf.Name = "lblNNeuf";
             this.lblNNeuf.Size = new System.Drawing.Size(27, 18);
             this.lblNNeuf.TabIndex = 9;
@@ -2546,7 +2611,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lblNHuit.AutoSize = true;
             this.lblNHuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNHuit.Location = new System.Drawing.Point(14, 287);
+            this.lblNHuit.Location = new System.Drawing.Point(14, 300);
             this.lblNHuit.Name = "lblNHuit";
             this.lblNHuit.Size = new System.Drawing.Size(27, 18);
             this.lblNHuit.TabIndex = 8;
@@ -2556,7 +2621,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lblNSept.AutoSize = true;
             this.lblNSept.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNSept.Location = new System.Drawing.Point(14, 253);
+            this.lblNSept.Location = new System.Drawing.Point(14, 266);
             this.lblNSept.Name = "lblNSept";
             this.lblNSept.Size = new System.Drawing.Size(27, 18);
             this.lblNSept.TabIndex = 7;
@@ -2566,7 +2631,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lblNSix.AutoSize = true;
             this.lblNSix.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNSix.Location = new System.Drawing.Point(14, 219);
+            this.lblNSix.Location = new System.Drawing.Point(14, 232);
             this.lblNSix.Name = "lblNSix";
             this.lblNSix.Size = new System.Drawing.Size(27, 18);
             this.lblNSix.TabIndex = 6;
@@ -2576,7 +2641,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lblNCinq.AutoSize = true;
             this.lblNCinq.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNCinq.Location = new System.Drawing.Point(14, 185);
+            this.lblNCinq.Location = new System.Drawing.Point(14, 198);
             this.lblNCinq.Name = "lblNCinq";
             this.lblNCinq.Size = new System.Drawing.Size(27, 18);
             this.lblNCinq.TabIndex = 5;
@@ -2586,7 +2651,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lblNQuatre.AutoSize = true;
             this.lblNQuatre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNQuatre.Location = new System.Drawing.Point(14, 151);
+            this.lblNQuatre.Location = new System.Drawing.Point(14, 164);
             this.lblNQuatre.Name = "lblNQuatre";
             this.lblNQuatre.Size = new System.Drawing.Size(27, 18);
             this.lblNQuatre.TabIndex = 4;
@@ -2596,7 +2661,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lblNTrois.AutoSize = true;
             this.lblNTrois.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNTrois.Location = new System.Drawing.Point(14, 117);
+            this.lblNTrois.Location = new System.Drawing.Point(14, 130);
             this.lblNTrois.Name = "lblNTrois";
             this.lblNTrois.Size = new System.Drawing.Size(27, 18);
             this.lblNTrois.TabIndex = 3;
@@ -2606,7 +2671,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lblNDeux.AutoSize = true;
             this.lblNDeux.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNDeux.Location = new System.Drawing.Point(14, 83);
+            this.lblNDeux.Location = new System.Drawing.Point(14, 96);
             this.lblNDeux.Name = "lblNDeux";
             this.lblNDeux.Size = new System.Drawing.Size(27, 18);
             this.lblNDeux.TabIndex = 2;
@@ -2616,7 +2681,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lblNUn.AutoSize = true;
             this.lblNUn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNUn.Location = new System.Drawing.Point(14, 49);
+            this.lblNUn.Location = new System.Drawing.Point(14, 62);
             this.lblNUn.Name = "lblNUn";
             this.lblNUn.Size = new System.Drawing.Size(27, 18);
             this.lblNUn.TabIndex = 1;
@@ -2626,7 +2691,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.lblNZero.AutoSize = true;
             this.lblNZero.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNZero.Location = new System.Drawing.Point(14, 15);
+            this.lblNZero.Location = new System.Drawing.Point(14, 28);
             this.lblNZero.Name = "lblNZero";
             this.lblNZero.Size = new System.Drawing.Size(27, 18);
             this.lblNZero.TabIndex = 0;
@@ -2975,6 +3040,16 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblPoids.TabIndex = 54;
             this.lblPoids.Text = "Poids";
             // 
+            // flpSortsAptitudesPersonnages
+            // 
+            this.flpSortsAptitudesPersonnages.AutoScroll = true;
+            this.flpSortsAptitudesPersonnages.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpSortsAptitudesPersonnages.Location = new System.Drawing.Point(11, 350);
+            this.flpSortsAptitudesPersonnages.Name = "flpSortsAptitudesPersonnages";
+            this.flpSortsAptitudesPersonnages.Size = new System.Drawing.Size(306, 175);
+            this.flpSortsAptitudesPersonnages.TabIndex = 29;
+            this.flpSortsAptitudesPersonnages.WrapContents = false;
+            // 
             // FormulaireInfosGenerales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3065,6 +3140,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlChoixSortsAptitudesPersonnage.ResumeLayout(false);
             this.pnlSetSorts.ResumeLayout(false);
             this.pnlSetSorts.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudRepartitionPointSortsAptitudes)).EndInit();
             this.pnlListeSetAptitudes.ResumeLayout(false);
             this.tabPgeEquipement.ResumeLayout(false);
             this.pnlInventaire.ResumeLayout(false);
@@ -3224,7 +3300,6 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblSetSortsAptitudes;
         private System.Windows.Forms.Panel pnlListeSetAptitudes;
         private System.Windows.Forms.Panel pnlSetSorts;
-        private System.Windows.Forms.Panel pnlJeuSortsAptitudesPersonnage;
         private System.Windows.Forms.Label lblSortsAptitudesPersonnages;
         private System.Windows.Forms.Panel pnlArme;
         private System.Windows.Forms.Panel pnlObjets;
@@ -3308,5 +3383,12 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.ListBox lstBxChoixSortsAptitudes;
         private System.Windows.Forms.Button btnValiderSortsAptitudesPersonnage;
         private System.Windows.Forms.CheckedListBox chkdLstBxJeuxSortsAptitudes;
+        private System.Windows.Forms.Label lblTitleSeuilPointsSortAptitude;
+        private System.Windows.Forms.Label lblTitleNomSortAptitude;
+        private System.Windows.Forms.Label lblTitleNiveauSortAptitude;
+        private System.Windows.Forms.NumericUpDown nudRepartitionPointSortsAptitudes;
+        private System.Windows.Forms.Label lblPointsRepartitionSortAptitude;
+        private System.Windows.Forms.Button btnValiderRepartitionPointsSortAptitude;
+        private System.Windows.Forms.FlowLayoutPanel flpSortsAptitudesPersonnages;
     }
 }
