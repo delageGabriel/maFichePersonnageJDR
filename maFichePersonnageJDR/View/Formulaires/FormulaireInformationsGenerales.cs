@@ -831,6 +831,8 @@ namespace maFichePersonnageJDR.Formulaires
                 string nom = lstBxChoixSortsAptitudes.SelectedItem.ToString();
                 lstBxChoixSortsAptitudes.Items[index] = $"{nom};{nudRepartitionPointSortsAptitudes.Value}";
             }
+
+            nudRepartitionPointSortsAptitudes.Value = 0;
         }
         private void FormulaireInfosGenerales_FormClosing(object sender, FormClosingEventArgs e)
         {
