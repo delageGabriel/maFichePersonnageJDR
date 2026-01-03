@@ -158,6 +158,7 @@ namespace maFichePersonnageJDR.View.Formulaires
             this.Controls.Add(this.lblNomArme);
             this.Name = "FormArmes";
             this.Text = "FormArmes";
+            this.Load += new System.EventHandler(this.FormArmes_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

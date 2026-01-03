@@ -21,5 +21,35 @@ namespace maFichePersonnageJDR.Controller
             else
                 return null;
         }
+
+        public static Dictionary<string, string> GetArmeInformationsByName(string name)
+        {
+            Console.WriteLine("########### Méthode GetArmeNamesByType ###########");
+            NewArmesModel newArmesModel = new NewArmesModel();
+
+            Dictionary<string, string> arme = new Dictionary<string, string>
+            {
+                { "Nom", name },
+                { "Type", newArmesModel.GetArmeTypeByName(name) },
+                { "Prerequis", newArmesModel.GetArmePrerequisByName(name) },
+                { "Mains", newArmesModel.GetArmeMainsByName(name) },
+                { "Portee", newArmesModel.GetArmePorteeByName(name) },
+                { "Poids", newArmesModel.GetArmePoidsByName(name) },
+                { "Degats", newArmesModel.GetArmeDegatsByName(name) },
+                { "Jet", newArmesModel.GetArmeJetsDegatsByName(name) },
+                { "Valeur", newArmesModel.GetArmeValeurByName(name) },
+                { "Effet", newArmesModel.GetArmeEffetsByName(name) }
+            };
+
+            return arme;
+        }
+
+        public static string GetArmeWeightByName(string name)
+        {
+            Console.WriteLine("########### Méthode GetArmeNamesByType ###########");
+            NewArmesModel newArmesModel = new NewArmesModel();
+
+            return newArmesModel.GetArmePoidsByName(name);
+        }
     }
 }

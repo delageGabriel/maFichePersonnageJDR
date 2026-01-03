@@ -1576,14 +1576,27 @@ namespace maFichePersonnageJDR.Formulaires
             /// 
             link.LinkClicked += (sender, e) =>
             {
-                /// Code pour ouvrir l'aperçu du formulaire d'arme
-                /// avec les informations dedans.
+                FormArmes formArmes = new FormArmes();
+
+                formArmes.ArmeValues = Controller.ArmesController.GetArmeInformationsByName(nomArme);
+
+                formArmes.Show();
             };
 
             btn.Click += (sender, e) =>
             {
-                /// Code pour l'achat de l'arme, avec la quantité
-                /// à prendre en compte.
+                int poids = int.Parse(Controller.ArmesController.GetArmeWeightByName(nomArme));
+                int qte = (int)nud.Value;
+
+                if (qte <= 0)
+                {
+                    MessageBox.Show("Veuillez sélectionner une quantité supérieure à 0");
+                    return;
+                }
+                else
+                {
+                    chkLBxArmesInventaire.Items.Add(nomArme + ";" + qte);
+                }
             };
 
             /// Ajout des Controls dans le Panel

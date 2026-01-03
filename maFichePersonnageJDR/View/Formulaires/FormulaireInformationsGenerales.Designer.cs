@@ -242,9 +242,13 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlArme = new System.Windows.Forms.Panel();
             this.tbCtrlArmes = new System.Windows.Forms.TabControl();
             this.tbPgeArmeLegere = new System.Windows.Forms.TabPage();
+            this.flpArmeLegeres = new System.Windows.Forms.FlowLayoutPanel();
             this.tbPgeArmeIntermediaire = new System.Windows.Forms.TabPage();
+            this.flpArmeIntermediaire = new System.Windows.Forms.FlowLayoutPanel();
             this.tbPgeArmeLourde = new System.Windows.Forms.TabPage();
+            this.flpArmeLourde = new System.Windows.Forms.FlowLayoutPanel();
             this.tbPgeArmeFabuleuse = new System.Windows.Forms.TabPage();
+            this.flpArmeFabuleuse = new System.Windows.Forms.FlowLayoutPanel();
             this.lblArmes = new System.Windows.Forms.Label();
             this.lblSexe = new System.Windows.Forms.Label();
             this.pnlHeader = new System.Windows.Forms.Panel();
@@ -261,10 +265,10 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlPoids = new System.Windows.Forms.Panel();
             this.pnlCarres = new System.Windows.Forms.Panel();
             this.lblPoids = new System.Windows.Forms.Label();
-            this.flpArmeLegeres = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpArmeIntermediaire = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpArmeLourde = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpArmeFabuleuse = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnVendreEquipement = new System.Windows.Forms.Button();
+            this.chkLBxArmesInventaire = new System.Windows.Forms.CheckedListBox();
+            this.chkLBxArmuresInventaire = new System.Windows.Forms.CheckedListBox();
+            this.chkLBxObjetsInventaire = new System.Windows.Forms.CheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudNiveau)).BeginInit();
             this.tabCtrlGeneral.SuspendLayout();
             this.tabPgeInfosGenerales.SuspendLayout();
@@ -333,6 +337,9 @@ namespace maFichePersonnageJDR.Formulaires
             this.tabPgeEquipement.SuspendLayout();
             this.pnlInventaire.SuspendLayout();
             this.tbCtrlInventaire.SuspendLayout();
+            this.tbPgeArmes.SuspendLayout();
+            this.tbPgeArmures.SuspendLayout();
+            this.tbPgeObjets.SuspendLayout();
             this.pnlObjets.SuspendLayout();
             this.pnlArmures.SuspendLayout();
             this.pnlArme.SuspendLayout();
@@ -2780,6 +2787,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.pnlInventaire.BackColor = System.Drawing.SystemColors.Control;
             this.pnlInventaire.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlInventaire.Controls.Add(this.btnVendreEquipement);
             this.pnlInventaire.Controls.Add(this.tbCtrlInventaire);
             this.pnlInventaire.Controls.Add(this.lblInventaire);
             this.pnlInventaire.Location = new System.Drawing.Point(3, 304);
@@ -2795,16 +2803,17 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbCtrlInventaire.Location = new System.Drawing.Point(8, 27);
             this.tbCtrlInventaire.Name = "tbCtrlInventaire";
             this.tbCtrlInventaire.SelectedIndex = 0;
-            this.tbCtrlInventaire.Size = new System.Drawing.Size(779, 189);
+            this.tbCtrlInventaire.Size = new System.Drawing.Size(525, 193);
             this.tbCtrlInventaire.TabIndex = 23;
             // 
             // tbPgeArmes
             // 
             this.tbPgeArmes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbPgeArmes.Controls.Add(this.chkLBxArmesInventaire);
             this.tbPgeArmes.Location = new System.Drawing.Point(4, 22);
             this.tbPgeArmes.Name = "tbPgeArmes";
             this.tbPgeArmes.Padding = new System.Windows.Forms.Padding(3);
-            this.tbPgeArmes.Size = new System.Drawing.Size(771, 163);
+            this.tbPgeArmes.Size = new System.Drawing.Size(517, 167);
             this.tbPgeArmes.TabIndex = 0;
             this.tbPgeArmes.Text = "Armes";
             this.tbPgeArmes.UseVisualStyleBackColor = true;
@@ -2812,10 +2821,11 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeArmures
             // 
             this.tbPgeArmures.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbPgeArmures.Controls.Add(this.chkLBxArmuresInventaire);
             this.tbPgeArmures.Location = new System.Drawing.Point(4, 22);
             this.tbPgeArmures.Name = "tbPgeArmures";
             this.tbPgeArmures.Padding = new System.Windows.Forms.Padding(3);
-            this.tbPgeArmures.Size = new System.Drawing.Size(771, 163);
+            this.tbPgeArmures.Size = new System.Drawing.Size(517, 167);
             this.tbPgeArmures.TabIndex = 1;
             this.tbPgeArmures.Text = "Armures";
             this.tbPgeArmures.UseVisualStyleBackColor = true;
@@ -2823,9 +2833,10 @@ namespace maFichePersonnageJDR.Formulaires
             // tbPgeObjets
             // 
             this.tbPgeObjets.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbPgeObjets.Controls.Add(this.chkLBxObjetsInventaire);
             this.tbPgeObjets.Location = new System.Drawing.Point(4, 22);
             this.tbPgeObjets.Name = "tbPgeObjets";
-            this.tbPgeObjets.Size = new System.Drawing.Size(771, 163);
+            this.tbPgeObjets.Size = new System.Drawing.Size(517, 167);
             this.tbPgeObjets.TabIndex = 2;
             this.tbPgeObjets.Text = "Objets";
             this.tbPgeObjets.UseVisualStyleBackColor = true;
@@ -2914,6 +2925,16 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbPgeArmeLegere.Text = "Arme légère";
             this.tbPgeArmeLegere.UseVisualStyleBackColor = true;
             // 
+            // flpArmeLegeres
+            // 
+            this.flpArmeLegeres.AutoScroll = true;
+            this.flpArmeLegeres.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpArmeLegeres.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpArmeLegeres.Location = new System.Drawing.Point(3, 3);
+            this.flpArmeLegeres.Name = "flpArmeLegeres";
+            this.flpArmeLegeres.Size = new System.Drawing.Size(235, 236);
+            this.flpArmeLegeres.TabIndex = 0;
+            // 
             // tbPgeArmeIntermediaire
             // 
             this.tbPgeArmeIntermediaire.Controls.Add(this.flpArmeIntermediaire);
@@ -2925,6 +2946,15 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbPgeArmeIntermediaire.Text = "Arme intermédiaire";
             this.tbPgeArmeIntermediaire.UseVisualStyleBackColor = true;
             // 
+            // flpArmeIntermediaire
+            // 
+            this.flpArmeIntermediaire.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpArmeIntermediaire.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpArmeIntermediaire.Location = new System.Drawing.Point(3, 3);
+            this.flpArmeIntermediaire.Name = "flpArmeIntermediaire";
+            this.flpArmeIntermediaire.Size = new System.Drawing.Size(235, 236);
+            this.flpArmeIntermediaire.TabIndex = 0;
+            // 
             // tbPgeArmeLourde
             // 
             this.tbPgeArmeLourde.Controls.Add(this.flpArmeLourde);
@@ -2935,6 +2965,15 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbPgeArmeLourde.Text = "Arme lourde";
             this.tbPgeArmeLourde.UseVisualStyleBackColor = true;
             // 
+            // flpArmeLourde
+            // 
+            this.flpArmeLourde.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpArmeLourde.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpArmeLourde.Location = new System.Drawing.Point(0, 0);
+            this.flpArmeLourde.Name = "flpArmeLourde";
+            this.flpArmeLourde.Size = new System.Drawing.Size(241, 242);
+            this.flpArmeLourde.TabIndex = 0;
+            // 
             // tbPgeArmeFabuleuse
             // 
             this.tbPgeArmeFabuleuse.Controls.Add(this.flpArmeFabuleuse);
@@ -2944,6 +2983,15 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbPgeArmeFabuleuse.TabIndex = 3;
             this.tbPgeArmeFabuleuse.Text = "Arme Fabuleuse";
             this.tbPgeArmeFabuleuse.UseVisualStyleBackColor = true;
+            // 
+            // flpArmeFabuleuse
+            // 
+            this.flpArmeFabuleuse.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpArmeFabuleuse.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpArmeFabuleuse.Location = new System.Drawing.Point(0, 0);
+            this.flpArmeFabuleuse.Name = "flpArmeFabuleuse";
+            this.flpArmeFabuleuse.Size = new System.Drawing.Size(241, 242);
+            this.flpArmeFabuleuse.TabIndex = 0;
             // 
             // lblArmes
             // 
@@ -3120,42 +3168,42 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblPoids.TabIndex = 54;
             this.lblPoids.Text = "Poids";
             // 
-            // flpArmeLegeres
+            // btnVendreEquipement
             // 
-            this.flpArmeLegeres.AutoScroll = true;
-            this.flpArmeLegeres.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpArmeLegeres.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpArmeLegeres.Location = new System.Drawing.Point(3, 3);
-            this.flpArmeLegeres.Name = "flpArmeLegeres";
-            this.flpArmeLegeres.Size = new System.Drawing.Size(235, 236);
-            this.flpArmeLegeres.TabIndex = 0;
+            this.btnVendreEquipement.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVendreEquipement.Location = new System.Drawing.Point(539, 49);
+            this.btnVendreEquipement.Name = "btnVendreEquipement";
+            this.btnVendreEquipement.Size = new System.Drawing.Size(249, 167);
+            this.btnVendreEquipement.TabIndex = 24;
+            this.btnVendreEquipement.Text = "Vendre";
+            this.btnVendreEquipement.UseVisualStyleBackColor = true;
             // 
-            // flpArmeIntermediaire
+            // chkLBxArmesInventaire
             // 
-            this.flpArmeIntermediaire.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpArmeIntermediaire.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpArmeIntermediaire.Location = new System.Drawing.Point(3, 3);
-            this.flpArmeIntermediaire.Name = "flpArmeIntermediaire";
-            this.flpArmeIntermediaire.Size = new System.Drawing.Size(235, 236);
-            this.flpArmeIntermediaire.TabIndex = 0;
+            this.chkLBxArmesInventaire.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkLBxArmesInventaire.FormattingEnabled = true;
+            this.chkLBxArmesInventaire.Location = new System.Drawing.Point(3, 3);
+            this.chkLBxArmesInventaire.Name = "chkLBxArmesInventaire";
+            this.chkLBxArmesInventaire.Size = new System.Drawing.Size(509, 159);
+            this.chkLBxArmesInventaire.TabIndex = 0;
             // 
-            // flpArmeLourde
+            // chkLBxArmuresInventaire
             // 
-            this.flpArmeLourde.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpArmeLourde.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpArmeLourde.Location = new System.Drawing.Point(0, 0);
-            this.flpArmeLourde.Name = "flpArmeLourde";
-            this.flpArmeLourde.Size = new System.Drawing.Size(241, 242);
-            this.flpArmeLourde.TabIndex = 0;
+            this.chkLBxArmuresInventaire.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkLBxArmuresInventaire.FormattingEnabled = true;
+            this.chkLBxArmuresInventaire.Location = new System.Drawing.Point(3, 3);
+            this.chkLBxArmuresInventaire.Name = "chkLBxArmuresInventaire";
+            this.chkLBxArmuresInventaire.Size = new System.Drawing.Size(509, 159);
+            this.chkLBxArmuresInventaire.TabIndex = 1;
             // 
-            // flpArmeFabuleuse
+            // chkLBxObjetsInventaire
             // 
-            this.flpArmeFabuleuse.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpArmeFabuleuse.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpArmeFabuleuse.Location = new System.Drawing.Point(0, 0);
-            this.flpArmeFabuleuse.Name = "flpArmeFabuleuse";
-            this.flpArmeFabuleuse.Size = new System.Drawing.Size(241, 242);
-            this.flpArmeFabuleuse.TabIndex = 0;
+            this.chkLBxObjetsInventaire.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkLBxObjetsInventaire.FormattingEnabled = true;
+            this.chkLBxObjetsInventaire.Location = new System.Drawing.Point(0, 0);
+            this.chkLBxObjetsInventaire.Name = "chkLBxObjetsInventaire";
+            this.chkLBxObjetsInventaire.Size = new System.Drawing.Size(515, 165);
+            this.chkLBxObjetsInventaire.TabIndex = 2;
             // 
             // FormulaireInfosGenerales
             // 
@@ -3253,6 +3301,9 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlInventaire.ResumeLayout(false);
             this.pnlInventaire.PerformLayout();
             this.tbCtrlInventaire.ResumeLayout(false);
+            this.tbPgeArmes.ResumeLayout(false);
+            this.tbPgeArmures.ResumeLayout(false);
+            this.tbPgeObjets.ResumeLayout(false);
             this.pnlObjets.ResumeLayout(false);
             this.pnlObjets.PerformLayout();
             this.pnlArmures.ResumeLayout(false);
@@ -3511,5 +3562,9 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.FlowLayoutPanel flpArmeIntermediaire;
         private System.Windows.Forms.FlowLayoutPanel flpArmeLourde;
         private System.Windows.Forms.FlowLayoutPanel flpArmeFabuleuse;
+        private System.Windows.Forms.Button btnVendreEquipement;
+        private System.Windows.Forms.CheckedListBox chkLBxArmesInventaire;
+        private System.Windows.Forms.CheckedListBox chkLBxArmuresInventaire;
+        private System.Windows.Forms.CheckedListBox chkLBxObjetsInventaire;
     }
 }
