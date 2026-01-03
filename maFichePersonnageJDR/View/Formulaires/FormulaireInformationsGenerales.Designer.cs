@@ -181,6 +181,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblEsprit = new System.Windows.Forms.Label();
             this.lblCorps = new System.Windows.Forms.Label();
             this.tabPgeSortsAptitudes = new System.Windows.Forms.TabPage();
+            this.flpSortsAptitudesPersonnages = new System.Windows.Forms.FlowLayoutPanel();
             this.btnValiderSortsAptitudesPersonnage = new System.Windows.Forms.Button();
             this.lblSelectionSortsAptitudes = new System.Windows.Forms.Label();
             this.pnlChoixSortsAptitudesPersonnage = new System.Windows.Forms.Panel();
@@ -239,6 +240,11 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlArmures = new System.Windows.Forms.Panel();
             this.lblArmures = new System.Windows.Forms.Label();
             this.pnlArme = new System.Windows.Forms.Panel();
+            this.tbCtrlArmes = new System.Windows.Forms.TabControl();
+            this.tbPgeArmeLegere = new System.Windows.Forms.TabPage();
+            this.tbPgeArmeIntermediaire = new System.Windows.Forms.TabPage();
+            this.tbPgeArmeLourde = new System.Windows.Forms.TabPage();
+            this.tbPgeArmeFabuleuse = new System.Windows.Forms.TabPage();
             this.lblArmes = new System.Windows.Forms.Label();
             this.lblSexe = new System.Windows.Forms.Label();
             this.pnlHeader = new System.Windows.Forms.Panel();
@@ -255,7 +261,10 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlPoids = new System.Windows.Forms.Panel();
             this.pnlCarres = new System.Windows.Forms.Panel();
             this.lblPoids = new System.Windows.Forms.Label();
-            this.flpSortsAptitudesPersonnages = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpArmeLegeres = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpArmeIntermediaire = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpArmeLourde = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpArmeFabuleuse = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.nudNiveau)).BeginInit();
             this.tabCtrlGeneral.SuspendLayout();
             this.tabPgeInfosGenerales.SuspendLayout();
@@ -327,6 +336,11 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlObjets.SuspendLayout();
             this.pnlArmures.SuspendLayout();
             this.pnlArme.SuspendLayout();
+            this.tbCtrlArmes.SuspendLayout();
+            this.tbPgeArmeLegere.SuspendLayout();
+            this.tbPgeArmeIntermediaire.SuspendLayout();
+            this.tbPgeArmeLourde.SuspendLayout();
+            this.tbPgeArmeFabuleuse.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             this.pnlMonnaie.SuspendLayout();
             this.pnlPoids.SuspendLayout();
@@ -427,7 +441,7 @@ namespace maFichePersonnageJDR.Formulaires
             // btnSaveInfos
             // 
             this.btnSaveInfos.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnSaveInfos.Location = new System.Drawing.Point(0, 784);
+            this.btnSaveInfos.Location = new System.Drawing.Point(0, 780);
             this.btnSaveInfos.Name = "btnSaveInfos";
             this.btnSaveInfos.Size = new System.Drawing.Size(824, 50);
             this.btnSaveInfos.TabIndex = 24;
@@ -464,7 +478,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tabCtrlGeneral.Controls.Add(this.tabPgeCaracteristiquesCompetences);
             this.tabCtrlGeneral.Controls.Add(this.tabPgeSortsAptitudes);
             this.tabCtrlGeneral.Controls.Add(this.tabPgeEquipement);
-            this.tabCtrlGeneral.Location = new System.Drawing.Point(0, 69);
+            this.tabCtrlGeneral.Location = new System.Drawing.Point(5, 220);
             this.tabCtrlGeneral.Name = "tabCtrlGeneral";
             this.tabCtrlGeneral.SelectedIndex = 0;
             this.tabCtrlGeneral.Size = new System.Drawing.Size(819, 558);
@@ -2222,6 +2236,17 @@ namespace maFichePersonnageJDR.Formulaires
             this.tabPgeSortsAptitudes.Text = "Sorts & Aptitudes";
             this.tabPgeSortsAptitudes.UseVisualStyleBackColor = true;
             // 
+            // flpSortsAptitudesPersonnages
+            // 
+            this.flpSortsAptitudesPersonnages.AutoScroll = true;
+            this.flpSortsAptitudesPersonnages.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flpSortsAptitudesPersonnages.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpSortsAptitudesPersonnages.Location = new System.Drawing.Point(11, 350);
+            this.flpSortsAptitudesPersonnages.Name = "flpSortsAptitudesPersonnages";
+            this.flpSortsAptitudesPersonnages.Size = new System.Drawing.Size(306, 175);
+            this.flpSortsAptitudesPersonnages.TabIndex = 29;
+            this.flpSortsAptitudesPersonnages.WrapContents = false;
+            // 
             // btnValiderSortsAptitudesPersonnage
             // 
             this.btnValiderSortsAptitudesPersonnage.Location = new System.Drawing.Point(680, 82);
@@ -2859,11 +2884,66 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.pnlArme.BackColor = System.Drawing.SystemColors.Control;
             this.pnlArme.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlArme.Controls.Add(this.tbCtrlArmes);
             this.pnlArme.Controls.Add(this.lblArmes);
             this.pnlArme.Location = new System.Drawing.Point(3, 0);
             this.pnlArme.Name = "pnlArme";
             this.pnlArme.Size = new System.Drawing.Size(264, 299);
             this.pnlArme.TabIndex = 24;
+            // 
+            // tbCtrlArmes
+            // 
+            this.tbCtrlArmes.Controls.Add(this.tbPgeArmeLegere);
+            this.tbCtrlArmes.Controls.Add(this.tbPgeArmeIntermediaire);
+            this.tbCtrlArmes.Controls.Add(this.tbPgeArmeLourde);
+            this.tbCtrlArmes.Controls.Add(this.tbPgeArmeFabuleuse);
+            this.tbCtrlArmes.Location = new System.Drawing.Point(8, 26);
+            this.tbCtrlArmes.Name = "tbCtrlArmes";
+            this.tbCtrlArmes.SelectedIndex = 0;
+            this.tbCtrlArmes.Size = new System.Drawing.Size(249, 268);
+            this.tbCtrlArmes.TabIndex = 23;
+            // 
+            // tbPgeArmeLegere
+            // 
+            this.tbPgeArmeLegere.Controls.Add(this.flpArmeLegeres);
+            this.tbPgeArmeLegere.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeArmeLegere.Name = "tbPgeArmeLegere";
+            this.tbPgeArmeLegere.Padding = new System.Windows.Forms.Padding(3);
+            this.tbPgeArmeLegere.Size = new System.Drawing.Size(241, 242);
+            this.tbPgeArmeLegere.TabIndex = 0;
+            this.tbPgeArmeLegere.Text = "Arme légère";
+            this.tbPgeArmeLegere.UseVisualStyleBackColor = true;
+            // 
+            // tbPgeArmeIntermediaire
+            // 
+            this.tbPgeArmeIntermediaire.Controls.Add(this.flpArmeIntermediaire);
+            this.tbPgeArmeIntermediaire.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeArmeIntermediaire.Name = "tbPgeArmeIntermediaire";
+            this.tbPgeArmeIntermediaire.Padding = new System.Windows.Forms.Padding(3);
+            this.tbPgeArmeIntermediaire.Size = new System.Drawing.Size(241, 242);
+            this.tbPgeArmeIntermediaire.TabIndex = 1;
+            this.tbPgeArmeIntermediaire.Text = "Arme intermédiaire";
+            this.tbPgeArmeIntermediaire.UseVisualStyleBackColor = true;
+            // 
+            // tbPgeArmeLourde
+            // 
+            this.tbPgeArmeLourde.Controls.Add(this.flpArmeLourde);
+            this.tbPgeArmeLourde.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeArmeLourde.Name = "tbPgeArmeLourde";
+            this.tbPgeArmeLourde.Size = new System.Drawing.Size(241, 242);
+            this.tbPgeArmeLourde.TabIndex = 2;
+            this.tbPgeArmeLourde.Text = "Arme lourde";
+            this.tbPgeArmeLourde.UseVisualStyleBackColor = true;
+            // 
+            // tbPgeArmeFabuleuse
+            // 
+            this.tbPgeArmeFabuleuse.Controls.Add(this.flpArmeFabuleuse);
+            this.tbPgeArmeFabuleuse.Location = new System.Drawing.Point(4, 22);
+            this.tbPgeArmeFabuleuse.Name = "tbPgeArmeFabuleuse";
+            this.tbPgeArmeFabuleuse.Size = new System.Drawing.Size(241, 242);
+            this.tbPgeArmeFabuleuse.TabIndex = 3;
+            this.tbPgeArmeFabuleuse.Text = "Arme Fabuleuse";
+            this.tbPgeArmeFabuleuse.UseVisualStyleBackColor = true;
             // 
             // lblArmes
             // 
@@ -2949,9 +3029,9 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlMonnaie.Controls.Add(this.txtPieceOr);
             this.pnlMonnaie.Controls.Add(this.txtBxDevise);
             this.pnlMonnaie.Controls.Add(this.lblMonnaie);
-            this.pnlMonnaie.Location = new System.Drawing.Point(5, 629);
+            this.pnlMonnaie.Location = new System.Drawing.Point(0, 63);
             this.pnlMonnaie.Name = "pnlMonnaie";
-            this.pnlMonnaie.Size = new System.Drawing.Size(404, 151);
+            this.pnlMonnaie.Size = new System.Drawing.Size(409, 151);
             this.pnlMonnaie.TabIndex = 49;
             // 
             // btnAjouter
@@ -3015,9 +3095,9 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlPoids.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlPoids.Controls.Add(this.pnlCarres);
             this.pnlPoids.Controls.Add(this.lblPoids);
-            this.pnlPoids.Location = new System.Drawing.Point(415, 629);
+            this.pnlPoids.Location = new System.Drawing.Point(396, 63);
             this.pnlPoids.Name = "pnlPoids";
-            this.pnlPoids.Size = new System.Drawing.Size(402, 151);
+            this.pnlPoids.Size = new System.Drawing.Size(428, 151);
             this.pnlPoids.TabIndex = 50;
             // 
             // pnlCarres
@@ -3027,7 +3107,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlCarres.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlCarres.Location = new System.Drawing.Point(7, 25);
             this.pnlCarres.Name = "pnlCarres";
-            this.pnlCarres.Size = new System.Drawing.Size(390, 100);
+            this.pnlCarres.Size = new System.Drawing.Size(412, 121);
             this.pnlCarres.TabIndex = 55;
             // 
             // lblPoids
@@ -3040,21 +3120,48 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblPoids.TabIndex = 54;
             this.lblPoids.Text = "Poids";
             // 
-            // flpSortsAptitudesPersonnages
+            // flpArmeLegeres
             // 
-            this.flpSortsAptitudesPersonnages.AutoScroll = true;
-            this.flpSortsAptitudesPersonnages.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpSortsAptitudesPersonnages.Location = new System.Drawing.Point(11, 350);
-            this.flpSortsAptitudesPersonnages.Name = "flpSortsAptitudesPersonnages";
-            this.flpSortsAptitudesPersonnages.Size = new System.Drawing.Size(306, 175);
-            this.flpSortsAptitudesPersonnages.TabIndex = 29;
-            this.flpSortsAptitudesPersonnages.WrapContents = false;
+            this.flpArmeLegeres.AutoScroll = true;
+            this.flpArmeLegeres.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpArmeLegeres.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpArmeLegeres.Location = new System.Drawing.Point(3, 3);
+            this.flpArmeLegeres.Name = "flpArmeLegeres";
+            this.flpArmeLegeres.Size = new System.Drawing.Size(235, 236);
+            this.flpArmeLegeres.TabIndex = 0;
+            // 
+            // flpArmeIntermediaire
+            // 
+            this.flpArmeIntermediaire.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpArmeIntermediaire.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpArmeIntermediaire.Location = new System.Drawing.Point(3, 3);
+            this.flpArmeIntermediaire.Name = "flpArmeIntermediaire";
+            this.flpArmeIntermediaire.Size = new System.Drawing.Size(235, 236);
+            this.flpArmeIntermediaire.TabIndex = 0;
+            // 
+            // flpArmeLourde
+            // 
+            this.flpArmeLourde.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpArmeLourde.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpArmeLourde.Location = new System.Drawing.Point(0, 0);
+            this.flpArmeLourde.Name = "flpArmeLourde";
+            this.flpArmeLourde.Size = new System.Drawing.Size(241, 242);
+            this.flpArmeLourde.TabIndex = 0;
+            // 
+            // flpArmeFabuleuse
+            // 
+            this.flpArmeFabuleuse.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpArmeFabuleuse.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpArmeFabuleuse.Location = new System.Drawing.Point(0, 0);
+            this.flpArmeFabuleuse.Name = "flpArmeFabuleuse";
+            this.flpArmeFabuleuse.Size = new System.Drawing.Size(241, 242);
+            this.flpArmeFabuleuse.TabIndex = 0;
             // 
             // FormulaireInfosGenerales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(824, 834);
+            this.ClientSize = new System.Drawing.Size(824, 830);
             this.Controls.Add(this.pnlPoids);
             this.Controls.Add(this.pnlMonnaie);
             this.Controls.Add(this.btnSaveInfos);
@@ -3152,6 +3259,11 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlArmures.PerformLayout();
             this.pnlArme.ResumeLayout(false);
             this.pnlArme.PerformLayout();
+            this.tbCtrlArmes.ResumeLayout(false);
+            this.tbPgeArmeLegere.ResumeLayout(false);
+            this.tbPgeArmeIntermediaire.ResumeLayout(false);
+            this.tbPgeArmeLourde.ResumeLayout(false);
+            this.tbPgeArmeFabuleuse.ResumeLayout(false);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlMonnaie.ResumeLayout(false);
@@ -3390,5 +3502,14 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblPointsRepartitionSortAptitude;
         private System.Windows.Forms.Button btnValiderRepartitionPointsSortAptitude;
         private System.Windows.Forms.FlowLayoutPanel flpSortsAptitudesPersonnages;
+        private System.Windows.Forms.TabControl tbCtrlArmes;
+        private System.Windows.Forms.TabPage tbPgeArmeLegere;
+        private System.Windows.Forms.TabPage tbPgeArmeIntermediaire;
+        private System.Windows.Forms.TabPage tbPgeArmeLourde;
+        private System.Windows.Forms.TabPage tbPgeArmeFabuleuse;
+        private System.Windows.Forms.FlowLayoutPanel flpArmeLegeres;
+        private System.Windows.Forms.FlowLayoutPanel flpArmeIntermediaire;
+        private System.Windows.Forms.FlowLayoutPanel flpArmeLourde;
+        private System.Windows.Forms.FlowLayoutPanel flpArmeFabuleuse;
     }
 }

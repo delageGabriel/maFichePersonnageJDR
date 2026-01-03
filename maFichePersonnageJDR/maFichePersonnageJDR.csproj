@@ -137,6 +137,7 @@
     <Compile Include="Classe\GlobaleVariables.cs" />
     <Compile Include="Classe\Utils.cs" />
     <Compile Include="Controller\AptitudesController.cs" />
+    <Compile Include="Controller\ArmesController.cs" />
     <Compile Include="Controller\AttributsController.cs" />
     <Compile Include="Controller\ClassesJeuxController.cs" />
     <Compile Include="Controller\CompetencesCaracteristiquesController.cs" />
@@ -180,6 +181,7 @@
     <Compile Include="Model\MateriauxValeurModel.cs" />
     <Compile Include="Model\ClassesJeuxModel.cs" />
     <Compile Include="Model\NewAptitudeModel.cs" />
+    <Compile Include="Model\NewArmesModel.cs" />
     <Compile Include="Model\ObjetsModel.cs" />
     <Compile Include="Model\PersonnageModel.cs" />
     <Compile Include="Model\PointsCaracteristiquesModel.cs" />
@@ -199,6 +201,12 @@
     </Compile>
     <Compile Include="View\Formulaires\FormAptitude.Designer.cs">
       <DependentUpon>FormAptitude.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Formulaires\FormArmes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Formulaires\FormArmes.Designer.cs">
+      <DependentUpon>FormArmes.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Formulaires\FormCreationArmure.cs">
       <SubType>Form</SubType>
@@ -284,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Formulaires\FormAptitude.resx">
       <DependentUpon>FormAptitude.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Formulaires\FormArmes.resx">
+      <DependentUpon>FormArmes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Formulaires\FormCreationArmure.resx">
       <DependentUpon>FormCreationArmure.cs</DependentUpon>

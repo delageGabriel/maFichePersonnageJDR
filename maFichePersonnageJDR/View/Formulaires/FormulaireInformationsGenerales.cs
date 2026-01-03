@@ -220,6 +220,7 @@ namespace maFichePersonnageJDR.Formulaires
             CalculRepartitionCompetencesCombats();
             GetAllSpecialites();
             GetClassesSortsAptitudes();
+            DisplayArmesName();
 
             dictionaryControlOriginalSize.Add(this, new Rectangle(this.Location, this.Size));
 
@@ -1503,6 +1504,96 @@ namespace maFichePersonnageJDR.Formulaires
             int valeurPointsRestants = ptsRepartitionSortsAptitudes - ((int)nudRepartitionPointSortsAptitudes.Value);
 
             lblPointsRepartitionSortAptitude.Text = "Points restants : " + valeurPointsRestants.ToString();
+        }
+
+        private void DisplayArmesName()
+        {
+            foreach (TabPage page in tbCtrlArmes.TabPages)
+            {
+                string pageText = page.Text;
+
+                List<string> nameArme = Controller.ArmesController.GetArmeNamesByType(pageText);
+
+                FlowLayoutPanel flp = page.Controls
+                    .OfType<FlowLayoutPanel>()
+                    .First();
+
+                foreach (string name in nameArme)
+                {
+                    flp.Controls.Add(CreateArmeRow(name));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Créer dynamiquement un Panel dans lequel sont stockés
+        /// toutes les données pour acheter ou se renseigner sur une arme.
+        /// </summary>
+        /// <param name="nomArme">
+        /// Le nom de l'arme dont il faut se renseigner ou acheter
+        /// </param>
+        /// <returns>
+        /// Le panel avec toutes les informations de l'arme.
+        /// </returns>
+        private FlowLayoutPanel CreateArmeRow(string nomArme)
+        {
+            /// Création des Controls
+            /// 
+            FlowLayoutPanel panel = new FlowLayoutPanel
+            {
+                Height = 28,
+                Width = 500,
+                FlowDirection = FlowDirection.LeftToRight,
+                WrapContents = false,
+                Padding = new Padding(5, 2, 5, 2)
+            };
+
+            LinkLabel link = new LinkLabel
+            {
+                Text = nomArme,
+                AutoSize = true
+            };
+
+            NumericUpDown nud = new NumericUpDown
+            {
+                Width = 45,
+                Minimum = 0,
+                Maximum = 99
+            };
+
+            Button btn = new Button
+            {
+                Text = "Acheter",
+                AutoSize = true
+            };
+
+            /// Association des données
+            /// 
+            link.Tag = nomArme;
+            btn.Tag = nud;
+
+            /// Events
+            /// 
+            link.LinkClicked += (sender, e) =>
+            {
+                /// Code pour ouvrir l'aperçu du formulaire d'arme
+                /// avec les informations dedans.
+            };
+
+            btn.Click += (sender, e) =>
+            {
+                /// Code pour l'achat de l'arme, avec la quantité
+                /// à prendre en compte.
+            };
+
+            /// Ajout des Controls dans le Panel
+            /// et return
+            /// 
+            panel.Controls.Add(link);
+            panel.Controls.Add(nud);
+            panel.Controls.Add(btn);
+
+            return panel;
         }
         #endregion
     }
