@@ -230,14 +230,25 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblSetSortsAptitudes = new System.Windows.Forms.Label();
             this.tabPgeEquipement = new System.Windows.Forms.TabPage();
             this.pnlInventaire = new System.Windows.Forms.Panel();
+            this.btnVendreEquipement = new System.Windows.Forms.Button();
             this.tbCtrlInventaire = new System.Windows.Forms.TabControl();
             this.tbPgeArmes = new System.Windows.Forms.TabPage();
+            this.chkLBxArmesInventaire = new System.Windows.Forms.CheckedListBox();
             this.tbPgeArmures = new System.Windows.Forms.TabPage();
+            this.chkLBxArmuresInventaire = new System.Windows.Forms.CheckedListBox();
             this.tbPgeObjets = new System.Windows.Forms.TabPage();
+            this.chkLBxObjetsInventaire = new System.Windows.Forms.CheckedListBox();
             this.lblInventaire = new System.Windows.Forms.Label();
             this.pnlObjets = new System.Windows.Forms.Panel();
             this.lblObjets = new System.Windows.Forms.Label();
             this.pnlArmures = new System.Windows.Forms.Panel();
+            this.tbCtrlArmures = new System.Windows.Forms.TabControl();
+            this.tpOrganique = new System.Windows.Forms.TabPage();
+            this.tpNaturel = new System.Windows.Forms.TabPage();
+            this.tpMetaux = new System.Windows.Forms.TabPage();
+            this.tpGemme = new System.Windows.Forms.TabPage();
+            this.tpEcailles = new System.Windows.Forms.TabPage();
+            this.tpLegendaire = new System.Windows.Forms.TabPage();
             this.lblArmures = new System.Windows.Forms.Label();
             this.pnlArme = new System.Windows.Forms.Panel();
             this.tbCtrlArmes = new System.Windows.Forms.TabControl();
@@ -265,10 +276,12 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlPoids = new System.Windows.Forms.Panel();
             this.pnlCarres = new System.Windows.Forms.Panel();
             this.lblPoids = new System.Windows.Forms.Label();
-            this.btnVendreEquipement = new System.Windows.Forms.Button();
-            this.chkLBxArmesInventaire = new System.Windows.Forms.CheckedListBox();
-            this.chkLBxArmuresInventaire = new System.Windows.Forms.CheckedListBox();
-            this.chkLBxObjetsInventaire = new System.Windows.Forms.CheckedListBox();
+            this.flpArmureOrganique = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpArmureNaturel = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpArmureMetaux = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpArmureGemme = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpArmureEcailles = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpArmureLegendaire = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.nudNiveau)).BeginInit();
             this.tabCtrlGeneral.SuspendLayout();
             this.tabPgeInfosGenerales.SuspendLayout();
@@ -342,6 +355,13 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbPgeObjets.SuspendLayout();
             this.pnlObjets.SuspendLayout();
             this.pnlArmures.SuspendLayout();
+            this.tbCtrlArmures.SuspendLayout();
+            this.tpOrganique.SuspendLayout();
+            this.tpNaturel.SuspendLayout();
+            this.tpMetaux.SuspendLayout();
+            this.tpGemme.SuspendLayout();
+            this.tpEcailles.SuspendLayout();
+            this.tpLegendaire.SuspendLayout();
             this.pnlArme.SuspendLayout();
             this.tbCtrlArmes.SuspendLayout();
             this.tbPgeArmeLegere.SuspendLayout();
@@ -2795,6 +2815,16 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlInventaire.Size = new System.Drawing.Size(804, 225);
             this.pnlInventaire.TabIndex = 25;
             // 
+            // btnVendreEquipement
+            // 
+            this.btnVendreEquipement.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVendreEquipement.Location = new System.Drawing.Point(539, 49);
+            this.btnVendreEquipement.Name = "btnVendreEquipement";
+            this.btnVendreEquipement.Size = new System.Drawing.Size(249, 167);
+            this.btnVendreEquipement.TabIndex = 24;
+            this.btnVendreEquipement.Text = "Vendre";
+            this.btnVendreEquipement.UseVisualStyleBackColor = true;
+            // 
             // tbCtrlInventaire
             // 
             this.tbCtrlInventaire.Controls.Add(this.tbPgeArmes);
@@ -2818,6 +2848,15 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbPgeArmes.Text = "Armes";
             this.tbPgeArmes.UseVisualStyleBackColor = true;
             // 
+            // chkLBxArmesInventaire
+            // 
+            this.chkLBxArmesInventaire.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkLBxArmesInventaire.FormattingEnabled = true;
+            this.chkLBxArmesInventaire.Location = new System.Drawing.Point(3, 3);
+            this.chkLBxArmesInventaire.Name = "chkLBxArmesInventaire";
+            this.chkLBxArmesInventaire.Size = new System.Drawing.Size(509, 159);
+            this.chkLBxArmesInventaire.TabIndex = 0;
+            // 
             // tbPgeArmures
             // 
             this.tbPgeArmures.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -2830,6 +2869,15 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbPgeArmures.Text = "Armures";
             this.tbPgeArmures.UseVisualStyleBackColor = true;
             // 
+            // chkLBxArmuresInventaire
+            // 
+            this.chkLBxArmuresInventaire.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkLBxArmuresInventaire.FormattingEnabled = true;
+            this.chkLBxArmuresInventaire.Location = new System.Drawing.Point(3, 3);
+            this.chkLBxArmuresInventaire.Name = "chkLBxArmuresInventaire";
+            this.chkLBxArmuresInventaire.Size = new System.Drawing.Size(509, 159);
+            this.chkLBxArmuresInventaire.TabIndex = 1;
+            // 
             // tbPgeObjets
             // 
             this.tbPgeObjets.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -2840,6 +2888,15 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbPgeObjets.TabIndex = 2;
             this.tbPgeObjets.Text = "Objets";
             this.tbPgeObjets.UseVisualStyleBackColor = true;
+            // 
+            // chkLBxObjetsInventaire
+            // 
+            this.chkLBxObjetsInventaire.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkLBxObjetsInventaire.FormattingEnabled = true;
+            this.chkLBxObjetsInventaire.Location = new System.Drawing.Point(0, 0);
+            this.chkLBxObjetsInventaire.Name = "chkLBxObjetsInventaire";
+            this.chkLBxObjetsInventaire.Size = new System.Drawing.Size(515, 165);
+            this.chkLBxObjetsInventaire.TabIndex = 2;
             // 
             // lblInventaire
             // 
@@ -2875,11 +2932,88 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.pnlArmures.BackColor = System.Drawing.SystemColors.Control;
             this.pnlArmures.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlArmures.Controls.Add(this.tbCtrlArmures);
             this.pnlArmures.Controls.Add(this.lblArmures);
             this.pnlArmures.Location = new System.Drawing.Point(273, 0);
             this.pnlArmures.Name = "pnlArmures";
             this.pnlArmures.Size = new System.Drawing.Size(264, 299);
             this.pnlArmures.TabIndex = 25;
+            // 
+            // tbCtrlArmures
+            // 
+            this.tbCtrlArmures.Controls.Add(this.tpOrganique);
+            this.tbCtrlArmures.Controls.Add(this.tpNaturel);
+            this.tbCtrlArmures.Controls.Add(this.tpMetaux);
+            this.tbCtrlArmures.Controls.Add(this.tpGemme);
+            this.tbCtrlArmures.Controls.Add(this.tpEcailles);
+            this.tbCtrlArmures.Controls.Add(this.tpLegendaire);
+            this.tbCtrlArmures.Location = new System.Drawing.Point(3, 26);
+            this.tbCtrlArmures.Name = "tbCtrlArmures";
+            this.tbCtrlArmures.SelectedIndex = 0;
+            this.tbCtrlArmures.Size = new System.Drawing.Size(249, 268);
+            this.tbCtrlArmures.TabIndex = 23;
+            // 
+            // tpOrganique
+            // 
+            this.tpOrganique.Controls.Add(this.flpArmureOrganique);
+            this.tpOrganique.Location = new System.Drawing.Point(4, 22);
+            this.tpOrganique.Name = "tpOrganique";
+            this.tpOrganique.Padding = new System.Windows.Forms.Padding(3);
+            this.tpOrganique.Size = new System.Drawing.Size(241, 242);
+            this.tpOrganique.TabIndex = 0;
+            this.tpOrganique.Text = "Organique";
+            this.tpOrganique.UseVisualStyleBackColor = true;
+            // 
+            // tpNaturel
+            // 
+            this.tpNaturel.Controls.Add(this.flpArmureNaturel);
+            this.tpNaturel.Location = new System.Drawing.Point(4, 22);
+            this.tpNaturel.Name = "tpNaturel";
+            this.tpNaturel.Padding = new System.Windows.Forms.Padding(3);
+            this.tpNaturel.Size = new System.Drawing.Size(241, 242);
+            this.tpNaturel.TabIndex = 1;
+            this.tpNaturel.Text = "Naturel";
+            this.tpNaturel.UseVisualStyleBackColor = true;
+            // 
+            // tpMetaux
+            // 
+            this.tpMetaux.Controls.Add(this.flpArmureMetaux);
+            this.tpMetaux.Location = new System.Drawing.Point(4, 22);
+            this.tpMetaux.Name = "tpMetaux";
+            this.tpMetaux.Size = new System.Drawing.Size(241, 242);
+            this.tpMetaux.TabIndex = 2;
+            this.tpMetaux.Text = "Métaux";
+            this.tpMetaux.UseVisualStyleBackColor = true;
+            // 
+            // tpGemme
+            // 
+            this.tpGemme.Controls.Add(this.flpArmureGemme);
+            this.tpGemme.Location = new System.Drawing.Point(4, 22);
+            this.tpGemme.Name = "tpGemme";
+            this.tpGemme.Size = new System.Drawing.Size(241, 242);
+            this.tpGemme.TabIndex = 3;
+            this.tpGemme.Text = "Gemme";
+            this.tpGemme.UseVisualStyleBackColor = true;
+            // 
+            // tpEcailles
+            // 
+            this.tpEcailles.Controls.Add(this.flpArmureEcailles);
+            this.tpEcailles.Location = new System.Drawing.Point(4, 22);
+            this.tpEcailles.Name = "tpEcailles";
+            this.tpEcailles.Size = new System.Drawing.Size(241, 242);
+            this.tpEcailles.TabIndex = 4;
+            this.tpEcailles.Text = "Écailles";
+            this.tpEcailles.UseVisualStyleBackColor = true;
+            // 
+            // tpLegendaire
+            // 
+            this.tpLegendaire.Controls.Add(this.flpArmureLegendaire);
+            this.tpLegendaire.Location = new System.Drawing.Point(4, 22);
+            this.tpLegendaire.Name = "tpLegendaire";
+            this.tpLegendaire.Size = new System.Drawing.Size(241, 242);
+            this.tpLegendaire.TabIndex = 5;
+            this.tpLegendaire.Text = "Légendaire";
+            this.tpLegendaire.UseVisualStyleBackColor = true;
             // 
             // lblArmures
             // 
@@ -3168,42 +3302,65 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblPoids.TabIndex = 54;
             this.lblPoids.Text = "Poids";
             // 
-            // btnVendreEquipement
+            // flpArmureOrganique
             // 
-            this.btnVendreEquipement.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVendreEquipement.Location = new System.Drawing.Point(539, 49);
-            this.btnVendreEquipement.Name = "btnVendreEquipement";
-            this.btnVendreEquipement.Size = new System.Drawing.Size(249, 167);
-            this.btnVendreEquipement.TabIndex = 24;
-            this.btnVendreEquipement.Text = "Vendre";
-            this.btnVendreEquipement.UseVisualStyleBackColor = true;
+            this.flpArmureOrganique.AutoScroll = true;
+            this.flpArmureOrganique.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpArmureOrganique.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpArmureOrganique.Location = new System.Drawing.Point(3, 3);
+            this.flpArmureOrganique.Name = "flpArmureOrganique";
+            this.flpArmureOrganique.Size = new System.Drawing.Size(235, 236);
+            this.flpArmureOrganique.TabIndex = 1;
             // 
-            // chkLBxArmesInventaire
+            // flpArmureNaturel
             // 
-            this.chkLBxArmesInventaire.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkLBxArmesInventaire.FormattingEnabled = true;
-            this.chkLBxArmesInventaire.Location = new System.Drawing.Point(3, 3);
-            this.chkLBxArmesInventaire.Name = "chkLBxArmesInventaire";
-            this.chkLBxArmesInventaire.Size = new System.Drawing.Size(509, 159);
-            this.chkLBxArmesInventaire.TabIndex = 0;
+            this.flpArmureNaturel.AutoScroll = true;
+            this.flpArmureNaturel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpArmureNaturel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpArmureNaturel.Location = new System.Drawing.Point(3, 3);
+            this.flpArmureNaturel.Name = "flpArmureNaturel";
+            this.flpArmureNaturel.Size = new System.Drawing.Size(235, 236);
+            this.flpArmureNaturel.TabIndex = 1;
             // 
-            // chkLBxArmuresInventaire
+            // flpArmureMetaux
             // 
-            this.chkLBxArmuresInventaire.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkLBxArmuresInventaire.FormattingEnabled = true;
-            this.chkLBxArmuresInventaire.Location = new System.Drawing.Point(3, 3);
-            this.chkLBxArmuresInventaire.Name = "chkLBxArmuresInventaire";
-            this.chkLBxArmuresInventaire.Size = new System.Drawing.Size(509, 159);
-            this.chkLBxArmuresInventaire.TabIndex = 1;
+            this.flpArmureMetaux.AutoScroll = true;
+            this.flpArmureMetaux.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpArmureMetaux.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpArmureMetaux.Location = new System.Drawing.Point(0, 0);
+            this.flpArmureMetaux.Name = "flpArmureMetaux";
+            this.flpArmureMetaux.Size = new System.Drawing.Size(241, 242);
+            this.flpArmureMetaux.TabIndex = 1;
             // 
-            // chkLBxObjetsInventaire
+            // flpArmureGemme
             // 
-            this.chkLBxObjetsInventaire.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkLBxObjetsInventaire.FormattingEnabled = true;
-            this.chkLBxObjetsInventaire.Location = new System.Drawing.Point(0, 0);
-            this.chkLBxObjetsInventaire.Name = "chkLBxObjetsInventaire";
-            this.chkLBxObjetsInventaire.Size = new System.Drawing.Size(515, 165);
-            this.chkLBxObjetsInventaire.TabIndex = 2;
+            this.flpArmureGemme.AutoScroll = true;
+            this.flpArmureGemme.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpArmureGemme.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpArmureGemme.Location = new System.Drawing.Point(0, 0);
+            this.flpArmureGemme.Name = "flpArmureGemme";
+            this.flpArmureGemme.Size = new System.Drawing.Size(241, 242);
+            this.flpArmureGemme.TabIndex = 1;
+            // 
+            // flpArmureEcailles
+            // 
+            this.flpArmureEcailles.AutoScroll = true;
+            this.flpArmureEcailles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpArmureEcailles.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpArmureEcailles.Location = new System.Drawing.Point(0, 0);
+            this.flpArmureEcailles.Name = "flpArmureEcailles";
+            this.flpArmureEcailles.Size = new System.Drawing.Size(241, 242);
+            this.flpArmureEcailles.TabIndex = 1;
+            // 
+            // flpArmureLegendaire
+            // 
+            this.flpArmureLegendaire.AutoScroll = true;
+            this.flpArmureLegendaire.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpArmureLegendaire.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpArmureLegendaire.Location = new System.Drawing.Point(0, 0);
+            this.flpArmureLegendaire.Name = "flpArmureLegendaire";
+            this.flpArmureLegendaire.Size = new System.Drawing.Size(241, 242);
+            this.flpArmureLegendaire.TabIndex = 1;
             // 
             // FormulaireInfosGenerales
             // 
@@ -3308,6 +3465,13 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlObjets.PerformLayout();
             this.pnlArmures.ResumeLayout(false);
             this.pnlArmures.PerformLayout();
+            this.tbCtrlArmures.ResumeLayout(false);
+            this.tpOrganique.ResumeLayout(false);
+            this.tpNaturel.ResumeLayout(false);
+            this.tpMetaux.ResumeLayout(false);
+            this.tpGemme.ResumeLayout(false);
+            this.tpEcailles.ResumeLayout(false);
+            this.tpLegendaire.ResumeLayout(false);
             this.pnlArme.ResumeLayout(false);
             this.pnlArme.PerformLayout();
             this.tbCtrlArmes.ResumeLayout(false);
@@ -3566,5 +3730,18 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.CheckedListBox chkLBxArmesInventaire;
         private System.Windows.Forms.CheckedListBox chkLBxArmuresInventaire;
         private System.Windows.Forms.CheckedListBox chkLBxObjetsInventaire;
+        private System.Windows.Forms.TabControl tbCtrlArmures;
+        private System.Windows.Forms.TabPage tpOrganique;
+        private System.Windows.Forms.TabPage tpNaturel;
+        private System.Windows.Forms.TabPage tpMetaux;
+        private System.Windows.Forms.TabPage tpGemme;
+        private System.Windows.Forms.TabPage tpEcailles;
+        private System.Windows.Forms.TabPage tpLegendaire;
+        private System.Windows.Forms.FlowLayoutPanel flpArmureOrganique;
+        private System.Windows.Forms.FlowLayoutPanel flpArmureNaturel;
+        private System.Windows.Forms.FlowLayoutPanel flpArmureMetaux;
+        private System.Windows.Forms.FlowLayoutPanel flpArmureGemme;
+        private System.Windows.Forms.FlowLayoutPanel flpArmureEcailles;
+        private System.Windows.Forms.FlowLayoutPanel flpArmureLegendaire;
     }
 }

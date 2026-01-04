@@ -221,6 +221,7 @@ namespace maFichePersonnageJDR.Formulaires
             GetAllSpecialites();
             GetClassesSortsAptitudes();
             DisplayArmesName();
+            DisplayArmuresName();
 
             dictionaryControlOriginalSize.Add(this, new Rectangle(this.Location, this.Size));
 
@@ -1505,7 +1506,9 @@ namespace maFichePersonnageJDR.Formulaires
 
             lblPointsRepartitionSortAptitude.Text = "Points restants : " + valeurPointsRestants.ToString();
         }
-
+        /// <summary>
+        /// Ajoute dynamiquement à chaque page de "tbCtrlArmes" les noms des armes possibles d'acheter.
+        /// </summary>
         private void DisplayArmesName()
         {
             foreach (TabPage page in tbCtrlArmes.TabPages)
@@ -1525,6 +1528,27 @@ namespace maFichePersonnageJDR.Formulaires
             }
         }
 
+        /// <summary>
+        /// Ajoute dynamiquement à chaque page de "tbCtrlArmures" les noms des armures possibles d'acheter.
+        /// </summary>
+        private void DisplayArmuresName()
+        {
+            foreach (TabPage page in tbCtrlArmures.TabPages)
+            {
+                string pageText = page.Text;
+
+                List<string> nameArmure = Controller.ArmuresController.GetArmureNamesByType(pageText);
+
+                FlowLayoutPanel flp = page.Controls
+                    .OfType<FlowLayoutPanel>()
+                    .First();
+
+                foreach (string name in nameArmure)
+                {
+                    flp.Controls.Add(CreateArmureRow(name));
+                }
+            }
+        }
         /// <summary>
         /// Créer dynamiquement un Panel dans lequel sont stockés
         /// toutes les données pour acheter ou se renseigner sur une arme.
@@ -1596,6 +1620,80 @@ namespace maFichePersonnageJDR.Formulaires
                 else
                 {
                     chkLBxArmesInventaire.Items.Add(nomArme + ";" + qte);
+                }
+            };
+
+            /// Ajout des Controls dans le Panel
+            /// et return
+            /// 
+            panel.Controls.Add(link);
+            panel.Controls.Add(nud);
+            panel.Controls.Add(btn);
+
+            return panel;
+        }
+        
+        private FlowLayoutPanel CreateArmureRow(string nomArmure)
+        {
+            /// Création des Controls
+            /// 
+            FlowLayoutPanel panel = new FlowLayoutPanel
+            {
+                Height = 28,
+                Width = 500,
+                FlowDirection = FlowDirection.LeftToRight,
+                WrapContents = false,
+                Padding = new Padding(5, 2, 5, 2)
+            };
+
+            LinkLabel link = new LinkLabel
+            {
+                Text = nomArmure,
+                AutoSize = true
+            };
+
+            NumericUpDown nud = new NumericUpDown
+            {
+                Width = 45,
+                Minimum = 0,
+                Maximum = 99
+            };
+
+            Button btn = new Button
+            {
+                Text = "Acheter",
+                AutoSize = true
+            };
+
+            /// Association des données
+            /// 
+            link.Tag = nomArmure;
+            btn.Tag = nud;
+
+            /// Events
+            /// 
+            link.LinkClicked += (sender, e) =>
+            {
+                FormArmures formArmure = new FormArmures();
+
+                formArmure.ArmureValues = Controller.ArmuresController.GetArmureInformationsByName(nomArmure);
+
+                formArmure.Show();
+            };
+
+            btn.Click += (sender, e) =>
+            {
+                int poids = int.Parse(Controller.ArmuresController.GetArmureWeightByName(nomArmure));
+                int qte = (int)nud.Value;
+
+                if (qte <= 0)
+                {
+                    MessageBox.Show("Veuillez sélectionner une quantité supérieure à 0");
+                    return;
+                }
+                else
+                {
+                    chkLBxArmuresInventaire.Items.Add(nomArmure + ";" + qte);
                 }
             };
 
