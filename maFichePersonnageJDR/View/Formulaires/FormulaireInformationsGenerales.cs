@@ -223,6 +223,7 @@ namespace maFichePersonnageJDR.Formulaires
             DisplayArmesName();
             DisplayArmuresName();
             DisplayObjetsName();
+            DisplayAttributesName();
 
             dictionaryControlOriginalSize.Add(this, new Rectangle(this.Location, this.Size));
 
@@ -1568,6 +1569,24 @@ namespace maFichePersonnageJDR.Formulaires
                 }
             }
         }
+        private void DisplayAttributesName()
+        {
+            foreach (TabPage page in tbCtrlAttribut.TabPages)
+            {
+                string pageText = page.Text;
+
+                List<string> nameAttribute = Controller.NewAttributsController.GetAttributesNameByType(pageText);
+
+                FlowLayoutPanel flp = page.Controls
+                    .OfType<FlowLayoutPanel>()
+                    .First();
+
+                foreach (string name in nameAttribute)
+                {
+                    flp.Controls.Add(CreateAttributeRow(name));
+                }
+            }
+        }
         /// <summary>
         /// Créer dynamiquement un Panel dans lequel sont stockés
         /// toutes les données pour acheter ou se renseigner sur une arme.
@@ -1651,7 +1670,7 @@ namespace maFichePersonnageJDR.Formulaires
 
             return panel;
         }
-        
+
         private FlowLayoutPanel CreateArmureRow(string nomArmure)
         {
             /// Création des Controls
@@ -1795,6 +1814,60 @@ namespace maFichePersonnageJDR.Formulaires
             /// 
             panel.Controls.Add(link);
             panel.Controls.Add(nud);
+            panel.Controls.Add(btn);
+
+            return panel;
+        }
+        private FlowLayoutPanel CreateAttributeRow(string nomAttribut)
+        {
+            /// Création des Controls
+            /// 
+            FlowLayoutPanel panel = new FlowLayoutPanel
+            {
+                Height = 28,
+                Width = 500,
+                FlowDirection = FlowDirection.LeftToRight,
+                WrapContents = false,
+                Padding = new Padding(5, 2, 5, 2)
+            };
+
+            LinkLabel link = new LinkLabel
+            {
+                Text = nomAttribut,
+                AutoSize = true
+            };
+
+            Button btn = new Button
+            {
+                Text = "Ajouter",
+                AutoSize = true
+            };
+
+            /// Association des données
+            /// 
+            link.Tag = nomAttribut;
+            btn.Tag = nomAttribut;
+
+            /// Events
+            /// 
+            link.LinkClicked += (sender, e) =>
+            {
+                FormAttributs formAttributs = new FormAttributs();
+
+                formAttributs.AttributesValues = Controller.NewAttributsController.GetObjetInformationsByName(nomAttribut);
+
+                formAttributs.Show();
+            };
+
+            btn.Click += (sender, e) =>
+            {
+                chkLBxAttributesPersonnages.Items.Add(nomAttribut);
+            };
+
+            /// Ajout des Controls dans le Panel
+            /// et return
+            /// 
+            panel.Controls.Add(link);
             panel.Controls.Add(btn);
 
             return panel;
