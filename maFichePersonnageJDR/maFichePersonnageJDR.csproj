@@ -152,6 +152,7 @@
     <Compile Include="Controller\MateriauxPoidsController.cs" />
     <Compile Include="Controller\MateriauxValeurController.cs" />
     <Compile Include="Controller\NewAptitudesController.cs" />
+    <Compile Include="Controller\ObjetsController.cs" />
     <Compile Include="Controller\PersonnageController.cs" />
     <Compile Include="Controller\SortsController.cs" />
     <Compile Include="Controller\SpecialitesController.cs" />
@@ -184,6 +185,7 @@
     <Compile Include="Model\NewAptitudeModel.cs" />
     <Compile Include="Model\NewArmesModel.cs" />
     <Compile Include="Model\NewArmuresModel.cs" />
+    <Compile Include="Model\NewObjetsModel.cs" />
     <Compile Include="Model\ObjetsModel.cs" />
     <Compile Include="Model\PersonnageModel.cs" />
     <Compile Include="Model\PointsCaracteristiquesModel.cs" />
@@ -227,6 +229,12 @@
     </Compile>
     <Compile Include="View\Formulaires\FormEditMenu.Designer.cs">
       <DependentUpon>FormEditMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Formulaires\FormObjets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Formulaires\FormObjets.Designer.cs">
+      <DependentUpon>FormObjets.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Formulaires\FormSorts.cs">
       <SubType>Form</SubType>
@@ -312,6 +320,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Formulaires\FormEditMenu.resx">
       <DependentUpon>FormEditMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Formulaires\FormObjets.resx">
+      <DependentUpon>FormObjets.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Formulaires\FormSorts.resx">
       <DependentUpon>FormSorts.cs</DependentUpon>

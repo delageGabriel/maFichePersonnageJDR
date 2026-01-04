@@ -477,7 +477,7 @@ namespace maFichePersonnageJDR.Model
                 {
                     while (reader.Read())
                     {
-                        armureWeight = Convert.ToInt32(reader["poids_armure"]).ToString();
+                        armureWeight = Convert.ToDouble(reader["poids_armure"]).ToString();
                     }
                 }
 

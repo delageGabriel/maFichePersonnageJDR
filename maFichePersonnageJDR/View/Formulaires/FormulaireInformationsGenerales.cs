@@ -222,6 +222,7 @@ namespace maFichePersonnageJDR.Formulaires
             GetClassesSortsAptitudes();
             DisplayArmesName();
             DisplayArmuresName();
+            DisplayObjetsName();
 
             dictionaryControlOriginalSize.Add(this, new Rectangle(this.Location, this.Size));
 
@@ -1549,6 +1550,24 @@ namespace maFichePersonnageJDR.Formulaires
                 }
             }
         }
+        private void DisplayObjetsName()
+        {
+            foreach (TabPage page in tcObjets.TabPages)
+            {
+                string pageText = page.Text;
+
+                List<string> nameObjet = Controller.ObjetsController.GetObjetNameByType(pageText);
+
+                FlowLayoutPanel flp = page.Controls
+                    .OfType<FlowLayoutPanel>()
+                    .First();
+
+                foreach (string name in nameObjet)
+                {
+                    flp.Controls.Add(CreateObjetRow(name));
+                }
+            }
+        }
         /// <summary>
         /// Créer dynamiquement un Panel dans lequel sont stockés
         /// toutes les données pour acheter ou se renseigner sur une arme.
@@ -1609,7 +1628,7 @@ namespace maFichePersonnageJDR.Formulaires
 
             btn.Click += (sender, e) =>
             {
-                int poids = int.Parse(Controller.ArmesController.GetArmeWeightByName(nomArme));
+                double poids = double.Parse(Controller.ArmesController.GetArmeWeightByName(nomArme));
                 int qte = (int)nud.Value;
 
                 if (qte <= 0)
@@ -1683,7 +1702,7 @@ namespace maFichePersonnageJDR.Formulaires
 
             btn.Click += (sender, e) =>
             {
-                int poids = int.Parse(Controller.ArmuresController.GetArmureWeightByName(nomArmure));
+                double poids = double.Parse(Controller.ArmuresController.GetArmureWeightByName(nomArmure));
                 int qte = (int)nud.Value;
 
                 if (qte <= 0)
@@ -1694,6 +1713,80 @@ namespace maFichePersonnageJDR.Formulaires
                 else
                 {
                     chkLBxArmuresInventaire.Items.Add(nomArmure + ";" + qte);
+                }
+            };
+
+            /// Ajout des Controls dans le Panel
+            /// et return
+            /// 
+            panel.Controls.Add(link);
+            panel.Controls.Add(nud);
+            panel.Controls.Add(btn);
+
+            return panel;
+        }
+        private FlowLayoutPanel CreateObjetRow(string nomObjet)
+        {
+            /// Création des Controls
+            /// 
+            FlowLayoutPanel panel = new FlowLayoutPanel
+            {
+                Height = 28,
+                Width = 500,
+                FlowDirection = FlowDirection.LeftToRight,
+                WrapContents = false,
+                Padding = new Padding(5, 2, 5, 2)
+            };
+
+            LinkLabel link = new LinkLabel
+            {
+                Text = nomObjet,
+                AutoSize = true
+            };
+
+            NumericUpDown nud = new NumericUpDown
+            {
+                Width = 45,
+                Minimum = 0,
+                Maximum = 99
+            };
+
+            Button btn = new Button
+            {
+                Text = "Acheter",
+                AutoSize = true
+            };
+
+            /// Association des données
+            /// 
+            link.Tag = nomObjet;
+            btn.Tag = nud;
+
+            /// Events
+            /// 
+            link.LinkClicked += (sender, e) =>
+            {
+                FormObjets formObjets = new FormObjets();
+
+                formObjets.ObjetValues = Controller.ObjetsController.GetObjetInformationsByName(nomObjet);
+
+                formObjets.Show();
+            };
+
+            btn.Click += (sender, e) =>
+            {
+                double poids = double.Parse(Controller.ObjetsController.GetObjetWeightByName(nomObjet));
+
+                int qte = (int)nud.Value;
+
+                if (qte <= 0)
+                {
+                    MessageBox.Show("Veuillez sélectionner une quantité supérieure à 0");
+                    return;
+                }
+                else
+                {
+                    chkLBxObjetsInventaire.Items.Add(nomObjet + ";" + qte);
                 }
             };
 

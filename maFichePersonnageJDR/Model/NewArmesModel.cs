@@ -178,7 +178,7 @@ namespace maFichePersonnageJDR.Model
                 {
                     while (reader.Read())
                     {
-                        poidsArme = Convert.ToInt32(reader["poids_arme"]).ToString();
+                        poidsArme = Convert.ToDouble(reader["poids_arme"]).ToString();
                     }
                 }
 

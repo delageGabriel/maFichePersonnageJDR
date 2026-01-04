@@ -1,12 +1,91 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Utilisateur/source/repos/maFichePersonnageJDR/maFichePersonnageJDR/bdd/20231109_bdd_fiche_perso.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="4592"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,9:mainNEW_ARMES"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="APTITUDES" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="175"/><column index="3" value="88"/><column index="4" value="79"/><column index="5" value="165"/><column index="6" value="216"/><column index="7" value="124"/><column index="8" value="137"/><column index="9" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="NEW_ARMES" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort><column index="1" mode="0"/></sort><column_widths><column index="1" value="47"/><column index="2" value="108"/><column index="3" value="206"/><column index="4" value="274"/><column index="5" value="112"/><column index="6" value="106"/><column index="7" value="112"/><column index="8" value="94"/><column index="9" value="120"/><column index="10" value="90"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">CREATE TABLE NEW_ARMES (
-    id_arme INTEGER PRIMARY KEY,
-    nom_arme TEXT NOT NULL,
-    type_arme TEXT NOT NULL,
-    pre_requis_utilisation_arme TEXT,
-    mains_arme TEXT,
-    portee_arme TEXT,
-    poids_arme INTEGER,
-    degats_arme TEXT,
-    jet_degats_arme TEXT,
-    valeur_arme INTEGER
-);</sql><current_tab id="0"/></tab_sql></sqlb_project>
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Utilisateur/source/repos/maFichePersonnageJDR/maFichePersonnageJDR/bdd/20231109_bdd_fiche_perso.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="5377"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,6:mainOBJETS"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="APTITUDES" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="175"/><column index="3" value="88"/><column index="4" value="79"/><column index="5" value="165"/><column index="6" value="216"/><column index="7" value="124"/><column index="8" value="137"/><column index="9" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="OBJETS" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="68"/><column index="2" value="303"/><column index="3" value="84"/><column index="4" value="91"/><column index="5" value="300"/><column index="6" value="80"/><column index="7" value="391"/><column index="8" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">BEGIN TRANSACTION;
+
+INSERT INTO OBJETS
+(id_objets, nom_objet, poids_objet, valeur_objet, type_objet, consommable_objet, effet_objet)
+VALUES
+(1,'Torche',0.5,3,'Normal','Oui','1. Éclaire 9 mètres autour de l’utilisateur'),
+(2,'Corde en chanvre',1.0,7,'Normal','Non','1. Permet de descendre ou de monter une paroi'),
+(4,'Sac à dos',1.0,10,'Normal','Non','Aucun'),
+(5,'Tente',5.0,50,'Normal','Non','1. Elle peut abriter jusqu''à cinq personnes.'),
+(6,'Mouchoir',0.02,0,'Normal','Oui','Aucun'),
+(7,'Couteau',0.3,15,'Normal','Non','1. Peut servir d’arme improvisée'),
+(8,'Gourde',0.5,5,'Normal','Non','1. Contient jusqu’à 2 litres de liquide'),
+(9,'Boussole',0.2,20,'Normal','Non','1. Indique le nord'),
+(10,'Carte',0.1,10,'Normal','Non','1. Représente la zone explorée'),
+(11,'Livre ancien',1.2,40,'Normal','Non','1. Peut contenir des informations rares'),
+(12,'Clé rouillée',0.1,1,'Normal','Non','1. Ouvre une serrure inconnue'),
+(13,'Marteau',1.5,18,'Normal','Non','1. Utile pour l’artisanat'),
+(14,'Pioche',2.5,25,'Normal','Non','1. Permet de miner'),
+(15,'Hache',3.0,30,'Normal','Non','1. Coupe le bois'),
+(16,'Flûte',0.4,12,'Normal','Non','1. Produit une musique apaisante'),
+(17,'Anneau ancien',0.05,200,'Rare','Non','1. Objet mystérieux'),
+(18,'Bougie',0.2,2,'Normal','Oui','1. Éclaire faiblement'),
+(19,'Pain',0.3,1,'Normal','Oui','1. Restaure légèrement la faim'),
+(20,'Fromage',0.4,3,'Normal','Oui','1. Restaure la faim'),
+(21,'Viande séchée',0.6,5,'Normal','Oui','1. Restaure bien la faim'),
+(22,'Herbes médicinales',0.2,8,'Normal','Oui','1. Peuvent être utilisées pour soigner'),
+(23,'Bandages',0.3,10,'Normal','Oui','1. Soigne des blessures légères'),
+(24,'Livre de sorts',1.5,150,'Rare','Non','1. Permet d’apprendre un sort'),
+(25,'Parchemin de feu',0.25,100,'Magique','Oui','1. Lance un sort de feu'),
+(26,'Parchemin de glace',0.25,100,'Magique','Oui','1. Lance un sort de glace'),
+(27,'Parchemin de foudre',0.25,120,'Magique','Oui','1. Lance un sort de foudre'),
+(28,'Bague de force',0.1,300,'Rare','Non','1. Augmente la force'),
+(29,'Amulette de protection',0.2,350,'Rare','Non','1. Augmente la défense'),
+(30,'Casque',2.0,40,'Équipement','Non','1. Protège la tête'),
+(31,'Plastron',5.0,100,'Équipement','Non','1. Protège le torse'),
+(32,'Jambières',3.5,70,'Équipement','Non','1. Protège les jambes'),
+(33,'Bottes',2.0,50,'Équipement','Non','1. Protège les pieds'),
+(34,'Gants',0.8,25,'Équipement','Non','1. Protège les mains'),
+(35,'Arc',2.5,60,'Arme','Non','1. Arme à distance'),
+(36,'Flèches',1.0,15,'Arme','Oui','1. Munitions pour arc'),
+(37,'Arbalète',4.0,90,'Arme','Non','1. Arme à distance puissante'),
+(38,'Carreaux',1.2,20,'Arme','Oui','1. Munitions pour arbalète'),
+(39,'Bouclier',4.5,80,'Équipement','Non','1. Bloque les attaques'),
+(40,'Potion de vitesse',1.0,70,'Potion','Oui','1. Augmente la vitesse'),
+(41,'Potion de force',1.0,90,'Potion','Oui','1. Augmente la force'),
+(42,'Potion de défense',1.0,90,'Potion','Oui','1. Augmente la défense'),
+(43,'Clef magique',0.1,200,'Rare','Non','1. Ouvre toutes les serrures'),
+(44,'Cristal',0.5,60,'Ressource','Non','1. Utilisé pour l’enchantement'),
+(45,'Pierre runique',1.0,120,'Ressource','Non','1. Contient une rune magique'),
+(46,'Grimoire',2.0,180,'Magique','Non','1. Livre de magie avancée'),
+(47,'Parchemin de soin',0.25,80,'Magique','Oui','1. Soigne le lanceur'),
+(48,'Parchemin de protection',0.25,90,'Magique','Oui','1. Confère une protection'),
+(49,'Parchemin de téléportation',0.25,150,'Magique','Oui','1. Téléporte l’utilisateur'),
+(50,'Lingot d’or',2.0,300,'Ressource','Non','1. Valeur marchande élevée'),
+(51,'Lingot d’argent',2.0,150,'Ressource','Non','1. Valeur marchande'),
+(52,'Gemmes',0.5,250,'Ressource','Non','1. Utilisées en artisanat'),
+(53,'Perle',0.2,100,'Ressource','Non','1. Objet précieux'),
+(54,'Corne',1.0,20,'Ressource','Non','1. Matériau brut'),
+(55,'Fourrure',2.0,35,'Ressource','Non','1. Matériau de fabrication'),
+(56,'Parchemin d’air',0.25,100,'Magique','Oui','1. Enchantement d’air'),
+(57,'Parchemin d’eau',0.25,100,'Magique','Oui','1. Enchantement d’eau'),
+(58,'Potion de vie',1.0,80,'Potion','Oui','1. Rend 50% des points de vie'),
+(59,'Potion de mana',1.0,80,'Potion','Oui','1. Rend 50% des points de mana'),
+(60,'Potion de bouclier',1.0,60,'Potion','Oui','1. Confère +2 défense pendant 10 minutes'),
+(61,'Ivoire',1.5,30,'Ressource','Non','Aucun');
+
+COMMIT;
+
+
+SELECT nom_objet
+FROM OBJETS
+WHERE type_objet = 'Normal';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
