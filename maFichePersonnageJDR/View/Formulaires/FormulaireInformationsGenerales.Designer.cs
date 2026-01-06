@@ -45,18 +45,26 @@ namespace maFichePersonnageJDR.Formulaires
             this.tabCtrlGeneral = new System.Windows.Forms.TabControl();
             this.tabPgeInfosGenerales = new System.Windows.Forms.TabPage();
             this.pnlAttributsPersonnalites = new System.Windows.Forms.Panel();
-            this.txtBxOmbre = new System.Windows.Forms.TextBox();
-            this.lblOmbre = new System.Windows.Forms.Label();
-            this.txtBxArchetype = new System.Windows.Forms.TextBox();
-            this.lblArchetype = new System.Windows.Forms.Label();
+            this.flpAttributesPersonnages = new System.Windows.Forms.FlowLayoutPanel();
+            this.chkLBxAttributesPersonnages = new System.Windows.Forms.CheckedListBox();
+            this.txtBxDesirsCaches = new System.Windows.Forms.TextBox();
+            this.lblDesirsCaches = new System.Windows.Forms.Label();
+            this.txtBxTraitPersonnalite = new System.Windows.Forms.TextBox();
+            this.lblTraitsPersonnalites = new System.Windows.Forms.Label();
             this.lblAttributs = new System.Windows.Forms.Label();
             this.tbCtrlAttribut = new System.Windows.Forms.TabControl();
             this.tbPgeCombat = new System.Windows.Forms.TabPage();
+            this.flpAttributesCombat = new System.Windows.Forms.FlowLayoutPanel();
             this.tbPgeSurvie = new System.Windows.Forms.TabPage();
+            this.flpAttributesSurvie = new System.Windows.Forms.FlowLayoutPanel();
             this.tbPgeMobiliteExploration = new System.Windows.Forms.TabPage();
+            this.flpAttributesMobiliteExploration = new System.Windows.Forms.FlowLayoutPanel();
             this.tbPgeSociaux = new System.Windows.Forms.TabPage();
+            this.flpAttributesSociaux = new System.Windows.Forms.FlowLayoutPanel();
             this.tbPgeMystiquesOccultes = new System.Windows.Forms.TabPage();
+            this.flpAttributesMystiquesOccultes = new System.Windows.Forms.FlowLayoutPanel();
             this.tbPgeTechniquesArtisanaux = new System.Windows.Forms.TabPage();
+            this.flpAttributesTechniquesArtisanaux = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlInfosGenerales = new System.Windows.Forms.Panel();
             this.txtBxObjctfMajeur = new System.Windows.Forms.TextBox();
             this.lblObjectifsMajeur = new System.Windows.Forms.Label();
@@ -239,6 +247,21 @@ namespace maFichePersonnageJDR.Formulaires
             this.chkLBxObjetsInventaire = new System.Windows.Forms.CheckedListBox();
             this.lblInventaire = new System.Windows.Forms.Label();
             this.pnlObjets = new System.Windows.Forms.Panel();
+            this.tcObjets = new System.Windows.Forms.TabControl();
+            this.tpObjetNormal = new System.Windows.Forms.TabPage();
+            this.flpObjetNormal = new System.Windows.Forms.FlowLayoutPanel();
+            this.tpObjetRare = new System.Windows.Forms.TabPage();
+            this.flpObjetRare = new System.Windows.Forms.FlowLayoutPanel();
+            this.tpObjetMagique = new System.Windows.Forms.TabPage();
+            this.flpObjetMagique = new System.Windows.Forms.FlowLayoutPanel();
+            this.tpObjetMunition = new System.Windows.Forms.TabPage();
+            this.flpObjetMunition = new System.Windows.Forms.FlowLayoutPanel();
+            this.tpObjetAccessoire = new System.Windows.Forms.TabPage();
+            this.flpObjetAccessoire = new System.Windows.Forms.FlowLayoutPanel();
+            this.tpObjetMateriau = new System.Windows.Forms.TabPage();
+            this.flpObjetMateriau = new System.Windows.Forms.FlowLayoutPanel();
+            this.tpObjetPotion = new System.Windows.Forms.TabPage();
+            this.flpObjetPotion = new System.Windows.Forms.FlowLayoutPanel();
             this.lblObjets = new System.Windows.Forms.Label();
             this.pnlArmures = new System.Windows.Forms.Panel();
             this.tbCtrlArmures = new System.Windows.Forms.TabControl();
@@ -272,42 +295,27 @@ namespace maFichePersonnageJDR.Formulaires
             this.cbBxTaille = new System.Windows.Forms.ComboBox();
             this.txtBxSexe = new System.Windows.Forms.TextBox();
             this.pnlMonnaie = new System.Windows.Forms.Panel();
-            this.btnAjouter = new System.Windows.Forms.Button();
-            this.txtBxCuivre = new System.Windows.Forms.TextBox();
-            this.txtBxArgent = new System.Windows.Forms.TextBox();
-            this.txtPieceOr = new System.Windows.Forms.TextBox();
-            this.txtBxDevise = new System.Windows.Forms.TextBox();
+            this.nudPieceCuivre = new System.Windows.Forms.NumericUpDown();
+            this.nudPieceArgent = new System.Windows.Forms.NumericUpDown();
+            this.nudPieceOr = new System.Windows.Forms.NumericUpDown();
+            this.lblPieceCuivre = new System.Windows.Forms.Label();
+            this.lblPieceArgent = new System.Windows.Forms.Label();
+            this.lblPieceOr = new System.Windows.Forms.Label();
             this.lblMonnaie = new System.Windows.Forms.Label();
             this.pnlPoids = new System.Windows.Forms.Panel();
             this.pnlCarres = new System.Windows.Forms.Panel();
+            this.lblValeurPoidsSurcharge = new System.Windows.Forms.Label();
+            this.lblValeurPoidsMaximal = new System.Windows.Forms.Label();
+            this.lblValeurPoidsPorte = new System.Windows.Forms.Label();
+            this.lblPoidsSurcharge = new System.Windows.Forms.Label();
+            this.lblPoidsMaximal = new System.Windows.Forms.Label();
+            this.lblPoidsPorte = new System.Windows.Forms.Label();
             this.lblPoids = new System.Windows.Forms.Label();
-            this.tcObjets = new System.Windows.Forms.TabControl();
-            this.tpObjetNormal = new System.Windows.Forms.TabPage();
-            this.flpObjetNormal = new System.Windows.Forms.FlowLayoutPanel();
-            this.tpObjetRare = new System.Windows.Forms.TabPage();
-            this.flpObjetRare = new System.Windows.Forms.FlowLayoutPanel();
-            this.tpObjetMagique = new System.Windows.Forms.TabPage();
-            this.flpObjetMagique = new System.Windows.Forms.FlowLayoutPanel();
-            this.tpObjetMunition = new System.Windows.Forms.TabPage();
-            this.flpObjetMunition = new System.Windows.Forms.FlowLayoutPanel();
-            this.tpObjetAccessoire = new System.Windows.Forms.TabPage();
-            this.flpObjetAccessoire = new System.Windows.Forms.FlowLayoutPanel();
-            this.tpObjetMateriau = new System.Windows.Forms.TabPage();
-            this.flpObjetMateriau = new System.Windows.Forms.FlowLayoutPanel();
-            this.tpObjetPotion = new System.Windows.Forms.TabPage();
-            this.flpObjetPotion = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpAttributesCombat = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpAttributesSurvie = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpAttributesMobiliteExploration = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpAttributesSociaux = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpAttributesMystiquesOccultes = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpAttributesTechniquesArtisanaux = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpAttributesPersonnages = new System.Windows.Forms.FlowLayoutPanel();
-            this.chkLBxAttributesPersonnages = new System.Windows.Forms.CheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudNiveau)).BeginInit();
             this.tabCtrlGeneral.SuspendLayout();
             this.tabPgeInfosGenerales.SuspendLayout();
             this.pnlAttributsPersonnalites.SuspendLayout();
+            this.flpAttributesPersonnages.SuspendLayout();
             this.tbCtrlAttribut.SuspendLayout();
             this.tbPgeCombat.SuspendLayout();
             this.tbPgeSurvie.SuspendLayout();
@@ -382,6 +390,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbPgeArmures.SuspendLayout();
             this.tbPgeObjets.SuspendLayout();
             this.pnlObjets.SuspendLayout();
+            this.tcObjets.SuspendLayout();
+            this.tpObjetNormal.SuspendLayout();
+            this.tpObjetRare.SuspendLayout();
+            this.tpObjetMagique.SuspendLayout();
+            this.tpObjetMunition.SuspendLayout();
+            this.tpObjetAccessoire.SuspendLayout();
+            this.tpObjetMateriau.SuspendLayout();
+            this.tpObjetPotion.SuspendLayout();
             this.pnlArmures.SuspendLayout();
             this.tbCtrlArmures.SuspendLayout();
             this.tpOrganique.SuspendLayout();
@@ -398,16 +414,11 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbPgeArmeFabuleuse.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             this.pnlMonnaie.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPieceCuivre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPieceArgent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPieceOr)).BeginInit();
             this.pnlPoids.SuspendLayout();
-            this.tcObjets.SuspendLayout();
-            this.tpObjetNormal.SuspendLayout();
-            this.tpObjetRare.SuspendLayout();
-            this.tpObjetMagique.SuspendLayout();
-            this.tpObjetMunition.SuspendLayout();
-            this.tpObjetAccessoire.SuspendLayout();
-            this.tpObjetMateriau.SuspendLayout();
-            this.tpObjetPotion.SuspendLayout();
-            this.flpAttributesPersonnages.SuspendLayout();
+            this.pnlCarres.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblPrenom
@@ -565,10 +576,10 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlAttributsPersonnalites.BackColor = System.Drawing.SystemColors.Control;
             this.pnlAttributsPersonnalites.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlAttributsPersonnalites.Controls.Add(this.flpAttributesPersonnages);
-            this.pnlAttributsPersonnalites.Controls.Add(this.txtBxOmbre);
-            this.pnlAttributsPersonnalites.Controls.Add(this.lblOmbre);
-            this.pnlAttributsPersonnalites.Controls.Add(this.txtBxArchetype);
-            this.pnlAttributsPersonnalites.Controls.Add(this.lblArchetype);
+            this.pnlAttributsPersonnalites.Controls.Add(this.txtBxDesirsCaches);
+            this.pnlAttributsPersonnalites.Controls.Add(this.lblDesirsCaches);
+            this.pnlAttributsPersonnalites.Controls.Add(this.txtBxTraitPersonnalite);
+            this.pnlAttributsPersonnalites.Controls.Add(this.lblTraitsPersonnalites);
             this.pnlAttributsPersonnalites.Controls.Add(this.lblAttributs);
             this.pnlAttributsPersonnalites.Controls.Add(this.tbCtrlAttribut);
             this.pnlAttributsPersonnalites.Dock = System.Windows.Forms.DockStyle.Right;
@@ -577,41 +588,60 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlAttributsPersonnalites.Size = new System.Drawing.Size(399, 526);
             this.pnlAttributsPersonnalites.TabIndex = 42;
             // 
-            // txtBxOmbre
+            // flpAttributesPersonnages
             // 
-            this.txtBxOmbre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBxOmbre.Location = new System.Drawing.Point(17, 481);
-            this.txtBxOmbre.Name = "txtBxOmbre";
-            this.txtBxOmbre.Size = new System.Drawing.Size(345, 23);
-            this.txtBxOmbre.TabIndex = 53;
+            this.flpAttributesPersonnages.AutoScroll = true;
+            this.flpAttributesPersonnages.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.flpAttributesPersonnages.Controls.Add(this.chkLBxAttributesPersonnages);
+            this.flpAttributesPersonnages.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpAttributesPersonnages.Location = new System.Drawing.Point(21, 228);
+            this.flpAttributesPersonnages.Name = "flpAttributesPersonnages";
+            this.flpAttributesPersonnages.Size = new System.Drawing.Size(345, 115);
+            this.flpAttributesPersonnages.TabIndex = 55;
             // 
-            // lblOmbre
+            // chkLBxAttributesPersonnages
             // 
-            this.lblOmbre.AutoSize = true;
-            this.lblOmbre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOmbre.Location = new System.Drawing.Point(17, 455);
-            this.lblOmbre.Name = "lblOmbre";
-            this.lblOmbre.Size = new System.Drawing.Size(57, 20);
-            this.lblOmbre.TabIndex = 54;
-            this.lblOmbre.Text = "Ombre";
+            this.chkLBxAttributesPersonnages.FormattingEnabled = true;
+            this.chkLBxAttributesPersonnages.Location = new System.Drawing.Point(3, 3);
+            this.chkLBxAttributesPersonnages.Name = "chkLBxAttributesPersonnages";
+            this.chkLBxAttributesPersonnages.Size = new System.Drawing.Size(338, 109);
+            this.chkLBxAttributesPersonnages.TabIndex = 0;
             // 
-            // txtBxArchetype
+            // txtBxDesirsCaches
             // 
-            this.txtBxArchetype.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBxArchetype.Location = new System.Drawing.Point(17, 426);
-            this.txtBxArchetype.Name = "txtBxArchetype";
-            this.txtBxArchetype.Size = new System.Drawing.Size(345, 23);
-            this.txtBxArchetype.TabIndex = 52;
+            this.txtBxDesirsCaches.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBxDesirsCaches.Location = new System.Drawing.Point(17, 481);
+            this.txtBxDesirsCaches.Name = "txtBxDesirsCaches";
+            this.txtBxDesirsCaches.Size = new System.Drawing.Size(345, 23);
+            this.txtBxDesirsCaches.TabIndex = 53;
             // 
-            // lblArchetype
+            // lblDesirsCaches
             // 
-            this.lblArchetype.AutoSize = true;
-            this.lblArchetype.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArchetype.Location = new System.Drawing.Point(17, 400);
-            this.lblArchetype.Name = "lblArchetype";
-            this.lblArchetype.Size = new System.Drawing.Size(81, 20);
-            this.lblArchetype.TabIndex = 52;
-            this.lblArchetype.Text = "Archétype";
+            this.lblDesirsCaches.AutoSize = true;
+            this.lblDesirsCaches.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDesirsCaches.Location = new System.Drawing.Point(17, 455);
+            this.lblDesirsCaches.Name = "lblDesirsCaches";
+            this.lblDesirsCaches.Size = new System.Drawing.Size(109, 20);
+            this.lblDesirsCaches.TabIndex = 54;
+            this.lblDesirsCaches.Text = "Désirs cachés";
+            // 
+            // txtBxTraitPersonnalite
+            // 
+            this.txtBxTraitPersonnalite.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBxTraitPersonnalite.Location = new System.Drawing.Point(17, 426);
+            this.txtBxTraitPersonnalite.Name = "txtBxTraitPersonnalite";
+            this.txtBxTraitPersonnalite.Size = new System.Drawing.Size(345, 23);
+            this.txtBxTraitPersonnalite.TabIndex = 52;
+            // 
+            // lblTraitsPersonnalites
+            // 
+            this.lblTraitsPersonnalites.AutoSize = true;
+            this.lblTraitsPersonnalites.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTraitsPersonnalites.Location = new System.Drawing.Point(17, 400);
+            this.lblTraitsPersonnalites.Name = "lblTraitsPersonnalites";
+            this.lblTraitsPersonnalites.Size = new System.Drawing.Size(169, 20);
+            this.lblTraitsPersonnalites.TabIndex = 52;
+            this.lblTraitsPersonnalites.Text = "Traits de personnalités";
             // 
             // lblAttributs
             // 
@@ -650,6 +680,16 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbPgeCombat.TabIndex = 0;
             this.tbPgeCombat.Text = "Combat";
             // 
+            // flpAttributesCombat
+            // 
+            this.flpAttributesCombat.AutoScroll = true;
+            this.flpAttributesCombat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpAttributesCombat.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpAttributesCombat.Location = new System.Drawing.Point(3, 3);
+            this.flpAttributesCombat.Name = "flpAttributesCombat";
+            this.flpAttributesCombat.Size = new System.Drawing.Size(331, 159);
+            this.flpAttributesCombat.TabIndex = 1;
+            // 
             // tbPgeSurvie
             // 
             this.tbPgeSurvie.Controls.Add(this.flpAttributesSurvie);
@@ -660,6 +700,16 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbPgeSurvie.Text = "Survie";
             this.tbPgeSurvie.UseVisualStyleBackColor = true;
             // 
+            // flpAttributesSurvie
+            // 
+            this.flpAttributesSurvie.AutoScroll = true;
+            this.flpAttributesSurvie.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpAttributesSurvie.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpAttributesSurvie.Location = new System.Drawing.Point(0, 0);
+            this.flpAttributesSurvie.Name = "flpAttributesSurvie";
+            this.flpAttributesSurvie.Size = new System.Drawing.Size(337, 165);
+            this.flpAttributesSurvie.TabIndex = 1;
+            // 
             // tbPgeMobiliteExploration
             // 
             this.tbPgeMobiliteExploration.Controls.Add(this.flpAttributesMobiliteExploration);
@@ -667,8 +717,18 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbPgeMobiliteExploration.Name = "tbPgeMobiliteExploration";
             this.tbPgeMobiliteExploration.Size = new System.Drawing.Size(337, 165);
             this.tbPgeMobiliteExploration.TabIndex = 2;
-            this.tbPgeMobiliteExploration.Text = "Mobilité & Exploration";
+            this.tbPgeMobiliteExploration.Text = "Mobilité et Exploration";
             this.tbPgeMobiliteExploration.UseVisualStyleBackColor = true;
+            // 
+            // flpAttributesMobiliteExploration
+            // 
+            this.flpAttributesMobiliteExploration.AutoScroll = true;
+            this.flpAttributesMobiliteExploration.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpAttributesMobiliteExploration.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpAttributesMobiliteExploration.Location = new System.Drawing.Point(0, 0);
+            this.flpAttributesMobiliteExploration.Name = "flpAttributesMobiliteExploration";
+            this.flpAttributesMobiliteExploration.Size = new System.Drawing.Size(337, 165);
+            this.flpAttributesMobiliteExploration.TabIndex = 1;
             // 
             // tbPgeSociaux
             // 
@@ -680,6 +740,16 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbPgeSociaux.Text = "Sociaux";
             this.tbPgeSociaux.UseVisualStyleBackColor = true;
             // 
+            // flpAttributesSociaux
+            // 
+            this.flpAttributesSociaux.AutoScroll = true;
+            this.flpAttributesSociaux.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpAttributesSociaux.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpAttributesSociaux.Location = new System.Drawing.Point(0, 0);
+            this.flpAttributesSociaux.Name = "flpAttributesSociaux";
+            this.flpAttributesSociaux.Size = new System.Drawing.Size(337, 165);
+            this.flpAttributesSociaux.TabIndex = 1;
+            // 
             // tbPgeMystiquesOccultes
             // 
             this.tbPgeMystiquesOccultes.Controls.Add(this.flpAttributesMystiquesOccultes);
@@ -687,8 +757,18 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbPgeMystiquesOccultes.Name = "tbPgeMystiquesOccultes";
             this.tbPgeMystiquesOccultes.Size = new System.Drawing.Size(337, 165);
             this.tbPgeMystiquesOccultes.TabIndex = 4;
-            this.tbPgeMystiquesOccultes.Text = "Mystiques & Occultes";
+            this.tbPgeMystiquesOccultes.Text = "Mystiques et Occultes";
             this.tbPgeMystiquesOccultes.UseVisualStyleBackColor = true;
+            // 
+            // flpAttributesMystiquesOccultes
+            // 
+            this.flpAttributesMystiquesOccultes.AutoScroll = true;
+            this.flpAttributesMystiquesOccultes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpAttributesMystiquesOccultes.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpAttributesMystiquesOccultes.Location = new System.Drawing.Point(0, 0);
+            this.flpAttributesMystiquesOccultes.Name = "flpAttributesMystiquesOccultes";
+            this.flpAttributesMystiquesOccultes.Size = new System.Drawing.Size(337, 165);
+            this.flpAttributesMystiquesOccultes.TabIndex = 1;
             // 
             // tbPgeTechniquesArtisanaux
             // 
@@ -697,8 +777,18 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbPgeTechniquesArtisanaux.Name = "tbPgeTechniquesArtisanaux";
             this.tbPgeTechniquesArtisanaux.Size = new System.Drawing.Size(337, 165);
             this.tbPgeTechniquesArtisanaux.TabIndex = 5;
-            this.tbPgeTechniquesArtisanaux.Text = "Techniques & artisanaux";
+            this.tbPgeTechniquesArtisanaux.Text = "Techniques et artisanaux";
             this.tbPgeTechniquesArtisanaux.UseVisualStyleBackColor = true;
+            // 
+            // flpAttributesTechniquesArtisanaux
+            // 
+            this.flpAttributesTechniquesArtisanaux.AutoScroll = true;
+            this.flpAttributesTechniquesArtisanaux.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpAttributesTechniquesArtisanaux.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpAttributesTechniquesArtisanaux.Location = new System.Drawing.Point(0, 0);
+            this.flpAttributesTechniquesArtisanaux.Name = "flpAttributesTechniquesArtisanaux";
+            this.flpAttributesTechniquesArtisanaux.Size = new System.Drawing.Size(337, 165);
+            this.flpAttributesTechniquesArtisanaux.TabIndex = 1;
             // 
             // pnlInfosGenerales
             // 
@@ -2952,6 +3042,163 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlObjets.Size = new System.Drawing.Size(264, 299);
             this.pnlObjets.TabIndex = 26;
             // 
+            // tcObjets
+            // 
+            this.tcObjets.Controls.Add(this.tpObjetNormal);
+            this.tcObjets.Controls.Add(this.tpObjetRare);
+            this.tcObjets.Controls.Add(this.tpObjetMagique);
+            this.tcObjets.Controls.Add(this.tpObjetMunition);
+            this.tcObjets.Controls.Add(this.tpObjetAccessoire);
+            this.tcObjets.Controls.Add(this.tpObjetMateriau);
+            this.tcObjets.Controls.Add(this.tpObjetPotion);
+            this.tcObjets.Location = new System.Drawing.Point(7, 26);
+            this.tcObjets.Name = "tcObjets";
+            this.tcObjets.SelectedIndex = 0;
+            this.tcObjets.Size = new System.Drawing.Size(249, 268);
+            this.tcObjets.TabIndex = 24;
+            // 
+            // tpObjetNormal
+            // 
+            this.tpObjetNormal.Controls.Add(this.flpObjetNormal);
+            this.tpObjetNormal.Location = new System.Drawing.Point(4, 22);
+            this.tpObjetNormal.Name = "tpObjetNormal";
+            this.tpObjetNormal.Padding = new System.Windows.Forms.Padding(3);
+            this.tpObjetNormal.Size = new System.Drawing.Size(241, 242);
+            this.tpObjetNormal.TabIndex = 0;
+            this.tpObjetNormal.Text = "Normal";
+            this.tpObjetNormal.UseVisualStyleBackColor = true;
+            // 
+            // flpObjetNormal
+            // 
+            this.flpObjetNormal.AutoScroll = true;
+            this.flpObjetNormal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpObjetNormal.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpObjetNormal.Location = new System.Drawing.Point(3, 3);
+            this.flpObjetNormal.Name = "flpObjetNormal";
+            this.flpObjetNormal.Size = new System.Drawing.Size(235, 236);
+            this.flpObjetNormal.TabIndex = 1;
+            // 
+            // tpObjetRare
+            // 
+            this.tpObjetRare.Controls.Add(this.flpObjetRare);
+            this.tpObjetRare.Location = new System.Drawing.Point(4, 22);
+            this.tpObjetRare.Name = "tpObjetRare";
+            this.tpObjetRare.Padding = new System.Windows.Forms.Padding(3);
+            this.tpObjetRare.Size = new System.Drawing.Size(241, 242);
+            this.tpObjetRare.TabIndex = 1;
+            this.tpObjetRare.Text = "Rare";
+            this.tpObjetRare.UseVisualStyleBackColor = true;
+            // 
+            // flpObjetRare
+            // 
+            this.flpObjetRare.AutoScroll = true;
+            this.flpObjetRare.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpObjetRare.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpObjetRare.Location = new System.Drawing.Point(3, 3);
+            this.flpObjetRare.Name = "flpObjetRare";
+            this.flpObjetRare.Size = new System.Drawing.Size(235, 236);
+            this.flpObjetRare.TabIndex = 1;
+            // 
+            // tpObjetMagique
+            // 
+            this.tpObjetMagique.Controls.Add(this.flpObjetMagique);
+            this.tpObjetMagique.Location = new System.Drawing.Point(4, 22);
+            this.tpObjetMagique.Name = "tpObjetMagique";
+            this.tpObjetMagique.Size = new System.Drawing.Size(241, 242);
+            this.tpObjetMagique.TabIndex = 2;
+            this.tpObjetMagique.Text = "Magique";
+            this.tpObjetMagique.UseVisualStyleBackColor = true;
+            // 
+            // flpObjetMagique
+            // 
+            this.flpObjetMagique.AutoScroll = true;
+            this.flpObjetMagique.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpObjetMagique.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpObjetMagique.Location = new System.Drawing.Point(0, 0);
+            this.flpObjetMagique.Name = "flpObjetMagique";
+            this.flpObjetMagique.Size = new System.Drawing.Size(241, 242);
+            this.flpObjetMagique.TabIndex = 1;
+            // 
+            // tpObjetMunition
+            // 
+            this.tpObjetMunition.Controls.Add(this.flpObjetMunition);
+            this.tpObjetMunition.Location = new System.Drawing.Point(4, 22);
+            this.tpObjetMunition.Name = "tpObjetMunition";
+            this.tpObjetMunition.Size = new System.Drawing.Size(241, 242);
+            this.tpObjetMunition.TabIndex = 3;
+            this.tpObjetMunition.Text = "Munition";
+            this.tpObjetMunition.UseVisualStyleBackColor = true;
+            // 
+            // flpObjetMunition
+            // 
+            this.flpObjetMunition.AutoScroll = true;
+            this.flpObjetMunition.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpObjetMunition.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpObjetMunition.Location = new System.Drawing.Point(0, 0);
+            this.flpObjetMunition.Name = "flpObjetMunition";
+            this.flpObjetMunition.Size = new System.Drawing.Size(241, 242);
+            this.flpObjetMunition.TabIndex = 1;
+            // 
+            // tpObjetAccessoire
+            // 
+            this.tpObjetAccessoire.Controls.Add(this.flpObjetAccessoire);
+            this.tpObjetAccessoire.Location = new System.Drawing.Point(4, 22);
+            this.tpObjetAccessoire.Name = "tpObjetAccessoire";
+            this.tpObjetAccessoire.Size = new System.Drawing.Size(241, 242);
+            this.tpObjetAccessoire.TabIndex = 4;
+            this.tpObjetAccessoire.Text = "Accessoire";
+            this.tpObjetAccessoire.UseVisualStyleBackColor = true;
+            // 
+            // flpObjetAccessoire
+            // 
+            this.flpObjetAccessoire.AutoScroll = true;
+            this.flpObjetAccessoire.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpObjetAccessoire.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpObjetAccessoire.Location = new System.Drawing.Point(0, 0);
+            this.flpObjetAccessoire.Name = "flpObjetAccessoire";
+            this.flpObjetAccessoire.Size = new System.Drawing.Size(241, 242);
+            this.flpObjetAccessoire.TabIndex = 1;
+            // 
+            // tpObjetMateriau
+            // 
+            this.tpObjetMateriau.Controls.Add(this.flpObjetMateriau);
+            this.tpObjetMateriau.Location = new System.Drawing.Point(4, 22);
+            this.tpObjetMateriau.Name = "tpObjetMateriau";
+            this.tpObjetMateriau.Size = new System.Drawing.Size(241, 242);
+            this.tpObjetMateriau.TabIndex = 5;
+            this.tpObjetMateriau.Text = "Matériau";
+            this.tpObjetMateriau.UseVisualStyleBackColor = true;
+            // 
+            // flpObjetMateriau
+            // 
+            this.flpObjetMateriau.AutoScroll = true;
+            this.flpObjetMateriau.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpObjetMateriau.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpObjetMateriau.Location = new System.Drawing.Point(0, 0);
+            this.flpObjetMateriau.Name = "flpObjetMateriau";
+            this.flpObjetMateriau.Size = new System.Drawing.Size(241, 242);
+            this.flpObjetMateriau.TabIndex = 1;
+            // 
+            // tpObjetPotion
+            // 
+            this.tpObjetPotion.Controls.Add(this.flpObjetPotion);
+            this.tpObjetPotion.Location = new System.Drawing.Point(4, 22);
+            this.tpObjetPotion.Name = "tpObjetPotion";
+            this.tpObjetPotion.Size = new System.Drawing.Size(241, 242);
+            this.tpObjetPotion.TabIndex = 6;
+            this.tpObjetPotion.Text = "Potion";
+            this.tpObjetPotion.UseVisualStyleBackColor = true;
+            // 
+            // flpObjetPotion
+            // 
+            this.flpObjetPotion.AutoScroll = true;
+            this.flpObjetPotion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpObjetPotion.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpObjetPotion.Location = new System.Drawing.Point(0, 0);
+            this.flpObjetPotion.Name = "flpObjetPotion";
+            this.flpObjetPotion.Size = new System.Drawing.Size(241, 242);
+            this.flpObjetPotion.TabIndex = 2;
+            // 
             // lblObjets
             // 
             this.lblObjets.AutoSize = true;
@@ -3299,61 +3546,78 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.pnlMonnaie.AutoScroll = true;
             this.pnlMonnaie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlMonnaie.Controls.Add(this.btnAjouter);
-            this.pnlMonnaie.Controls.Add(this.txtBxCuivre);
-            this.pnlMonnaie.Controls.Add(this.txtBxArgent);
-            this.pnlMonnaie.Controls.Add(this.txtPieceOr);
-            this.pnlMonnaie.Controls.Add(this.txtBxDevise);
+            this.pnlMonnaie.Controls.Add(this.nudPieceCuivre);
+            this.pnlMonnaie.Controls.Add(this.nudPieceArgent);
+            this.pnlMonnaie.Controls.Add(this.nudPieceOr);
+            this.pnlMonnaie.Controls.Add(this.lblPieceCuivre);
+            this.pnlMonnaie.Controls.Add(this.lblPieceArgent);
+            this.pnlMonnaie.Controls.Add(this.lblPieceOr);
             this.pnlMonnaie.Controls.Add(this.lblMonnaie);
             this.pnlMonnaie.Location = new System.Drawing.Point(0, 63);
             this.pnlMonnaie.Name = "pnlMonnaie";
             this.pnlMonnaie.Size = new System.Drawing.Size(409, 151);
             this.pnlMonnaie.TabIndex = 49;
             // 
-            // btnAjouter
+            // nudPieceCuivre
             // 
-            this.btnAjouter.Location = new System.Drawing.Point(18, 33);
-            this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(75, 23);
-            this.btnAjouter.TabIndex = 58;
-            this.btnAjouter.Text = "Ajouter";
-            this.btnAjouter.UseVisualStyleBackColor = true;
+            this.nudPieceCuivre.Location = new System.Drawing.Point(258, 76);
+            this.nudPieceCuivre.Maximum = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+            this.nudPieceCuivre.Name = "nudPieceCuivre";
+            this.nudPieceCuivre.Size = new System.Drawing.Size(45, 20);
+            this.nudPieceCuivre.TabIndex = 59;
             // 
-            // txtBxCuivre
+            // nudPieceArgent
             // 
-            this.txtBxCuivre.Location = new System.Drawing.Point(300, 35);
-            this.txtBxCuivre.Name = "txtBxCuivre";
-            this.txtBxCuivre.Size = new System.Drawing.Size(55, 20);
-            this.txtBxCuivre.TabIndex = 57;
-            this.txtBxCuivre.Text = "Cuivre";
-            this.txtBxCuivre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nudPieceArgent.Location = new System.Drawing.Point(170, 76);
+            this.nudPieceArgent.Maximum = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+            this.nudPieceArgent.Name = "nudPieceArgent";
+            this.nudPieceArgent.Size = new System.Drawing.Size(45, 20);
+            this.nudPieceArgent.TabIndex = 58;
             // 
-            // txtBxArgent
+            // nudPieceOr
             // 
-            this.txtBxArgent.Location = new System.Drawing.Point(244, 35);
-            this.txtBxArgent.Name = "txtBxArgent";
-            this.txtBxArgent.Size = new System.Drawing.Size(57, 20);
-            this.txtBxArgent.TabIndex = 56;
-            this.txtBxArgent.Text = "Argent";
-            this.txtBxArgent.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nudPieceOr.Location = new System.Drawing.Point(81, 76);
+            this.nudPieceOr.Name = "nudPieceOr";
+            this.nudPieceOr.Size = new System.Drawing.Size(45, 20);
+            this.nudPieceOr.TabIndex = 57;
             // 
-            // txtPieceOr
+            // lblPieceCuivre
             // 
-            this.txtPieceOr.Location = new System.Drawing.Point(193, 35);
-            this.txtPieceOr.Name = "txtPieceOr";
-            this.txtPieceOr.Size = new System.Drawing.Size(52, 20);
-            this.txtPieceOr.TabIndex = 55;
-            this.txtPieceOr.Text = "Or";
-            this.txtPieceOr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lblPieceCuivre.AutoSize = true;
+            this.lblPieceCuivre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPieceCuivre.Location = new System.Drawing.Point(265, 41);
+            this.lblPieceCuivre.Name = "lblPieceCuivre";
+            this.lblPieceCuivre.Size = new System.Drawing.Size(30, 20);
+            this.lblPieceCuivre.TabIndex = 56;
+            this.lblPieceCuivre.Text = "PC";
             // 
-            // txtBxDevise
+            // lblPieceArgent
             // 
-            this.txtBxDevise.Location = new System.Drawing.Point(111, 35);
-            this.txtBxDevise.Name = "txtBxDevise";
-            this.txtBxDevise.Size = new System.Drawing.Size(83, 20);
-            this.txtBxDevise.TabIndex = 54;
-            this.txtBxDevise.Text = "Devise";
-            this.txtBxDevise.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lblPieceArgent.AutoSize = true;
+            this.lblPieceArgent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPieceArgent.Location = new System.Drawing.Point(177, 41);
+            this.lblPieceArgent.Name = "lblPieceArgent";
+            this.lblPieceArgent.Size = new System.Drawing.Size(30, 20);
+            this.lblPieceArgent.TabIndex = 55;
+            this.lblPieceArgent.Text = "PA";
+            // 
+            // lblPieceOr
+            // 
+            this.lblPieceOr.AutoSize = true;
+            this.lblPieceOr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPieceOr.Location = new System.Drawing.Point(88, 41);
+            this.lblPieceOr.Name = "lblPieceOr";
+            this.lblPieceOr.Size = new System.Drawing.Size(31, 20);
+            this.lblPieceOr.TabIndex = 54;
+            this.lblPieceOr.Text = "PO";
             // 
             // lblMonnaie
             // 
@@ -3381,10 +3645,76 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlCarres.AutoScroll = true;
             this.pnlCarres.BackColor = System.Drawing.Color.Transparent;
             this.pnlCarres.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlCarres.Controls.Add(this.lblValeurPoidsSurcharge);
+            this.pnlCarres.Controls.Add(this.lblValeurPoidsMaximal);
+            this.pnlCarres.Controls.Add(this.lblValeurPoidsPorte);
+            this.pnlCarres.Controls.Add(this.lblPoidsSurcharge);
+            this.pnlCarres.Controls.Add(this.lblPoidsMaximal);
+            this.pnlCarres.Controls.Add(this.lblPoidsPorte);
             this.pnlCarres.Location = new System.Drawing.Point(7, 25);
             this.pnlCarres.Name = "pnlCarres";
             this.pnlCarres.Size = new System.Drawing.Size(412, 121);
             this.pnlCarres.TabIndex = 55;
+            // 
+            // lblValeurPoidsSurcharge
+            // 
+            this.lblValeurPoidsSurcharge.AutoSize = true;
+            this.lblValeurPoidsSurcharge.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValeurPoidsSurcharge.Location = new System.Drawing.Point(265, 47);
+            this.lblValeurPoidsSurcharge.Name = "lblValeurPoidsSurcharge";
+            this.lblValeurPoidsSurcharge.Size = new System.Drawing.Size(27, 20);
+            this.lblValeurPoidsSurcharge.TabIndex = 62;
+            this.lblValeurPoidsSurcharge.Text = "38";
+            // 
+            // lblValeurPoidsMaximal
+            // 
+            this.lblValeurPoidsMaximal.AutoSize = true;
+            this.lblValeurPoidsMaximal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValeurPoidsMaximal.Location = new System.Drawing.Point(142, 47);
+            this.lblValeurPoidsMaximal.Name = "lblValeurPoidsMaximal";
+            this.lblValeurPoidsMaximal.Size = new System.Drawing.Size(27, 20);
+            this.lblValeurPoidsMaximal.TabIndex = 61;
+            this.lblValeurPoidsMaximal.Text = "32";
+            // 
+            // lblValeurPoidsPorte
+            // 
+            this.lblValeurPoidsPorte.AutoSize = true;
+            this.lblValeurPoidsPorte.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValeurPoidsPorte.Location = new System.Drawing.Point(39, 47);
+            this.lblValeurPoidsPorte.Name = "lblValeurPoidsPorte";
+            this.lblValeurPoidsPorte.Size = new System.Drawing.Size(18, 20);
+            this.lblValeurPoidsPorte.TabIndex = 60;
+            this.lblValeurPoidsPorte.Text = "0";
+            // 
+            // lblPoidsSurcharge
+            // 
+            this.lblPoidsSurcharge.AutoSize = true;
+            this.lblPoidsSurcharge.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPoidsSurcharge.Location = new System.Drawing.Point(265, 15);
+            this.lblPoidsSurcharge.Name = "lblPoidsSurcharge";
+            this.lblPoidsSurcharge.Size = new System.Drawing.Size(83, 20);
+            this.lblPoidsSurcharge.TabIndex = 59;
+            this.lblPoidsSurcharge.Text = "Surcharge";
+            // 
+            // lblPoidsMaximal
+            // 
+            this.lblPoidsMaximal.AutoSize = true;
+            this.lblPoidsMaximal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPoidsMaximal.Location = new System.Drawing.Point(142, 15);
+            this.lblPoidsMaximal.Name = "lblPoidsMaximal";
+            this.lblPoidsMaximal.Size = new System.Drawing.Size(117, 20);
+            this.lblPoidsMaximal.TabIndex = 58;
+            this.lblPoidsMaximal.Text = "Poids maximal /";
+            // 
+            // lblPoidsPorte
+            // 
+            this.lblPoidsPorte.AutoSize = true;
+            this.lblPoidsPorte.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPoidsPorte.Location = new System.Drawing.Point(39, 15);
+            this.lblPoidsPorte.Name = "lblPoidsPorte";
+            this.lblPoidsPorte.Size = new System.Drawing.Size(97, 20);
+            this.lblPoidsPorte.TabIndex = 57;
+            this.lblPoidsPorte.Text = "Poids porté /";
             // 
             // lblPoids
             // 
@@ -3395,242 +3725,6 @@ namespace maFichePersonnageJDR.Formulaires
             this.lblPoids.Size = new System.Drawing.Size(48, 20);
             this.lblPoids.TabIndex = 54;
             this.lblPoids.Text = "Poids";
-            // 
-            // tcObjets
-            // 
-            this.tcObjets.Controls.Add(this.tpObjetNormal);
-            this.tcObjets.Controls.Add(this.tpObjetRare);
-            this.tcObjets.Controls.Add(this.tpObjetMagique);
-            this.tcObjets.Controls.Add(this.tpObjetMunition);
-            this.tcObjets.Controls.Add(this.tpObjetAccessoire);
-            this.tcObjets.Controls.Add(this.tpObjetMateriau);
-            this.tcObjets.Controls.Add(this.tpObjetPotion);
-            this.tcObjets.Location = new System.Drawing.Point(7, 26);
-            this.tcObjets.Name = "tcObjets";
-            this.tcObjets.SelectedIndex = 0;
-            this.tcObjets.Size = new System.Drawing.Size(249, 268);
-            this.tcObjets.TabIndex = 24;
-            // 
-            // tpObjetNormal
-            // 
-            this.tpObjetNormal.Controls.Add(this.flpObjetNormal);
-            this.tpObjetNormal.Location = new System.Drawing.Point(4, 22);
-            this.tpObjetNormal.Name = "tpObjetNormal";
-            this.tpObjetNormal.Padding = new System.Windows.Forms.Padding(3);
-            this.tpObjetNormal.Size = new System.Drawing.Size(241, 242);
-            this.tpObjetNormal.TabIndex = 0;
-            this.tpObjetNormal.Text = "Normal";
-            this.tpObjetNormal.UseVisualStyleBackColor = true;
-            // 
-            // flpObjetNormal
-            // 
-            this.flpObjetNormal.AutoScroll = true;
-            this.flpObjetNormal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpObjetNormal.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpObjetNormal.Location = new System.Drawing.Point(3, 3);
-            this.flpObjetNormal.Name = "flpObjetNormal";
-            this.flpObjetNormal.Size = new System.Drawing.Size(235, 236);
-            this.flpObjetNormal.TabIndex = 1;
-            // 
-            // tpObjetRare
-            // 
-            this.tpObjetRare.Controls.Add(this.flpObjetRare);
-            this.tpObjetRare.Location = new System.Drawing.Point(4, 22);
-            this.tpObjetRare.Name = "tpObjetRare";
-            this.tpObjetRare.Padding = new System.Windows.Forms.Padding(3);
-            this.tpObjetRare.Size = new System.Drawing.Size(241, 242);
-            this.tpObjetRare.TabIndex = 1;
-            this.tpObjetRare.Text = "Rare";
-            this.tpObjetRare.UseVisualStyleBackColor = true;
-            // 
-            // flpObjetRare
-            // 
-            this.flpObjetRare.AutoScroll = true;
-            this.flpObjetRare.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpObjetRare.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpObjetRare.Location = new System.Drawing.Point(3, 3);
-            this.flpObjetRare.Name = "flpObjetRare";
-            this.flpObjetRare.Size = new System.Drawing.Size(235, 236);
-            this.flpObjetRare.TabIndex = 1;
-            // 
-            // tpObjetMagique
-            // 
-            this.tpObjetMagique.Controls.Add(this.flpObjetMagique);
-            this.tpObjetMagique.Location = new System.Drawing.Point(4, 22);
-            this.tpObjetMagique.Name = "tpObjetMagique";
-            this.tpObjetMagique.Size = new System.Drawing.Size(241, 242);
-            this.tpObjetMagique.TabIndex = 2;
-            this.tpObjetMagique.Text = "Magique";
-            this.tpObjetMagique.UseVisualStyleBackColor = true;
-            // 
-            // flpObjetMagique
-            // 
-            this.flpObjetMagique.AutoScroll = true;
-            this.flpObjetMagique.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpObjetMagique.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpObjetMagique.Location = new System.Drawing.Point(0, 0);
-            this.flpObjetMagique.Name = "flpObjetMagique";
-            this.flpObjetMagique.Size = new System.Drawing.Size(241, 242);
-            this.flpObjetMagique.TabIndex = 1;
-            // 
-            // tpObjetMunition
-            // 
-            this.tpObjetMunition.Controls.Add(this.flpObjetMunition);
-            this.tpObjetMunition.Location = new System.Drawing.Point(4, 22);
-            this.tpObjetMunition.Name = "tpObjetMunition";
-            this.tpObjetMunition.Size = new System.Drawing.Size(241, 242);
-            this.tpObjetMunition.TabIndex = 3;
-            this.tpObjetMunition.Text = "Munition";
-            this.tpObjetMunition.UseVisualStyleBackColor = true;
-            // 
-            // flpObjetMunition
-            // 
-            this.flpObjetMunition.AutoScroll = true;
-            this.flpObjetMunition.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpObjetMunition.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpObjetMunition.Location = new System.Drawing.Point(0, 0);
-            this.flpObjetMunition.Name = "flpObjetMunition";
-            this.flpObjetMunition.Size = new System.Drawing.Size(241, 242);
-            this.flpObjetMunition.TabIndex = 1;
-            // 
-            // tpObjetAccessoire
-            // 
-            this.tpObjetAccessoire.Controls.Add(this.flpObjetAccessoire);
-            this.tpObjetAccessoire.Location = new System.Drawing.Point(4, 22);
-            this.tpObjetAccessoire.Name = "tpObjetAccessoire";
-            this.tpObjetAccessoire.Size = new System.Drawing.Size(241, 242);
-            this.tpObjetAccessoire.TabIndex = 4;
-            this.tpObjetAccessoire.Text = "Accessoire";
-            this.tpObjetAccessoire.UseVisualStyleBackColor = true;
-            // 
-            // flpObjetAccessoire
-            // 
-            this.flpObjetAccessoire.AutoScroll = true;
-            this.flpObjetAccessoire.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpObjetAccessoire.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpObjetAccessoire.Location = new System.Drawing.Point(0, 0);
-            this.flpObjetAccessoire.Name = "flpObjetAccessoire";
-            this.flpObjetAccessoire.Size = new System.Drawing.Size(241, 242);
-            this.flpObjetAccessoire.TabIndex = 1;
-            // 
-            // tpObjetMateriau
-            // 
-            this.tpObjetMateriau.Controls.Add(this.flpObjetMateriau);
-            this.tpObjetMateriau.Location = new System.Drawing.Point(4, 22);
-            this.tpObjetMateriau.Name = "tpObjetMateriau";
-            this.tpObjetMateriau.Size = new System.Drawing.Size(241, 242);
-            this.tpObjetMateriau.TabIndex = 5;
-            this.tpObjetMateriau.Text = "Matériau";
-            this.tpObjetMateriau.UseVisualStyleBackColor = true;
-            // 
-            // flpObjetMateriau
-            // 
-            this.flpObjetMateriau.AutoScroll = true;
-            this.flpObjetMateriau.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpObjetMateriau.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpObjetMateriau.Location = new System.Drawing.Point(0, 0);
-            this.flpObjetMateriau.Name = "flpObjetMateriau";
-            this.flpObjetMateriau.Size = new System.Drawing.Size(241, 242);
-            this.flpObjetMateriau.TabIndex = 1;
-            // 
-            // tpObjetPotion
-            // 
-            this.tpObjetPotion.Controls.Add(this.flpObjetPotion);
-            this.tpObjetPotion.Location = new System.Drawing.Point(4, 22);
-            this.tpObjetPotion.Name = "tpObjetPotion";
-            this.tpObjetPotion.Size = new System.Drawing.Size(241, 242);
-            this.tpObjetPotion.TabIndex = 6;
-            this.tpObjetPotion.Text = "Potion";
-            this.tpObjetPotion.UseVisualStyleBackColor = true;
-            // 
-            // flpObjetPotion
-            // 
-            this.flpObjetPotion.AutoScroll = true;
-            this.flpObjetPotion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpObjetPotion.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpObjetPotion.Location = new System.Drawing.Point(0, 0);
-            this.flpObjetPotion.Name = "flpObjetPotion";
-            this.flpObjetPotion.Size = new System.Drawing.Size(241, 242);
-            this.flpObjetPotion.TabIndex = 2;
-            // 
-            // flpAttributesCombat
-            // 
-            this.flpAttributesCombat.AutoScroll = true;
-            this.flpAttributesCombat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpAttributesCombat.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpAttributesCombat.Location = new System.Drawing.Point(3, 3);
-            this.flpAttributesCombat.Name = "flpAttributesCombat";
-            this.flpAttributesCombat.Size = new System.Drawing.Size(331, 159);
-            this.flpAttributesCombat.TabIndex = 1;
-            // 
-            // flpAttributesSurvie
-            // 
-            this.flpAttributesSurvie.AutoScroll = true;
-            this.flpAttributesSurvie.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpAttributesSurvie.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpAttributesSurvie.Location = new System.Drawing.Point(0, 0);
-            this.flpAttributesSurvie.Name = "flpAttributesSurvie";
-            this.flpAttributesSurvie.Size = new System.Drawing.Size(337, 165);
-            this.flpAttributesSurvie.TabIndex = 1;
-            // 
-            // flpAttributesMobiliteExploration
-            // 
-            this.flpAttributesMobiliteExploration.AutoScroll = true;
-            this.flpAttributesMobiliteExploration.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpAttributesMobiliteExploration.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpAttributesMobiliteExploration.Location = new System.Drawing.Point(0, 0);
-            this.flpAttributesMobiliteExploration.Name = "flpAttributesMobiliteExploration";
-            this.flpAttributesMobiliteExploration.Size = new System.Drawing.Size(337, 165);
-            this.flpAttributesMobiliteExploration.TabIndex = 1;
-            // 
-            // flpAttributesSociaux
-            // 
-            this.flpAttributesSociaux.AutoScroll = true;
-            this.flpAttributesSociaux.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpAttributesSociaux.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpAttributesSociaux.Location = new System.Drawing.Point(0, 0);
-            this.flpAttributesSociaux.Name = "flpAttributesSociaux";
-            this.flpAttributesSociaux.Size = new System.Drawing.Size(337, 165);
-            this.flpAttributesSociaux.TabIndex = 1;
-            // 
-            // flpAttributesMystiquesOccultes
-            // 
-            this.flpAttributesMystiquesOccultes.AutoScroll = true;
-            this.flpAttributesMystiquesOccultes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpAttributesMystiquesOccultes.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpAttributesMystiquesOccultes.Location = new System.Drawing.Point(0, 0);
-            this.flpAttributesMystiquesOccultes.Name = "flpAttributesMystiquesOccultes";
-            this.flpAttributesMystiquesOccultes.Size = new System.Drawing.Size(337, 165);
-            this.flpAttributesMystiquesOccultes.TabIndex = 1;
-            // 
-            // flpAttributesTechniquesArtisanaux
-            // 
-            this.flpAttributesTechniquesArtisanaux.AutoScroll = true;
-            this.flpAttributesTechniquesArtisanaux.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpAttributesTechniquesArtisanaux.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpAttributesTechniquesArtisanaux.Location = new System.Drawing.Point(0, 0);
-            this.flpAttributesTechniquesArtisanaux.Name = "flpAttributesTechniquesArtisanaux";
-            this.flpAttributesTechniquesArtisanaux.Size = new System.Drawing.Size(337, 165);
-            this.flpAttributesTechniquesArtisanaux.TabIndex = 1;
-            // 
-            // flpAttributesPersonnages
-            // 
-            this.flpAttributesPersonnages.AutoScroll = true;
-            this.flpAttributesPersonnages.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.flpAttributesPersonnages.Controls.Add(this.chkLBxAttributesPersonnages);
-            this.flpAttributesPersonnages.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpAttributesPersonnages.Location = new System.Drawing.Point(21, 228);
-            this.flpAttributesPersonnages.Name = "flpAttributesPersonnages";
-            this.flpAttributesPersonnages.Size = new System.Drawing.Size(345, 115);
-            this.flpAttributesPersonnages.TabIndex = 55;
-            // 
-            // chkLBxAttributesPersonnages
-            // 
-            this.chkLBxAttributesPersonnages.FormattingEnabled = true;
-            this.chkLBxAttributesPersonnages.Location = new System.Drawing.Point(3, 3);
-            this.chkLBxAttributesPersonnages.Name = "chkLBxAttributesPersonnages";
-            this.chkLBxAttributesPersonnages.Size = new System.Drawing.Size(338, 109);
-            this.chkLBxAttributesPersonnages.TabIndex = 0;
             // 
             // FormulaireInfosGenerales
             // 
@@ -3653,6 +3747,7 @@ namespace maFichePersonnageJDR.Formulaires
             this.tabPgeInfosGenerales.ResumeLayout(false);
             this.pnlAttributsPersonnalites.ResumeLayout(false);
             this.pnlAttributsPersonnalites.PerformLayout();
+            this.flpAttributesPersonnages.ResumeLayout(false);
             this.tbCtrlAttribut.ResumeLayout(false);
             this.tbPgeCombat.ResumeLayout(false);
             this.tbPgeSurvie.ResumeLayout(false);
@@ -3739,6 +3834,14 @@ namespace maFichePersonnageJDR.Formulaires
             this.tbPgeObjets.ResumeLayout(false);
             this.pnlObjets.ResumeLayout(false);
             this.pnlObjets.PerformLayout();
+            this.tcObjets.ResumeLayout(false);
+            this.tpObjetNormal.ResumeLayout(false);
+            this.tpObjetRare.ResumeLayout(false);
+            this.tpObjetMagique.ResumeLayout(false);
+            this.tpObjetMunition.ResumeLayout(false);
+            this.tpObjetAccessoire.ResumeLayout(false);
+            this.tpObjetMateriau.ResumeLayout(false);
+            this.tpObjetPotion.ResumeLayout(false);
             this.pnlArmures.ResumeLayout(false);
             this.pnlArmures.PerformLayout();
             this.tbCtrlArmures.ResumeLayout(false);
@@ -3759,17 +3862,13 @@ namespace maFichePersonnageJDR.Formulaires
             this.pnlHeader.PerformLayout();
             this.pnlMonnaie.ResumeLayout(false);
             this.pnlMonnaie.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPieceCuivre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPieceArgent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPieceOr)).EndInit();
             this.pnlPoids.ResumeLayout(false);
             this.pnlPoids.PerformLayout();
-            this.tcObjets.ResumeLayout(false);
-            this.tpObjetNormal.ResumeLayout(false);
-            this.tpObjetRare.ResumeLayout(false);
-            this.tpObjetMagique.ResumeLayout(false);
-            this.tpObjetMunition.ResumeLayout(false);
-            this.tpObjetAccessoire.ResumeLayout(false);
-            this.tpObjetMateriau.ResumeLayout(false);
-            this.tpObjetPotion.ResumeLayout(false);
-            this.flpAttributesPersonnages.ResumeLayout(false);
+            this.pnlCarres.ResumeLayout(false);
+            this.pnlCarres.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3816,10 +3915,10 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Button btnEffacerHistoire;
         private System.Windows.Forms.Label lblAttributs;
         private System.Windows.Forms.Label lblObjectifsMineurs;
-        private System.Windows.Forms.TextBox txtBxArchetype;
-        private System.Windows.Forms.Label lblArchetype;
-        private System.Windows.Forms.TextBox txtBxOmbre;
-        private System.Windows.Forms.Label lblOmbre;
+        private System.Windows.Forms.TextBox txtBxTraitPersonnalite;
+        private System.Windows.Forms.Label lblTraitsPersonnalites;
+        private System.Windows.Forms.TextBox txtBxDesirsCaches;
+        private System.Windows.Forms.Label lblDesirsCaches;
         private System.Windows.Forms.TextBox txtBxObjctfMajeur;
         private System.Windows.Forms.Label lblObjectifsMajeur;
         private System.Windows.Forms.TextBox txtBxObjctfMoyen;
@@ -3925,15 +4024,10 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.Label lblInventaire;
         private System.Windows.Forms.TabPage tbPgeObjets;
         private System.Windows.Forms.Panel pnlMonnaie;
-        private System.Windows.Forms.TextBox txtBxCuivre;
-        private System.Windows.Forms.TextBox txtBxArgent;
-        private System.Windows.Forms.TextBox txtPieceOr;
-        private System.Windows.Forms.TextBox txtBxDevise;
         private System.Windows.Forms.Label lblMonnaie;
         private System.Windows.Forms.Panel pnlPoids;
         private System.Windows.Forms.Panel pnlCarres;
         private System.Windows.Forms.Label lblPoids;
-        private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.Label lblRepartitionPvEnergie;
         private System.Windows.Forms.Label lblRepartitionCaracteristiques;
         private System.Windows.Forms.Label lblRepartitionCompetencesCorps;
@@ -4050,5 +4144,17 @@ namespace maFichePersonnageJDR.Formulaires
         private System.Windows.Forms.FlowLayoutPanel flpAttributesTechniquesArtisanaux;
         private System.Windows.Forms.FlowLayoutPanel flpAttributesPersonnages;
         private System.Windows.Forms.CheckedListBox chkLBxAttributesPersonnages;
+        private System.Windows.Forms.Label lblPieceCuivre;
+        private System.Windows.Forms.Label lblPieceArgent;
+        private System.Windows.Forms.Label lblPieceOr;
+        private System.Windows.Forms.NumericUpDown nudPieceCuivre;
+        private System.Windows.Forms.NumericUpDown nudPieceArgent;
+        private System.Windows.Forms.NumericUpDown nudPieceOr;
+        private System.Windows.Forms.Label lblValeurPoidsSurcharge;
+        private System.Windows.Forms.Label lblValeurPoidsMaximal;
+        private System.Windows.Forms.Label lblValeurPoidsPorte;
+        private System.Windows.Forms.Label lblPoidsSurcharge;
+        private System.Windows.Forms.Label lblPoidsMaximal;
+        private System.Windows.Forms.Label lblPoidsPorte;
     }
 }

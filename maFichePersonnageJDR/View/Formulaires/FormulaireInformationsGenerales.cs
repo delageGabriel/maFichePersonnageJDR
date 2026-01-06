@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using System.Windows.Forms;
 using maFichePersonnageJDR.Classe;
 using maFichePersonnageJDR.View.Formulaires;
@@ -196,8 +198,8 @@ namespace maFichePersonnageJDR.Formulaires
         //public int ExperiencePersonnage { get => Convert.ToInt32(nudExpériencePersonnage.Value); set => nudExpériencePersonnage.Value = value; }
         public string HistoirePersonnage { get => rtbHistoire.Text; set => rtbHistoire.Text = value; }
 
-        private Dictionary<Control, Rectangle> dictionaryControlOriginalSize = new Dictionary<Control, Rectangle>();
-        private Dictionary<Label, Tuple<Rectangle, float>> dictionaryLabelOriginalSize = new Dictionary<Label, Tuple<Rectangle, float>>();
+        //private Dictionary<Control, Rectangle> dictionaryControlOriginalSize = new Dictionary<Control, Rectangle>();
+        //private Dictionary<Label, Tuple<Rectangle, float>> dictionaryLabelOriginalSize = new Dictionary<Label, Tuple<Rectangle, float>>();
 
         public FormulaireInfosGenerales()
         {
@@ -225,20 +227,6 @@ namespace maFichePersonnageJDR.Formulaires
             DisplayObjetsName();
             DisplayAttributesName();
 
-            dictionaryControlOriginalSize.Add(this, new Rectangle(this.Location, this.Size));
-
-            foreach (Control ctrl in this.Controls)
-            {
-                if (ctrl is Label)
-                {
-                    dictionaryLabelOriginalSize.Add(ctrl as Label, new Tuple<Rectangle, float>(new Rectangle(ctrl.Location, ctrl.Size), (ctrl as Label).Font.Size));
-                }
-                else
-                {
-                    dictionaryControlOriginalSize.Add(ctrl, new Rectangle(ctrl.Location, ctrl.Size));
-                }
-            }
-
             // Cas où l'on edit un personnage existant
             if (GlobaleVariables.IsEdit)
             {
@@ -254,110 +242,111 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void btnSaveInfos_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("########### Classe : FormulaireInfosGenerales; Méthode : btnSaveInfos_Click; ###########");
-            #region Initialisation des variables
-            FormEditMenu formEditMenu = new FormEditMenu();
-            FormulaireAttributs formulaireAttributs = new FormulaireAttributs();
-            #endregion
+            CreatePersonnageFichePDF();
+            //Console.WriteLine("########### Classe : FormulaireInfosGenerales; Méthode : btnSaveInfos_Click; ###########");
+            //#region Initialisation des variables
+            //FormEditMenu formEditMenu = new FormEditMenu();
+            //FormulaireAttributs formulaireAttributs = new FormulaireAttributs();
+            //#endregion
 
-            try
-            {
-                if (GlobaleVariables.IsEdit)
-                {
-                    //string niveauSuivant = Utils.DeleteCharacterFromString(lblPointsRestants.Text, "/");
+            //try
+            //{
+            //    if (GlobaleVariables.IsEdit)
+            //    {
+            //        //string niveauSuivant = Utils.DeleteCharacterFromString(lblPointsRestants.Text, "/");
 
-                    // Mise à jour du niveau du personnage
-                    if (nudNiveau.Value != Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage))
-                    {
-                        Controller.PersonnageController.SetValueField("niveau_personnage", GlobaleVariables.IdPersonnage, nudNiveau.Value);
-                    }
+            //        // Mise à jour du niveau du personnage
+            //        if (nudNiveau.Value != Controller.PersonnageController.GetNiveauPersonnage(GlobaleVariables.IdPersonnage))
+            //        {
+            //            Controller.PersonnageController.SetValueField("niveau_personnage", GlobaleVariables.IdPersonnage, nudNiveau.Value);
+            //        }
 
-                    // Mise à jour du nombre de points à atteindre pour le niveau suivant du personnage
-                    //if (int.Parse(niveauSuivant) != Controller.PersonnageController.GetNiveauSuivantPersonnage(GlobaleVariables.IdPersonnage))
-                    //{
-                    //    Controller.PersonnageController.SetValueField("niveau_suivant_personnage", GlobaleVariables.IdPersonnage, niveauSuivant);
-                    //}
+            //        // Mise à jour du nombre de points à atteindre pour le niveau suivant du personnage
+            //        //if (int.Parse(niveauSuivant) != Controller.PersonnageController.GetNiveauSuivantPersonnage(GlobaleVariables.IdPersonnage))
+            //        //{
+            //        //    Controller.PersonnageController.SetValueField("niveau_suivant_personnage", GlobaleVariables.IdPersonnage, niveauSuivant);
+            //        //}
 
-                    // Mise à jour du nombre de points d'expérience acquis par le personnage
-                    //if (nudExpériencePersonnage.Value != Controller.PersonnageController.GetExperiencePersonnage(GlobaleVariables.IdPersonnage))
-                    //{
-                    //    Controller.PersonnageController.SetValueField("experience_personnage", GlobaleVariables.IdPersonnage, nudExpériencePersonnage.Value);
-                    //}
+            //        // Mise à jour du nombre de points d'expérience acquis par le personnage
+            //        //if (nudExpériencePersonnage.Value != Controller.PersonnageController.GetExperiencePersonnage(GlobaleVariables.IdPersonnage))
+            //        //{
+            //        //    Controller.PersonnageController.SetValueField("experience_personnage", GlobaleVariables.IdPersonnage, nudExpériencePersonnage.Value);
+            //        //}
 
-                    // Mise à jour l'histoire du personnage
-                    if (rtbHistoire.Text != Controller.PersonnageController.GetHistoirePersonnage(GlobaleVariables.IdPersonnage))
-                    {
-                        Controller.PersonnageController.SetValueField("histoire_personnage", GlobaleVariables.IdPersonnage, rtbHistoire.Text);
-                    }
+            //        // Mise à jour l'histoire du personnage
+            //        if (rtbHistoire.Text != Controller.PersonnageController.GetHistoirePersonnage(GlobaleVariables.IdPersonnage))
+            //        {
+            //            Controller.PersonnageController.SetValueField("histoire_personnage", GlobaleVariables.IdPersonnage, rtbHistoire.Text);
+            //        }
 
-                    // Mise à jour des langues parlées par le personnage
-                    //if (rtbLangues.Text != Controller.PersonnageController.GetLanguesPersonnage(GlobaleVariables.IdPersonnage))
-                    //{
-                    //    Controller.PersonnageController.SetValueField("langues_personnage", GlobaleVariables.IdPersonnage, rtbLangues.Text);
-                    //}
+            //        // Mise à jour des langues parlées par le personnage
+            //        //if (rtbLangues.Text != Controller.PersonnageController.GetLanguesPersonnage(GlobaleVariables.IdPersonnage))
+            //        //{
+            //        //    Controller.PersonnageController.SetValueField("langues_personnage", GlobaleVariables.IdPersonnage, rtbLangues.Text);
+            //        //}
 
-                    formEditMenu.Show();
-                }
-                else
-                {
-                    string sexe = "";
+            //        formEditMenu.Show();
+            //    }
+            //    else
+            //    {
+            //        string sexe = "";
 
-                    /**
-                     * Test du PRENOM
-                     */
-                    if (String.IsNullOrEmpty(txtBoxPrenom.Text))
-                    {
-                        MessageBox.Show("Le champ « Prénom » doit être rempli !");
-                        return;
-                    }
+            //        /**
+            //         * Test du PRENOM
+            //         */
+            //        if (String.IsNullOrEmpty(txtBoxPrenom.Text))
+            //        {
+            //            MessageBox.Show("Le champ « Prénom » doit être rempli !");
+            //            return;
+            //        }
 
-                    /**
-                     * Test du NOM
-                     */
-                    if (String.IsNullOrEmpty(txtBoxNom.Text))
-                    {
-                        MessageBox.Show("Le champ « Nom » doit être rempli !");
-                        return;
-                    }
+            //        /**
+            //         * Test du NOM
+            //         */
+            //        if (String.IsNullOrEmpty(txtBoxNom.Text))
+            //        {
+            //            MessageBox.Show("Le champ « Nom » doit être rempli !");
+            //            return;
+            //        }
 
-                    /**
-                     * Test RACE
-                     */
-                    if (String.IsNullOrEmpty(TxtBoxRace.Text))
-                    {
-                        MessageBox.Show("Le champ « Race » doit être rempli !");
-                        return;
-                    }
+            //        /**
+            //         * Test RACE
+            //         */
+            //        if (String.IsNullOrEmpty(TxtBoxRace.Text))
+            //        {
+            //            MessageBox.Show("Le champ « Race » doit être rempli !");
+            //            return;
+            //        }
 
-                    /**
-                     * Test PERSONNAGE EXISTE DEJA
-                     */
-                    if (!Controller.PersonnageController.CheckPersonnageExist(NomPersonnage, PrenomPersonnage))
-                    {
-                        MessageBox.Show("Le personnage existe déjà en base !");
-                        return;
-                    }
+            //        /**
+            //         * Test PERSONNAGE EXISTE DEJA
+            //         */
+            //        if (!Controller.PersonnageController.CheckPersonnageExist(NomPersonnage, PrenomPersonnage))
+            //        {
+            //            MessageBox.Show("Le personnage existe déjà en base !");
+            //            return;
+            //        }
 
-                    // Si tout est bon, on sauvegarde les informations et on créait le personnage
-                    //Controller.PersonnageController.SaveInformationsPersonnage(PrenomPersonnage, NomPersonnage, RacePersonnage, NiveauPersonnage,
-                    //    sexe, HistoirePersonnage);
+            //        // Si tout est bon, on sauvegarde les informations et on créait le personnage
+            //        //Controller.PersonnageController.SaveInformationsPersonnage(PrenomPersonnage, NomPersonnage, RacePersonnage, NiveauPersonnage,
+            //        //    sexe, HistoirePersonnage);
 
-                    GlobaleVariables.IdPersonnage = Controller.PersonnageController.GetIdPersonnageByNameAndSurname(NomPersonnage,
-                        PrenomPersonnage);
+            //        GlobaleVariables.IdPersonnage = Controller.PersonnageController.GetIdPersonnageByNameAndSurname(NomPersonnage,
+            //            PrenomPersonnage);
 
-                    formulaireAttributs.Show();
-                }
+            //        formulaireAttributs.Show();
+            //    }
 
-                MessageBox.Show("Formulaire sauvegardé !");
-                GlobaleVariables.IsClosedProgrammatically = true;
-                this.Close();
-            }
-            catch (Exception exception)
-            {
-                throw exception;
-            }
+            //    MessageBox.Show("Formulaire sauvegardé !");
+            //    GlobaleVariables.IsClosedProgrammatically = true;
+            //    this.Close();
+            //}
+            //catch (Exception exception)
+            //{
+            //    throw exception;
+            //}
 
-            Console.WriteLine("########### FIN Méthode btnSaveInfos_Click ###########");
+            //Console.WriteLine("########### FIN Méthode btnSaveInfos_Click ###########");
         }
         /// <summary>
         /// Vide la RichTextBoxHistoire
@@ -435,19 +424,6 @@ namespace maFichePersonnageJDR.Formulaires
 
         private void FormulaireInfosGenerales_Resize(object sender, EventArgs e)
         {
-            float xRatio = (float)this.Width / dictionaryControlOriginalSize[this].Width;
-            float yRatio = (float)this.Height / dictionaryControlOriginalSize[this].Height;
-
-            foreach (KeyValuePair<Label, Tuple<Rectangle, float>> entry in dictionaryLabelOriginalSize)
-            {
-                Utils.AdjustLabelSizeAndPosition(entry.Key, entry.Value.Item1, entry.Value.Item2, xRatio, yRatio);
-            }
-            foreach (KeyValuePair<Control, Rectangle> entry in dictionaryControlOriginalSize)
-            {
-                Utils.AdjustControlSizeAndPosition(entry.Key, entry.Value, xRatio, yRatio);
-            }
-
-            this.Refresh();
         }
         private void cbBxTaille_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1854,7 +1830,7 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 FormAttributs formAttributs = new FormAttributs();
 
-                formAttributs.AttributesValues = Controller.NewAttributsController.GetObjetInformationsByName(nomAttribut);
+                formAttributs.AttributesValues = Controller.NewAttributsController.GetAttributesInformationsByName(nomAttribut);
 
                 formAttributs.Show();
             };
@@ -1872,6 +1848,806 @@ namespace maFichePersonnageJDR.Formulaires
 
             return panel;
         }
+        private void CreatePersonnageFichePDF()
+        {
+            Document doc = new Document(PageSize.A4);
+            PdfWriter.GetInstance(doc, new FileStream($".\\{txtBoxNom.Text}.pdf", FileMode.Create));
+            doc.Open();
+
+            /// INFOS GENERALES
+            /// 
+            Paragraph pInfosGenerales = new Paragraph();
+            pInfosGenerales.Add(Chunk.NEWLINE);
+            pInfosGenerales.Add(new Chunk("INFORMATIONS GÉNÉRALES"));
+
+            Paragraph pNomPrenom = new Paragraph();
+            pNomPrenom.Add(Chunk.NEWLINE);
+            pNomPrenom.Add(new Chunk("Nom : " + txtBoxNom.Text));
+            pNomPrenom.Add(Chunk.TABBING);
+            pNomPrenom.Add(new Chunk("\t Prénom : " + txtBoxPrenom.Text));
+
+            Paragraph pRaceSexe = new Paragraph();
+            pRaceSexe.Add(Chunk.NEWLINE);
+            pRaceSexe.Add(new Chunk("Race : " + TxtBoxRace.Text));
+            pRaceSexe.Add(Chunk.TABBING);
+            pRaceSexe.Add(new Chunk("\t Sexe : " + txtBxSexe.Text));
+
+            Paragraph pTailleNiveau = new Paragraph();
+            pTailleNiveau.Add(Chunk.NEWLINE);
+            pTailleNiveau.Add(new Chunk("Taille : " + cbBxTaille.SelectedItem.ToString()));
+            pTailleNiveau.Add(Chunk.TABBING);
+            pTailleNiveau.Add(new Chunk("\t Niveau : " + nudNiveau.Value.ToString()));
+
+            /// PV
+            ///
+            Paragraph pPv = new Paragraph();
+            pPv.Add(Chunk.NEWLINE);
+            pPv.Add(new Chunk("POINTS DE VIE"));
+
+            PdfPTable tablePv = new PdfPTable(2); // 3 colonnes
+            tablePv.WidthPercentage = 100;
+
+            tablePv.AddCell("Actuel");
+            tablePv.AddCell("Total");
+
+            tablePv.AddCell(numUpDwnPtsVie.Value.ToString());
+            tablePv.AddCell(numUpDwnPtsVie.Value.ToString());
+
+            /// PE
+            ///
+            Paragraph pPe = new Paragraph();
+            pPe.Add(Chunk.NEWLINE);
+            pPe.Add(new Chunk("POINTS D'ENERGIE"));
+
+            PdfPTable tablePe = new PdfPTable(2); // 3 colonnes
+            tablePe.WidthPercentage = 100;
+
+            tablePe.AddCell("Actuel");
+            tablePe.AddCell("Total");
+
+            tablePe.AddCell(numUpDwnPtsEnergie.Value.ToString());
+            tablePe.AddCell(numUpDwnPtsEnergie.Value.ToString());
+
+            /// MONNAIE
+            ///
+            Paragraph pMonnaie = new Paragraph();
+            pMonnaie.Add(Chunk.NEWLINE);
+            pMonnaie.Add(new Chunk("MONNAIE"));
+
+            PdfPTable tableMonnaie = new PdfPTable(3); // 3 colonnes
+            tableMonnaie.WidthPercentage = 100;
+
+            tableMonnaie.AddCell("PO");
+            tableMonnaie.AddCell("PA");
+            tableMonnaie.AddCell("PC");
+
+            tableMonnaie.AddCell(nudPieceOr.Value.ToString());
+            tableMonnaie.AddCell(nudPieceArgent.Value.ToString());
+            tableMonnaie.AddCell(nudPieceCuivre.Value.ToString());
+
+            /// POIDS
+            /// 
+            Paragraph pPoids = new Paragraph();
+            pPoids.Add(Chunk.NEWLINE);
+            pPoids.Add(new Chunk("POIDS"));
+
+            PdfPTable tablePoids = new PdfPTable(3); // 3 colonnes
+            tablePoids.WidthPercentage = 100;
+
+            tablePoids.AddCell("Transporté");
+            tablePoids.AddCell("Total");
+            tablePoids.AddCell("Surcharge");
+
+            tablePoids.AddCell(lblValeurPoidsPorte.Text);
+            tablePoids.AddCell(lblValeurPoidsMaximal.Text);
+            tablePoids.AddCell(lblValeurPoidsSurcharge.Text);
+
+            /// LANGUES
+            /// 
+            Paragraph pLangues = new Paragraph();
+            pLangues.Add(Chunk.NEWLINE);
+            pLangues.Add(new Chunk("LANGUES PARLÉE(S)"));
+            pLangues.Add(Chunk.NEWLINE);
+            pLangues.Add(new Chunk(txtBxLanguesParlees.Text));
+
+            /// HISTOIRE
+            /// 
+            Paragraph pHistoire = new Paragraph();
+            pHistoire.Add(Chunk.NEWLINE);
+            pHistoire.Add(new Chunk("HISTOIRE"));
+            pHistoire.Add(Chunk.NEWLINE);
+            pHistoire.Add(new Chunk(rtbHistoire.Text));
+
+            /// DESCRIPTION PHYSIQUE
+            /// 
+            Paragraph pDescriptionPhysique = new Paragraph();
+            pDescriptionPhysique.Add(Chunk.NEWLINE);
+            pDescriptionPhysique.Add(new Chunk("DESCRIPTION PHYSIQUE"));
+            pDescriptionPhysique.Add(Chunk.NEWLINE);
+            pDescriptionPhysique.Add(new Chunk(rchTxtBxDescriptionPhysique.Text));
+
+            /// OBJECTIFS
+            /// 
+            Paragraph pObjectifs = new Paragraph();
+            pObjectifs.Add(Chunk.NEWLINE);
+            pObjectifs.Add(new Chunk("OBJECTIFS"));
+            pObjectifs.Add(Chunk.NEWLINE);
+            pObjectifs.Add(Chunk.NEWLINE);
+            pObjectifs.Add(new Chunk("Objectif mineur : " + txtBxObjctfMineur.Text));
+            pObjectifs.Add(Chunk.NEWLINE);
+            pObjectifs.Add(Chunk.NEWLINE);
+            pObjectifs.Add(new Chunk("Objectif moyen : " + txtBxObjctfMoyen.Text));
+            pObjectifs.Add(Chunk.NEWLINE);
+            pObjectifs.Add(Chunk.NEWLINE);
+            pObjectifs.Add(new Chunk("Objectif majeur : " + txtBxObjctfMajeur.Text));
+
+            /// ATTRIBUTS
+            /// 
+            Paragraph pAttribut = new Paragraph();
+            pAttribut.Add(Chunk.NEXTPAGE);
+            pAttribut.Add(new Chunk("ATTRIBUTS"));
+
+            PdfPTable tableAttribut = new PdfPTable(3);
+            tableAttribut.WidthPercentage = 100;
+
+            tableAttribut.AddCell("Nom");
+            tableAttribut.AddCell("Effets");
+            tableAttribut.AddCell("Type");
+
+            foreach (var checkbox in chkLBxAttributesPersonnages.Items)
+            {
+                string nom = checkbox.ToString();
+                string effet = Controller.NewAttributsController
+                    .GetAttributeEffectByName(nom);
+                string type = Controller.NewAttributsController
+                    .GetAttributeTypeByName(nom);
+
+                tableAttribut.AddCell(nom);
+                tableAttribut.AddCell(effet);
+                tableAttribut.AddCell(type);
+            }
+
+            /// TRAITS DE PERSONNALITES ET DESIRS CACHES
+            /// 
+            Paragraph pTraitPersonnalitesDesirsCaches = new Paragraph();
+            pTraitPersonnalitesDesirsCaches.Add(Chunk.NEWLINE);
+            pTraitPersonnalitesDesirsCaches.Add(new Chunk("TRAITS DE PERSONNALITES"));
+            pTraitPersonnalitesDesirsCaches.Add(Chunk.NEWLINE);
+            pTraitPersonnalitesDesirsCaches.Add(new Chunk(txtBxTraitPersonnalite.Text));
+            pTraitPersonnalitesDesirsCaches.Add(Chunk.NEWLINE);
+            pTraitPersonnalitesDesirsCaches.Add(Chunk.NEWLINE);
+            pTraitPersonnalitesDesirsCaches.Add(new Chunk("DESIRS CACHES"));
+            pTraitPersonnalitesDesirsCaches.Add(Chunk.NEWLINE);
+            pTraitPersonnalitesDesirsCaches.Add(new Chunk(txtBxDesirsCaches.Text));
+
+            /// CARACTERISTIQUES
+            /// 
+            Paragraph pCaracteristiques = new Paragraph();
+            pCaracteristiques.Add(Chunk.NEWLINE);
+            pCaracteristiques.Add(new Chunk("CARACTERISTIQUES"));
+
+            PdfPTable tableCaracteristiques = new PdfPTable(3); // 3 colonnes
+            tableCaracteristiques.WidthPercentage = 100;
+
+            tableCaracteristiques.AddCell("Corps");
+            tableCaracteristiques.AddCell("Esprit");
+            tableCaracteristiques.AddCell("Relationnel");
+
+            tableCaracteristiques.AddCell(numUpDwnPtsCorps.Value.ToString());
+            tableCaracteristiques.AddCell(numUpDwnPtsEsprit.Value.ToString());
+            tableCaracteristiques.AddCell(numUpDwnPtsRelationnel.Value.ToString());
+
+            /// COMPETENCES COMBAT
+            /// 
+            Paragraph pCompetencesCombat = new Paragraph();
+            pCompetencesCombat.Add(Chunk.NEWLINE);
+            pCompetencesCombat.Add(new Chunk("COMPETENCES DE COMBAT"));
+
+            PdfPTable tableCompetencesCombat = new PdfPTable(4); // 3 colonnes
+            tableCompetencesCombat.WidthPercentage = 100;
+
+            tableCompetencesCombat.AddCell("Nom");
+            tableCompetencesCombat.AddCell("Base");
+            tableCompetencesCombat.AddCell("Temporaire");
+            tableCompetencesCombat.AddCell("Total");
+
+            tableCompetencesCombat.AddCell("Dextérité");
+            tableCompetencesCombat.AddCell(numUpDwnDexterite.Value.ToString());
+            tableCompetencesCombat.AddCell(0.ToString());
+            tableCompetencesCombat.AddCell(numUpDwnDexterite.Value.ToString());
+
+            tableCompetencesCombat.AddCell("Initiative");
+            tableCompetencesCombat.AddCell(numUpDwnInitiative.Value.ToString());
+            tableCompetencesCombat.AddCell(0.ToString());
+            tableCompetencesCombat.AddCell(numUpDwnInitiative.Value.ToString());
+
+            tableCompetencesCombat.AddCell("Déplacement");
+            tableCompetencesCombat.AddCell(numUpDwnDeplacement.Value.ToString());
+            tableCompetencesCombat.AddCell(0.ToString());
+            tableCompetencesCombat.AddCell(numUpDwnDeplacement.Value.ToString());
+
+            /// COMPETENCES CORPS
+            /// 
+            Paragraph pCompetenceCorps = new Paragraph();
+            pCompetenceCorps.Add(Chunk.NEWLINE);
+            pCompetenceCorps.Add(new Chunk("COMPETENCES DE CORPS"));
+
+            PdfPTable tableCompetenceCorps = new PdfPTable(2); // 3 colonnes
+            tableCompetenceCorps.WidthPercentage = 100;
+
+            tableCompetenceCorps.AddCell("Nom");
+            tableCompetenceCorps.AddCell("Points");
+
+            tableCompetenceCorps.AddCell("Agilité");
+            tableCompetenceCorps.AddCell(numUpDwnAgilite.Value.ToString());
+
+            tableCompetenceCorps.AddCell("Course");
+            tableCompetenceCorps.AddCell(numUpDwnCourse.Value.ToString());
+
+            tableCompetenceCorps.AddCell("Discrétion");
+            tableCompetenceCorps.AddCell(numUpDwnDiscretion.Value.ToString());
+
+            tableCompetenceCorps.AddCell("Équilibre");
+            tableCompetenceCorps.AddCell(numUpDwnEquilibre.Value.ToString());
+
+            tableCompetenceCorps.AddCell("Escalade");
+            tableCompetenceCorps.AddCell(numUpDwnEscalade.Value.ToString());
+
+            tableCompetenceCorps.AddCell("Force");
+            tableCompetenceCorps.AddCell(numUpDwnForce.Value.ToString());
+
+            tableCompetenceCorps.AddCell("Fouilles");
+            tableCompetenceCorps.AddCell(numUpDwnFouilles.Value.ToString());
+
+            tableCompetenceCorps.AddCell("Lancer");
+            tableCompetenceCorps.AddCell(numUpDwnLancer.Value.ToString());
+
+            tableCompetenceCorps.AddCell("Lutte");
+            tableCompetenceCorps.AddCell(numUpDwnLutte.Value.ToString());
+
+            tableCompetenceCorps.AddCell("Natation");
+            tableCompetenceCorps.AddCell(numUpDwnNatation.Value.ToString());
+
+            tableCompetenceCorps.AddCell("Réflexes");
+            tableCompetenceCorps.AddCell(numUpDwnReflexes.Value.ToString());
+
+            tableCompetenceCorps.AddCell("Vigueur");
+            tableCompetenceCorps.AddCell(numUpDwnVigueur.Value.ToString());
+
+            tableCompetenceCorps.AddCell("Escalade");
+            tableCompetenceCorps.AddCell(numUpDwnEscalade.Value.ToString());
+
+            /// COMPETENCES ESPRIT
+            /// 
+            Paragraph pCompetenceEsprit = new Paragraph();
+            pCompetenceEsprit.Add(Chunk.NEWLINE);
+            pCompetenceEsprit.Add(new Chunk("COMPETENCES D'ESPRIT"));
+
+            PdfPTable tableCompetenceEsprit = new PdfPTable(2); // 3 colonnes
+            tableCompetenceEsprit.WidthPercentage = 100;
+
+            tableCompetenceEsprit.AddCell("Nom");
+            tableCompetenceEsprit.AddCell("Points");
+
+            tableCompetenceEsprit.AddCell("Concentration");
+            tableCompetenceEsprit.AddCell(numUpDwnConcentration.Value.ToString());
+
+            tableCompetenceEsprit.AddCell("Essence");
+            tableCompetenceEsprit.AddCell(numUpDwnEssence.Value.ToString());
+
+            tableCompetenceEsprit.AddCell("Logique");
+            tableCompetenceEsprit.AddCell(numUpDwnLogique.Value.ToString());
+
+            tableCompetenceEsprit.AddCell("Mémoire");
+            tableCompetenceEsprit.AddCell(numUpDwnMemoire.Value.ToString());
+
+            tableCompetenceEsprit.AddCell("Orientation");
+            tableCompetenceEsprit.AddCell(numUpDwnOrientation.Value.ToString());
+
+            tableCompetenceEsprit.AddCell("Perception");
+            tableCompetenceEsprit.AddCell(numUpDwnPerception.Value.ToString());
+
+            tableCompetenceEsprit.AddCell("Volonté");
+            tableCompetenceEsprit.AddCell(numUpDwnVolonte.Value.ToString());
+
+            /// COMPETENCES RELATIONNEL
+            /// 
+            Paragraph pCompetencesRelationnelles = new Paragraph();
+            pCompetencesRelationnelles.Add(Chunk.NEWLINE);
+            pCompetencesRelationnelles.Add(new Chunk("COMPETENCES RELATIONNELLES"));
+
+            PdfPTable tableCompetencesRelationnelles = new PdfPTable(2); // 3 colonnes
+            tableCompetencesRelationnelles.WidthPercentage = 100;
+
+            tableCompetencesRelationnelles.AddCell("Nom");
+            tableCompetencesRelationnelles.AddCell("Points");
+
+            tableCompetencesRelationnelles.AddCell("Apaisement");
+            tableCompetencesRelationnelles.AddCell(numUpDwnApaisement.Value.ToString());
+
+            tableCompetencesRelationnelles.AddCell("Charme");
+            tableCompetencesRelationnelles.AddCell(numUpDwnCharme.Value.ToString());
+
+            tableCompetencesRelationnelles.AddCell("Comédie");
+            tableCompetencesRelationnelles.AddCell(numUpDwnComedie.Value.ToString());
+
+            tableCompetencesRelationnelles.AddCell("Commandement");
+            tableCompetencesRelationnelles.AddCell(numUpDwnCommandement.Value.ToString());
+
+            tableCompetencesRelationnelles.AddCell("Intimidation");
+            tableCompetencesRelationnelles.AddCell(numUpDwnIntimidation.Value.ToString());
+
+            tableCompetencesRelationnelles.AddCell("Perspicacité");
+            tableCompetencesRelationnelles.AddCell(numUpDwnPerspicacite.Value.ToString());
+
+            tableCompetencesRelationnelles.AddCell("Provocation");
+            tableCompetencesRelationnelles.AddCell(numUpDwnProvocation.Value.ToString());
+
+            tableCompetencesRelationnelles.AddCell("Tromperie");
+            tableCompetencesRelationnelles.AddCell(numUpDwnTromperie.Value.ToString());
+
+            /// SPECIALITES
+            /// 
+            List<NumericUpDown> resultats = new List<NumericUpDown>();
+
+            /// Revoir la logique ici parce que là c'est pas possible de faire cinquante boucle
+            foreach (TabPage tab in tbCtrlSpecialites.TabPages)
+            {
+                foreach (Control ctrl in tab.Controls)
+                {
+                    if (ctrl is FlowLayoutPanel)
+                    {
+                        foreach (Control control in ctrl.Controls)
+                        {
+                            if (control is TableLayoutPanel)
+                            {
+                                foreach (Control controlvcinquante in control.Controls)
+                                {
+                                    if (controlvcinquante is NumericUpDown nud && nud.Value > 0)
+                                    {
+                                        resultats.Add(nud);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            Paragraph pSpecialites = new Paragraph();
+            pSpecialites.Add(Chunk.NEXTPAGE);
+            pSpecialites.Add(new Chunk("SPECIALITES"));
+
+            PdfPTable tableSpecialites = new PdfPTable(2); // 3 colonnes
+            tableSpecialites.WidthPercentage = 100;
+
+            tableSpecialites.AddCell("Nom");
+            tableSpecialites.AddCell("Points");
+
+            foreach (NumericUpDown nud in resultats)
+            {
+                tableSpecialites.AddCell(nud.Tag.ToString());
+                tableSpecialites.AddCell(nud.Value.ToString());
+            }
+
+            /// JEUX SORTS APTITUDES
+            /// 
+            Paragraph pJeuxSortsAptitudes = new Paragraph();
+            pJeuxSortsAptitudes.Add(Chunk.NEWLINE);
+            pJeuxSortsAptitudes.Add(new Chunk("JEUX DE SORTS ET D'APTITUDES"));
+            pJeuxSortsAptitudes.Add(Chunk.NEWLINE);
+
+            PdfPTable tableJeuxSortsAptitudes = new PdfPTable(2); // 3 colonnes
+            tableJeuxSortsAptitudes.WidthPercentage = 100;
+
+            tableJeuxSortsAptitudes.AddCell("Nom");
+            tableJeuxSortsAptitudes.AddCell("Points");
+
+            foreach (var item in lstBxChoixSortsAptitudes.Items)
+            {
+                string[] itemSeparated = item.ToString().Split(';');
+
+                if (itemSeparated.Length == 1)
+                {
+                    tableJeuxSortsAptitudes.AddCell(itemSeparated[0]);
+                    tableJeuxSortsAptitudes.AddCell("0");
+                }
+                else
+                {
+                    tableJeuxSortsAptitudes.AddCell(itemSeparated[0]);
+                    tableJeuxSortsAptitudes.AddCell(itemSeparated[1]);
+                }
+            }
+
+            /// SORTS APTITUDES
+            /// 
+            Paragraph pSortsAptitudes = new Paragraph();
+            pSortsAptitudes.Add(Chunk.NEWLINE);
+            pSortsAptitudes.Add(new Chunk("SORTS ET D'APTITUDES"));
+            pSortsAptitudes.Add(Chunk.NEWLINE);
+
+            /// EQUIPEMENTS
+            /// 
+            Paragraph pEquipements = new Paragraph();
+            pEquipements.Add(Chunk.NEWLINE);
+            pEquipements.Add(new Chunk("EQUIPEMENTS"));
+            pEquipements.Add(Chunk.NEWLINE);
+
+            doc.Add(pInfosGenerales);
+            doc.Add(pNomPrenom);
+            doc.Add(pRaceSexe);
+            doc.Add(pTailleNiveau);
+
+            doc.Add(pPv);
+            doc.Add(tablePv);
+
+            doc.Add(pPe);
+            doc.Add(tablePe);
+
+            doc.Add(pMonnaie);
+            doc.Add(tableMonnaie);
+
+            doc.Add(pPoids);
+            doc.Add(tablePoids);
+
+            doc.Add(pLangues);
+            doc.Add(pHistoire);
+            doc.Add(pDescriptionPhysique);
+            doc.Add(pObjectifs);
+
+            doc.Add(pAttribut);
+            doc.Add(tableAttribut);
+
+            doc.Add(pTraitPersonnalitesDesirsCaches);
+
+            doc.Add(pCaracteristiques);
+            doc.Add(tableCaracteristiques);
+
+            doc.Add(pCompetencesCombat);
+            doc.Add(tableCompetencesCombat);
+
+            doc.Add(pCompetenceCorps);
+            doc.Add(tableCompetenceCorps);
+
+            doc.Add(pCompetenceEsprit);
+            doc.Add(tableCompetenceEsprit);
+
+            doc.Add(pCompetencesRelationnelles);
+            doc.Add(tableCompetencesRelationnelles);
+
+            doc.Add(pSpecialites);
+            doc.Add(tableSpecialites);
+
+            doc.Add(pJeuxSortsAptitudes);
+            doc.Add(tableJeuxSortsAptitudes);
+
+            doc.Add(pSortsAptitudes);
+
+            foreach (var item in flpSortsAptitudesPersonnages.Controls)
+            {
+                if (item is Label)
+                {
+                    Label label = (Label)item;
+
+                    string nom = label.Text;
+
+                    Dictionary<string, string> aptitude = Controller.NewAptitudesController.GetAptitudeInformationsByName(nom);
+
+                    if (aptitude["Domaine"] == string.Empty)
+                    {
+                        Dictionary<string, string> sort = Controller.SortsController.GetSortInformationsByName(nom);
+
+                        PdfPTable table = CreateSortTable(sort);
+                        doc.Add(table);
+                    }
+                    else
+                    {
+                        PdfPTable table = CreateAptitudeTable(aptitude);
+                        doc.Add(table);
+                    }
+                }
+            }
+
+            doc.Add(pEquipements);
+
+            /// ARMES
+            /// 
+            foreach (var checkbox in chkLBxArmesInventaire.Items)
+            {
+                Paragraph pArme = new Paragraph();
+
+                string nom = checkbox.ToString();
+                string[] splitNom = nom.Split(';');
+
+                pArme.Add(Chunk.NEWLINE);
+                pArme.Add(new Chunk("QUANTITE : " + splitNom[1]));
+                pArme.Add(Chunk.NEWLINE);
+
+                Dictionary<string, string> arme = Controller.ArmesController.GetArmeInformationsByName(splitNom[0]);
+
+                PdfPTable table = CreateArmeTable(arme);
+                doc.Add(table);
+                doc.Add(pArme);
+            }
+            /// ARMURES
+            /// 
+            foreach (var checkbox in chkLBxArmuresInventaire.Items)
+            {
+                Paragraph pArmure = new Paragraph();
+
+                string nom = checkbox.ToString();
+                string[] splitNom = nom.Split(';');
+
+                pArmure.Add(Chunk.NEWLINE);
+                pArmure.Add(new Chunk("QUANTITE : " + splitNom[1]));
+                pArmure.Add(Chunk.NEWLINE);
+
+                Dictionary<string, string> armure = Controller.ArmuresController.GetArmureInformationsByName(splitNom[0]);
+
+                PdfPTable table = CreateArmureTable(armure);
+                doc.Add(table);
+                doc.Add(pArmure);
+            }
+            /// OBJETS
+            /// 
+            foreach (var checkbox in chkLBxArmuresInventaire.Items)
+            {
+                Paragraph pObjet = new Paragraph();
+
+                string nom = checkbox.ToString();
+                string[] splitNom = nom.Split(';');
+
+                pObjet.Add(Chunk.NEWLINE);
+                pObjet.Add(new Chunk("QUANTITE : " + splitNom[1]));
+                pObjet.Add(Chunk.NEWLINE);
+
+                Dictionary<string, string> objet = Controller.ObjetsController.GetObjetInformationsByName(splitNom[0]);
+
+                PdfPTable table = CreateArmureTable(objet);
+                doc.Add(table);
+                doc.Add(pObjet);
+            }
+
+            doc.Close();
+        }
+
+        private PdfPTable CreateAptitudeTable(Dictionary<string, string> aptitude)
+        {
+            PdfPTable table = new PdfPTable(2);
+            table.WidthPercentage = 100;
+            table.SpacingBefore = 10f;
+
+            iTextSharp.text.Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 14);
+            iTextSharp.text.Font labelFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 10);
+            iTextSharp.text.Font valueFont = FontFactory.GetFont(FontFactory.HELVETICA, 10);
+
+            // ===== TITRE =====
+            string titre = aptitude["Nom"];
+
+            PdfPCell titleCell = new PdfPCell(new Phrase(titre, titleFont))
+            {
+                Colspan = 2,
+                HorizontalAlignment = Element.ALIGN_CENTER,
+                Padding = 6f
+            };
+            table.AddCell(titleCell);
+
+            // ===== LIGNES DYNAMIQUES =====
+            foreach (var kvp in aptitude)
+            {
+                if (kvp.Key == "Nom" || kvp.Key == "Effets")
+                    continue;
+
+                if (string.IsNullOrWhiteSpace(kvp.Value))
+                    continue;
+
+                table.AddCell(new PdfPCell(new Phrase(kvp.Key + " :", labelFont)));
+                table.AddCell(new PdfPCell(new Phrase(kvp.Value, valueFont)));
+            }
+
+            // ===== EFFETS (pleine largeur) =====
+            if (aptitude.ContainsKey("Effets"))
+            {
+                PdfPCell effetCell = new PdfPCell(
+                    new Phrase("Effet(s) : " + aptitude["Effets"], valueFont)
+                )
+                {
+                    Colspan = 2,
+                    Padding = 6f
+                };
+
+                table.AddCell(effetCell);
+            }
+
+            return table;
+        }
+
+        private PdfPTable CreateSortTable(Dictionary<string, string> sort)
+        {
+            PdfPTable table = new PdfPTable(2);
+            table.WidthPercentage = 100;
+            table.SpacingBefore = 10f;
+
+            iTextSharp.text.Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 14);
+            iTextSharp.text.Font labelFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 10);
+            iTextSharp.text.Font valueFont = FontFactory.GetFont(FontFactory.HELVETICA, 10);
+            iTextSharp.text.Font italicFont = FontFactory.GetFont(FontFactory.HELVETICA_OBLIQUE, 10);
+
+            // ===== TITRE =====
+            PdfPCell titleCell = new PdfPCell(
+                new Phrase(sort["Nom"], titleFont)
+            )
+            {
+                Colspan = 2,
+                HorizontalAlignment = Element.ALIGN_CENTER,
+                Padding = 6f
+            };
+            table.AddCell(titleCell);
+
+            // ===== LIGNES DYNAMIQUES =====
+            foreach (var kvp in sort)
+            {
+                if (kvp.Key == "Nom" || kvp.Key == "Effets")
+                    continue;
+
+                if (string.IsNullOrWhiteSpace(kvp.Value))
+                    continue;
+
+                iTextSharp.text.Font valueFontUsed =
+                    kvp.Key == "Intentions magiques"
+                    ? italicFont
+                    : valueFont;
+
+                table.AddCell(new PdfPCell(
+                    new Phrase(kvp.Key + " :", labelFont)
+                ));
+
+                table.AddCell(new PdfPCell(
+                    new Phrase(kvp.Value, valueFontUsed)
+                ));
+            }
+
+            // ===== EFFETS =====
+            PdfPCell effetCell = new PdfPCell(
+                new Phrase("Effet(s) : " + sort["Effets"], valueFont)
+            )
+            {
+                Colspan = 2,
+                Padding = 6f
+            };
+
+            table.AddCell(effetCell);
+
+            return table;
+        }
+
+        private PdfPTable CreateArmeTable(Dictionary<string, string> arme)
+        {
+            PdfPTable table = new PdfPTable(2);
+            table.WidthPercentage = 100;
+            table.SpacingBefore = 10f;
+
+            iTextSharp.text.Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 14);
+            iTextSharp.text.Font labelFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 10);
+            iTextSharp.text.Font valueFont = FontFactory.GetFont(FontFactory.HELVETICA, 10);
+
+            // Titre
+            table.AddCell(new PdfPCell(new Phrase(arme["Nom"], titleFont))
+            {
+                Colspan = 2,
+                HorizontalAlignment = Element.ALIGN_CENTER,
+                Padding = 6f
+            });
+
+            foreach (var kvp in arme)
+            {
+                if (kvp.Key == "Nom" || kvp.Key == "Effet")
+                    continue;
+
+                if (string.IsNullOrWhiteSpace(kvp.Value))
+                    continue;
+
+                table.AddCell(new PdfPCell(new Phrase(kvp.Key + " :", labelFont)));
+                table.AddCell(new PdfPCell(new Phrase(kvp.Value, valueFont)));
+            }
+
+            if (arme.ContainsKey("Effet"))
+            {
+                table.AddCell(new PdfPCell(
+                    new Phrase("Effet : " + arme["Effet"], valueFont))
+                {
+                    Colspan = 2,
+                    Padding = 6f
+                });
+            }
+
+            return table;
+        }
+
+        private PdfPTable CreateArmureTable(Dictionary<string, string> armure)
+        {
+            PdfPTable table = new PdfPTable(2);
+            table.WidthPercentage = 100;
+            table.SpacingBefore = 10f;
+
+            iTextSharp.text.Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 14);
+            iTextSharp.text.Font labelFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 10);
+            iTextSharp.text.Font valueFont = FontFactory.GetFont(FontFactory.HELVETICA, 10);
+
+            table.AddCell(new PdfPCell(new Phrase(armure["Nom"], titleFont))
+            {
+                Colspan = 2,
+                HorizontalAlignment = Element.ALIGN_CENTER,
+                Padding = 6f
+            });
+
+            foreach (var kvp in armure)
+            {
+                if (kvp.Key == "Nom" || kvp.Key == "Effets")
+                    continue;
+
+                if (string.IsNullOrWhiteSpace(kvp.Value))
+                    continue;
+
+                table.AddCell(new PdfPCell(new Phrase(kvp.Key + " :", labelFont)));
+                table.AddCell(new PdfPCell(new Phrase(kvp.Value, valueFont)));
+            }
+
+            if (armure.ContainsKey("Effets"))
+            {
+                table.AddCell(new PdfPCell(
+                    new Phrase("Effet(s) : " + armure["Effets"], valueFont))
+                {
+                    Colspan = 2,
+                    Padding = 6f
+                });
+            }
+
+            return table;
+        }
+
+        private PdfPTable CreateObjetTable(Dictionary<string, string> objet)
+        {
+            PdfPTable table = new PdfPTable(2);
+            table.WidthPercentage = 100;
+            table.SpacingBefore = 10f;
+
+            iTextSharp.text.Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 14);
+            iTextSharp.text.Font labelFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 10);
+            iTextSharp.text.Font valueFont = FontFactory.GetFont(FontFactory.HELVETICA, 10);
+
+            table.AddCell(new PdfPCell(new Phrase(objet["Nom"], titleFont))
+            {
+                Colspan = 2,
+                HorizontalAlignment = Element.ALIGN_CENTER,
+                Padding = 6f
+            });
+
+            foreach (var kvp in objet)
+            {
+                if (kvp.Key == "Nom" || kvp.Key == "Effet")
+                    continue;
+
+                if (string.IsNullOrWhiteSpace(kvp.Value))
+                    continue;
+
+                table.AddCell(new PdfPCell(new Phrase(kvp.Key + " :", labelFont)));
+                table.AddCell(new PdfPCell(new Phrase(kvp.Value, valueFont)));
+            }
+
+            if (objet.ContainsKey("Effet"))
+            {
+                table.AddCell(new PdfPCell(
+                    new Phrase("Effet : " + objet["Effet"], valueFont))
+                {
+                    Colspan = 2,
+                    Padding = 6f
+                });
+            }
+
+            return table;
+        }
+
         #endregion
     }
 }

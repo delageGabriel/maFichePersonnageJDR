@@ -22,7 +22,7 @@ namespace maFichePersonnageJDR.Controller
                 return null;
         }
 
-        public static Dictionary<string, string> GetObjetInformationsByName(string name)
+        public static Dictionary<string, string> GetAttributesInformationsByName(string name)
         {
             Console.WriteLine("########### Méthode GetAttributesNameByType ###########");
             NewAttributsModel newAttributsModel = new NewAttributsModel();
@@ -35,6 +35,22 @@ namespace maFichePersonnageJDR.Controller
             };
 
             return attribut;
+        }
+
+        public static string GetAttributeEffectByName(string name)
+        {
+            Console.WriteLine("########### Méthode GetAttributesNameByType ###########");
+            NewAttributsModel newAttributsModel = new NewAttributsModel();
+
+            return newAttributsModel.GetAttributeEffectByName(name);
+        }
+
+        public static string GetAttributeTypeByName(string name)
+        {
+            Console.WriteLine("########### Méthode GetAttributeTypeByName ###########");
+            NewAttributsModel newAttributsModel = new NewAttributsModel();
+
+            return newAttributsModel.GetAttributeTypeByName(name);
         }
     }
 }

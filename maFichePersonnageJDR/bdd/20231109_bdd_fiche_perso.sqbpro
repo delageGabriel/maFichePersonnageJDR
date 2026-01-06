@@ -1,91 +1,65 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Utilisateur/source/repos/maFichePersonnageJDR/maFichePersonnageJDR/bdd/20231109_bdd_fiche_perso.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="5377"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,6:mainOBJETS"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="APTITUDES" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="175"/><column index="3" value="88"/><column index="4" value="79"/><column index="5" value="165"/><column index="6" value="216"/><column index="7" value="124"/><column index="8" value="137"/><column index="9" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="OBJETS" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="68"/><column index="2" value="303"/><column index="3" value="84"/><column index="4" value="91"/><column index="5" value="300"/><column index="6" value="80"/><column index="7" value="391"/><column index="8" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">BEGIN TRANSACTION;
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Utilisateur/source/repos/maFichePersonnageJDR/maFichePersonnageJDR/bdd/20231109_bdd_fiche_perso.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="5356"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,9:mainATTRIBUTS"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="APTITUDES" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="175"/><column index="3" value="88"/><column index="4" value="79"/><column index="5" value="165"/><column index="6" value="216"/><column index="7" value="124"/><column index="8" value="137"/><column index="9" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="ATTRIBUTS" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="78"/><column index="2" value="162"/><column index="3" value="300"/><column index="4" value="97"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">PRAGMA foreign_keys = OFF;
 
-INSERT INTO OBJETS
-(id_objets, nom_objet, poids_objet, valeur_objet, type_objet, consommable_objet, effet_objet)
-VALUES
-(1,'Torche',0.5,3,'Normal','Oui','1. Éclaire 9 mètres autour de l’utilisateur'),
-(2,'Corde en chanvre',1.0,7,'Normal','Non','1. Permet de descendre ou de monter une paroi'),
-(4,'Sac à dos',1.0,10,'Normal','Non','Aucun'),
-(5,'Tente',5.0,50,'Normal','Non','1. Elle peut abriter jusqu''à cinq personnes.'),
-(6,'Mouchoir',0.02,0,'Normal','Oui','Aucun'),
-(7,'Couteau',0.3,15,'Normal','Non','1. Peut servir d’arme improvisée'),
-(8,'Gourde',0.5,5,'Normal','Non','1. Contient jusqu’à 2 litres de liquide'),
-(9,'Boussole',0.2,20,'Normal','Non','1. Indique le nord'),
-(10,'Carte',0.1,10,'Normal','Non','1. Représente la zone explorée'),
-(11,'Livre ancien',1.2,40,'Normal','Non','1. Peut contenir des informations rares'),
-(12,'Clé rouillée',0.1,1,'Normal','Non','1. Ouvre une serrure inconnue'),
-(13,'Marteau',1.5,18,'Normal','Non','1. Utile pour l’artisanat'),
-(14,'Pioche',2.5,25,'Normal','Non','1. Permet de miner'),
-(15,'Hache',3.0,30,'Normal','Non','1. Coupe le bois'),
-(16,'Flûte',0.4,12,'Normal','Non','1. Produit une musique apaisante'),
-(17,'Anneau ancien',0.05,200,'Rare','Non','1. Objet mystérieux'),
-(18,'Bougie',0.2,2,'Normal','Oui','1. Éclaire faiblement'),
-(19,'Pain',0.3,1,'Normal','Oui','1. Restaure légèrement la faim'),
-(20,'Fromage',0.4,3,'Normal','Oui','1. Restaure la faim'),
-(21,'Viande séchée',0.6,5,'Normal','Oui','1. Restaure bien la faim'),
-(22,'Herbes médicinales',0.2,8,'Normal','Oui','1. Peuvent être utilisées pour soigner'),
-(23,'Bandages',0.3,10,'Normal','Oui','1. Soigne des blessures légères'),
-(24,'Livre de sorts',1.5,150,'Rare','Non','1. Permet d’apprendre un sort'),
-(25,'Parchemin de feu',0.25,100,'Magique','Oui','1. Lance un sort de feu'),
-(26,'Parchemin de glace',0.25,100,'Magique','Oui','1. Lance un sort de glace'),
-(27,'Parchemin de foudre',0.25,120,'Magique','Oui','1. Lance un sort de foudre'),
-(28,'Bague de force',0.1,300,'Rare','Non','1. Augmente la force'),
-(29,'Amulette de protection',0.2,350,'Rare','Non','1. Augmente la défense'),
-(30,'Casque',2.0,40,'Équipement','Non','1. Protège la tête'),
-(31,'Plastron',5.0,100,'Équipement','Non','1. Protège le torse'),
-(32,'Jambières',3.5,70,'Équipement','Non','1. Protège les jambes'),
-(33,'Bottes',2.0,50,'Équipement','Non','1. Protège les pieds'),
-(34,'Gants',0.8,25,'Équipement','Non','1. Protège les mains'),
-(35,'Arc',2.5,60,'Arme','Non','1. Arme à distance'),
-(36,'Flèches',1.0,15,'Arme','Oui','1. Munitions pour arc'),
-(37,'Arbalète',4.0,90,'Arme','Non','1. Arme à distance puissante'),
-(38,'Carreaux',1.2,20,'Arme','Oui','1. Munitions pour arbalète'),
-(39,'Bouclier',4.5,80,'Équipement','Non','1. Bloque les attaques'),
-(40,'Potion de vitesse',1.0,70,'Potion','Oui','1. Augmente la vitesse'),
-(41,'Potion de force',1.0,90,'Potion','Oui','1. Augmente la force'),
-(42,'Potion de défense',1.0,90,'Potion','Oui','1. Augmente la défense'),
-(43,'Clef magique',0.1,200,'Rare','Non','1. Ouvre toutes les serrures'),
-(44,'Cristal',0.5,60,'Ressource','Non','1. Utilisé pour l’enchantement'),
-(45,'Pierre runique',1.0,120,'Ressource','Non','1. Contient une rune magique'),
-(46,'Grimoire',2.0,180,'Magique','Non','1. Livre de magie avancée'),
-(47,'Parchemin de soin',0.25,80,'Magique','Oui','1. Soigne le lanceur'),
-(48,'Parchemin de protection',0.25,90,'Magique','Oui','1. Confère une protection'),
-(49,'Parchemin de téléportation',0.25,150,'Magique','Oui','1. Téléporte l’utilisateur'),
-(50,'Lingot d’or',2.0,300,'Ressource','Non','1. Valeur marchande élevée'),
-(51,'Lingot d’argent',2.0,150,'Ressource','Non','1. Valeur marchande'),
-(52,'Gemmes',0.5,250,'Ressource','Non','1. Utilisées en artisanat'),
-(53,'Perle',0.2,100,'Ressource','Non','1. Objet précieux'),
-(54,'Corne',1.0,20,'Ressource','Non','1. Matériau brut'),
-(55,'Fourrure',2.0,35,'Ressource','Non','1. Matériau de fabrication'),
-(56,'Parchemin d’air',0.25,100,'Magique','Oui','1. Enchantement d’air'),
-(57,'Parchemin d’eau',0.25,100,'Magique','Oui','1. Enchantement d’eau'),
-(58,'Potion de vie',1.0,80,'Potion','Oui','1. Rend 50% des points de vie'),
-(59,'Potion de mana',1.0,80,'Potion','Oui','1. Rend 50% des points de mana'),
-(60,'Potion de bouclier',1.0,60,'Potion','Oui','1. Confère +2 défense pendant 10 minutes'),
-(61,'Ivoire',1.5,30,'Ressource','Non','Aucun');
+DELETE FROM ATTRIBUTS;
+
+PRAGMA foreign_keys = ON;
+
+BEGIN TRANSACTION;
+
+INSERT INTO ATTRIBUTS (id_attribut, nom_attribut, effet_attribut, type_attribut) VALUES
+(1,'Armure naturelle','Une peau renforcée ou un revêtement organique épais réduit un nombre fixe de dégâts physiques subis en combat. (De 1 à 5 dégâts en moins)','Combat'),
+(2,'Dégagement','Grâce à une grande mobilité ou une perception accrue du combat, il est impossible d’être encerclé, trouvant toujours un moyen de se repositionner.','Combat'),
+(3,'Insubmersible','L''acuité et la dextérité du personnage en combat font qu’il est impossible de le submerger, le rendant imprenable en combat.','Combat'),
+(4,'Force surhumaine','Une puissance physique exceptionnelle permet d’infliger des coups plus dévastateurs et de soulever des charges bien au-delà des capacités normales. (Lance un dé supplémentaire de dégât physique et augmente la charge portable de 10 carrés.)','Combat'),
+(5,'Force de géant','Une puissance physique colossale permettant de broyer les ennemis sous des assauts destructeurs et de porter des charges énormes. (Lance deux dés supplémentaires de dégâts physiques et augmente la charge portable de 24 carrés.)','Combat'),
+(6,'Action supplémentaire','Une rapidité d’exécution et un contrôle du combat hors du commun permettent d’effectuer une action supplémentaire par tour.','Combat'),
+(7,'Rapidité extrême','Des réflexes exceptionnels donnent un avantage en combat, permettant d’agir en premier en combat.','Combat'),
+(8,'Sorcier talentueux','Une affinité magique puissante permet de canaliser une énergie offensive plus intense, ajoutant un dé supplémentaire aux dégâts des sorts.','Combat'),
+(9,'Résilience mentale','Une volonté de fer permet de rester imperturbable face aux situations les plus stressantes ou désespérées.','Combat'),
+(10,'Souffle draconique','Présence d’un organe interne apte à produire un souffle magique. Le type exact dépend du MJ.','Combat'),
+
+(11,'Canalisateur','Une capacité naturelle à manipuler l’énergie permet d’augmenter la réserve disponible, récupérant plus de points d’énergie. (Le MJ choisit entre : +3 ; +5 ; +7 ; +10 ; +15 PE supplémentaires).','Survie'),
+(12,'Corps artificiel','Conçu sans besoin vital de respiration, ce corps est immunisé aux poisons biologiques, mais ne peut être soigné de manière conventionnelle.','Survie'),
+(13,'Tolérance au froid','Une adaptation aux basses températures permet de survivre dans des environnements extrêmes sans subir d’effets négatifs. (résistance au froid jusqu’au niveau 6)','Survie'),
+(14,'Tolérance à la chaleur','La résistance à la chaleur évite les effets de la déshydratation et des températures élevées. (résistance à la chaleur jusqu’au niveau 12)','Survie'),
+(15,'Coagulation accélérée','Un sang particulier accélère la cicatrisation, stoppant les saignements après un certain nombre de tours.','Survie'),
+(16,'Gros dormeur','Un sommeil réparateur plus efficace permet de récupérer davantage de points de vie après un repos complet.','Survie'),
+(17,'Mithridatisation','Une exposition progressive aux toxines a renforcé la résistance aux poisons.','Survie'),
+(18,'Apnée prolongée','Une grande capacité pulmonaire permet de retenir son souffle bien plus longtemps sous l’eau avant de ressentir l’effet du manque d’oxygène.','Survie'),
+(19,'Sac de vie','Une réserve d’énergie supérieure à la normale permet d’utiliser plus fréquemment des capacités spéciales. (Le MJ choisit entre : +5 ; +8 ; +12 ; +15 ; +20 PV supplémentaires).','Survie'),
+(20,'Hyperesthésie','Une sensibilité nerveuse particulière confère une résistance accrue à la paralysie.','Survie'),
+(21,'Immuno-maladie','Résistance spécifique à certaines maladies.','Survie'),
+(22,'Toison isolante','Le corps conserve sa chaleur même dans un froid extrême. (résistance au froid jusqu’au niveau 4)','Survie'),
+(23,'Écho terrestre','Le sol transmet des vibrations perceptibles : pas lourds, déplacements, chocs.','Survie'),
+(24,'Vision nocturne','Permet de voir parfaitement dans l’obscurité totale.','Survie'),
+(25,'Détection aérique','La peau perçoit variations d’air et mouvements proches, même silencieux.','Survie'),
+(26,'Écailles mimétiques','La peau ajuste légèrement sa teinte selon l’environnement.','Survie'),
+(27,'Vue lointaine','Vision extrêmement nette sur de longues distances.','Survie'),
+(28,'Stockage hydrique interne','Le corps retient efficacement l’eau. (résistance à la chaleur jusqu’au niveau 14)','Survie'),
+(29,'Canaux respiratoires filtrants','Filtrent poussière et sable.','Survie'),
+(30,'Antivenin naturel','Le corps produit une enzyme interne neutralisant progressivement les venins naturels (animaux, plantes).','Survie'),
+
+(31,'Acclimatation montagnarde','Adaptation aux hautes altitudes, meilleure performance en terrain escarpé.','Mobilité et Exploration'),
+(32,'Vision des profondeurs','Permet de voir dans des endroits privés de lumière naturelle.','Mobilité et Exploration'),
+(33,'Porteur de charges lourdes','Peut transporter une charge plus importante sans malus. (25% du total de carrés supplémentaires)','Mobilité et Exploration'),
+(34,'Oreilles fines','Ouïe particulièrement précise, capable de capter des sons faibles ou lointains.','Mobilité et Exploration'),
+(35,'Localisation sonore','Permet de déterminer avec exactitude la direction d’un son.','Mobilité et Exploration'),
+(36,'Odeur affinée','Le personnage identifie des traces olfactives faibles : créature passée récemment, poison, nourriture dissimulée, cadavre caché, piste camouflée.','Mobilité et Exploration'),
+(37,'Échos muraux','La créature lit les rebonds sonores dans un espace clos et estime formes, obstacles et ouvertures.','Mobilité et Exploration'),
+(38,'Griffes d’ascension','Adhérence naturelle sur surfaces rugueuses ou irrégulières ; grimpe sans équipement.','Mobilité et Exploration'),
+
+(39,'Ami des animaux','Connexion innée facilitant l’apprivoisement et la confiance.','Sociaux'),
+(40,'Maître des langages','Assimile rapidement langues et codes.','Sociaux'),
+(41,'Aura de l’Unique','Présence perçue comme sacrée ou inhabituelle.','Sociaux'),
+(42,'Présence apaisante','Les créatures à faible intelligence sont moins enclines à attaquer spontanément.','Sociaux'),
+
+(43,'Magicien','Aptitude innée à manipuler les énergies arcaniques.','Mystiques et Occultes'),
+(44,'Sens du flux','Ressent instinctivement les zones où la magie circule fortement.','Mystiques et Occultes'),
+(45,'Oreilles draconiques','Perçoivent des résonances sonores d’origine magique.','Mystiques et Occultes'),
+(46,'Cryostase absolue','Résistance totale au froid absolu. (résistance au froid jusqu’au niveau 1)','Mystiques et Occultes'),
+(47,'Ignicœur primordial','Résistance totale à la chaleur extrême. (résistance à la chaleur jusqu’au niveau 17)','Mystiques et Occultes'),
+
+(48,'Sens des matériaux','Identifie la qualité, l’usure ou la valeur approximative d’un matériau.','Techniques et artisanaux');
 
 COMMIT;
-
-
-SELECT nom_objet
-FROM OBJETS
-WHERE type_objet = 'Normal';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </sql><current_tab id="0"/></tab_sql></sqlb_project>
