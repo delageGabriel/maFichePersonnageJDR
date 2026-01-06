@@ -1850,565 +1850,287 @@ namespace maFichePersonnageJDR.Formulaires
         }
         private void CreatePersonnageFichePDF()
         {
-            Document doc = new Document(PageSize.A4);
-            PdfWriter.GetInstance(doc, new FileStream($".\\{txtBoxNom.Text}.pdf", FileMode.Create));
+            Document doc = new Document(PageSize.A4, 36, 36, 36, 36);
+            PdfWriter.GetInstance(doc, new FileStream(
+                ".\\" + txtBoxNom.Text + ".pdf", FileMode.Create));
+
             doc.Open();
 
-            /// INFOS GENERALES
-            /// 
-            Paragraph pInfosGenerales = new Paragraph();
-            pInfosGenerales.Add(Chunk.NEWLINE);
-            pInfosGenerales.Add(new Chunk("INFORMATIONS GÉNÉRALES"));
+            /* ============================
+             * INFORMATIONS GÉNÉRALES
+             * ============================ */
 
-            Paragraph pNomPrenom = new Paragraph();
-            pNomPrenom.Add(Chunk.NEWLINE);
-            pNomPrenom.Add(new Chunk("Nom : " + txtBoxNom.Text));
-            pNomPrenom.Add(Chunk.TABBING);
-            pNomPrenom.Add(new Chunk("\t Prénom : " + txtBoxPrenom.Text));
+            doc.Add(CreateSectionTitle("INFORMATIONS GÉNÉRALES"));
+            doc.Add(CreateTextBlock("Nom : " + txtBoxNom.Text +
+                                    "    Prénom : " + txtBoxPrenom.Text));
+            doc.Add(CreateTextBlock("Race : " + TxtBoxRace.Text +
+                                    "    Sexe : " + txtBxSexe.Text));
+            doc.Add(CreateTextBlock("Taille : " + cbBxTaille.SelectedItem +
+                                    "    Niveau : " + nudNiveau.Value));
 
-            Paragraph pRaceSexe = new Paragraph();
-            pRaceSexe.Add(Chunk.NEWLINE);
-            pRaceSexe.Add(new Chunk("Race : " + TxtBoxRace.Text));
-            pRaceSexe.Add(Chunk.TABBING);
-            pRaceSexe.Add(new Chunk("\t Sexe : " + txtBxSexe.Text));
+            /* ============================
+             * POINTS
+             * ============================ */
 
-            Paragraph pTailleNiveau = new Paragraph();
-            pTailleNiveau.Add(Chunk.NEWLINE);
-            pTailleNiveau.Add(new Chunk("Taille : " + cbBxTaille.SelectedItem.ToString()));
-            pTailleNiveau.Add(Chunk.TABBING);
-            pTailleNiveau.Add(new Chunk("\t Niveau : " + nudNiveau.Value.ToString()));
+            doc.Add(CreateSectionTitle("POINTS DE VIE"));
+            doc.Add(CreateSimple2ColTable(
+                "Actuel", "Total",
+                numUpDwnPtsVie.Value.ToString(),
+                numUpDwnPtsVie.Value.ToString()));
 
-            /// PV
-            ///
-            Paragraph pPv = new Paragraph();
-            pPv.Add(Chunk.NEWLINE);
-            pPv.Add(new Chunk("POINTS DE VIE"));
+            doc.Add(CreateSectionTitle("POINTS D'ÉNERGIE"));
+            doc.Add(CreateSimple2ColTable(
+                "Actuel", "Total",
+                numUpDwnPtsEnergie.Value.ToString(),
+                numUpDwnPtsEnergie.Value.ToString()));
 
-            PdfPTable tablePv = new PdfPTable(2); // 3 colonnes
-            tablePv.WidthPercentage = 100;
+            /* ============================
+             * MONNAIE / POIDS
+             * ============================ */
 
-            tablePv.AddCell("Actuel");
-            tablePv.AddCell("Total");
+            doc.Add(CreateSectionTitle("MONNAIE"));
+            doc.Add(CreateSimple3ColTable(
+                "PO", "PA", "PC",
+                nudPieceOr.Value.ToString(),
+                nudPieceArgent.Value.ToString(),
+                nudPieceCuivre.Value.ToString()));
 
-            tablePv.AddCell(numUpDwnPtsVie.Value.ToString());
-            tablePv.AddCell(numUpDwnPtsVie.Value.ToString());
+            doc.Add(CreateSectionTitle("POIDS"));
+            doc.Add(CreateSimple3ColTable(
+                "Transporté", "Total", "Surcharge",
+                lblValeurPoidsPorte.Text,
+                lblValeurPoidsMaximal.Text,
+                lblValeurPoidsSurcharge.Text));
 
-            /// PE
-            ///
-            Paragraph pPe = new Paragraph();
-            pPe.Add(Chunk.NEWLINE);
-            pPe.Add(new Chunk("POINTS D'ENERGIE"));
+            /* ============================
+             * TEXTE LIBRE
+             * ============================ */
 
-            PdfPTable tablePe = new PdfPTable(2); // 3 colonnes
-            tablePe.WidthPercentage = 100;
+            doc.Add(CreateSectionTitle("LANGUES PARLÉE(S)"));
+            doc.Add(CreateTextBlock(txtBxLanguesParlees.Text));
 
-            tablePe.AddCell("Actuel");
-            tablePe.AddCell("Total");
+            doc.Add(CreateSectionTitle("HISTOIRE"));
+            doc.Add(CreateTextBlock(rtbHistoire.Text));
 
-            tablePe.AddCell(numUpDwnPtsEnergie.Value.ToString());
-            tablePe.AddCell(numUpDwnPtsEnergie.Value.ToString());
+            doc.Add(CreateSectionTitle("DESCRIPTION PHYSIQUE"));
+            doc.Add(CreateTextBlock(rchTxtBxDescriptionPhysique.Text));
 
-            /// MONNAIE
-            ///
-            Paragraph pMonnaie = new Paragraph();
-            pMonnaie.Add(Chunk.NEWLINE);
-            pMonnaie.Add(new Chunk("MONNAIE"));
+            doc.Add(CreateSectionTitle("OBJECTIFS"));
+            doc.Add(CreateTextBlock("Objectif mineur : " + txtBxObjctfMineur.Text));
+            doc.Add(CreateTextBlock("Objectif moyen : " + txtBxObjctfMoyen.Text));
+            doc.Add(CreateTextBlock("Objectif majeur : " + txtBxObjctfMajeur.Text));
 
-            PdfPTable tableMonnaie = new PdfPTable(3); // 3 colonnes
-            tableMonnaie.WidthPercentage = 100;
+            /* ============================
+             * ATTRIBUTS
+             * ============================ */
 
-            tableMonnaie.AddCell("PO");
-            tableMonnaie.AddCell("PA");
-            tableMonnaie.AddCell("PC");
-
-            tableMonnaie.AddCell(nudPieceOr.Value.ToString());
-            tableMonnaie.AddCell(nudPieceArgent.Value.ToString());
-            tableMonnaie.AddCell(nudPieceCuivre.Value.ToString());
-
-            /// POIDS
-            /// 
-            Paragraph pPoids = new Paragraph();
-            pPoids.Add(Chunk.NEWLINE);
-            pPoids.Add(new Chunk("POIDS"));
-
-            PdfPTable tablePoids = new PdfPTable(3); // 3 colonnes
-            tablePoids.WidthPercentage = 100;
-
-            tablePoids.AddCell("Transporté");
-            tablePoids.AddCell("Total");
-            tablePoids.AddCell("Surcharge");
-
-            tablePoids.AddCell(lblValeurPoidsPorte.Text);
-            tablePoids.AddCell(lblValeurPoidsMaximal.Text);
-            tablePoids.AddCell(lblValeurPoidsSurcharge.Text);
-
-            /// LANGUES
-            /// 
-            Paragraph pLangues = new Paragraph();
-            pLangues.Add(Chunk.NEWLINE);
-            pLangues.Add(new Chunk("LANGUES PARLÉE(S)"));
-            pLangues.Add(Chunk.NEWLINE);
-            pLangues.Add(new Chunk(txtBxLanguesParlees.Text));
-
-            /// HISTOIRE
-            /// 
-            Paragraph pHistoire = new Paragraph();
-            pHistoire.Add(Chunk.NEWLINE);
-            pHistoire.Add(new Chunk("HISTOIRE"));
-            pHistoire.Add(Chunk.NEWLINE);
-            pHistoire.Add(new Chunk(rtbHistoire.Text));
-
-            /// DESCRIPTION PHYSIQUE
-            /// 
-            Paragraph pDescriptionPhysique = new Paragraph();
-            pDescriptionPhysique.Add(Chunk.NEWLINE);
-            pDescriptionPhysique.Add(new Chunk("DESCRIPTION PHYSIQUE"));
-            pDescriptionPhysique.Add(Chunk.NEWLINE);
-            pDescriptionPhysique.Add(new Chunk(rchTxtBxDescriptionPhysique.Text));
-
-            /// OBJECTIFS
-            /// 
-            Paragraph pObjectifs = new Paragraph();
-            pObjectifs.Add(Chunk.NEWLINE);
-            pObjectifs.Add(new Chunk("OBJECTIFS"));
-            pObjectifs.Add(Chunk.NEWLINE);
-            pObjectifs.Add(Chunk.NEWLINE);
-            pObjectifs.Add(new Chunk("Objectif mineur : " + txtBxObjctfMineur.Text));
-            pObjectifs.Add(Chunk.NEWLINE);
-            pObjectifs.Add(Chunk.NEWLINE);
-            pObjectifs.Add(new Chunk("Objectif moyen : " + txtBxObjctfMoyen.Text));
-            pObjectifs.Add(Chunk.NEWLINE);
-            pObjectifs.Add(Chunk.NEWLINE);
-            pObjectifs.Add(new Chunk("Objectif majeur : " + txtBxObjctfMajeur.Text));
-
-            /// ATTRIBUTS
-            /// 
-            Paragraph pAttribut = new Paragraph();
-            pAttribut.Add(Chunk.NEXTPAGE);
-            pAttribut.Add(new Chunk("ATTRIBUTS"));
+            doc.NewPage();
+            doc.Add(CreateSectionTitle("ATTRIBUTS"));
 
             PdfPTable tableAttribut = new PdfPTable(3);
             tableAttribut.WidthPercentage = 100;
+            tableAttribut.SpacingAfter = 12f;
+            tableAttribut.DefaultCell.Padding = 5f;
 
             tableAttribut.AddCell("Nom");
             tableAttribut.AddCell("Effets");
             tableAttribut.AddCell("Type");
 
-            foreach (var checkbox in chkLBxAttributesPersonnages.Items)
+            foreach (object item in chkLBxAttributesPersonnages.Items)
             {
-                string nom = checkbox.ToString();
-                string effet = Controller.NewAttributsController
-                    .GetAttributeEffectByName(nom);
-                string type = Controller.NewAttributsController
-                    .GetAttributeTypeByName(nom);
-
+                string nom = item.ToString();
                 tableAttribut.AddCell(nom);
-                tableAttribut.AddCell(effet);
-                tableAttribut.AddCell(type);
+                tableAttribut.AddCell(
+                    Controller.NewAttributsController.GetAttributeEffectByName(nom));
+                tableAttribut.AddCell(
+                    Controller.NewAttributsController.GetAttributeTypeByName(nom));
             }
 
-            /// TRAITS DE PERSONNALITES ET DESIRS CACHES
-            /// 
-            Paragraph pTraitPersonnalitesDesirsCaches = new Paragraph();
-            pTraitPersonnalitesDesirsCaches.Add(Chunk.NEWLINE);
-            pTraitPersonnalitesDesirsCaches.Add(new Chunk("TRAITS DE PERSONNALITES"));
-            pTraitPersonnalitesDesirsCaches.Add(Chunk.NEWLINE);
-            pTraitPersonnalitesDesirsCaches.Add(new Chunk(txtBxTraitPersonnalite.Text));
-            pTraitPersonnalitesDesirsCaches.Add(Chunk.NEWLINE);
-            pTraitPersonnalitesDesirsCaches.Add(Chunk.NEWLINE);
-            pTraitPersonnalitesDesirsCaches.Add(new Chunk("DESIRS CACHES"));
-            pTraitPersonnalitesDesirsCaches.Add(Chunk.NEWLINE);
-            pTraitPersonnalitesDesirsCaches.Add(new Chunk(txtBxDesirsCaches.Text));
+            doc.Add(tableAttribut);
 
-            /// CARACTERISTIQUES
-            /// 
-            Paragraph pCaracteristiques = new Paragraph();
-            pCaracteristiques.Add(Chunk.NEWLINE);
-            pCaracteristiques.Add(new Chunk("CARACTERISTIQUES"));
+            /* ============================
+             * SORTS & APTITUDES
+             * ============================ */
 
-            PdfPTable tableCaracteristiques = new PdfPTable(3); // 3 colonnes
-            tableCaracteristiques.WidthPercentage = 100;
+            doc.Add(CreateSectionTitle("SORTS ET APTITUDES"));
 
-            tableCaracteristiques.AddCell("Corps");
-            tableCaracteristiques.AddCell("Esprit");
-            tableCaracteristiques.AddCell("Relationnel");
-
-            tableCaracteristiques.AddCell(numUpDwnPtsCorps.Value.ToString());
-            tableCaracteristiques.AddCell(numUpDwnPtsEsprit.Value.ToString());
-            tableCaracteristiques.AddCell(numUpDwnPtsRelationnel.Value.ToString());
-
-            /// COMPETENCES COMBAT
-            /// 
-            Paragraph pCompetencesCombat = new Paragraph();
-            pCompetencesCombat.Add(Chunk.NEWLINE);
-            pCompetencesCombat.Add(new Chunk("COMPETENCES DE COMBAT"));
-
-            PdfPTable tableCompetencesCombat = new PdfPTable(4); // 3 colonnes
-            tableCompetencesCombat.WidthPercentage = 100;
-
-            tableCompetencesCombat.AddCell("Nom");
-            tableCompetencesCombat.AddCell("Base");
-            tableCompetencesCombat.AddCell("Temporaire");
-            tableCompetencesCombat.AddCell("Total");
-
-            tableCompetencesCombat.AddCell("Dextérité");
-            tableCompetencesCombat.AddCell(numUpDwnDexterite.Value.ToString());
-            tableCompetencesCombat.AddCell(0.ToString());
-            tableCompetencesCombat.AddCell(numUpDwnDexterite.Value.ToString());
-
-            tableCompetencesCombat.AddCell("Initiative");
-            tableCompetencesCombat.AddCell(numUpDwnInitiative.Value.ToString());
-            tableCompetencesCombat.AddCell(0.ToString());
-            tableCompetencesCombat.AddCell(numUpDwnInitiative.Value.ToString());
-
-            tableCompetencesCombat.AddCell("Déplacement");
-            tableCompetencesCombat.AddCell(numUpDwnDeplacement.Value.ToString());
-            tableCompetencesCombat.AddCell(0.ToString());
-            tableCompetencesCombat.AddCell(numUpDwnDeplacement.Value.ToString());
-
-            /// COMPETENCES CORPS
-            /// 
-            Paragraph pCompetenceCorps = new Paragraph();
-            pCompetenceCorps.Add(Chunk.NEWLINE);
-            pCompetenceCorps.Add(new Chunk("COMPETENCES DE CORPS"));
-
-            PdfPTable tableCompetenceCorps = new PdfPTable(2); // 3 colonnes
-            tableCompetenceCorps.WidthPercentage = 100;
-
-            tableCompetenceCorps.AddCell("Nom");
-            tableCompetenceCorps.AddCell("Points");
-
-            tableCompetenceCorps.AddCell("Agilité");
-            tableCompetenceCorps.AddCell(numUpDwnAgilite.Value.ToString());
-
-            tableCompetenceCorps.AddCell("Course");
-            tableCompetenceCorps.AddCell(numUpDwnCourse.Value.ToString());
-
-            tableCompetenceCorps.AddCell("Discrétion");
-            tableCompetenceCorps.AddCell(numUpDwnDiscretion.Value.ToString());
-
-            tableCompetenceCorps.AddCell("Équilibre");
-            tableCompetenceCorps.AddCell(numUpDwnEquilibre.Value.ToString());
-
-            tableCompetenceCorps.AddCell("Escalade");
-            tableCompetenceCorps.AddCell(numUpDwnEscalade.Value.ToString());
-
-            tableCompetenceCorps.AddCell("Force");
-            tableCompetenceCorps.AddCell(numUpDwnForce.Value.ToString());
-
-            tableCompetenceCorps.AddCell("Fouilles");
-            tableCompetenceCorps.AddCell(numUpDwnFouilles.Value.ToString());
-
-            tableCompetenceCorps.AddCell("Lancer");
-            tableCompetenceCorps.AddCell(numUpDwnLancer.Value.ToString());
-
-            tableCompetenceCorps.AddCell("Lutte");
-            tableCompetenceCorps.AddCell(numUpDwnLutte.Value.ToString());
-
-            tableCompetenceCorps.AddCell("Natation");
-            tableCompetenceCorps.AddCell(numUpDwnNatation.Value.ToString());
-
-            tableCompetenceCorps.AddCell("Réflexes");
-            tableCompetenceCorps.AddCell(numUpDwnReflexes.Value.ToString());
-
-            tableCompetenceCorps.AddCell("Vigueur");
-            tableCompetenceCorps.AddCell(numUpDwnVigueur.Value.ToString());
-
-            tableCompetenceCorps.AddCell("Escalade");
-            tableCompetenceCorps.AddCell(numUpDwnEscalade.Value.ToString());
-
-            /// COMPETENCES ESPRIT
-            /// 
-            Paragraph pCompetenceEsprit = new Paragraph();
-            pCompetenceEsprit.Add(Chunk.NEWLINE);
-            pCompetenceEsprit.Add(new Chunk("COMPETENCES D'ESPRIT"));
-
-            PdfPTable tableCompetenceEsprit = new PdfPTable(2); // 3 colonnes
-            tableCompetenceEsprit.WidthPercentage = 100;
-
-            tableCompetenceEsprit.AddCell("Nom");
-            tableCompetenceEsprit.AddCell("Points");
-
-            tableCompetenceEsprit.AddCell("Concentration");
-            tableCompetenceEsprit.AddCell(numUpDwnConcentration.Value.ToString());
-
-            tableCompetenceEsprit.AddCell("Essence");
-            tableCompetenceEsprit.AddCell(numUpDwnEssence.Value.ToString());
-
-            tableCompetenceEsprit.AddCell("Logique");
-            tableCompetenceEsprit.AddCell(numUpDwnLogique.Value.ToString());
-
-            tableCompetenceEsprit.AddCell("Mémoire");
-            tableCompetenceEsprit.AddCell(numUpDwnMemoire.Value.ToString());
-
-            tableCompetenceEsprit.AddCell("Orientation");
-            tableCompetenceEsprit.AddCell(numUpDwnOrientation.Value.ToString());
-
-            tableCompetenceEsprit.AddCell("Perception");
-            tableCompetenceEsprit.AddCell(numUpDwnPerception.Value.ToString());
-
-            tableCompetenceEsprit.AddCell("Volonté");
-            tableCompetenceEsprit.AddCell(numUpDwnVolonte.Value.ToString());
-
-            /// COMPETENCES RELATIONNEL
-            /// 
-            Paragraph pCompetencesRelationnelles = new Paragraph();
-            pCompetencesRelationnelles.Add(Chunk.NEWLINE);
-            pCompetencesRelationnelles.Add(new Chunk("COMPETENCES RELATIONNELLES"));
-
-            PdfPTable tableCompetencesRelationnelles = new PdfPTable(2); // 3 colonnes
-            tableCompetencesRelationnelles.WidthPercentage = 100;
-
-            tableCompetencesRelationnelles.AddCell("Nom");
-            tableCompetencesRelationnelles.AddCell("Points");
-
-            tableCompetencesRelationnelles.AddCell("Apaisement");
-            tableCompetencesRelationnelles.AddCell(numUpDwnApaisement.Value.ToString());
-
-            tableCompetencesRelationnelles.AddCell("Charme");
-            tableCompetencesRelationnelles.AddCell(numUpDwnCharme.Value.ToString());
-
-            tableCompetencesRelationnelles.AddCell("Comédie");
-            tableCompetencesRelationnelles.AddCell(numUpDwnComedie.Value.ToString());
-
-            tableCompetencesRelationnelles.AddCell("Commandement");
-            tableCompetencesRelationnelles.AddCell(numUpDwnCommandement.Value.ToString());
-
-            tableCompetencesRelationnelles.AddCell("Intimidation");
-            tableCompetencesRelationnelles.AddCell(numUpDwnIntimidation.Value.ToString());
-
-            tableCompetencesRelationnelles.AddCell("Perspicacité");
-            tableCompetencesRelationnelles.AddCell(numUpDwnPerspicacite.Value.ToString());
-
-            tableCompetencesRelationnelles.AddCell("Provocation");
-            tableCompetencesRelationnelles.AddCell(numUpDwnProvocation.Value.ToString());
-
-            tableCompetencesRelationnelles.AddCell("Tromperie");
-            tableCompetencesRelationnelles.AddCell(numUpDwnTromperie.Value.ToString());
-
-            /// SPECIALITES
-            /// 
-            List<NumericUpDown> resultats = new List<NumericUpDown>();
-
-            /// Revoir la logique ici parce que là c'est pas possible de faire cinquante boucle
-            foreach (TabPage tab in tbCtrlSpecialites.TabPages)
+            foreach (Control ctrl in flpSortsAptitudesPersonnages.Controls)
             {
-                foreach (Control ctrl in tab.Controls)
+                Label label = ctrl as Label;
+                if (label == null)
+                    continue;
+
+                string nom = label.Text;
+
+                Dictionary<string, string> aptitude =
+                    Controller.NewAptitudesController
+                        .GetAptitudeInformationsByName(nom);
+
+                if (string.IsNullOrWhiteSpace(aptitude["Domaine"]))
                 {
-                    if (ctrl is FlowLayoutPanel)
-                    {
-                        foreach (Control control in ctrl.Controls)
-                        {
-                            if (control is TableLayoutPanel)
-                            {
-                                foreach (Control controlvcinquante in control.Controls)
-                                {
-                                    if (controlvcinquante is NumericUpDown nud && nud.Value > 0)
-                                    {
-                                        resultats.Add(nud);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+                    Dictionary<string, string> sort =
+                        Controller.SortsController
+                            .GetSortInformationsByName(nom);
 
-            Paragraph pSpecialites = new Paragraph();
-            pSpecialites.Add(Chunk.NEXTPAGE);
-            pSpecialites.Add(new Chunk("SPECIALITES"));
-
-            PdfPTable tableSpecialites = new PdfPTable(2); // 3 colonnes
-            tableSpecialites.WidthPercentage = 100;
-
-            tableSpecialites.AddCell("Nom");
-            tableSpecialites.AddCell("Points");
-
-            foreach (NumericUpDown nud in resultats)
-            {
-                tableSpecialites.AddCell(nud.Tag.ToString());
-                tableSpecialites.AddCell(nud.Value.ToString());
-            }
-
-            /// JEUX SORTS APTITUDES
-            /// 
-            Paragraph pJeuxSortsAptitudes = new Paragraph();
-            pJeuxSortsAptitudes.Add(Chunk.NEWLINE);
-            pJeuxSortsAptitudes.Add(new Chunk("JEUX DE SORTS ET D'APTITUDES"));
-            pJeuxSortsAptitudes.Add(Chunk.NEWLINE);
-
-            PdfPTable tableJeuxSortsAptitudes = new PdfPTable(2); // 3 colonnes
-            tableJeuxSortsAptitudes.WidthPercentage = 100;
-
-            tableJeuxSortsAptitudes.AddCell("Nom");
-            tableJeuxSortsAptitudes.AddCell("Points");
-
-            foreach (var item in lstBxChoixSortsAptitudes.Items)
-            {
-                string[] itemSeparated = item.ToString().Split(';');
-
-                if (itemSeparated.Length == 1)
-                {
-                    tableJeuxSortsAptitudes.AddCell(itemSeparated[0]);
-                    tableJeuxSortsAptitudes.AddCell("0");
+                    doc.Add(CreateSortTable(sort));
                 }
                 else
                 {
-                    tableJeuxSortsAptitudes.AddCell(itemSeparated[0]);
-                    tableJeuxSortsAptitudes.AddCell(itemSeparated[1]);
+                    doc.Add(CreateAptitudeTable(aptitude));
                 }
             }
 
-            /// SORTS APTITUDES
-            /// 
-            Paragraph pSortsAptitudes = new Paragraph();
-            pSortsAptitudes.Add(Chunk.NEWLINE);
-            pSortsAptitudes.Add(new Chunk("SORTS ET D'APTITUDES"));
-            pSortsAptitudes.Add(Chunk.NEWLINE);
+            /* ============================
+             * ÉQUIPEMENTS
+             * ============================ */
 
-            /// EQUIPEMENTS
-            /// 
-            Paragraph pEquipements = new Paragraph();
-            pEquipements.Add(Chunk.NEWLINE);
-            pEquipements.Add(new Chunk("EQUIPEMENTS"));
-            pEquipements.Add(Chunk.NEWLINE);
+            doc.NewPage();
+            doc.Add(CreateSectionTitle("ÉQUIPEMENTS"));
 
-            doc.Add(pInfosGenerales);
-            doc.Add(pNomPrenom);
-            doc.Add(pRaceSexe);
-            doc.Add(pTailleNiveau);
-
-            doc.Add(pPv);
-            doc.Add(tablePv);
-
-            doc.Add(pPe);
-            doc.Add(tablePe);
-
-            doc.Add(pMonnaie);
-            doc.Add(tableMonnaie);
-
-            doc.Add(pPoids);
-            doc.Add(tablePoids);
-
-            doc.Add(pLangues);
-            doc.Add(pHistoire);
-            doc.Add(pDescriptionPhysique);
-            doc.Add(pObjectifs);
-
-            doc.Add(pAttribut);
-            doc.Add(tableAttribut);
-
-            doc.Add(pTraitPersonnalitesDesirsCaches);
-
-            doc.Add(pCaracteristiques);
-            doc.Add(tableCaracteristiques);
-
-            doc.Add(pCompetencesCombat);
-            doc.Add(tableCompetencesCombat);
-
-            doc.Add(pCompetenceCorps);
-            doc.Add(tableCompetenceCorps);
-
-            doc.Add(pCompetenceEsprit);
-            doc.Add(tableCompetenceEsprit);
-
-            doc.Add(pCompetencesRelationnelles);
-            doc.Add(tableCompetencesRelationnelles);
-
-            doc.Add(pSpecialites);
-            doc.Add(tableSpecialites);
-
-            doc.Add(pJeuxSortsAptitudes);
-            doc.Add(tableJeuxSortsAptitudes);
-
-            doc.Add(pSortsAptitudes);
-
-            foreach (var item in flpSortsAptitudesPersonnages.Controls)
+            // ARMES
+            foreach (object item in chkLBxArmesInventaire.Items)
             {
-                if (item is Label)
-                {
-                    Label label = (Label)item;
+                string[] split = item.ToString().Split(';');
+                doc.Add(CreateTextBlock("Quantité : " + split[1]));
 
-                    string nom = label.Text;
+                Dictionary<string, string> arme =
+                    Controller.ArmesController
+                        .GetArmeInformationsByName(split[0]);
 
-                    Dictionary<string, string> aptitude = Controller.NewAptitudesController.GetAptitudeInformationsByName(nom);
-
-                    if (aptitude["Domaine"] == string.Empty)
-                    {
-                        Dictionary<string, string> sort = Controller.SortsController.GetSortInformationsByName(nom);
-
-                        PdfPTable table = CreateSortTable(sort);
-                        doc.Add(table);
-                    }
-                    else
-                    {
-                        PdfPTable table = CreateAptitudeTable(aptitude);
-                        doc.Add(table);
-                    }
-                }
+                doc.Add(CreateGenericEquipmentTable(arme, "Effet"));
             }
 
-            doc.Add(pEquipements);
-
-            /// ARMES
-            /// 
-            foreach (var checkbox in chkLBxArmesInventaire.Items)
+            // ARMURES
+            foreach (object item in chkLBxArmuresInventaire.Items)
             {
-                Paragraph pArme = new Paragraph();
+                string[] split = item.ToString().Split(';');
+                doc.Add(CreateTextBlock("Quantité : " + split[1]));
 
-                string nom = checkbox.ToString();
-                string[] splitNom = nom.Split(';');
+                Dictionary<string, string> armure =
+                    Controller.ArmuresController
+                        .GetArmureInformationsByName(split[0]);
 
-                pArme.Add(Chunk.NEWLINE);
-                pArme.Add(new Chunk("QUANTITE : " + splitNom[1]));
-                pArme.Add(Chunk.NEWLINE);
-
-                Dictionary<string, string> arme = Controller.ArmesController.GetArmeInformationsByName(splitNom[0]);
-
-                PdfPTable table = CreateArmeTable(arme);
-                doc.Add(table);
-                doc.Add(pArme);
+                doc.Add(CreateGenericEquipmentTable(armure, "Effets"));
             }
-            /// ARMURES
-            /// 
-            foreach (var checkbox in chkLBxArmuresInventaire.Items)
+
+            // OBJETS
+            foreach (object item in chkLBxObjetsInventaire.Items)
             {
-                Paragraph pArmure = new Paragraph();
+                string[] split = item.ToString().Split(';');
+                doc.Add(CreateTextBlock("Quantité : " + split[1]));
 
-                string nom = checkbox.ToString();
-                string[] splitNom = nom.Split(';');
+                Dictionary<string, string> objet =
+                    Controller.ObjetsController
+                        .GetObjetInformationsByName(split[0]);
 
-                pArmure.Add(Chunk.NEWLINE);
-                pArmure.Add(new Chunk("QUANTITE : " + splitNom[1]));
-                pArmure.Add(Chunk.NEWLINE);
-
-                Dictionary<string, string> armure = Controller.ArmuresController.GetArmureInformationsByName(splitNom[0]);
-
-                PdfPTable table = CreateArmureTable(armure);
-                doc.Add(table);
-                doc.Add(pArmure);
-            }
-            /// OBJETS
-            /// 
-            foreach (var checkbox in chkLBxArmuresInventaire.Items)
-            {
-                Paragraph pObjet = new Paragraph();
-
-                string nom = checkbox.ToString();
-                string[] splitNom = nom.Split(';');
-
-                pObjet.Add(Chunk.NEWLINE);
-                pObjet.Add(new Chunk("QUANTITE : " + splitNom[1]));
-                pObjet.Add(Chunk.NEWLINE);
-
-                Dictionary<string, string> objet = Controller.ObjetsController.GetObjetInformationsByName(splitNom[0]);
-
-                PdfPTable table = CreateArmureTable(objet);
-                doc.Add(table);
-                doc.Add(pObjet);
+                doc.Add(CreateGenericEquipmentTable(objet, "Effet"));
             }
 
             doc.Close();
+        }
+
+        private PdfPTable CreateSimple2ColTable(
+    string header1, string header2,
+    string value1, string value2)
+        {
+            PdfPTable table = new PdfPTable(2);
+            table.WidthPercentage = 100;
+            table.SpacingBefore = 6f;
+            table.SpacingAfter = 10f;
+            table.DefaultCell.Padding = 5f;
+
+            var headerFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 10);
+            var valueFont = FontFactory.GetFont(FontFactory.HELVETICA, 10);
+
+            PdfPCell h1 = new PdfPCell(new Phrase(header1, headerFont))
+            {
+                BackgroundColor = new BaseColor(240, 240, 240),
+                HorizontalAlignment = Element.ALIGN_CENTER
+            };
+            PdfPCell h2 = new PdfPCell(new Phrase(header2, headerFont))
+            {
+                BackgroundColor = new BaseColor(240, 240, 240),
+                HorizontalAlignment = Element.ALIGN_CENTER
+            };
+
+            table.AddCell(h1);
+            table.AddCell(h2);
+
+            table.AddCell(new PdfPCell(new Phrase(value1, valueFont))
+            {
+                HorizontalAlignment = Element.ALIGN_CENTER
+            });
+            table.AddCell(new PdfPCell(new Phrase(value2, valueFont))
+            {
+                HorizontalAlignment = Element.ALIGN_CENTER
+            });
+
+            return table;
+        }
+        private PdfPTable CreateSimple3ColTable(
+    string header1, string header2, string header3,
+    string value1, string value2, string value3)
+        {
+            PdfPTable table = new PdfPTable(3);
+            table.WidthPercentage = 100;
+            table.SpacingBefore = 6f;
+            table.SpacingAfter = 10f;
+            table.DefaultCell.Padding = 5f;
+
+            var headerFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 10);
+            var valueFont = FontFactory.GetFont(FontFactory.HELVETICA, 10);
+
+            table.AddCell(new PdfPCell(new Phrase(header1, headerFont))
+            {
+                BackgroundColor = new BaseColor(240, 240, 240),
+                HorizontalAlignment = Element.ALIGN_CENTER
+            });
+            table.AddCell(new PdfPCell(new Phrase(header2, headerFont))
+            {
+                BackgroundColor = new BaseColor(240, 240, 240),
+                HorizontalAlignment = Element.ALIGN_CENTER
+            });
+            table.AddCell(new PdfPCell(new Phrase(header3, headerFont))
+            {
+                BackgroundColor = new BaseColor(240, 240, 240),
+                HorizontalAlignment = Element.ALIGN_CENTER
+            });
+
+            table.AddCell(new PdfPCell(new Phrase(value1, valueFont))
+            {
+                HorizontalAlignment = Element.ALIGN_CENTER
+            });
+            table.AddCell(new PdfPCell(new Phrase(value2, valueFont))
+            {
+                HorizontalAlignment = Element.ALIGN_CENTER
+            });
+            table.AddCell(new PdfPCell(new Phrase(value3, valueFont))
+            {
+                HorizontalAlignment = Element.ALIGN_CENTER
+            });
+
+            return table;
+        }
+
+        private Paragraph CreateSectionTitle(string text)
+        {
+            var font = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 14);
+
+            Paragraph p = new Paragraph(text, font);
+            p.SpacingBefore = 16f;
+            p.SpacingAfter = 10f;
+
+            return p;
+        }
+        private Paragraph CreateTextBlock(string text)
+        {
+            var font = FontFactory.GetFont(FontFactory.HELVETICA, 10);
+
+            Paragraph p = new Paragraph(text, font);
+            p.SpacingBefore = 4f;
+            p.SpacingAfter = 6f;
+
+            return p;
         }
 
         private PdfPTable CreateAptitudeTable(Dictionary<string, string> aptitude)
@@ -2416,6 +2138,8 @@ namespace maFichePersonnageJDR.Formulaires
             PdfPTable table = new PdfPTable(2);
             table.WidthPercentage = 100;
             table.SpacingBefore = 10f;
+            table.SpacingAfter = 14f;
+            table.DefaultCell.Padding = 5f;
 
             iTextSharp.text.Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 14);
             iTextSharp.text.Font labelFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 10);
@@ -2467,6 +2191,8 @@ namespace maFichePersonnageJDR.Formulaires
             PdfPTable table = new PdfPTable(2);
             table.WidthPercentage = 100;
             table.SpacingBefore = 10f;
+            table.SpacingAfter = 14f;
+            table.DefaultCell.Padding = 5f;
 
             iTextSharp.text.Font titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 14);
             iTextSharp.text.Font labelFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 10);
@@ -2639,6 +2365,60 @@ namespace maFichePersonnageJDR.Formulaires
             {
                 table.AddCell(new PdfPCell(
                     new Phrase("Effet : " + objet["Effet"], valueFont))
+                {
+                    Colspan = 2,
+                    Padding = 6f
+                });
+            }
+
+            return table;
+        }
+        private PdfPTable CreateGenericEquipmentTable(Dictionary<string, string> data, string keyEffet)
+        {
+            PdfPTable table = new PdfPTable(2);
+            table.WidthPercentage = 100;
+            table.SpacingBefore = 10f;
+            table.SpacingAfter = 14f;
+            table.DefaultCell.Padding = 5f;
+
+            var titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 14);
+            var labelFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 10);
+            var valueFont = FontFactory.GetFont(FontFactory.HELVETICA, 10);
+
+            PdfPCell titleCell = new PdfPCell(new Phrase(data["Nom"], titleFont))
+            {
+                Colspan = 2,
+                HorizontalAlignment = Element.ALIGN_CENTER,
+                Padding = 6f,
+                BackgroundColor = new BaseColor(220, 220, 220),
+                BorderWidthBottom = 1.5f
+            };
+            table.AddCell(titleCell);
+
+            foreach (var kvp in data)
+            {
+                if (kvp.Key == "Nom" || kvp.Key == keyEffet) continue;
+                if (string.IsNullOrWhiteSpace(kvp.Value)) continue;
+
+                PdfPCell label = new PdfPCell(new Phrase(kvp.Key + " :", labelFont))
+                {
+                    BackgroundColor = new BaseColor(240, 240, 240),
+                    Padding = 5f
+                };
+
+                PdfPCell value = new PdfPCell(new Phrase(kvp.Value, valueFont))
+                {
+                    Padding = 5f
+                };
+
+                table.AddCell(label);
+                table.AddCell(value);
+            }
+
+            if (data.ContainsKey(keyEffet))
+            {
+                table.AddCell(new PdfPCell(
+                    new Phrase("Effet(s) : " + data[keyEffet], valueFont))
                 {
                     Colspan = 2,
                     Padding = 6f
