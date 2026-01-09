@@ -78,7 +78,7 @@ namespace maFichePersonnageJDR.Model
                 SQLiteConnection connection = DatabaseConnection.Instance.GetConnection();
 
                 SQLiteCommand command = new SQLiteCommand(
-                    "SELECT type " +
+                    "SELECT portee " +
                     "FROM SORTS " +
                     "WHERE nom = @name; ",
                     DatabaseConnection.Instance.GetConnection());

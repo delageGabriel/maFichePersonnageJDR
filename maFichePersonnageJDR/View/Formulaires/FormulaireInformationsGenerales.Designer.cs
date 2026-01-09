@@ -3730,6 +3730,7 @@ namespace maFichePersonnageJDR.Formulaires
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(824, 830);
             this.Controls.Add(this.pnlPoids);
             this.Controls.Add(this.pnlMonnaie);

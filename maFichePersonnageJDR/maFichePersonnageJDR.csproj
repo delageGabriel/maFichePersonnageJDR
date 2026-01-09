@@ -384,6 +384,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="BDD\base_fiche_perso.sqbpro" />
+    <None Include="Fiches\Berumondo.pdf" />
     <None Include="maFichePersonnageJDR_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\maFichePersonnageJDR.Formulaires.FormulaireCompAttri.datasource" />

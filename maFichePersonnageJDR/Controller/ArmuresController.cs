@@ -21,7 +21,6 @@ namespace maFichePersonnageJDR.Controller
             else
                 return null;
         }
-
         public static Dictionary<string, string> GetArmureInformationsByName(string name)
         {
             Console.WriteLine("########### Méthode GetArmureInformationsByName ###########");

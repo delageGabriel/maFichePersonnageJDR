@@ -1,65 +1,2219 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Utilisateur/source/repos/maFichePersonnageJDR/maFichePersonnageJDR/bdd/20231109_bdd_fiche_perso.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="5356"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,9:mainATTRIBUTS"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="APTITUDES" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="175"/><column index="3" value="88"/><column index="4" value="79"/><column index="5" value="165"/><column index="6" value="216"/><column index="7" value="124"/><column index="8" value="137"/><column index="9" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="ATTRIBUTS" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="78"/><column index="2" value="162"/><column index="3" value="300"/><column index="4" value="97"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">PRAGMA foreign_keys = OFF;
-
-DELETE FROM ATTRIBUTS;
-
-PRAGMA foreign_keys = ON;
-
-BEGIN TRANSACTION;
-
-INSERT INTO ATTRIBUTS (id_attribut, nom_attribut, effet_attribut, type_attribut) VALUES
-(1,'Armure naturelle','Une peau renforcée ou un revêtement organique épais réduit un nombre fixe de dégâts physiques subis en combat. (De 1 à 5 dégâts en moins)','Combat'),
-(2,'Dégagement','Grâce à une grande mobilité ou une perception accrue du combat, il est impossible d’être encerclé, trouvant toujours un moyen de se repositionner.','Combat'),
-(3,'Insubmersible','L''acuité et la dextérité du personnage en combat font qu’il est impossible de le submerger, le rendant imprenable en combat.','Combat'),
-(4,'Force surhumaine','Une puissance physique exceptionnelle permet d’infliger des coups plus dévastateurs et de soulever des charges bien au-delà des capacités normales. (Lance un dé supplémentaire de dégât physique et augmente la charge portable de 10 carrés.)','Combat'),
-(5,'Force de géant','Une puissance physique colossale permettant de broyer les ennemis sous des assauts destructeurs et de porter des charges énormes. (Lance deux dés supplémentaires de dégâts physiques et augmente la charge portable de 24 carrés.)','Combat'),
-(6,'Action supplémentaire','Une rapidité d’exécution et un contrôle du combat hors du commun permettent d’effectuer une action supplémentaire par tour.','Combat'),
-(7,'Rapidité extrême','Des réflexes exceptionnels donnent un avantage en combat, permettant d’agir en premier en combat.','Combat'),
-(8,'Sorcier talentueux','Une affinité magique puissante permet de canaliser une énergie offensive plus intense, ajoutant un dé supplémentaire aux dégâts des sorts.','Combat'),
-(9,'Résilience mentale','Une volonté de fer permet de rester imperturbable face aux situations les plus stressantes ou désespérées.','Combat'),
-(10,'Souffle draconique','Présence d’un organe interne apte à produire un souffle magique. Le type exact dépend du MJ.','Combat'),
-
-(11,'Canalisateur','Une capacité naturelle à manipuler l’énergie permet d’augmenter la réserve disponible, récupérant plus de points d’énergie. (Le MJ choisit entre : +3 ; +5 ; +7 ; +10 ; +15 PE supplémentaires).','Survie'),
-(12,'Corps artificiel','Conçu sans besoin vital de respiration, ce corps est immunisé aux poisons biologiques, mais ne peut être soigné de manière conventionnelle.','Survie'),
-(13,'Tolérance au froid','Une adaptation aux basses températures permet de survivre dans des environnements extrêmes sans subir d’effets négatifs. (résistance au froid jusqu’au niveau 6)','Survie'),
-(14,'Tolérance à la chaleur','La résistance à la chaleur évite les effets de la déshydratation et des températures élevées. (résistance à la chaleur jusqu’au niveau 12)','Survie'),
-(15,'Coagulation accélérée','Un sang particulier accélère la cicatrisation, stoppant les saignements après un certain nombre de tours.','Survie'),
-(16,'Gros dormeur','Un sommeil réparateur plus efficace permet de récupérer davantage de points de vie après un repos complet.','Survie'),
-(17,'Mithridatisation','Une exposition progressive aux toxines a renforcé la résistance aux poisons.','Survie'),
-(18,'Apnée prolongée','Une grande capacité pulmonaire permet de retenir son souffle bien plus longtemps sous l’eau avant de ressentir l’effet du manque d’oxygène.','Survie'),
-(19,'Sac de vie','Une réserve d’énergie supérieure à la normale permet d’utiliser plus fréquemment des capacités spéciales. (Le MJ choisit entre : +5 ; +8 ; +12 ; +15 ; +20 PV supplémentaires).','Survie'),
-(20,'Hyperesthésie','Une sensibilité nerveuse particulière confère une résistance accrue à la paralysie.','Survie'),
-(21,'Immuno-maladie','Résistance spécifique à certaines maladies.','Survie'),
-(22,'Toison isolante','Le corps conserve sa chaleur même dans un froid extrême. (résistance au froid jusqu’au niveau 4)','Survie'),
-(23,'Écho terrestre','Le sol transmet des vibrations perceptibles : pas lourds, déplacements, chocs.','Survie'),
-(24,'Vision nocturne','Permet de voir parfaitement dans l’obscurité totale.','Survie'),
-(25,'Détection aérique','La peau perçoit variations d’air et mouvements proches, même silencieux.','Survie'),
-(26,'Écailles mimétiques','La peau ajuste légèrement sa teinte selon l’environnement.','Survie'),
-(27,'Vue lointaine','Vision extrêmement nette sur de longues distances.','Survie'),
-(28,'Stockage hydrique interne','Le corps retient efficacement l’eau. (résistance à la chaleur jusqu’au niveau 14)','Survie'),
-(29,'Canaux respiratoires filtrants','Filtrent poussière et sable.','Survie'),
-(30,'Antivenin naturel','Le corps produit une enzyme interne neutralisant progressivement les venins naturels (animaux, plantes).','Survie'),
-
-(31,'Acclimatation montagnarde','Adaptation aux hautes altitudes, meilleure performance en terrain escarpé.','Mobilité et Exploration'),
-(32,'Vision des profondeurs','Permet de voir dans des endroits privés de lumière naturelle.','Mobilité et Exploration'),
-(33,'Porteur de charges lourdes','Peut transporter une charge plus importante sans malus. (25% du total de carrés supplémentaires)','Mobilité et Exploration'),
-(34,'Oreilles fines','Ouïe particulièrement précise, capable de capter des sons faibles ou lointains.','Mobilité et Exploration'),
-(35,'Localisation sonore','Permet de déterminer avec exactitude la direction d’un son.','Mobilité et Exploration'),
-(36,'Odeur affinée','Le personnage identifie des traces olfactives faibles : créature passée récemment, poison, nourriture dissimulée, cadavre caché, piste camouflée.','Mobilité et Exploration'),
-(37,'Échos muraux','La créature lit les rebonds sonores dans un espace clos et estime formes, obstacles et ouvertures.','Mobilité et Exploration'),
-(38,'Griffes d’ascension','Adhérence naturelle sur surfaces rugueuses ou irrégulières ; grimpe sans équipement.','Mobilité et Exploration'),
-
-(39,'Ami des animaux','Connexion innée facilitant l’apprivoisement et la confiance.','Sociaux'),
-(40,'Maître des langages','Assimile rapidement langues et codes.','Sociaux'),
-(41,'Aura de l’Unique','Présence perçue comme sacrée ou inhabituelle.','Sociaux'),
-(42,'Présence apaisante','Les créatures à faible intelligence sont moins enclines à attaquer spontanément.','Sociaux'),
-
-(43,'Magicien','Aptitude innée à manipuler les énergies arcaniques.','Mystiques et Occultes'),
-(44,'Sens du flux','Ressent instinctivement les zones où la magie circule fortement.','Mystiques et Occultes'),
-(45,'Oreilles draconiques','Perçoivent des résonances sonores d’origine magique.','Mystiques et Occultes'),
-(46,'Cryostase absolue','Résistance totale au froid absolu. (résistance au froid jusqu’au niveau 1)','Mystiques et Occultes'),
-(47,'Ignicœur primordial','Résistance totale à la chaleur extrême. (résistance à la chaleur jusqu’au niveau 17)','Mystiques et Occultes'),
-
-(48,'Sens des matériaux','Identifie la qualité, l’usure ou la valeur approximative d’un matériau.','Techniques et artisanaux');
-
-COMMIT;
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Utilisateur/source/repos/maFichePersonnageJDR/maFichePersonnageJDR/bdd/20231109_bdd_fiche_perso.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="5356"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,9:mainAPTITUDES"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="APTITUDES" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort><column index="2" mode="0"/></sort><column_widths><column index="1" value="40"/><column index="2" value="305"/><column index="3" value="88"/><column index="4" value="79"/><column index="5" value="165"/><column index="6" value="216"/><column index="7" value="124"/><column index="8" value="137"/><column index="9" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="ARMURES" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="74"/><column index="2" value="93"/><column index="3" value="150"/><column index="4" value="97"/><column index="5" value="104"/><column index="6" value="199"/><column index="7" value="102"/><column index="8" value="300"/><column index="9" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="ATTRIBUTS" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="78"/><column index="2" value="172"/><column index="3" value="300"/><column index="4" value="150"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="JEUX_SORTS_APTITUDES" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="40"/><column index="2" value="167"/><column index="3" value="51"/><column index="4" value="232"/><column index="5" value="40"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="NEW_ARMURES" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="74"/><column index="2" value="300"/><column index="3" value="94"/><column index="4" value="254"/><column index="5" value="300"/><column index="6" value="109"/><column index="7" value="118"/><column index="8" value="128"/><column index="9" value="116"/><column index="10" value="88"/><column index="11" value="118"/><column index="13" value="114"/><column index="14" value="83"/><column index="15" value="87"/><column index="16" value="108"/><column index="17" value="97"/><column index="18" value="104"/><column index="19" value="115"/><column index="20" value="111"/><column index="21" value="102"/><column index="22" value="85"/><column index="23" value="103"/><column index="24" value="95"/><column index="25" value="140"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="OBJETS" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="68"/><column index="2" value="126"/><column index="3" value="84"/><column index="4" value="91"/><column index="5" value="80"/><column index="6" value="137"/><column index="7" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="SORTS" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort><column index="2" mode="0"/></sort><column_widths><column index="1" value="40"/><column index="2" value="232"/><column index="3" value="64"/><column index="4" value="79"/><column index="5" value="157"/><column index="6" value="208"/><column index="7" value="300"/><column index="8" value="111"/><column index="9" value="129"/><column index="10" value="161"/><column index="11" value="246"/><column index="12" value="258"/><column index="13" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Adaptation au climat',
+'Nature',
+'Mixte',
+'Personnelle',
+'1 h',
+'Aucune',
+'Aucun.',
+'1 action',
+'Contact, Vocal',
+'Aucun',
+'“Que ce climat soit mien !”',
+'La créature touche une cible avec ses mains, et cette dernière devient capable de
+survivre dans le climat dans lequel ils se trouvent.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Animation d’objets',
+'Neutre',
+'Mixte',
+'45 m (30 cases)',
+'10 mn',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal, Contact, Ingrédients',
+'- Objet de taille Très petite à Moyenne',
+'“Prends vie !”',
+'La créature enchante un objet de taille Très petite à Moyenne afin de lui donner
+une animation magique.
+L’objet s’anime et agit de manière simple et cohérente avec sa nature :
+- un pantin peut marcher, gesticuler ou danser ;
+- des chaussures peuvent se déplacer seules et entraîner leur porteur ;
+- une corde peut se tortiller ou s’enrouler ;
+- un balai peut se déplacer et balayer ;
+- un sac peut ramper ou tenter de s’enfuir.
+L’objet ne parle pas et ne réfléchit pas, mais se contente d’exécuter des actions simples tant
+que l’effet dure.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Animation imparfaite',
+'Corrompu',
+'Mixte',
+'15 m (10 cases)',
+'Cible(s) intacte(s) ou dans la
+portée.',
+'- Niveau 1 : 3 morts
+- Niveau 5 : 5 morts
+- Niveau 10 : 8 morts
+- Niveau 15 : 11 morts
+- Niveau 20 : 13 morts',
+'Aucun.',
+'1 tour',
+'Vocal, Ingrédients',
+'Cadavre de taille Très petite
+ou Petite',
+'“Relève toi !”',
+'La créature insuffle momentanément la vie dans un cadavre et peut lui donner des
+ordres. Le mort en question ne peut utiliser ni aptitudes, ni sortilèges même s’il en
+connaissait de son vivant.
+Enfin, ses points de vie sont réduits de moitié, et les dégâts de ses attaques aussi.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Animation des morts',
+'Corrompu',
+'Mixte',
+'18 m (12 cases)',
+'Cible(s) intacte(s) ou dans la
+portée.',
+'- Niveau 1 : 2 morts
+- Niveau 5 : 3 morts
+- Niveau 10 : 5 morts
+- Niveau 15 : 7 morts
+- Niveau 20 : 8 morts',
+'Aucun.',
+'1 tour',
+'Vocal, Ingrédients',
+'Cadavre de taille Moyenne,
+Petite ou Très petite.',
+'“Relève toi !”',
+'La créature insuffle momentanément la vie dans un cadavre et peut lui donner des
+ordres. Le mort en question n’est pas doté d’intelligence, mais possède quand même un
+instinct de survie proche de celui d’un animal. Il ne peut pas utiliser de sort ou d’aptitudes,
+mais il a tous ses points de vie, et sait parfaitement manier une arme.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Apparition miraculeuse',
+'Divin',
+'Hors combat',
+'Personnelle',
+'1 action',
+'1/j',
+'Aucun.',
+'1 action',
+'Vocal, Ingrédients',
+'- 1 bougie',
+'“Esprit, viens moi en aide !”',
+'La créature s’agenouille au sol, allume une bougie et fait une prière. Un esprit
+bienfaisant apparaît devant elle pour répondre à une de ses questions de façon énigmatique,
+pour lui indiquer la bonne voie à suivre pour un objectif, pour la guider.
+Une fois la demande répondue, la bougie est entièrement consumée, et l’esprit disparaît.
+NB : La demande ne doit aucunement porter préjudice à qui que ce soit, sinon l’esprit ne
+répondra pas'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Appel d’éclair',
+'Céleste',
+'Mixte',
+'Cible',
+'1d4 tour(s)',
+'Aucune',
+'Aucun.',
+'1 action',
+'Contact, Vocal',
+'Aucun',
+'“Grondez, ô cieux !”',
+'La créature touche avec ses mains ou un autre objet une cible, un éclair jaillit du
+ciel et vient s’abattre sur la cible, provoquant 1d6+3 dégâts Céleste et la paralysant pendant
+un certain nombre de tours si elle est sensible à ce statut !
+Ne marche qu’en extérieur.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Appel à la possession',
+'Corrompu',
+'Hors combat',
+'Cible',
+'Lever de la malédiction ou
+exorcisme',
+'1 personne',
+'Volonté',
+'30 mn',
+'Vocal, Ingrédients',
+'- Effets personnels de la cible,
+- Os du fantôme de la possession,
+- Encens,
+- Sang pour tracer un cercle
+- La nuit',
+'“Prend tout l’être de ce misérable !”',
+'La créature va procéder à un rituel (attendre la nuit, puis tracer avec du sang un
+cercle, placer au centre un récipient dans lequel doit brûler l’os du fantôme, l’effet
+personnel de la cible et l’encens) qui va invoquer un mort spécifique qui prendra
+possession d’une cible. La cible possédée sera en grande partie sous le joug du fantôme, et
+si elle veut éviter de faire une action (comme tuer quelqu’un) elle devra faire un jet de
+Volonté et partir très vite.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Arme enflammée',
+'Igné',
+'Mixte',
+'Arme',
+'1 h',
+'Aucune',
+'Aucun.',
+'Instantané',
+'Contact',
+'Aucun',
+'Aucune',
+'La créature appose un enchantement de feu sur son arme, cette dernière peut
+donc faire 1d[Dégâts de l’arme] de dégâts Ignés.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Arrêt aérien',
+'Céleste',
+'Mixte',
+'27 m (18 cases)',
+'1 action',
+'Aucune',
+'Aucun.',
+'Instantané',
+'Vocal',
+'Aucun',
+'“Arrêtez-nous !”',
+'La créature fait appel aux vents pour s’arrêter net dans une chute, elle et tout ce
+qui se trouve dans le rayon d’action du sort.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Augmentation des défenses corporelles',
+'Divin',
+'Mixte',
+'Personnelle',
+'Disparaît après usage',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal, Contact',
+'Aucun',
+'“Ce corps ne sera pas souillé !”',
+'Une protection accrue de moitié face aux Maladies et aux différents Poisons.
+Une fois son rôle accompli, la protection disparaît.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Aux quatre vents',
+'Céleste',
+'Mixte',
+'21 m (14 cases)',
+'1 Action',
+'Aucune',
+'Aucun.',
+'Instantané',
+'Vocal',
+'Aucun',
+'“Dispersez-vous !”',
+'La créature invoque des vents tellement violents qu’ils repoussent sur 9 m tous
+les ennemis ciblés.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Bouclier sacré',
+'Divin',
+'Combat',
+'Personnelle',
+'Tant que le bouclier est actif',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal, Contact',
+'Aucun',
+'“Ô bien aimé, soit préservé”',
+'La créature invoque un bouclier sacré qui enveloppe une cible et absorbe les
+dégâts à sa place.
+Le bouclier peut encaisser un nombre de dégâts égal au résultat de 2d6.
+Une fois ce seuil atteint, le bouclier se dissipe.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Boule de feu',
+'Igné',
+'Combat',
+'9 m (6 cases)',
+'1 action',
+'Aucune',
+'Aucun.',
+'Instantané',
+'Vocal',
+'Aucun',
+'“Aux cendres !”',
+'La créature incante une boule de feu qui vient brûler vif une créature, provoquant
+3d4 de dégâts Ignés, et pouvant enflammer la créature sur une réussite critique.
+- Au niveau 5, les dégâts passent à 3d6.
+- Au niveau 10, les dégâts passent à 3d8.
+- Au niveau 15, les dégâts passent à 3d10.
+- Au niveau 20, les dégâts passent à 3d12.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Bénédiction solennelle',
+'Divin',
+'Mixte',
+'Personnelle',
+'1 action',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal, Contact',
+'Aucun',
+'“Ne craint pas et relève toi mon enfant.”',
+'La créature purge ou atténue grandement les effets de toutes malédictions sur une
+cible en la bénissant. Si la malédiction est trop puissante pour être levée ainsi, la créature
+reçoit des indices sur comment l’arrêter.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Brume spontanée',
+'Aquatique',
+'Mixte',
+'Rayon de 9 m',
+'1d4 tour(s) ou 5 mn',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal, Ingrédient',
+'- Flasque d’eau',
+'“Brume, lève toi !”',
+'La créature récite une formule, d’une flasque d’eau sort une brume épaisse qui
+brouille complètement la vision des personnes se trouvant à l’intérieur.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Berceau d’illusion',
+'Corrompu',
+'Mixte',
+'Personnelle',
+'2 tours/5 mn',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal',
+'Aucun',
+'“Que tes yeux te trompent et t’égarent !”',
+'La créature enveloppe une cible d’un berceau d’illusions, altérant totalement sa
+perception de la réalité.
+La cible perçoit alors des visions façonnées par la volonté de l’incantateur :
+- un environnement différent (forêt, flammes, gouffre, palais, etc.) ;
+- des apparitions troublantes (danse de sorcières, silhouettes menaçantes, murmures) ;
+- ou des menaces illusoires (démons attaquant, murs qui se referment, sol instable).
+Les illusions n’infligent pas de dégâts réels, mais peuvent désorienter, effrayer ou détourner
+l’attention de la cible pendant la durée de l’effet.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Bulles piégées',
+'Aquatique',
+'Mixte',
+'Rayon de 9 m',
+'Tant que la bulle existe, ou que
+l''incantateur n’a pas annulé le sort',
+'6 bulles maximum',
+'Aucun.',
+'1 action',
+'Vocal, Ingrédient',
+'- 1 Savon par bulle',
+'“Bulles, ne laissez personne vous approcher
+!”',
+'La créature place des bulles sur un terrain, si quelqu’un s’approche dans la portée
+de ces dernières, elles explosent, provoquant 2d8 de dégâts Aquatique au malheureux.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Carapace tellurique',
+'Terrestre',
+'Combat',
+'Personnelle',
+'1d4 tour(s)',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal',
+'Aucun',
+'“Roche, protège ma peau !”',
+'La créature concentre l’énergie terrestre, cette dernière l’entoure et forme une
+carapace qui permet d’encaisser 4 dégâts supplémentaires, peu importe le type.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Cercle foudroyant',
+'Céleste',
+'Mixte',
+'Autour de la cible',
+'2 tours',
+'Aucune',
+'Aucun.',
+'Instantané',
+'Vocal',
+'Aucun',
+'“Barrières, levez-vous !”',
+'La créature incante un cercle de foudre autour d’une cible, dissuadant quiconque
+de s’approcher sous peine de se prendre des dégâts.
+(Voir sort Éclairs et air et le niveau de la créature pour trouver les dégâts).'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Chant des animaux',
+'Nature',
+'Hors combat',
+'300 m (200 cases)',
+'1 action',
+'Aucune',
+'Aucun.',
+'Instantané',
+'Vocal',
+'Aucun',
+'“Venez à moi, bons animaux !”',
+'La créature entonne un chant harmonieux qui attire les animaux herbivores
+alentour.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Colonne d’air',
+'Céleste',
+'Mixte',
+'15 m (hauteur)',
+'5 min',
+'Aucune',
+'Aucun.',
+'1 action',
+'Contact, Ingrédients',
+'Feuilles d’arbres',
+'“Arrêtez-nous !”',
+'La créature consume une poignée de feuilles d’arbre pour créer une colonne de
+vent tellement puissante, qu’elle peut élever sur une dizaine de mètres toutes personnes
+entrant à l’intérieur.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Colonnes de feu',
+'Igné',
+'Mixte',
+'15 m (10 c)',
+'1d4+2 tours',
+'Aucune',
+'Aucun.',
+'Instantané',
+'Vocal, Contact',
+'Aucun',
+'“Flammes, levez-vous !”',
+'La créature pose ses mains au sol, et apparaissent en ligne devant elle des
+colonnes de feu, qui s’étendent jusqu’à la limite de la portée du sort.
+Quiconque est touché par ses colonnes prend les dégâts du sort Boule de feu.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Colonnes de terre',
+'Terrestre',
+'Mixte',
+'2 m (hauteur)',
+'1 mn',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal, Contact',
+'Aucun',
+'“Terre, élève moi !”',
+'La créature pose ses mains au sol, un pilier de terre va alors émerger et la
+surélever en hauteur, avant de nouveau s’abaisser.
+Combustion spontanée'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Communication avec la faune',
+'Nature',
+'Mixte',
+'Cible',
+'10 min',
+'Aucune',
+'Aucun.',
+'Instantané',
+'Vocal',
+'Aucun',
+'“Entendez-moi, animaux !”',
+'La créature devient capable de se faire comprendre par les animaux et de les
+comprendre.
+NB : Si l’animal a faim, et que vous lui demandez de ne pas vous manger, ça ne vous
+sauvera peut-être pas…'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Communication avec la flore',
+'Nature',
+'Mixte',
+'Cible',
+'10 min',
+'Aucune',
+'Aucun.',
+'Instantané',
+'Vocal',
+'Aucun',
+'“Entendez-moi, plantes !”',
+'La créature devient capable de se faire comprendre par la flore environnante et de
+la comprendre.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Communication avec les minéraux',
+'Nature',
+'Mixte',
+'Cible',
+'10 min',
+'Aucune',
+'Aucun.',
+'Instantané',
+'Vocal',
+'Aucun',
+'“Entendez-moi, roches !”',
+'La créature devient capable de se faire comprendre par les minéraux environnants
+et de les comprendre.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Corps céleste',
+'Céleste',
+'Mixte',
+'Personnelle',
+'3 tours / 18 secondes',
+'1/j',
+'Aucun.',
+'Instantané',
+'Vocal',
+'Aucun',
+'“Ô cieux, ne faisons qu’un !”',
+'La créature transforme son corps et l’infuse d’énergie élémentaire, pour que ce
+dernier soit intangible à toutes attaques pendant un court laps de temps.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Coup enflammé',
+'Igné',
+'Mixte',
+'Arme',
+'1 action',
+'Aucune',
+'Aucun.',
+'Instantané',
+'Contact',
+'Aucun',
+'Aucune',
+'La créature enflamme son arme juste pour attaquer, provoquant des dégâts Ignés.
+NB : Les dégâts normaux de l’arme sont remplacés par les dégâts ignés.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Détection du mal',
+'Divin',
+'Mixte',
+'33 m (22 cases)',
+'1 action',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal',
+'Aucun',
+'Aucune',
+'La créature invoque une perception divine qui lui permet de détecter la présence
+du mal dans les environs.
+Elle perçoit si des entités, objets ou influences d’origine maléfique se trouvent dans la
+zone (créature corrompue, personne possédée ou maudite, artefact profane, etc.).'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Dialogue avec les morts',
+'Corrompu',
+'Mixte',
+'Cible',
+'10 minutes',
+'Aucune',
+'Aucun.',
+'5 mn',
+'Vocal, Contact,
+Ingrédient(s)',
+'Cadavre de la personne à
+interroger, encens',
+'“Révèle-moi tes secrets.”',
+'La créature fait brûler de l’encens, et ramène l’esprit d''outre tombe d’un cadavre
+à sa portée. Elle peut ainsi dialoguer avec la créature pendant 10 min.
+NB : Si la créature ne parle pas le même langage que l’esprit, il faudra trouver une
+autre façon de se faire comprendre.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Dôme de foi',
+'Divin',
+'Combat',
+'Rayon de 7 m (5 cases)',
+'1d6+1 tour(s)',
+'3/j',
+'Aucun.',
+'5 mn',
+'Vocal, Ingrédient(s)',
+'- Gemmes ou pièces de monnaie',
+'“Démons, vous ne passerez pas !”',
+'La créature érige un dôme de foi imprégné de puissance divine.
+Tant que le dôme est actif, aucune créature d’origine maléfique ne peut y pénétrer.
+Seules des entités d’une puissance exceptionnelle, relevant d’une divinité ou d’un avatar
+du mal, peuvent forcer le passage.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Duplication de nourriture',
+'Divin',
+'Hors combat',
+'Cible',
+'Permanente',
+'3/j',
+'Aucun.',
+'5 mn',
+'Vocal, Contact,
+Ingrédient(s)',
+'- de la nourriture',
+'“Je te l’ordonne, multiplie toi !”',
+'La créature pose ses mains sur de la nourriture, récite une prière, et la nourriture
+en question se duplique miraculeusement.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Eau jaillissante',
+'Divin',
+'Hors combat',
+'1,5 m (1 case)',
+'10 mn',
+'Aucune',
+'Aucun.',
+'1 mn',
+'Vocal',
+'Aucun',
+'“Eau, présente toi !”',
+'Dans un petit récipient, comme un bol, la créature peut faire une prière pour que
+de l’eau apparaisse à l’intérieur du contenant !'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Éclairs et air',
+'Céleste',
+'Combat',
+'9 m (6 cases)',
+'1 action',
+'Aucune',
+'Aucun.',
+'Instantané',
+'Vocal',
+'Aucun',
+'“Soufflez, tonnez !”',
+'La créature concentre une salve d’éclairs dans sa main ou du vent tellement
+rapide et tranchant, qu’il peut en faire des lames. Puis, il les projette sur un ennemi ce qui
+provoque 3d4 de dégâts Céleste, les éclairs peuvent choquer un ennemi pour un tour.
+- Au niveau 5, les dégâts passent à 3d6.
+- Au niveau 10, les dégâts passent à 3d8.
+- Au niveau 15, les dégâts passent à 3d10.
+- Au niveau 20, les dégâts passent à 3d12.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Engourdissement des membres',
+'Neutre',
+'Mixte',
+'Cible',
+'10 mn',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal, Ingrédients',
+'Poussière de roche',
+'“Cesse de bouger !”',
+'La créature incante un sort qui engourdit et pétrifie les membres d’une cible.
+Les bras et les jambes de la cible deviennent rigides et inutilisables pendant la durée de
+l’effet, l’empêchant de se déplacer ou d’effectuer des actions physiques nécessitant ses
+membres.
+La cible reste consciente tout au long de l’effet, sauf si elle est déjà endormie ou
+inconsciente.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Équilibre des eaux',
+'Aquatique',
+'Hors combat',
+'Rayon de 9 m/6 cases',
+'10 mn',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal, Contact',
+'Aucun',
+'“Apaisez-vous, ô flots”',
+'La créature pose ses mains sur la surface d’une eau en pleine tempête, une bulle
+apparaît autour de cette zone et les flots à l’intérieur sont calmés.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Esprit vengeur',
+'Corrompu',
+'Mixte',
+'Cible',
+'Jusqu’à ce que fin de malédiction',
+'Aucune',
+'Aucun.',
+'10 mn',
+'Vocal, Ingrédients',
+'Effets personnels appartenant
+à la cible, os, encens.',
+'“Tourmente ce misérable !”',
+'La créature va faire un rituel (mettre dans un récipient les effets personnels
+appartenant à la cible, l’os, et l’encens, et faire brûler le tout) invoquer un esprit d''outre
+tombe qui va tourmenter une cible et ce jusqu’à ce qu’elle se fasse exorciser ou que
+l’incantateur annule son sort.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Exorcisme',
+'Divin',
+'Mixte',
+'Personnelle',
+'1 action',
+'Aucune',
+'Aucun.',
+'1 tour',
+'Ingrédients, Vocal',
+'- 1 bougie
+- 1 fiole d’eau bénite
+- 1 bâton d’encens',
+'“Esprit malfaisant, disparaît !”',
+'La créature performe une série de prières pour bénir de l’eau, qu’elle aspergera
+ensuite sur une cible possédée. Elle allumera ensuite une bougie, fera brûler un bâton
+d’encens, et récitera une prière pour bannir l’esprit du corps du malheureux. À la fin du
+rituel, les ingrédients sont consumés, et la créature et le malheureux sont invités à faire une
+prière.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Explosion incandescente',
+'Igné',
+'Mixte',
+'Rayon de 12 m (8 cases)',
+'Aucune',
+'1/jour',
+'Aucun.',
+'1 tour',
+'Ingrédients, Vocal',
+'Poudre explosive',
+'“Que les cendres emportent tout.”',
+'La créature génère une explosion dévastatrice pour tous ceux se trouvant dans
+son rayon d’action, provoquant 4d12+10 de dégâts Ignés.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Extinction des feux',
+'Igné',
+'Mixte',
+'Vision créature',
+'Immédiate',
+'Aucune',
+'Aucun.',
+'Instantané',
+'Vocal, Ingrédient(s)',
+'Un ou plusieurs feu.',
+'“Éteignez-vous !”',
+'La créature peut éteindre tous les feux d’un environnement, du moment qu’ils
+soient visibles pour elle, provoquant la confusion et le chaos.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Faille terrestre',
+'Terrestre',
+'Combat',
+'22 m (15 cases)',
+'1 action',
+'Aucune',
+'Aucun.',
+'1 tour',
+'Vocal, Ingrédients, Contact',
+'- Roche
+- Diamant',
+'“Terre, ouvre toi en deux !”',
+'La créature fait appel aux forces de la terre, et devant elle la terre se déchire en
+deux à une vitesse fulgurante, ouvrant une faille béante dans laquelle tout malheureux se
+trouvant sur son champ d’action y est précipité.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Familier enflammé',
+'Igné',
+'Mixte',
+'Personnelle',
+'Tant que le familier est en vie.',
+'Aucune',
+'Aucun.',
+'Instantané',
+'Vocal, Ingrédient(s)',
+'Sacrifice animal',
+'“Je t’invoque, totem !”',
+'La créature consume un sacrifice animal pour invoquer son animal totem sous les
+traits d’un être enflammé, afin qu’il l’aide au combat.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Familier d’eau',
+'Aquatique',
+'Mixte',
+'Personnelle',
+'Tant que le familier est en vie.',
+'Aucune',
+'Aucun.',
+'Instantané',
+'Vocal, Ingrédient(s)',
+'Sacrifice animal',
+'“Je t’invoque, totem !”',
+'La créature consume un sacrifice animal pour invoquer son animal totem sous les
+traits d’un être aquatique, afin qu’il l’aide au combat.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Familier de foudre',
+'Céleste',
+'Mixte',
+'Personnelle',
+'Tant que le familier est en vie.',
+'Aucune',
+'Aucun.',
+'Instantané',
+'Vocal, Ingrédient(s)',
+'Sacrifice animal',
+'“Je t’invoque, totem !”',
+'La créature consume un sacrifice animal pour invoquer son animal totem sous les
+traits d’un être de foudre, afin qu’il l’aide au combat.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Familier de terre',
+'Terrestre',
+'Mixte',
+'Personnelle',
+'Tant que le familier est en vie.',
+'Aucune',
+'Aucun.',
+'Instantané',
+'Vocal, Ingrédient(s)',
+'Sacrifice animal',
+'“Je t’invoque, totem !”',
+'La créature consume un sacrifice animal pour invoquer son animal totem sous les
+traits d’un être tellurique, afin qu’il l’aide au combat.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Feu de camp',
+'Igné',
+'Hors combat',
+'12 m (8 cases)',
+'1 h',
+'Aucune',
+'Aucun.',
+'Instantané',
+'Vocal',
+'Aucun',
+'“Réchauffez-nous !”',
+'La créature incante un feu de camp pour stabiliser la température à un degré
+tempéré.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Flammes éclaireuses',
+'Igné',
+'Hors combat',
+'27 m (18 c)',
+'Immédiate',
+'Aucune',
+'Aucun.',
+'Instantané',
+'Vocal, Ingrédient(s)',
+'Un combustible (bois, tissu,
+papier, …)',
+'“Guidez-nous !”',
+'La créature incante un sort qui fait apparaître un feu magique autonome, capable
+d’éclairer les ténèbres face à lui. Lorsque le feu s’éloigne trop de l’incantateur, il disparaît.
+Si le feu disparaît, l’incantateur est au courant.
+De plus, si des créatures se trouvent proche du feu ( ~ 3 m/2 cases) ; ils bénéficient d’un
+climat tempéré.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Flair de plantes',
+'Nature',
+'Hors combat',
+'600 m (400 c)',
+'Immédiate',
+'Aucune',
+'Aucun.',
+'Instantané',
+'Vocal',
+'Aucun',
+'“Plantes, dites-moi où vous êtes dissimulés
+!”',
+'La créature scanne son environnement en cherchant un type de plante bien précis
+(médicinale, pour la cuisine, dont tel ou tel animal se nourrit, …) ; s’il y en a dans les
+environs, la créature saura instinctivement dans quelle direction chercher.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Flammes innocentes',
+'Igné',
+'Mixte',
+'Personnelle',
+'3 tours / 18 secondes',
+'Aucune',
+'Aucun.',
+'Aucun',
+'Contact',
+'Aucun',
+'Aucune',
+'La créature peut pénétrer les flammes jusqu’à une température de 1100°C (Cœur
+d’un volcan) et en ressortir indemne. Ses vêtements par contre…'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Floraison accélérée',
+'Nature',
+'Hors combat',
+'Cible',
+'Permanente',
+'Aucune',
+'Aucun.',
+'10 min',
+'Contact, Vocal, Ingrédients',
+'Engrais ou fumier',
+'“Atteignez votre grandeur !”',
+'La créature nourrit des plantes, tout en les touchant et en invoquant un sort leur
+permettant d’avoir une croissance accélérée pour qu’elles bourgeonnent.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Fusion avec la nature',
+'Nature',
+'Mixte',
+'Personnelle',
+'Tant que le sort est actif',
+'Aucune',
+'Aucun.',
+'10 min',
+'Contact, Vocal, Ingrédients',
+'Une matière de ce avec quoi
+la créature veut fusionner (roche, arbre,
+terre, …)',
+'“Que je ne fasse plus qu’un avec toi !”',
+'La créature ne fait plus qu’un avec la nature, sa peau se mue, se métamorphose
+en la matière qu’elle utilise pour ingrédient, et elle ne fait désormais plus qu’un avec la
+nature, tant que ce sort est actif.
+NB : même sous cette forme, la créature peut subir des dégâts (ex: métamorphosé en arbre,
+la créature est toujours sensible aux coups de haches, ou aux pioches si en roche, …)'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Gorge sèche',
+'Aquatique',
+'Mixte',
+'Personnelle',
+'5 mn',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal',
+'Aucun',
+'“Que ta gorge s’assèche”',
+'La créature cible une autre personne ou créature qui a immédiatement la
+sensation d’avoir la gorge extrêmement sèche, et ne peut pas faire passer cette sensation.
+L’effet est uniquement psychologique, et même en buvant, il ne se dissipera pas.
+Des malus peuvent tomber sur la cible, en fonction de l’appréciation du MJ.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Grand soin',
+'Divin',
+'Mixte',
+'Personnelle',
+'1 action',
+'Aucune',
+'Aucun.',
+'1 action',
+'Contact, Vocal',
+'Aucun',
+'“Remets toi sur pieds !”',
+'La créature psalmodie une prière qui soigne les points de vie d’une cible à
+hauteur de 50% de ses points de vie totaux.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Guérison des maladies',
+'Divin',
+'Mixte',
+'Personnelle',
+'1 action',
+'Aucune',
+'Aucun.',
+'1 action',
+'Contact, Vocal',
+'Aucun',
+'“Mal, soit dissipé !”',
+'La créature psalmodie une prière pour chasser une maladie du corps de la cible.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Guérison des membres',
+'Divin',
+'Mixte',
+'Personnelle',
+'Permanente',
+'Aucune',
+'Aucun.',
+'1 h',
+'Contact, Vocal, Ingrédients',
+'- Seau de boue (la quantité dépend)
+- Crachat',
+'“Ouvre toi ! ”
+OU
+“Lève-toi !”
+OU
+“Repousse !”
+…',
+'La créature pose ses mains sur une cible, et pendant 1 heure elle va méditer et
+réciter des prières. À l’issue de cette heure, elle va prendre de la boue, cracher dedans et la
+bénir, puis faire un mélange. Puis, la créature va apposer le mélange sur une partie du corps
+défaillante d’une cible (ex : les yeux d’un aveugle) et va formuler une nouvelle prière, au
+terme de laquelle la partie défaillante est de nouveau fonctionnelle :
+- Un aveugle peut de nouveau voir
+- Un sourd peut entendre
+- Un tétraplégique peut marcher
+…
+NB : La quantité de boue dépend du membre à guérir, et oui, il est possible de faire
+repousser un membre, mais il faut que l’os soit visible, bon courage…'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Inversion d’un courant d’eau',
+'Aquatique',
+'Mixte',
+'Personnelle',
+'5 mn',
+'Aucune',
+'Aucun.',
+'5 mn',
+'Vocal, Contact',
+'Petite bouchée de pain, un
+peu d’eau',
+'“Dresse-toi dans le sens opposé !”',
+'La créature se trouve dans un courant d’eau, à son contact et en récitant une
+formule magique, elle inverse le courant de cette dernière pendant une durée courte.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Jeûne extrême',
+'Divin',
+'Hors combat',
+'Personnelle',
+'40 jours',
+'Aucune',
+'Aucun.',
+'1 h',
+'Vocal, Ingrédients',
+'Petite bouchée de pain, un
+peu d’eau',
+'“Sustenez-moi !”',
+'La créature effectue des prières et une longue méditation d’une heure, à l’issue
+desquelles elle mangera le pain, après ça, elle pourra survivre pendant la durée du sort sans
+boire ni manger.
+NB : Il est malgré tout préférable d’éviter de se battre le ventre vide.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Lame d’eau',
+'Aquatique',
+'Mixte',
+'9 m (6 cases)',
+'1 action',
+'Aucune',
+'Aucun.',
+'Instantané',
+'Vocal',
+'Aucun',
+'“Aux cendres !”',
+'La créature incante une boule de feu qui vient brûler vif une créature, provoquant
+3d4 de dégâts Aquatiques.
+- Au niveau 5, les dégâts passent à 3d6.
+- Au niveau 10, les dégâts passent à 3d8.
+- Au niveau 15, les dégâts passent à 3d10.
+- Au niveau 20, les dégâts passent à 3d12.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Lévitation d’objets',
+'Neutre',
+'Mixte',
+'2 m (de haut)',
+'10 min',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal',
+'Aucun',
+'“Debout !”',
+'La créature fait léviter un ou plusieurs objets de taille Très petite à Moyenne
+jusqu’à une certaine hauteur.
+Tant que l’effet dure, elle peut déplacer et manipuler ces objets avec précision, leur
+permettant d’éviter les obstacles ou de se frayer un passage dans un espace encombré.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Lumière totale',
+'Divin',
+'Mixte',
+'Toute une pièce',
+'10 min',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal',
+'Aucun',
+'“Que la lumière soit !”',
+'La créature invoque une lumière sacrée qui baigne l’ensemble de la pièce.
+Toute obscurité ou ténèbres présentes sont dissipées, et la zone est éclairée comme en plein
+jour pendant toute la durée de l’effet.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Main cadavérique',
+'Corrompu',
+'Mixte',
+'405 m (270 cases)',
+'Cible intacte ou dans la portée.',
+'Une seule main à la fois Jet de sauvegarde : Aucun.',
+'',
+'5 mn',
+'Vocal, Ingrédients',
+'Main d’un cadavre',
+'“Sers-moi, et fait [ordre]”',
+'La créature insuffle la vie dans la main d’un cadavre (squelettique ou
+décomposé) ; avec une mission bien précise en tête. Cette dernière va faire tout ce qui est
+en son possible pour accomplir l’objectif, et ce même s’il lui paraît impossible ou absurde.
+NB : si elle est trop éloignée de l’incantateur, elle redevient inerte.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Marcher sur l’eau',
+'Aquatique',
+'Hors combat',
+'Personnelle',
+'10 mn',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal, Ingrédient',
+'- Gros sel',
+'“Empêche moi de sombrer !”',
+'La créature lance un sort lui permettant de marcher à la surface de l’eau
+comme s’il s’agissait d’un sol solide pendant toute la durée de l’effet.
+Marque de vigilance'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Mélodie du bonheur',
+'Divin',
+'Mixte',
+'19 m (13 cases)',
+'30 min',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal',
+'Aucun',
+'“Que prospérité et bonne fortune vous
+accompagnent !”',
+'La créature entonne une mélodie douce et harmonieuse, emplie de bienveillance.
+Toutes les créatures à portée capable d’entendre la mélodie sont gagnées par un sentiment
+de joie, de calme et de confiance.
+Tant que l’effet est actif :
+● les créatures affectées bénéficient d’un léger bonus aux jets de Relationnel ;
+● les tensions sont apaisées, rendant les conflits verbaux ou physiques moins
+probables ;
+● certains effets négatifs mineurs affectant le moral (peur légère, tristesse, malus
+émotionnels) peuvent être dissipés.
+Cette mélodie est sans effet sur les créatures hostiles, insensibles aux émotions ou déjà sous
+l’influence d’effets mentaux puissants.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Métamorphose animale',
+'Nature',
+'Mixte',
+'Personnelle',
+'Voir le niveau',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal',
+'Aucun',
+'“Prête moi ta forme, ô [animal]”',
+'La créature peut prendre l’apparence et les aptitudes d’un animal, après les avoir
+étudiées.
+Temps d’études par taille de l’animal / coût par taille :
+- Très petite : 1 j / coût : 1 points d’énergie
+- Petite : 3 j / coût : 2 points d’énergie
+- Moyenne : 5 j / coût : 3 points d’énergie
+- Grande : 10 j / coût : 5 points d’énergie
+- Très grande : 1 mois / coût : 7 points d’énergie
+- Gigantesque : 3 mois / coût : 9 points d’énergie
+Pour la durée, on estime que c’est une heure au niveau 1, puis on ajoute 1 h par niveau.
+Arrivé au niveau 10, ça passe à un jour, au niveau 15, à peu près 1 semaine, et au niveau 20
+plusieurs mois.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Miracle',
+'Divin',
+'Mixte',
+'Inconnue',
+'Inconnue',
+'Inconnu',
+'Inconnu.',
+'1 action',
+'Vocal',
+'Aucun',
+'“Viens moi en aide…”',
+'L’effet est inconnu, cette prière est comme un pavé jeté à la mare, peut-être aura
+t’elle une incidence qui sait ? N’y comptez pas trop, et surtout, pas besoin d’en abuser ou
+d’en faire pour des choses superficielles…'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Modification de la voix',
+'Neutre',
+'Mixte',
+'Personnelle',
+'10 min',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal',
+'Aucun',
+'“Prête moi ta voix !”',
+'La créature altère sa voix afin de reproduire fidèlement celle d’une cible qu’elle a
+entendue parler pendant un certain temps et dont elle conserve un souvenir clair.
+L’imitation permet de reproduire le timbre, le rythme et les intonations générales de la voix,
+mais ne confère pas automatiquement le vocabulaire, les expressions ou les connaissances
+propres à la cible.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Modification de la taille',
+'Corrompu',
+'Mixte',
+'Cible',
+'1d4 tour(s) / 5 mn',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal',
+'Aucun',
+'“Que ta taille soit changée,
+rapetisse/grandit !”',
+'La créature altère temporairement la taille d’un objet ou d’une cible.
+La cible peut grandir ou rétrécir d’un cran de taille, selon la volonté de l’incantateur.
+Ce changement de taille peut modifier les capacités physiques, l’encombrement ou
+l’aptitude à interagir avec l’environnement pendant toute la durée du sort.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Montage squelettiques',
+'Corrompu',
+'Mixte',
+'90 m (60 cases)',
+'1 action',
+'Aucune',
+'Aucun.',
+'Instantané',
+'Contact, Vocal',
+'Aucun',
+'“Rassemblez-vous !”
+OU
+“Dispersez-vous !”',
+'La créature peut assembler ou désassembler les pièces d’un squelette juste en le
+touchant.
+NB : La cible doit impérativement être morte, et n’avoir quasiment plus aucune chair
+sur elle.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Mur de roche brute',
+'Terrestre',
+'Mixte',
+'2 m (de hauteur)',
+'1d4+1 tour(s)',
+'Aucune',
+'Aucun',
+'1 action',
+'Vocal, Contact',
+'Aucun',
+'“Fait rempart, ô terre !”',
+'La créature érige devant elle un mur de pierre qui la protéger de toutes attaques
+tant que ce dernier est debout, et qu’elle est cachée derrière.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Mutisme générale',
+'Neutre',
+'Mixte',
+'Rayon de 9 m (6 cases)',
+'1d4+1 tour(s)',
+'Aucune',
+'Essence',
+'1 action',
+'Vocal',
+'Aucun',
+'“Silence, marauds !”',
+'La créature se concentre et impose un mutisme général dans un champ d’action.
+Toutes les créatures affectées sont incapables d’émettre le moindre son pendant une durée
+déterminée.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Négation impie',
+'Divin',
+'Mixte',
+'Toute une pièce.',
+'Permanente',
+'Aucune',
+'Aucun',
+'1 action',
+'Vocal',
+'Aucun',
+'“Ténèbres, dévoilez-vous !”',
+'La créature invoque la puissance de sa divinité, baignant l’ensemble de la zone
+d’une lumière sacrée.
+Toutes les barrières, protections, auras ou formes défensives d’origine maléfique
+présentes dans la pièce sont immédiatement dissipées et détruites.
+Les effets ainsi annulés ne peuvent être réactivés tant que la créature demeure dans la zone.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Nouvelle apparence physique',
+'Neutre',
+'Mixte',
+'Personnelle',
+'1 h',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal, Ingrédient',
+'- Un masque',
+'“Ta forme m’appartient…”',
+'Après avoir observé une créature de la même espèce pendant un certain temps
+(durée laissée à l’appréciation du MJ), la créature peut, en portant un masque, adopter son
+apparence physique ainsi que sa gestuelle générale.
+L’illusion reproduit fidèlement la silhouette, les traits et les mouvements, mais ne confère
+ni la voix exacte, ni les connaissances, ni les capacités de la cible imitée.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Parodie corporelle',
+'Corrompu',
+'Mixte',
+'Personnelle',
+'5 mn',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal',
+'',
+'“Tes oreilles seront pointues, ton nez celui
+d’un porc !”',
+'La créature profère des paroles maudites en fixant une cible.
+L’une des caractéristiques corporelles de cette dernière est alors grotesquement altérée
+selon la volonté de l’incantateur : traits déformés, pilosité excessive, appendice animal, etc.
+Cette transformation est temporaire et n’a pas vocation à infliger des dégâts directs.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Paroles apaisantes',
+'Divin',
+'Mixte',
+'Cible',
+'1 tour',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal, Contact',
+'Aucun',
+'“Apaise ton cœur…”',
+'Des paroles prononcées par le lanceur apaise le cœur de la cible, qui comprend
+l’intention, et cette dernière n’a plus aucune intention néfaste pour un tour.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Onde sismique',
+'Terrestre',
+'Mixte',
+'Rayon de 12 m (8 cases)',
+'1 action',
+'Aucune',
+'Équilibre
+(Malus de 15%)',
+'1 action',
+'Vocal, Contact',
+'Aucun',
+'“Tremble, et gronde !”',
+'La créature frappe violemment le sol, ce qui provoque une onde sismique dans le
+rayon d’action et fait chuter toutes les créatures s’y trouvant si elles échouent leur jet de
+sauvegarde.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Ordre imposé',
+'Neutre',
+'Mixte',
+'Cible',
+'1 ordre',
+'Aucune',
+'Volonté',
+'1 action',
+'Vocal, Contact',
+'Aucun',
+'“Voulez-vous bien, je vous prie, faire
+[ordre]”',
+'La créature établit un contact physique avec une cible capable de la comprendre
+et la regarde droit dans les yeux, lui adressant un ordre simple et direct.
+La cible effectue un jet de Volonté. En cas d’échec, elle est contrainte d’exécuter l’ordre
+donné, sans avoir conscience d’être sous une influence extérieure.
+L’ordre doit être court, clair et réalisable immédiatement, et ne peut en aucun cas
+pousser la cible à mettre en danger son intégrité physique ou aller frontalement contre ses
+convictions profondes.
+L’effet prend fin une fois l’ordre exécuté ou rendu impossible.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Petite prière',
+'Divin',
+'Mixte',
+'Personnelle',
+'1 action',
+'1/h',
+'Aucun.',
+'1 action',
+'Vocal, Contact',
+'Aucun',
+'“Apaisez les douleurs de cet enfant”',
+'La créature entonne une petite prière qui guérit les blessures à hauteur de 1d6.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Pierres tranchantes',
+'Terrestre',
+'Mixte',
+'Croix de 6 m (4 cases)',
+'1d4+1 tour(s)',
+'Aucune',
+'Réflexes (-20%)',
+'1 tour',
+'Vocal, Contact',
+'Aucun',
+'“Émergez du sol pour punir mes ennemis”',
+'La créature fait appel aux forces telluriques pour faire émerger des pieux de
+terres de part et d’autre sur le terrain autour d’elle.
+Toutes personnes se trouvant sur les cases sont bousculées, et elles subissent 3d8 de dégâts
+terrestre.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Piège de feu',
+'Igné',
+'Mixte',
+'Personnelle',
+'1 action',
+'Aucune',
+'Aucun.',
+'1 tour',
+'Ingrédient, Contact',
+'Un objet à piéger',
+'Aucune',
+'La créature piège un objet simple (une pierre, une trousse, une gourde, …) ; la
+prochaine fois que l’objet est touché par quelqu’un, ce dernier se prend une déflagration à
+3d8 de dégâts ignés.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Pluie de cendres',
+'Igné',
+'Mixte',
+'Rayon de 30 m (20 cases)',
+'1d6+2',
+'Aucune',
+'Aucun.',
+'Aucun',
+'Vocal, Ingrédients',
+'Soufre',
+'“Pleuvez, cendres”',
+'La créature invoque une pluie de cendres et de flammes qui va infliger 3d4+3
+dégâts Ignés par tour pour ceux qui sont dans la zone d’action.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Pluie d’éclairs',
+'Céleste',
+'Combat',
+'30 m (20 cases)',
+'1 action',
+'1/j',
+'Aucun.',
+'1 tour',
+'Vocal, Ingrédient(s)',
+'Objet métallique',
+'“Que le courroux céleste se déchaîne !”',
+'La créature fait pleuvoir de violents orages sur ses ennemis, dans la limite de la
+portée de l’attaque, leur infligeant 4d12+10 de dégâts Céleste, et les choquant pendant 1d4
+tour par la même occasion.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Poigne tellurique',
+'Terrestre',
+'Combat',
+'9 m/6 cases',
+'Tant que l’invocateur est dans la
+portée',
+'1 seule sur le terrain',
+'Lutte',
+'1 tour',
+'Vocal, Ingrédient(s)',
+'- Pierre ou petit rocher',
+'“Empêche le de bouger !”',
+'La créature fait appel à une main de terre qui entrave complètement une cible,
+l’empêchant de bouger. Cette dernière peut tenter de se libérer de l’étreinte à chaque tour,
+au prix d’un effort.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Prévention contre les poisons',
+'Divin',
+'Mixte',
+'Personnelle',
+'Se dissipe après utilisation',
+'Aucun',
+'Aucun.',
+'1 action',
+'Vocal, Contact',
+'Aucun',
+'“Vous ne passerez pas !”',
+'La créature psalmodie une prière qui empêche un poison de pénétrer le corps de
+la cible. Une fois son rôle accompli, la protection disparaît.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Projection de pierre',
+'Terrestre',
+'Mixte',
+'9 m (6 cases)',
+'1 action',
+'Aucune',
+'Aucun.',
+'Instantané',
+'Vocal',
+'Aucun',
+'“Terre, prête-moi ta force !”',
+'La créature incante une boule de feu qui vient brûler vif une créature, provoquant
+3d4 de dégâts Terrestre.
+- Au niveau 5, les dégâts passent à 3d6.
+- Au niveau 10, les dégâts passent à 3d8.
+- Au niveau 15, les dégâts passent à 3d10.
+- Au niveau 20, les dégâts passent à 3d12.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Purge des poisons',
+'Divin',
+'Combat',
+'Personnelle',
+'1 action',
+'1/j',
+'Aucun.',
+'1 action',
+'Vocal, Contact',
+'Aucun',
+'“Quitte ce corps, poison !”',
+'La créature fait une prière, neutralisant les effets d’un poison dont la cible
+pourrait être victime.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Racines astreignantes',
+'Nature',
+'Mixte',
+'15 m (10 cases)',
+'Tant que la cible est dans l’étreinte',
+'Aucune',
+'Aucun.',
+'Aucun',
+'Vocal, Ingrédients',
+'- Être dans un endroit où il y a des arbres',
+'“Étreignez cet impertinent !”',
+'La créature demande aux arbres alentour de déployer leurs racines pour entraver
+une cible jusqu’à ce qu’elle s’en libère.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Réanimation consciente',
+'Corrompu',
+'Mixte',
+'21 m (14 cases)',
+'Cible(s) intacte(s) ou dans la
+portée.',
+'- Niveau 1 : 1 morts
+- Niveau 5 : 2 morts
+- Niveau 10 : 3 morts
+- Niveau 15 : 5 morts
+- Niveau 20 : 6 morts',
+'Aucun.',
+'1 tour',
+'Vocal, Ingrédients',
+'Cadavre de taille Grande,
+Moyenne, Petite ou Très petite.',
+'“Relève toi !”',
+'La créature insuffle momentanément la vie dans un cadavre et peut lui donner des
+ordres. Le mort en question est doté d’intelligence, et peut parler s’il en a les moyens. Il
+peut avoir des sorts ou des aptitudes, il a tous ses points de vie, ses points d’énergie, et sait
+parfaitement manier une arme.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Regard de braise',
+'Igné',
+'Combat',
+'Adversaire',
+'1d4 tour(s)',
+'Aucune',
+'Aucun.',
+'Aucun',
+'Vocal, Contact',
+'Aucun',
+'“Que le brasier brûle mon regard !”',
+'La créature touche un adversaire au choix, son adversaire verra alors les yeux de
+la créature enflammés, lui donnant un aspect presque démoniaque. La peur lui donne alors
+un malus de 15% au toucher.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Respiration aquatique',
+'Aquatique',
+'Mixte',
+'Personnelle',
+'30 mn',
+'Aucune',
+'Aucun.',
+'Aucun',
+'Vocal, Ingrédients',
+'- Une poignée d’algues',
+'“Océans, mers, laissez-moi entrer dans
+votre sein !”',
+'La créature incante une formule qui lui permet de respirer sous l’eau pendant une
+durée déterminée.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Retour en terre',
+'Corrompu',
+'Mixte',
+'Cible',
+'Permanente',
+'Aucune',
+'Aucun.',
+'Aucun',
+'Vocal, Contact',
+'Aucun',
+'“Ton existence est terminée !”',
+'La créature peut couper l’influence magique qui anime un mort-vivant pour qu’il
+redevienne inactif, et ce même si ce n’est pas “son” mort-vivant.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Séparation de la mer en deux',
+'Aquatique',
+'Hors combat',
+'Ligne de 70 m (47 cases)',
+'1 journée',
+'1/semaine',
+'Aucun.',
+'1 soirée',
+'Vocal, Contact,
+Ingrédient(s)',
+'- Encens
+- Cristal
+- Craie',
+'“Je t’implore et te demande, ouvre moi une
+nouvelle voie !”',
+'Pendant une soirée complète, la créature va faire des prières et des incantations
+pour séparer un océan devant elle en deux, si jamais arriver au bout de la ligne formée il
+n’y a pas de terre ferme, la créature peut continuer à avancer, la mer se séparera sous ses
+pas.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Serment sacré',
+'Divine',
+'Hors combat',
+'Personnelle',
+'1 Action',
+'1 par personne',
+'Aucun.',
+'1 action',
+'Vocal, Contact,
+Ingrédient(s)',
+'- Eau bénite',
+'“Jure sur ton être que tu tiendras parole !”',
+'La créature scelle un serment sacré avec une autre personne consentante, en
+invoquant une autorité divine.
+Les deux parties s’engagent verbalement à respecter les termes du serment.
+Si l’une des parties enfreint volontairement une clause du serment, elle en subit les
+conséquences, déterminées par le MJ, en accord avec la gravité de la faute et la nature du
+serment.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Sifflement strident',
+'Neutre',
+'Combat',
+'9 m (6 c)',
+'1 Action',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal',
+'Aucun',
+'“Que tes oreilles bourdonnent !”',
+'La créature pousse un sifflement strident qui déconcentre immédiatement l’action
+qu’une cible a pu entreprendre.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Sol traître',
+'Terrestre',
+'Mixte',
+'1.5 m (1 case)',
+'1 Action',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal, Contact',
+'Aucun',
+'“Devient aussi mou que du sable !”',
+'La créature modifie la composition d’une case de sol pour que cette dernière soit
+meuble ou friable, toute personne allant dessus s’enfonçant dedans, ralentissant sa
+progression.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Solution médicamenteuse',
+'Divin',
+'Mixte',
+'Personnelle',
+'1 Action',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal, Contact',
+'Aucun',
+'“Garde espoir bien aimé !”',
+'La créature appose ses mains sur une cible, si cette dernière souffre d’un maux
+comme une maladie ou est fatiguée, ses symptômes seront diminués, même si elle ne sera
+pas entièrement guérie, mais ça favorisera sa guérison.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Tempête de mots',
+'Neutre',
+'Mixte',
+'12 m (8 cases)',
+'Tant que le sort est actif',
+'Aucune',
+'Aucun.',
+'1 tour',
+'Vocal, Ingrédients',
+'- Instrument de musique',
+'“Que tes sens te perdent !”',
+'La créature incante le sort et joue de son instrument, faisant apparaître un dôme
+sonore autour d’elle.
+Toute créature hostile qui pénètre à l’intérieur voit ses sens submergés par une tempête de
+sons discordants.
+Tant qu’elle se trouve dans le dôme, elle est incapable de réaliser la moindre action à
+l’encontre de l’incantateur.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Tornade évasive',
+'Céleste',
+'Mixte',
+'30 m (20 cases)',
+'1 Action',
+'Aucune',
+'Aucun.',
+'1 tour',
+'Vocal, Ingrédients',
+'Plumes d’oiseaux',
+'“Emporte-moi vent !”',
+'La créature consume des plumes d’oiseaux pour qu’une tornade de sa taille
+apparaisse et l’emporte plus loin du danger.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Toucher guérisseur',
+'Divin',
+'Mixte',
+'Personnelle',
+'1 Action',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal, Contact',
+'Aucun',
+'“Que tes blessures guérissent !”',
+'La créature guérit les blessures d’une cible.
+- Au niveau 1, les soins sont à 3d4+3
+- Au niveau 5, les soins sont à 3d6+4
+- Au niveau 10, les soins sont à 3d8+5
+- Au niveau 15, les soins sont à 3d10+6
+- Au niveau 20, les soins sont à 3d12+7'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Transformation d’armes',
+'Divin',
+'Mixte',
+'Cible',
+'Permanente',
+'1/j',
+'Aucun.',
+'1 action',
+'Vocal, Contact',
+'Aucun',
+'“Arme, deviens [nouvelle arme]”',
+'La créature pose ses mains sur une arme et prononce une formule divine.
+L’arme se transforme définitivement en une autre arme choisie par l’incantateur (par
+exemple : une épée devient une lance, une lance devient une hache).
+La nouvelle arme conserve le même métal, la même taille et le même niveau de qualité
+que l’arme d’origine.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Transformation de l’état de la matière',
+'Divin',
+'Mixte',
+'Cible',
+'1 h',
+'1/j',
+'Aucun.',
+'1 action',
+'Vocal, Contact',
+'Aucun',
+'“Que ta structure change !”',
+'La créature pose ses mains sur une cible et en altère l’état de la matière.
+Selon sa volonté, elle peut modifier cet état de la manière suivante :
+- un élément solide peut devenir mou ou liquide (un arbre devient flasque, une arme se
+ramollit) ;
+- un élément liquide peut devenir solide ou gazeux ;
+- un élément gazeux peut être condensé sous une autre forme.
+La cible conserve sa forme générale, mais ses propriétés physiques sont modifiées pendant
+toute la durée de l’effet.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Transmutation de liquide',
+'Divin',
+'Hors combat',
+'Cible',
+'Permanente',
+'1/j',
+'Aucun.',
+'5 mn',
+'Vocal, Contact',
+'Aucun',
+'“Soumets toi à ma volonté, change ta
+nature…”',
+'La créature impose ses mains sur un liquide, tout en récitant une prière, et le
+liquide en devient un autre, en fonction de ce qu’à demander l’incantateur (par exemple, de
+l’eau peut être transformée en vin).
+NB : L’incantateur ne peut pas demander un liquide qui n’existe pas, ou quelque chose
+d’origine solide qu’on a fait fondre (comme de l’or).'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Transmutation métallique',
+'Divin',
+'Hors combat',
+'Cible',
+'1 h',
+'Aucune',
+'Aucun.',
+'1 mn',
+'Vocal, Contact',
+'Aucun',
+'“Métal, transcende ta composition !”',
+'La créature pose ses mains sur un objet métallique et en altère temporairement
+la nature.
+Le métal ciblé se transforme en un autre métal choisi par l’incantateur (par exemple : le
+plomb peut devenir de l’or).
+À l’issue de la durée, le métal retrouve sa composition d’origine.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Vague de soin',
+'Divin',
+'Mixte',
+'Rayon de 9 m (6 cases)',
+'1 Action',
+'Aucune',
+'Aucun.',
+'1 action',
+'Vocal',
+'Aucun',
+'“Que vos plaies soient pansées !”',
+'La créature soigne toutes personnes (alliés comme adversaires) se trouvant dans
+le rayon d’action du sort, à hauteur de 3d20+10.'
+);
+INSERT OR IGNORE INTO sorts
+(nom, domaine, type, portee, duree, limite_usage, jet_sauvegarde,
+ temps_incantation, composantes, ingredients, intentions_magiques, effets)
+VALUES
+(
+'Voile de foi',
+'Divin',
+'Mixte',
+'30 x 30 m (20 x 20 cases)',
+'1 nuit',
+'1/j',
+'Aucun.',
+'1 action',
+'Vocal, Ingrédients, Contact',
+'- Eau bénite
+- Encens
+- Bougie',
+'“Ô seigneur, protégez-nous des tourments
+de la nuit”',
+'La créature accomplit un rituel de protection en consacrant un campement par la
+prière, l’encens, la flamme et l’eau bénite.
+Tant que l’effet est actif, toute créature hostile est incapable de détecter la présence des
+personnes dormant à l’intérieur de la zone consacrée.
+Aux yeux des forces hostiles, le campement semble inexistant, comme s’il n’avait jamais
+été installé.'
+);
 </sql><current_tab id="0"/></tab_sql></sqlb_project>

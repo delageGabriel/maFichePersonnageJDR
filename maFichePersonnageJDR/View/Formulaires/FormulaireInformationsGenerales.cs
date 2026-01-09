@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using maFichePersonnageJDR.Classe;
 using maFichePersonnageJDR.View.Formulaires;
 using System.Linq;
+using System.Text;
 
 namespace maFichePersonnageJDR.Formulaires
 {
@@ -167,25 +168,25 @@ namespace maFichePersonnageJDR.Formulaires
         private int[] pointsRepartitionsSortsAptitudes =
         {
             25,
-            31,
-            39,
-            48,
-            58,
-            69,
+            33,
+            41,
+            49,
+            57,
+            65,
+            73,
             81,
-            94,
-            108,
-            123,
+            89,
+            97,
+            105,
+            113,
+            121,
+            129,
             137,
-            150,
-            162,
-            173,
-            183,
-            192,
-            200,
-            209,
-            219,
-            230
+            145,
+            153,
+            160,
+            168,
+            175
         };
 
         /// <summary>
@@ -242,7 +243,8 @@ namespace maFichePersonnageJDR.Formulaires
         /// <param name="e"></param>
         private void btnSaveInfos_Click(object sender, EventArgs e)
         {
-            CreatePersonnageFichePDF();
+            // CreatePersonnageFichePDF();
+            ExportHtmlToFile(BuildHtml());
             //Console.WriteLine("########### Classe : FormulaireInfosGenerales; Méthode : btnSaveInfos_Click; ###########");
             //#region Initialisation des variables
             //FormEditMenu formEditMenu = new FormEditMenu();
@@ -572,22 +574,22 @@ namespace maFichePersonnageJDR.Formulaires
             switch (cbBxTaille.SelectedItem.ToString())
             {
                 case "Minuscule":
-                    limite = 2;
+                    limite = 1;
                     break;
                 case "Petit":
-                    limite = 3;
+                    limite = 2;
                     break;
                 case "Moyen":
-                    limite = 3;
+                    limite = 2;
                     break;
                 case "Grand":
-                    limite = 4;
+                    limite = 3;
                     break;
                 case "Très grand":
-                    limite = 5;
+                    limite = 4;
                     break;
                 case "Gigantesque":
-                    limite = 6;
+                    limite = 5;
                     break;
                 default:
                     limite = 0;
@@ -747,60 +749,80 @@ namespace maFichePersonnageJDR.Formulaires
                 Label labelCompetence = new Label();
                 labelCompetence.Text = lnkLblCmptUne.Text;
                 flpSortsAptitudesPersonnages.Controls.Add(labelCompetence);
+
+                lblPtsCmptUn.ForeColor = Color.Black;
             }
             if (lblPtsCmptDeux.ForeColor == Color.Green)
             {
                 Label labelCompetence = new Label();
                 labelCompetence.Text = lnkLblCmptDeux.Text;
                 flpSortsAptitudesPersonnages.Controls.Add(labelCompetence);
+
+                lblPtsCmptDeux.ForeColor = Color.Black;
             }
             if (lblPtsCmptTrois.ForeColor == Color.Green)
             {
                 Label labelCompetence = new Label();
                 labelCompetence.Text = lnkLblCmptTrois.Text;
                 flpSortsAptitudesPersonnages.Controls.Add(labelCompetence);
+
+                lblPtsCmptTrois.ForeColor = Color.Black;
             }
             if (lblPtsCmptQuatre.ForeColor == Color.Green)
             {
                 Label labelCompetence = new Label();
                 labelCompetence.Text = lnkLblCmptQuatre.Text;
                 flpSortsAptitudesPersonnages.Controls.Add(labelCompetence);
+
+                lblPtsCmptQuatre.ForeColor = Color.Black;
             }
             if (lblPtsCmptCinq.ForeColor == Color.Green)
             {
                 Label labelCompetence = new Label();
                 labelCompetence.Text = lnkLblCmptCinq.Text;
                 flpSortsAptitudesPersonnages.Controls.Add(labelCompetence);
+
+                lblPtsCmptCinq.ForeColor = Color.Black;
             }
             if (lblPtsCmptSix.ForeColor == Color.Green)
             {
                 Label labelCompetence = new Label();
                 labelCompetence.Text = lnkLblCmptSix.Text;
                 flpSortsAptitudesPersonnages.Controls.Add(labelCompetence);
+
+                lblPtsCmptSix.ForeColor = Color.Black;
             }
             if (lblPtsCmptSept.ForeColor == Color.Green)
             {
                 Label labelCompetence = new Label();
                 labelCompetence.Text = lnkLblCmptSept.Text;
                 flpSortsAptitudesPersonnages.Controls.Add(labelCompetence);
+
+                lblPtsCmptSept.ForeColor = Color.Black;
             }
             if (lblPtsCmptHuit.ForeColor == Color.Green)
             {
                 Label labelCompetence = new Label();
                 labelCompetence.Text = lnkLblCmptHuit.Text;
                 flpSortsAptitudesPersonnages.Controls.Add(labelCompetence);
+
+                lblPtsCmptHuit.ForeColor = Color.Black;
             }
             if (lblPtsCmpNeuf.ForeColor == Color.Green)
             {
                 Label labelCompetence = new Label();
                 labelCompetence.Text = lnkLblCmptNeuf.Text;
                 flpSortsAptitudesPersonnages.Controls.Add(labelCompetence);
+
+                lblPtsCmpNeuf.ForeColor = Color.Black;
             }
             if (lblPtsCmptDix.ForeColor == Color.Green)
             {
                 Label labelCompetence = new Label();
                 labelCompetence.Text = lnkLblCmptDix.Text;
                 flpSortsAptitudesPersonnages.Controls.Add(labelCompetence);
+
+                lblPtsCmptDix.ForeColor = Color.Black;
             }
 
             /// Mise à jour de l'item sélectionné dans la listBox pour garder le décompte des points
@@ -1852,7 +1874,7 @@ namespace maFichePersonnageJDR.Formulaires
         {
             Document doc = new Document(PageSize.A4, 36, 36, 36, 36);
             PdfWriter.GetInstance(doc, new FileStream(
-                ".\\" + txtBoxNom.Text + ".pdf", FileMode.Create));
+                ".\\Fiches\\" + txtBoxNom.Text + ".pdf", FileMode.Create));
 
             doc.Open();
 
@@ -2132,7 +2154,6 @@ namespace maFichePersonnageJDR.Formulaires
 
             return p;
         }
-
         private PdfPTable CreateAptitudeTable(Dictionary<string, string> aptitude)
         {
             PdfPTable table = new PdfPTable(2);
@@ -2185,7 +2206,6 @@ namespace maFichePersonnageJDR.Formulaires
 
             return table;
         }
-
         private PdfPTable CreateSortTable(Dictionary<string, string> sort)
         {
             PdfPTable table = new PdfPTable(2);
@@ -2246,7 +2266,6 @@ namespace maFichePersonnageJDR.Formulaires
 
             return table;
         }
-
         private PdfPTable CreateArmeTable(Dictionary<string, string> arme)
         {
             PdfPTable table = new PdfPTable(2);
@@ -2289,7 +2308,6 @@ namespace maFichePersonnageJDR.Formulaires
 
             return table;
         }
-
         private PdfPTable CreateArmureTable(Dictionary<string, string> armure)
         {
             PdfPTable table = new PdfPTable(2);
@@ -2331,7 +2349,6 @@ namespace maFichePersonnageJDR.Formulaires
 
             return table;
         }
-
         private PdfPTable CreateObjetTable(Dictionary<string, string> objet)
         {
             PdfPTable table = new PdfPTable(2);
@@ -2426,6 +2443,619 @@ namespace maFichePersonnageJDR.Formulaires
             }
 
             return table;
+        }
+
+        private string BuildHtml()
+        {
+            var sb = new StringBuilder();
+
+            // ===== INFOS DE BASE =====
+            sb.AppendLine("<p>");
+            sb.AppendFormat(
+                "<strong>Race :</strong> {0}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                "<strong>Sexe :</strong> {1}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                "<strong>Taille :</strong> {2}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                "<strong>Niveau :</strong> {3}",
+                TxtBoxRace.Text,
+                txtBxSexe.Text,
+                cbBxTaille.Text,
+                nudNiveau.Value
+            );
+            sb.AppendLine("</p>");
+
+            sb.AppendFormat(
+                "<p><strong>Points d'objectifs restants :</strong> {0}</p>",
+                0
+            );
+
+            // ===== MONNAIE =====
+            sb.AppendLine(@"
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Devise</th><th>Or</th><th>Argent</th><th>Cuivre</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Besants</td>
+                                <td>" + nudPieceOr.Value + @"</td>
+                                <td>" + nudPieceArgent.Value + @"</td>
+                                <td>" + nudPieceCuivre.Value + @"</td>
+                            </tr>
+                        </tbody>
+                    </table>");
+
+            // ===== POIDS =====
+            sb.AppendLine(@"
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Poids transporté</th>
+                                <th>Poids maximal</th>
+                                <th>Surcharge</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>" + lblPoidsPorte.Text + @"</td>
+                                <td>" + lblPoidsMaximal.Text + @"</td>
+                                <td>" + lblPoidsSurcharge.Text + @"</td>
+                            </tr>
+                        </tbody>
+                    </table>");
+
+            // ===== ZONES DE TOUCHER =====
+            sb.AppendLine("<h3>Zones de toucher</h3>");
+            sb.AppendLine(@"
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Nom</th>
+                                        <th>Zone</th>
+                                        <th>Base</th>
+                                        <th>Armure</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- à remplir -->
+                                </tbody>
+                            </table>");
+
+            // ===== ONGLETs =====
+            sb.AppendLine(@"
+            <nav class='sheet-tabs tabs' data-group='custom'>
+                <p>
+                    <a class='item' data-tab='infos'>Informations générales</a>
+                    <a class='item' data-tab='caracteristiques'>Caractéristiques et compétences</a>
+                    <a class='item' data-tab='sorts'>Sorts et aptitudes</a>
+                    <a class='item' data-tab='equipements'>Équipements</a>
+                </p>
+            </nav>
+
+            <section>");
+
+            sb.AppendLine("<div class='tab' data-group='custom' data-tab='infos'>");
+            sb.AppendLine(BuildInformationsGeneralesHtml());
+            sb.AppendLine("</div>");
+
+            sb.AppendLine("<div class='tab' data-group='custom' data-tab='caracteristiques'>");
+            sb.AppendLine(BuildCaracteristiquesHtml());
+            sb.AppendLine("</div>");
+
+            sb.AppendLine("<div class='tab' data-group='custom' data-tab='sorts'>");
+            sb.AppendLine(BuildSortsHtml());
+            sb.AppendLine("</div>");
+
+            sb.AppendLine("<div class='tab' data-group='custom' data-tab='equipements'>");
+            sb.AppendLine(BuildEquipementsHtml());
+            sb.AppendLine("</div>");
+
+            sb.AppendLine("</section>");
+
+            sb.AppendLine("<h1>Notes</h1>");
+            sb.AppendLine("<p></p>");
+
+            return sb.ToString();
+        }
+
+        private string BuildInformationsGeneralesHtml()
+        {
+            var sb = new StringBuilder();
+            Dictionary<string, string> attribut = new Dictionary<string, string>();
+
+            // =============================
+            // ATTRIBUTS
+            // =============================
+            sb.AppendLine("<h2>Attributs</h2>");
+            sb.AppendLine(@"
+            <table>
+                <thead>
+                    <tr>
+                        <th style='text-align:center;'>Nom</th>
+                        <th style='text-align:center;'>Effets</th>
+                        <th style='text-align:center;'>Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+            ");
+
+            foreach (var item in chkLBxAttributesPersonnages.Items)
+            {
+                string nom = item.ToString();
+
+                attribut = Controller.NewAttributsController.GetAttributesInformationsByName(nom);
+
+                sb.AppendLine("<tr>");
+                sb.AppendFormat("<td style='text-align:center;'>{0}</td>", attribut["Nom"]);
+                sb.AppendFormat("<td style='text-align:center;'>{0}</td>", attribut["Effet"]);
+                sb.AppendFormat("<td style='text-align:center;'>{0}</td>", attribut["Type"]);
+                sb.AppendLine("</tr>");
+            }
+            sb.AppendLine("</tbody></table>");
+
+            // =============================
+            // LANGUES
+            // =============================
+            sb.AppendLine("<h2>Langues parlées</h2>");
+            sb.AppendFormat("<p>{0}</p>", txtBxLanguesParlees.Text);
+
+            // =============================
+            // HISTOIRE
+            // =============================
+            sb.AppendLine("<h2>Histoire</h2>");
+            sb.AppendFormat("<p>{0}</p>", rtbHistoire.Text);
+
+            // =============================
+            // DESCRIPTION PHYSIQUE
+            // =============================
+            sb.AppendLine("<h2>Description physique</h2>");
+            sb.AppendFormat("<p>{0}</p>", rchTxtBxDescriptionPhysique.Text);
+
+            // =============================
+            // OBJECTIFS
+            // =============================
+            sb.AppendLine("<h2>Objectifs</h2>");
+            sb.AppendFormat("<p>Objectif mineur : {0}</p>", txtBxObjctfMineur.Text);
+            sb.AppendFormat("<p>Objectif moyen : {0}</p>", txtBxObjctfMoyen.Text);
+            sb.AppendFormat("<p>Objectif majeur : {0}</p>", txtBxObjctfMajeur.Text);
+
+            // =============================
+            // PERSONNALITÉ
+            // =============================
+            sb.AppendLine("<h2>Personnalité</h2>");
+            sb.AppendLine("<h3>Traits de personnalité :</h3>");
+            sb.AppendFormat("<p>{0}</p>", txtBxTraitPersonnalite.Text);
+
+            sb.AppendLine("<h3>Désir caché :</h3>");
+            sb.AppendFormat("<p>{0}</p>", txtBxDesirsCaches.Text);
+
+            // =============================
+            // FIN ONGLET INFOS
+            // =============================
+            sb.AppendLine(@"
+            </div>
+            ");
+
+            return sb.ToString();
+        }
+        private string BuildCaracteristiquesHtml()
+        {
+            var sb = new StringBuilder();
+
+            sb.AppendLine("<div class='tab' data-group='custom' data-tab='caracteristiques'>");
+
+            // =============================
+            // CARACTÉRISTIQUES
+            // =============================
+            sb.AppendLine("<h2>Caractéristiques</h2>");
+            sb.AppendLine(@"
+            <table>
+                <thead>
+                    <tr>
+                        <th style='text-align:center;'>Corps</th>
+                        <th style='text-align:center;'>Esprit</th>
+                        <th style='text-align:center;'>Relationnel</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style='text-align:center;'>" + numUpDwnPtsCorps.Value + @"</td>
+                        <td style='text-align:center;'>" + numUpDwnPtsEsprit.Value + @"</td>
+                        <td style='text-align:center;'>" + numUpDwnPtsRelationnel.Value + @"</td>
+                    </tr>
+                </tbody>
+            </table>
+            ");
+
+            // =============================
+            // COMPÉTENCES DE COMBAT
+            // =============================
+            sb.AppendLine("<h2>Compétences de combat</h2>");
+            sb.AppendLine(@"
+            <table>
+                <thead>
+                    <tr>
+                        <th style='text-align:center;'>Nom</th>
+                        <th style='text-align:center;'>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Dextérité</td><td>" + numUpDwnDexterite.Value + @"</td></tr>
+                    <tr><td>Initiative</td><td>" + numUpDwnInitiative.Value + @"</td></tr>
+                    <tr><td>Déplacement</td><td>" + numUpDwnDeplacement.Value + @"</td></tr>
+                </tbody>
+            </table>
+            ");
+
+            // =============================
+            // COMPÉTENCES DE CORPS
+            // =============================
+            sb.AppendLine("<h2>Compétences de corps</h2>");
+            sb.AppendLine(@"
+            <table>
+                <thead>
+                    <tr><th>Nom</th><th>Score</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Agilité</td><td>" + numUpDwnAgilite.Value + @"</td></tr>
+                    <tr><td>Course</td><td>" + numUpDwnCourse.Value + @"</td></tr>
+                    <tr><td>Discrétion</td><td>" + numUpDwnDiscretion.Value + @"</td></tr>
+                    <tr><td>Équilibre</td><td>" + numUpDwnEquilibre.Value + @"</td></tr>
+                    <tr><td>Escalade</td><td>" + numUpDwnEscalade.Value + @"</td></tr>
+                    <tr><td>Force</td><td>" + numUpDwnForce.Value + @"</td></tr>
+                    <tr><td>Fouilles</td><td>" + numUpDwnFouilles.Value + @"</td></tr>
+                    <tr><td>Lancer</td><td>" + numUpDwnLancer.Value + @"</td></tr>
+                    <tr><td>Lutte</td><td>" + numUpDwnLutte.Value + @"</td></tr>
+                    <tr><td>Natation</td><td>" + numUpDwnNatation.Value + @"</td></tr>
+                    <tr><td>Vigueur</td><td>" + numUpDwnVigueur.Value + @"</td></tr>
+                </tbody>
+            </table>
+            ");
+
+            // =============================
+            // COMPÉTENCES D’ESPRIT
+            // =============================
+            sb.AppendLine("<h2>Compétences d’esprit</h2>");
+            sb.AppendLine(@"
+            <table>
+                <thead>
+                    <tr><th>Nom</th><th>Score</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Concentration</td><td>" + numUpDwnConcentration.Value + @"</td></tr>
+                    <tr><td>Essence</td><td>" + numUpDwnEssence.Value + @"</td></tr>
+                    <tr><td>Logique</td><td>" + numUpDwnLogique.Value + @"</td></tr>
+                    <tr><td>Mémoire</td><td>" + numUpDwnMemoire.Value + @"</td></tr>
+                    <tr><td>Orientation</td><td>" + numUpDwnOrientation.Value + @"</td></tr>
+                    <tr><td>Perception</td><td>" + numUpDwnPerception.Value + @"</td></tr>
+                    <tr><td>Volonté</td><td>" + numUpDwnVolonte.Value + @"</td></tr>
+                </tbody>
+            </table>
+            ");
+
+            // =============================
+            // COMPÉTENCES DE RELATIONNEL
+            // =============================
+            sb.AppendLine("<h2>Compétences de relationnel</h2>");
+            sb.AppendLine(@"
+            <table>
+                <thead>
+                    <tr><th>Nom</th><th>Score</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Apaisement</td><td>" + numUpDwnApaisement.Value + @"</td></tr>
+                    <tr><td>Charme</td><td>" + numUpDwnCharme.Value + @"</td></tr>
+                    <tr><td>Comédie</td><td>" + numUpDwnComedie.Value + @"</td></tr>
+                    <tr><td>Commandement</td><td>" + numUpDwnCommandement.Value + @"</td></tr>
+                    <tr><td>Intimidation</td><td>" + numUpDwnIntimidation.Value + @"</td></tr>
+                    <tr><td>Perspicacité</td><td>" + numUpDwnPerspicacite.Value + @"</td></tr>
+                    <tr><td>Provocation</td><td>" + numUpDwnProvocation.Value + @"</td></tr>
+                    <tr><td>Tromperie</td><td>" + numUpDwnTromperie.Value + @"</td></tr>
+                </tbody>
+            </table>
+            ");
+
+            // =============================
+            // SPÉCIALITÉS
+            // =============================
+            sb.AppendLine("<h2>Spécialités</h2>");
+            sb.AppendLine(@"
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+            ");
+
+            foreach (TabPage page in tbCtrlSpecialites.TabPages)
+            {
+                FlowLayoutPanel flp = page.Controls
+                                          .OfType<FlowLayoutPanel>()
+                                          .FirstOrDefault();
+
+                if (flp == null) continue;
+
+                foreach (Control ctrl in flp.Controls)
+                {
+                    TableLayoutPanel container = ctrl as TableLayoutPanel;
+                    if (container == null) continue;
+
+                    NumericUpDown nud = container.Controls
+                                                  .OfType<NumericUpDown>()
+                                                  .FirstOrDefault();
+
+                    if (nud == null) continue;
+                    if (nud.Value <= 0) continue;
+
+                    string nom = nud.Tag?.ToString();
+                    string score = nud.Value.ToString();
+
+                    sb.AppendLine("<tr>");
+                    sb.AppendFormat("<td>{0}</td>", nom);
+                    sb.AppendFormat("<td>{0}</td>", score);
+                    sb.AppendLine("</tr>");
+                }
+            }
+
+            sb.AppendLine("</tbody></table>");
+
+            sb.AppendLine(" </div>"); // fin tab caracteristiques
+            return sb.ToString();
+        }
+        private string BuildSortsHtml()
+        {
+            Dictionary<string, string> sortsOrAptitudes = new Dictionary<string, string>();
+
+            var sb = new StringBuilder();
+
+            // =============================
+            // JEUX DE SORTS ET APTITUDES
+            // =============================
+            sb.AppendLine("<h2>Jeux de sorts et aptitudes</h2>");
+            sb.AppendLine(@"
+            <table>
+                <thead>
+                    <tr>
+                        <th style='text-align:center;'>Nom</th>
+                        <th style='text-align:center;'>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+            ");
+
+            foreach (var item in lstBxChoixSortsAptitudes.Items)
+            {
+                string raw = item.ToString();
+
+                // Sécurité minimale
+                if (!raw.Contains(";")) continue;
+
+                string[] parts = raw.Split(';');
+                if (parts.Length != 2) continue;
+
+                string nom = parts[0].Trim();
+                string score = parts[1].Trim();
+
+                // Optionnel : ignorer score 0
+                if (score == "0") continue;
+
+                sb.AppendLine("<tr>");
+                sb.AppendFormat("<td style='text-align:center;'>{0}</td>", nom);
+                sb.AppendFormat("<td style='text-align:center;'>{0}</td>", score);
+                sb.AppendLine("</tr>");
+            }
+
+            sb.AppendLine("</tbody></table>");
+
+            // =============================
+            // SORTS / APTITUDES
+            // =============================
+            sb.AppendLine("<h2>Sorts / Aptitudes</h2>");
+
+            foreach (Control ctrl in flpSortsAptitudesPersonnages.Controls)
+            {
+                Label lbl = ctrl as Label;
+                if (lbl == null) continue;
+
+                string nom = lbl.Text;
+
+                // 1️⃣ Tentative aptitude
+                Dictionary<string, string> data =
+                    Controller.NewAptitudesController.GetAptitudeInformationsByName(nom);
+
+                bool isAptitude = !string.IsNullOrWhiteSpace(data["Domaine"]);
+
+                if (!isAptitude)
+                {
+                    // =============================
+                    // SORT
+                    // =============================
+                    data = Controller.SortsController.GetSortInformationsByName(nom);
+
+                    sb.AppendLine(@"
+                                <table border='1' width='100%' cellpadding='6'>
+                                    <tbody>
+                    ");
+                    sb.AppendFormat("<tr><th colspan='2'>{0}</th></tr>", data["Nom"]);
+                    sb.AppendFormat("<tr><td><strong>Domaine :</strong></td><td>{0}</td></tr>", data["Domaine"]);
+                    sb.AppendFormat("<tr><td><strong>Type :</strong></td><td>{0}</td></tr>", data["Type"]);
+                    sb.AppendFormat("<tr><td><strong>Portée :</strong></td><td>{0}</td></tr>", data["Portee"]);
+                    sb.AppendFormat("<tr><td><strong>Durée :</strong></td><td>{0}</td></tr>", data["Duree"]);
+                    sb.AppendFormat("<tr><td><strong>Limites :</strong></td><td>{0}</td></tr>", data["Limites"]);
+                    sb.AppendFormat("<tr><td><strong>Sauvegarde :</strong></td><td>{0}</td></tr>", data["Sauvegarde"]);
+                    sb.AppendFormat("<tr><td><strong>Incantations :</strong></td><td>{0}</td></tr>", data["Incantations"]);
+                    sb.AppendFormat("<tr><td><strong>Composantes :</strong></td><td>{0}</td></tr>", data["Composantes"]);
+                    sb.AppendFormat("<tr><td><strong>Ingrédients :</strong></td><td>{0}</td></tr>", data["Ingredients"]);
+                    sb.AppendFormat("<tr><td><strong>Intentions :</strong></td><td>{0}</td></tr>", data["Intentions"]);
+                    sb.AppendFormat(@"
+                                <tr>
+                                    <td colspan='2'><strong>Effet(s) :</strong><br>{0}</td>
+                                </tr>", data["Effets"]);
+
+                    sb.AppendLine("</tbody></table>");
+                }
+                else
+                {
+                    // =============================
+                    // APTITUDE
+                    // =============================
+                    sb.AppendLine(@"
+                                <table border='1' width='100%' cellpadding='6'>
+                                    <tbody>
+                                ");
+                    sb.AppendFormat("<tr><th colspan='2'>{0}</th></tr>", data["Nom"]);
+                    sb.AppendFormat("<tr><td><strong>Domaine :</strong></td><td>{0}</td></tr>", data["Domaine"]);
+                    sb.AppendFormat("<tr><td><strong>Type :</strong></td><td>{0}</td></tr>", data["Type"]);
+                    sb.AppendFormat("<tr><td><strong>Portée :</strong></td><td>{0}</td></tr>", data["Portee"]);
+                    sb.AppendFormat("<tr><td><strong>Durée :</strong></td><td>{0}</td></tr>", data["Duree"]);
+                    sb.AppendFormat("<tr><td><strong>Limites :</strong></td><td>{0}</td></tr>", data["Limites"]);
+                    sb.AppendFormat("<tr><td><strong>Sauvegarde :</strong></td><td>{0}</td></tr>", data["Sauvegarde"]);
+                    sb.AppendFormat(@"
+                                    <tr>
+                                        <td colspan='2'><strong>Effet(s) :</strong><br>{0}</td>
+                                    </tr>", data["Effets"]);
+
+                    sb.AppendLine("</tbody></table>");
+                }
+            }
+
+            sb.AppendLine("</div>"); // fin tab sorts
+            return sb.ToString();
+        }
+        private string BuildEquipementsHtml()
+        {
+            var sb = new StringBuilder();
+
+            // =============================
+            // ARMES
+            // =============================
+            sb.AppendLine("<h2>Armes</h2>");
+
+            foreach (var item in chkLBxArmesInventaire.Items)
+            {
+                string raw = item.ToString();
+                if (!raw.Contains(";")) continue;
+
+                string[] parts = raw.Split(';');
+                string nom = parts[0];
+                string quantite = parts[1];
+                var arme = Controller.ArmesController.GetArmeInformationsByName(nom);
+
+                sb.AppendLine(@"
+                                <table border='1' width='100%' cellpadding='6'>
+                <tbody>");
+                sb.AppendFormat("<tr><th colspan='2'>{0}</th></tr>", arme["Nom"]);
+                sb.AppendFormat("<tr><td><strong>Type :</strong></td><td>{0}</td></tr>", arme["Type"]);
+                sb.AppendFormat("<tr><td><strong>Prérequis :</strong></td><td>{0}</td></tr>", arme["Prerequis"]);
+                sb.AppendFormat("<tr><td><strong>Mains :</strong></td><td>{0}</td></tr>", arme["Mains"]);
+                sb.AppendFormat("<tr><td><strong>Portée :</strong></td><td>{0}</td></tr>", arme["Portee"]);
+                sb.AppendFormat("<tr><td><strong>Poids :</strong></td><td>{0}</td></tr>", arme["Poids"]);
+                sb.AppendFormat("<tr><td><strong>Dégâts :</strong></td><td>{0}</td></tr>", arme["Degats"]);
+                sb.AppendFormat("<tr><td><strong>Jet :</strong></td><td>{0}</td></tr>", arme["Jet"]);
+                sb.AppendFormat("<tr><td><strong>Valeur :</strong></td><td>{0}</td></tr>", arme["Valeur"]);
+                sb.AppendFormat("<tr><td colspan='2'><strong>Effet(s) :</strong> {0}</td></tr>", arme["Effet"]);
+                sb.AppendFormat("<tr><td colspan='2'><strong>Quantité :</strong> {0}</td></tr>", quantite);
+                sb.AppendLine("</tbody></table>");
+            }
+
+            // =============================
+            // ARMURES
+            // =============================
+            sb.AppendLine("<h2>Armures</h2>");
+
+            foreach (var item in chkLBxArmuresInventaire.Items)
+            {
+                string raw = item.ToString();
+                if (!raw.Contains(";")) continue;
+
+                string[] parts = raw.Split(';');
+                string nom = parts[0];
+                string quantite = parts[1];
+
+                var armure = Controller.ArmuresController.GetArmureInformationsByName(nom);
+
+                sb.AppendLine(@"
+                                <table border='1' width='100%' cellpadding='6'>
+                <tbody>");
+                sb.AppendFormat("<tr><th colspan='2'>{0}</th></tr>", armure["Nom"]);
+                sb.AppendFormat("<tr><td><strong>Taille :</strong></td><td>{0}</td></tr>", armure["Taille"]);
+                sb.AppendFormat("<tr><td><strong>Type :</strong></td><td>{0}</td></tr>", armure["Type"]);
+                sb.AppendFormat("<tr><td><strong>Prérequis :</strong></td><td>{0}</td></tr>", armure["Prerequis"]);
+                sb.AppendFormat("<tr><td><strong>Défense :</strong></td><td>{0}</td></tr>", armure["Defense"]);
+
+                sb.AppendLine("<tr><th colspan='2'>Résistances</th></tr>");
+                sb.AppendFormat("<tr><td>Tranchant :</td><td>{0}</td></tr>", armure["Tranchant"]);
+                sb.AppendFormat("<tr><td>Contondant :</td><td>{0}</td></tr>", armure["Contondant"]);
+                sb.AppendFormat("<tr><td>Perforant :</td><td>{0}</td></tr>", armure["Perforant"]);
+                sb.AppendFormat("<tr><td>Ignée :</td><td>{0}</td></tr>", armure["Ignee"]);
+                sb.AppendFormat("<tr><td>Aquatique :</td><td>{0}</td></tr>", armure["Aquatique"]);
+                sb.AppendFormat("<tr><td>Céleste :</td><td>{0}</td></tr>", armure["Celeste"]);
+                sb.AppendFormat("<tr><td>Terrestre :</td><td>{0}</td></tr>", armure["Terrestre"]);
+                sb.AppendFormat("<tr><td>Choc :</td><td>{0}</td></tr>", armure["Choc"]);
+                sb.AppendFormat("<tr><td>Acide :</td><td>{0}</td></tr>", armure["Acide"]);
+                sb.AppendFormat("<tr><td>Pression :</td><td>{0}</td></tr>", armure["Pression"]);
+
+                sb.AppendLine("<tr><th colspan='2'>Caractéristiques</th></tr>");
+                sb.AppendFormat("<tr><td><strong>Poids :</strong></td><td>{0}</td></tr>", armure["Poids"]);
+                sb.AppendFormat("<tr><td><strong>Valeur :</strong></td><td>{0}</td></tr>", armure["Valeur"]);
+                sb.AppendFormat("<tr><td><strong>Froid :</strong></td><td>{0}</td></tr>", armure["Froid"]);
+                sb.AppendFormat("<tr><td><strong>Chaleur :</strong></td><td>{0}</td></tr>", armure["Chaleur"]);
+                sb.AppendFormat("<tr><td><strong>Composition :</strong></td><td>{0}</td></tr>", armure["Composition"]);
+
+                sb.AppendFormat("<tr><td colspan='2'><strong>Effet(s) :</strong> {0}</td></tr>", armure["Effets"]);
+                sb.AppendFormat("<tr><td colspan='2'><strong>Quantité :</strong> {0}</td></tr>", quantite);
+                sb.AppendLine("</tbody></table>");
+            }
+
+            // =============================
+            // OBJETS
+            // =============================
+            sb.AppendLine("<h2>Objets et consommables</h2>");
+
+            foreach (var item in chkLBxObjetsInventaire.Items)
+            {
+                string raw = item.ToString();
+                if (!raw.Contains(";")) continue;
+
+                string[] parts = raw.Split(';');
+                string nom = parts[0];
+                string quantite = parts[1];
+
+                var objet = Controller.ObjetsController.GetObjetInformationsByName(nom);
+
+                sb.AppendLine(@"
+                                <table border='1' width='100%' cellpadding='6'>
+                 <tbody>");
+                sb.AppendFormat("<tr><th colspan='2'>{0}</th></tr>", objet["Nom"]);
+                sb.AppendFormat("<tr><td><strong>Type :</strong></td><td>{0}</td></tr>", objet["Type"]);
+                sb.AppendFormat("<tr><td><strong>Consommable :</strong></td><td>{0}</td></tr>", objet["Consommable"]);
+                sb.AppendFormat("<tr><td><strong>Poids :</strong></td><td>{0}</td></tr>", objet["Poids"]);
+                sb.AppendFormat("<tr><td><strong>Valeur :</strong></td><td>{0}</td></tr>", objet["Valeur"]);
+                sb.AppendFormat("<tr><td colspan='2'><strong>Effet(s) :</strong> {0}</td></tr>", objet["Effet"]);
+                sb.AppendFormat("<tr><td colspan='2'><strong>Quantité :</strong> {0}</td></tr>", quantite);
+                sb.AppendLine("</tbody></table>");
+            }
+
+            sb.AppendLine("</div>");
+            return sb.ToString();
+        }
+        private void ExportHtmlToFile(string html)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "Fichier HTML (*.html)|*.html";
+                sfd.Title = "Exporter la fiche personnage";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    File.WriteAllText(sfd.FileName, html, Encoding.UTF8);
+                }
+            }
         }
 
         #endregion
